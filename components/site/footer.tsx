@@ -8,7 +8,7 @@ export function Footer() {
         {/* Top grid */}
         <div className="grid grid-cols-1 gap-10 sm:grid-cols-2 md:grid-cols-12">
           {/* Brand + tagline */}
-          <div className="md:col-span-6">
+          <div className="md:col-span-5">
             <Link href="/" className="inline-flex items-center gap-2">
               <span className="rounded-md bg-accent px-2 py-1 text-sm font-semibold text-accent-foreground">
                 smarterlogicweb
@@ -59,8 +59,28 @@ export function Footer() {
             </ul>
           </nav>
 
+          {/* Legal */}
+          <nav className="md:col-span-2" aria-label="Liens légaux">
+            <h3 className="text-xs font-medium uppercase tracking-wider text-muted-foreground">Légal</h3>
+            <ul className="mt-3 space-y-2 text-sm">
+              <li>
+                <Link href="/mentions-legales" className="text-muted-foreground transition-colors hover:text-foreground">
+                  Mentions légales
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/politique-de-confidentialite"
+                  className="text-muted-foreground transition-colors hover:text-foreground"
+                >
+                  Politique de confidentialité
+                </Link>
+              </li>
+            </ul>
+          </nav>
+
           {/* Contact */}
-          <div className="md:col-span-3">
+          <div className="md:col-span-2">
             <h3 className="text-xs font-medium uppercase tracking-wider text-muted-foreground">Contact</h3>
             <ul className="mt-3 space-y-2 text-sm">
               <li>
@@ -74,7 +94,7 @@ export function Footer() {
             </ul>
             <div className="mt-4 flex items-center gap-4">
               <Link
-                href="https://www.linkedin.com/in/votreprofil"
+                href="https://www.linkedin.com/in/salwaessafi?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"
                 target="_blank"
                 rel="noreferrer"
                 aria-label="LinkedIn"
@@ -84,7 +104,7 @@ export function Footer() {
                 <span className="sr-only">LinkedIn</span>
               </Link>
               <Link
-                href="https://github.com/votreprofil"
+                href="https://github.com/Soofmaax"
                 target="_blank"
                 rel="noreferrer"
                 aria-label="GitHub"

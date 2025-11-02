@@ -44,12 +44,14 @@ export const metadata: Metadata = {
     title: "smarterlogicweb.com — Développeuse front-end",
     description:
       "Sites web sur-mesure pour entrepreneurs et associations. Simple, performant, sans complexité — je m’occupe du reste.",
+    images: ["/opengraph-image"],
   },
   twitter: {
     card: "summary_large_image",
     title: "smarterlogicweb.com — Développeuse front-end",
     description:
       "Sites web sur-mesure pour entrepreneurs et associations. Simple, performant, sans complexité — je m’occupe du reste.",
+    images: ["/opengraph-image"],
   },
   robots: {
     index: true,
@@ -71,8 +73,8 @@ const jsonLdOrg = {
   name: "smarterlogicweb",
   url: "https://smarterlogicweb.com",
   sameAs: [
-    "https://www.linkedin.com/in/votreprofil",
-    "https://github.com/votreprofil"
+    "https://www.linkedin.com/in/salwaessafi?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
+    "https://github.com/Soofmaax"
   ],
   contactPoint: [
     {

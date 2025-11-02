@@ -30,6 +30,73 @@ export default function ContactPage() {
         <Link href="/" className="text-sm text-muted-foreground hover:text-foreground">Retour à l’accueil</Link>
       </div>
 
+      {/* Formulaire fonctionnel (service externe) */}
+      <div className="mt-10 rounded-lg border bg-card p-6">
+        <h2 className="font-heading text-xl font-semibold">Envoyer un message</h2>
+        <form
+          className="mt-4 grid gap-4"
+          action="https://formsubmit.co/contact@smarterlogicweb.com"
+          method="POST"
+        >
+          {/* Honeypot anti-spam */}
+          <input type="text" name="_honey" className="hidden" />
+          {/* Réglages FormSubmit */}
+          <input type="hidden" name="_subject" value="Nouveau message — smarterlogicweb.com" />
+          <input type="hidden" name="_captcha" value="false" />
+          <input type="hidden" name="_next" value="https://smarterlogicweb.com/merci" />
+
+          <div className="grid gap-2">
+            <label htmlFor="name" className="text-sm font-medium">Nom</label>
+            <input
+              id="name"
+              name="name"
+              required
+              className="h-11 rounded-md border bg-background px-3 outline-none ring-offset-background focus-visible:ring-2 focus-visible:ring-ring"
+              placeholder="Votre nom"
+            />
+          </div>
+
+          <div className="grid gap-2">
+            <label htmlFor="email" className="text-sm font-medium">Email</label>
+            <input
+              id="email"
+              name="email"
+              type="email"
+              required
+              className="h-11 rounded-md border bg-background px-3 outline-none ring-offset-background focus-visible:ring-2 focus-visible:ring-ring"
+              placeholder="votrenom@email.com"
+            />
+          </div>
+
+          <div className="grid gap-2">
+            <label htmlFor="message" className="text-sm font-medium">Message</label>
+            <textarea
+              id="message"
+              name="message"
+              required
+              rows={6}
+              className="rounded-md border bg-background px-3 py-2 outline-none ring-offset-background focus-visible:ring-2 focus-visible:ring-ring"
+              placeholder="Décrivez votre besoin, votre objectif et votre échéance."
+            />
+          </div>
+
+          <div className="flex items-start gap-2">
+            <input id="consent" name="consent" type="checkbox" required className="mt-1" />
+            <label htmlFor="consent" className="text-sm text-foreground/80">
+              J’accepte le traitement de mes données pour répondre à ma demande. Voir{" "}
+              <Link href="/politique-de-confidentialite" className="underline">
+                la politique de confidentialité
+              </Link>.
+            </label>
+          </div>
+
+          <div>
+            <Button type="submit" className="rounded-full">Envoyer</Button>
+          </div>
+        </form>
+      </div>
+
+      {/* Conseils pour un premier message efficace */}
       <div className="mt-10 rounded-lg border bg-card p-6">
         <h2 className="font-heading text-xl font-semibold">Pour un premier message efficace</h2>
         <ul className="mt-3 list-disc pl-5 text-sm leading-relaxed text-foreground/80">
