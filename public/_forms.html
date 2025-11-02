@@ -1,0 +1,21 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8" />
+    <title>Hidden Forms for Netlify</title>
+  </head>
+  <body>
+    <!-- Hidden copy of the form so Netlify can detect it at build time -->
+    <form name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field" action="/merci" hidden>
+      <input type="hidden" name="form-name" value="contact" />
+      <p hidden>
+        <label>Ne pas remplir: <input name="bot-field" /></label>
+      </p>
+      <p hidden><input name="name" /></p>
+      <p hidden><input name="email" /></p>
+      <p hidden><textarea name="message"></textarea></p>
+      <p hidden><input type="checkbox" name="consent" /></p>
+      <button type="submit">Envoyer</button>
+    </form>
+  </body>
+</html>

@@ -29,7 +29,7 @@ export default function ServicesPage() {
       </div>
 
       <div className="mt-12 grid gap-6 md:grid-cols-3">
-        <div className="rounded-xl border bg-card p-6">
+        <div id="vitrine" className="rounded-xl border bg-card p-6 scroll-mt-28">
           <h3 className="font-heading text-xl font-semibold">Site vitrine rapide</h3>
           <ul className="mt-3 list-disc pl-5 text-sm leading-relaxed text-foreground/80">
             <li>Next.js + Tailwind CSS</li>
@@ -38,7 +38,7 @@ export default function ServicesPage() {
             <li>Livraison 2–3 semaines</li>
           </ul>
         </div>
-        <div className="rounded-xl border bg-card p-6">
+        <div id="refonte" className="rounded-xl border bg-card p-6 scroll-mt-28">
           <h3 className="font-heading text-xl font-semibold">Refonte & optimisation</h3>
           <ul className="mt-3 list-disc pl-5 text-sm leading-relaxed text-foreground/80">
             <li>Audit UX, accessibilité (WCAG), performance</li>
@@ -47,7 +47,7 @@ export default function ServicesPage() {
             <li>Migration vers Next.js si pertinent</li>
           </ul>
         </div>
-        <div className="rounded-xl border bg-card p-6">
+        <div id="accompagnement" className="rounded-xl border bg-card p-6 scroll-mt-28">
           <h3 className="font-heading text-xl font-semibold">Accompagnement continu</h3>
           <ul className="mt-3 list-disc pl-5 text-sm leading-relaxed text-foreground/80">
             <li>Mises à jour, contenus, évolutions</li>

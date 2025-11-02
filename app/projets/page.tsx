@@ -15,16 +15,18 @@ export const metadata = {
 };
 
 function CaseCard({
+  id,
   title,
   tags,
   description,
 }: {
+  id?: string;
   title: string;
   tags: string[];
   description: string;
 }) {
   return (
-    <div className="flex flex-col rounded-xl border bg-card p-6">
+    <div id={id} className="flex scroll-mt-28 flex-col rounded-xl border bg-card p-6">
       <div className="flex flex-wrap items-center gap-2">
         {tags.map((t) => (
           <Badge key={t} variant="outline">
@@ -52,16 +54,19 @@ export default function ProjetsPage() {
 
       <div className="mt-10 grid gap-6 md:grid-cols-3">
         <CaseCard
+          id="refonte-associatif"
           title="Refonte site associatif"
           tags={["Next.js", "Accessibilité", "SEO"]}
           description="Navigation clarifiée, contraste renforcé, score Lighthouse 95+. Trafic organique +40%."
         />
         <CaseCard
+          id="site-vitrine-artisan"
           title="Site vitrine artisan"
           tags={["Next.js", "Tailwind", "Formulaire"]}
           description="Identité sobre, devis simplifié, génération de leads +30% en 2 mois."
         />
         <CaseCard
+          id="optimisation-performance"
           title="Optimisation performance"
           tags={["Audit", "Web Vitals", "CDN"]}
           description="Chargement initial -50%, CLS maîtrisé, perception de rapidité accrue."

@@ -3,10 +3,12 @@
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
-import { Menu, X } from "lucide-react";
+import { Menu, X, ChevronDown } from "lucide-react";
 
 export function Header() {
   const [open, setOpen] = useState(false);
+  const [openServices, setOpenServices] = useState(false);
+  const [openProjets, setOpenProjets] = useState(false);
 
   // Close on ESC and lock scroll when open
   useEffect(() => {
@@ -18,6 +20,8 @@ export function Header() {
       document.body.style.overflow = "hidden";
     } else {
       document.body.style.overflow = "";
+      setOpenServices(false);
+      setOpenProjets(false);
     }
     return () => {
       document.removeEventListener("keydown", onKey);
@@ -106,25 +110,71 @@ export function Header() {
               </button>
             </div>
 
-            <nav className="mt-6 space-y-4 text-lg" aria-label="Navigation mobile">
-              <Link href="/projets" className="block text-foreground" onClick={() => setOpen(false)}>
-                Projets
-              </Link>
-              <Link href="/services" className="block text-foreground" onClick={() => setOpen(false)}>
-                Services
-              </Link>
-              <Link href="/a-propos" className="block text-foreground" onClick={() => setOpen(false)}>
+            <nav className="mt-6 space-y-2 text-lg" aria-label="Navigation mobile">
+              {/* Projets with submenu */}
+              <div>
+                <button
+                  className="flex w-full items-center justify-between rounded-md px-2 py-2 text-left text-foreground hover:bg-accent/50"
+                  aria-expanded={openProjets}
+                  aria-controls="submenu-projets"
+                  onClick={() => setOpenProjets((v) => !v)}
+                >
+                  <span>Projets</span>
+                  <ChevronDown className={`h-5 w-5 transition-transform ${openProjets ? "rotate-180" : ""}`} />
+                </button>
+                {openProjets && (
+                  <div id="submenu-projets" className="ml-4 border-l pl-3">
+                    <Link href="/projets#refonte-associatif" className="block py-2 text-muted-foreground hover:text-foreground" onClick={() => setOpen(false)}>
+                      Refonte associatif
+                    </Link>
+                    <Link href="/projets#site-vitrine-artisan" className="block py-2 text-muted-foreground hover:text-foreground" onClick={() => setOpen(false)}>
+                      Site vitrine artisan
+                    </Link>
+                    <Link href="/projets#optimisation-performance" className="block py-2 text-muted-foreground hover:text-foreground" onClick={() => setOpen(false)}>
+                      Optimisation performance
+                    </Link>
+                  </div>
+                )}
+              </div>
+
+              {/* Services with submenu */}
+              <div className="mt-1">
+                <button
+                  className="flex w-full items-center justify-between rounded-md px-2 py-2 text-left text-foreground hover:bg-accent/50"
+                  aria-expanded={openServices}
+                  aria-controls="submenu-services"
+                  onClick={() => setOpenServices((v) => !v)}
+                >
+                  <span>Services</span>
+                  <ChevronDown className={`h-5 w-5 transition-transform ${openServices ? "rotate-180" : ""}`} />
+                </button>
+                {openServices && (
+                  <div id="submenu-services" className="ml-4 border-l pl-3">
+                    <Link href="/services#vitrine" className="block py-2 text-muted-foreground hover:text-foreground" onClick={() => setOpen(false)}>
+                      Site vitrine rapide
+                    </Link>
+                    <Link href="/services#refonte" className="block py-2 text-muted-foreground hover:text-foreground" onClick={() => setOpen(false)}>
+                      Refonte & optimisation
+                    </Link>
+                    <Link href="/services#accompagnement" className="block py-2 text-muted-foreground hover:text-foreground" onClick={() => setOpen(false)}>
+                      Accompagnement continu
+                    </Link>
+                  </div>
+                )}
+              </div>
+
+              <Link href="/a-propos" className="block rounded-md px-2 py-2 text-foreground hover:bg-accent/50" onClick={() => setOpen(false)}>
                 À propos
               </Link>
-              <Link href="/engagement-associatif" className="block text-foreground" onClick={() => setOpen(false)}>
+              <Link href="/engagement-associatif" className="block rounded-md px-2 py-2 text-foreground hover:bg-accent/50" onClick={() => setOpen(false)}>
                 Engagement
               </Link>
-              <Link href="/contact" className="block text-foreground" onClick={() => setOpen(false)}>
+              <Link href="/contact" className="block rounded-md px-2 py-2 text-foreground hover:bg-accent/50" onClick={() => setOpen(false)}>
                 Contact
               </Link>
             </nav>
 
-            <div className="mt-8">
+            <div className="mt-6">
               <Button
                 asChild
                 className="w-full rounded-full"

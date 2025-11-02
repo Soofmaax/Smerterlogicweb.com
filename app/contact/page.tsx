@@ -30,20 +30,25 @@ export default function ContactPage() {
         <Link href="/" className="text-sm text-muted-foreground hover:text-foreground">Retour à l’accueil</Link>
       </div>
 
-      {/* Formulaire fonctionnel (service externe) */}
+      {/* Formulaire Netlify Forms */}
       <div className="mt-10 rounded-lg border bg-card p-6">
         <h2 className="font-heading text-xl font-semibold">Envoyer un message</h2>
         <form
           className="mt-4 grid gap-4"
-          action="https://formsubmit.co/contact@smarterlogicweb.com"
+          name="contact"
           method="POST"
+          data-netlify="true"
+          netlify-honeypot="bot-field"
+          action="/merci"
         >
+          {/* Hidden input required by Netlify */}
+          <input type="hidden" name="form-name" value="contact" />
           {/* Honeypot anti-spam */}
-          <input type="text" name="_honey" className="hidden" />
-          {/* Réglages FormSubmit */}
-          <input type="hidden" name="_subject" value="Nouveau message — smarterlogicweb.com" />
-          <input type="hidden" name="_captcha" value="false" />
-          <input type="hidden" name="_next" value="https://smarterlogicweb.com/merci" />
+          <p className="hidden">
+            <label>
+              Ne pas remplir: <input name="bot-field" />
+            </label>
+          </p>
 
           <div className="grid gap-2">
             <label htmlFor="name" className="text-sm font-medium">Nom</label>
