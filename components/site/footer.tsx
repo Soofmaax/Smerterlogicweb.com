@@ -1,8 +1,60 @@
+"use client";
+
 import Link from "next/link";
 import { Github, Linkedin, Mail } from "lucide-react";
 import { track } from "@/lib/analytics";
+import { usePathname } from "next/navigation";
+import { useMemo } from "react";
 
 export function Footer() {
+  const pathname = usePathname() || "/";
+  const isEn = pathname.startsWith("/en");
+  const prefix = isEn ? "/en" : "";
+
+  const t = useMemo(
+    () =>
+      isEn
+        ? {
+            navTitle: "Navigation",
+            legalTitle: "Legal",
+            contactTitle: "Contact",
+            nav: {
+              home: "Home",
+              projects: "Projects",
+              services: "Services",
+              about: "About",
+              contact: "Contact",
+              commitment: "Commitment",
+            },
+            legal: {
+              mentions: "Legal notice",
+              privacy: "Privacy policy",
+              security: "Security",
+            },
+            copyright: "All rights reserved.",
+          }
+        : {
+            navTitle: "Navigation",
+            legalTitle: "Légal",
+            contactTitle: "Contact",
+            nav: {
+              home: "Accueil",
+              projects: "Projets",
+              services: "Services",
+              about: "À propos",
+              contact: "Contact",
+              commitment: "Engagement",
+            },
+            legal: {
+              mentions: "Mentions légales",
+              privacy: "Politique de confidentialité",
+              security: "Sécurité",
+            },
+            copyright: "Tous droits réservés.",
+          },
+    [isEn]
+  );
+
   return (
     <footer className="w-full border-t">
       <div className="mx-auto w-full max-w-6xl px-6 py-10">
@@ -10,51 +62,53 @@ export function Footer() {
         <div className="grid grid-cols-1 gap-10 sm:grid-cols-2 md:grid-cols-12">
           {/* Brand + tagline */}
           <div className="md:col-span-5">
-            <Link href="/" className="inline-flex items-center gap-2">
+            <Link href={isEn ? "/en" : "/"} className="inline-flex items-center gap-2">
               <span className="rounded-md bg-accent px-2 py-1 text-sm font-semibold text-accent-foreground">
                 smarterlogicweb
               </span>
             </Link>
             <p className="mt-4 max-w-md text-sm text-muted-foreground">
-              Une présence en ligne logique et humaine. Simplicité, performance et exigence au service de vos objectifs.
+              {isEn
+                ? "A logical and human online presence. Simplicity, performance and high standards to serve your goals."
+                : "Une présence en ligne logique et humaine. Simplicité, performance et exigence au service de vos objectifs."}
             </p>
           </div>
 
           {/* Navigation */}
           <nav className="md:col-span-3" aria-label="Navigation principale">
-            <h3 className="text-xs font-medium uppercase tracking-wider text-muted-foreground">Navigation</h3>
+            <h3 className="text-xs font-medium uppercase tracking-wider text-muted-foreground">{t.navTitle}</h3>
             <ul className="mt-3 space-y-2 text-sm">
               <li>
-                <Link href="/" className="text-muted-foreground transition-colors hover:text-foreground">
-                  Accueil
+                <Link href={`${prefix}/`.replace("//", "/")} className="text-muted-foreground transition-colors hover:text-foreground">
+                  {t.nav.home}
                 </Link>
               </li>
               <li>
-                <Link href="/projets" className="text-muted-foreground transition-colors hover:text-foreground">
-                  Projets
+                <Link href={`${prefix}/${isEn ? "projects" : "projets"}`.replace("//", "/")} className="text-muted-foreground transition-colors hover:text-foreground">
+                  {t.nav.projects}
                 </Link>
               </li>
               <li>
-                <Link href="/services" className="text-muted-foreground transition-colors hover:text-foreground">
-                  Services
+                <Link href={`${prefix}/services`.replace("//", "/")} className="text-muted-foreground transition-colors hover:text-foreground">
+                  {t.nav.services}
                 </Link>
               </li>
               <li>
-                <Link href="/a-propos" className="text-muted-foreground transition-colors hover:text-foreground">
-                  À propos
+                <Link href={`${prefix}/${isEn ? "about" : "a-propos"}`.replace("//", "/")} className="text-muted-foreground transition-colors hover:text-foreground">
+                  {t.nav.about}
                 </Link>
               </li>
               <li>
-                <Link href="/contact" className="text-muted-foreground transition-colors hover:text-foreground">
-                  Contact
+                <Link href={`${prefix}/contact`.replace("//", "/")} className="text-muted-foreground transition-colors hover:text-foreground">
+                  {t.nav.contact}
                 </Link>
               </li>
               <li>
                 <Link
-                  href="/engagement-associatif"
+                  href={`${prefix}/${isEn ? "nonprofit-commitment" : "engagement-associatif"}`.replace("//", "/")}
                   className="text-muted-foreground transition-colors hover:text-foreground"
                 >
-                  Engagement
+                  {t.nav.commitment}
                 </Link>
               </li>
             </ul>
@@ -62,27 +116,27 @@ export function Footer() {
 
           {/* Legal */}
           <nav className="md:col-span-2" aria-label="Liens légaux">
-            <h3 className="text-xs font-medium uppercase tracking-wider text-muted-foreground">Légal</h3>
+            <h3 className="text-xs font-medium uppercase tracking-wider text-muted-foreground">{t.legalTitle}</h3>
             <ul className="mt-3 space-y-2 text-sm">
               <li>
-                <Link href="/mentions-legales" className="text-muted-foreground transition-colors hover:text-foreground">
-                  Mentions légales
+                <Link href={`${prefix}/${isEn ? "legal-notice" : "mentions-legales"}`.replace("//", "/")} className="text-muted-foreground transition-colors hover:text-foreground">
+                  {t.legal.mentions}
                 </Link>
               </li>
               <li>
                 <Link
-                  href="/politique-de-confidentialite"
+                  href={`${prefix}/${isEn ? "privacy-policy" : "politique-de-confidentialite"}`.replace("//", "/")}
                   className="text-muted-foreground transition-colors hover:text-foreground"
                 >
-                  Politique de confidentialité
+                  {t.legal.privacy}
                 </Link>
               </li>
               <li>
                 <Link
-                  href="/securite"
+                  href={`${prefix}/${isEn ? "security" : "securite"}`.replace("//", "/")}
                   className="text-muted-foreground transition-colors hover:text-foreground"
                 >
-                  Sécurité
+                  {t.legal.security}
                 </Link>
               </li>
             </ul>
@@ -90,7 +144,7 @@ export function Footer() {
 
           {/* Contact */}
           <div className="md:col-span-2">
-            <h3 className="text-xs font-medium uppercase tracking-wider text-muted-foreground">Contact</h3>
+            <h3 className="text-xs font-medium uppercase tracking-wider text-muted-foreground">{t.contactTitle}</h3>
             <ul className="mt-3 space-y-2 text-sm">
               <li>
                 <Link
@@ -141,21 +195,29 @@ export function Footer() {
         {/* Bottom row */}
         <div className="mt-10 flex flex-col items-start justify-between gap-4 border-t pt-6 sm:flex-row sm:items-center">
           <p className="text-xs text-muted-foreground">
-            © 2025 smarterlogicweb.com — Tous droits réservés.
+            © 2025 smarterlogicweb.com — {t.copyright}
           </p>
           <nav aria-label="Liens légaux secondaires" className="text-xs">
             <ul className="flex flex-wrap items-center gap-x-4 gap-y-2">
               <li>
-                <Link href="/mentions-legales" className="text-muted-foreground transition-colors hover:text-foreground">
-                  Mentions légales
+                <Link href={`${prefix}/${isEn ? "legal-notice" : "mentions-legales"}`.replace("//", "/")} className="text-muted-foreground transition-colors hover:text-foreground">
+                  {t.legal.mentions}
                 </Link>
               </li>
               <li>
                 <Link
-                  href="/politique-de-confidentialite"
+                  href={`${prefix}/${isEn ? "privacy-policy" : "politique-de-confidentialite"}`.replace("//", "/")}
                   className="text-muted-foreground transition-colors hover:text-foreground"
                 >
-                  Politique de confidentialité
+                  {t.legal.privacy}
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href={`${prefix}/${isEn ? "security" : "securite"}`.replace("//", "/")}
+                  className="text-muted-foreground transition-colors hover:text-foreground"
+                >
+                  {t.legal.security}
                 </Link>
               </li>
             </ul>

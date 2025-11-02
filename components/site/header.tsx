@@ -1,7 +1,8 @@
 "use client";
 
 import Link from "next/link";
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
+import { usePathname } from "next/navigation";
 import { Button } from "@/components/ui/button";
 import { Menu, X, ChevronDown } from "lucide-react";
 import { track } from "@/lib/analytics";
@@ -10,6 +11,91 @@ export function Header() {
   const [open, setOpen] = useState(false);
   const [openServices, setOpenServices] = useState(false);
   const [openProjets, setOpenProjets] = useState(false);
+  const pathname = usePathname() || "/";
+  const isEn = pathname.startsWith("/en");
+  const prefix = isEn ? "/en" : "";
+
+  const t = useMemo(
+    () =>
+      isEn
+        ? {
+            skip: "Skip to content",
+            nav: {
+              projects: "Projects",
+              services: "Services",
+              about: "About",
+              commitment: "Commitment",
+              contact: "Contact",
+            },
+            projects: {
+              item1: "Nonprofit redesign",
+              item2: "Showcase site for artisan",
+              item3: "Performance optimisation",
+            },
+            services: {
+              item1: "Fast showcase site",
+              item2: "Redesign & optimisation",
+              item3: "Ongoing support",
+            },
+            cta: "Get my free quote",
+            lang: "FR",
+          }
+        : {
+            skip: "Passer au contenu",
+            nav: {
+              projects: "Projets",
+              services: "Services",
+              about: "À propos",
+              commitment: "Engagement",
+              contact: "Contact",
+            },
+            projects: {
+              item1: "Refonte associatif",
+              item2: "Site vitrine artisan",
+              item3: "Optimisation performance",
+            },
+            services: {
+              item1: "Site vitrine rapide",
+              item2: "Refonte & optimisation",
+              item3: "Accompagnement continu",
+            },
+            cta: "Obtenir mon devis gratuit",
+            lang: "EN",
+          },
+    [isEn]
+  );
+
+  // slug mapping for language switch
+  const frToEn: Record<string, string> = {
+    "": "",
+    "projets": "projects",
+    "services": "services",
+    "a-propos": "about",
+    "engagement-associatif": "nonprofit-commitment",
+    "contact": "contact",
+    "mentions-legales": "legal-notice",
+    "politique-de-confidentialite": "privacy-policy",
+    "merci": "thank-you",
+    "securite": "security",
+  };
+  const enToFr: Record<string, string> = Object.fromEntries(Object.entries(frToEn).map(([k, v]) => [v, k]));
+
+  function switchLocalePath(path: string) {
+    const p = path.startsWith("/en") ? path.slice(3) || "/" : path;
+    const parts = p.split("/").filter(Boolean);
+    const first = parts[0] || "";
+    if (path.startsWith("/en")) {
+      // EN -> FR
+      const mapped = enToFr[first] ?? first;
+      return mapped ? `/${mapped}${parts.slice(1).length ? `/${parts.slice(1).join("/")}` : ""}` : "/";
+    } else {
+      // FR -> EN
+      const mapped = frToEn[first] ?? first;
+      return `/en${mapped ? `/${mapped}${parts.slice(1).length ? `/${parts.slice(1).join("/")}` : ""}` : ""}`;
+    }
+  }
+
+  const langSwitchHref = switchLocalePath(pathname);
 
   // Close on ESC and lock scroll when open
   useEffect(() => {
@@ -36,12 +122,12 @@ export function Header() {
         href="#content"
         className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-50 focus:rounded-md focus:bg-primary focus:px-3 focus:py-2 focus:text-primary-foreground"
       >
-        Passer au contenu
+        {t.skip}
       </a>
       <div className="mx-auto flex w-full max-w-5xl items-center justify-between px-6 py-3">
-        <Link href="/" className="flex items-center gap-2 text-sm font-semibold tracking-tight">
+        <Link href={isEn ? "/en" : "/"} className="flex items-center gap-2 text-sm font-semibold tracking-tight">
           <span className="rounded-md bg-accent px-2 py-1 text-accent-foreground">smarterlogicweb</span>
-          <span className="sr-only">Accueil</span>
+          <span className="sr-only">{isEn ? "Home" : "Accueil"}</span>
         </Link>
 
         <nav aria-label="Navigation principale" className="hidden items-center gap-6 md:flex">
@@ -53,21 +139,21 @@ export function Header() {
               aria-haspopup="menu"
               aria-expanded={false}
             >
-              Projets
+              {t.nav.projects}
               <ChevronDown className="h-4 w-4 opacity-70 transition-transform group-hover:rotate-180" />
             </button>
             <div
               role="menu"
               className="pointer-events-none absolute left-0 top-full z-50 mt-2 w-56 rounded-lg border bg-popover p-2 opacity-0 shadow-sm transition group-hover:pointer-events-auto group-hover:opacity-100 group-focus-within:pointer-events-auto group-focus-within:opacity-100"
             >
-              <Link href="/projets#refonte-associatif" role="menuitem" className="block rounded-md px-3 py-2 text-sm text-foreground hover:bg-accent/60">
-                Refonte associatif
+              <Link href={`${prefix}/${isEn ? "projects" : "projets"}#refonte-associatif`.replace("//", "/")} role="menuitem" className="block rounded-md px-3 py-2 text-sm text-foreground hover:bg-accent/60">
+                {t.projects.item1}
               </Link>
-              <Link href="/projets#site-vitrine-artisan" role="menuitem" className="block rounded-md px-3 py-2 text-sm text-foreground hover:bg-accent/60">
-                Site vitrine artisan
+              <Link href={`${prefix}/${isEn ? "projects" : "projets"}#site-vitrine-artisan`.replace("//", "/")} role="menuitem" className="block rounded-md px-3 py-2 text-sm text-foreground hover:bg-accent/60">
+                {t.projects.item2}
               </Link>
-              <Link href="/projets#optimisation-performance" role="menuitem" className="block rounded-md px-3 py-2 text-sm text-foreground hover:bg-accent/60">
-                Optimisation performance
+              <Link href={`${prefix}/${isEn ? "projects" : "projets"}#optimisation-performance`.replace("//", "/")} role="menuitem" className="block rounded-md px-3 py-2 text-sm text-foreground hover:bg-accent/60">
+                {t.projects.item3}
               </Link>
             </div>
           </div>
@@ -80,33 +166,38 @@ export function Header() {
               aria-haspopup="menu"
               aria-expanded={false}
             >
-              Services
+              {t.nav.services}
               <ChevronDown className="h-4 w-4 opacity-70 transition-transform group-hover:rotate-180" />
             </button>
             <div
               role="menu"
               className="pointer-events-none absolute left-0 top-full z-50 mt-2 w-56 rounded-lg border bg-popover p-2 opacity-0 shadow-sm transition group-hover:pointer-events-auto group-hover:opacity-100 group-focus-within:pointer-events-auto group-focus-within:opacity-100"
             >
-              <Link href="/services#vitrine" role="menuitem" className="block rounded-md px-3 py-2 text-sm text-foreground hover:bg-accent/60">
-                Site vitrine rapide
+              <Link href={`${prefix}/services#vitrine`.replace("//", "/")} role="menuitem" className="block rounded-md px-3 py-2 text-sm text-foreground hover:bg-accent/60">
+                {t.services.item1}
               </Link>
-              <Link href="/services#refonte" role="menuitem" className="block rounded-md px-3 py-2 text-sm text-foreground hover:bg-accent/60">
-                Refonte & optimisation
+              <Link href={`${prefix}/services#refonte`.replace("//", "/")} role="menuitem" className="block rounded-md px-3 py-2 text-sm text-foreground hover:bg-accent/60">
+                {t.services.item2}
               </Link>
-              <Link href="/services#accompagnement" role="menuitem" className="block rounded-md px-3 py-2 text-sm text-foreground hover:bg-accent/60">
-                Accompagnement continu
+              <Link href={`${prefix}/services#accompagnement`.replace("//", "/")} role="menuitem" className="block rounded-md px-3 py-2 text-sm text-foreground hover:bg-accent/60">
+                {t.services.item3}
               </Link>
             </div>
           </div>
 
-          <Link href="/a-propos" className="text-sm text-muted-foreground transition-colors hover:text-foreground">
-            À propos
+          <Link href={`${prefix}/${isEn ? "about" : "a-propos"}`.replace("//", "/")} className="text-sm text-muted-foreground transition-colors hover:text-foreground">
+            {t.nav.about}
           </Link>
-          <Link href="/engagement-associatif" className="text-sm text-muted-foreground transition-colors hover:text-foreground">
-            Engagement
+          <Link href={`${prefix}/${isEn ? "nonprofit-commitment" : "engagement-associatif"}`.replace("//", "/")} className="text-sm text-muted-foreground transition-colors hover:text-foreground">
+            {t.nav.commitment}
           </Link>
-          <Link href="/contact" className="text-sm text-muted-foreground transition-colors hover:text-foreground">
-            Contact
+          <Link href={`${prefix}/contact`.replace("//", "/")} className="text-sm text-muted-foreground transition-colors hover:text-foreground">
+            {t.nav.contact}
+          </Link>
+
+          {/* Language switch */}
+          <Link href={langSwitchHref} className="text-xs text-muted-foreground hover:text-foreground" aria-label="Switch language">
+            {t.lang}
           </Link>
         </nav>
 
@@ -116,13 +207,13 @@ export function Header() {
             asChild
             size="sm"
             className="rounded-full px-4 py-2 text-sm font-medium"
-            aria-label="Obtenir un devis gratuit par email"
+            aria-label={isEn ? "Get a free quote by email" : "Obtenir un devis gratuit par email"}
           >
             <Link
               href="mailto:contact@smarterlogicweb.com?subject=Devis%20gratuit%20-%20Nouveau%20projet"
               onClick={() => track("cta_devis_mailto_header")}
             >
-              Obtenir mon devis gratuit
+              {t.cta}
             </Link>
           </Button>
         </div>
@@ -130,7 +221,7 @@ export function Header() {
         {/* Mobile menu button */}
         <button
           className="inline-flex items-center gap-2 rounded-md p-2 text-muted-foreground hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring md:hidden"
-          aria-label={open ? "Fermer le menu" : "Ouvrir le menu"}
+          aria-label={open ? (isEn ? "Close menu" : "Fermer le menu") : (isEn ? "Open menu" : "Ouvrir le menu")}
           aria-controls="mobile-menu"
           aria-expanded={open}
           onClick={() => setOpen((v) => !v)}
@@ -149,13 +240,13 @@ export function Header() {
         >
           <div className="mx-auto flex w-full max-w-5xl flex-col px-6 py-6">
             <div className="flex items-center justify-between">
-              <Link href="/" className="flex items-center gap-2 text-sm font-semibold tracking-tight" onClick={() => setOpen(false)}>
+              <Link href={isEn ? "/en" : "/"} className="flex items-center gap-2 text-sm font-semibold tracking-tight" onClick={() => setOpen(false)}>
                 <span className="rounded-md bg-accent px-2 py-1 text-accent-foreground">smarterlogicweb</span>
-                <span className="sr-only">Accueil</span>
+                <span className="sr-only">{isEn ? "Home" : "Accueil"}</span>
               </Link>
               <button
                 className="inline-flex items-center gap-2 rounded-md p-2 text-muted-foreground hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
-                aria-label="Fermer le menu"
+                aria-label={isEn ? "Close menu" : "Fermer le menu"}
                 onClick={() => setOpen(false)}
               >
                 <X className="h-6 w-6" />
@@ -171,19 +262,19 @@ export function Header() {
                   aria-controls="submenu-projets"
                   onClick={() => setOpenProjets((v) => !v)}
                 >
-                  <span>Projets</span>
+                  <span>{t.nav.projects}</span>
                   <ChevronDown className={`h-5 w-5 transition-transform ${openProjets ? "rotate-180" : ""}`} />
                 </button>
                 {openProjets && (
                   <div id="submenu-projets" className="ml-4 border-l pl-3">
-                    <Link href="/projets#refonte-associatif" className="block py-2 text-muted-foreground hover:text-foreground" onClick={() => setOpen(false)}>
-                      Refonte associatif
+                    <Link href={`${prefix}/${isEn ? "projects" : "projets"}#refonte-associatif`.replace("//", "/")} className="block py-2 text-muted-foreground hover:text-foreground" onClick={() => setOpen(false)}>
+                      {t.projects.item1}
                     </Link>
-                    <Link href="/projets#site-vitrine-artisan" className="block py-2 text-muted-foreground hover:text-foreground" onClick={() => setOpen(false)}>
-                      Site vitrine artisan
+                    <Link href={`${prefix}/${isEn ? "projects" : "projets"}#site-vitrine-artisan`.replace("//", "/")} className="block py-2 text-muted-foreground hover:text-foreground" onClick={() => setOpen(false)}>
+                      {t.projects.item2}
                     </Link>
-                    <Link href="/projets#optimisation-performance" className="block py-2 text-muted-foreground hover:text-foreground" onClick={() => setOpen(false)}>
-                      Optimisation performance
+                    <Link href={`${prefix}/${isEn ? "projects" : "projets"}#optimisation-performance`.replace("//", "/")} className="block py-2 text-muted-foreground hover:text-foreground" onClick={() => setOpen(false)}>
+                      {t.projects.item3}
                     </Link>
                   </div>
                 )}
@@ -197,44 +288,51 @@ export function Header() {
                   aria-controls="submenu-services"
                   onClick={() => setOpenServices((v) => !v)}
                 >
-                  <span>Services</span>
+                  <span>{t.nav.services}</span>
                   <ChevronDown className={`h-5 w-5 transition-transform ${openServices ? "rotate-180" : ""}`} />
                 </button>
                 {openServices && (
                   <div id="submenu-services" className="ml-4 border-l pl-3">
-                    <Link href="/services#vitrine" className="block py-2 text-muted-foreground hover:text-foreground" onClick={() => setOpen(false)}>
-                      Site vitrine rapide
+                    <Link href={`${prefix}/services#vitrine`.replace("//", "/")} className="block py-2 text-muted-foreground hover:text-foreground" onClick={() => setOpen(false)}>
+                      {t.services.item1}
                     </Link>
-                    <Link href="/services#refonte" className="block py-2 text-muted-foreground hover:text-foreground" onClick={() => setOpen(false)}>
-                      Refonte & optimisation
+                    <Link href={`${prefix}/services#refonte`.replace("//", "/")} className="block py-2 text-muted-foreground hover:text-foreground" onClick={() => setOpen(false)}>
+                      {t.services.item2}
                     </Link>
-                    <Link href="/services#accompagnement" className="block py-2 text-muted-foreground hover:text-foreground" onClick={() => setOpen(false)}>
-                      Accompagnement continu
+                    <Link href={`${prefix}/services#accompagnement`.replace("//", "/")} className="block py-2 text-muted-foreground hover:text-foreground" onClick={() => setOpen(false)}>
+                      {t.services.item3}
                     </Link>
                   </div>
                 )}
               </div>
 
-              <Link href="/a-propos" className="block rounded-md px-2 py-2 text-foreground hover:bg-accent/50" onClick={() => setOpen(false)}>
-                À propos
+              <Link href={`${prefix}/a-propos`.replace("//", "/")} className="block rounded-md px-2 py-2 text-foreground hover:bg-accent/50" onClick={() => setOpen(false)}>
+                {t.nav.about}
               </Link>
-              <Link href="/engagement-associatif" className="block rounded-md px-2 py-2 text-foreground hover:bg-accent/50" onClick={() => setOpen(false)}>
-                Engagement
+              <Link href={`${prefix}/engagement-associatif`.replace("//", "/")} className="block rounded-md px-2 py-2 text-foreground hover:bg-accent/50" onClick={() => setOpen(false)}>
+                {t.nav.commitment}
               </Link>
-              <Link href="/contact" className="block rounded-md px-2 py-2 text-foreground hover:bg-accent/50" onClick={() => setOpen(false)}>
-                Contact
+              <Link href={`${prefix}/contact`.replace("//", "/")} className="block rounded-md px-2 py-2 text-foreground hover:bg-accent/50" onClick={() => setOpen(false)}>
+                {t.nav.contact}
               </Link>
+
+              {/* Language switch */}
+              <div className="pt-2">
+                <Link href={langSwitchHref} className="text-sm text-muted-foreground hover:text-foreground" onClick={() => setOpen(false)}>
+                  {t.lang}
+                </Link>
+              </div>
             </nav>
 
             <div className="mt-6">
               <Button
                 asChild
                 className="w-full rounded-full"
-                aria-label="Obtenir un devis gratuit par email"
+                aria-label={isEn ? "Get a free quote by email" : "Obtenir un devis gratuit par email"}
                 onClick={() => setOpen(false)}
               >
                 <Link href="mailto:contact@smarterlogicweb.com?subject=Devis%20gratuit%20-%20Nouveau%20projet" onClick={() => track("cta_devis_mailto_header_mobile")}>
-                  Obtenir mon devis gratuit
+                  {t.cta}
                 </Link>
               </Button>
             </div>

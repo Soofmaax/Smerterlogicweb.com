@@ -4,6 +4,11 @@ const nextConfig = {
   experimental: {
     optimizePackageImports: ["lucide-react"],
   },
+  i18n: {
+    locales: ["fr", "en"],
+    defaultLocale: "fr",
+    localeDetection: true,
+  },
 };
 
 export default nextConfig;
