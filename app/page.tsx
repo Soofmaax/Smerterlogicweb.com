@@ -1,15 +1,11 @@
 import Link from "next/link";
-import { Inter, DM_Sans } from "next/font/google";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Github, Linkedin, Mail, Heart } from "lucide-react";
 
-const inter = Inter({ subsets: ["latin"], display: "swap" });
-const dmSans = DM_Sans({ subsets: ["latin"], display: "swap" });
-
 export default function Page() {
   return (
-    <main className={`${dmSans.className} relative flex min-h-screen flex-col justify-between overflow-hidden bg-background`}>
+    <main className="relative flex min-h-screen flex-col justify-between overflow-hidden bg-background">
       {/* Subtle, premium background accents (non-distracting) */}
       <div aria-hidden className="pointer-events-none absolute inset-0 -z-10">
         <div className="absolute left-1/2 top-[-10%] h-[40rem] w-[40rem] -translate-x-1/2 rounded-full bg-emerald-300/10 blur-3xl" />
@@ -24,7 +20,7 @@ export default function Page() {
           </Badge>
         </div>
 
-        <h1 className={`${inter.className} text-5xl font-bold tracking-tight text-foreground md:text-6xl`}>
+        <h1 className="font-heading text-5xl font-bold tracking-tight text-foreground md:text-6xl">
           Votre site web, enfin simple et performant.
         </h1>
 
