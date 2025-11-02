@@ -126,10 +126,27 @@ export function Footer() {
         </div>
 
         {/* Bottom row */}
-        <div className="mt-10 border-t pt-6">
+        <div className="mt-10 flex flex-col items-start justify-between gap-4 border-t pt-6 sm:flex-row sm:items-center">
           <p className="text-xs text-muted-foreground">
             © 2025 smarterlogicweb.com — Tous droits réservés.
           </p>
+          <nav aria-label="Liens légaux secondaires" className="text-xs">
+            <ul className="flex flex-wrap items-center gap-x-4 gap-y-2">
+              <li>
+                <Link href="/mentions-legales" className="text-muted-foreground transition-colors hover:text-foreground">
+                  Mentions légales
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/politique-de-confidentialite"
+                  className="text-muted-foreground transition-colors hover:text-foreground"
+                >
+                  Politique de confidentialité
+                </Link>
+              </li>
+            </ul>
+          </nav>
         </div>
       </div>
     </footer>

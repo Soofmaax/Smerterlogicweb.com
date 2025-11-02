@@ -3,6 +3,7 @@ import "./globals.css";
 import { Inter, DM_Sans } from "next/font/google";
 import { Header } from "@/components/site/header";
 import { Footer } from "@/components/site/footer";
+import Script from "next/script";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -36,6 +37,11 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "/",
   },
+  icons: {
+    icon: "/icon.svg",
+    apple: "/apple-touch-icon",
+  },
+  manifest: "/manifest.webmanifest",
   openGraph: {
     type: "website",
     locale: "fr_FR",
@@ -108,6 +114,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           suppressHydrationWarning
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLdSite) }}
         />
+        {/* Plausible Analytics */}
+        <Script strategy="lazyOnload" data-domain="smarterlogicweb.com" src="https://plausible.io/js/script.js" />
         <div className="flex min-h-screen flex-col">
           <Header />
           <main id="content" className="flex-1">{children}</main>

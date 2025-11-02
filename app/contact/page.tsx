@@ -95,6 +95,9 @@ export default function ContactPage() {
             </label>
           </div>
 
+          {/* reCAPTCHA Netlify */}
+          <div data-netlify-recaptcha="true"></div>
+
           <div>
             <Button type="submit" className="rounded-full">Envoyer</Button>
           </div>

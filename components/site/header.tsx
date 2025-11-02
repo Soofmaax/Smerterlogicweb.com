@@ -44,12 +44,60 @@ export function Header() {
         </Link>
 
         <nav aria-label="Navigation principale" className="hidden items-center gap-6 md:flex">
-          <Link href="/projets" className="text-sm text-muted-foreground transition-colors hover:text-foreground">
-            Projets
-          </Link>
-          <Link href="/services" className="text-sm text-muted-foreground transition-colors hover:text-foreground">
-            Services
-          </Link>
+          {/* Projets dropdown */}
+          <div className="relative group">
+            <button
+              type="button"
+              className="inline-flex items-center gap-1 text-sm text-muted-foreground transition-colors hover:text-foreground"
+              aria-haspopup="menu"
+              aria-expanded={false}
+            >
+              Projets
+              <ChevronDown className="h-4 w-4 opacity-70 transition-transform group-hover:rotate-180" />
+            </button>
+            <div
+              role="menu"
+              className="pointer-events-none absolute left-0 top-full z-50 mt-2 w-56 rounded-lg border bg-popover p-2 opacity-0 shadow-sm transition group-hover:pointer-events-auto group-hover:opacity-100 group-focus-within:pointer-events-auto group-focus-within:opacity-100"
+            >
+              <Link href="/projets#refonte-associatif" role="menuitem" className="block rounded-md px-3 py-2 text-sm text-foreground hover:bg-accent/60">
+                Refonte associatif
+              </Link>
+              <Link href="/projets#site-vitrine-artisan" role="menuitem" className="block rounded-md px-3 py-2 text-sm text-foreground hover:bg-accent/60">
+                Site vitrine artisan
+              </Link>
+              <Link href="/projets#optimisation-performance" role="menuitem" className="block rounded-md px-3 py-2 text-sm text-foreground hover:bg-accent/60">
+                Optimisation performance
+              </Link>
+            </div>
+          </div>
+
+          {/* Services dropdown */}
+          <div className="relative group">
+            <button
+              type="button"
+              className="inline-flex items-center gap-1 text-sm text-muted-foreground transition-colors hover:text-foreground"
+              aria-haspopup="menu"
+              aria-expanded={false}
+            >
+              Services
+              <ChevronDown className="h-4 w-4 opacity-70 transition-transform group-hover:rotate-180" />
+            </button>
+            <div
+              role="menu"
+              className="pointer-events-none absolute left-0 top-full z-50 mt-2 w-56 rounded-lg border bg-popover p-2 opacity-0 shadow-sm transition group-hover:pointer-events-auto group-hover:opacity-100 group-focus-within:pointer-events-auto group-focus-within:opacity-100"
+            >
+              <Link href="/services#vitrine" role="menuitem" className="block rounded-md px-3 py-2 text-sm text-foreground hover:bg-accent/60">
+                Site vitrine rapide
+              </Link>
+              <Link href="/services#refonte" role="menuitem" className="block rounded-md px-3 py-2 text-sm text-foreground hover:bg-accent/60">
+                Refonte & optimisation
+              </Link>
+              <Link href="/services#accompagnement" role="menuitem" className="block rounded-md px-3 py-2 text-sm text-foreground hover:bg-accent/60">
+                Accompagnement continu
+              </Link>
+            </div>
+          </div>
+
           <Link href="/a-propos" className="text-sm text-muted-foreground transition-colors hover:text-foreground">
             À propos
           </Link>
