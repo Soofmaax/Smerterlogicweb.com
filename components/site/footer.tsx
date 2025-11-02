@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { Github, Linkedin, Mail } from "lucide-react";
+import { track } from "@/lib/analytics";
 
 export function Footer() {
   return (
@@ -87,6 +88,7 @@ export function Footer() {
                 <Link
                   href="mailto:contact@smarterlogicweb.com"
                   className="text-muted-foreground transition-colors hover:text-primary"
+                  onClick={() => track("cta_devis_mailto_footer_text")}
                 >
                   contact@smarterlogicweb.com
                 </Link>
@@ -99,6 +101,7 @@ export function Footer() {
                 rel="noreferrer"
                 aria-label="LinkedIn"
                 className="text-muted-foreground transition-colors hover:text-primary"
+                onClick={() => track("social_linkedin_footer")}
               >
                 <Linkedin className="h-5 w-5" />
                 <span className="sr-only">LinkedIn</span>
@@ -109,6 +112,7 @@ export function Footer() {
                 rel="noreferrer"
                 aria-label="GitHub"
                 className="text-muted-foreground transition-colors hover:text-primary"
+                onClick={() => track("social_github_footer")}
               >
                 <Github className="h-5 w-5" />
                 <span className="sr-only">GitHub</span>
@@ -117,6 +121,7 @@ export function Footer() {
                 href="mailto:contact@smarterlogicweb.com"
                 aria-label="Envoyer un email"
                 className="text-muted-foreground transition-colors hover:text-primary"
+                onClick={() => track("cta_devis_mailto_footer_icon")}
               >
                 <Mail className="h-5 w-5" />
                 <span className="sr-only">Email</span>

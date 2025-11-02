@@ -13,7 +13,8 @@
     X-Content-Type-Options = "nosniff"
     Referrer-Policy = "strict-origin-when-cross-origin"
     X-Frame-Options = "SAMEORIGIN"
-    Content-Security-Policy-Report-Only = "default-src 'self'; script-src 'self' https://plausible.io https://analytics.umami.is https://www.google.com https://www.gstatic.com; connect-src 'self' https://plausible.io https://analytics.umami.is https://www.google.com https://www.gstatic.com; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob: https://www.gstatic.com; font-src 'self'; frame-src 'self' https://www.google.com; frame-ancestors 'self'; base-uri 'self'; form-action 'self'; upgrade-insecure-requests"
+    Report-To = '{"group":"csp-endpoint","max_age":10886400,"endpoints":[{"url":"https://smarterlogicweb.com/api/csp-report"}],"include_subdomains":true}'
+    Content-Security-Policy = "default-src 'self'; script-src 'self' https://plausible.io https://analytics.umami.is https://www.google.com https://www.gstatic.com; connect-src 'self' https://plausible.io https://analytics.umami.is https://www.google.com https://www.gstatic.com; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob: https://www.gstatic.com; font-src 'self'; frame-src 'self' https://www.google.com; frame-ancestors 'self'; base-uri 'self'; form-action 'self'; upgrade-insecure-requests; report-to csp-endpoint; report-uri /api/csp-report"
 
 # Aggressive caching for static assets (immutable)
 [[headers]]

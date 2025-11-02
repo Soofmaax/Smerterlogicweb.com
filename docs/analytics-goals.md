@@ -12,13 +12,19 @@ CTA mailto (devis):
 - cta_devis_mailto_projets — clic CTA page Projets
 - cta_devis_mailto_apropos — clic CTA page À propos
 - cta_devis_mailto_engagement — clic CTA page Engagement
+- cta_devis_mailto_footer_text — clic sur l’email texte du footer
+- cta_devis_mailto_footer_icon — clic sur l’icône email du footer
+
+Social:
+- social_linkedin_footer — clic sur l’icône LinkedIn du footer
+- social_github_footer — clic sur l’icône GitHub du footer
 
 Formulaire:
 - form_contact_submitted — soumission du formulaire de la page /contact
 
 Implémentation:
 - Le helper `track(event, props?)` se trouve dans `lib/analytics.ts`.
-- Les appels `track("...")` sont intégrés dans les pages et le header.
+- Les appels `track("...")` sont intégrés dans les pages, le header et le footer.
 
 ## 2. Configuration des objectifs — Plausible
 
@@ -63,7 +69,7 @@ La bascule est gérée dans `app/layout.tsx`. Aucune modification de code suppl�
 
 ## 5. CSP (Content-Security-Policy)
 
-- Mode Report-Only activé dans `netlify.toml`.
+- CSP activée (enforcement) dans `netlify.toml`.
 - Les domaines autorisés incluent Plausible, Umami et reCAPTCHA Netlify.
-- En phase de test, laissez en Report-Only pour collecter les violations sans bloquer.
-- Quand tout est validé: remplacez `Content-Security-Policy-Report-Only` par `Content-Security-Policy` dans `netlify.toml`.
+- Collecte des violations: le header `Report-To` et `report-uri` pointent vers `/api/csp-report`.
+- Vous pouvez consulter les logs des rapports CSP dans les logs Netlify (fonction lambda) si nécessaire.
