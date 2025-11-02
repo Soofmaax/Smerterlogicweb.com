@@ -5,6 +5,12 @@ import { Button } from "@/components/ui/button";
 export const metadata = {
   title: "Contact — smarterlogicweb.com",
   description: "Contactez-moi pour un devis gratuit ou pour discuter de votre projet.",
+  alternates: { canonical: "/contact" },
+  openGraph: {
+    url: "https://smarterlogicweb.com/contact",
+    title: "Contact — smarterlogicweb.com",
+    description: "Contactez-moi pour un devis gratuit ou pour discuter de votre projet.",
+  },
 };
 
 export default function ContactPage() {

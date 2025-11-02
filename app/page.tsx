@@ -3,6 +3,19 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Heart } from "lucide-react";
 
+export const metadata = {
+  title: "Votre site web, enfin simple et performant.",
+  description:
+    "Je conçois et développe des sites web sur-mesure pour entrepreneurs et associations. Présence en ligne professionnelle, sans complexité.",
+  alternates: { canonical: "/" },
+  openGraph: {
+    url: "https://smarterlogicweb.com/",
+    title: "Votre site web, enfin simple et performant. — smarterlogicweb.com",
+    description:
+      "Sites web sur-mesure pour entrepreneurs et associations. Simple, performant, sans complexité — je m’occupe du reste.",
+  },
+};
+
 export default function Page() {
   return (
     <div className="relative overflow-hidden bg-background">

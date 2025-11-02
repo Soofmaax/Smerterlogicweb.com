@@ -5,6 +5,13 @@ import Link from "next/link";
 export const metadata = {
   title: "À propos — smarterlogicweb.com",
   description: "Développeuse front-end — simplicité, performance et exigence au service de votre présence en ligne.",
+  alternates: { canonical: "/a-propos" },
+  openGraph: {
+    url: "https://smarterlogicweb.com/a-propos",
+    title: "À propos — smarterlogicweb.com",
+    description:
+      "Développeuse front-end — simplicité, performance et exigence au service de votre présence en ligne.",
+  },
 };
 
 export default function AProposPage() {

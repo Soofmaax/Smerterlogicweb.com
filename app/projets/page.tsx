@@ -5,6 +5,13 @@ import Link from "next/link";
 export const metadata = {
   title: "Projets — smarterlogicweb.com",
   description: "Études de cas: simplicité, performance, conversion. Aperçu de réalisations Next.js.",
+  alternates: { canonical: "/projets" },
+  openGraph: {
+    url: "https://smarterlogicweb.com/projets",
+    title: "Projets — smarterlogicweb.com",
+    description:
+      "Études de cas: simplicité, performance, conversion. Aperçu de réalisations Next.js.",
+  },
 };
 
 function CaseCard({

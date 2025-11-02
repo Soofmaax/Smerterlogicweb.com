@@ -4,13 +4,19 @@ import { Button } from "@/components/ui/button";
 export function Header() {
   return (
     <header className="sticky top-0 z-40 w-full border-b bg-background/80 backdrop-blur supports-[backdrop-filter]:bg-background/60">
+      <a
+        href="#content"
+        className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-50 focus:rounded-md focus:bg-primary focus:px-3 focus:py-2 focus:text-primary-foreground"
+      >
+        Passer au contenu
+      </a>
       <div className="mx-auto flex w-full max-w-5xl items-center justify-between px-6 py-3">
         <Link href="/" className="flex items-center gap-2 text-sm font-semibold tracking-tight">
           <span className="rounded-md bg-accent px-2 py-1 text-accent-foreground">smarterlogicweb</span>
           <span className="sr-only">Accueil</span>
         </Link>
 
-        <nav className="hidden items-center gap-6 md:flex">
+        <nav aria-label="Navigation principale" className="hidden items-center gap-6 md:flex">
           <Link href="/projets" className="text-sm text-muted-foreground transition-colors hover:text-foreground">
             Projets
           </Link>
