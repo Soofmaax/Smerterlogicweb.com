@@ -2,6 +2,7 @@ import Link from "next/link";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Heart } from "lucide-react";
+import { track } from "@/lib/analytics";
 
 export const metadata = {
   title: "Votre site web, enfin simple et performant.",
@@ -50,7 +51,10 @@ export default function Page() {
             variant="default"
             className="h-12 rounded-full px-7 text-base font-medium transition-transform duration-200 hover:scale-105"
           >
-            <Link href="mailto:contact@smarterlogicweb.com?subject=Devis%20gratuit%20-%20Nouveau%20projet">
+            <Link
+              href="mailto:contact@smarterlogicweb.com?subject=Devis%20gratuit%20-%20Nouveau%20projet"
+              onClick={() => track("cta_devis_mailto_hero")}
+            >
               Obtenir mon devis gratuit
             </Link>
           </Button>

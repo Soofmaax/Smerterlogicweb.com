@@ -1,6 +1,7 @@
 import { Mail } from "lucide-react";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
+import { track } from "@/lib/analytics";
 
 export const metadata = {
   title: "Contact — smarterlogicweb.com",
@@ -23,7 +24,7 @@ export default function ContactPage() {
 
       <div className="mt-8 flex items-center gap-4">
         <Button asChild size="lg" className="rounded-full">
-          <Link href="mailto:contact@smarterlogicweb.com?subject=Devis%20gratuit">
+          <Link href="mailto:contact@smarterlogicweb.com?subject=Devis%20gratuit" onClick={() => track("cta_devis_mailto_contact")}>
             <span className="inline-flex items-center gap-2"><Mail className="h-4 w-4" /> contact@smarterlogicweb.com</span>
           </Link>
         </Button>
@@ -40,6 +41,7 @@ export default function ContactPage() {
           data-netlify="true"
           netlify-honeypot="bot-field"
           action="/merci"
+          onSubmit={() => track("form_contact_submitted")}
         >
           {/* Hidden input required by Netlify */}
           <input type="hidden" name="form-name" value="contact" />

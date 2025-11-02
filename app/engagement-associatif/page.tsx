@@ -2,6 +2,7 @@ import { Heart } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
+import { track } from "@/lib/analytics";
 
 export const metadata = {
   title: "Engagement associatif — smarterlogicweb.com",
@@ -54,7 +55,7 @@ export default function EngagementAssociatifPage() {
 
         <div className="mt-10 flex flex-wrap items-center gap-4">
           <Button asChild size="lg" className="rounded-full">
-            <Link href="mailto:contact@smarterlogicweb.com?subject=Projet%20associatif">
+            <Link href="mailto:contact@smarterlogicweb.com?subject=Projet%20associatif" onClick={() => track("cta_devis_mailto_engagement")}>
               Parlez-moi de votre projet
             </Link>
           </Button>

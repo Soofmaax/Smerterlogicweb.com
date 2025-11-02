@@ -1,6 +1,7 @@
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
+import { track } from "@/lib/analytics";
 
 export const metadata = {
   title: "À propos — smarterlogicweb.com",
@@ -32,7 +33,7 @@ export default function AProposPage() {
 
       <div className="mt-8 flex items-center gap-4">
         <Button asChild className="rounded-full">
-          <Link href="mailto:contact@smarterlogicweb.com?subject=Projet%20web">Obtenir mon devis gratuit</Link>
+          <Link href="mailto:contact@smarterlogicweb.com?subject=Projet%20web" onClick={() => track("cta_devis_mailto_apropos")}>Obtenir mon devis gratuit</Link>
         </Button>
         <Link href="/projets" className="text-sm text-muted-foreground hover:text-foreground">
           Voir des projets

@@ -4,6 +4,7 @@ import Link from "next/link";
 import { useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Menu, X, ChevronDown } from "lucide-react";
+import { track } from "@/lib/analytics";
 
 export function Header() {
   const [open, setOpen] = useState(false);
@@ -117,7 +118,10 @@ export function Header() {
             className="rounded-full px-4 py-2 text-sm font-medium"
             aria-label="Obtenir un devis gratuit par email"
           >
-            <Link href="mailto:contact@smarterlogicweb.com?subject=Devis%20gratuit%20-%20Nouveau%20projet">
+            <Link
+              href="mailto:contact@smarterlogicweb.com?subject=Devis%20gratuit%20-%20Nouveau%20projet"
+              onClick={() => track("cta_devis_mailto_header")}
+            >
               Obtenir mon devis gratuit
             </Link>
           </Button>
@@ -229,7 +233,7 @@ export function Header() {
                 aria-label="Obtenir un devis gratuit par email"
                 onClick={() => setOpen(false)}
               >
-                <Link href="mailto:contact@smarterlogicweb.com?subject=Devis%20gratuit%20-%20Nouveau%20projet">
+                <Link href="mailto:contact@smarterlogicweb.com?subject=Devis%20gratuit%20-%20Nouveau%20projet" onClick={() => track("cta_devis_mailto_header_mobile")}>
                   Obtenir mon devis gratuit
                 </Link>
               </Button>
