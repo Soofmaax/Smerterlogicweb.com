@@ -101,6 +101,11 @@ const jsonLdSite = {
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
+  const provider = process.env.NEXT_PUBLIC_ANALYTICS_PROVIDER || "plausible";
+  const plausibleDomain = process.env.NEXT_PUBLIC_PLAUSIBLE_DOMAIN || "smarterlogicweb.com";
+  const umamiSrc = process.env.NEXT_PUBLIC_UMAMI_SRC || "https://analytics.umami.is/script.js";
+  const umamiWebsiteId = process.env.NEXT_PUBLIC_UMAMI_WEBSITE_ID;
+
   return (
     <html lang="fr">
       <body className={`${inter.variable} ${dmSans.variable} bg-background text-foreground antialiased font-sans`}>
@@ -114,8 +119,15 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           suppressHydrationWarning
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLdSite) }}
         />
-        {/* Plausible Analytics */}
-        <Script strategy="lazyOnload" data-domain="smarterlogicweb.com" src="https://plausible.io/js/script.js" />
+
+        {/* Analytics */}
+        {provider === "plausible" && (
+          <Script strategy="lazyOnload" data-domain={plausibleDomain} src="https://plausible.io/js/script.js" />
+        )}
+        {provider === "umami" && umamiWebsiteId && (
+          <Script strategy="lazyOnload" src={umamiSrc} data-website-id={umamiWebsiteId} />
+        )}
+
         <div className="flex min-h-screen flex-col">
           <Header />
           <main id="content" className="flex-1">{children}</main>
