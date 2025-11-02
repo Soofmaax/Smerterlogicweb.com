@@ -1,11 +1,11 @@
 import Link from "next/link";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { Github, Linkedin, Mail, Heart } from "lucide-react";
+import { Heart } from "lucide-react";
 
 export default function Page() {
   return (
-    <main className="relative flex min-h-screen flex-col justify-between overflow-hidden bg-background">
+    <div className="relative overflow-hidden bg-background">
       {/* Subtle, premium background accents (non-distracting) */}
       <div aria-hidden className="pointer-events-none absolute inset-0 -z-10">
         <div className="absolute left-1/2 top-[-10%] h-[40rem] w-[40rem] -translate-x-1/2 rounded-full bg-emerald-300/10 blur-3xl" />
@@ -13,7 +13,7 @@ export default function Page() {
       </div>
 
       {/* Hero */}
-      <section className="relative mx-auto flex w-full max-w-3xl flex-col items-center px-6 py-24 text-center md:py-32">
+      <section className="relative mx-auto flex min-h-[70vh] w-full max-w-3xl flex-col items-center px-6 py-24 text-center md:py-32">
         <div className="mb-6">
           <Badge variant="secondary" className="px-3 py-1 text-sm">
             Développeuse passionnée
@@ -51,45 +51,6 @@ export default function Page() {
           </Link>
         </div>
       </section>
-
-      {/* Footer */}
-      <footer className="w-full border-t">
-        <div className="mx-auto flex w-full max-w-5xl items-center justify-between px-6 py-6">
-          <p className="text-sm text-muted-foreground">
-            © 2025 smarterlogicweb.com - Une présence en ligne logique et humaine.
-          </p>
-          <div className="flex items-center gap-4">
-            <Link
-              href="https://www.linkedin.com/in/votreprofil"
-              target="_blank"
-              rel="noreferrer"
-              aria-label="LinkedIn"
-              className="text-muted-foreground transition-colors hover:text-primary"
-            >
-              <Linkedin className="h-5 w-5" />
-              <span className="sr-only">LinkedIn</span>
-            </Link>
-            <Link
-              href="https://github.com/votreprofil"
-              target="_blank"
-              rel="noreferrer"
-              aria-label="GitHub"
-              className="text-muted-foreground transition-colors hover:text-primary"
-            >
-              <Github className="h-5 w-5" />
-              <span className="sr-only">GitHub</span>
-            </Link>
-            <Link
-              href="mailto:contact@smarterlogicweb.com"
-              aria-label="Envoyer un email"
-              className="text-muted-foreground transition-colors hover:text-primary"
-            >
-              <Mail className="h-5 w-5" />
-              <span className="sr-only">Email</span>
-            </Link>
-          </div>
-        </div>
-      </footer>
-    </main>
+    </div>
   );
 }
