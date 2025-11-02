@@ -77,6 +77,14 @@ export function Footer() {
                   Politique de confidentialité
                 </Link>
               </li>
+              <li>
+                <Link
+                  href="/securite"
+                  className="text-muted-foreground transition-colors hover:text-foreground"
+                >
+                  Sécurité
+                </Link>
+              </li>
             </ul>
           </nav>
 

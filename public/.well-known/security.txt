@@ -1,0 +1,5 @@
+Contact: mailto:contact@smarterlogicweb.com
+Policy: https://smarterlogicweb.com/securite
+Preferred-Languages: fr, en
+Canonical: https://smarterlogicweb.com/.well-known/security.txt
+Hiring: https://smarterlogicweb.com/a-propos
