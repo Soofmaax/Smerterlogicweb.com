@@ -5,7 +5,7 @@ import { Carousel } from "@/components/site/carousel";
 import { Lightbox } from "@/components/site/lightbox";
 import { Modal } from "@/components/site/modal";
 import { Badge } from "@/components/ui/badge";
-import type { CaseItem, KPI } from "@/data/projects";
+import type { CaseItem } from "@/data/projects";
 
 export function ProjectsCases({
   items,
@@ -29,21 +29,23 @@ export function ProjectsCases({
   const renderImage = (src: string | null, alt: string) => {
     if (!src) {
       return (
-        <div className="h-full w-full bg-gradient-to-br from-[#22232a] via-[#1c1e24] to-[#171921]" aria-label={alt} />
+        <div
+          className="h-full w-full bg-gradient-to-br from-[#22232a] via-[#1c1e24] to-[#171921]"
+          aria-label={alt}
+        />
       );
     }
     return (
-      <img
-        src={src}
-        alt={alt}
-        className="h-full w-full object-cover"
-        loading="lazy"
-      />
+      <img src={src} alt={alt} className="h-full w-full object-cover" loading="lazy" />
     );
   };
 
   const slideCard = (item: CaseItem, index: number) => (
-    <article key={item.id} id={item.id} className="flex scroll-mt-28 flex-col rounded-[28px] card-elevated border bg-card p-6 shadow-sm">
+    <article
+      key={item.id}
+      id={item.id}
+      className="flex scroll-mt-28 flex-col rounded-[28px] card-elevated border bg-card p-6 shadow-sm"
+    >
       <div className="flex flex-wrap items-center gap-2">
         {item.tags.map((t) => (
           <Badge key={t} variant="outline">
@@ -92,17 +94,19 @@ export function ProjectsCases({
   const zoomSlides = items.map((it, i) => {
     const hasImages = Array.isArray(it.images) && it.images.length > 0;
     return (
-     <vdiv key={it.id ?? i} className="absolute inset-0">
-       <ldiv className="h-full w-full">
+      <div key={it.id ?? i} className="absolute inset-0">
+        <div className="h-full w-full">
           {hasImages ? (
             renderImage(it.images![0]!, `${it.title} preview`)
           ) : (
-           <ldiv className="h-full w-full bg-gradient-to-br from-[#22232a] via-[#1c1e24] to-[#171921]" />
+            <div className="h-full w-full bg-gradient-to-br from-[#22232a] via-[#1c1e24] to-[#171921]" />
           )}
-      </  div>
-    </
- div>
- const details = items[detailsIndex];
+        </div>
+      </div>
+    );
+  });
+
+  const details = items[detailsIndex];
 
   return (
     <div className={className}>
@@ -162,14 +166,15 @@ export function ProjectsCases({
               </div>
             </header>
 
-            <div className="mt-4 text-sm text-foreground/80">
-              {details.description}
-            </div>
+            <div className="mt-4 text-sm text-foreground/80">{details.description}</div>
 
             {details.kpis && details.kpis.length > 0 ? (
               <div className="mt-5 grid grid-cols-2 gap-3 sm:grid-cols-3">
                 {details.kpis.map((k, i) => (
-                  <div key={i} className="rounded-[16px] border bg-muted/40 p-3 text-center">
+                  <div
+                    key={`${details.id}-kpi-${i}`}
+                    className="rounded-[16px] border bg-muted/40 p-3 text-center"
+                  >
                     <div className="text-sm text-muted-foreground">{k.label}</div>
                     <div className="mt-1 text-lg font-semibold">{k.value}</div>
                   </div>
