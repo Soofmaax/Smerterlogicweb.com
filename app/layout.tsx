@@ -3,6 +3,7 @@ import "./globals.css";
 import { Inter, DM_Sans } from "next/font/google";
 import { Header } from "@/components/site/header";
 import { Footer } from "@/components/site/footer";
+import { UXEnhancer } from "@/components/site/ux-enhancer";
 import Script from "next/script";
 
 const inter = Inter({
@@ -128,6 +129,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         {provider === "umami" && umamiWebsiteId && (
           <Script strategy="lazyOnload" src={umamiSrc} data-website-id={umamiWebsiteId} />
         )}
+
+        <UXEnhancer />
 
         <div className="flex min-h-screen flex-col">
           <Header />

@@ -6,6 +6,7 @@ import { StatsCard } from "@/components/site/stats-card";
 import { statsFR } from "@/data/stats";
 import { TrackedLink } from "@/components/site/tracked-link";
 import { Carousel } from "@/components/site/carousel";
+import { Reveal } from "@/components/site/reveal";
 
 export const metadata = {
   title: "Votre site web, enfin simple et performant.",
@@ -51,9 +52,11 @@ export default function Page() {
         </h1>
 
         {/* Visual card (sober gradient) */}
-        <div className="mt-8 overflow-hidden rounded-[28px] border p-[2px]">
-          <div className="h-48 w-full rounded-[26px] bg-gradient-to-br from-[#22232a] via-[#1c1e24] to-[#171921] md:h-72" />
-        </div>
+        <Reveal className="reveal-clip mt-8 block">
+          <div className="overflow-hidden rounded-[28px] border p-[2px]">
+            <div className="h-48 w-full rounded-[26px] bg-gradient-to-br from-[#22232a] via-[#1c1e24] to-[#171921] md:h-72" />
+          </div>
+        </Reveal>
 
         <p className="mt-6 text-lg leading-relaxed text-foreground/80 md:text-xl">
           Quels problèmes web vous font perdre du temps ? Combien d’opportunités perdez‑vous par un site confus
@@ -69,11 +72,13 @@ export default function Page() {
 
       {/* Stats cards */}
       <section className="mx-auto w-full max-w-3xl px-6 py-2">
-        <div className="grid gap-6 md:grid-cols-1">
-          {statsFR.slice(0, 1).map((items, idx) => (
-            <StatsCard key={idx} items={items} />
-          ))}
-        </div>
+        <Reveal className="reveal-fade-up">
+          <div className="grid gap-6 md:grid-cols-1">
+            {statsFR.slice(0, 1).map((items, idx) => (
+              <StatsCard key={idx} items={items} />
+            ))}
+          </div>
+        </Reveal>
       </section>
 
       {/* Vertical ticker (sobre) */}
@@ -123,26 +128,28 @@ export default function Page() {
       <section id="solutions" className="mx-auto w-full max-w-3xl px-6 pb-16">
         <div className="rounded-[28px] border bg-muted/40 p-4 md:p-5">
           <div className="mb-2 px-2 text-lg font-semibold text-muted-foreground">Solutions</div>
-          <ul className="space-y-3">
-            {[
-              { label: "Cloud Services", Icon: Cloud },
-              { label: "Cyber Security", Icon: Shield },
-              { label: "IT Support", Icon: MessageSquare },
-              { label: "Microsoft Solutions", Icon: Layers },
-              { label: "Mobile + Utilities", Icon: Smartphone },
-              { label: "Network + Comms", Icon: Wifi },
-            ].map(({ label, Icon }) => (
-              <li key={label}>
-                <Link
-                  href="/services"
-                  className="group flex items-center justify-between rounded-full border border-foreground/10 bg-card px-5 py-3 text-foreground shadow-sm ring-1 ring-black/5 transition-colors hover:bg-accent"
-                >
-                  <span className="text-base font-medium transition-colors group-hover:text-primary">{label}</span>
-                  <Icon className="h-5 w-5 text-muted-foreground transition-colors group-hover:text-primary" />
-                </Link>
-              </li>
-            ))}
-          </ul>
+          <Reveal className="reveal-fade-up">
+            <ul className="space-y-3">
+              {[
+                { label: "Cloud Services", Icon: Cloud },
+                { label: "Cyber Security", Icon: Shield },
+                { label: "IT Support", Icon: MessageSquare },
+                { label: "Microsoft Solutions", Icon: Layers },
+                { label: "Mobile + Utilities", Icon: Smartphone },
+                { label: "Network + Comms", Icon: Wifi },
+              ].map(({ label, Icon }) => (
+                <li key={label}>
+                  <Link
+                    href="/services"
+                    className="group flex items-center justify-between rounded-full border border-foreground/10 bg-card px-5 py-3 text-foreground shadow-sm ring-1 ring-black/5 transition-colors hover:bg-accent"
+                  >
+                    <span className="text-base font-medium transition-colors group-hover:text-primary">{label}</span>
+                    <Icon className="h-5 w-5 text-muted-foreground transition-colors group-hover:text-primary" />
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </Reveal>
         </div>
       </section>
 
@@ -169,93 +176,97 @@ export default function Page() {
 
       {/* Partners logos block — horizontal carousel */}
       <section className="mx-auto w-full max-w-3xl px-6 pb-10">
-        <div className="overflow-hidden rounded-[28px] card-elevated border p-6 bg-card">
-          <h3 className="text-center font-heading text-2xl font-semibold md:text-3xl">
-            Des solutions de confiance, adaptées à vous.
-          </h3>
-          <p className="mt-2 text-center text-foreground/70">
-            Rejoignez nos futurs partenaires et clients satisfaits.
-          </p>
+        <Reveal className="reveal-clip block">
+          <div className="overflow-hidden rounded-[28px] card-elevated border p-6 bg-card">
+            <h3 className="text-center font-heading text-2xl font-semibold md:text-3xl">
+              Des solutions de confiance, adaptées à vous.
+            </h3>
+            <p className="mt-2 text-center text-foreground/70">
+              Rejoignez nos futurs partenaires et clients satisfaits.
+            </p>
 
-          {/* Carousel */}
-          <div className="mt-6">
-            <Carousel
-              orientation="horizontal"
-              autoplay
-              intervalMs={3500}
-              ariaLabel="Logos partenaires"
-              items={[
-                "Votre logo",
-                "Client A",
-                "Client B",
-                "Client C",
-                "Client D",
-                "Client E",
-                "Client F",
-                "Client G",
-              ].map((name) => (
-                <div
-                  key={name}
-                  className="flex h-16 items-center justify-center rounded-2xl bg-white/70 text-sm font-medium text-foreground/60 ring-1 ring-black/5 dark:bg-white/5 dark:text-white/70"
-                  aria-label={`Logo ${name}`}
-                >
-                  {name}
-                </div>
-              ))}
-            />
+            {/* Carousel */}
+            <div className="mt-6">
+              <Carousel
+                orientation="horizontal"
+                autoplay
+                intervalMs={3500}
+                ariaLabel="Logos partenaires"
+                items={[
+                  "Votre logo",
+                  "Client A",
+                  "Client B",
+                  "Client C",
+                  "Client D",
+                  "Client E",
+                  "Client F",
+                  "Client G",
+                ].map((name) => (
+                  <div
+                    key={name}
+                    className="flex h-16 items-center justify-center rounded-2xl bg-white/70 text-sm font-medium text-foreground/60 ring-1 ring-black/5 dark:bg-white/5 dark:text-white/70"
+                    aria-label={`Logo ${name}`}
+                  >
+                    {name}
+                  </div>
+                ))}
+              />
+            </div>
           </div>
-        </div>
+        </Reveal>
       </section>
 
       {/* Resources — horizontal carousel */}
       <section className="mx-auto w-full max-w-3xl px-6 pb-20">
-        <div className="overflow-hidden rounded-[28px] card-elevated border p-6 bg-card">
-          <h3 className="text-center font-heading text-2xl font-semibold md:text-3xl">
-            Ressources récentes
-          </h3>
-          <p className="mt-2 text-center text-foreground/70">
-            Conseils clairs pour améliorer votre site et vos conversions.
-          </p>
-          <div className="mt-6">
-            <Carousel
-              orientation="horizontal"
-              autoplay
-              intervalMs={3800}
-              ariaLabel="Ressources"
-              items={[
-                {
-                  title: "Optimiser Core Web Vitals",
-                  category: "Performance",
-                },
-                {
-                  title: "Accessibilité: 10 points clés",
-                  category: "A11y",
-                },
-                {
-                  title: "SEO technique avec Next.js",
-                  category: "SEO",
-                },
-                {
-                  title: "Refonte: par où commencer",
-                  category: "UX",
-                },
-                {
-                  title: "Formulaires qui convertissent",
-                  category: "Conversion",
-                },
-              ].map((r, i) => (
-                <article key={i} className="rounded-[20px] border bg-card p-5 transition hover:shadow-md focus-within:outline-none focus-within:ring-2 focus-within:ring-primary/60">
-                  <div className="text-xs uppercase tracking-wide text-muted-foreground">{r.category}</div>
-                  <h4 className="mt-2 font-heading text-lg font-semibold">{r.title}</h4>
-                  <p className="mt-2 text-sm text-foreground/70">Lecture rapide — meilleures pratiques applicables.</p>
-                  <a href="#" className="mt-3 inline-block text-sm text-primary hover:underline focus:outline-none focus-visible:ring-2 focus-visible:ring-primary/60 rounded">
-                    Lire
-                  </a>
-                </article>
-              ))}
-            />
+        <Reveal className="reveal-clip block">
+          <div className="overflow-hidden rounded-[28px] card-elevated border p-6 bg-card">
+            <h3 className="text-center font-heading text-2xl font-semibold md:text-3xl">
+              Ressources récentes
+            </h3>
+            <p className="mt-2 text-center text-foreground/70">
+              Conseils clairs pour améliorer votre site et vos conversions.
+            </p>
+            <div className="mt-6">
+              <Carousel
+                orientation="horizontal"
+                autoplay
+                intervalMs={3800}
+                ariaLabel="Ressources"
+                items={[
+                  {
+                    title: "Optimiser Core Web Vitals",
+                    category: "Performance",
+                  },
+                  {
+                    title: "Accessibilité: 10 points clés",
+                    category: "A11y",
+                  },
+                  {
+                    title: "SEO technique avec Next.js",
+                    category: "SEO",
+                  },
+                  {
+                    title: "Refonte: par où commencer",
+                    category: "UX",
+                  },
+                  {
+                    title: "Formulaires qui convertissent",
+                    category: "Conversion",
+                  },
+                ].map((r, i) => (
+                  <article key={i} className="rounded-[20px] border bg-card p-5 transition hover:shadow-md focus-within:outline-none focus-within:ring-2 focus-within:ring-primary/60">
+                    <div className="text-xs uppercase tracking-wide text-muted-foreground">{r.category}</div>
+                    <h4 className="mt-2 font-heading text-lg font-semibold">{r.title}</h4>
+                    <p className="mt-2 text-sm text-foreground/70">Lecture rapide — meilleures pratiques applicables.</p>
+                    <a href="#" className="mt-3 inline-block text-sm text-primary hover:underline focus:outline-none focus-visible:ring-2 focus-visible:ring-primary/60 rounded">
+                      Lire
+                    </a>
+                  </article>
+                ))}
+              />
+            </div>
           </div>
-        </div>
+        </Reveal>
       </section>
     </div>
   );

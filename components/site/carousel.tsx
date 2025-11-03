@@ -58,32 +58,40 @@ function HorizontalCarousel({
   intervalMs?: number;
   ariaLabel?: string;
 }) {
+  const rootRef = React.useRef<HTMLDivElement>(null);
   const viewportRef = React.useRef<HTMLDivElement>(null);
   const [index, setIndex] = React.useState(0);
+  const [paused, setPaused] = React.useState(false);
+  const [progress, setProgress] = React.useState(0);
+  const startRef = React.useRef<number>(performance.now());
 
-  const scrollToIndex = React.useCallback(
-    (i: number) => {
-      const vp = viewportRef.current;
-      if (!vp) return;
-      const children = Array.from(vp.children) as HTMLElement[];
-      const target = children[i] as HTMLElement | undefined;
-      if (!target) return;
-      vp.scrollTo({ left: target.offsetLeft, behavior: "smooth" });
-    },
-    [viewportRef]
-  );
+  const scrollToIndex = React.useCallback((i: number) => {
+    const vp = viewportRef.current;
+    if (!vp) return;
+    const children = Array.from(vp.children) as HTMLElement[];
+    const target = children[i] as HTMLElement | undefined;
+    if (!target) return;
+    vp.scrollTo({ left: target.offsetLeft, behavior: "smooth" });
+  }, []);
+
+  const resetProgress = React.useCallback(() => {
+    startRef.current = performance.now();
+    setProgress(0);
+  }, []);
 
   const prev = React.useCallback(() => {
     const i = index - 1 < 0 ? items.length - 1 : index - 1;
     setIndex(i);
     scrollToIndex(i);
-  }, [index, items.length, scrollToIndex]);
+    resetProgress();
+  }, [index, items.length, scrollToIndex, resetProgress]);
 
   const next = React.useCallback(() => {
     const i = index + 1 >= items.length ? 0 : index + 1;
     setIndex(i);
     scrollToIndex(i);
-  }, [index, items.length, scrollToIndex]);
+    resetProgress();
+  }, [index, items.length, scrollToIndex, resetProgress]);
 
   // sync on resize
   React.useEffect(() => {
@@ -95,14 +103,53 @@ function HorizontalCarousel({
   // autoplay
   React.useEffect(() => {
     if (!autoplay) return;
+    const duration = Math.max(2000, intervalMs || 4000);
     const id = setInterval(() => {
-      next();
-    }, Math.max(2000, intervalMs || 4000));
+      if (!paused) next();
+    }, duration);
     return () => clearInterval(id);
-  }, [autoplay, intervalMs, next]);
+  }, [autoplay, intervalMs, paused, next]);
+
+  // progress bar animation
+  React.useEffect(() => {
+    if (!autoplay) {
+      setProgress(0);
+      return;
+    }
+    let raf = 0;
+    const duration = Math.max(2000, intervalMs || 4000);
+    const tick = () => {
+      if (!paused) {
+        const now = performance.now();
+        const p = Math.min(1, (now - startRef.current) / duration);
+        setProgress(p);
+      }
+      raf = requestAnimationFrame(tick);
+    };
+    raf = requestAnimationFrame(tick);
+    return () => cancelAnimationFrame(raf);
+  }, [autoplay, intervalMs, paused, index]);
+
+  // pause on hover/focus
+  React.useEffect(() => {
+    const node = rootRef.current;
+    if (!node) return;
+    const onEnter = () => setPaused(true);
+    const onLeave = () => setPaused(false);
+    node.addEventListener("mouseenter", onEnter);
+    node.addEventListener("mouseleave", onLeave);
+    node.addEventListener("focusin", onEnter);
+    node.addEventListener("focusout", onLeave);
+    return () => {
+      node.removeEventListener("mouseenter", onEnter);
+      node.removeEventListener("mouseleave", onLeave);
+      node.removeEventListener("focusin", onEnter);
+      node.removeEventListener("focusout", onLeave);
+    };
+  }, []);
 
   return (
-    <div className={cn("relative", className)} aria-label={ariaLabel}>
+    <div ref={rootRef} className={cn("relative", className)} aria-label={ariaLabel}>
       <div
         ref={viewportRef}
         className="flex snap-x snap-mandatory gap-4 overflow-x-auto scroll-smooth rounded-[20px] p-1 [scrollbar-width:none] [-ms-overflow-style:none]"
@@ -131,7 +178,7 @@ function HorizontalCarousel({
       <div className="pointer-events-none absolute inset-y-0 left-0 right-0 flex items-center justify-between px-2">
         <button
           type="button"
-          className="pointer-events-auto inline-flex h-9 w-9 items-center justify-center rounded-full bg-background/80 text-foreground shadow ring-1 ring-black/5 transition hover:bg-accent"
+          className="pointer-events-auto inline-flex h-9 w-9 items-center justify-center rounded-full bg-background/80 text-foreground shadow ring-1 ring-black/5 transition hover:bg-accent focus:outline-none focus-visible:ring-2 focus-visible:ring-primary/60"
           aria-label="Previous slide"
           onClick={prev}
         >
@@ -139,13 +186,24 @@ function HorizontalCarousel({
         </button>
         <button
           type="button"
-          className="pointer-events-auto inline-flex h-9 w-9 items-center justify-center rounded-full bg-background/80 text-foreground shadow ring-1 ring-black/5 transition hover:bg-accent"
+          className="pointer-events-auto inline-flex h-9 w-9 items-center justify-center rounded-full bg-background/80 text-foreground shadow ring-1 ring-black/5 transition hover:bg-accent focus:outline-none focus-visible:ring-2 focus-visible:ring-primary/60"
           aria-label="Next slide"
           onClick={next}
         >
           <ChevronRight className="h-5 w-5" />
         </button>
       </div>
+
+      {/* Progress bar */}
+      {autoplay ? (
+        <div className="absolute inset-x-1 bottom-0 h-0.5 rounded bg-foreground/10">
+          <div
+            className="h-full rounded bg-primary transition-[width] duration-100 ease-linear"
+            style={{ width: `${progress * 100}%` }}
+            aria-hidden
+          />
+        </div>
+      ) : null}
     </div>
   );
 }
