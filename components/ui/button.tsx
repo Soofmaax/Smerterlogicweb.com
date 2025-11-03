@@ -19,7 +19,8 @@ const baseClasses =
 
 const variantClasses: Record<ButtonVariant, string> = {
   default: "bg-primary text-primary-foreground hover:opacity-90",
-  secondary: "bg-secondary text-secondary-foreground hover:opacity-90",
+  // Neutral, understated secondary (outline dark)
+  secondary: "border border-foreground/20 bg-transparent text-foreground hover:bg-accent",
   outline: "border border-input bg-background hover:bg-accent hover:text-accent-foreground",
   ghost: "hover:bg-accent hover:text-accent-foreground",
 };

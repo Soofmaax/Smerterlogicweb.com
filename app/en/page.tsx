@@ -49,9 +49,9 @@ export default function Page() {
           </span>
         </h1>
 
-        {/* Visual gradient */}
-        <div className="mt-8 overflow-hidden rounded-[28px] border bg-gradient-to-tr from-fuchsia-300/40 via-indigo-300/40 to-rose-300/40 p-[2px]">
-          <div className="h-48 w-full rounded-[26px] bg-gradient-to-br from-[#2c2438] via-[#2a2033] to-[#1a1825] md:h-72" />
+        {/* Visual gradient (sober) */}
+        <div className="mt-8 overflow-hidden rounded-[28px] border p-[2px]">
+          <div className="h-48 w-full rounded-[26px] bg-gradient-to-br from-[#22232a] via-[#1c1e24] to-[#171921] md:h-72" />
         </div>
 
         <p className="mt-6 text-lg leading-relaxed text-foreground/80 md:text-xl">
@@ -111,10 +111,10 @@ export default function Page() {
               <li key={label}>
                 <Link
                   href="/en/services"
-                  className="flex items-center justify-between rounded-full border border-black/10 bg-card px-5 py-3 text-foreground shadow-sm ring-1 ring-black/5 transition-colors hover:bg-accent/30"
+                  className="flex items-center justify-between rounded-full border border-foreground/10 bg-card px-5 py-3 text-foreground shadow-sm ring-1 ring-black/5 transition-colors hover:bg-accent"
                 >
                   <span className="text-base font-medium">{label}</span>
-                  <Icon className="h-5 w-5 text-muted-foreground" />
+                  <Icon className="h-5 w-5 text-muted-foreground group-hover:text-primary" />
                 </Link>
               </li>
             ))}

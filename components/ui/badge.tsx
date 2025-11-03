@@ -9,7 +9,8 @@ export interface BadgeProps extends React.HTMLAttributes<HTMLSpanElement> {
 
 const variantClasses: Record<BadgeVariant, string> = {
   default: "border-transparent bg-primary text-primary-foreground hover:bg-primary/90",
-  secondary: "border-transparent bg-secondary text-secondary-foreground hover:bg-secondary/90",
+  // Sober grey badge for trust indicators
+  secondary: "border border-foreground/10 bg-muted text-foreground/80",
   outline: "text-foreground",
 };
 
