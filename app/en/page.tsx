@@ -82,7 +82,7 @@ export default function Page() {
             <div className="h-40 md:h-56" />
           </div>
           <h2 className="mt-5 font-heading text-2xl font-semibold tracking-tight md:text-3xl">
-            Discover what's possible with smarterlogicweb
+            Discover what&#39;s possible with smarterlogicweb
           </h2>
           <p className="mt-3 text-foreground/80">
             Explore the full range of solutions and find the perfect fit for your business needs.
@@ -127,13 +127,13 @@ export default function Page() {
         <div className="rounded-[28px] card-elevated border bg-card p-6">
           <h3 className="font-heading text-2xl font-semibold">Trusted web solutions, tailored to you.</h3>
           <p className="mt-2 text-foreground/80">
-            From showcase sites to performance optimisation and accessibility — I'm here to help.
+            From showcase sites to performance optimisation and accessibility — I&#39;m here to help.
           </p>
           <div className="mt-5 flex flex-col gap-3 sm:flex-row">
             <Button asChild className="rounded-full">
-              <Link href="mailto:contact@smarterlogicweb.com?subject=Free%20quote" onClick={() => track("cta_devis_mailto_hero")}>
+              <TrackedLink href="mailto:contact@smarterlogicweb.com?subject=Free%20quote" eventName="cta_devis_mailto_hero">
                 Get my free quote
-              </Link>
+              </TrackedLink>
             </Button>
             <Link href="/en/nonprofit-commitment" className="group inline-flex items-center justify-center gap-2 rounded-full px-4 py-3 text-sm text-muted-foreground hover:text-foreground">
               <Heart size={16} className="transition-transform group-hover:scale-110" />
