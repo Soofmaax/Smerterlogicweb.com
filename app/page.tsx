@@ -68,8 +68,8 @@ export default function Page() {
 
       {/* Stats cards */}
       <section className="mx-auto w-full max-w-3xl px-6 py-2">
-        <div className="grid gap-6 md:grid-cols-2">
-          {statsFR.map((items, idx) => (
+        <div className="grid gap-6 md:grid-cols-1">
+          {statsFR.slice(0, 1).map((items, idx) => (
             <StatsCard key={idx} items={items} />
           ))}
         </div>
