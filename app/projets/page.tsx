@@ -2,6 +2,7 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Carousel } from "@/components/site/carousel";
 import { TrackedLink } from "@/components/site/tracked-link";
+import { Reveal } from "@/components/site/reveal";
 
 export const metadata = {
   title: "Projets — smarterlogicweb.com",
@@ -141,13 +142,20 @@ export default function ProjetsPage() {
   return (
     <section className="mx-auto w-full max-w-5xl px-6 py-16 md:py-24">
       <div className="mx-auto max-w-3xl text-center">
-        <h1 className="font-heading text-4xl font-bold tracking-tight md:text-5xl">
-          Études de cas
-        </h1>
+        <Reveal className="reveal-clip inline-block">
+          <h1 className="font-heading text-4xl font-bold tracking-tight md:text-5xl">
+            Études de cas
+          </h1>
+        </Reveal>
         <p className="mt-4 text-foreground/80">
           Des interfaces sobres, rapides et orientées conversion. Voici des exemples de ce que je réalise.
         </p>
       </div>
+
+      {/* Bandeau visuel plein cadre avec reveal (sobre) */}
+      <Reveal className="reveal-clip mt-8 block">
+        <div className="h-44 w-full rounded-[28px] border bg-gradient-to-br from-[#22232a] via-[#1c1e24] to-[#171921] md:h-64" />
+      </Reveal>
 
       {/* Bandeau Showcase style "app shell" premium */}
       <div className="mt-10">

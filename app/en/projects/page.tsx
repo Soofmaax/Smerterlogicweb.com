@@ -2,6 +2,7 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Carousel } from "@/components/site/carousel";
 import { TrackedLink } from "@/components/site/tracked-link";
+import { Reveal } from "@/components/site/reveal";
 
 export const metadata = {
   title: "Projects — smarterlogicweb.com",
@@ -69,7 +70,7 @@ function ShowcaseSlide({
           <div className="p-4">
             <div className="h-3 w-2/3 rounded bg-white/10" />
             <div className="mt-3 grid grid-cols-3 gap-3">
-              <div className="h-16 rounded bg-white/10" />
+              <div className="h-16 rounded bg白/10" />
               <div className="h-16 rounded bg-white/10" />
               <div className="h-16 rounded bg-white/10" />
             </div>
@@ -141,13 +142,20 @@ export default function ProjectsPage() {
   return (
     <section className="mx-auto w-full max-w-5xl px-6 py-16 md:py-24">
       <div className="mx-auto max-w-3xl text-center">
-        <h1 className="font-heading text-4xl font-bold tracking-tight md:text-5xl">
-          Case studies
-        </h1>
+        <Reveal className="reveal-clip inline-block">
+          <h1 className="font-heading text-4xl font-bold tracking-tight md:text-5xl">
+            Case studies
+          </h1>
+        </Reveal>
         <p className="mt-4 text-foreground/80">
           Sober, fast and conversion‑oriented interfaces. Here’s what I build.
         </p>
       </div>
+
+      {/* Full-width visual banner with reveal (sober) */}
+      <Reveal className="reveal-clip mt-8 block">
+        <div className="h-44 w-full rounded-[28px] border bg-gradient-to-br from-[#22232a] via-[#1c1e24] to-[#171921] md:h-64" />
+      </Reveal>
 
       {/* Premium app-shell style showcase band */}
       <div className="mt-10">
