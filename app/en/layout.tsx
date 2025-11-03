@@ -63,14 +63,6 @@ export const metadata: Metadata = {
     index: true,
     follow: true,
   },
-  viewport: {
-    width: "device-width",
-    initialScale: 1,
-  },
-  themeColor: [
-    { media: "(prefers-color-scheme: light)", color: "#ffffff" },
-    { media: "(prefers-color-scheme: dark)", color: "#0b0f13" },
-  ],
 };
 
 const jsonLdOrg = {
@@ -98,6 +90,15 @@ const jsonLdSite = {
   "@type": "WebSite",
   url: "https://smarterlogicweb.com",
   name: "smarterlogicweb.com",
+};
+
+export const viewport = {
+  width: "device-width",
+  initialScale: 1,
+  themeColor: [
+    { media: "(prefers-color-scheme: light)", color: "#ffffff" },
+    { media: "(prefers-color-scheme: dark)", color: "#0b0f13" },
+  ],
 };
 
 export default function EnLayout({ children }: { children: React.ReactNode }) {
