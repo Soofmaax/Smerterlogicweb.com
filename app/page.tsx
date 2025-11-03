@@ -5,6 +5,7 @@ import { Heart, Cloud, Shield, MessageSquare, Layers, Smartphone, Wifi } from "l
 import { StatsCard } from "@/components/site/stats-card";
 import { statsFR } from "@/data/stats";
 import { TrackedLink } from "@/components/site/tracked-link";
+import { Carousel } from "@/components/site/carousel";
 
 export const metadata = {
   title: "Votre site web, enfin simple et performant.",
@@ -72,6 +73,29 @@ export default function Page() {
           {statsFR.slice(0, 1).map((items, idx) => (
             <StatsCard key={idx} items={items} />
           ))}
+        </div>
+      </section>
+
+      {/* Vertical ticker (sobre) */}
+      <section className="mx-auto w-full max-w-3xl px-6 py-4">
+        <div className="rounded-[20px] border bg-muted/40 p-4">
+          <Carousel
+            orientation="vertical"
+            autoplay
+            intervalMs={3000}
+            ariaLabel="Messages clés"
+            items={[
+              <div key="1" className="flex h-24 items-center justify-center text-center text-foreground/80">
+                Sites clairs, rapides, durables.
+              </div>,
+              <div key="2" className="flex h-24 items-center justify-center text-center text-foreground/80">
+                Accessibilité et performance dès le départ.
+              </div>,
+              <div key="3" className="flex h-24 items-center justify-center text-center text-foreground/80">
+                Partenaire fiable pour votre croissance.
+              </div>,
+            ]}
+          />
         </div>
       </section>
 
@@ -143,25 +167,42 @@ export default function Page() {
         </div>
       </section>
 
-      {/* Partners logos block (pastel gradient) */}
+      {/* Partners logos block — horizontal carousel */}
       <section className="mx-auto w-full max-w-3xl px-6 pb-20">
-        <div className="overflow-hidden rounded-[28px] card-elevated border p-6 bg-gradient-to-br from-rose-100/80 via-purple-100/80 to-indigo-100/80 dark:from-rose-200/20 dark:via-purple-200/20 dark:to-indigo-200/20">
+        <div className="overflow-hidden rounded-[28px] card-elevated border p-6 bg-card">
           <h3 className="text-center font-heading text-2xl font-semibold md:text-3xl">
             Des solutions de confiance, adaptées à vous.
           </h3>
           <p className="mt-2 text-center text-foreground/70">
             Rejoignez nos futurs partenaires et clients satisfaits.
           </p>
-          <div className="mt-6 grid grid-cols-3 gap-4 md:grid-cols-5">
-            {["Votre logo", "Client A", "Client B", "Client C", "Client D", "Client E"].map((name) => (
-              <div
-                key={name}
-                className="flex h-16 items-center justify-center rounded-2xl bg-white/70 text-sm font-medium text-foreground/60 ring-1 ring-black/5 dark:bg-white/5 dark:text-white/70"
-                aria-label={`Logo ${name}`}
-              >
-                {name}
-              </div>
-            ))}
+
+          {/* Carousel */}
+          <div className="mt-6">
+            <Carousel
+              orientation="horizontal"
+              autoplay
+              intervalMs={3500}
+              ariaLabel="Logos partenaires"
+              items={[
+                "Votre logo",
+                "Client A",
+                "Client B",
+                "Client C",
+                "Client D",
+                "Client E",
+                "Client F",
+                "Client G",
+              ].map((name) => (
+                <div
+                  key={name}
+                  className="flex h-16 items-center justify-center rounded-2xl bg-white/70 text-sm font-medium text-foreground/60 ring-1 ring-black/5 dark:bg-white/5 dark:text-white/70"
+                  aria-label={`Logo ${name}`}
+                >
+                  {name}
+                </div>
+              ))}
+            />
           </div>
         </div>
       </section>
