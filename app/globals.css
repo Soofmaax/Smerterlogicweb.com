@@ -143,6 +143,23 @@ a.link-underline:focus-visible::after {
     inset 0 1px 0 rgba(255,255,255,0.06);
 }
 
+/* Light variant for stats on bright sections */
+.stat-card--light {
+  position: relative;
+  overflow: hidden;
+  border-radius: 28px;
+  padding: 1.5rem;
+  background:
+    radial-gradient(800px circle at 0% 0%, hsl(var(--primary) / 0.06) 0%, transparent 45%),
+    linear-gradient(135deg, #ffffff, #f7fafc);
+  box-shadow: 0 8px 20px rgba(17, 24, 39, 0.06);
+  transition: transform 200ms ease, box-shadow 200ms ease;
+}
+.stat-card--light:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 26px rgba(17, 24, 39, 0.08);
+}
+
 /* Subtle gloss + grain overlay for large cards with tilt support */
 .card-elevated {
   position: relative;

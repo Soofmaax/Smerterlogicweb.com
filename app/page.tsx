@@ -54,7 +54,7 @@ export default function Page() {
         {/* Visual card (sober gradient) */}
         <Reveal className="reveal-clip mt-8 block">
           <div className="overflow-hidden rounded-[28px] border p-[2px]">
-            <div className="h-48 w-full rounded-[26px] bg-gradient-to-br from-[#22232a] via-[#1c1e24] to-[#171921] md:h-72" />
+            <div className="h-48 w-full rounded-[26px] bg-gradient-to-br from-white via-slate-50 to-slate-100 dark:from-[#1b1f26] dark:via-[#141821] dark:to-[#0f131a] md:h-72" />
           </div>
         </Reveal>
 
@@ -75,7 +75,7 @@ export default function Page() {
         <Reveal className="reveal-fade-up">
           <div className="grid gap-6 md:grid-cols-1">
             {statsFR.slice(0, 1).map((items, idx) => (
-              <StatsCard key={idx} items={items} />
+              <StatsCard key={idx} items={items} variant="light" />
             ))}
           </div>
         </Reveal>
