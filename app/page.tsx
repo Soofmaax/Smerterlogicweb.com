@@ -2,9 +2,9 @@ import Link from "next/link";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Heart, Cloud, Shield, MessageSquare, Layers, Smartphone, Wifi } from "lucide-react";
-import { track } from "@/lib/analytics";
 import { StatsCard } from "@/components/site/stats-card";
 import { statsFR } from "@/data/stats";
+import { TrackedLink } from "@/components/site/tracked-link";
 
 export const metadata = {
   title: "Votre site web, enfin simple et performant.",
@@ -61,7 +61,7 @@ export default function Page() {
 
         <div className="mt-6">
           <Button asChild size="lg" className="w-full rounded-full md:w-auto">
-            <Link href="#solutions" onClick={() => track("cta_solutions_hero")}>Nos solutions</Link>
+            <TrackedLink href="#solutions" eventName="cta_solutions_hero">Nos solutions</TrackedLink>
           </Button>
         </div>
       </section>
@@ -131,9 +131,9 @@ export default function Page() {
           </p>
           <div className="mt-5 flex flex-col gap-3 sm:flex-row">
             <Button asChild className="rounded-full">
-              <Link href="mailto:contact@smarterlogicweb.com?subject=Devis%20gratuit" onClick={() => track("cta_devis_mailto_hero")}>
+              <TrackedLink href="mailto:contact@smarterlogicweb.com?subject=Devis%20gratuit" eventName="cta_devis_mailto_hero">
                 Obtenir mon devis gratuit
-              </Link>
+              </TrackedLink>
             </Button>
             <Link href="/engagement-associatif" className="group inline-flex items-center justify-center gap-2 rounded-full px-4 py-3 text-sm text-muted-foreground hover:text-foreground">
               <Heart size={16} className="transition-transform group-hover:scale-110" />

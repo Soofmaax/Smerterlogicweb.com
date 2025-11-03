@@ -2,7 +2,7 @@ import { Heart } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
-import { track } from "@/lib/analytics";
+import { TrackedLink } from "@/components/site/tracked-link";
 
 export const metadata = {
   title: "Nonprofit commitment — smarterlogicweb.com",
@@ -61,9 +61,9 @@ export default function NonprofitCommitmentPage() {
 
           <div className="mt-10 flex flex-wrap items-center gap-4">
             <Button asChild size="lg" className="rounded-full">
-              <Link href="mailto:contact@smarterlogicweb.com?subject=Nonprofit%20project" onClick={() => track("cta_devis_mailto_engagement")}>
+              <TrackedLink href="mailto:contact@smarterlogicweb.com?subject=Nonprofit%20project" eventName="cta_devis_mailto_engagement">
                 Tell me about your project
-              </Link>
+              </TrackedLink>
             </Button>
             <Link href="/en" className="text-sm text-muted-foreground hover:text-foreground">
               Back to home

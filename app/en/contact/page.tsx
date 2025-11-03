@@ -31,9 +31,9 @@ export default function ContactPage() {
 
         <div className="mt-6 flex flex-wrap items-center gap-4">
           <Button asChild size="lg" className="rounded-full">
-            <Link href="mailto:contact@smarterlogicweb.com?subject=Free%20quote" onClick={() => track("cta_devis_mailto_contact")}>
+            <TrackedLink href="mailto:contact@smarterlogicweb.com?subject=Free%20quote" eventName="cta_devis_mailto_contact">
               <span className="inline-flex items-center gap-2"><Mail className="h-4 w-4" /> contact@smarterlogicweb.com</span>
-            </Link>
+            </TrackedLink>
           </Button>
           <Link href="/en" className="text-sm text-muted-foreground hover:text-foreground">Back to home</Link>
         </div>
@@ -49,7 +49,6 @@ export default function ContactPage() {
           data-netlify="true"
           netlify-honeypot="bot-field"
           action="/en/thank-you"
-          onSubmit={() => track("form_contact_submitted")}
         >
           <input type="hidden" name="form-name" value="contact" />
           <p className="hidden">
