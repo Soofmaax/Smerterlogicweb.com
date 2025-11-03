@@ -5,7 +5,6 @@ import { Carousel } from "@/components/site/carousel";
 import { Lightbox } from "@/components/site/lightbox";
 import { Modal } from "@/components/site/modal";
 import { Badge } from "@/components/ui/badge";
-import { cn } from "@/lib/utils";
 import type { CaseItem, KPI } from "@/data/projects";
 
 export function ProjectsCases({
@@ -90,22 +89,20 @@ export function ProjectsCases({
     </article>
   );
 
-  const zoomSlides = items.map((it) => {
+  const zoomSlides = items.map((it, i) => {
     const hasImages = Array.isArray(it.images) && it.images.length > 0;
     return (
-      <div className="absolute inset-0">
-        <div className="h-full w-full">
+     <vdiv key={it.id ?? i} className="absolute inset-0">
+       <ldiv className="h-full w-full">
           {hasImages ? (
             renderImage(it.images![0]!, `${it.title} preview`)
           ) : (
-            <div className="h-full w-full bg-gradient-to-br from-[#22232a] via-[#1c1e24] to-[#171921]" />
+           <ldiv className="h-full w-full bg-gradient-to-br from-[#22232a] via-[#1c1e24] to-[#171921]" />
           )}
-        </div>
-      </div>
-    );
-  });
-
-  const details = items[detailsIndex];
+      </  div>
+    </
+ div>
+ const details = items[detailsIndex];
 
   return (
     <div className={className}>
