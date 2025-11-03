@@ -91,7 +91,33 @@
   /* Inter for headings, DM Sans for body by default */
   h1, h2, h3, h4, h5, h6 {
     font-family: var(--font-inter), ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+    text-wrap: balance;
   }
+}
+
+/* Utility: balanced headings for finer control */
+.text-balance {
+  text-wrap: balance;
+}
+
+/* Utility: premium underline for inline links */
+a.link-underline {
+  position: relative;
+  text-decoration: none;
+}
+a.link-underline::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0.2em;
+  height: 1px;
+  width: 0%;
+  background: currentColor;
+  transition: width 240ms ease;
+}
+a.link-underline:hover::after,
+a.link-underline:focus-visible::after {
+  width: 100%;
 }
 
 /* Components */

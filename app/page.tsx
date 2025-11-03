@@ -42,7 +42,7 @@ export default function Page() {
           <Badge variant="secondary" className="px-3 py-1 text-sm">Studio web</Badge>
         </div>
 
-        <h1 className="font-heading text-4xl font-bold tracking-tight text-foreground md:text-6xl">
+        <h1 className="font-heading text-4xl font-bold tracking-tight text-foreground md:text-6xl text-balance">
           Des solutions web sur‑mesure.
           <br />
           Nous vous soutenons face à{" "}
@@ -258,7 +258,7 @@ export default function Page() {
                     <div className="text-xs uppercase tracking-wide text-muted-foreground">{r.category}</div>
                     <h4 className="mt-2 font-heading text-lg font-semibold">{r.title}</h4>
                     <p className="mt-2 text-sm text-foreground/70">Lecture rapide — meilleures pratiques applicables.</p>
-                    <a href="#" className="mt-3 inline-block text-sm text-primary hover:underline focus:outline-none focus-visible:ring-2 focus-visible:ring-primary/60 rounded">
+                    <a href="#" className="link-underline mt-3 inline-block rounded text-sm text-primary focus:outline-none focus-visible:ring-2 focus-visible:ring-primary/60">
                       Lire
                     </a>
                   </article>

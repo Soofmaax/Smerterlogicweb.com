@@ -39,7 +39,7 @@ export default function ProjectsPage() {
       />
       <div className="mx-auto max-w-3xl text-center">
         <Reveal className="reveal-clip inline-block">
-          <h1 className="font-heading text-4xl font-bold tracking-tight md:text-5xl">
+          <h1 className="font-heading text-4xl font-bold tracking-tight md:text-5xl text-balance">
             Case studies
           </h1>
         </Reveal>
