@@ -1,7 +1,7 @@
 import { Mail } from "lucide-react";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
-import { track } from "@/lib/analytics";
+import { TrackedLink } from "@/components/site/tracked-link";
 
 export const metadata = {
   title: "Contact — smarterlogicweb.com",
