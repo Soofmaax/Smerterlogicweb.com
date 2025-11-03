@@ -77,7 +77,7 @@ export default function Page() {
 
       {/* Discover card */}
       <section className="mx-auto w-full max-w-3xl px-6 py-8">
-        <div className="rounded-[28px] border bg-card p-4 md:p-6">
+        <div className="rounded-[28px] card-elevated border bg-card p-4 md:p-6">
           <div className="overflow-hidden rounded-[20px] bg-gradient-to-tr from-rose-200 via-purple-200 to-indigo-200">
             <div className="h-40 md:h-56" />
           </div>
@@ -124,7 +124,7 @@ export default function Page() {
 
       {/* Secondary CTA */}
       <section className="mx-auto w-full max-w-3xl px-6 pb-10">
-        <div className="rounded-[28px] border bg-card p-6">
+        <div className="rounded-[28px] card-elevated border bg-card p-6">
           <h3 className="font-heading text-2xl font-semibold">Trusted web solutions, tailored to you.</h3>
           <p className="mt-2 text-foreground/80">
             From showcase sites to performance optimisation and accessibility — I'm here to help.

@@ -27,7 +27,7 @@ export default function EngagementAssociatifPage() {
   return (
     <div className="relative">
       <section className="mx-auto w-full max-w-3xl px-6 py-16 md:py-24">
-        <div className="rounded-[28px] border bg-card p-6 shadow-sm">
+        <div className="rounded-[28px] card-elevated border bg-card p-6 shadow-sm">
           <div className="mb-4 flex items-center gap-2">
             <Badge variant="secondary" className="px-3 py-1">
               Engagement

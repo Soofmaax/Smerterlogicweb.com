@@ -23,7 +23,7 @@ export const metadata = {
 export default function ContactPage() {
   return (
     <section className="mx-auto w-full max-w-3xl px-6 py-16 md:py-24">
-      <div className="rounded-[28px] border bg-card p-6 shadow-sm">
+      <div className="rounded-[28px] card-elevated border bg-card p-6 shadow-sm">
         <h1 className="font-heading text-4xl font-bold tracking-tight md:text-5xl">Contact</h1>
         <p className="mt-4 text-lg leading-relaxed text-foreground/80">
           The simplest and fastest way: email. Describe your needs, goals and constraints — I’ll get back within 24 hours.
@@ -40,7 +40,7 @@ export default function ContactPage() {
       </div>
 
       {/* Netlify Forms */}
-      <div className="mt-10 rounded-[28px] border bg-card p-6 shadow-sm">
+      <div className="mt-10 rounded-[28px] card-elevated border bg-card p-6 shadow-sm">
         <h2 className="font-heading text-xl font-semibold">Send a message</h2>
         <form
           className="mt-4 grid gap-4"
@@ -112,7 +112,7 @@ export default function ContactPage() {
         </form>
       </div>
 
-      <div className="mt-10 rounded-[28px] border bg-card p-6 shadow-sm">
+      <div className="mt-10 rounded-[28px] card-elevated border bg-card p-6 shadow-sm">
         <h2 className="font-heading text-xl font-semibold">For an effective first message</h2>
         <ul className="mt-3 list-disc pl-5 text-sm leading-relaxed text-foreground/80">
           <li>Main goal (showcase, redesign, optimisation…)</li>

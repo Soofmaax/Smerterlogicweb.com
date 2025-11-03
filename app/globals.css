@@ -107,3 +107,39 @@
     0 10px 20px rgba(0,0,0,0.15),
     inset 0 1px 0 rgba(255,255,255,0.05);
 }
+
+/* Subtle gloss + grain overlay for large cards */
+.card-elevated {
+  position: relative;
+  overflow: hidden;
+}
+.card-elevated::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  border-radius: inherit;
+  background:
+    linear-gradient(
+      to bottom,
+      rgba(255,255,255,0.14) 0%,
+      rgba(255,255,255,0.06) 28%,
+      rgba(255,255,255,0.0) 60%
+    );
+  mix-blend-mode: screen;
+  opacity: 0.7;
+}
+.card-elevated::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  border-radius: inherit;
+  background-image:
+    radial-gradient(rgba(255,255,255,0.08) 0.6px, transparent 1.2px),
+    radial-gradient(rgba(0,0,0,0.06) 0.6px, transparent 1.2px);
+  background-size: 6px 6px, 8px 8px;
+  background-position: 0 0, 3px 2px;
+  opacity: 0.25;
+  mix-blend-mode: overlay;
+}
