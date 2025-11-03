@@ -6,7 +6,13 @@ import { track } from "@/lib/analytics";
 export const metadata = {
   title: "Projects — smarterlogicweb.com",
   description: "Case studies: simplicity, performance, conversion. A glimpse of Next.js work.",
-  alternates: { canonical: "/en/projects" },
+  alternates: {
+    canonical: "/en/projects",
+    languages: {
+      "en-US": "/en/projects",
+      "fr-FR": "/projets",
+    },
+  },
   openGraph: {
     url: "https://smarterlogicweb.com/en/projects",
     title: "Projects — smarterlogicweb.com",

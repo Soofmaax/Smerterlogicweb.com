@@ -6,7 +6,13 @@ import { track } from "@/lib/analytics";
 export const metadata = {
   title: "Contact — smarterlogicweb.com",
   description: "Contactez-moi pour un devis gratuit ou pour discuter de votre projet.",
-  alternates: { canonical: "/contact" },
+  alternates: {
+    canonical: "/contact",
+    languages: {
+      "fr-FR": "/contact",
+      "en-US": "/en/contact",
+    },
+  },
   openGraph: {
     url: "https://smarterlogicweb.com/contact",
     title: "Contact — smarterlogicweb.com",

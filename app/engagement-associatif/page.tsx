@@ -8,7 +8,13 @@ export const metadata = {
   title: "Engagement associatif — smarterlogicweb.com",
   description:
     "Mon engagement associatif: aider des projets à impact grâce au web. Mentorat, refontes accessibles, optimisation de la performance.",
-  alternates: { canonical: "/engagement-associatif" },
+  alternates: {
+    canonical: "/engagement-associatif",
+    languages: {
+      "fr-FR": "/engagement-associatif",
+      "en-US": "/en/nonprofit-commitment",
+    },
+  },
   openGraph: {
     url: "https://smarterlogicweb.com/engagement-associatif",
     title: "Engagement associatif — smarterlogicweb.com",

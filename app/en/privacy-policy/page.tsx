@@ -2,7 +2,13 @@ export const metadata = {
   title: "Privacy policy — smarterlogicweb.com",
   description:
     "Privacy policy: data collected, purposes, legal basis, retention, user rights.",
-  alternates: { canonical: "/en/privacy-policy" },
+  alternates: {
+    canonical: "/en/privacy-policy",
+    languages: {
+      "en-US": "/en/privacy-policy",
+      "fr-FR": "/politique-de-confidentialite",
+    },
+  },
   openGraph: {
     url: "https://smarterlogicweb.com/en/privacy-policy",
     title: "Privacy policy — smarterlogicweb.com",

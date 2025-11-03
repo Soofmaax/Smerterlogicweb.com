@@ -4,7 +4,13 @@ export const metadata = {
   title: "Sécurité — smarterlogicweb.com",
   description:
     "Politique de divulgation responsable des vulnérabilités. Merci de nous aider à sécuriser smarterlogicweb.com.",
-  alternates: { canonical: "/securite" },
+  alternates: {
+    canonical: "/securite",
+    languages: {
+      "fr-FR": "/securite",
+      "en-US": "/en/security",
+    },
+  },
   openGraph: {
     url: "https://smarterlogicweb.com/securite",
     title: "Sécurité — smarterlogicweb.com",

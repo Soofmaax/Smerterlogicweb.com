@@ -6,7 +6,13 @@ import { track } from "@/lib/analytics";
 export const metadata = {
   title: "À propos — smarterlogicweb.com",
   description: "Développeuse front-end — simplicité, performance et exigence au service de votre présence en ligne.",
-  alternates: { canonical: "/a-propos" },
+  alternates: {
+    canonical: "/a-propos",
+    languages: {
+      "fr-FR": "/a-propos",
+      "en-US": "/en/about",
+    },
+  },
   openGraph: {
     url: "https://smarterlogicweb.com/a-propos",
     title: "À propos — smarterlogicweb.com",

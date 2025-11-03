@@ -1,7 +1,13 @@
 export const metadata = {
   title: "Merci — smarterlogicweb.com",
   description: "Votre message a été envoyé. Je reviens vers vous sous 24h.",
-  alternates: { canonical: "/merci" },
+  alternates: {
+    canonical: "/merci",
+    languages: {
+      "fr-FR": "/merci",
+      "en-US": "/en/thank-you",
+    },
+  },
   openGraph: {
     url: "https://smarterlogicweb.com/merci",
     title: "Merci — smarterlogicweb.com",

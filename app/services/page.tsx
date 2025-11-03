@@ -7,7 +7,13 @@ export const metadata = {
   title: "Services — smarterlogicweb.com",
   description:
     "Sites vitrines, refontes, optimisation, accompagnement continu: des services web simples, performants et orientés résultats.",
-  alternates: { canonical: "/services" },
+  alternates: {
+    canonical: "/services",
+    languages: {
+      "fr-FR": "/services",
+      "en-US": "/en/services",
+    },
+  },
   openGraph: {
     url: "https://smarterlogicweb.com/services",
     title: "Services — smarterlogicweb.com",

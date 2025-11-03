@@ -8,7 +8,13 @@ export const metadata = {
   title: "Your website, finally simple and fast.",
   description:
     "I design and build custom websites for entrepreneurs and nonprofits. A professional online presence, without complexity.",
-  alternates: { canonical: "/en" },
+  alternates: {
+    canonical: "/en",
+    languages: {
+      "en-US": "/en",
+      "fr-FR": "/",
+    },
+  },
   openGraph: {
     url: "https://smarterlogicweb.com/en",
     title: "Your website, finally simple and fast. — smarterlogicweb.com",

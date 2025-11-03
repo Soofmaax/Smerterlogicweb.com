@@ -8,7 +8,13 @@ export const metadata = {
   title: "Nonprofit commitment — smarterlogicweb.com",
   description:
     "My nonprofit commitment: supporting impact‑driven projects through the web. Mentoring, accessible redesigns, performance optimisation.",
-  alternates: { canonical: "/en/nonprofit-commitment" },
+  alternates: {
+    canonical: "/en/nonprofit-commitment",
+    languages: {
+      "en-US": "/en/nonprofit-commitment",
+      "fr-FR": "/engagement-associatif",
+    },
+  },
   openGraph: {
     url: "https://smarterlogicweb.com/en/nonprofit-commitment",
     title: "Nonprofit commitment — smarterlogicweb.com",

@@ -2,7 +2,13 @@ export const metadata = {
   title: "Mentions légales — smarterlogicweb.com",
   description:
     "Mentions légales du site smarterlogicweb.com : éditeur, hébergeur, propriété intellectuelle, contact.",
-  alternates: { canonical: "/mentions-legales" },
+  alternates: {
+    canonical: "/mentions-legales",
+    languages: {
+      "fr-FR": "/mentions-legales",
+      "en-US": "/en/legal-notice",
+    },
+  },
   openGraph: {
     url: "https://smarterlogicweb.com/mentions-legales",
     title: "Mentions légales — smarterlogicweb.com",

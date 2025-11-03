@@ -130,7 +130,7 @@ export function Header() {
           <span className="sr-only">{isEn ? "Home" : "Accueil"}</span>
         </Link>
 
-        <nav aria-label="Navigation principale" className="hidden items-center gap-6 md:flex">
+        <nav aria-label={isEn ? "Main navigation" : "Navigation principale"} className="hidden items-center gap-6 md:flex">
           {/* Projets dropdown */}
           <div className="relative group">
             <button
@@ -253,7 +253,7 @@ export function Header() {
               </button>
             </div>
 
-            <nav className="mt-6 space-y-2 text-lg" aria-label="Navigation mobile">
+            <nav className="mt-6 space-y-2 text-lg" aria-label={isEn ? "Mobile navigation" : "Navigation mobile"}>
               {/* Projets with submenu */}
               <div>
                 <button
