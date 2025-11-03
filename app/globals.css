@@ -152,6 +152,7 @@
 
 .card-elevated:hover {
   transform: translateY(-1px);
+  box-shadow: 0 8px 28px rgba(17, 24, 39, 0.08);
 }
 
 .card-elevated:hover::before {
@@ -161,6 +162,23 @@
 
 .card-elevated:hover::after {
   opacity: 0.18;
+}
+
+/* Focus visible for keyboard users */
+.card-elevated:focus-within {
+  outline: 2px solid hsl(var(--primary) / 0.25);
+  outline-offset: 2px;
+  box-shadow: 0 0 0 4px hsl(var(--primary) / 0.12);
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .card-elevated {
+    transition: none;
+  }
+  .card-elevated:hover {
+    transform: none;
+  }
 }
 .card-elevated::after {
   content: "";

@@ -168,7 +168,7 @@ export default function Page() {
       </section>
 
       {/* Partners logos block — horizontal carousel */}
-      <section className="mx-auto w-full max-w-3xl px-6 pb-20">
+      <section className="mx-auto w-full max-w-3xl px-6 pb-10">
         <div className="overflow-hidden rounded-[28px] card-elevated border p-6 bg-card">
           <h3 className="text-center font-heading text-2xl font-semibold md:text-3xl">
             Trusted by future partners
@@ -200,6 +200,57 @@ export default function Page() {
                 >
                   {name}
                 </div>
+              ))}
+            />
+          </div>
+        </div>
+      </section>
+
+      {/* Resources — horizontal carousel */}
+      <section className="mx-auto w-full max-w-3xl px-6 pb-20">
+        <div className="overflow-hidden rounded-[28px] card-elevated border p-6 bg-card">
+          <h3 className="text-center font-heading text-2xl font-semibold md:text-3xl">
+            Latest resources
+          </h3>
+          <p className="mt-2 text-center text-foreground/70">
+            Clear tips to improve your site and conversions.
+          </p>
+          <div className="mt-6">
+            <Carousel
+              orientation="horizontal"
+              autoplay
+              intervalMs={3800}
+              ariaLabel="Resources"
+              items={[
+                {
+                  title: "Optimise Core Web Vitals",
+                  category: "Performance",
+                },
+                {
+                  title: "Accessibility: 10 key points",
+                  category: "A11y",
+                },
+                {
+                  title: "Technical SEO with Next.js",
+                  category: "SEO",
+                },
+                {
+                  title: "Redesign: where to start",
+                  category: "UX",
+                },
+                {
+                  title: "Forms that convert",
+                  category: "Conversion",
+                },
+              ].map((r, i) => (
+                <article key={i} className="rounded-[20px] border bg-card p-5 transition hover:shadow-md focus-within:outline-none focus-within:ring-2 focus-within:ring-primary/60">
+                  <div className="text-xs uppercase tracking-wide text-muted-foreground">{r.category}</div>
+                  <h4 className="mt-2 font-heading text-lg font-semibold">{r.title}</h4>
+                  <p className="mt-2 text-sm text-foreground/70">Quick read — practical best practices.</p>
+                  <a href="#" className="mt-3 inline-block text-sm text-primary hover:underline focus:outline-none focus-visible:ring-2 focus-visible:ring-primary/60 rounded">
+                    Read
+                  </a>
+                </article>
               ))}
             />
           </div>

@@ -168,7 +168,7 @@ export default function Page() {
       </section>
 
       {/* Partners logos block — horizontal carousel */}
-      <section className="mx-auto w-full max-w-3xl px-6 pb-20">
+      <section className="mx-auto w-full max-w-3xl px-6 pb-10">
         <div className="overflow-hidden rounded-[28px] card-elevated border p-6 bg-card">
           <h3 className="text-center font-heading text-2xl font-semibold md:text-3xl">
             Des solutions de confiance, adaptées à vous.
@@ -201,6 +201,57 @@ export default function Page() {
                 >
                   {name}
                 </div>
+              ))}
+            />
+          </div>
+        </div>
+      </section>
+
+      {/* Resources — horizontal carousel */}
+      <section className="mx-auto w-full max-w-3xl px-6 pb-20">
+        <div className="overflow-hidden rounded-[28px] card-elevated border p-6 bg-card">
+          <h3 className="text-center font-heading text-2xl font-semibold md:text-3xl">
+            Ressources récentes
+          </h3>
+          <p className="mt-2 text-center text-foreground/70">
+            Conseils clairs pour améliorer votre site et vos conversions.
+          </p>
+          <div className="mt-6">
+            <Carousel
+              orientation="horizontal"
+              autoplay
+              intervalMs={3800}
+              ariaLabel="Ressources"
+              items={[
+                {
+                  title: "Optimiser Core Web Vitals",
+                  category: "Performance",
+                },
+                {
+                  title: "Accessibilité: 10 points clés",
+                  category: "A11y",
+                },
+                {
+                  title: "SEO technique avec Next.js",
+                  category: "SEO",
+                },
+                {
+                  title: "Refonte: par où commencer",
+                  category: "UX",
+                },
+                {
+                  title: "Formulaires qui convertissent",
+                  category: "Conversion",
+                },
+              ].map((r, i) => (
+                <article key={i} className="rounded-[20px] border bg-card p-5 transition hover:shadow-md focus-within:outline-none focus-within:ring-2 focus-within:ring-primary/60">
+                  <div className="text-xs uppercase tracking-wide text-muted-foreground">{r.category}</div>
+                  <h4 className="mt-2 font-heading text-lg font-semibold">{r.title}</h4>
+                  <p className="mt-2 text-sm text-foreground/70">Lecture rapide — meilleures pratiques applicables.</p>
+                  <a href="#" className="mt-3 inline-block text-sm text-primary hover:underline focus:outline-none focus-visible:ring-2 focus-visible:ring-primary/60 rounded">
+                    Lire
+                  </a>
+                </article>
               ))}
             />
           </div>
