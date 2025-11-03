@@ -145,7 +145,7 @@ export default function Page() {
 
       {/* Partners logos block (pastel gradient) */}
       <section className="mx-auto w-full max-w-3xl px-6 pb-20">
-        <div className="overflow-hidden rounded-[28px] border p-6 bg-gradient-to-br from-rose-100/80 via-purple-100/80 to-indigo-100/80 dark:from-rose-200/20 dark:via-purple-200/20 dark:to-indigo-200/20">
+        <div className="overflow-hidden rounded-[28px] card-elevated border p-6 bg-gradient-to-br from-rose-100/80 via-purple-100/80 to-indigo-100/80 dark:from-rose-200/20 dark:via-purple-200/20 dark:to-indigo-200/20">
           <h3 className="text-center font-heading text-2xl font-semibold md:text-3xl">
             Des solutions de confiance, adaptées à vous.
           </h3>
