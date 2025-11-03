@@ -1,8 +1,10 @@
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Carousel } from "@/components/site/carousel";
+import { ProjectsShowcase } from "@/components/site/projects-showcase";
 import { TrackedLink } from "@/components/site/tracked-link";
 import { Reveal } from "@/components/site/reveal";
+import { projectsEN } from "@/data/projects";
 
 export const metadata = {
   title: "Projects — smarterlogicweb.com",
@@ -48,96 +50,20 @@ function CaseCard({
   );
 }
 
-function ShowcaseSlide({
-  title,
-  subtitle,
-}: {
-  title: string;
-  subtitle: string;
-}) {
-  return (
-    <div className="rounded-[28px] border bg-card p-6 card-elevated">
-      {/* stacked mockups (browser / tablet / mobile) */}
-      <div className="relative mx-auto h-56 w-full max-w-4xl">
-        {/* browser */}
-        <div className="absolute inset-x-4 top-0 h-40 rounded-2xl border bg-gradient-to-br from-[#22232a] via-[#1c1e24] to-[#171921] shadow-sm">
-          <div className="flex items-center gap-1 border-b border-white/10 px-3 py-2">
-            <span className="h-2.5 w-2.5 rounded-full bg-red-400/70" />
-            <span className="h-2.5 w-2.5 rounded-full bg-yellow-400/70" />
-            <span className="h-2.5 w-2.5 rounded-full bg-green-400/70" />
-            <div className="ml-3 h-4 flex-1 rounded bg-white/10" />
-          </div>
-          <div className="p-4">
-            <div className="h-3 w-2/3 rounded bg-white/10" />
-            <div className="mt-3 grid grid-cols-3 gap-3">
-              <div className="h-16 rounded bg白/10" />
-              <div className="h-16 rounded bg-white/10" />
-              <div className="h-16 rounded bg-white/10" />
-            </div>
-          </div>
-        </div>
-        {/* tablet */}
-        <div className="absolute left-6 top-16 h-28 w-52 rounded-2xl border bg-gradient-to-br from-[#22232a] via-[#1c1e24] to-[#171921] shadow">
-          <div className="m-3 h-3 w-1/2 rounded bg-white/10" />
-          <div className="mx-3 mt-3 h-14 rounded bg-white/10" />
-        </div>
-        {/* mobile */}
-        <div className="absolute right-8 top-10 h-28 w-16 rounded-2xl border bg-gradient-to-br from-[#22232a] via-[#1c1e24] to-[#171921] shadow">
-          <div className="m-2 h-2 w-10 rounded bg-white/10" />
-          <div className="mx-2 mt-2 h-16 rounded bg-white/10" />
-        </div>
-      </div>
 
-      <div className="mt-6 text-center">
-        <h3 className="font-heading text-xl font-semibold">{title}</h3>
-        <p className="mt-1 text-sm text-foreground/70">{subtitle}</p>
-      </div>
-    </div>
-  );
-}
 
 export default function ProjectsPage() {
-  const items = [
+  const items = projectsEN.cases.map((c) => (
     <CaseCard
-      key="refonte-associatif"
-      id="refonte-associatif"
-      title="Nonprofit redesign"
-      tags={["Next.js", "Accessibility", "SEO"]}
-      description="Clearer navigation, stronger contrast, Lighthouse 95+. +40% organic traffic."
-    />,
-    <CaseCard
-      key="site-vitrine-artisan"
-      id="site-vitrine-artisan"
-      title="Artisan showcase site"
-      tags={["Next.js", "Tailwind", "Form"]}
-      description="Sober identity, simplified quotes, +30% lead gen in 2 months."
-    />,
-    <CaseCard
-      key="optimisation-performance"
-      id="optimisation-performance"
-      title="Performance optimisation"
-      tags={["Audit", "Web Vitals", "CDN"]}
-      description="−50% initial load, stable CLS, faster perceived speed."
-    />,
-  ];
+      key={c.id}
+      id={c.id}
+      title={c.title}
+      tags={c.tags}
+      description={c.description}
+    />
+  ));
 
-  const showcase = [
-    <ShowcaseSlide
-      key="slide-1"
-      title="B2B showcase site"
-      subtitle="Sober, clear, conversion‑ready — fully responsive"
-    />,
-    <ShowcaseSlide
-      key="slide-2"
-      title="Nonprofit — accessibility"
-      subtitle="Contrast, keyboard nav, AA/AAA readability"
-    />,
-    <ShowcaseSlide
-      key="slide-3"
-      title="Performance — Web Vitals"
-      subtitle="Optimised first load, responsive images, caching"
-    />,
-  ];
+  const showcaseItems = projectsEN.showcase;
 
   return (
     <section className="mx-auto w-full max-w-5xl px-6 py-16 md:py-24">
@@ -152,28 +78,39 @@ export default function ProjectsPage() {
         </p>
       </div>
 
+      {/* Sticky nav */}
+      <div className="mt-6 hidden md:flex justify-center">
+        <nav aria-label="Sections" className="sticky top-24 inline-flex gap-2 rounded-full border bg-card p-2 shadow-sm">
+          <a href="#showcase" className="rounded-full px-3 py-1.5 text-sm text-foreground/80 hover:text-foreground hover:bg-accent focus:outline-none focus-visible:ring-2 focus-visible:ring-primary/60">Showcase</a>
+          <a href="#cases" className="rounded-full px-3 py-1.5 text-sm text-foreground/80 hover:text-foreground hover:bg-accent focus:outline-none focus-visible:ring-2 focus-visible:ring-primary/60">Cases</a>
+          <a href="#cta" className="rounded-full px-3 py-1.5 text-sm text-foreground/80 hover:text-foreground hover:bg-accent focus:outline-none focus-visible:ring-2 focus-visible:ring-primary/60">Contact</a>
+        </nav>
+      </div>
+
       {/* Full-width visual banner with reveal (sober) */}
       <Reveal className="reveal-clip mt-8 block">
         <div className="h-44 w-full rounded-[28px] border bg-gradient-to-br from-[#22232a] via-[#1c1e24] to-[#171921] md:h-64" />
       </Reveal>
 
       {/* Premium app-shell style showcase band */}
-      <div className="mt-10">
-        <Carousel items={showcase} orientation="horizontal" autoplay intervalMs={4200} ariaLabel="Showcase projects" />
-      </div>
+      <section id="showcase" className="scroll-mt-28 mt-10">
+        <ProjectsShowcase items={showcaseItems} locale="en" />
+      </section>
 
       {/* Premium horizontal carousel for case studies */}
-      <div className="mt-10">
+      <section id="cases" className="scroll-mt-28 mt-10">
         <Carousel items={items} orientation="horizontal" autoplay intervalMs={4500} ariaLabel="Case studies" />
-      </div>
+      </section>
 
-      <div className="mt-10 flex justify-center">
-        <Button asChild size="lg" className="rounded-full">
-          <TrackedLink href="mailto:contact@smarterlogicweb.com?subject=Web%20project%20-%20Brief" eventName="cta_devis_mailto_projets">
-            Start a project
-          </TrackedLink>
-        </Button>
-      </div>
+      <section id="cta" className="scroll-mt-28 mt-10">
+        <div className="flex justify-center">
+          <Button asChild size="lg" className="rounded-full">
+            <TrackedLink href="mailto:contact@smarterlogicweb.com?subject=Web%20project%20-%20Brief" eventName="cta_devis_mailto_projets">
+              Start a project
+            </TrackedLink>
+          </Button>
+        </div>
+      </section>
     </section>
   );
 }
