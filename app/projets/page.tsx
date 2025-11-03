@@ -33,7 +33,7 @@ function CaseCard({
   description: string;
 }) {
   return (
-    <div id={id} className="flex scroll-mt-28 flex-col rounded-xl border bg-card p-6">
+    <div id={id} className="flex scroll-mt-28 flex-col rounded-[28px] border bg-card p-6 shadow-sm">
       <div className="flex flex-wrap items-center gap-2">
         {tags.map((t) => (
           <Badge key={t} variant="outline">

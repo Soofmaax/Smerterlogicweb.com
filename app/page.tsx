@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Heart, Cloud, Shield, MessageSquare, Layers, Smartphone, Wifi } from "lucide-react";
 import { track } from "@/lib/analytics";
 import { StatsCard } from "@/components/site/stats-card";
+import { statsFR } from "@/data/stats";
 
 export const metadata = {
   title: "Votre site web, enfin simple et performant.",
@@ -66,20 +67,12 @@ export default function Page() {
       </section>
 
       {/* Stats cards */}
-      <section className="mx-auto w-full max-w-3xl space-y-6 px-6 py-2">
-        <StatsCard
-          items={[
-            { value: "97%", label: "Appels traités en 15s (SLA interne de réponse)" },
-            { value: "5.0", label: "Note Google moyenne" },
-          ]}
-        />
-        <StatsCard
-          items={[
-            { value: "<1h", label: "Délai de 1ère réponse" },
-            { value: "43%", label: "Résolutions au 1er contact" },
-            { value: "6h", label: "Temps moyen de résolution" },
-          ]}
-        />
+      <section className="mx-auto w-full max-w-3xl px-6 py-2">
+        <div className="grid gap-6 md:grid-cols-2">
+          {statsFR.map((items, idx) => (
+            <StatsCard key={idx} items={items} />
+          ))}
+        </div>
       </section>
 
       {/* Discover card */}

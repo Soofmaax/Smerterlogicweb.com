@@ -37,6 +37,12 @@
   --ring: 152 32% 36%;
 
   --radius: 0.75rem; /* 12px — soft rounded */
+
+  /* Curveball-like plum gradient (adjustable) */
+  --curve-plum-1: #2c2438; /* top-left */
+  --curve-plum-2: #241f31; /* middle */
+  --curve-plum-3: #1a1825; /* bottom-right */
+  --curve-highlight: rgba(255, 255, 255, 0.06); /* soft radial highlight */
 }
 
 .dark {
@@ -85,4 +91,19 @@
   h1, h2, h3, h4, h5, h6 {
     font-family: var(--font-inter), ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
   }
+}
+
+/* Components */
+.stat-card {
+  position: relative;
+  overflow: hidden;
+  color: white;
+  border-radius: 28px;
+  padding: 1.5rem;
+  background:
+    radial-gradient(1000px circle at 0% 0%, var(--curve-highlight) 0%, transparent 40%),
+    linear-gradient(135deg, var(--curve-plum-1), var(--curve-plum-2), var(--curve-plum-3));
+  box-shadow:
+    0 10px 20px rgba(0,0,0,0.15),
+    inset 0 1px 0 rgba(255,255,255,0.05);
 }
