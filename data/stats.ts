@@ -1,25 +1,29 @@
 export type StatItem = { value: string; label: string };
 
+/**
+ * Mode "début" — valeurs cibles/placeholder, sans revendication.
+ * Remplacez par vos chiffres réels dès que possible.
+ */
 export const statsFR: StatItem[][] = [
   [
-    { value: "97%", label: "Appels traités en 15s (SLA interne de réponse)" },
-    { value: "5.0", label: "Note Google moyenne" },
+    { value: "24h", label: "Délai de 1ère réponse (objectif)" },
+    { value: "—", label: "Avis Google à venir" },
   ],
   [
-    { value: "<1h", label: "Délai de 1ère réponse" },
-    { value: "43%", label: "Résolutions au 1er contact" },
-    { value: "6h", label: "Temps moyen de résolution" },
+    { value: "100%", label: "Transparence & communication (engagement)" },
+    { value: "—", label: "Résolution au 1er contact (en suivi)" },
+    { value: "—", label: "Temps moyen de résolution (en suivi)" },
   ],
 ];
 
 export const statsEN: StatItem[][] = [
   [
-    { value: "97%", label: "Calls answered in 15s (internal SLA)" },
-    { value: "5.0", label: "Google review rating" },
+    { value: "24h", label: "1st response time (target)" },
+    { value: "—", label: "Google reviews incoming" },
   ],
   [
-    { value: "<1hr", label: "1st response time" },
-    { value: "43%", label: "1st contact resolution" },
-    { value: "6hrs", label: "Average resolution time" },
+    { value: "100%", label: "Transparency & communication (commitment)" },
+    { value: "—", label: "1st contact resolution (tracking)" },
+    { value: "—", label: "Average resolution time (tracking)" },
   ],
 ];

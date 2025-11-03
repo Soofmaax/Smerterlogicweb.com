@@ -123,7 +123,7 @@ export default function Page() {
       </section>
 
       {/* CTA secondary */}
-      <section className="mx-auto w-full max-w-3xl px-6 pb-20">
+      <section className="mx-auto w-full max-w-3xl px-6 pb-10">
         <div className="rounded-[28px] border bg-card p-6">
           <h3 className="font-heading text-2xl font-semibold">Des solutions fiables, taillées pour vous.</h3>
           <p className="mt-2 text-foreground/80">
@@ -139,6 +139,29 @@ export default function Page() {
               <Heart size={16} className="transition-transform group-hover:scale-110" />
               <span>Découvrez mon engagement associatif</span>
             </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* Partners logos block (pastel gradient) */}
+      <section className="mx-auto w-full max-w-3xl px-6 pb-20">
+        <div className="overflow-hidden rounded-[28px] border p-6 bg-gradient-to-br from-rose-100/80 via-purple-100/80 to-indigo-100/80 dark:from-rose-200/20 dark:via-purple-200/20 dark:to-indigo-200/20">
+          <h3 className="text-center font-heading text-2xl font-semibold md:text-3xl">
+            Des solutions de confiance, adaptées à vous.
+          </h3>
+          <p className="mt-2 text-center text-foreground/70">
+            Rejoignez nos futurs partenaires et clients satisfaits.
+          </p>
+          <div className="mt-6 grid grid-cols-3 gap-4 md:grid-cols-5">
+            {["Votre logo", "Client A", "Client B", "Client C", "Client D", "Client E"].map((name) => (
+              <div
+                key={name}
+                className="flex h-16 items-center justify-center rounded-2xl bg-white/70 text-sm font-medium text-foreground/60 ring-1 ring-black/5 dark:bg-white/5 dark:text-white/70"
+                aria-label={`Logo ${name}`}
+              >
+                {name}
+              </div>
+            ))}
           </div>
         </div>
       </section>
