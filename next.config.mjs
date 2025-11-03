@@ -10,7 +10,9 @@ const nextConfig = {
   i18n: {
     locales: ["fr", "en"],
     defaultLocale: "fr",
-    localeDetection: true,
+    // Netlify Next.js Runtime expects localeDetection disabled
+    // to avoid routing issues with i18n.
+    localeDetection: false,
   },
 };
 
