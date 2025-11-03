@@ -111,7 +111,7 @@ export default function Page() {
               <li key={label}>
                 <Link
                   href="/services"
-                  className="flex items-center justify-between rounded-full border bg-background px-4 py-3 text-foreground shadow-sm transition-colors hover:bg-accent/40"
+                  className="flex items-center justify-between rounded-full border border-black/10 bg-card px-5 py-3 text-foreground shadow-sm ring-1 ring-black/5 transition-colors hover:bg-accent/30"
                 >
                   <span className="text-base font-medium">{label}</span>
                   <Icon className="h-5 w-5 text-muted-foreground" />
