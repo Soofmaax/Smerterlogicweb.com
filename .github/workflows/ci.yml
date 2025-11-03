@@ -16,7 +16,7 @@ jobs:
   build:
     name: Lint & Build
     runs-on: ubuntu-latest
-    timeout-minutes: 15
+    timeout-minutes: 20
 
     steps:
       - name: Checkout
@@ -28,13 +28,25 @@ jobs:
           node-version: 18
           cache: npm
 
-      - name: Install dependencies
+      # Enforce lockfile on protected branches, but still allow PRs to generate it once for CI
+      - name: Ensure lockfile exists on main
+        if: github.ref == 'refs/heads/main' || github.ref == 'refs/heads/master'
         run: |
-          if [ -f package-lock.json ]; then
-            npm ci
-          else
-            npm install
+          if [ ! -f package-lock.json ]; then
+            echo "Error: package-lock.json is required on main/master. Commit the lockfile." >&2
+            exit 1
           fi
+
+      - name: Generate package-lock.json if missing (PRs/feature branches)
+        if: github.ref != 'refs/heads/main' && github.ref != 'refs/heads/master'
+        run: |
+          if [ ! -f package-lock.json ]; then
+            echo "package-lock.json missing. Generating one for this CI run (please commit it in your PR)."
+            npm i --package-lock-only
+          fi
+
+      - name: Install dependencies (npm ci with lockfile)
+        run: npm ci
 
       - name: Lint
         run: npm run lint
