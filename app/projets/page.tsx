@@ -1,6 +1,6 @@
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import Link from "next/link";
+import { Carousel } from "@/components/site/carousel";
 import { TrackedLink } from "@/components/site/tracked-link";
 
 export const metadata = {
@@ -48,6 +48,30 @@ function CaseCard({
 }
 
 export default function ProjetsPage() {
+  const items = [
+    <CaseCard
+      key="refonte-associatif"
+      id="refonte-associatif"
+      title="Refonte site associatif"
+      tags={["Next.js", "Accessibilité", "SEO"]}
+      description="Navigation clarifiée, contraste renforcé, score Lighthouse 95+. Trafic organique +40%."
+    />,
+    <CaseCard
+      key="site-vitrine-artisan"
+      id="site-vitrine-artisan"
+      title="Site vitrine artisan"
+      tags={["Next.js", "Tailwind", "Formulaire"]}
+      description="Identité sobre, devis simplifié, génération de leads +30% en 2 mois."
+    />,
+    <CaseCard
+      key="optimisation-performance"
+      id="optimisation-performance"
+      title="Optimisation performance"
+      tags={["Audit", "Web Vitals", "CDN"]}
+      description="Chargement initial -50%, CLS maîtrisé, perception de rapidité accrue."
+    />,
+  ];
+
   return (
     <section className="mx-auto w-full max-w-5xl px-6 py-16 md:py-24">
       <div className="mx-auto max-w-3xl text-center">
@@ -59,25 +83,9 @@ export default function ProjetsPage() {
         </p>
       </div>
 
-      <div className="mt-10 grid gap-6 md:grid-cols-3">
-        <CaseCard
-          id="refonte-associatif"
-          title="Refonte site associatif"
-          tags={["Next.js", "Accessibilité", "SEO"]}
-          description="Navigation clarifiée, contraste renforcé, score Lighthouse 95+. Trafic organique +40%."
-        />
-        <CaseCard
-          id="site-vitrine-artisan"
-          title="Site vitrine artisan"
-          tags={["Next.js", "Tailwind", "Formulaire"]}
-          description="Identité sobre, devis simplifié, génération de leads +30% en 2 mois."
-        />
-        <CaseCard
-          id="optimisation-performance"
-          title="Optimisation performance"
-          tags={["Audit", "Web Vitals", "CDN"]}
-          description="Chargement initial -50%, CLS maîtrisé, perception de rapidité accrue."
-        />
+      {/* Carousel premium horizontal pour les cas */}
+      <div className="mt-10">
+        <Carousel items={items} orientation="horizontal" autoplay intervalMs={4500} ariaLabel="Études de cas" />
       </div>
 
       <div className="mt-10 flex justify-center">

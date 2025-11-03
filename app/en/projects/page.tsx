@@ -1,6 +1,6 @@
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import Link from "next/link";
+import { Carousel } from "@/components/site/carousel";
 import { TrackedLink } from "@/components/site/tracked-link";
 
 export const metadata = {
@@ -48,6 +48,30 @@ function CaseCard({
 }
 
 export default function ProjectsPage() {
+  const items = [
+    <CaseCard
+      key="refonte-associatif"
+      id="refonte-associatif"
+      title="Nonprofit redesign"
+      tags={["Next.js", "Accessibility", "SEO"]}
+      description="Clearer navigation, stronger contrast, Lighthouse 95+. +40% organic traffic."
+    />,
+    <CaseCard
+      key="site-vitrine-artisan"
+      id="site-vitrine-artisan"
+      title="Artisan showcase site"
+      tags={["Next.js", "Tailwind", "Form"]}
+      description="Sober identity, simplified quotes, +30% lead gen in 2 months."
+    />,
+    <CaseCard
+      key="optimisation-performance"
+      id="optimisation-performance"
+      title="Performance optimisation"
+      tags={["Audit", "Web Vitals", "CDN"]}
+      description="−50% initial load, stable CLS, faster perceived speed."
+    />,
+  ];
+
   return (
     <section className="mx-auto w-full max-w-5xl px-6 py-16 md:py-24">
       <div className="mx-auto max-w-3xl text-center">
@@ -59,25 +83,9 @@ export default function ProjectsPage() {
         </p>
       </div>
 
-      <div className="mt-10 grid gap-6 md:grid-cols-3">
-        <CaseCard
-          id="refonte-associatif"
-          title="Nonprofit redesign"
-          tags={["Next.js", "Accessibility", "SEO"]}
-          description="Clearer navigation, stronger contrast, Lighthouse 95+. +40% organic traffic."
-        />
-        <CaseCard
-          id="site-vitrine-artisan"
-          title="Artisan showcase site"
-          tags={["Next.js", "Tailwind", "Form"]}
-          description="Sober identity, simplified quotes, +30% lead gen in 2 months."
-        />
-        <CaseCard
-          id="optimisation-performance"
-          title="Performance optimisation"
-          tags={["Audit", "Web Vitals", "CDN"]}
-          description="−50% initial load, stable CLS, faster perceived speed."
-        />
+      {/* Premium horizontal carousel for case studies */}
+      <div className="mt-10">
+        <Carousel items={items} orientation="horizontal" autoplay intervalMs={4500} ariaLabel="Case studies" />
       </div>
 
       <div className="mt-10 flex justify-center">
