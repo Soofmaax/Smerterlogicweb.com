@@ -1,7 +1,7 @@
-import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { Carousel } from "@/components/site/carousel";
 import { ProjectsShowcase } from "@/components/site/projects-showcase";
+import { ProjectsCases } from "@/components/site/projects-cases";
+import { RightDotsNav } from "@/components/site/right-dots-nav";
 import { TrackedLink } from "@/components/site/tracked-link";
 import { Reveal } from "@/components/site/reveal";
 import { projectsEN } from "@/data/projects";
@@ -24,49 +24,19 @@ export const metadata = {
   },
 };
 
-function CaseCard({
-  id,
-  title,
-  tags,
-  description,
-}: {
-  id?: string;
-  title: string;
-  tags: string[];
-  description: string;
-}) {
-  return (
-    <div id={id} className="flex scroll-mt-28 flex-col rounded-[28px] card-elevated border bg-card p-6 shadow-sm">
-      <div className="flex flex-wrap items-center gap-2">
-        {tags.map((t) => (
-          <Badge key={t} variant="outline">
-            {t}
-          </Badge>
-        ))}
-      </div>
-      <h3 className="mt-3 font-heading text-xl font-semibold">{title}</h3>
-      <p className="mt-2 text-sm text-foreground/80">{description}</p>
-    </div>
-  );
-}
-
-
-
 export default function ProjectsPage() {
-  const items = projectsEN.cases.map((c) => (
-    <CaseCard
-      key={c.id}
-      id={c.id}
-      title={c.title}
-      tags={c.tags}
-      description={c.description}
-    />
-  ));
-
   const showcaseItems = projectsEN.showcase;
 
   return (
     <section className="mx-auto w-full max-w-5xl px-6 py-16 md:py-24">
+      <RightDotsNav
+        sections={[
+          { id: "showcase", label: "Showcase" },
+          { id: "cases", label: "Cases" },
+          { id: "cta", label: "Contact" },
+        ]}
+        ariaLabel="Sections navigation"
+      />
       <div className="mx-auto max-w-3xl text-center">
         <Reveal className="reveal-clip inline-block">
           <h1 className="font-heading text-4xl font-bold tracking-tight md:text-5xl">
@@ -97,9 +67,9 @@ export default function ProjectsPage() {
         <ProjectsShowcase items={showcaseItems} locale="en" />
       </section>
 
-      {/* Premium horizontal carousel for case studies */}
+      {/* Case studies with zoom + details */}
       <section id="cases" className="scroll-mt-28 mt-10">
-        <Carousel items={items} orientation="horizontal" autoplay intervalMs={4500} ariaLabel="Case studies" />
+        <ProjectsCases items={projectsEN.cases} locale="en" />
       </section>
 
       <section id="cta" className="scroll-mt-28 mt-10">

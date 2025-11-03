@@ -3,11 +3,16 @@ export type ShowcaseItem = {
   subtitle: string;
 };
 
+export type KPI = { label: string; value: string };
+
 export type CaseItem = {
   id: string;
   title: string;
   tags: string[];
   description: string;
+  url?: string;
+  kpis?: KPI[];
+  images?: string[]; // supply real URLs later if available
 };
 
 export type ProjectsData = {
@@ -37,6 +42,12 @@ export const projectsFR: ProjectsData = {
       tags: ["Next.js", "Accessibilité", "SEO"],
       description:
         "Navigation clarifiée, contraste renforcé, score Lighthouse 95+. Trafic organique +40%.",
+      url: "",
+      kpis: [
+        { label: "Lighthouse", value: "95+" },
+        { label: "Trafic organique", value: "+40%" },
+      ],
+      images: [],
     },
     {
       id: "site-vitrine-artisan",
@@ -44,6 +55,12 @@ export const projectsFR: ProjectsData = {
       tags: ["Next.js", "Tailwind", "Formulaire"],
       description:
         "Identité sobre, devis simplifié, génération de leads +30% en 2 mois.",
+      url: "",
+      kpis: [
+        { label: "Leads", value: "+30%" },
+        { label: "Délai", value: "2 mois" },
+      ],
+      images: [],
     },
     {
       id: "optimisation-performance",
@@ -51,6 +68,12 @@ export const projectsFR: ProjectsData = {
       tags: ["Audit", "Web Vitals", "CDN"],
       description:
         "Chargement initial −50%, CLS maîtrisé, perception de rapidité accrue.",
+      url: "",
+      kpis: [
+        { label: "First load", value: "−50%" },
+        { label: "CLS", value: "Stable" },
+      ],
+      images: [],
     },
   ],
 };
@@ -77,6 +100,12 @@ export const projectsEN: ProjectsData = {
       tags: ["Next.js", "Accessibility", "SEO"],
       description:
         "Clearer navigation, stronger contrast, Lighthouse 95+. +40% organic traffic.",
+      url: "",
+      kpis: [
+        { label: "Lighthouse", value: "95+" },
+        { label: "Organic traffic", value: "+40%" },
+      ],
+      images: [],
     },
     {
       id: "site-vitrine-artisan",
@@ -84,6 +113,12 @@ export const projectsEN: ProjectsData = {
       tags: ["Next.js", "Tailwind", "Form"],
       description:
         "Sober identity, simplified quotes, +30% lead gen in 2 months.",
+      url: "",
+      kpis: [
+        { label: "Leads", value: "+30%" },
+        { label: "Timeline", value: "2 months" },
+      ],
+      images: [],
     },
     {
       id: "optimisation-performance",
@@ -91,6 +126,12 @@ export const projectsEN: ProjectsData = {
       tags: ["Audit", "Web Vitals", "CDN"],
       description:
         "−50% initial load, stable CLS, faster perceived speed.",
+      url: "",
+      kpis: [
+        { label: "First load", value: "−50%" },
+        { label: "CLS", value: "Stable" },
+      ],
+      images: [],
     },
   ],
 };
