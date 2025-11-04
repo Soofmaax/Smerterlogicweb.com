@@ -9,6 +9,12 @@ import { Button } from "@/components/ui/button";
 import { HeroTyped } from "@/components/site/hero-typed";
 import { PricingOffers } from "@/components/site/pricing-offers";
 import { SeeTheDifference } from "@/components/site/see-the-difference";
+import { TimelineProcess } from "@/components/site/timeline-process";
+import { ExpertiseWhy } from "@/components/site/expertise-why";
+import { TechnologiesGrid } from "@/components/site/technologies-grid";
+import { TestimonialsRail } from "@/components/site/testimonials-rail";
+import { FAQAccordion } from "@/components/site/faq-accordion";
+import { ServicesFlip3D } from "@/components/site/services-flip";
 import { ServicesAdaptation } from "@/components/site/services-adaptation";
 import { FinalCTA } from "@/components/site/final-cta";
 
@@ -102,6 +108,24 @@ export default function Page() {
 
       {/* Section interactive — Voyez la Différence */}
       <SeeTheDifference />
+
+      {/* Processus de travail */}
+      <TimelineProcess />
+
+      {/* Pourquoi mon expertise */}
+      <ExpertiseWhy />
+
+      {/* Technologies */}
+      <TechnologiesGrid />
+
+      {/* Témoignages / rail */}
+      <TestimonialsRail />
+
+      {/* FAQ */}
+      <FAQAccordion />
+
+      {/* Services “flip 3D” */}
+      <ServicesFlip3D />
 
       {/* Services d'adaptation graphique */}
       <ServicesAdaptation />

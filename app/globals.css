@@ -273,6 +273,26 @@ a.link-underline:focus-visible::after {
   transform: translateX(120%) skewX(-10deg);
 }
 
+/* Flip 3D cards */
+.flip-card {
+  perspective: 1000px;
+}
+.flip-inner {
+  position: relative;
+  transform-style: preserve-3d;
+  transition: transform 600ms cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+.flip-inner[data-flipped="true"] {
+  transform: rotateY(180deg);
+}
+.flip-face {
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+.flip-back {
+  transform: rotateY(180deg);
+}
+
 /* Reveal effects */
 .reveal-clip {
   opacity: 0;
