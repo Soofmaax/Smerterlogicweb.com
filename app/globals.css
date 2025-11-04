@@ -160,6 +160,19 @@ a.link-underline:focus-visible::after {
   box-shadow: 0 12px 26px rgba(17, 24, 39, 0.08);
 }
 
+/* Image reveal effect */
+.reveal-image {
+  opacity: 0;
+  transform: translateY(12px);
+  filter: blur(6px);
+  transition: opacity 700ms ease, transform 700ms ease, filter 700ms ease;
+}
+.reveal-image.in-view {
+  opacity: 1;
+  transform: none;
+  filter: blur(0);
+}
+
 /* Subtle gloss + grain overlay for large cards with tilt support */
 .card-elevated {
   position: relative;

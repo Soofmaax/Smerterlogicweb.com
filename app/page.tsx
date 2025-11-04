@@ -8,6 +8,7 @@ import { Reveal } from "@/components/site/reveal";
 import { Button } from "@/components/ui/button";
 import { HeroTyped } from "@/components/site/hero-typed";
 import { PricingOffers } from "@/components/site/pricing-offers";
+import { SeeTheDifference } from "@/components/site/see-the-difference";
 import { ServicesAdaptation } from "@/components/site/services-adaptation";
 import { FinalCTA } from "@/components/site/final-cta";
 
@@ -98,6 +99,9 @@ export default function Page() {
 
       {/* Offres & Tarifs */}
       <PricingOffers />
+
+      {/* Section interactive — Voyez la Différence */}
+      <SeeTheDifference />
 
       {/* Services d'adaptation graphique */}
       <ServicesAdaptation />
