@@ -1,6 +1,7 @@
 "use client";
 
 import * as React from "react";
+import Image from "next/image";
 import { Carousel } from "@/components/site/carousel";
 import { Lightbox } from "@/components/site/lightbox";
 import { Modal } from "@/components/site/modal";
@@ -36,7 +37,17 @@ export function ProjectsCases({
       );
     }
     return (
-      <img src={src} alt={alt} className="h-full w-full object-cover" loading="lazy" />
+      <div className="relative h-full w-full">
+        <Image
+          src={src}
+          alt={alt}
+          fill
+          sizes="(max-width: 768px) 100vw, 100vw"
+          priority={false}
+          loading="lazy"
+          style={{ objectFit: "cover" }}
+        />
+      </div>
     );
   };
 

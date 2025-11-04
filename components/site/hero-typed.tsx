@@ -13,6 +13,10 @@ export function HeroTyped() {
   const [wordIndex, setWordIndex] = React.useState(0);
   const [phase, setPhase] = React.useState<"typing" | "pausing" | "deleting">("typing");
 
+  // parallax refs
+  const p1Ref = React.useRef<HTMLDivElement | null>(null);
+  const p2Ref = React.useRef<HTMLDivElement | null>(null);
+
   React.useEffect(() => setMounted(true), []);
 
   // Typing cycle for words with blinking caret
@@ -40,6 +44,34 @@ export function HeroTyped() {
     return () => window.clearTimeout(timeout);
   }, [typed, phase, wordIndex, words]);
 
+  // Parallax on scroll (very subtle)
+  React.useEffect(() => {
+    const prefersReduced =
+      typeof window !== "undefined" &&
+      window.matchMedia &&
+      window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    if (prefersReduced) return;
+
+    let raf = 0;
+    const onScroll = () => {
+      if (raf) return;
+      raf = requestAnimationFrame(() => {
+        const y = window.scrollY || 0;
+        const t1 = `translate3d(0, ${Math.min(60, y * 0.06)}px, 0)`;
+        const t2 = `translate3d(0, ${Math.min(80, y * 0.1)}px, 0)`;
+        if (p1Ref.current) p1Ref.current.style.transform = t1;
+        if (p2Ref.current) p2Ref.current.style.transform = t2;
+        raf = 0;
+      });
+    };
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => {
+      window.removeEventListener("scroll", onScroll);
+      if (raf) cancelAnimationFrame(raf);
+    };
+  }, []);
+
   const charTyping = (delayPerChar = 0.05) => ({
     hidden: { opacity: 0 },
     show: (i: number) => ({
@@ -52,9 +84,17 @@ export function HeroTyped() {
 
   return (
     <section className="relative mx-auto w-full max-w-5xl px-6 py-16 md:py-24">
-      {/* Subtle animated background */}
+      {/* Subtle animated background + parallax shapes */}
       <div aria-hidden className="pointer-events-none absolute inset-0 -z-10">
         <div className="hero-gradient-animated absolute inset-0 rounded-[28px] opacity-60" />
+        <div
+          ref={p1Ref}
+          className="absolute -left-16 top-8 h-40 w-40 rounded-full bg-primary/10 blur-2xl"
+        />
+        <div
+          ref={p2Ref}
+          className="absolute -right-20 top-28 h-56 w-56 rounded-full bg-amber-300/10 blur-3xl"
+        />
       </div>
 
       {/* Small badge */}
@@ -82,11 +122,13 @@ export function HeroTyped() {
 
       {/* Subheading with live typing word */}
       <p className="mt-6 text-lg leading-relaxed text-foreground/80 md:text-xl">
-        Des sites statiques ultra-rapides, optimisés pour Google et conçus pour convertir vos visiteurs en clients.
-        {" "}
+        Des sites statiques ultra-rapides, optimisés pour Google et conçus pour convertir vos visiteurs en clients.{" "}
         <span className="font-semibold text-foreground">
           {typed}
-          <span className="ml-0.5 inline-block w-[1px] animate-pulse bg-foreground/70 align-middle" style={{ height: "1em" }} />
+          <span
+            className="ml-0.5 inline-block w-[1px] animate-pulse bg-foreground/70 align-middle"
+            style={{ height: "1em" }}
+          />
         </span>
       </p>
 
@@ -116,10 +158,10 @@ export function HeroTyped() {
               <div className="mt-2 h-3 w-4/5 rounded bg-white/60 dark:bg-white/10" />
               <div className="mt-4 h-24 rounded bg-gradient-to-br from-slate-100 to-slate-200 dark:from-slate-800 dark:to-slate-700" />
               <div className="mt-3 grid grid-cols-3 gap-2">
-                  <div className="h-10 rounded bg-white/70 dark:bg-white/10" />
-                  <div className="h-10 rounded bg-white/70 dark:bg-white/10" />
-                  <div className="h-10 rounded bg-white/70 dark:bg-white/10" />
-                </div>
+                <div className="h-10 rounded bg-white/70 dark:bg-white/10" />
+                <div className="h-10 rounded bg-white/70 dark:bg-white/10" />
+                <div className="h-10 rounded bg-white/70 dark:bg-white/10" />
+              </div>
             </div>
             {/* Right: metrics badges */}
             <div className="flex flex-col gap-3">

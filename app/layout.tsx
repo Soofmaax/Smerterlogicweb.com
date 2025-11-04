@@ -4,6 +4,7 @@ import { Inter, DM_Sans } from "next/font/google";
 import { Header } from "@/components/site/header";
 import { Footer } from "@/components/site/footer";
 import { UXEnhancer } from "@/components/site/ux-enhancer";
+import { ScrollProgress } from "@/components/site/scroll-progress";
 import Script from "next/script";
 
 const inter = Inter({
@@ -131,6 +132,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         )}
 
         <UXEnhancer />
+        <ScrollProgress />
 
         <div className="flex min-h-screen flex-col">
           <Header />
