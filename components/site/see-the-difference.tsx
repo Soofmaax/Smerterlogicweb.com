@@ -44,10 +44,6 @@ export function SeeTheDifference() {
       rootEl.querySelector<HTMLElement>(`#${id}`)
     ).filter(Boolean) as HTMLElement[];
 
-    if (prefersReduced) {
-      // still update active on reduced motion
-    }
-
     const onClick = (e: MouseEvent) => {
       const target = e.target as HTMLElement;
       const a = target.closest("a[data-anchor]") as HTMLAnchorElement | null;
@@ -55,7 +51,9 @@ export function SeeTheDifference() {
       e.preventDefault();
       const href = a.getAttribute("href") || "";
       const id = href.replace("#", "");
-      const el = rootEl.querySelector<HTMLElement>(`#${id}`);
+      const elIn = rootEl.querySelector<HTMLElement>(`#${id}`);
+      const elDoc = document.getElementById(id);
+      const el = elIn || elDoc;
       if (el) {
         el.scrollIntoView({ behavior: prefersReduced ? "auto" : "smooth", block: "start" });
       }
@@ -89,7 +87,7 @@ export function SeeTheDifference() {
         <p className="mt-2 text-foreground/80" data-reveal>
           Un site professionnel ne se limite pas à afficher des informations. Chaque interaction doit être fluide et donner envie de rester. Voici quelques exemples concrets de ce que j&apos;intègre dans vos sites.
         </p>
-        <p className="mt-4 text-sm text-muted-foreground" data-reveal>
+        <p className="mt-4 text-base font-semibold text-muted-foreground" data-reveal>
           Survolez, cliquez, testez : tout est interactif ci‑dessous.
         </p>
       </div>
@@ -197,18 +195,7 @@ export function SeeTheDifference() {
         </div>
       </div>
 
-      {/* Performances visibles */}
-      <div id="perf" className="mt-12 rounded-2xl border bg-card p-6" data-reveal>
-        <h3 className="font-heading text-xl font-semibold">Performances Visibles</h3>
-        <div className="mt-5 grid gap-4 sm:grid-cols-3">
-          <GaugeCard label="Score de Performance" value={95} unit="/100" icon={<ShieldCheck className="h-4 w-4 text-primary" />} />
-          <CounterCard label="Secondes de Chargement Maximum" value={2} unit="s" icon={<Timer className="h-4 w-4 text-primary" />} />
-          <CounterCard label="Compatible Mobile" value={100} unit="%" icon={<Smartphone className="h-4 w-4 text-primary" />} />
-        </div>
-        <p className="mt-3 text-sm text-foreground/80">
-          Ces chiffres ne sont pas juste techniques. Un site rapide signifie que vos clients ne partent pas avant même d&apos;avoir vu votre travail. Google favorise aussi les sites rapides dans les résultats de recherche.
-        </p>
-      </div>
+      
 
       {/* Conclusion + CTA */}
       <div className="mt-10 text-center" data-reveal>

@@ -17,7 +17,7 @@ export function FinalCTA() {
 
         <div className="mt-6">
           <Button asChild size="lg" variant="cta" className="rounded-full animate-[pulse_3s_ease-in-out_infinite]">
-            <Link href="/contact">Demander mon audit gratuit</Link>
+            <Link href="/contact">Discutons de votre projet</Link>
           </Button>
         </div>
 

@@ -1,7 +1,7 @@
 "use client";
 
 import * as React from "react";
-import { Cloud, Shield, Headphones, Layers, Smartphone, Wifi, ChevronRight } from "lucide-react";
+import { FileText, Search, CalendarCheck, Images, Megaphone, Mail, ChevronRight } from "lucide-react";
 
 type Service = {
   title: string;
@@ -10,12 +10,12 @@ type Service = {
 };
 
 const services: Service[] = [
-  { title: "Cloud Services", Icon: Cloud, bullets: ["Intégration CDN", "Déploiement edge", "SSL/TLS auto", "Logs & monitoring"] },
-  { title: "Cyber Security", Icon: Shield, bullets: ["Headers CSP/HSTS", "Audit basique A11y/SEO", "Form protection", "Best practices OWASP"] },
-  { title: "IT Support", Icon: Headphones, bullets: ["Support prioritaire", "Guides & formation", "Mises à jour", "Résolution incidents"] },
-  { title: "Microsoft Solutions", Icon: Layers, bullets: ["Intégrations Office 365", "OneDrive/SharePoint", "Authentification", "Automatisations"] },
-  { title: "Mobile + Utilities", Icon: Smartphone, bullets: ["Responsive haut niveau", "PWA en option", "Icônes & manifest", "Optimisation tactile"] },
-  { title: "Network + Comms", Icon: Wifi, bullets: ["Formulaires fiables", "Email transactionnel", "Réglages DNS", "Suivi analytics"] },
+  { title: "Site vitrine", Icon: FileText, bullets: ["Pages clés (Accueil/Services/Contact)", "Responsive soigné", "Contenus structurés"] },
+  { title: "SEO local", Icon: Search, bullets: ["Balises méta & sémantique", "Google Business Profile", "Schema.org local"] },
+  { title: "Prise de rendez‑vous", Icon: CalendarCheck, bullets: ["Calendrier en ligne", "Email/SMS de confirmation", "Créneaux personnalisés"] },
+  { title: "Galerie / Portfolio", Icon: Images, bullets: ["Lazy‑loading avancé", "Optimisation images", "Affichage rapide"] },
+  { title: "Actualités / Blog", Icon: Megaphone, bullets: ["Catégories & archives", "Partage réseaux sociaux", "SEO article"] },
+  { title: "Contact / Devis", Icon: Mail, bullets: ["Formulaire sécurisé", "Anti‑spam (honeypot)", "Routes serverless"] },
 ];
 
 export function ServicesFlip3D() {
@@ -55,7 +55,7 @@ export function ServicesFlip3D() {
   return (
     <section className="mx-auto w-full max-w-5xl px-6 py-12">
       <div className="mb-6 text-center">
-        <h2 className="font-heading text-3xl font-semibold md:text-4xl">Services “flip 3D” interactifs</h2>
+        <h2 className="font-heading text-3xl font-semibold md:text-4xl">Services interactifs</h2>
         <p className="mt-2 text-foreground/70">Touchez/cliquer une carte pour voir les détails. Sur desktop, un léger tilt réagit au pointeur.</p>
       </div>
 

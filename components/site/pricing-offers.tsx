@@ -1,5 +1,5 @@
 import * as React from "react";
-import { CheckCircle2 } from "lucide-react";
+import { CheckCircle2, Star } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 
@@ -15,7 +15,7 @@ const plans: Plan[] = [
   {
     name: "Site Vitrine",
     price: "1800€ TTC",
-    cta: "Démarrer",
+    cta: "Discutons de votre projet",
     features: [
       "3 à 5 pages responsive",
       "Design moderne adapté à votre charte",
@@ -30,7 +30,7 @@ const plans: Plan[] = [
   {
     name: "Site Business",
     price: "3200€ TTC",
-    cta: "Choisir Business",
+    cta: "Discutons de votre projet",
     recommended: true,
     features: [
       "5 à 10 pages",
@@ -46,7 +46,7 @@ const plans: Plan[] = [
   {
     name: "Site Premium",
     price: "5500€ TTC",
-    cta: "Choisir Premium",
+    cta: "Discutons de votre projet",
     features: [
       "Réservation / demande de devis en ligne",
       "Espace client sécurisé (si besoin)",
@@ -70,27 +70,28 @@ export function PricingOffers() {
         </p>
       </div>
 
-      <div className="grid gap-6 md:grid-cols-3">
+      <div className="grid gap-5 md:grid-cols-3">
         {plans.map((plan) => (
           <article
             key={plan.name}
             className={cn(
-              "relative rounded-[28px] border bg-card p-6 transition duration-300",
-              "hover:-translate-y-2 hover:shadow-xl card-elevated"
+              "relative rounded-[24px] border bg-card p-5 transition duration-300",
+              "hover:-translate-y-1 hover:shadow-lg card-elevated",
+              plan.recommended && "ring-2 ring-primary"
             )}
           >
             {plan.recommended ? (
-              <div className="absolute -top-3 right-4">
-                <span className="inline-flex animate-pulse items-center rounded-full bg-primary px-3 py-1 text-xs font-semibold text-primary-foreground shadow">
-                  Le plus choisi
+              <div className="absolute -top-3 left-1/2 -translate-x-1/2">
+                <span className="inline-flex animate-pulse items-center gap-2 rounded-full bg-primary px-3 py-1 text-xs font-semibold text-primary-foreground shadow">
+                  <Star className="h-3.5 w-3.5" /> Le plus choisi
                 </span>
               </div>
             ) : null}
 
-            <h3 className="font-heading text-xl font-semibold">{plan.name}</h3>
-            <div className="mt-2 text-2xl font-bold">{plan.price}</div>
+            <h3 className="font-heading text-lg font-semibold">{plan.name}</h3>
+            <div className="mt-1 text-xl font-bold">{plan.price}</div>
 
-            <ul className="mt-4 space-y-2">
+            <ul className="mt-3 space-y-1.5">
               {plan.features.map((f, i) => (
                 <li key={i} className="flex items-start gap-2 text-sm">
                   <CheckCircle2 className="mt-0.5 h-4 w-4 text-primary" />
@@ -99,26 +100,16 @@ export function PricingOffers() {
               ))}
             </ul>
 
-            <div className="mt-6">
+            <div className="mt-5">
               <Button className="w-full rounded-full" asChild>
                 <a href="/contact">{plan.cta}</a>
               </Button>
-            </div>
-
-            {/* Animated border gradient on hover */}
-            <div className="pointer-events-none absolute inset-0 rounded-[28px] opacity-0 transition-opacity duration-300 hover:opacity-100"
-                 style={{ maskImage: "radial-gradient(white, transparent 75%)" }}>
-              <div className="absolute inset-0 rounded-[28px]"
-                   style={{
-                     background: "conic-gradient(from 180deg, rgba(24,99,220,0.3), transparent 60%, rgba(24,99,220,0.3))",
-                     WebkitMaskImage: "linear-gradient(#000, #000)", maskComposite: "exclude" as any
-                   }} />
             </div>
           </article>
         ))}
       </div>
 
-      <p className="mt-6 text-sm text-foreground/70">
+      <p className="mt-5 text-sm text-foreground/70">
         Important: ces tarifs s’appliquent si vous disposez déjà de votre identité visuelle (logo, charte graphique,
         contenus). Si vous avez besoin d’aide pour la création graphique, je peux vous recommander des graphistes
         partenaires compétents et abordables.

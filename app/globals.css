@@ -20,8 +20,8 @@
   --border: 215 16% 86%;
   --input: 215 16% 86%;
 
-  /* Primary — corporate blue (#1863DC) */
-  --primary: 219 81% 49%;
+  /* Primary — brand blue (#2563EB) */
+  --primary: 221 83% 53%;
   --primary-foreground: 0 0% 100%;
 
   /* Secondary — neutral dark for outlines/buttons */
@@ -35,7 +35,7 @@
   --destructive: 0 72% 51%;
   --destructive-foreground: 0 0% 98%;
 
-  --ring: 219 81% 49%;
+  --ring: 221 83% 53%;
 
   --radius: 0.75rem; /* 12px — soft rounded */
 
@@ -62,8 +62,8 @@
   --border: 215 15% 18%;
   --input: 215 15% 18%;
 
-  /* Primary — Sauge (légèrement plus lumineuse en sombre) */
-  --primary: 152 35% 45%;
+  /* Primary — brand blue in dark */
+  --primary: 221 83% 56%;
   --primary-foreground: 0 0% 98%;
 
   /* Secondary — Rose minéral (adapté sombre) */
