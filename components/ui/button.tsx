@@ -79,8 +79,7 @@ function attachRippleHandler(
     // trigger
     el.classList.remove("btn-rippling");
     // Force reflow to restart animation
-    // eslint-disable-next-line @typescript-eslint/no-unused-expressions
-    el.offsetHeight;
+    void el.offsetHeight;
     el.classList.add("btn-rippling");
 
     // play subtle click tone
