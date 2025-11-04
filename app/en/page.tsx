@@ -36,6 +36,33 @@ export default function Page() {
         <div className="absolute bottom-[-30%] right-[-10%] h-[35rem] w-[35rem] rounded-full bg-rose-300/10 blur-3xl" />
       </div>
 
+      {/* Hero (text only, no large visual block) */}
+      <section className="relative mx-auto w-full max-w-3xl px-6 py-16 md:py-24">
+        <div className="mb-6">
+          <Badge variant="secondary" className="px-3 py-1 text-sm">Web studio</Badge>
+        </div>
+
+        <h1 className="font-heading text-4xl font-bold tracking-tight text-foreground md:text-6xl text-balance">
+          Tailored web solutions.
+          <br />
+          Supporting you with{" "}
+          <span className="inline-flex items-center rounded-full bg-foreground px-3 py-1 text-background">
+            poor communication
+          </span>
+        </h1>
+
+        <p className="mt-6 text-lg leading-relaxed text-foreground/80 md:text-xl">
+          What’s causing stress today? Are you wasting time on workarounds? How many opportunities
+          could a focused web partner unlock for your business?
+        </p>
+
+        <div className="mt-6">
+          <Button asChild size="lg" className="w-full rounded-full md:w-auto">
+            <TrackedLink href="#solutions" eventName="cta_solutions_hero">Our solutions</TrackedLink>
+          </Button>
+        </div>
+      </section>
+
       
 
       {/* Stats */}
