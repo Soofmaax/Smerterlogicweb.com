@@ -1,12 +1,12 @@
 import Link from "next/link";
-import { Badge } from "@/components/ui/badge";
-import { Button } from "@/components/ui/button";
 import { Heart, Cloud, Shield, MessageSquare, Layers, Smartphone, Wifi } from "lucide-react";
 import { StatsCard } from "@/components/site/stats-card";
 import { statsEN } from "@/data/stats";
 import { TrackedLink } from "@/components/site/tracked-link";
 import { Carousel } from "@/components/site/carousel";
 import { Reveal } from "@/components/site/reveal";
+import { Button } from "@/components/ui/button";
+import { HeroTypedEN } from "@/components/site/hero-typed-en";
 
 export const metadata = {
   title: "Your website, finally simple and fast.",
@@ -36,34 +36,8 @@ export default function Page() {
         <div className="absolute bottom-[-30%] right-[-10%] h-[35rem] w-[35rem] rounded-full bg-rose-300/10 blur-3xl" />
       </div>
 
-      {/* Hero (text only, no large visual block) */}
-      <section className="relative mx-auto w-full max-w-3xl px-6 py-16 md:py-24">
-        <div className="mb-6">
-          <Badge variant="secondary" className="px-3 py-1 text-sm">Web studio</Badge>
-        </div>
-
-        <h1 className="font-heading text-4xl font-bold tracking-tight text-foreground md:text-6xl text-balance">
-          Tailored web solutions.
-          <br />
-          Supporting you with{" "}
-          <span className="inline-flex items-center rounded-full bg-foreground px-3 py-1 text-background">
-            poor communication
-          </span>
-        </h1>
-
-        <p className="mt-6 text-lg leading-relaxed text-foreground/80 md:text-xl">
-          What’s causing stress today? Are you wasting time on workarounds? How many opportunities
-          could a focused web partner unlock for your business?
-        </p>
-
-        <div className="mt-6">
-          <Button asChild size="lg" className="w-full rounded-full md:w-auto">
-            <TrackedLink href="#solutions" eventName="cta_solutions_hero">Our solutions</TrackedLink>
-          </Button>
-        </div>
-      </section>
-
-      
+      {/* New Hero with typing effect */}
+      <HeroTypedEN />
 
       {/* Stats */}
       <section className="mx-auto w-full max-w-3xl px-6 py-2">
@@ -106,7 +80,7 @@ export default function Page() {
             <div className="h-40 md:h-56" />
           </div>
           <h2 className="mt-5 font-heading text-2xl font-semibold tracking-tight md:text-3xl">
-            Discover what&#39;s possible with smarterlogicweb
+            Discover what's possible with smarterlogicweb
           </h2>
           <p className="mt-3 text-foreground/80">
             Explore the full range of solutions and find the perfect fit for your business needs.
@@ -153,7 +127,7 @@ export default function Page() {
         <div className="rounded-[28px] card-elevated border bg-card p-6">
           <h3 className="font-heading text-2xl font-semibold">Trusted web solutions, tailored to you.</h3>
           <p className="mt-2 text-foreground/80">
-            From showcase sites to performance optimisation and accessibility — I&#39;m here to help.
+            From showcase sites to performance optimisation and accessibility — I'm here to help.
           </p>
           <div className="mt-5 flex flex-col gap-3 sm:flex-row">
             <Button asChild className="rounded-full">

@@ -1,12 +1,12 @@
 import Link from "next/link";
-import { Badge } from "@/components/ui/badge";
-import { Button } from "@/components/ui/button";
 import { Heart, Cloud, Shield, MessageSquare, Layers, Smartphone, Wifi } from "lucide-react";
 import { StatsCard } from "@/components/site/stats-card";
 import { statsFR } from "@/data/stats";
 import { TrackedLink } from "@/components/site/tracked-link";
 import { Carousel } from "@/components/site/carousel";
 import { Reveal } from "@/components/site/reveal";
+import { Button } from "@/components/ui/button";
+import { HeroTyped } from "@/components/site/hero-typed";
 
 export const metadata = {
   title: "Votre site web, enfin simple et performant.",
@@ -36,34 +36,8 @@ export default function Page() {
         <div className="absolute bottom-[-30%] right-[-10%] h-[35rem] w-[35rem] rounded-full bg-rose-300/10 blur-3xl" />
       </div>
 
-      {/* Hero (texte uniquement, sans grand bloc visuel) */}
-      <section className="relative mx-auto w-full max-w-3xl px-6 py-16 md:py-24">
-        <div className="mb-6">
-          <Badge variant="secondary" className="px-3 py-1 text-sm">Studio web</Badge>
-        </div>
-
-        <h1 className="font-heading text-4xl font-bold tracking-tight text-foreground md:text-6xl text-balance">
-          Des solutions web sur‑mesure.
-          <br />
-          Nous vous soutenons face à{" "}
-          <span className="inline-flex items-center rounded-full bg-foreground px-3 py-1 text-background">
-            la communication confuse
-          </span>
-        </h1>
-
-        <p className="mt-6 text-lg leading-relaxed text-foreground/80 md:text-xl">
-          Quels problèmes web vous font perdre du temps ? Combien d’opportunités perdez‑vous par un site confus
-          ou lent ? Et si un partenaire front‑end vous aidait à clarifier et accélérer ?
-        </p>
-
-        <div className="mt-6">
-          <Button asChild size="lg" className="w-full rounded-full md:w-auto">
-            <TrackedLink href="#solutions" eventName="cta_solutions_hero">Nos solutions</TrackedLink>
-          </Button>
-        </div>
-      </section>
-
-      
+      {/* New Hero with typing effect */}
+      <HeroTyped />
 
       {/* Stats cards */}
       <section className="mx-auto w-full max-w-3xl px-6 py-2">
