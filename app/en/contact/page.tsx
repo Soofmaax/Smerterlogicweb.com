@@ -1,7 +1,10 @@
+"use client";
+
 import { Mail } from "lucide-react";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { TrackedLink } from "@/components/site/tracked-link";
+import { ContactForm } from "@/components/site/contact-form";
 
 export const metadata = {
   title: "Contact — smarterlogicweb.com",
@@ -39,76 +42,10 @@ export default function ContactPage() {
         </div>
       </div>
 
-      {/* Netlify Forms */}
+      {/* Form with validation */}
       <div className="mt-10 rounded-[28px] card-elevated border bg-card p-6 shadow-sm">
         <h2 className="font-heading text-xl font-semibold">Send a message</h2>
-        <form
-          className="mt-4 grid gap-4"
-          name="contact"
-          method="POST"
-          data-netlify="true"
-          netlify-honeypot="bot-field"
-          action="/en/thank-you"
-        >
-          <input type="hidden" name="form-name" value="contact" />
-          <p className="hidden">
-            <label>
-              Do not fill: <input name="bot-field" />
-            </label>
-          </p>
-
-          <div className="grid gap-2">
-            <label htmlFor="name" className="text-sm font-medium">Name</label>
-            <input
-              id="name"
-              name="name"
-              required
-              className="h-11 rounded-md border bg-background px-3 outline-none ring-offset-background focus-visible:ring-2 focus-visible:ring-ring"
-              placeholder="Your name"
-            />
-          </div>
-
-          <div className="grid gap-2">
-            <label htmlFor="email" className="text-sm font-medium">Email</label>
-            <input
-              id="email"
-              name="email"
-              type="email"
-              required
-              className="h-11 rounded-md border bg-background px-3 outline-none ring-offset-background focus-visible:ring-2 focus-visible:ring-ring"
-              placeholder="you@email.com"
-            />
-          </div>
-
-          <div className="grid gap-2">
-            <label htmlFor="message" className="text-sm font-medium">Message</label>
-            <textarea
-              id="message"
-              name="message"
-              required
-              rows={6}
-              className="rounded-md border bg-background px-3 py-2 outline-none ring-offset-background focus-visible:ring-2 focus-visible:ring-ring"
-              placeholder="Describe your needs, goal and timeline."
-            />
-          </div>
-
-          <div className="flex items-start gap-2">
-            <input id="consent" name="consent" type="checkbox" required className="mt-1" />
-            <label htmlFor="consent" className="text-sm text-foreground/80">
-              I agree to the processing of my data to respond to my request. See{" "}
-              <Link href="/en/privacy-policy" className="underline">
-                the privacy policy
-              </Link>.
-            </label>
-          </div>
-
-          {/* Netlify reCAPTCHA */}
-          <div data-netlify-recaptcha="true"></div>
-
-          <div>
-            <Button type="submit" className="rounded-full">Send</Button>
-          </div>
-        </form>
+        <ContactForm locale="en" action="/en/thank-you" />
       </div>
 
       <div className="mt-10 rounded-[28px] card-elevated border bg-card p-6 shadow-sm">
