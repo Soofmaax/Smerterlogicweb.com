@@ -6,9 +6,24 @@ import Link from "next/link";
 import { Button } from "@/components/ui/button";
 
 export function HeroTyped() {
-  const title = "Votre site web freine votre croissance ?";
+  const title = "Sites Web Performants pour Artisans et Entreprises Locales";
+  const phrase = "Rapide. Performant. Professionnel.";
   const [mounted, setMounted] = React.useState(false);
+  const [typed, setTyped] = React.useState("");
+
   React.useEffect(() => setMounted(true), []);
+
+  // Simple typed effect for the phrase (50ms per character)
+  React.useEffect(() => {
+    let i = 0;
+    const id = setInterval(() => {
+      setTyped(phrase.slice(0, i + 1));
+      i++;
+      if (i >= phrase.length) clearInterval(id);
+    }, 50);
+    return () => clearInterval(id);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   const charTyping = (delayPerChar = 0.05) => ({
     hidden: { opacity: 0 },
@@ -34,7 +49,7 @@ export function HeroTyped() {
         </span>
       </div>
 
-      {/* Title with typing effect */}
+      {/* Title with fade-in typing (per character) */}
       <h1 className="font-heading text-4xl font-bold tracking-tight text-foreground md:text-6xl text-balance">
         {title.split("").map((ch, i) => (
           <motion.span
@@ -50,13 +65,19 @@ export function HeroTyped() {
         ))}
       </h1>
 
+      {/* Subheading with typed phrase */}
       <p className="mt-6 text-lg leading-relaxed text-foreground/80 md:text-xl">
-        Je crée des sites rapides et professionnels qui transforment vos visiteurs en clients.
+        Des sites statiques ultra-rapides, optimisés pour Google et conçus pour convertir vos visiteurs en clients.
+        {" "}
+        <span className="font-semibold text-foreground">{typed}</span>
       </p>
 
-      <div className="mt-6">
-        <Button asChild size="lg" variant="cta" className="w-full rounded-full md:w-auto">
-          <Link href="/contact">Obtenir un devis gratuit en 24h</Link>
+      <div className="mt-6 flex flex-col gap-3 sm:flex-row">
+        <Button asChild size="lg" variant="cta" className="rounded-full">
+          <Link href="/contact">Discutons de votre projet</Link>
+        </Button>
+        <Button asChild size="lg" variant="secondary" className="rounded-full">
+          <Link href="/projets">Voir mes réalisations</Link>
         </Button>
       </div>
     </section>

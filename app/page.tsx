@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Heart, Cloud, Shield, MessageSquare, Layers, Smartphone, Wifi } from "lucide-react";
+import { Heart } from "lucide-react";
 import { StatsCard } from "@/components/site/stats-card";
 import { statsFR } from "@/data/stats";
 import { TrackedLink } from "@/components/site/tracked-link";
@@ -7,6 +7,9 @@ import { Carousel } from "@/components/site/carousel";
 import { Reveal } from "@/components/site/reveal";
 import { Button } from "@/components/ui/button";
 import { HeroTyped } from "@/components/site/hero-typed";
+import { PricingOffers } from "@/components/site/pricing-offers";
+import { ServicesAdaptation } from "@/components/site/services-adaptation";
+import { FinalCTA } from "@/components/site/final-cta";
 
 export const metadata = {
   title: "Votre site web, enfin simple et performant.",
@@ -87,40 +90,17 @@ export default function Page() {
           </p>
           <div className="mt-5">
             <Button asChild className="w-full rounded-full md:w-auto">
-              <Link href="#solutions">Voir nos solutions</Link>
+              <Link href="#tarifs">Voir les tarifs</Link>
             </Button>
           </div>
         </div>
       </section>
 
-      {/* Solutions list */}
-      <section id="solutions" className="mx-auto w-full max-w-3xl px-6 pb-16">
-        <div className="rounded-[28px] border bg-muted/40 p-4 md:p-5">
-          <div className="mb-2 px-2 text-lg font-semibold text-muted-foreground">Solutions</div>
-          <Reveal className="reveal-fade-up">
-            <ul className="space-y-3">
-              {[
-                { label: "Cloud Services", Icon: Cloud },
-                { label: "Cyber Security", Icon: Shield },
-                { label: "IT Support", Icon: MessageSquare },
-                { label: "Microsoft Solutions", Icon: Layers },
-                { label: "Mobile + Utilities", Icon: Smartphone },
-                { label: "Network + Comms", Icon: Wifi },
-              ].map(({ label, Icon }) => (
-                <li key={label}>
-                  <Link
-                    href="/services"
-                    className="group flex items-center justify-between rounded-full border border-foreground/10 bg-card px-5 py-3 text-foreground shadow-sm ring-1 ring-black/5 transition-colors hover:bg-accent"
-                  >
-                    <span className="text-base font-medium transition-colors group-hover:text-primary">{label}</span>
-                    <Icon className="h-5 w-5 text-muted-foreground transition-colors group-hover:text-primary" />
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </Reveal>
-        </div>
-      </section>
+      {/* Offres & Tarifs */}
+      <PricingOffers />
+
+      {/* Services d'adaptation graphique */}
+      <ServicesAdaptation />
 
       {/* CTA secondary */}
       <section className="mx-auto w-full max-w-3xl px-6 pb-10">
@@ -142,6 +122,9 @@ export default function Page() {
           </div>
         </div>
       </section>
+
+      {/* Final CTA before footer */}
+      <FinalCTA />
 
       {/* Partners logos block — horizontal carousel */}
       <section className="mx-auto w-full max-w-3xl px-6 pb-10">
