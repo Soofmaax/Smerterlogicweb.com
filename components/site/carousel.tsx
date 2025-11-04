@@ -62,8 +62,6 @@ function HorizontalCarousel({
   const viewportRef = React.useRef<HTMLDivElement>(null);
   const [index, setIndex] = React.useState(0);
   const [paused, setPaused] = React.useState(false);
-  const [progress, setProgress] = React.useState(0);
-  const startRef = React.useRef<number>(performance.now());
 
   const scrollToIndex = React.useCallback((i: number) => {
     const vp = viewportRef.current;
@@ -74,24 +72,19 @@ function HorizontalCarousel({
     vp.scrollTo({ left: target.offsetLeft, behavior: "smooth" });
   }, []);
 
-  const resetProgress = React.useCallback(() => {
-    startRef.current = performance.now();
-    setProgress(0);
-  }, []);
+  
 
   const prev = React.useCallback(() => {
     const i = index - 1 < 0 ? items.length - 1 : index - 1;
     setIndex(i);
     scrollToIndex(i);
-    resetProgress();
-  }, [index, items.length, scrollToIndex, resetProgress]);
+  }, [index, items.length, scrollToIndex]);
 
   const next = React.useCallback(() => {
     const i = index + 1 >= items.length ? 0 : index + 1;
     setIndex(i);
     scrollToIndex(i);
-    resetProgress();
-  }, [index, items.length, scrollToIndex, resetProgress]);
+  }, [index, items.length, scrollToIndex]);
 
   // sync on resize
   React.useEffect(() => {
@@ -110,25 +103,7 @@ function HorizontalCarousel({
     return () => clearInterval(id);
   }, [autoplay, intervalMs, paused, next]);
 
-  // progress bar animation
-  React.useEffect(() => {
-    if (!autoplay) {
-      setProgress(0);
-      return;
-    }
-    let raf = 0;
-    const duration = Math.max(2000, intervalMs || 4000);
-    const tick = () => {
-      if (!paused) {
-        const now = performance.now();
-        const p = Math.min(1, (now - startRef.current) / duration);
-        setProgress(p);
-      }
-      raf = requestAnimationFrame(tick);
-    };
-    raf = requestAnimationFrame(tick);
-    return () => cancelAnimationFrame(raf);
-  }, [autoplay, intervalMs, paused, index]);
+  
 
   // pause on hover/focus
   React.useEffect(() => {
@@ -194,17 +169,7 @@ function HorizontalCarousel({
         </button>
       </div>
 
-      {/* Progress bar */}
-      {autoplay ? (
-        <div className="absolute inset-x-1 bottom-0 h-0.5 rounded bg-foreground/10">
-          <div
-            className="h-full rounded bg-primary transition-[width] duration-100 ease-linear"
-            style={{ width: `${progress * 100}%` }}
-            aria-hidden
-          />
-        </div>
-      ) : null}
-    </div>
+      </div>
   );
 }
 

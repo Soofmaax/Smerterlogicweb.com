@@ -51,12 +51,7 @@ export default function Page() {
           </span>
         </h1>
 
-        {/* Visual gradient (sober) */}
-        <Reveal className="reveal-clip mt-8 block">
-          <div className="overflow-hidden rounded-[28px] border p-[2px]">
-            <div className="h-48 w-full rounded-[26px] bg-gradient-to-br from-white via-slate-50 to-slate-100 dark:from-[#1b1f26] dark:via-[#141821] dark:to-[#0f131a] md:h-72" />
-          </div>
-        </Reveal>
+        
 
         <p className="mt-6 text-lg leading-relaxed text-foreground/80 md:text-xl">
           What’s causing stress today? Are you wasting time on workarounds? How many opportunities
