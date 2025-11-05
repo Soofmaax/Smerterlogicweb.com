@@ -5,6 +5,11 @@ import { Reveal } from "@/components/site/reveal";
 import { MagneticZone } from "@/components/site/magnetic";
 import { BadgeCheck, GraduationCap, Users } from "lucide-react";
 import { AssociationsGrid } from "@/components/site/associations-grid";
+import { BookingButton } from "@/components/site/booking-modal";
+import { GoogleReviewsBadge } from "@/components/site/google-reviews";
+import { Guarantee } from "@/components/site/guarantee";
+import { FinalCTA } from "@/components/site/final-cta";
+import { Particles } from "@/components/site/particles";
 
 export const metadata = {
   title: "Engagement — smarterlogicweb.com",
@@ -28,6 +33,12 @@ export const metadata = {
 export default function EngagementAssociatifPage() {
   return (
     <section className="relative mx-auto w-full max-w-6xl px-6 py-16 md:py-24">
+      {/* Ambient background */}
+      <div aria-hidden className="pointer-events-none absolute inset-0 -z-10">
+        <div className="hero-gradient-animated absolute inset-0 rounded-[28px] opacity-60" />
+        <Particles />
+      </div>
+
       {/* Hero */}
       <div className="mx-auto max-w-3xl text-center">
         <Badge variant="secondary" className="px-3 py-1">Engagement</Badge>
@@ -158,12 +169,18 @@ export default function EngagementAssociatifPage() {
         </Reveal>
       </div>
 
+      {/* Garantie */}
+      <div className="mt-12">
+        <Guarantee />
+      </div>
+
       {/* CTA final */}
       <div className="mt-12">
         <div className="rounded-[28px] card-elevated border bg-card p-6 text-center">
           <h2 className="font-heading text-2xl font-semibold">Votre Association Mérite d&apos;Exister en Ligne</h2>
           <MagneticZone>
             <div className="mt-5 flex flex-col items-center justify-center gap-3 sm:flex-row">
+              <BookingButton className="rounded-full btn-lift" label="Réserver mon audit gratuit (15 min)" />
               <Button asChild className="rounded-full btn-lift" variant="cta" data-magnetic="true">
                 <Link href="/candidature-association">Candidater au site gratuit</Link>
               </Button>
@@ -174,9 +191,15 @@ export default function EngagementAssociatifPage() {
                 <Link href="/services">Retour aux services classiques</Link>
               </Button>
             </div>
+            <div className="mt-4 flex items-center justify-center">
+              <GoogleReviewsBadge />
+            </div>
           </MagneticZone>
         </div>
       </div>
+
+      {/* Final CTA global */}
+      <FinalCTA />
     </section>
   );
 }

@@ -1,5 +1,8 @@
 import { Reveal } from "@/components/site/reveal";
 import { FAQPage } from "@/components/site/faq-page";
+import { BookingButton } from "@/components/site/booking-modal";
+import { FinalCTA } from "@/components/site/final-cta";
+import { Particles } from "@/components/site/particles";
 
 export const metadata = {
   title: "FAQ — smarterlogicweb.com",
@@ -76,6 +79,11 @@ const faqSchema = {
 export default function FAQ() {
   return (
     <section className="mx-auto w-full max-w-6xl px-6 py-16 md:py-24">
+      <div aria-hidden className="pointer-events-none absolute inset-0 -z-10">
+        <div className="hero-gradient-animated absolute inset-0 rounded-[28px] opacity-60" />
+        <Particles />
+      </div>
+
       <div className="mx-auto max-w-3xl text-center">
         <Reveal className="reveal-fade-up">
           <h1 className="font-heading text-4xl font-bold tracking-tight md:text-5xl">Vos Questions, Mes Réponses</h1>
@@ -92,6 +100,12 @@ export default function FAQ() {
       />
 
       <FAQPage />
+
+      <div className="mt-10 flex justify-center">
+        <BookingButton className="rounded-full" label="Réserver mon audit gratuit (15 min)" />
+      </div>
+
+      <FinalCTA />
     </section>
   );
 }

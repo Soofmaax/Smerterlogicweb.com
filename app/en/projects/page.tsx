@@ -5,6 +5,10 @@ import { RightDotsNav } from "@/components/site/right-dots-nav";
 import { TrackedLink } from "@/components/site/tracked-link";
 import { Reveal } from "@/components/site/reveal";
 import { projectsEN } from "@/data/projects";
+import { BookingButton } from "@/components/site/booking-modal";
+import { Particles } from "@/components/site/particles";
+import { FinalCTA } from "@/components/site/final-cta";
+import { GoogleReviewsBadge } from "@/components/site/google-reviews";
 
 export const metadata = {
   title: "Projects — smarterlogicweb.com",
@@ -29,6 +33,11 @@ export default function ProjectsPage() {
 
   return (
     <section className="mx-auto w-full max-w-5xl px-6 py-16 md:py-24">
+      <div aria-hidden className="pointer-events-none absolute inset-0 -z-10">
+        <div className="hero-gradient-animated absolute inset-0 rounded-[28px] opacity-60" />
+        <Particles />
+      </div>
+
       <RightDotsNav
         sections={[
           { id: "showcase", label: "Showcase" },
@@ -73,14 +82,20 @@ export default function ProjectsPage() {
       </section>
 
       <section id="cta" className="scroll-mt-28 mt-10">
-        <div className="flex justify-center">
+        <div className="flex flex-col items-center gap-3 justify-center">
+          <BookingButton className="rounded-full" size="lg" label="Book my free audit (15 min)" />
           <Button asChild size="lg" className="rounded-full">
             <TrackedLink href="mailto:contact@smarterlogicweb.com?subject=Web%20project%20-%20Brief" eventName="cta_devis_mailto_projets">
               Start a project
             </TrackedLink>
           </Button>
+          <div className="mt-2">
+            <GoogleReviewsBadge />
+          </div>
         </div>
       </section>
+
+      <FinalCTA />
     </section>
   );
 }
