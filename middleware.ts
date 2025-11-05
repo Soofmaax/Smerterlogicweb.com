@@ -12,13 +12,18 @@ export function middleware(req: NextRequest) {
   ) {
     const url = req.nextUrl.clone();
     url.pathname = "/icon.svg";
-    return NextResponse.redirect(url, 308);
+    const res = NextResponse.redirect(url, 308);
+    // Prevent long-term CDN/browser cache of legacy paths
+    res.headers.set("Cache-Control", "no-store, must-revalidate");
+    return res;
   }
 
   if (pathname === "/site.webmanifest") {
     const url = req.nextUrl.clone();
     url.pathname = "/manifest.webmanifest";
-    return NextResponse.redirect(url, 308);
+    const res = NextResponse.redirect(url, 308);
+    res.headers.set("Cache-Control", "no-store, must-revalidate");
+    return res;
   }
 
   return NextResponse.next();

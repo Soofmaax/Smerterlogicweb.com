@@ -18,8 +18,9 @@ export default function manifest(): MetadataRoute.Manifest {
         type: "image/svg+xml",
         purpose: "any",
       },
+      // Use the dynamic Next route for Apple touch icon to ensure it matches the current brand
       {
-        src: "/apple-touch-icon.png",
+        src: "/apple-touch-icon",
         sizes: "180x180",
         type: "image/png",
         purpose: "any",
