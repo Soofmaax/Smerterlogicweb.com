@@ -130,13 +130,13 @@ export function Header() {
       </a>
       <div className="mx-auto flex w-full max-w-5xl items-center justify-between px-6 py-3">
         <div className="flex items-center gap-3">
-          <Link href={isEn ? "/en" : "/"} className="flex items-center gap-2 text-sm font-semibold tracking-tight">
+          <Link href={isEn ? "/en" : "/"} className="flex items-center gap-3 text-sm font-semibold tracking-tight rounded-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/60 focus-visible:ring-offset-2 focus-visible:ring-offset-background" aria-label={isEn ? "Home — smarterlogicweb" : "Accueil — smarterlogicweb"} title={isEn ? "Home — smarterlogicweb" : "Accueil — smarterlogicweb"}>
             <Image
               src="/Smarter Logic Web.svg"
               alt="smarterlogicweb"
-              width={28}
-              height={28}
-              className="h-7 w-7"
+              width={64}
+              height={64}
+              className="h-16 w-16 transition-transform hover:scale-105"
               priority
             />
             <span className="sr-only">{isEn ? "Home" : "Accueil"}</span>
@@ -158,8 +158,9 @@ export function Header() {
               <div className="relative group">
                 <button
                   type="button"
-                  className={`inline-flex items-center gap-1 text-sm transition-colors hover:text-foreground ${isProjects ? "text-foreground font-semibold" : "text-muted-foreground"}`}
+                  className={`inline-flex items-center gap-1 text-sm transition-colors hover:text-foreground ${isProjects ? "text-foreground font-semibold" : "text-muted-foreground"} rounded-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/60`}
                   aria-haspopup="menu"
+                  aria-controls="menu-projects"
                   aria-expanded={isProjects}
                   aria-current={isProjects ? "page" : undefined}
                 >
@@ -186,8 +187,9 @@ export function Header() {
               <div className="relative group">
                 <button
                   type="button"
-                  className={`inline-flex items-center gap-1 text-sm transition-colors hover:text-foreground ${isServices ? "text-foreground font-semibold" : "text-muted-foreground"}`}
+                  className={`inline-flex items-center gap-1 text-sm transition-colors hover:text-foreground ${isServices ? "text-foreground font-semibold" : "text-muted-foreground"} rounded-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/60`}
                   aria-haspopup="menu"
+                  aria-controls="menu-services"
                   aria-expanded={isServices}
                   aria-current={isServices ? "page" : undefined}
                 >
@@ -212,28 +214,28 @@ export function Header() {
 
               <Link
                 href={`${prefix}/${isEn ? "about" : "a-propos"}`.replace("//", "/")}
-                className={`text-sm transition-colors hover:text-foreground ${isAbout ? "text-foreground font-semibold" : "text-muted-foreground"}`}
+                className={`text-sm transition-colors hover:text-foreground ${isAbout ? "text-foreground font-semibold" : "text-muted-foreground"} rounded-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/50`}
                 aria-current={isAbout ? "page" : undefined}
               >
                 {t.nav.about}
               </Link>
               <Link
                 href={`${prefix}/${isEn ? "nonprofit-commitment" : "engagement-associatif"}`.replace("//", "/")}
-                className={`text-sm transition-colors hover:text-foreground ${isCommitment ? "text-foreground font-semibold" : "text-muted-foreground"}`}
+                className={`text-sm transition-colors hover:text-foreground ${isCommitment ? "text-foreground font-semibold" : "text-muted-foreground"} rounded-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/50`}
                 aria-current={isCommitment ? "page" : undefined}
               >
                 {t.nav.commitment}
               </Link>
               <Link
                 href={`${prefix}/contact`.replace("//", "/")}
-                className={`text-sm transition-colors hover:text-foreground ${isContact ? "text-foreground font-semibold" : "text-muted-foreground"}`}
+                className={`text-sm transition-colors hover:text-foreground ${isContact ? "text-foreground font-semibold" : "text-muted-foreground"} rounded-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/50`}
                 aria-current={isContact ? "page" : undefined}
               >
                 {t.nav.contact}
               </Link>
 
               {/* Language switch */}
-              <Link href={langSwitchHref} className="text-xs text-muted-foreground hover:text-foreground" aria-label="Switch language">
+              <Link href={langSwitchHref} className="inline-flex items-center rounded-full border px-2 py-1 text-xs text-muted-foreground hover:bg-accent/50 hover:text-foreground transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/60 focus-visible:ring-offset-2 focus-visible:ring-offset-background" aria-label={isEn ? "Basculer en français" : "Switch to English"}>
                 {t.lang}
               </Link>
             </nav>
@@ -279,8 +281,8 @@ export function Header() {
         >
           <div className="mx-auto flex w-full max-w-5xl flex-col px-6 py-6">
             <div className="flex items-center justify-between">
-              <Link href={isEn ? "/en" : "/"} className="flex items-center gap-2 text-sm font-semibold tracking-tight" onClick={() => setOpen(false)}>
-                <Image src="/Smarter Logic Web.svg" alt="smarterlogicweb" width={28} height={28} className="h-7 w-7" />
+              <Link href={isEn ? "/en" : "/"} className="flex items-center gap-3 text-sm font-semibold tracking-tight rounded-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/60 focus-visible:ring-offset-2 focus-visible:ring-offset-background" aria-label={isEn ? "Home — smarterlogicweb" : "Accueil — smarterlogicweb"} title={isEn ? "Home — smarterlogicweb" : "Accueil — smarterlogicweb"} onClick={() => setOpen(false)}>
+                <Image src="/Smarter Logic Web.svg" alt="smarterlogicweb" width={64} height={64} className="h-16 w-16 transition-transform hover:scale-105" />
                 <span className="sr-only">{isEn ? "Home" : "Accueil"}</span>
               </Link>
               <button
@@ -357,7 +359,7 @@ export function Header() {
 
               {/* Language switch */}
               <div className="pt-2">
-                <Link href={langSwitchHref} className="text-sm text-muted-foreground hover:text-foreground" onClick={() => setOpen(false)}>
+                <Link href={langSwitchHref} className="inline-flex items-center rounded-full border px-2 py-1 text-sm text-muted-foreground hover:bg-accent/50 hover:text-foreground transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/60 focus-visible:ring-offset-2 focus-visible:ring-offset-background" aria-label={isEn ? "Basculer en français" : "Switch to English"} onClick={() => setOpen(false)}>
                   {t.lang}
                 </Link>
               </div>

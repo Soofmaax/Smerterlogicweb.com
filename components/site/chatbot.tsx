@@ -55,10 +55,51 @@ export function Chatbot() {
   const { typing, show } = useTypingDelay();
   const openedRef = React.useRef(false);
   const greetRef = React.useRef<() => void>(() => {});
+  const goTarifsRef = React.useRef<() => void>(() => {});
+  const goFormuleRef = React.useRef<() => void>(() => {});
 
   const push = React.useCallback((role: Role, content: React.ReactNode) => {
     setMessages((m) => [...m, { id: `${Date.now()}-${m.length}`, role, content }]);
   }, []);
+
+  // Quick recommendation by activity (placeholder)
+  const recommend = React.useCallback(
+    (activity: string) => {
+      const a = activity.toLowerCase();
+      track(`chat_recommend_${a}`);
+      push(
+        "bot",
+        <>
+          Pour {activity}, commencez avec <strong>Vitrine</strong> pour une présence claire. Si vous avez besoin de blog, réservations ou intégrations avancées, passez sur <strong>Business</strong> ou <strong>Premium</strong>.
+        </>
+      );
+      push(
+        "bot",
+        <div className="mt-2 flex flex-wrap gap-2">
+          <QuickButton onClick={() => goFormuleRef.current()}>Lancer le mini‑quiz</QuickButton>
+          <QuickButton onClick={() => goTarifsRef.current()}>Voir les tarifs <ChevronRight className="h-4 w-4" /></QuickButton>
+        </div>
+      );
+    },
+    [push, goFormuleRef, goTarifsRef]
+  );
+
+  // First question of the mini‑quiz (placeholder)
+  const askGallery = React.useCallback(() => {
+    push(
+      "bot",
+      <>
+        Avez‑vous besoin d’une galerie/portfolio pour présenter vos réalisations ?
+        <div className="mt-2 flex flex-wrap gap-2">
+          {["Oui", "Non"].map((b) => (
+            <QuickButton key={b} onClick={() => push("bot", b === "Oui" ? <>Parfait, noté.</> : <>Très bien.</>)}>
+              {b}
+            </QuickButton>
+          ))}
+        </div>
+      </>
+    );
+  }, [push]);
 
   const openChat = React.useCallback(
     (reason: string) => {
@@ -90,7 +131,7 @@ export function Chatbot() {
         ))}
       </div>
     );
-  }, [push, setBranch]);
+  }, [push, setBranch, recommend]);
 
   const goRDV = React.useCallback(() => {
     setBranch("rdv");
@@ -129,7 +170,7 @@ export function Chatbot() {
     track("chat_branch_formule");
     push("bot", <>Répondez à ces 3 questions pour une recommandation rapide.</>);
     askGallery();
-  }, [push, setBranch]);
+  }, [push, setBranch, askGallery]);
 
   const goQuestion = React.useCallback(() => {
     setBranch("question");
@@ -177,6 +218,15 @@ export function Chatbot() {
   React.useEffect(() => {
     greetRef.current = greet;
   }, [greet]);
+
+  // keep go refs in sync
+  React.useEffect(() => {
+    goTarifsRef.current = goTarifs;
+  }, [goTarifs]);
+
+  React.useEffect(() => {
+    goFormuleRef.current = goFormule;
+  }, [goFormule]);
 
   // Triggers
   React.useEffect(() => {
