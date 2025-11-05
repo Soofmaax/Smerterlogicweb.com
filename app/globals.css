@@ -389,6 +389,37 @@ a.link-underline:focus-visible::after {
   50% { box-shadow: 0 0 0 6px hsl(var(--primary) / 0.12); }
 }
 
+/* Program highlight: blue tinted card with scale-in */
+.program-highlight {
+  border-width: 2px;
+  background: linear-gradient(180deg, hsl(var(--primary) / 0.06), transparent);
+  transform: scale(0.98);
+  transition: transform 320ms ease, box-shadow 320ms ease;
+}
+.in-view .program-highlight {
+  transform: scale(1);
+  box-shadow: 0 12px 30px rgba(37, 99, 235, 0.12);
+}
+
+/* FREE badge pulse */
+.badge-free {
+  position: relative;
+  overflow: visible;
+}
+.badge-free::after {
+  content: "";
+  position: absolute;
+  inset: -4px;
+  border-radius: 999px;
+  box-shadow: 0 0 0 0 hsl(var(--primary) / 0.35);
+  animation: freePulse 1600ms ease-in-out infinite;
+}
+@keyframes freePulse {
+  0% { box-shadow: 0 0 0 0 hsl(var(--primary) / 0.35); }
+  70% { box-shadow: 0 0 0 8px hsl(var(--primary) / 0.0); }
+  100% { box-shadow: 0 0 0 0 hsl(var(--primary) / 0.0); }
+}
+
 /* Photo hover scale + shadow */
 .photo-hover {
   transition: transform 400ms ease, box-shadow 400ms ease;
@@ -406,6 +437,15 @@ a.link-underline:focus-visible::after {
 }
 .question-pulse {
   animation: pulseTwice 800ms ease-in-out 2;
+}
+
+/* Button hover lift */
+.btn-lift {
+  transition: transform 200ms ease, box-shadow 200ms ease;
+}
+.btn-lift:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 24px rgba(0,0,0,0.12);
 }
 
 /* Flip 3D cards */
