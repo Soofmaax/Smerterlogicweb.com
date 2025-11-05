@@ -18,6 +18,61 @@ export const metadata = {
   },
 };
 
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: [
+    {
+      "@type": "Question",
+      name: "Combien coûte vraiment un site web ?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Entre 1800€ et 5500€ selon vos besoins. Prix fixe annoncé dès le départ, pas de surprises. Détails complets sur la page Tarifs.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "Combien de temps pour créer mon site ?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Site Vitrine : 2–3 semaines. Site Business : 3–4 semaines. Site Premium : 4–6 semaines. Après validation du devis et réception de tous vos contenus.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "Mon site sera-t-il visible sur Google ?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Oui. Optimisation SEO incluse dès le départ. Le référencement naturel met 2–3 mois à produire des résultats. Je vous forme aux bonnes pratiques.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "Puis-je payer en plusieurs fois ?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Oui, en 3 paiements : 30% à la signature, 40% à mi-projet, 30% à la livraison.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "Pourquoi pas Wix ou WordPress ?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Wix : lent, limité et coûteux sur le long terme. WordPress : maintenance régulière et failles possibles. Mon approche : rapide, sécurisée, simple et performante.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "Puis-je modifier mon site moi-même après ?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Oui pour les contenus simples (textes, images, actualités). Pour des modifications structurelles, je reste disponible.",
+      },
+    },
+  ],
+};
+
 export default function FAQ() {
   return (
     <section className="mx-auto w-full max-w-6xl px-6 py-16 md:py-24">
@@ -29,6 +84,12 @@ export default function FAQ() {
           <p className="mt-4 text-foreground/80">Tout ce que vous devez savoir avant de vous lancer.</p>
         </Reveal>
       </div>
+
+      {/* JSON-LD FAQ schema for SEO */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+      />
 
       <FAQPage />
     </section>

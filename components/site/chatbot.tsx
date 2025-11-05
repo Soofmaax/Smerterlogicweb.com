@@ -90,7 +90,13 @@ export function Chatbot() {
       const until = Number(v);
       return until && until > Date.now();
     };
-    const snooze = () => localStorage.setItem(snoozeKey, String(Date.now() + 60 * 60 * 1000)); // 1h
+    const snooze = () => localStorage.setItem(snoozeKey, String(Date.now() + 24 * 60 * 60 * 1000)); // 24h
+
+    // Do not auto-open on /contact or on small screens (mobile)
+    const isMobile = typeof window !== "undefined" && window.matchMedia && window.matchMedia("(max-width: 767px)").matches;
+    if (pathname.includes("/contact") || isMobile) {
+      return;
+    }
 
     // 30s on /services
     let t: any;

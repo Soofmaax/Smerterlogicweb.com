@@ -4,6 +4,7 @@ import { Reveal } from "@/components/site/reveal";
 import { projectsFR } from "@/data/projects";
 import { ProjectsGrid } from "@/components/site/projects-grid";
 import { ProjectsStats } from "@/components/site/projects-stats";
+import { StickyMobileCTA } from "@/components/site/sticky-mobile-cta";
 
 export const metadata = {
   title: "Projets — smarterlogicweb.com",
@@ -62,6 +63,8 @@ export default function ProjetsPage() {
           </div>
         </div>
       </section>
+    {/* Sticky CTA mobile */}
+      <StickyMobileCTA />
     </section>
   );
 }

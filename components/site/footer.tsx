@@ -59,7 +59,7 @@ export function Footer() {
   );
 
   return (
-    <footer className="w-full border-t">
+    <footer id="site-footer" className="w-full border-t">
       <div className="mx-auto w-full max-w-6xl px-6 py-10">
         {/* Top grid */}
         <div className="grid grid-cols-1 gap-10 sm:grid-cols-2 md:grid-cols-12">

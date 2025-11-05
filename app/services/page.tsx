@@ -7,6 +7,7 @@ import { ServicesExtras } from "@/components/site/services-extras";
 import { ServicesTimelineSimple } from "@/components/site/services-timeline-simple";
 import { FAQServices } from "@/components/site/faq-services";
 import { GoogleReviews } from "@/components/site/google-reviews";
+import { StickyMobileCTA } from "@/components/site/sticky-mobile-cta";
 
 export const metadata = {
   title: "Services — smarterlogicweb.com",
@@ -76,6 +77,9 @@ export default function ServicesPage() {
           </div>
         </div>
       </section>
+
+      {/* Sticky CTA mobile */}
+      <StickyMobileCTA />
     </div>
   );
 }

@@ -3,6 +3,7 @@ import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import { Reveal } from "@/components/site/reveal";
 import { MagneticZone } from "@/components/site/magnetic";
+import { StickyMobileCTA } from "@/components/site/sticky-mobile-cta";
 import { CheckCircle2, Handshake, Gauge } from "lucide-react";
 
 export const metadata = {
@@ -120,6 +121,9 @@ export default function AProposPage() {
       <div className="mt-6 text-center">
         <Link href="/projets" className="link-underline text-sm text-primary">Voir des réalisations</Link>
       </div>
+
+      {/* Sticky CTA mobile */}
+      <StickyMobileCTA />
     </section>
   );
 }
