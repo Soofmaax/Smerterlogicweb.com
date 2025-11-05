@@ -334,9 +334,29 @@ a.link-underline:focus-visible::after {
     background: conic-gradient(from 0deg at 0% 0%, hsl(var(--primary)) 360deg, transparent 0deg);
   }
 }
+
+/* Pricing card spin on hover */
+.pricing-spin {
+  perspective: 1000px;
+}
+.pricing-spin .spin-inner {
+  transform-style: preserve-3d;
+  transition: transform 800ms cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+.pricing-spin:hover .spin-inner,
+.pricing-spin:focus-within .spin-inner {
+  transform: rotateY(360deg);
+}
+
 @media (prefers-reduced-motion: reduce) {
   .pricing-animated::before {
     animation: none !important;
+  }
+  .pricing-spin .spin-inner,
+  .pricing-spin:hover .spin-inner,
+  .pricing-spin:focus-within .spin-inner {
+    transition: none !important;
+    transform: none !important;
   }
 }
 
