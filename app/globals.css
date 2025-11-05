@@ -383,6 +383,15 @@ a.link-underline:focus-visible::after {
   opacity: 1;
 }
 
+/* Hide scrollbars utility (no styled-jsx) */
+.no-scrollbar {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+.no-scrollbar::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, Opera */
+}
+
 /* Project card advanced hover & overlay */
 .project-card {
   transition: transform 500ms cubic-bezier(0.23, 1, 0.32, 1), box-shadow 400ms ease;
