@@ -6,6 +6,7 @@ import { Footer } from "@/components/site/footer";
 import { UXEnhancer } from "@/components/site/ux-enhancer";
 import { ScrollProgress } from "@/components/site/scroll-progress";
 import { Chatbot } from "@/components/site/chatbot";
+import { CookieConsent } from "@/components/site/cookie-consent";
 import Script from "next/script";
 
 const inter = Inter({
