@@ -62,7 +62,7 @@ export function PerformanceVisible() {
 }
 
 function GaugeCard({ label, value, unit }: { label: string; value: number; unit?: string }) {
-  const { ref, value: v } = useCountUp(value, 2000);
+  const { ref, value: v } = useCountUp(value, 1500);
   const size = 120;
   const stroke = 10;
   const r = (size - stroke) / 2;
@@ -101,7 +101,7 @@ function GaugeCard({ label, value, unit }: { label: string; value: number; unit?
 }
 
 function CounterCard({ label, value, unit, icon }: { label: string; value: number; unit?: string; icon?: React.ReactNode }) {
-  const { ref, value: v } = useCountUp(value, 2000);
+  const { ref, value: v } = useCountUp(value, 1500);
   return (
     <div ref={ref as any} className="flex flex-col items-center rounded-2xl border bg-card p-6">
       <div className="font-heading text-4xl font-bold">{v}{unit}</div>

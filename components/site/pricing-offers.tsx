@@ -34,11 +34,11 @@ const plans: Plan[] = [
     recommended: true,
     features: [
       "5 à 10 pages",
-      "Galerie / portfolio lazy‑loading optimisé",
+      "Présentation de vos réalisations",
       "Blog avec catégories",
       "Espace actus / promotions",
-      "Intégration Analytics + Search Console",
-      "Optimisation conversions (CTA stratégiques)",
+      "Suivi de vos visiteurs",
+      "Boutons qui incitent vos visiteurs à vous contacter",
       "Support prioritaire 3 mois",
       "Sauvegardes automatiques hebdomadaires",
     ],
@@ -75,7 +75,7 @@ export function PricingOffers() {
           <article
             key={plan.name}
             className={cn(
-              "relative rounded-[24px] border bg-card p-5 transition duration-300",
+              "relative rounded-[24px] border bg-card p-5 transition duration-300 pricing-animated",
               "hover:-translate-y-1 hover:shadow-lg card-elevated",
               plan.recommended ? "ring-2 ring-primary md:scale-[1.05] border-primary shadow-xl" : ""
             )}

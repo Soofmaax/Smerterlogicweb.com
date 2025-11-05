@@ -60,7 +60,7 @@ export function ExpertiseWhy() {
   return (
     <section className="mx-auto w-full max-w-5xl px-6 py-12">
       <div className="mb-8 text-center">
-        <h2 className="font-heading text-3xl font-semibold md:text-4xl">Pourquoi mon expertise</h2>
+        <h2 className="font-heading text-3xl font-semibold md:text-4xl">Ce Que Vous Gagnez</h2>
         <p className="mt-2 text-foreground/70">Des bénéfices concrets pour votre activité locale.</p>
       </div>
 
@@ -68,7 +68,7 @@ export function ExpertiseWhy() {
         <Block
           icon={<CheckCircle2 className="h-5 w-5" />}
           title="Performance technique"
-          desc="Sites statiques ultra‑rapides, SEO et UX soignés, code propre et maintenable."
+          desc="Sites ultra-rapides qui apparaissent en premier sur Google. Vos clients trouvent votre entreprise facilement."
           counter={counters[0]}
         />
         <Block
@@ -105,7 +105,7 @@ function Block({
   desc: string;
   counter: { label: string; end: number; unit?: string };
 }) {
-  const { ref, value } = useCountUp(counter.end, 1800);
+  const { ref, value } = useCountUp(counter.end, 1500);
   return (
     <div className="rounded-[20px] border bg-card p-5 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg card-elevated">
       <div className="flex items-center gap-2">

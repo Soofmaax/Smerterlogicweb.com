@@ -1,6 +1,7 @@
 "use client";
 
 import * as React from "react";
+import { Reveal } from "@/components/site/reveal";
 
 type Testimonial = {
   quote: string;
@@ -46,22 +47,24 @@ export function TestimonialsSimple() {
         <p className="mt-2 text-foreground/70">Des retours concrets sur l’impact business.</p>
       </div>
 
-      <div className="mt-6 grid gap-4 md:grid-cols-3">
-        {data.map((t, i) => (
-          <figure key={i} className="rounded-2xl border bg-card p-5">
-            <blockquote className="text-foreground/90">
-              “{t.quote}”
-            </blockquote>
-            <figcaption className="mt-4 flex items-center gap-3">
-              <Avatar name={t.author} />
-              <div className="text-sm">
-                <div className="font-semibold">{t.author}</div>
-                <div className="text-muted-foreground">{t.role}</div>
-              </div>
-            </figcaption>
-          </figure>
-        ))}
-      </div>
+      <Reveal className="reveal-fade-up">
+        <div className="mt-6 grid gap-4 md:grid-cols-3">
+          {data.map((t, i) => (
+            <figure key={i} className="rounded-2xl border bg-card p-5" style={{ transitionDelay: `${i * 150}ms` }}>
+              <blockquote className="text-foreground/90">
+                “{t.quote}”
+              </blockquote>
+              <figcaption className="mt-4 flex items-center gap-3">
+                <Avatar name={t.author} />
+                <div className="text-sm">
+                  <div className="font-semibold">{t.author}</div>
+                  <div className="text-muted-foreground">{t.role}</div>
+                </div>
+              </figcaption>
+            </figure>
+          ))}
+        </div>
+      </Reveal>
     </section>
   );
 }

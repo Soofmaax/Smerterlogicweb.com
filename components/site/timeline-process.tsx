@@ -22,10 +22,10 @@ const steps: Step[] = [
   },
   {
     id: "etape-2",
-    title: "Architecture et wireframes",
+    title: "Plan de votre site",
     duration: "2–3 jours",
     desc:
-      "Conception de l’architecture d’information et des wireframes en respectant votre charte et vos contenus.",
+      "Conception claire du plan et des pages en respectant votre charte et vos contenus.",
     Icon: Palette,
   },
   {
@@ -33,7 +33,7 @@ const steps: Step[] = [
     title: "Développement",
     duration: "5–10 jours",
     desc:
-      "Intégration soignée avec les technologies performantes et standards du web, SEO et accessibilité intégrés.",
+      "Intégration soignée avec des technologies performantes. Visible sur Google dès le départ.",
     Icon: Code,
   },
   {

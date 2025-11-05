@@ -6,7 +6,7 @@ import { Button } from "@/components/ui/button";
 import { CheckCircle2 } from "lucide-react";
 
 export function HeroTyped() {
-  const title = "Votre Site Web Qui Vous Ramène des Clients Tous Les Jours";
+  const title = "Un Site Web Qui Vous Amène des Clients Chaque Jour";
   const words = React.useMemo(() => ["Rapides", "Modernes", "Efficaces", "Professionnels"], []);
   const [typedWord, setTypedWord] = React.useState("");
   const [wordIndex, setWordIndex] = React.useState(0);
@@ -17,6 +17,7 @@ export function HeroTyped() {
   // parallax refs
   const p1Ref = React.useRef<HTMLDivElement | null>(null);
   const p2Ref = React.useRef<HTMLDivElement | null>(null);
+  const mockRef = React.useRef<HTMLDivElement | null>(null);
 
   // Typewriter for H1
   React.useEffect(() => {
@@ -32,7 +33,7 @@ export function HeroTyped() {
     }
 
     let i = 0;
-    const step = 40; // ~2s total for ~50 chars
+    const step = 50; // 50ms / letter
     const id = window.setInterval(() => {
       i += 1;
       setTitleTyped(title.slice(0, i));
@@ -92,8 +93,10 @@ export function HeroTyped() {
         const y = window.scrollY || 0;
         const t1 = `translate3d(0, ${Math.min(60, y * 0.06)}px, 0)`;
         const t2 = `translate3d(0, ${Math.min(80, y * 0.1)}px, 0)`;
+        const tm = `translate3d(0, ${Math.min(120, y * 0.6)}px, 0)`; // mockup at 60% scroll speed
         if (p1Ref.current) p1Ref.current.style.transform = t1;
         if (p2Ref.current) p2Ref.current.style.transform = t2;
+        if (mockRef.current) mockRef.current.style.transform = tm;
         raf = 0;
       });
     };
@@ -127,19 +130,14 @@ export function HeroTyped() {
         {showCaretTitle && <span className="ml-1 inline-block w-[2px] animate-pulse bg-foreground align-middle" style={{ height: "1em" }} />}
       </h1>
 
-      {/* Subheading with live typing word */}
+      {/* Subheading */}
       <p className="mt-6 text-lg leading-relaxed text-foreground/80 md:text-xl">
-        Pour artisans et commerces locaux : un site rapide, visible sur Google, et qui transforme vos visiteurs en clients.{" "}
-        <span className="font-semibold text-foreground">
-          {typedWord}
-          <span className="ml-0.5 inline-block w-[1px] animate-pulse bg-foreground/70 align-middle" style={{ height: "1em" }} />
-        </span>
-        {" "}Sans jargon technique.
+        Pour artisans et commerces locaux : un site rapide, visible sur Google, qui transforme vos visiteurs en clients. Simple, sans jargon technique.
       </p>
 
       <div className="mt-6 flex flex-col gap-3 sm:flex-row">
         <Button asChild size="lg" variant="cta" className="rounded-full">
-          <Link href="#tarifs">Voir les tarifs et exemples</Link>
+          <Link href="/contact">Obtenir un devis gratuit</Link>
         </Button>
         <Button asChild size="lg" variant="secondary" className="rounded-full">
           <Link href="/contact">Discutons de votre projet</Link>
