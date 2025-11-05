@@ -5,6 +5,7 @@ import { Header } from "@/components/site/header";
 import { Footer } from "@/components/site/footer";
 import { UXEnhancer } from "@/components/site/ux-enhancer";
 import { ScrollProgress } from "@/components/site/scroll-progress";
+import { Chatbot } from "@/components/site/chatbot";
 import Script from "next/script";
 
 const inter = Inter({
@@ -139,6 +140,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           <main id="content" className="flex-1">{children}</main>
           <Footer />
         </div>
+
+        {/* Chatbot lead capture */}
+        <Chatbot />
       </body>
     </html>
   );

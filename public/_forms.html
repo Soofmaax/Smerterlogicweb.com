@@ -32,5 +32,28 @@
       <p hidden><input name="website" /></p>
       <button type="submit">Envoyer</button>
     </form>
+
+    <!-- Hidden copy for chatbot lead -->
+    <form name="chat-lead" method="POST" data-netlify="true" netlify-honeypot="bot-field" action="/merci" hidden>
+      <input type="hidden" name="form-name" value="chat-lead" />
+      <p hidden><input name="email" /></p>
+      <p hidden><input name="name" /></p>
+      <p hidden><input name="phone" /></p>
+      <p hidden><input name="slot" /></p>
+      <p hidden><input name="activity" /></p>
+      <p hidden><input name="plan" /></p>
+      <p hidden><input name="leadType" /></p>
+      <p hidden><input name="origin" /></p>
+      <button type="submit">Envoyer</button>
+    </form>
+
+    <!-- Hidden copy for chatbot question -->
+    <form name="chat-question" method="POST" data-netlify="true" netlify-honeypot="bot-field" action="/merci" hidden>
+      <input type="hidden" name="form-name" value="chat-question" />
+      <p hidden><input name="email" /></p>
+      <p hidden><textarea name="message"></textarea></p>
+      <p hidden><input name="origin" /></p>
+      <button type="submit">Envoyer</button>
+    </form>
   </body>
 </html>
