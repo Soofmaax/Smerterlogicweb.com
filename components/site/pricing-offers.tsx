@@ -70,7 +70,7 @@ export function PricingOffers() {
       </div>
 
       {/* Carousel horizontal (affiche 1 / 2 / 3 cartes selon la largeur) */}
-      <Carousel items={slides} ariaLabel="Offres et tarifs" />
+      <Carousel items={slides} ariaLabel="Offres et tarifs" centerEmphasis />
 
       <p className="mt-5 text-sm text-foreground/70">
         Important: ces tarifs s’appliquent si vous disposez déjà de votre identité visuelle (logo, charte graphique,

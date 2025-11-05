@@ -13,6 +13,7 @@ export interface CarouselProps {
   autoplay?: boolean;
   intervalMs?: number;
   ariaLabel?: string;
+  centerEmphasis?: boolean; // highlight the active (center) slide
 }
 
 export function Carousel({
@@ -22,6 +23,7 @@ export function Carousel({
   autoplay = false,
   intervalMs = 4000,
   ariaLabel = "carousel",
+  centerEmphasis = false,
 }: CarouselProps) {
   if (orientation === "horizontal") {
     return (
@@ -31,6 +33,7 @@ export function Carousel({
         autoplay={autoplay}
         intervalMs={intervalMs}
         ariaLabel={ariaLabel}
+        centerEmphasis={centerEmphasis}
       />
     );
   }
@@ -51,12 +54,14 @@ function HorizontalCarousel({
   autoplay,
   intervalMs,
   ariaLabel,
+  centerEmphasis,
 }: {
   items: React.ReactNode[];
   className?: string;
   autoplay?: boolean;
   intervalMs?: number;
   ariaLabel?: string;
+  centerEmphasis?: boolean;
 }) {
   const rootRef = React.useRef<HTMLDivElement>(null);
   const viewportRef = React.useRef<HTMLDivElement>(null);
@@ -140,6 +145,30 @@ function HorizontalCarousel({
     return () => io.disconnect();
   }, []);
 
+  // Determine current center index on scroll to enable emphasis
+  React.useEffect(() => {
+    const vp = viewportRef.current;
+    if (!vp) return;
+    const onScroll = () => {
+      const children = Array.from(vp.children) as HTMLElement[];
+      const center = vp.scrollLeft + vp.clientWidth / 2;
+      let best = 0;
+      let bestDist = Number.POSITIVE_INFINITY;
+      children.forEach((child, i) => {
+        const mid = child.offsetLeft + child.offsetWidth / 2;
+        const d = Math.abs(mid - center);
+        if (d < bestDist) {
+          bestDist = d;
+          best = i;
+        }
+      });
+      setIndex(best);
+    };
+    onScroll(); // compute initial index based on current layout
+    vp.addEventListener("scroll", onScroll, { passive: true });
+    return () => vp.removeEventListener("scroll", onScroll);
+  }, [items.length]);
+
   // touch swipe
   React.useEffect(() => {
     const vp = viewportRef.current;
@@ -207,7 +236,15 @@ function HorizontalCarousel({
         {items.map((node, i) => (
           <div
             key={i}
-            className="snap-start shrink-0 basis-full md:basis-[calc(50%-0.5rem)] lg:basis-[calc(33.333%-0.666rem)]"
+            className={cn(
+              "snap-start shrink-0 basis-full md:basis-[calc(50%-0.5rem)] lg:basis-[calc(33.333%-0.666rem)] transition-all duration-300",
+              centerEmphasis
+                ? i === index
+                  ? "scale-[1.02] opacity-100 z-10"
+                  : "scale-[0.96] opacity-80"
+                : ""
+            )}
+            style={{ willChange: "transform" }}
             aria-label={`slide ${i + 1} of ${items.length}`}
           >
             {node}
