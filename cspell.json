@@ -1,9 +1,15 @@
 {
   "version": "0.2",
-  "language": "fr",
+  "language": "en,fr",
+  "allowCompoundWords": true,
+  "dictionaryDefinitions": [
+    { "name": "en-us", "path": "node_modules/@cspell/dict-en-us/cspell-ext.json" },
+    { "name": "fr-fr", "path": "node_modules/@cspell/dict-fr-fr/cspell-ext.json" },
+    { "name": "software-terms", "path": "node_modules/@cspell/dict-software-terms/cspell-ext.json" }
+  ],
   "dictionaries": [
-    "fr-fr",
     "en-us",
+    "fr-fr",
     "software-terms"
   ],
   "ignorePaths": [
@@ -18,7 +24,8 @@
   ],
   "ignoreRegExpList": [
     "/https?:[^\\s)]+/g",
-    "/[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}/g"
+    "/[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}/g",
+    "/class(Name)?=\\\"[^\\\"]+\\\"/g"
   ],
   "words": [
     "Next.js",
@@ -32,6 +39,37 @@
     "webmanifest",
     "CTA",
     "SEO",
-    "Lighthouse"
+    "Lighthouse",
+    "smarterlogicweb",
+    "Soofmaax",
+    "Reveal",
+    "Magnetic",
+    "Gauge",
+    "Carousel",
+    "Lightbox",
+    "Stars",
+    "avatar",
+    "reviews",
+    "testimonials",
+    "foreground",
+    "rounded",
+    "popover",
+    "emerald",
+    "amber",
+    "slate",
+    "card",
+    "nonprofit",
+    "commitment",
+    "about",
+    "propos",
+    "bmsventouse",
+    "Julien",
+    "Marie",
+    "Thomas",
+    "Nantes",
+    "Saveurs",
+    "Dubois",
+    "Ventouse",
+    "kpis"
   ]
 }
