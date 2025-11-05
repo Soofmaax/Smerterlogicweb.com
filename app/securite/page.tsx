@@ -63,6 +63,13 @@ export default function SecuritePage() {
           /.well-known/security.txt
         </Link>
       </p>
+
+      {/* Mini CTA discret */}
+      <div className="mt-8 flex justify-center">
+        <a href="/contact" className="inline-flex items-center rounded-full border px-4 py-2 text-sm hover:bg-accent/50">
+          Besoin d’aide ? Contactez-moi
+        </a>
+      </div>
     </section>
   );
 }

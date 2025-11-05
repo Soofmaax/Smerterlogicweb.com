@@ -3,6 +3,11 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import { TrackedLink } from "@/components/site/tracked-link";
+import { BookingButton } from "@/components/site/booking-modal";
+import { GoogleReviewsBadge } from "@/components/site/google-reviews";
+import { Guarantee } from "@/components/site/guarantee";
+import { FinalCTA } from "@/components/site/final-cta";
+import { Particles } from "@/components/site/particles";
 
 export const metadata = {
   title: "Nonprofit commitment — smarterlogicweb.com",
@@ -26,6 +31,10 @@ export const metadata = {
 export default function NonprofitCommitmentPage() {
   return (
     <div className="relative">
+      <div aria-hidden className="pointer-events-none absolute inset-0 -z-10">
+        <div className="hero-gradient-animated absolute inset-0 rounded-[28px] opacity-60" />
+        <Particles />
+      </div>
       <section className="mx-auto w-full max-w-3xl px-6 py-16 md:py-24">
         <div className="rounded-[28px] card-elevated border bg-card p-6 shadow-sm">
           <div className="mb-4 flex items-center gap-2">
@@ -60,6 +69,7 @@ export default function NonprofitCommitmentPage() {
           </div>
 
           <div className="mt-10 flex flex-wrap items-center gap-4">
+            <BookingButton className="rounded-full" size="lg" label="Book my free audit (15 min)" />
             <Button asChild size="lg" className="rounded-full">
               <TrackedLink href="mailto:contact@smarterlogicweb.com?subject=Nonprofit%20project" eventName="cta_devis_mailto_engagement">
                 Tell me about your project
@@ -69,8 +79,18 @@ export default function NonprofitCommitmentPage() {
               Back to home
             </Link>
           </div>
+
+          <div className="mt-4">
+            <GoogleReviewsBadge />
+          </div>
         </div>
       </section>
+
+      <div className="mx-auto w-full max-w-3xl px-6">
+        <Guarantee />
+      </div>
+
+      <FinalCTA />
     </div>
   );
 }
