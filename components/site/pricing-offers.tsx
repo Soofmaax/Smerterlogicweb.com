@@ -1,21 +1,19 @@
 import * as React from "react";
 import { CheckCircle2, Star } from "lucide-react";
-import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
+import { BookingButton } from "@/components/site/booking-modal";
 
 type Plan = {
   name: string;
   price: string;
   features: string[];
   recommended?: boolean;
-  cta: string;
 };
 
 const plans: Plan[] = [
   {
     name: "Site Vitrine",
-    price: "1800€ TTC",
-    cta: "Discutons de votre projet",
+    price: "À partir de 1 200€",
     features: [
       "3 à 5 pages responsive",
       "Design moderne adapté à votre charte",
@@ -29,8 +27,7 @@ const plans: Plan[] = [
   },
   {
     name: "Site Business",
-    price: "3200€ TTC",
-    cta: "Discutons de votre projet",
+    price: "À partir de 2 500€",
     recommended: true,
     features: [
       "5 à 10 pages",
@@ -45,8 +42,7 @@ const plans: Plan[] = [
   },
   {
     name: "Site Premium",
-    price: "5500€ TTC",
-    cta: "Discutons de votre projet",
+    price: "Sur devis, à partir de 4 500€",
     features: [
       "Réservation / demande de devis en ligne",
       "Espace client sécurisé (si besoin)",
@@ -89,7 +85,7 @@ export function PricingOffers() {
             ) : null}
 
             <h3 className="font-heading text-lg font-semibold">{plan.name}</h3>
-            <div className="mt-1 text-xl font-bold">{plan.price}</div>
+            <div className="mt-1 text-2xl font-extrabold md:text-3xl">{plan.price}</div>
 
             <ul className="mt-3 space-y-1.5">
               {plan.features.map((f, i) => (
@@ -101,9 +97,7 @@ export function PricingOffers() {
             </ul>
 
             <div className="mt-5">
-              <Button className="w-full rounded-full" asChild>
-                <a href="/contact">{plan.cta}</a>
-              </Button>
+              <BookingButton className="w-full h-11 md:h-12 text-base" label="Réserver mon audit gratuit (15 min)" />
             </div>
           </article>
         ))}

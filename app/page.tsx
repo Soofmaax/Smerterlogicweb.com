@@ -17,6 +17,8 @@ import { RealisationsGrid } from "@/components/site/realisations-grid";
 import { GoogleReviews } from "@/components/site/google-reviews";
 import { FinalCTA } from "@/components/site/final-cta";
 import { Reveal } from "@/components/site/reveal";
+import { BookingButton } from "@/components/site/booking-modal";
+import { Guarantee } from "@/components/site/guarantee";
 
 export const metadata = {
   title: "Votre site web, enfin simple et performant.",
@@ -49,8 +51,6 @@ export default function Page() {
       {/* New Hero with typing effect */}
       <HeroTyped />
 
-      
-
       {/* Pourquoi mon expertise */}
       <Reveal className="reveal-fade-up">
         <ExpertiseWhy />
@@ -61,6 +61,17 @@ export default function Page() {
         <WhyInvest />
       </Reveal>
 
+      {/* Second CTA — after “Pourquoi un Site Sur‑Mesure” */}
+      <section className="mx-auto w-full max-w-3xl px-6 pt-2 pb-8">
+        <div className="rounded-[24px] border bg-card p-5 text-center card-elevated">
+          <h3 className="font-heading text-2xl font-semibold">Un audit rapide pour démarrer</h3>
+          <p className="mt-2 text-foreground/80">15 minutes pour évaluer vos besoins et vos objectifs.</p>
+          <div className="mt-4 flex justify-center">
+            <BookingButton className="h-11 px-8 text-base" label="Réserver mon audit gratuit (15 min)" />
+          </div>
+        </div>
+      </section>
+
       {/* Avis Google */}
       <GoogleReviews />
 
@@ -69,6 +80,9 @@ export default function Page() {
 
       {/* Offres & Tarifs */}
       <PricingOffers />
+
+      {/* Garantie */}
+      <Guarantee />
 
       {/* Section interactive — Voyez la Différence */}
       <SeeTheDifference />
@@ -111,6 +125,17 @@ export default function Page() {
             </Button>
             <Link href="/engagement-associatif" className="group inline-flex items-center justify-center gap-2 rounded-full px-4 py-3 text-sm text-muted-foreground hover:text-foreground">
               <Heart size={16} className="transition-transform group-hover:scale-110" />
+              <span>Découvrez mon engagement associatif</span>
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* Final CTA before footer */}
+      <FinalCTA />
+    </div>
+  );
+} className="transition-transform group-hover:scale-110" />
               <span>Découvrez mon engagement associatif</span>
             </Link>
           </div>

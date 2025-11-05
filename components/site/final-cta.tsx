@@ -2,6 +2,7 @@ import * as React from "react";
 import { Button } from "@/components/ui/button";
 import { CheckCircle2, Clock, Phone } from "lucide-react";
 import Link from "next/link";
+import { BookingButton } from "@/components/site/booking-modal";
 
 export function FinalCTA() {
   return (
@@ -19,9 +20,7 @@ export function FinalCTA() {
           <Button asChild size="lg" variant="cta" className="rounded-full animate-[pulse_3s_ease-in-out_infinite]">
             <Link href="#tarifs">Voir les tarifs et exemples</Link>
           </Button>
-          <Button asChild size="lg" variant="secondary" className="rounded-full">
-            <Link href="/contact">Discutons de votre projet</Link>
-          </Button>
+          <BookingButton className="h-11 px-6" label="Réserver mon audit gratuit (15 min)" />
         </div>
 
         <div className="mt-6 grid gap-4 sm:grid-cols-3">

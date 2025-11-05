@@ -40,7 +40,7 @@ export function SeeTheDifference() {
   React.useEffect(() => {
     if (!rootRef.current) return;
     const rootEl = rootRef.current;
-    const sections = ["demo-a", "demo-b", "demo-c", "demo-d"].map((id) =>
+    const sections = ["demo-a", "demo-b", "demo-d"].map((id) =>
       rootEl.querySelector<HTMLElement>(`#${id}`)
     ).filter(Boolean) as HTMLElement[];
 
@@ -98,7 +98,6 @@ export function SeeTheDifference() {
           {[
             { id: "demo-a", label: "Boutons" },
             { id: "demo-b", label: "Images" },
-            { id: "demo-c", label: "Cartes" },
             { id: "demo-d", label: "Navigation" },
           ].map((it) => (
             <Link
@@ -154,48 +153,24 @@ export function SeeTheDifference() {
         </p>
       </div>
 
-      {/* Demo C: Service cards */}
-      <div id="demo-c" className="mt-10" data-reveal>
-        <h3 className="font-heading text-xl font-semibold">Cartes de Services Interactives</h3>
-        <div className="mt-4 grid gap-4 sm:grid-cols-3">
-          <ServiceCard icon={<Wrench className="h-5 w-5 transition-transform duration-300 group-hover:-rotate-6" />} title="Maintenance simplifiée">
-            Mises à jour et sécurité assurées sans friction.
-          </ServiceCard>
-          <ServiceCard icon={<MonitorSmartphone className="h-5 w-5 transition-transform duration-300 group-hover:scale-110" />} title="Responsive précis">
-            Expérience cohérente sur mobile, tablette et desktop.
-          </ServiceCard>
-          <ServiceCard icon={<ShieldCheck className="h-5 w-5 transition-transform duration-300 group-hover:rotate-6" />} title="Performance &amp; A11y">
-            Rapidité, accessibilité et SEO intégrés par défaut.
-          </ServiceCard>
-        </div>
-        <p className="mt-3 text-sm text-foreground/80">
-          Quand vos visiteurs explorent vos services, chaque élément réagit de façon subtile pour montrer qu&apos;il est cliquable et attirer l&apos;attention sur les informations importantes.
-        </p>
-      </div>
-
       {/* Demo D: Smooth anchor navigation */}
       <div id="demo-d" className="mt-10" data-reveal>
         <h3 className="font-heading text-xl font-semibold">Navigation Fluide Entre Sections</h3>
         <p className="mt-2 text-sm text-foreground/80">
           La navigation dans votre site est douce et naturelle. Pas de sauts brusques qui désorientent vos visiteurs.
         </p>
-        <div className="mt-4 grid gap-3 md:grid-cols-4">
+        <div className="mt-4 grid gap-3 md:grid-cols-3">
           <a href="#demo-a" data-anchor className="flex items-center justify-center gap-2 rounded-lg border bg-card p-3 transition-colors hover:bg-accent">
             <MousePointerClick className="h-4 w-4" /> Boutons
           </a>
           <a href="#demo-b" data-anchor className="flex items-center justify-center gap-2 rounded-lg border bg-card p-3 transition-colors hover:bg-accent">
             <MousePointerClick className="h-4 w-4" /> Images
           </a>
-          <a href="#demo-c" data-anchor className="flex items-center justify-center gap-2 rounded-lg border bg-card p-3 transition-colors hover:bg-accent">
-            <MousePointerClick className="h-4 w-4" /> Cartes
-          </a>
           <a href="#perf" data-anchor className="flex items-center justify-center gap-2 rounded-lg border bg-card p-3 transition-colors hover:bg-accent">
             <MousePointerClick className="h-4 w-4" /> Performances
           </a>
         </div>
       </div>
-
-      
 
       {/* Conclusion + CTA */}
       <div className="mt-10 text-center" data-reveal>

@@ -6,9 +6,10 @@ import { Button } from "@/components/ui/button";
 import { CheckCircle2 } from "lucide-react";
 import { Particles } from "@/components/site/particles";
 import { LiveCode } from "@/components/site/live-code";
+import { BookingButton } from "@/components/site/booking-modal";
 
 export function HeroTyped() {
-  const title = "Un Site Web Qui Vous Amène des Clients Chaque Jour";
+  const title = "Obtenez 3 à 5 Nouveaux Clients par Mois Grâce à Votre Site Web";
   const words = React.useMemo(() => ["Rapides", "Modernes", "Efficaces", "Professionnels"], []);
   const [typedWord, setTypedWord] = React.useState("");
   const [wordIndex, setWordIndex] = React.useState(0);
@@ -120,10 +121,10 @@ export function HeroTyped() {
         <Particles />
       </div>
 
-      {/* Small badge */}
+      {/* Urgency badge */}
       <div className="mb-6">
         <span className="inline-flex rounded-full border border-foreground/15 bg-card px-3 py-1 text-sm text-foreground/80">
-          Studio web
+          🔥 2 places disponibles en novembre 2025
         </span>
       </div>
 
@@ -140,16 +141,22 @@ export function HeroTyped() {
 
       {/* Subheading */}
       <p className="mt-6 text-lg leading-relaxed text-foreground/80 md:text-xl">
-        Pour artisans et commerces locaux : un site rapide, visible sur Google, qui transforme vos visiteurs en clients. Simple, sans jargon technique.
+        En 8 semaines, vous êtes visible sur Google
       </p>
 
       <div className="mt-6 flex flex-col gap-3 sm:flex-row">
-        <Button asChild size="lg" variant="cta" className="rounded-full button-glitch" data-text="Obtenir un devis gratuit">
-          <Link href="/contact">Obtenir un devis gratuit</Link>
-        </Button>
+        <BookingButton
+          label="Réserver mon audit gratuit (15 min)"
+          className="button-glitch h-12 px-8 text-base md:h-14 md:px-10 md:text-lg"
+        />
         <Button asChild size="lg" variant="secondary" className="rounded-full">
           <Link href="/contact">Discutons de votre projet</Link>
         </Button>
+      </div>
+
+      {/* Urgency subtext */}
+      <div className="mt-2 text-sm text-muted-foreground">
+        Prochain démarrage : semaine du 18 novembre
       </div>
 
       {/* Reassurance badges */}
