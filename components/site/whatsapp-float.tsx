@@ -2,6 +2,7 @@
 
 import * as React from "react";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { MessageCircle } from "lucide-react";
 
 function getWhatsappUrl() {
@@ -10,6 +11,11 @@ function getWhatsappUrl() {
 
 export function WhatsAppFloat() {
   const href = getWhatsappUrl();
+  const pathname = usePathname() || "/";
+
+  // Afficher uniquement sur la homepage (FR et EN), masquer ailleurs
+  const isHome = pathname === "/" || pathname === "/en";
+  if (!isHome) return null;
 
   return (
     <div className="fixed bottom-6 right-6 z-[70]">
