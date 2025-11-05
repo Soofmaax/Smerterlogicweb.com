@@ -7,8 +7,10 @@ import * as React from "react";
  * - Pauses on prefers-reduced-motion.
  * - ~80 particles desktop / ~40 mobile.
  * - Draws connecting lines for nearby particles.
+ * - Mounts in a local container to avoid selecting the wrong <section>.
  */
 export function Particles() {
+  const hostRef = React.useRef<HTMLDivElement | null>(null);
   const canvasRef = React.useRef<HTMLCanvasElement | null>(null);
   const rafRef = React.useRef<number>(0);
   const particlesRef = React.useRef<Array<{ x: number; y: number; vx: number; vy: number }>>([]);
@@ -21,12 +23,16 @@ export function Particles() {
     })();
     if (prefersReduced || manualReduced) return;
 
+    const target = hostRef.current || document.body;
+    // Ensure host has positioning context
+    const prevPos = target.style.position;
+    if (!prevPos || prevPos === "static") {
+      target.style.position = "relative";
+    }
+
     const canvas = document.createElement("canvas");
     canvas.className = "particles-layer";
     canvasRef.current = canvas;
-
-    const parent = document.querySelector("section"); // mount in current section context
-    const target = parent ? parent : document.body;
     target.appendChild(canvas);
 
     const ctx = canvas.getContext("2d");
@@ -155,8 +161,13 @@ export function Particles() {
       canvas.removeEventListener("mouseleave", onLeave);
       if (rafRef.current) cancelAnimationFrame(rafRef.current);
       canvas.remove();
+      // restore previous position style if it was empty
+      if (target && prevPos === "" ) {
+        target.style.position = "";
+      }
     };
   }, []);
 
-  return null;
+  // Host div that acts as an absolute layer; parent (hero overlay) already is absolute with -z-10
+  return <div ref={hostRef} className="absolute inset-0 pointer-events-none" aria-hidden />;
 }
