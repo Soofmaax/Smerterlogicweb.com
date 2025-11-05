@@ -109,7 +109,7 @@ export function HeroTyped() {
   }, []);
 
   return (
-    <section className="relative mx-auto w-full max-w-5xl px-6 py-16 md:py-24">
+    <section className="relative mx-auto w-full max-w-5xl px-6 py-16 md:py-24 snap-start">
       {/* Subtle animated background + parallax shapes */}
       <div aria-hidden className="pointer-events-none absolute inset-0 -z-10">
         <div className="hero-gradient-animated absolute inset-0 rounded-[28px] opacity-60" />
@@ -129,6 +129,11 @@ export function HeroTyped() {
         {titleTyped || title}
         {showCaretTitle && <span className="ml-1 inline-block w-[2px] animate-pulse bg-foreground align-middle" style={{ height: "1em" }} />}
       </h1>
+
+      {/* Animated gradient word (WOW) */}
+      <div aria-live="polite" className="mt-2 text-2xl font-semibold hero-title md:text-3xl">
+        {typedWord}
+      </div>
 
       {/* Subheading */}
       <p className="mt-6 text-lg leading-relaxed text-foreground/80 md:text-xl">
@@ -159,7 +164,7 @@ export function HeroTyped() {
 
       {/* Compact device mockup with metrics */}
       <div className="mt-8">
-        <div className="rounded-[20px] border bg-card p-4 shadow-sm">
+        <div ref={mockRef} className="rounded-[20px] border bg-card p-4 shadow-sm">
           {/* Browser frame */}
           <div className="flex items-center gap-1 pb-3">
             <span className="h-2.5 w-2.5 rounded-full bg-red-400/60" />

@@ -8,6 +8,7 @@ import { ScrollProgress } from "@/components/site/scroll-progress";
 import { Chatbot } from "@/components/site/chatbot";
 import { CookieConsent } from "@/components/site/cookie-consent";
 import { BackToTop } from "@/components/site/back-to-top";
+import { Cursor } from "@/components/site/cursor";
 import Script from "next/script";
 
 const inter = Inter({
@@ -141,10 +142,11 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
 
         <UXEnhancer />
         <ScrollProgress />
+        <Cursor />
 
         <div className="flex min-h-screen flex-col">
           <Header />
-          <main id="content" className="flex-1">{children}</main>
+          <main id="content" className="flex-1 snap-y">{children}</main>
           <Footer />
         </div>
 

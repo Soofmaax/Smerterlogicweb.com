@@ -586,6 +586,54 @@ a.link-underline:focus-visible::after {
   100% { transform: translateY(6px); opacity: 0.8; }
 }
 
+/* Gradient morph text for WOW effect */
+@keyframes gradient-morph {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+.hero-title {
+  background: linear-gradient(45deg, #ff6b6b, #4ecdc4, #45b7d1, #96ceb4);
+  background-size: 400% 400%;
+  animation: gradient-morph 8s ease infinite;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent;
+}
+
+/* Custom emoji cursor */
+.custom-cursor {
+  position: fixed;
+  z-index: 10000;
+  top: 0;
+  left: 0;
+  width: 24px;
+  height: 24px;
+  transform: translate3d(-100px, -100px, 0);
+  pointer-events: none;
+  font-size: 18px;
+  line-height: 1;
+  filter: drop-shadow(0 2px 2px rgba(0,0,0,0.15));
+}
+@media (pointer: coarse) {
+  .custom-cursor { display: none; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .custom-cursor { display: none; }
+}
+
+/* Optional vertical scroll snapping for immersive sections (desktop only) */
+.snap-y {
+  scroll-snap-type: y proximity;
+}
+.snap-start {
+  scroll-snap-align: start;
+}
+@media (max-width: 768px) {
+  .snap-y { scroll-snap-type: none; }
+}
+
 /* Input focus glow */
 .input-glow {
   transition: box-shadow 300ms ease, border-color 300ms ease, background-color 300ms ease;
