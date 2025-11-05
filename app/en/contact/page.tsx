@@ -27,7 +27,7 @@ export const metadata = {
 
 export default function ContactPage() {
   return (
-    <section className="mx-auto w-full max-w-3xl px-6 py-16 md:py-24">
+    <section className="relative mx-auto w-full max-w-3xl px-6 py-16 md:py-24">
       <div aria-hidden className="pointer-events-none absolute inset-0 -z-10">
         <div className="hero-gradient-animated absolute inset-0 rounded-[28px] opacity-60" />
         <Particles />
@@ -61,16 +61,18 @@ export default function ContactPage() {
       </div>
 
       <div className="mt-10 rounded-[28px] card-elevated border bg-card p-6 shadow-sm">
-       <<h2 className="font-heading text-xl font-semibold">For an effective first messa</</h2>
-       <<ul className="mt-3 list-disc pl-5 text-sm leading-relaxed text-foreground/80">
-         <<li>Main goal (showcase, redesign, optimisatio)</</li>
-         <<li>3–5 pages you have in mi</</li>
-         <<li>Examples of sites you li</</li>
-         <<li>Timeline and indicative budg</</li>
-      </</ul>
-    </</div>
+        <h2 className="font-heading text-xl font-semibold">For an effective first message</h2>
+        <ul className="mt-3 list-disc pl-5 text-sm leading-relaxed text-foreground/80">
+          <li>Main goal (showcase, redesign, optimisation…)</li>
+          <li>3–5 pages you have in mind</li>
+          <li>Examples of sites you like</li>
+          <li>Timeline and indicative budget</li>
+        </ul>
+      </div>
 
-     <ediv className="mt-10">
-       on>
+      <div className="mt-10">
+        <Guarantee />
+      </div>
+    </section>
   );
 }
