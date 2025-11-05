@@ -60,6 +60,45 @@ export function Chatbot() {
     setMessages((m) => [...m, { id: `${Date.now()}-${m.length}`, role, content }]);
   }, []);
 
+  // Quick recommendation by activity (placeholder)
+  const recommend = React.useCallback(
+    (activity: string) => {
+      const a = activity.toLowerCase();
+      track(`chat_recommend_${a}`);
+      push(
+        "bot",
+        <>
+          Pour {activity}, commencez avec <strong>Vitrine</strong> pour une présence claire. Si vous avez besoin de blog, réservations ou intégrations avancées, passez sur <strong>Business</strong> ou <strong>Premium</strong>.
+        </>
+      );
+      push(
+        "bot",
+        <div className="mt-2 flex flex-wrap gap-2">
+          <QuickButton onClick={() => goFormule()}>Lancer le mini‑quiz</QuickButton>
+          <QuickButton onClick={() => goTarifs()}>Voir les tarifs <ChevronRight className="h-4 w-4" /></QuickButton>
+        </div>
+      );
+    },
+    [push]
+  );
+
+  // First question of the mini‑quiz (placeholder)
+  const askGallery = React.useCallback(() => {
+    push(
+      "bot",
+      <>
+        Avez‑vous besoin d’une galerie/portfolio pour présenter vos réalisations ?
+        <div className="mt-2 flex flex-wrap gap-2">
+          {["Oui", "Non"].map((b) => (
+            <QuickButton key={b} onClick={() => push("bot", b === "Oui" ? <>Parfait, noté.</> : <>Très bien.</>)}>
+              {b}
+            </QuickButton>
+          ))}
+        </div>
+      </>
+    );
+  }, [push]);
+
   const openChat = React.useCallback(
     (reason: string) => {
       if (openedRef.current) return;
@@ -90,7 +129,7 @@ export function Chatbot() {
         ))}
       </div>
     );
-  }, [push, setBranch]);
+  }, [push, setBranch, recommend]);
 
   const goRDV = React.useCallback(() => {
     setBranch("rdv");
@@ -129,7 +168,7 @@ export function Chatbot() {
     track("chat_branch_formule");
     push("bot", <>Répondez à ces 3 questions pour une recommandation rapide.</>);
     askGallery();
-  }, [push, setBranch]);
+  }, [push, setBranch, askGallery]);
 
   const goQuestion = React.useCallback(() => {
     setBranch("question");
@@ -364,6 +403,19 @@ export function Chatbot() {
                 </div>
                 <p className="mt-1 text-[11px] text-muted-foreground">
                   En utilisant ce chat, vous acceptez notre{" "}
+                  <Link href="/politique-de-confidentialite" className="underline">
+                    politique de confidentialité
+                  </Link>
+                  .
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
+    </>
+  );
+}
                   <Link href="/politique-de-confidentialite" className="underline">
                     politique de confidentialité
                   </Link>

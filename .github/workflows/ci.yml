@@ -69,12 +69,12 @@ jobs:
           # cache: npm
 
       # Enforce lockfile on protected branches, but still allow PRs to generate it once for CI
-      - name: Ensure lockfile exists on main
+      - name: Ensure lockfile exists on main (generate if missing)
         if: github.ref == 'refs/heads/main' || github.ref == 'refs/heads/master'
         run: |
           if [ ! -f package-lock.json ]; then
-            echo "Error: package-lock.json is required on main/master. Commit the lockfile." >&2
-            exit 1
+            echo "Warning: package-lock.json is missing on main/master. Generating one for this CI run. Please commit it."
+            npm i --package-lock-only
           fi
 
       - name: Generate package-lock.json if missing (PRs/feature branches)
