@@ -51,10 +51,13 @@ export const metadata: Metadata = {
     canonical: "/",
   },
   icons: {
-    // Add a cache-busting query to ensure browsers refresh the favicon
-    icon: [{ url: "/icon.svg?v=3", type: "image/svg+xml" }],
-    apple: "/apple-touch-icon",
-    shortcut: ["/icon.svg?v=3"],
+    icon: [
+      { url: "/favicon.ico" },
+      { url: "/favicon-32x32.png", sizes: "32x32", type: "image/png" },
+      { url: "/favicon-16x16.png", sizes: "16x16", type: "image/png" },
+    ],
+    apple: "/apple-touch-icon.png",
+    shortcut: ["/favicon.ico"],
   },
   manifest: "/manifest.webmanifest",
   openGraph: {
