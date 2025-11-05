@@ -7,6 +7,7 @@ import { UXEnhancer } from "@/components/site/ux-enhancer";
 import { ScrollProgress } from "@/components/site/scroll-progress";
 import { Chatbot } from "@/components/site/chatbot";
 import { CookieConsent } from "@/components/site/cookie-consent";
+import { BackToTop } from "@/components/site/back-to-top";
 import Script from "next/script";
 
 const inter = Inter({
@@ -42,10 +43,15 @@ export const metadata: Metadata = {
     canonical: "/",
   },
   icons: {
-    icon: "/icon.svg",
-    apple: "/apple-touch-icon",
+    icon: [
+      { url: "/favicon-32x32.png", sizes: "32x32", type: "image/png" },
+      { url: "/favicon-16x16.png", sizes: "16x16", type: "image/png" },
+      { url: "/favicon.ico", sizes: "any" },
+    ],
+    apple: [{ url: "/apple-touch-icon.png", sizes: "180x180", type: "image/png" }],
+    shortcut: ["/favicon.ico"],
   },
-  manifest: "/manifest.webmanifest",
+  manifest: "/site.webmanifest",
   openGraph: {
     type: "website",
     locale: "fr_FR",
@@ -141,6 +147,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           <main id="content" className="flex-1">{children}</main>
           <Footer />
         </div>
+
+        {/* Right-hand friendly floating actions */}
+        <BackToTop />
 
         {/* Chatbot lead capture */}
         <Chatbot />

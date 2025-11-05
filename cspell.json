@@ -1,0 +1,37 @@
+{
+  "version": "0.2",
+  "language": "fr",
+  "dictionaries": [
+    "fr-fr",
+    "en-us",
+    "software-terms"
+  ],
+  "ignorePaths": [
+    "node_modules",
+    ".next",
+    "public",
+    "coverage",
+    "dist",
+    "build",
+    "**/*-lock.json",
+    "package-lock.json"
+  ],
+  "ignoreRegExpList": [
+    "/https?:[^\\s)]+/g",
+    "/[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}/g"
+  ],
+  "words": [
+    "Next.js",
+    "TypeScript",
+    "Tailwind",
+    "lucide",
+    "Netlify",
+    "Umami",
+    "Plausible",
+    "favicon",
+    "webmanifest",
+    "CTA",
+    "SEO",
+    "Lighthouse"
+  ]
+}

@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { useEffect, useMemo, useState } from "react";
 import { usePathname } from "next/navigation";
 import { Button } from "@/components/ui/button";
@@ -130,7 +131,14 @@ export function Header() {
       <div className="mx-auto flex w-full max-w-5xl items-center justify-between px-6 py-3">
         <div className="flex items-center gap-3">
           <Link href={isEn ? "/en" : "/"} className="flex items-center gap-2 text-sm font-semibold tracking-tight">
-            <span className="rounded-md bg-accent px-2 py-1 text-accent-foreground">smarterlogicweb</span>
+            <Image
+              src="/Smarter Logic Web.svg"
+              alt="smarterlogicweb"
+              width={28}
+              height={28}
+              className="h-7 w-7"
+              priority
+            />
             <span className="sr-only">{isEn ? "Home" : "Accueil"}</span>
           </Link>
         </div>
@@ -272,7 +280,7 @@ export function Header() {
           <div className="mx-auto flex w-full max-w-5xl flex-col px-6 py-6">
             <div className="flex items-center justify-between">
               <Link href={isEn ? "/en" : "/"} className="flex items-center gap-2 text-sm font-semibold tracking-tight" onClick={() => setOpen(false)}>
-                <span className="rounded-md bg-accent px-2 py-1 text-accent-foreground">smarterlogicweb</span>
+                <Image src="/Smarter Logic Web.svg" alt="smarterlogicweb" width={28} height={28} className="h-7 w-7" />
                 <span className="sr-only">{isEn ? "Home" : "Accueil"}</span>
               </Link>
               <button
