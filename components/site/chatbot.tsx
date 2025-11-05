@@ -55,6 +55,44 @@ export function Chatbot() {
   const { typing, show } = useTypingDelay();
   const openedRef = React.useRef(false);
   const greetRef = React.useRef<() => void>(() => {});
+  
+  // Minimal implementations to fix undefined references; enhanced logic below can replace these later.
+  const recommend = React.useCallback(
+    (activity: string) => {
+      const a = activity.toLowerCase();
+      track(`chat_recommend_${a}`);
+      push(
+        "bot",
+        <>
+          Pour {activity}, commencez avec <strong>Vitrine</strong> pour une présence claire. Si vous avez besoin de blog, réservations ou intégrations avancées, passez sur <strong>Business</strong> ou <strong>Premium</strong>.
+        </>
+      );
+      push(
+        "bot",
+        <div className="mt-2 flex flex-wrap gap-2">
+          <QuickButton onClick={() => goFormule()}>Lancer le mini‑quiz</QuickButton>
+          <QuickButton onClick={() => goTarifs()}>Voir les tarifs <ChevronRight className="h-4 w-4" /></QuickButton>
+        </div>
+      );
+    },
+    [push, goFormule, goTarifs]
+  );
+  
+  const askGallery = React.useCallback(() => {
+    push(
+      "bot",
+      <>
+        Avez‑vous besoin d’une galerie/portfolio pour présenter vos réalisations ?
+        <div className="mt-2 flex flex-wrap gap-2">
+          {["Oui", "Non"].map((b) => (
+            <QuickButton key={b} onClick={() => push("bot", b === "Oui" ? <>Parfait, noté.</> : <>Très bien.</>)}>
+              {b}
+            </QuickButton>
+          ))}
+        </div>
+      </>
+    );
+  }, [push]);
 
   const push = React.useCallback((role: Role, content: React.ReactNode) => {
     setMessages((m) => [...m, { id: `${Date.now()}-${m.length}`, role, content }]);
