@@ -19,15 +19,21 @@ export function ProjectsGrid({ items }: { items: CaseItem[] }) {
 
   React.useEffect(() => {
     const onVoice = (e: Event) => {
-      const ce = e as CustomEvent<{ filter?: Filter }>;
+      const ce = e as CustomEvent&lt;{ filter?: Filter }&gt;;
       const f = ce.detail?.filter;
       if (f === "artisans" || f === "associations" || f === "all") {
-        applyFilter(f);
+        if (f === filter) return;
+        setAnimState("out");
+        setTimeout(() => {
+          setFilter(f);
+          setAnimState("in");
+          setTimeout(() => setAnimState("idle"), 220);
+        }, 180);
       }
     };
     window.addEventListener("voice-filter", onVoice as EventListener);
     return () => window.removeEventListener("voice-filter", onVoice as EventListener);
-  }, [applyFilter]);
+  }, [filter]);
 
   // persistent likes
   React.useEffect(() => {
