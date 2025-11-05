@@ -380,6 +380,24 @@ a.link-underline:focus-visible::after {
   to { opacity: 1; transform: scale(1) translateY(0); }
 }
 
+/* Pulse border (for special association box) */
+.pulse-border {
+  animation: pulseBorder 2000ms ease-in-out infinite;
+}
+@keyframes pulseBorder {
+  0%, 100% { box-shadow: 0 0 0 0 hsl(var(--primary) / 0.25); }
+  50% { box-shadow: 0 0 0 6px hsl(var(--primary) / 0.12); }
+}
+
+/* Photo hover scale + shadow */
+.photo-hover {
+  transition: transform 400ms ease, box-shadow 400ms ease;
+}
+.photo-hover:hover {
+  transform: scale(1.05);
+  box-shadow: 0 20px 40px rgba(17,24,39,0.25);
+}
+
 /* Flip 3D cards */
 .flip-card {
   perspective: 1000px;
