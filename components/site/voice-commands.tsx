@@ -7,6 +7,7 @@ import * as React from "react";
  * - "recrutement" => open recruiter portal (dispatch event)
  * - "projets artisans/associations" => filter
  * - "contact" => navigate /contact
+ * - Dispatch transcript event for overlay.
  */
 export function VoiceCommands() {
   const [listening, setListening] = React.useState(false);
@@ -22,6 +23,7 @@ export function VoiceCommands() {
       sr.maxAlternatives = 1;
       sr.onresult = (event: any) => {
         const text = event.results[0][0].transcript?.toLowerCase() || "";
+        window.dispatchEvent(new CustomEvent("voice-transcript", { detail: { text } }));
         if (text.includes("recrutement")) {
           window.dispatchEvent(new CustomEvent("voice-action", { detail: { type: "recruiter" } }));
         }

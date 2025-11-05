@@ -12,6 +12,7 @@ import { Cursor } from "@/components/site/cursor";
 import { EasterEggs } from "@/components/site/easter-eggs";
 import { SmartCTAs } from "@/components/site/smart-ctas";
 import { VoiceCommands } from "@/components/site/voice-commands";
+import { AssistantOverlay } from "@/components/site/assistant-overlay";
 import Script from "next/script";
 
 const inter = Inter({
@@ -160,6 +161,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
 
         {/* Easter Eggs & Chatbot */}
         <EasterEggs />
+        <AssistantOverlay />
         <Chatbot />
       </body>
     </html>

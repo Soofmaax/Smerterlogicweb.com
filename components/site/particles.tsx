@@ -3,9 +3,10 @@
 import * as React from "react";
 
 /**
- * Lightweight canvas particle system.
+ * Canvas particle system (network mode).
  * - Pauses on prefers-reduced-motion.
- * - Limits to ~80 particles on desktop, ~40 on mobile.
+ * - ~80 particles desktop / ~40 mobile.
+ * - Draws connecting lines for nearby particles.
  */
 export function Particles() {
   const canvasRef = React.useRef<HTMLCanvasElement | null>(null);
@@ -32,6 +33,7 @@ export function Particles() {
 
     const isMobile = window.matchMedia?.("(max-width: 768px)")?.matches ?? false;
     const count = isMobile ? 40 : 80;
+    const linkDist = isMobile ? 80 * dpr : 120 * dpr;
 
     const resize = () => {
       const rect = target.getBoundingClientRect();
@@ -53,12 +55,15 @@ export function Particles() {
       if (!ctx) return;
       ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-      for (const p of particlesRef.current) {
+      const parts = particlesRef.current;
+
+      // update particles
+      for (const p of parts) {
         // mouse interaction
         const dx = mouseRef.current.x - p.x;
         const dy = mouseRef.current.y - p.y;
         const dist = Math.sqrt(dx * dx + dy * dy);
-        if (dist < 120) {
+        if (dist < 120 * dpr) {
           p.vx -= dx * 0.0005;
           p.vy -= dy * 0.0005;
         }
@@ -67,14 +72,35 @@ export function Particles() {
         p.x += p.vx;
         p.y += p.vy;
 
-        // bounds
+        // bounds reflect
         if (p.x < 0 || p.x > canvas.width) p.vx *= -1;
         if (p.y < 0 || p.y > canvas.height) p.vy *= -1;
+      }
 
-        // draw
+      // draw lines
+      for (let i = 0; i < parts.length; i++) {
+        for (let j = i + 1; j < parts.length; j++) {
+          const a = parts[i], b = parts[j];
+          const dx = a.x - b.x;
+          const dy = a.y - b.y;
+          const d2 = dx * dx + dy * dy;
+          if (d2 < linkDist * linkDist) {
+            const alpha = 0.15 * (1 - d2 / (linkDist * linkDist));
+            ctx.beginPath();
+            ctx.moveTo(a.x, a.y);
+            ctx.lineTo(b.x, b.y);
+            ctx.strokeStyle = `rgba(37,99,235,${alpha})`; // brand blue
+            ctx.lineWidth = 0.8 * dpr;
+            ctx.stroke();
+          }
+        }
+      }
+
+      // draw points
+      for (const p of parts) {
         ctx.beginPath();
         ctx.arc(p.x, p.y, 1.4 * dpr, 0, Math.PI * 2);
-        ctx.fillStyle = "rgba(37, 99, 235, 0.35)"; // brand blue
+        ctx.fillStyle = "rgba(37, 99, 235, 0.35)";
         ctx.fill();
       }
 

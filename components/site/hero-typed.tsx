@@ -5,6 +5,7 @@ import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { CheckCircle2 } from "lucide-react";
 import { Particles } from "@/components/site/particles";
+import { LiveCode } from "@/components/site/live-code";
 
 export function HeroTyped() {
   const title = "Un Site Web Qui Vous Amène des Clients Chaque Jour";
@@ -204,6 +205,9 @@ export function HeroTyped() {
           </div>
         </div>
       </div>
+
+      {/* Live code preview (real file) */}
+      <LiveCode path="components/site/hero-typed.tsx" title="Code du Hero" />
     </section>
   );
 }
