@@ -37,12 +37,12 @@ export function Modal({
       role="dialog"
       aria-modal="true"
       aria-label={ariaLabel}
-      className="fixed inset-0 z-[90] flex items-center justify-center bg-black/70 p-4"
+      className="modal-overlay fixed inset-0 z-[90] flex items-center justify-center bg-black/70 p-4"
       onClick={(e) => {
         if (e.target === overlayRef.current) onClose();
       }}
     >
-      <div className="relative w-full max-w-3xl rounded-2xl border bg-card p-4 shadow-xl ring-1 ring-black/10">
+      <div className="modal-content relative w-full max-w-3xl rounded-2xl border bg-card p-4 shadow-xl ring-1 ring-black/10">
         {children}
       </div>
     </div>

@@ -1,14 +1,13 @@
+import Link from "next/link";
 import { Button } from "@/components/ui/button";
-import { ProjectsShowcase } from "@/components/site/projects-showcase";
-import { ProjectsCases } from "@/components/site/projects-cases";
-import { RightDotsNav } from "@/components/site/right-dots-nav";
-import { TrackedLink } from "@/components/site/tracked-link";
 import { Reveal } from "@/components/site/reveal";
 import { projectsFR } from "@/data/projects";
+import { ProjectsGrid } from "@/components/site/projects-grid";
+import { ProjectsStats } from "@/components/site/projects-stats";
 
 export const metadata = {
   title: "Projets — smarterlogicweb.com",
-  description: "Études de cas: simplicité, performance, conversion. Aperçu de réalisations Next.js.",
+  description: "6 sites créés, 6 entreprises qui attirent plus de clients. Études de cas mesurables.",
   alternates: {
     canonical: "/projets",
     languages: {
@@ -20,69 +19,47 @@ export const metadata = {
     url: "https://smarterlogicweb.com/projets",
     title: "Projets — smarterlogicweb.com",
     description:
-      "Études de cas: simplicité, performance, conversion. Aperçu de réalisations Next.js.",
+      "6 sites créés, 6 entreprises qui attirent plus de clients.",
   },
 };
 
-
-
-
-
 export default function ProjetsPage() {
-  const showcaseItems = projectsFR.showcase;
-
   return (
-    <section className="mx-auto w-full max-w-5xl px-6 py-16 md:py-24">
-      <RightDotsNav
-        sections={[
-          { id: "showcase", label: "Showcase" },
-          { id: "etudes", label: "Études" },
-          { id: "cta", label: "Contact" },
-        ]}
-        ariaLabel="Navigation sections"
-      />
+    <section className="mx-auto w-full max-w-6xl px-6 py-16 md:py-24">
+      {/* Hero */}
       <div className="mx-auto max-w-3xl text-center">
         <Reveal className="reveal-clip inline-block">
           <h1 className="font-heading text-4xl font-bold tracking-tight md:text-5xl text-balance">
-            Études de cas
+            Ils M&apos;ont Fait Confiance
           </h1>
         </Reveal>
         <p className="mt-4 text-foreground/80">
-          Des interfaces sobres, rapides et orientées conversion. Voici des exemples de ce que je réalise.
+          6 sites créés, 6 entreprises qui attirent plus de clients.
         </p>
       </div>
 
-      {/* Nav sticky */}
-      <div className="mt-6 hidden md:flex justify-center">
-        <nav aria-label="Sections" className="sticky top-24 inline-flex gap-2 rounded-full border bg-card p-2 shadow-sm">
-          <a href="#showcase" className="rounded-full px-3 py-1.5 text-sm text-foreground/80 hover:text-foreground hover:bg-accent focus:outline-none focus-visible:ring-2 focus-visible:ring-primary/60">Showcase</a>
-          <a href="#etudes" className="rounded-full px-3 py-1.5 text-sm text-foreground/80 hover:text-foreground hover:bg-accent focus:outline-none focus-visible:ring-2 focus-visible:ring-primary/60">Études</a>
-          <a href="#cta" className="rounded-full px-3 py-1.5 text-sm text-foreground/80 hover:text-foreground hover:bg-accent focus:outline-none focus-visible:ring-2 focus-visible:ring-primary/60">Contact</a>
-        </nav>
+      {/* Grid + filters */}
+      <div className="mt-10">
+        <ProjectsGrid items={projectsFR.cases} />
       </div>
 
-      {/* Bandeau visuel plein cadre avec reveal (sobre) */}
-      <Reveal className="reveal-clip mt-8 block">
-        <div className="h-44 w-full rounded-[28px] border bg-gradient-to-br from-[#22232a] via-[#1c1e24] to-[#171921] md:h-64" />
-      </Reveal>
+      {/* Stats globales */}
+      <div className="mt-8">
+        <ProjectsStats />
+      </div>
 
-      {/* Bandeau Showcase style "app shell" premium */}
-      <section id="showcase" className="scroll-mt-28 mt-10">
-        <ProjectsShowcase items={showcaseItems} locale="fr" />
-      </section>
-
-      {/* Études de cas avec zoom + détails */}
-      <section id="etudes" className="scroll-mt-28 mt-10">
-        <ProjectsCases items={projectsFR.cases} locale="fr" />
-      </section>
-
-      <section id="cta" className="scroll-mt-28 mt-10">
-        <div className="flex justify-center">
-          <Button asChild size="lg" className="rounded-full">
-            <TrackedLink href="mailto:contact@smarterlogicweb.com?subject=Projet%20web%20-%20Brief" eventName="cta_devis_mailto_projets">
-              Démarrer un projet
-            </TrackedLink>
-          </Button>
+      {/* CTA final */}
+      <section className="mx-auto mt-2 w-full max-w-5xl px-0 py-12">
+        <div className="rounded-[28px] card-elevated border bg-card p-6 text-center">
+          <h2 className="font-heading text-2xl font-semibold">Votre Projet Sera Le Prochain</h2>
+          <div className="mt-5 flex flex-col items-center justify-center gap-3 sm:flex-row">
+            <Button asChild className="rounded-full" variant="cta">
+              <Link href="/contact">Demander un devis</Link>
+            </Button>
+            <Button asChild className="rounded-full" variant="secondary">
+              <Link href="/#tarifs">Voir les tarifs</Link>
+            </Button>
+          </div>
         </div>
       </section>
     </section>
