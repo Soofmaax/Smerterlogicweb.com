@@ -1,10 +1,8 @@
-"use client";
-
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
-import * as React from "react";
 import { Reveal } from "@/components/site/reveal";
+import { MagneticZone } from "@/components/site/magnetic";
 import { CheckCircle2, Handshake, Gauge } from "lucide-react";
 
 export const metadata = {
@@ -26,38 +24,6 @@ export const metadata = {
 };
 
 export default function AProposPage() {
-  const btnRef = React.useRef<HTMLButtonElement | null>(null);
-  const wrapRef = React.useRef<HTMLDivElement | null>(null);
-
-  // Magnetic button effect
-  React.useEffect(() => {
-    const wrap = wrapRef.current;
-    const btn = btnRef.current;
-    if (!wrap || !btn) return;
-    const prefersReduced =
-      typeof window !== "undefined" &&
-      window.matchMedia &&
-      window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    if (prefersReduced) return;
-
-    const onMove = (e: MouseEvent) => {
-      const rect = btn.getBoundingClientRect();
-      const mx = e.clientX - rect.left - rect.width / 2;
-      const my = e.clientY - rect.top - rect.height / 2;
-      const damp = 6; // max offset px
-      btn.style.transform = `translate(${Math.max(Math.min(mx / 12, damp), -damp)}px, ${Math.max(Math.min(my / 12, damp), -damp)}px)`;
-    };
-    const onLeave = () => {
-      btn.style.transform = "translate(0,0)";
-    };
-    wrap.addEventListener("mousemove", onMove);
-    wrap.addEventListener("mouseleave", onLeave);
-    return () => {
-      wrap.removeEventListener("mousemove", onMove);
-      wrap.removeEventListener("mouseleave", onLeave);
-    };
-  }, []);
-
   return (
     <section className="relative mx-auto w-full max-w-5xl px-6 py-16 md:py-24">
       {/* Hero ambient background */}
@@ -141,11 +107,13 @@ export default function AProposPage() {
       {/* Section 5 — CTA final */}
       <div className="mt-10 rounded-[28px] card-elevated border bg-primary/5 p-6">
         <Reveal as="h2" className="h2-underline font-heading text-2xl font-semibold">Prêt à Donner à Votre Entreprise le Site qu&apos;elle Mérite ?</Reveal>
-        <div className="mt-4" ref={wrapRef}>
-          <Button ref={btnRef} asChild size="lg" variant="cta" className="rounded-full">
-            <Link href="/contact">Obtenir mon devis gratuit</Link>
-          </Button>
-        </div>
+        <MagneticZone>
+          <div className="mt-4">
+            <Button asChild size="lg" variant="cta" className="rounded-full" data-magnetic="true">
+              <Link href="/contact">Obtenir mon devis gratuit</Link>
+            </Button>
+          </div>
+        </MagneticZone>
       </div>
 
       {/* Lien projets */}
