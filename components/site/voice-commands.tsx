@@ -50,7 +50,7 @@ export function VoiceCommands() {
   };
 
   return (
-    <div className="fixed bottom-6 left-6 z-[60]">
+    <div className="fixed bottom-28 left-6 z-[60] md:bottom-6">
       <button
         type="button"
         onClick={start}
