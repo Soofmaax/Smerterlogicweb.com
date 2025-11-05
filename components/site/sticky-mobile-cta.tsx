@@ -1,8 +1,7 @@
 "use client";
 
 import * as React from "react";
-import Link from "next/link";
-import { Button } from "@/components/ui/button";
+import { BookingButton } from "@/components/site/booking-modal";
 
 export function StickyMobileCTA() {
   const [visible, setVisible] = React.useState(true);
@@ -35,9 +34,7 @@ export function StickyMobileCTA() {
   // Right-hand friendly floating CTA (avoids overlap with chat bubble)
   return (
     <div className="md:hidden fixed bottom-20 right-4 z-40">
-      <Button asChild size="sm" className="rounded-full shadow-lg">
-        <Link href="/contact">Demander un devis</Link>
-      </Button>
+      <BookingButton size="sm" className="rounded-full shadow-lg" label="Réserver mon audit (15 min)" />
     </div>
   );
 }

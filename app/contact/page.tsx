@@ -5,6 +5,9 @@ import { TrackedLink } from "@/components/site/tracked-link";
 import { ContactForm } from "@/components/site/contact-form";
 import { Reveal } from "@/components/site/reveal";
 import { GoogleReviewsBadge } from "@/components/site/google-reviews";
+import { BookingButton } from "@/components/site/booking-modal";
+import { Guarantee } from "@/components/site/guarantee";
+import { Particles } from "@/components/site/particles";
 
 export const metadata = {
   title: "Contact — smarterlogicweb.com",
@@ -29,6 +32,7 @@ export default function ContactPage() {
       {/* Hero background accents */}
       <div aria-hidden className="pointer-events-none absolute inset-0 -z-10">
         <div className="hero-gradient-animated absolute inset-0 rounded-[28px] opacity-60" />
+        <Particles />
       </div>
 
       {/* Hero card */}
@@ -44,6 +48,7 @@ export default function ContactPage() {
               <span className="inline-flex items-center gap-2"><Mail className="h-4 w-4" /> contact@smarterlogicweb.com</span>
             </TrackedLink>
           </Button>
+          <BookingButton size="lg" className="rounded-full" label="Réserver mon audit gratuit (15 min)" />
           <Link href="/" className="text-sm text-muted-foreground hover:text-foreground">Retour à l’accueil</Link>
         </div>
 
@@ -88,6 +93,11 @@ export default function ContactPage() {
             <li>Échéance et budget indicatif</li>
           </ul>
         </Reveal>
+      </div>
+
+      {/* Garantie (optionnelle sur la page contact) */}
+      <div className="mt-10">
+        <Guarantee />
       </div>
     </section>
   );
