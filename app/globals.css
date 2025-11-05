@@ -642,7 +642,7 @@ html.retro * {
   transform: none;
 }
 
-/* Button ripple (centered) */
+/* Button ripple at click position (used by Button variant="cta") */
 .btn-ripple {
   position: relative;
   overflow: hidden;
@@ -650,16 +650,37 @@ html.retro * {
 .btn-ripple::after {
   content: "";
   position: absolute;
-  inset: 0;
-  border-radius: inherit;
-  transform: scale(0);
-  opacity: 0.4;
-  background: radial-gradient(circle, rgba(255,255,255,0.6) 0%, rgba(255,255,255,0) 60%);
-  transition: transform 500ms ease, opacity 600ms ease;
-}
-.btn-ripple:active::after {
-  transform: scale(2.5);
+  width: 12px;
+  height: 12px;
+  border-radius: 999px;
+  background: rgba(255,255,255,0.65);
+  transform: translate(calc(var(--ripple-x, 50%) - 6px), calc(var(--ripple-y, 50%) - 6px)) scale(0);
   opacity: 0;
+  pointer-events: none;
+}
+.btn-rippling::after {
+  animation: rippleExpand 600ms ease-out forwards;
+}
+@keyframes rippleExpand {
+  0% {
+    transform: translate(calc(var(--ripple-x, 50%) - 6px), calc(var(--ripple-y, 50%) - 6px)) scale(0);
+    opacity: 0.35;
+  }
+  100% {
+    transform: translate(calc(var(--ripple-x, 50%) - 6px), calc(var(--ripple-y, 50%) - 6px)) scale(24);
+    opacity: 0;
+  }
+}
+
+/* CTA gradient shift animation */
+.btn-gradient-shift {
+  background-size: 200% 200%;
+  animation: btnGradientShift 6s ease-in-out infinite;
+}
+@keyframes btnGradientShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
 }
 
 /* Reduced motion fallbacks */

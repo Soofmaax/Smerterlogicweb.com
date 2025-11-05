@@ -9,6 +9,17 @@ export function SeeTheDifference() {
   const rootRef = React.useRef<HTMLDivElement | null>(null);
   const [activeAnchor, setActiveAnchor] = React.useState<string>("demo-a");
 
+  // Demo images (placeholders until real project shots are wired)
+  const demoImgs = React.useMemo(
+    () => [
+      "https://placehold.co/480x200/png?text=Demo+1",
+      "https://placehold.co/480x200/png?text=Demo+2",
+      "https://placehold.co/480x200/png?text=Demo+3",
+      "https://placehold.co/480x200/png?text=Demo+4",
+    ],
+    []
+  );
+
   // prefers-reduced-motion
   const prefersReduced =
     typeof window !== "undefined" &&
@@ -40,7 +51,7 @@ export function SeeTheDifference() {
   React.useEffect(() => {
     if (!rootRef.current) return;
     const rootEl = rootRef.current;
-    const sections = ["demo-a", "demo-b", "demo-d"].map((id) =>
+    const sections = ["demo-a", "demo-b", "demo-d", "perf"].map((id) =>
       rootEl.querySelector<HTMLElement>(`#${id}`)
     ).filter(Boolean) as HTMLElement[];
 
@@ -138,14 +149,17 @@ export function SeeTheDifference() {
       <div id="demo-b" className="mt-10" data-reveal>
         <h3 className="font-heading text-xl font-semibold">Images qui Se Révèlent en Douceur</h3>
         <div className="mt-4 grid gap-3 sm:grid-cols-4">
-          {[1, 2, 3, 4].map((i) => (
-            <div
-              key={i}
-              data-reveal-image
-              className="reveal-image h-28 rounded-lg border bg-gradient-to-br from-slate-100 to-slate-200 dark:from-slate-800 dark:to-slate-700"
-              role="img"
-              aria-label={`Image démo ${i}`}
-            />
+          {demoImgs.map((src, i) => (
+            <figure key={i} className="overflow-hidden rounded-lg border">
+              <img
+                src={src}
+                alt={`Image démo ${i + 1}`}
+                data-reveal-image
+                className="reveal-image h-28 w-full object-cover"
+                loading="lazy"
+              />
+              <figcaption className="sr-only">{`Image démo ${i + 1}`}</figcaption>
+            </figure>
           ))}
         </div>
         <p className="mt-3 text-sm text-foreground/80">
