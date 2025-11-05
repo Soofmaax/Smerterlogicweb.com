@@ -90,10 +90,19 @@ function ProjectCard({ p, onOpen }: { p: CaseItem; onOpen: () => void }) {
       ? "bg-emerald-50 text-emerald-700 ring-emerald-200 dark:bg-emerald-400/10 dark:text-emerald-300"
       : "bg-blue-50 text-blue-700 ring-blue-200 dark:bg-blue-400/10 dark:text-blue-300";
 
+  const topKpi = p.kpis && p.kpis.length ? p.kpis[0] : null;
+
   return (
     <article className="project-card relative rounded-[20px] border bg-card p-4 card-elevated pricing-animated offer-lift">
       {/* Mockups */}
       <div className="relative rounded-lg border bg-background p-3">
+        {/* Result badge overlay */}
+        {topKpi ? (
+          <div className="absolute left-3 top-3 z-10 rounded-full border bg-card/80 px-2.5 py-1 text-xs shadow-sm backdrop-blur">
+            <span className="font-semibold">{topKpi.value}</span>{" "}
+            <span className="text-muted-foreground">{topKpi.label}</span>
+          </div>
+        ) : null}
         <div className="relative aspect-[16/9] w-full overflow-hidden rounded-md">
           {desktop ? (
             <Image

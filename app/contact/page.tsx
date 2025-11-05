@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import { TrackedLink } from "@/components/site/tracked-link";
 import { ContactForm } from "@/components/site/contact-form";
 import { Reveal } from "@/components/site/reveal";
+import { GoogleReviewsBadge } from "@/components/site/google-reviews";
 
 export const metadata = {
   title: "Contact — smarterlogicweb.com",
@@ -44,6 +45,11 @@ export default function ContactPage() {
             </TrackedLink>
           </Button>
           <Link href="/" className="text-sm text-muted-foreground hover:text-foreground">Retour à l’accueil</Link>
+        </div>
+
+        {/* Note Google près du CTA */}
+        <div className="mt-4">
+          <GoogleReviewsBadge />
         </div>
 
         {/* Badges de réassurance (slide-in) */}

@@ -6,7 +6,7 @@ import { ServicesCompare } from "@/components/site/services-compare";
 import { ServicesExtras } from "@/components/site/services-extras";
 import { ServicesTimelineSimple } from "@/components/site/services-timeline-simple";
 import { FAQServices } from "@/components/site/faq-services";
-import { GoogleReviews } from "@/components/site/google-reviews";
+import { GoogleReviews, GoogleReviewsBadge } from "@/components/site/google-reviews";
 import { StickyMobileCTA } from "@/components/site/sticky-mobile-cta";
 
 export const metadata = {
@@ -74,6 +74,10 @@ export default function ServicesPage() {
             <Button asChild className="rounded-full" variant="secondary">
               <a href="mailto:contact@smarterlogicweb.com?subject=Prendre%20rendez-vous%20t%C3%A9l%C3%A9phonique">Prendre rendez-vous téléphonique</a>
             </Button>
+          </div>
+          {/* Badge note Google près du CTA */}
+          <div className="mt-4 flex items-center justify-center">
+            <GoogleReviewsBadge />
           </div>
         </div>
       </section>
