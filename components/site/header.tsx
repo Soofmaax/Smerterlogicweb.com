@@ -133,9 +133,6 @@ export function Header() {
             <span className="rounded-md bg-accent px-2 py-1 text-accent-foreground">smarterlogicweb</span>
             <span className="sr-only">{isEn ? "Home" : "Accueil"}</span>
           </Link>
-          <span className="hidden text-xs text-muted-foreground md:inline">
-            {t.baseline}
-          </span>
         </div>
 
         <nav aria-label={isEn ? "Main navigation" : "Navigation principale"} className="hidden items-center gap-6 md:flex">
