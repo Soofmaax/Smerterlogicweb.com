@@ -272,8 +272,6 @@ export function Chatbot() {
     };
   }, [pathname, openChat]);
 
-  
-
   // Free text + FAQ keywords
   const send = () => {
     const txt = input.trim();
@@ -403,19 +401,6 @@ export function Chatbot() {
                 </div>
                 <p className="mt-1 text-[11px] text-muted-foreground">
                   En utilisant ce chat, vous acceptez notre{" "}
-                  <Link href="/politique-de-confidentialite" className="underline">
-                    politique de confidentialité
-                  </Link>
-                  .
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-      )}
-    </>
-  );
-}
                   <Link href="/politique-de-confidentialite" className="underline">
                     politique de confidentialité
                   </Link>
