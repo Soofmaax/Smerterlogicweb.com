@@ -12,9 +12,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${baseUrl}/a-propos`, lastModified: now, changeFrequency: "yearly", priority: 0.6 },
     { url: `${baseUrl}/contact`, lastModified: now, changeFrequency: "monthly", priority: 0.8 },
     { url: `${baseUrl}/engagement-associatif`, lastModified: now, changeFrequency: "yearly", priority: 0.5 },
+    { url: `${baseUrl}/candidature-association`, lastModified: now, changeFrequency: "yearly", priority: 0.4 },
     { url: `${baseUrl}/mentions-legales`, lastModified: now, changeFrequency: "yearly", priority: 0.3 },
     { url: `${baseUrl}/politique-de-confidentialite`, lastModified: now, changeFrequency: "yearly", priority: 0.3 },
+    { url: `${baseUrl}/cgv`, lastModified: now, changeFrequency: "yearly", priority: 0.3 },
     { url: `${baseUrl}/securite`, lastModified: now, changeFrequency: "yearly", priority: 0.3 },
+    { url: `${baseUrl}/faq`, lastModified: now, changeFrequency: "yearly", priority: 0.3 },
     { url: `${baseUrl}/merci`, lastModified: now, changeFrequency: "yearly", priority: 0.2 },
 
     // EN
@@ -26,7 +29,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${baseUrl}/en/nonprofit-commitment`, lastModified: now, changeFrequency: "yearly", priority: 0.5 },
     { url: `${baseUrl}/en/legal-notice`, lastModified: now, changeFrequency: "yearly", priority: 0.3 },
     { url: `${baseUrl}/en/privacy-policy`, lastModified: now, changeFrequency: "yearly", priority: 0.3 },
+    { url: `${baseUrl}/en/terms-of-sale`, lastModified: now, changeFrequency: "yearly", priority: 0.3 },
     { url: `${baseUrl}/en/security`, lastModified: now, changeFrequency: "yearly", priority: 0.3 },
+    { url: `${baseUrl}/en/faq`, lastModified: now, changeFrequency: "yearly", priority: 0.3 },
     { url: `${baseUrl}/en/thank-you`, lastModified: now, changeFrequency: "yearly", priority: 0.2 },
   ];
 }

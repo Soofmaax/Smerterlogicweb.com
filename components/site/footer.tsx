@@ -31,6 +31,7 @@ export function Footer() {
               mentions: "Legal notice",
               privacy: "Privacy policy",
               security: "Security",
+              cgv: "Terms of sale",
             },
             copyright: "All rights reserved.",
           }
@@ -50,6 +51,7 @@ export function Footer() {
               mentions: "Mentions légales",
               privacy: "Politique de confidentialité",
               security: "Sécurité",
+              cgv: "Conditions générales de vente",
             },
             copyright: "Tous droits réservés.",
           },
@@ -144,6 +146,14 @@ export function Footer() {
                   {t.legal.security}
                 </Link>
               </li>
+              <li>
+                <Link
+                  href={`${prefix}/${isEn ? "terms-of-sale" : "cgv"}`.replace("//", "/")}
+                  className="text-muted-foreground transition-colors hover:text-foreground"
+                >
+                  {t.legal.cgv}
+                </Link>
+              </li>
             </ul>
           </nav>
 
@@ -223,6 +233,14 @@ export function Footer() {
                   className="text-muted-foreground transition-colors hover:text-foreground"
                 >
                   {t.legal.security}
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href={`${prefix}/${isEn ? "terms-of-sale" : "cgv"}`.replace("//", "/")}
+                  className="text-muted-foreground transition-colors hover:text-foreground"
+                >
+                  {t.legal.cgv}
                 </Link>
               </li>
             </ul>
