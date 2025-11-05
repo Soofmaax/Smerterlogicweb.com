@@ -128,7 +128,7 @@ export function SeeTheDifference() {
             Effet couleur au survol
           </Button>
           {/* Ripple (CTA variant) */}
-          <Button variant="cta" className="rounded-full">
+          <Button variant="cta" className="rounded-full btn-ripple relative overflow-hidden">
             Animation au clic
           </Button>
         </div>
@@ -169,6 +169,19 @@ export function SeeTheDifference() {
           <a href="#perf" data-anchor className="flex items-center justify-center gap-2 rounded-lg border bg-card p-3 transition-colors hover:bg-accent">
             <MousePointerClick className="h-4 w-4" /> Performances
           </a>
+        </div>
+      </div>
+
+      {/* Demo C: Performances mesurables */}
+      <div id="perf" className="mt-10" data-reveal>
+        <h3 className="font-heading text-xl font-semibold">Performances Mesurables</h3>
+        <p className="mt-2 text-sm text-foreground/80">
+          Des indicateurs concrets pour vérifier que votre site travaille pour vous.
+        </p>
+        <div className="mt-4 grid gap-3 sm:grid-cols-3">
+          <GaugeCard label="Score Lighthouse" value={92} unit="%" icon={<Timer className="h-4 w-4" />} />
+          <CounterCard label="Pages vues / mois" value={2800} icon={<MonitorSmartphone className="h-4 w-4" />} />
+          <CounterCard label="Conversions / mois" value={25} icon={<MousePointerClick className="h-4 w-4" />} />
         </div>
       </div>
 

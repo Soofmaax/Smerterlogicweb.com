@@ -631,14 +631,49 @@ html.retro * {
 .reveal-fade-up > *:nth-child(7) { --i: 6; }
 .reveal-fade-up > *:nth-child(8) { --i: 7; }
 
+/* Generic data-reveal fade-up */
+[data-reveal] {
+  opacity: 0;
+  transform: translateY(8px);
+  transition: opacity 420ms ease, transform 420ms ease;
+}
+[data-reveal].in-view {
+  opacity: 1;
+  transform: none;
+}
+
+/* Button ripple (centered) */
+.btn-ripple {
+  position: relative;
+  overflow: hidden;
+}
+.btn-ripple::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  transform: scale(0);
+  opacity: 0.4;
+  background: radial-gradient(circle, rgba(255,255,255,0.6) 0%, rgba(255,255,255,0) 60%);
+  transition: transform 500ms ease, opacity 600ms ease;
+}
+.btn-ripple:active::after {
+  transform: scale(2.5);
+  opacity: 0;
+}
+
 /* Reduced motion fallbacks */
 @media (prefers-reduced-motion: reduce) {
   .reveal-clip,
-  .reveal-fade-up > * {
+  .reveal-fade-up > *,
+  [data-reveal] {
     transition: none;
     opacity: 1 !important;
     transform: none !important;
     clip-path: none !important;
+  }
+  .btn-ripple::after {
+    transition: none;
   }
 }
 
