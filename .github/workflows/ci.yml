@@ -1,15 +1,21 @@
 name: CI
 
 on:
+  # Run on pushes to protected branches only (avoids duplicate runs on feature branches)
   push:
     branches:
-      - "**"
+      - main
+      - master
+  # Run on PRs targeting protected branches
   pull_request:
     branches:
-      - "**"
+      - main
+      - master
+  # Allow manual runs
+  workflow_dispatch:
 
 concurrency:
-  group: ${{ github.workflow }}-${{ github.ref }}
+  group: ${{ github.workflow }}-${{ github.head_ref || github.ref }}
   cancel-in-progress: true
 
 jobs:
