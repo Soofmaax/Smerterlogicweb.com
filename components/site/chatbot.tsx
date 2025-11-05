@@ -54,6 +54,7 @@ export function Chatbot() {
   const pathname = usePathname() || "/";
   const { typing, show } = useTypingDelay();
   const openedRef = React.useRef(false);
+  const greetRef = React.useRef<() => void>(() => {});
 
   const push = React.useCallback((role: Role, content: React.ReactNode) => {
     setMessages((m) => [...m, { id: `${Date.now()}-${m.length}`, role, content }]);
@@ -65,9 +66,14 @@ export function Chatbot() {
       openedRef.current = true;
       setOpen(true);
       track(`chat_open_${reason}`);
-      greet();
+      // call the latest greet without referencing it in deps
+      try {
+        greetRef.current();
+      } catch {
+        // no-op
+      }
     },
-    [greet, setOpen]
+    [setOpen]
   );
 
   const goTarifs = React.useCallback(() => {
@@ -166,6 +172,11 @@ export function Chatbot() {
       </div>
     );
   }, [push, goTarifs, goRDV, goFormule, goQuestion]);
+
+  // keep greetRef in sync
+  React.useEffect(() => {
+    greetRef.current = greet;
+  }, [greet]);
 
   // Triggers
   React.useEffect(() => {

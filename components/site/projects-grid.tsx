@@ -27,7 +27,7 @@ export function ProjectsGrid({ items }: { items: CaseItem[] }) {
     };
     window.addEventListener("voice-filter", onVoice as EventListener);
     return () => window.removeEventListener("voice-filter", onVoice as EventListener);
-  }, []);
+  }, [applyFilter]);
 
   // persistent likes
   React.useEffect(() => {
@@ -62,7 +62,7 @@ export function ProjectsGrid({ items }: { items: CaseItem[] }) {
     return { all: items.length, artisans: a, associations: s };
   }, [items]);
 
-  const applyFilter = (f: Filter) => {
+  const applyFilter = React.useCallback((f: Filter) => {
     if (f === filter) return;
     setAnimState("out");
     setTimeout(() => {
@@ -70,7 +70,7 @@ export function ProjectsGrid({ items }: { items: CaseItem[] }) {
       setAnimState("in");
       setTimeout(() => setAnimState("idle"), 220);
     }, 180);
-  };
+  }, [filter]);
 
   return (
     <section className="mx-auto w-full max-w-6xl px-0">
