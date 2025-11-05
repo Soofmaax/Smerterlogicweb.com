@@ -229,9 +229,9 @@ function AccordionItem({
 
   const onToggle = () => {
     setOpenId(isOpen ? null : qa.id);
-    if (history.pushState) {
+    if (typeof window !== "undefined" && window.history && "replaceState" in window.history) {
       const newUrl = isOpen ? window.location.pathname : `${window.location.pathname}#${qa.id}`;
-      history.replaceState(null, "", newUrl);
+      window.history.replaceState(null, "", newUrl);
     }
   };
 
