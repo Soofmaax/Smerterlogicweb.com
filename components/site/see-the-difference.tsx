@@ -10,15 +10,18 @@ export function SeeTheDifference() {
   const [activeAnchor, setActiveAnchor] = React.useState<string>("demo-a");
 
   // Demo images (placeholders until real project shots are wired)
-  const demoImgs = React.useMemo(
-    () => [
+  const demoImgs = React.useMemo(() => {
+    const raw = process.env.NEXT_PUBLIC_DEMO_IMAGES || "";
+    const fromEnv = raw.split(",").map((s) => s.trim()).filter(Boolean);
+    if (fromEnv.length >= 4) return fromEnv.slice(0, 4);
+    // fallback placeholders (safe defaults)
+    return [
       "https://picsum.photos/seed/demo1/480/200",
       "https://picsum.photos/seed/demo2/480/200",
       "https://picsum.photos/seed/demo3/480/200",
       "https://picsum.photos/seed/demo4/480/200",
-    ],
-    []
-  );
+    ];
+  }, []);
 
   // prefers-reduced-motion
   const prefersReduced =
