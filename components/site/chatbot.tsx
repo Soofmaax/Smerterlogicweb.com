@@ -55,8 +55,12 @@ export function Chatbot() {
   const { typing, show } = useTypingDelay();
   const openedRef = React.useRef(false);
   const greetRef = React.useRef<() => void>(() => {});
-  
-  // Minimal implementations to fix undefined references; enhanced logic below can replace these later.
+
+  const push = React.useCallback((role: Role, content: React.ReactNode) => {
+    setMessages((m) => [...m, { id: `${Date.now()}-${m.length}`, role, content }]);
+  }, []);
+
+  // Quick recommendation by activity (placeholder)
   const recommend = React.useCallback(
     (activity: string) => {
       const a = activity.toLowerCase();
@@ -75,9 +79,10 @@ export function Chatbot() {
         </div>
       );
     },
-    [push, goFormule, goTarifs]
+    [push]
   );
-  
+
+  // First question of the mini‑quiz (placeholder)
   const askGallery = React.useCallback(() => {
     push(
       "bot",
@@ -93,10 +98,6 @@ export function Chatbot() {
       </>
     );
   }, [push]);
-
-  const push = React.useCallback((role: Role, content: React.ReactNode) => {
-    setMessages((m) => [...m, { id: `${Date.now()}-${m.length}`, role, content }]);
-  }, []);
 
   const openChat = React.useCallback(
     (reason: string) => {
@@ -128,7 +129,7 @@ export function Chatbot() {
         ))}
       </div>
     );
-  }, [push, setBranch]);
+  }, [push, setBranch, recommend]);
 
   const goRDV = React.useCallback(() => {
     setBranch("rdv");
@@ -167,7 +168,7 @@ export function Chatbot() {
     track("chat_branch_formule");
     push("bot", <>Répondez à ces 3 questions pour une recommandation rapide.</>);
     askGallery();
-  }, [push, setBranch]);
+  }, [push, setBranch, askGallery]);
 
   const goQuestion = React.useCallback(() => {
     setBranch("question");
@@ -402,6 +403,19 @@ export function Chatbot() {
                 </div>
                 <p className="mt-1 text-[11px] text-muted-foreground">
                   En utilisant ce chat, vous acceptez notre{" "}
+                  <Link href="/politique-de-confidentialite" className="underline">
+                    politique de confidentialité
+                  </Link>
+                  .
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
+    </>
+  );
+}
                   <Link href="/politique-de-confidentialite" className="underline">
                     politique de confidentialité
                   </Link>
