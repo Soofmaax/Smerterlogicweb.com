@@ -5,6 +5,7 @@ import { Github, Linkedin, Mail } from "lucide-react";
 import { track } from "@/lib/analytics";
 import { usePathname } from "next/navigation";
 import { useMemo } from "react";
+import { GoogleReviewsBadge } from "@/components/site/google-reviews";
 
 export function Footer() {
   const pathname = usePathname() || "/";
@@ -72,6 +73,10 @@ export function Footer() {
                 ? "A logical and human online presence. Simplicity, performance and high standards to serve your goals."
                 : "Une présence en ligne logique et humaine. Simplicité, performance et exigence au service de vos objectifs."}
             </p>
+            {/* Google Reviews badge */}
+            <div className="mt-4">
+              <GoogleReviewsBadge />
+            </div>
           </div>
 
           {/* Navigation */}

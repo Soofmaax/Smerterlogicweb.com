@@ -14,7 +14,7 @@ import { Inclusions } from "@/components/site/inclusions";
 import { AfterFirstYear } from "@/components/site/after-first-year";
 import { WhyInvest } from "@/components/site/why-invest";
 import { RealisationsGrid } from "@/components/site/realisations-grid";
-import { TestimonialsSimple } from "@/components/site/testimonials-simple";
+import { GoogleReviews } from "@/components/site/google-reviews";
 import { FinalCTA } from "@/components/site/final-cta";
 import { Reveal } from "@/components/site/reveal";
 
@@ -61,8 +61,8 @@ export default function Page() {
         <WhyInvest />
       </Reveal>
 
-      {/* Témoignages */}
-      <TestimonialsSimple />
+      {/* Avis Google */}
+      <GoogleReviews />
 
       {/* Mes Réalisations */}
       <RealisationsGrid />

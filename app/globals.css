@@ -456,3 +456,28 @@ a.link-underline:focus-visible::after {
 .h2-underline.in-view::after {
   width: 100%;
 }
+
+/* Stars rating fill animation */
+.stars {
+  position: relative;
+  font-size: 14px;
+  letter-spacing: 2px;
+  display: inline-block;
+  line-height: 1;
+}
+.stars-base {
+  color: hsl(var(--foreground) / 0.25);
+}
+.stars-top {
+  position: absolute;
+  inset: 0 auto 0 0;
+  color: #f59e0b; /* amber-500 */
+  width: 0%;
+  overflow: hidden;
+  white-space: nowrap;
+  transition: width 800ms ease;
+}
+.in-view .stars-top {
+  /* animate to target width when entering viewport */
+  width: var(--w, 0%);
+}
