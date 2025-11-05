@@ -1,7 +1,11 @@
+"use client";
+
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
-import { TrackedLink } from "@/components/site/tracked-link";
+import * as React from "react";
+import { Reveal } from "@/components/site/reveal";
+import { CheckCircle2, Handshake, Gauge } from "lucide-react";
 
 export const metadata = {
   title: "À propos — smarterlogicweb.com",
@@ -22,30 +26,131 @@ export const metadata = {
 };
 
 export default function AProposPage() {
+  const btnRef = React.useRef<HTMLButtonElement | null>(null);
+  const wrapRef = React.useRef<HTMLDivElement | null>(null);
+
+  // Magnetic button effect
+  React.useEffect(() => {
+    const wrap = wrapRef.current;
+    const btn = btnRef.current;
+    if (!wrap || !btn) return;
+    const prefersReduced =
+      typeof window !== "undefined" &&
+      window.matchMedia &&
+      window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    if (prefersReduced) return;
+
+    const onMove = (e: MouseEvent) => {
+      const rect = btn.getBoundingClientRect();
+      const mx = e.clientX - rect.left - rect.width / 2;
+      const my = e.clientY - rect.top - rect.height / 2;
+      const damp = 6; // max offset px
+      btn.style.transform = `translate(${Math.max(Math.min(mx / 12, damp), -damp)}px, ${Math.max(Math.min(my / 12, damp), -damp)}px)`;
+    };
+    const onLeave = () => {
+      btn.style.transform = "translate(0,0)";
+    };
+    wrap.addEventListener("mousemove", onMove);
+    wrap.addEventListener("mouseleave", onLeave);
+    return () => {
+      wrap.removeEventListener("mousemove", onMove);
+      wrap.removeEventListener("mouseleave", onLeave);
+    };
+  }, []);
+
   return (
-    <section className="mx-auto w-full max-w-3xl px-6 py-16 md:py-24">
+    <section className="relative mx-auto w-full max-w-5xl px-6 py-16 md:py-24">
+      {/* Hero ambient background */}
+      <div aria-hidden className="pointer-events-none absolute inset-0 -z-10">
+        <div className="hero-gradient-animated absolute inset-0 rounded-[28px] opacity-60" />
+      </div>
+
+      {/* Section 1 — Hero */}
       <div className="rounded-[28px] card-elevated border bg-card p-6 shadow-sm">
         <Badge variant="secondary" className="px-3 py-1">À propos</Badge>
-        <h1 className="mt-4 font-heading text-4xl font-bold tracking-tight md:text-5xl">
-          Bonjour, moi c’est Sarah — développeuse front-end.
-        </h1>
-        <p className="mt-4 text-lg leading-relaxed text-foreground/80">
-          J’aide entrepreneurs et associations à obtenir une présence en ligne claire, professionnelle
-          et performante. Mon approche: design sobre, code propre, focus conversion.
-        </p>
-        <p className="mt-4 text-foreground/80">
-          J’utilise Next.js, Tailwind CSS et une bibliothèque de composants compacte pour livrer vite et bien.
-          Chaque projet est conçu pour être rapide, accessible et facile à faire évoluer.
-        </p>
+        <Reveal as="h1" className="h2-underline mt-4 inline-block font-heading text-4xl font-bold tracking-tight md:text-5xl">
+          Une Développeuse à Votre Écoute
+        </Reveal>
+        <Reveal className="reveal-fade-up">
+          <p className="mt-4 text-lg leading-relaxed text-foreground/80">
+            Passionnée par le web et l&apos;accompagnement des entreprises locales
+          </p>
+        </Reveal>
+      </div>
 
-        <div className="mt-8 flex items-center gap-4">
-          <Button asChild className="rounded-full">
-            <TrackedLink href="mailto:contact@smarterlogicweb.com?subject=Projet%20web" eventName="cta_devis_mailto_apropos">Obtenir mon devis gratuit</TrackedLink>
-          </Button>
-          <Link href="/projets" className="text-sm text-muted-foreground hover:text-foreground">
-            Voir des projets
-          </Link>
+      {/* Section photo + histoire */}
+      <div className="mt-10 grid gap-6 md:grid-cols-[220px,1fr]">
+        {/* Photo placeholder with hover zoom */}
+        <div className="rounded-[20px] border bg-card p-4 text-center">
+          <div className="mx-auto h-40 w-40 overflow-hidden rounded-full shadow transition duration-300 hover:scale-[1.02] hover:shadow-xl">
+            <div className="flex h-full w-full items-center justify-center bg-gradient-to-br from-indigo-200 via-blue-200 to-emerald-200 text-3xl font-semibold text-foreground/80 dark:from-white/10 dark:via-white/10 dark:to-white/5">
+              S
+            </div>
+          </div>
+          <div className="mt-3 text-sm text-muted-foreground">Sarah — Front‑end</div>
         </div>
+        {/* Story */}
+        <div className="rounded-[20px] border bg-card p-6">
+          <Reveal className="reveal-fade-up">
+            <p className="text-foreground/80">
+              Je m&apos;appelle Sarah, développeuse front-end spécialisée dans la création de sites web pour artisans et TPE.
+              Après avoir constaté que beaucoup d&apos;entreprises locales perdaient des clients faute de présence en ligne claire et professionnelle,
+              j&apos;ai décidé de me concentrer sur ce secteur. Mon approche ? Transformer la technique en quelque chose de simple.
+              Vous ne devez pas comprendre le code pour avoir un site performant.
+            </p>
+          </Reveal>
+        </div>
+      </div>
+
+      {/* Section 3 — Mes valeurs */}
+      <div className="mt-10">
+        <Reveal as="h2" className="h2-underline font-heading text-3xl font-semibold md:text-4xl">Mes Valeurs</Reveal>
+        <Reveal className="reveal-fade-up">
+          <div className="mt-6 grid gap-4 md:grid-cols-3">
+            {[
+              { title: "Transparence", desc: "Tarifs clairs dès le départ. Pas de frais cachés, pas de jargon." },
+              { title: "Accompagnement", desc: "Formation à la gestion de vos contenus. Je reste disponible après la livraison." },
+              { title: "Performance", desc: "Sites rapides, visibles sur Google, qui vous amènent des clients." },
+            ].map((v, i) => (
+              <div key={v.title} className="rounded-[20px] card-elevated border bg-card p-5" style={{ transitionDelay: `${i * 200}ms` }}>
+                <div className="flex items-center gap-2">
+                  <span className="inline-flex h-9 w-9 items-center justify-center rounded-full bg-accent">
+                    {i === 0 ? <Handshake className="h-5 w-5" /> : i === 1 ? <CheckCircle2 className="h-5 w-5" /> : <Gauge className="h-5 w-5" />}
+                  </span>
+                  <h3 className="font-heading text-lg font-semibold">{v.title}</h3>
+                </div>
+                <p className="mt-2 text-sm text-foreground/80">{v.desc}</p>
+              </div>
+            ))}
+          </div>
+        </Reveal>
+      </div>
+
+      {/* Section 4 — Pourquoi me choisir */}
+      <div className="mt-10 rounded-[20px] border bg-card p-6">
+        <Reveal as="h2" className="h2-underline font-heading text-3xl font-semibold md:text-4xl">Pourquoi me choisir</Reveal>
+        <Reveal className="reveal-fade-up">
+          <ul className="mt-4 list-disc pl-6 text-foreground/80">
+            <li>Je parle clair et je simplifie la technique pour vous concentrer sur l’essentiel.</li>
+            <li>Un accompagnement sérieux : performance, accessibilité, SEO dès le départ.</li>
+            <li>Un site pensé pour générer des contacts et vous faire gagner du temps.</li>
+          </ul>
+        </Reveal>
+      </div>
+
+      {/* Section 5 — CTA final */}
+      <div className="mt-10 rounded-[28px] card-elevated border bg-primary/5 p-6">
+        <Reveal as="h2" className="h2-underline font-heading text-2xl font-semibold">Prêt à Donner à Votre Entreprise le Site qu&apos;elle Mérite ?</Reveal>
+        <div className="mt-4" ref={wrapRef}>
+          <Button ref={btnRef} asChild size="lg" variant="cta" className="rounded-full">
+            <Link href="/contact">Obtenir mon devis gratuit</Link>
+          </Button>
+        </div>
+      </div>
+
+      {/* Lien projets */}
+      <div className="mt-6 text-center">
+        <Link href="/projets" className="link-underline text-sm text-primary">Voir des réalisations</Link>
       </div>
     </section>
   );

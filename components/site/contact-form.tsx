@@ -72,69 +72,87 @@ export function ContactForm({ locale, action }: Props) {
         <label>Don’t fill: <input {...register("bot-field")} /></label>
       </p>
 
-      {/* Name */}
+      {/* Name (floating label) */}
       <div className="grid gap-2">
-        <label htmlFor="name" className="text-sm font-medium">{t.name}</label>
-        <div className="relative">
+        <div className="relative fl-group">
           <input
             id="name"
-            className={`h-11 w-full rounded-md border bg-background px-3 outline-none ring-offset-background transition-colors
-            focus-visible:ring-2 focus-visible:ring-ring
+            className={`peer fl-input h-11 w-full rounded-md border bg-background px-3 outline-none ring-offset-background transition-colors input-glow placeholder-transparent
             ${errors.name ? "border-red-400" : "border-foreground/20"}
             `}
-            placeholder={t.placeholderName}
+            placeholder=" "
             {...register("name", { required: t.required })}
           />
+          <label
+            htmlFor="name"
+            className="pointer-events-none absolute left-3 top-1/2 -translate-y-1/2 text-sm text-muted-foreground transition-all duration-200
+            peer-focus:top-1.5 peer-focus:text-xs peer-focus:text-foreground
+            peer-[:not(:placeholder-shown)]:top-1.5 peer-[:not(:placeholder-shown)]:text-xs peer-[:not(:placeholder-shown)]:text-foreground"
+          >
+            {t.name}
+          </label>
           {touchedFields.name && !errors.name && nameVal ? (
-            <CheckCircle2 className="pointer-events-none absolute right-3 top-1/2 h-5 w-5 -translate-y-1/2 text-green-500" />
+            <CheckCircle2 className="pointer-events-none absolute right-3 top-1/2 h-5 w-5 -translate-y-1/2 text-green-500 transition-transform duration-300" />
           ) : null}
         </div>
         {errors.name && <div className="text-sm text-red-500">{errors.name.message}</div>}
       </div>
 
-      {/* Email */}
+      {/* Email (floating label) */}
       <div className="grid gap-2">
-        <label htmlFor="email" className="text-sm font-medium">Email</label>
-        <div className="relative">
+        <div className="relative fl-group">
           <input
             id="email"
             type="email"
-            className={`h-11 w-full rounded-md border bg-background px-3 outline-none ring-offset-background transition-colors
-            focus-visible:ring-2 focus-visible:ring-ring
+            className={`peer fl-input h-11 w-full rounded-md border bg-background px-3 outline-none ring-offset-background transition-colors input-glow placeholder-transparent
             ${errors.email ? "border-red-400" : "border-foreground/20"}
             `}
-            placeholder={t.placeholderEmail}
+            placeholder=" "
             {...register("email", {
               required: t.required,
               pattern: { value: /^[^\\s@]+@[^\\s@]+\\.[^\\s@]+$/, message: t.invalidEmail },
             })}
           />
+          <label
+            htmlFor="email"
+            className="pointer-events-none absolute left-3 top-1/2 -translate-y-1/2 text-sm text-muted-foreground transition-all duration-200
+            peer-focus:top-1.5 peer-focus:text-xs peer-focus:text-foreground
+            peer-[:not(:placeholder-shown)]:top-1.5 peer-[:not(:placeholder-shown)]:text-xs peer-[:not(:placeholder-shown)]:text-foreground"
+          >
+            {t.email}
+          </label>
           {touchedFields.email && !errors.email && emailVal ? (
-            <CheckCircle2 className="pointer-events-none absolute right-3 top-1/2 h-5 w-5 -translate-y-1/2 text-green-500" />
+            <CheckCircle2 className="pointer-events-none absolute right-3 top-1/2 h-5 w-5 -translate-y-1/2 text-green-500 transition-transform duration-300" />
           ) : null}
         </div>
         {errors.email && <div className="text-sm text-red-500">{errors.email.message}</div>}
       </div>
 
-      {/* Message */}
+      {/* Message (floating label) */}
       <div className="grid gap-2">
-        <label htmlFor="message" className="text-sm font-medium">{t.message}</label>
-        <div className="relative">
+        <div className="relative fl-group">
           <textarea
             id="message"
             rows={6}
-            className={`w-full rounded-md border bg-background px-3 py-2 outline-none ring-offset-background transition-colors
-            focus-visible:ring-2 focus-visible:ring-ring
+            className={`peer fl-input w-full rounded-md border bg-background px-3 py-2 outline-none ring-offset-background transition-colors input-glow placeholder-transparent
             ${errors.message ? "border-red-400" : "border-foreground/20"}
             `}
-            placeholder={t.placeholderMsg}
+            placeholder=" "
             {...register("message", {
               required: t.required,
               minLength: { value: 20, message: t.tooShort },
             })}
           />
+          <label
+            htmlFor="message"
+            className="pointer-events-none absolute left-3 top-3 text-sm text-muted-foreground transition-all duration-200
+            peer-focus:top-1.5 peer-focus:text-xs peer-focus:text-foreground
+            peer-[:not(:placeholder-shown)]:top-1.5 peer-[:not(:placeholder-shown)]:text-xs peer-[:not(:placeholder-shown)]:text-foreground"
+          >
+            {t.message}
+          </label>
           {touchedFields.message && !errors.message && messageVal && messageVal.length >= 20 ? (
-            <CheckCircle2 className="pointer-events-none absolute right-3 top-3 h-5 w-5 text-green-500" />
+            <CheckCircle2 className="pointer-events-none absolute right-3 top-3 h-5 w-5 text-green-500 transition-transform duration-300" />
           ) : null}
         </div>
         {errors.message && <div className="text-sm text-red-500">{errors.message.message}</div>}
@@ -147,7 +165,7 @@ export function ContactForm({ locale, action }: Props) {
       </div>
 
       <div>
-        <Button type="submit" className="rounded-full" disabled={!isValid || isSubmitting}>
+        <Button type="submit" className="rounded-full" variant="cta" disabled={!isValid || isSubmitting}>
           {isSubmitting ? (
             <span className="inline-flex items-center gap-2">
               <Loader2 className="h-4 w-4 animate-spin" />
