@@ -89,14 +89,14 @@ export function EasterEggs() {
 
   return (
     <>
-      <RecruiterModal open={openRecruiter} onClose={() => setOpenRecruiter(false)} />
+      <RecruiterModal open={openRecruiter} onClose={() => setOpenRecruiter(false)} onDisableRetro={() => setRetro(false)} />
       <SecretProjectsModal open={openSecret} onClose={() => setOpenSecret(false)} />
       <DevConsoleModal open={openDev} onClose={() => setOpenDev(false)} />
     </>
   );
 }
 
-function RecruiterModal({ open, onClose }: { open: boolean; onClose: () => void }) {
+function RecruiterModal({ open, onClose, onDisableRetro }: { open: boolean; onClose: () => void; onDisableRetro: () => void }) {
   return (
     <Modal open={open} onClose={onClose} ariaLabel="Formulaire recruteur">
       <div className="space-y-3">
@@ -118,9 +118,20 @@ function RecruiterModal({ open, onClose }: { open: boolean; onClose: () => void 
           <input name="email" type="email" required className="h-9 rounded-md border px-2 text-sm" placeholder="vous@email.com" />
           <label className="text-xs">Entreprise</label>
           <input name="company" className="h-9 rounded-md border px-2 text-sm" placeholder="Nom de l’entreprise" />
-          <button className="mt-2 inline-flex items-center justify-center rounded-full bg-primary px-3 py-1.5 text-sm text-primary-foreground shadow-sm hover:opacity-90">
-            Envoyer
-          </button>
+          <div className="mt-2 flex gap-2">
+            <button className="inline-flex items-center justify-center rounded-full bg-primary px-3 py-1.5 text-sm text-primary-foreground shadow-sm hover:opacity-90">
+              Envoyer
+            </button>
+            <button
+              type="button"
+              onClick={onDisableRetro}
+              className="inline-flex items-center justify-center rounded-full border px-3 py-1.5 text-sm transition hover:bg-accent"
+              aria-label="Quitter mode rétro"
+              title="Quitter mode rétro"
+            >
+              Quitter mode rétro
+            </button>
+          </div>
         </form>
       </div>
     </Modal>

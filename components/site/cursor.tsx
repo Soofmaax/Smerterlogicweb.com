@@ -15,7 +15,10 @@ export function Cursor() {
   React.useEffect(() => {
     const prefersReduced = window.matchMedia?.("(prefers-reduced-motion: reduce)")?.matches ?? false;
     const isFinePointer = window.matchMedia?.("(pointer: fine)")?.matches ?? true;
-    if (prefersReduced || !isFinePointer) return;
+    const manualReduced = (() => {
+      try { return localStorage.getItem("reduce_motion") === "1"; } catch { return false; }
+    })();
+    if (prefersReduced || manualReduced || !isFinePointer) return;
 
     const el = document.createElement("div");
     el.className = "custom-cursor";

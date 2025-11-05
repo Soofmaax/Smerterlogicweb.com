@@ -14,6 +14,7 @@ import { SmartCTAs } from "@/components/site/smart-ctas";
 import { VoiceCommands } from "@/components/site/voice-commands";
 import { AssistantOverlay } from "@/components/site/assistant-overlay";
 import { GyroTilt } from "@/components/site/gyro-tilt";
+import { ReduceMotionToggle } from "@/components/site/reduce-motion-toggle";
 import Script from "next/script";
 
 const inter = Inter({
@@ -160,6 +161,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <BackToTop />
         <SmartCTAs />
         <VoiceCommands />
+        <ReduceMotionToggle />
 
         {/* Easter Eggs & Chatbot */}
         <EasterEggs />

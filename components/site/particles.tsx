@@ -16,7 +16,10 @@ export function Particles() {
 
   React.useEffect(() => {
     const prefersReduced = window.matchMedia?.("(prefers-reduced-motion: reduce)")?.matches ?? false;
-    if (prefersReduced) return;
+    const manualReduced = (() => {
+      try { return localStorage.getItem("reduce_motion") === "1"; } catch { return false; }
+    })();
+    if (prefersReduced || manualReduced) return;
 
     const canvas = document.createElement("canvas");
     canvas.className = "particles-layer";
@@ -53,6 +56,8 @@ export function Particles() {
 
     let paused = false;
 
+    let lastMoveTs = Date.now();
+
     const step = () => {
       if (!ctx || paused) {
         rafRef.current = requestAnimationFrame(step);
@@ -82,10 +87,13 @@ export function Particles() {
         if (p.y < 0 || p.y > canvas.height) p.vy *= -1;
       }
 
-      // draw lines
-      for (let i = 0; i < parts.length; i++) {
-        for (let j = i + 1; j < parts.length; j++) {
+      // draw lines (lighter when idle)
+      const idle = Date.now() - lastMoveTs > 5000;
+      const stepIdx = idle ? 2 : 1;
+      for (let i = 0; i < parts.length; i += stepIdx) {
+        for (let j = i + 1; j < parts.length; j += stepIdx) {
           const a = parts[i], b = parts[j];
+          if (!a || !b) continue;
           const dx = a.x - b.x;
           const dy = a.y - b.y;
           const d2 = dx * dx + dy * dy;
@@ -117,6 +125,7 @@ export function Particles() {
       const rect = canvas.getBoundingClientRect();
       mouseRef.current.x = (e.clientX - rect.left) * dpr;
       mouseRef.current.y = (e.clientY - rect.top) * dpr;
+      lastMoveTs = Date.now();
     };
 
     const onLeave = () => {

@@ -15,14 +15,17 @@ export function SmartCTAs() {
   React.useEffect(() => {
     const prefersReduced = window.matchMedia?.("(prefers-reduced-motion: reduce)")?.matches ?? false;
     const snooze = localStorage.getItem("cta_snooze");
-    if (prefersReduced || snooze === "1") return;
+    const seenTs = parseInt(localStorage.getItem("cta_seen_ts") || "0", 10);
+    const TTL = 12 * 60 * 60 * 1000; // 12h
+    if (prefersReduced || snooze === "1" || (seenTs && Date.now() - seenTs < TTL)) return;
 
     const onScroll = () => {
       const doc = document.documentElement;
       const scrolled = (doc.scrollTop) / ((doc.scrollHeight - doc.clientHeight) || 1);
-      if (scrolled >= 0.5 && !visible) {
+      if (scrolled >= 0.65 && !visible) {
         setMsg("Intéressé par mon profil ? 📞");
         setVisible(true);
+        localStorage.setItem("cta_seen_ts", String(Date.now()));
       }
     };
     const onHover = (e: MouseEvent) => {
@@ -30,6 +33,7 @@ export function SmartCTAs() {
       if (t?.closest(".project-card")) {
         setMsg("Un projet similaire ? 🚀");
         setVisible(true);
+        localStorage.setItem("cta_seen_ts", String(Date.now()));
       }
     };
     const onTime = () => {
@@ -37,8 +41,9 @@ export function SmartCTAs() {
         if (!visible) {
           setMsg("On travaille ensemble ? 💼");
           setVisible(true);
+          localStorage.setItem("cta_seen_ts", String(Date.now()));
         }
-      }, 45000);
+      }, 60000);
     };
     onTime();
 

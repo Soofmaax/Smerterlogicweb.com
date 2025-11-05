@@ -12,7 +12,10 @@ export function GyroTilt() {
   React.useEffect(() => {
     const reduced = window.matchMedia?.("(prefers-reduced-motion: reduce)")?.matches ?? false;
     const coarse = window.matchMedia?.("(pointer: coarse)")?.matches ?? false;
-    if (reduced || !coarse) return;
+    const manualReduced = (() => {
+      try { return localStorage.getItem("reduce_motion") === "1"; } catch { return false; }
+    })();
+    if (reduced || manualReduced || !coarse) return;
 
     let permGranted = true;
     const maybeRequestPermission = async () => {
@@ -28,9 +31,10 @@ export function GyroTilt() {
     };
 
     const applyTilt = (beta: number, gamma: number) => {
-      const maxX = 6, maxY = 6;
-      const rx = (beta / 90) * maxX;   // -90..90 -> -max..max
-      const ry = (gamma / 90) * maxY;  // -90..90 -> -max..max
+      const maxX = 4, maxY = 4; // slightly toned down
+      // simple smoothing
+      const rx = (beta / 90) * maxX;
+      const ry = (gamma / 90) * maxY;
 
       const cards = Array.from(document.querySelectorAll<HTMLElement>(".card-elevated"));
       for (const c of cards) {

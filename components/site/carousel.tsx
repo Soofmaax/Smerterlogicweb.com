@@ -62,6 +62,8 @@ function HorizontalCarousel({
   const viewportRef = React.useRef<HTMLDivElement>(null);
   const [index, setIndex] = React.useState(0);
   const [paused, setPaused] = React.useState(false);
+  const [inView, setInView] = React.useState(true);
+  const [announce, setAnnounce] = React.useState("");
 
   const scrollToIndex = React.useCallback((i: number) => {
     const vp = viewportRef.current;
@@ -72,7 +74,9 @@ function HorizontalCarousel({
     vp.scrollTo({ left: target.offsetLeft, behavior: "smooth" });
   }, []);
 
-  
+  React.useEffect(() => {
+    setAnnounce(`Slide ${index + 1} sur ${items.length}`);
+  }, [index, items.length]);
 
   const prev = React.useCallback(() => {
     const i = index - 1 < 0 ? items.length - 1 : index - 1;
@@ -93,17 +97,15 @@ function HorizontalCarousel({
     return () => window.removeEventListener("resize", onResize);
   }, [index, scrollToIndex]);
 
-  // autoplay
+  // autoplay (paused when out of view)
   React.useEffect(() => {
     if (!autoplay) return;
     const duration = Math.max(2000, intervalMs || 4000);
     const id = setInterval(() => {
-      if (!paused) next();
+      if (!paused && inView) next();
     }, duration);
     return () => clearInterval(id);
-  }, [autoplay, intervalMs, paused, next]);
-
-  
+  }, [autoplay, intervalMs, paused, inView, next]);
 
   // pause on hover/focus
   React.useEffect(() => {
@@ -121,6 +123,21 @@ function HorizontalCarousel({
       node.removeEventListener("focusin", onEnter);
       node.removeEventListener("focusout", onLeave);
     };
+  }, []);
+
+  // IntersectionObserver to pause autoplay when offscreen
+  React.useEffect(() => {
+    const node = rootRef.current;
+    if (!node) return;
+    const io = new IntersectionObserver(
+      (entries) => {
+        const e = entries[0];
+        setInView(e.isIntersecting);
+      },
+      { threshold: 0.2 }
+    );
+    io.observe(node);
+    return () => io.disconnect();
   }, []);
 
   // touch swipe
@@ -172,6 +189,8 @@ function HorizontalCarousel({
 
   return (
     <div ref={rootRef} className={cn("relative", className)} aria-label={ariaLabel}>
+      {/* SR announcement for slide changes */}
+      <div aria-live="polite" aria-atomic="true" className="sr-only">{announce}</div>
       <div
         ref={viewportRef}
         className="flex snap-x snap-mandatory gap-4 overflow-x-auto scroll-smooth rounded-[20px] p-1 [scrollbar-width:none] [-ms-overflow-style:none]"

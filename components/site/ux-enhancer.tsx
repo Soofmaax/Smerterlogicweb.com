@@ -5,7 +5,10 @@ import * as React from "react";
 export function UXEnhancer() {
   React.useEffect(() => {
     const reduceMotion = window.matchMedia?.("(prefers-reduced-motion: reduce)")?.matches ?? false;
-    if (reduceMotion) return;
+    const manualReduced = (() => {
+      try { return localStorage.getItem("reduce_motion") === "1"; } catch { return false; }
+    })();
+    if (reduceMotion || manualReduced) return;
 
     let active: HTMLElement | null = null;
 
