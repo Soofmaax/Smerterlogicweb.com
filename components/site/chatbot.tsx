@@ -427,16 +427,3 @@ export function Chatbot() {
     </>
   );
 }
-                  <Link href="/politique-de-confidentialite" className="underline">
-                    politique de confidentialité
-                  </Link>
-                  .
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-      )}
-    </>
-  );
-}
