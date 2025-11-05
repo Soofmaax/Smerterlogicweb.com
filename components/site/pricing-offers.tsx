@@ -77,13 +77,13 @@ export function PricingOffers() {
             className={cn(
               "relative rounded-[24px] border bg-card p-5 transition duration-300",
               "hover:-translate-y-1 hover:shadow-lg card-elevated",
-              plan.recommended && "ring-2 ring-primary"
+              plan.recommended ? "ring-2 ring-primary md:scale-[1.03] border-primary" : ""
             )}
           >
             {plan.recommended ? (
               <div className="absolute -top-3 left-1/2 -translate-x-1/2">
                 <span className="inline-flex animate-pulse items-center gap-2 rounded-full bg-primary px-3 py-1 text-xs font-semibold text-primary-foreground shadow">
-                  <Star className="h-3.5 w-3.5" /> Le plus choisi
+                  <Star className="h-3.5 w-3.5" /> RECOMMANDÉ
                 </span>
               </div>
             ) : null}

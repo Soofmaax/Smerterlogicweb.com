@@ -9,10 +9,12 @@ import { TimelineProcess } from "@/components/site/timeline-process";
 import { ExpertiseWhy } from "@/components/site/expertise-why";
 import { TechnologiesGrid } from "@/components/site/technologies-grid";
 import { FAQAccordion } from "@/components/site/faq-accordion";
-import { ServicesFlip3D } from "@/components/site/services-flip";
 import { ServicesAdaptation } from "@/components/site/services-adaptation";
 import { Inclusions } from "@/components/site/inclusions";
 import { AfterFirstYear } from "@/components/site/after-first-year";
+import { WhyInvest } from "@/components/site/why-invest";
+import { RealisationsGrid } from "@/components/site/realisations-grid";
+import { TestimonialsSimple } from "@/components/site/testimonials-simple";
 import { FinalCTA } from "@/components/site/final-cta";
 
 export const metadata = {
@@ -48,6 +50,12 @@ export default function Page() {
 
       
 
+      {/* Pourquoi mon expertise */}
+      <ExpertiseWhy />
+
+      {/* Pourquoi investir (Wix/WordPress vs sur-mesure) */}
+      <WhyInvest />
+
       {/* Offres & Tarifs */}
       <PricingOffers />
 
@@ -65,9 +73,6 @@ export default function Page() {
 
       {/* Après la première année */}
       <AfterFirstYear />
-
-      {/* Pourquoi mon expertise */}
-      <ExpertiseWhy />
 
       {/* Technologies */}
       <TechnologiesGrid />
@@ -99,6 +104,12 @@ export default function Page() {
 
       {/* Final CTA before footer */}
       <FinalCTA />
+
+      {/* Mes Réalisations */}
+      <RealisationsGrid />
+
+      {/* Témoignages */}
+      <TestimonialsSimple />
     </div>
   );
 }

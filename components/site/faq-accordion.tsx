@@ -27,7 +27,7 @@ export function FAQAccordion() {
   return (
     <section className="mx-auto w-full max-w-3xl px-6 py-12">
       <div className="mb-6 text-center">
-        <h2 className="font-heading text-3xl font-semibold md:text-4xl">FAQ</h2>
+        <h2 className="font-heading text-3xl font-semibold md:text-4xl">Vos Questions, Mes Réponses</h2>
         <p className="mt-2 text-foreground/70">Questions fréquentes de mes clients artisans et PME.</p>
       </div>
 

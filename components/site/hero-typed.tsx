@@ -1,48 +1,81 @@
 "use client";
 
 import * as React from "react";
-import { motion } from "framer-motion";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
+import { CheckCircle2 } from "lucide-react";
 
 export function HeroTyped() {
-  const title = "Sites Web Performants pour Artisans et Entreprises Locales";
+  const title = "Votre Site Web Qui Vous Ramène des Clients Tous Les Jours";
   const words = ["Rapides", "Modernes", "Efficaces", "Professionnels"];
-  const [mounted, setMounted] = React.useState(false);
-  const [typed, setTyped] = React.useState("");
+  const [typedWord, setTypedWord] = React.useState("");
   const [wordIndex, setWordIndex] = React.useState(0);
   const [phase, setPhase] = React.useState<"typing" | "pausing" | "deleting">("typing");
+  const [titleTyped, setTitleTyped] = React.useState("");
+  const [showCaretTitle, setShowCaretTitle] = React.useState(true);
 
   // parallax refs
   const p1Ref = React.useRef<HTMLDivElement | null>(null);
   const p2Ref = React.useRef<HTMLDivElement | null>(null);
 
-  React.useEffect(() => setMounted(true), []);
+  // Typewriter for H1
+  React.useEffect(() => {
+    const prefersReduced =
+      typeof window !== "undefined" &&
+      window.matchMedia &&
+      window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
-  // Typing cycle for words with blinking caret
+    if (prefersReduced) {
+      setTitleTyped(title);
+      setShowCaretTitle(false);
+      return;
+    }
+
+    let i = 0;
+    const step = 40; // ~2s total for ~50 chars
+    const id = window.setInterval(() => {
+      i += 1;
+      setTitleTyped(title.slice(0, i));
+      if (i >= title.length) {
+        window.clearInterval(id);
+        window.setTimeout(() => setShowCaretTitle(false), 1000);
+      }
+    }, step);
+    return () => window.clearInterval(id);
+  }, [title]);
+
+  // Typing cycle for rotating words
   React.useEffect(() => {
     const current = words[wordIndex];
-    let timeout: number;
+    const prefersReduced =
+      typeof window !== "undefined" &&
+      window.matchMedia &&
+      window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
+    if (prefersReduced) {
+      setTypedWord(current);
+      return;
+    }
+
+    let timeout: number;
     if (phase === "typing") {
-      if (typed.length < current.length) {
-        timeout = window.setTimeout(() => setTyped(current.slice(0, typed.length + 1)), 60);
+      if (typedWord.length < current.length) {
+        timeout = window.setTimeout(() => setTypedWord(current.slice(0, typedWord.length + 1)), 60);
       } else {
         timeout = window.setTimeout(() => setPhase("pausing"), 1400);
       }
     } else if (phase === "pausing") {
       timeout = window.setTimeout(() => setPhase("deleting"), 700);
     } else if (phase === "deleting") {
-      if (typed.length > 0) {
-        timeout = window.setTimeout(() => setTyped(current.slice(0, typed.length - 1)), 35);
+      if (typedWord.length > 0) {
+        timeout = window.setTimeout(() => setTypedWord(current.slice(0, typedWord.length - 1)), 35);
       } else {
         setPhase("typing");
         setWordIndex((i) => (i + 1) % words.length);
       }
     }
-
     return () => window.clearTimeout(timeout);
-  }, [typed, phase, wordIndex, words]);
+  }, [typedWord, phase, wordIndex, words]);
 
   // Parallax on scroll (very subtle)
   React.useEffect(() => {
@@ -72,29 +105,13 @@ export function HeroTyped() {
     };
   }, []);
 
-  const charTyping = (delayPerChar = 0.05) => ({
-    hidden: { opacity: 0 },
-    show: (i: number) => ({
-      opacity: 1,
-      transition: { delay: i * delayPerChar, duration: 0.001 },
-    }),
-  });
-
-  const shouldAnimate = mounted;
-
   return (
     <section className="relative mx-auto w-full max-w-5xl px-6 py-16 md:py-24">
       {/* Subtle animated background + parallax shapes */}
       <div aria-hidden className="pointer-events-none absolute inset-0 -z-10">
         <div className="hero-gradient-animated absolute inset-0 rounded-[28px] opacity-60" />
-        <div
-          ref={p1Ref}
-          className="absolute -left-16 top-8 h-40 w-40 rounded-full bg-primary/10 blur-2xl"
-        />
-        <div
-          ref={p2Ref}
-          className="absolute -right-20 top-28 h-56 w-56 rounded-full bg-amber-300/10 blur-3xl"
-        />
+        <div ref={p1Ref} className="absolute -left-16 top-8 h-40 w-40 rounded-full bg-primary/10 blur-2xl" />
+        <div ref={p2Ref} className="absolute -right-20 top-28 h-56 w-56 rounded-full bg-amber-300/10 blur-3xl" />
       </div>
 
       {/* Small badge */}
@@ -104,41 +121,42 @@ export function HeroTyped() {
         </span>
       </div>
 
-      {/* Title with per-character fade-in */}
+      {/* Title with typewriter */}
       <h1 className="font-heading text-4xl font-bold tracking-tight text-foreground md:text-6xl text-balance">
-        {title.split("").map((ch, i) => (
-          <motion.span
-            key={`ch-${i}-${ch}`}
-            custom={i}
-            variants={charTyping(0.05)}
-            initial={shouldAnimate ? "hidden" : "show"}
-            animate="show"
-            className="inline-block"
-          >
-            {ch === " " ? "\u00A0" : ch}
-          </motion.span>
-        ))}
+        {titleTyped || title}
+        {showCaretTitle && <span className="ml-1 inline-block w-[2px] animate-pulse bg-foreground align-middle" style={{ height: "1em" }} />}
       </h1>
 
       {/* Subheading with live typing word */}
       <p className="mt-6 text-lg leading-relaxed text-foreground/80 md:text-xl">
-        Des sites statiques ultra-rapides, optimisés pour Google et conçus pour convertir vos visiteurs en clients.{" "}
+        Pour artisans et commerces locaux : un site rapide, visible sur Google, et qui transforme vos visiteurs en clients.{" "}
         <span className="font-semibold text-foreground">
-          {typed}
-          <span
-            className="ml-0.5 inline-block w-[1px] animate-pulse bg-foreground/70 align-middle"
-            style={{ height: "1em" }}
-          />
+          {typedWord}
+          <span className="ml-0.5 inline-block w-[1px] animate-pulse bg-foreground/70 align-middle" style={{ height: "1em" }} />
         </span>
+        {" "}Sans jargon technique.
       </p>
 
       <div className="mt-6 flex flex-col gap-3 sm:flex-row">
         <Button asChild size="lg" variant="cta" className="rounded-full">
-          <Link href="/contact">Discutons de votre projet</Link>
+          <Link href="#tarifs">Voir les tarifs et exemples</Link>
         </Button>
         <Button asChild size="lg" variant="secondary" className="rounded-full">
-          <Link href="/projets">Voir mes réalisations</Link>
+          <Link href="/contact">Discutons de votre projet</Link>
         </Button>
+      </div>
+
+      {/* Reassurance badges */}
+      <div className="mt-4 flex flex-wrap items-center gap-2 text-sm text-foreground/80">
+        <span className="inline-flex items-center gap-1 rounded-full border border-foreground/15 bg-card px-2.5 py-1">
+          <CheckCircle2 className="h-4 w-4 text-primary" /> Réponse sous 24h
+        </span>
+        <span className="inline-flex items-center gap-1 rounded-full border border-foreground/15 bg-card px-2.5 py-1">
+          <CheckCircle2 className="h-4 w-4 text-primary" /> Tarifs transparents
+        </span>
+        <span className="inline-flex items-center gap-1 rounded-full border border-foreground/15 bg-card px-2.5 py-1">
+          <CheckCircle2 className="h-4 w-4 text-primary" /> Sans engagement
+        </span>
       </div>
 
       {/* Compact device mockup with metrics */}

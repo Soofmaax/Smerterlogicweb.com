@@ -37,7 +37,8 @@ export function Header() {
               item2: "Redesign & optimisation",
               item3: "Ongoing support",
             },
-            cta: "Get my free quote",
+            cta: "View pricing and examples",
+            baseline: "I build simple, effective websites so your customers can find you easily",
             lang: "FR",
           }
         : {
@@ -59,7 +60,8 @@ export function Header() {
               item2: "Refonte & optimisation",
               item3: "Accompagnement continu",
             },
-            cta: "Obtenir mon devis gratuit",
+            cta: "Voir les tarifs et exemples",
+            baseline: "Je crée des sites web simples et efficaces pour que vos clients vous trouvent facilement",
             lang: "EN",
           },
     [isEn]
@@ -96,6 +98,7 @@ export function Header() {
   }
 
   const langSwitchHref = switchLocalePath(pathname);
+  const pricingHref = isEn ? "/en#tarifs" : "/#tarifs";
 
   // Close on ESC and lock scroll when open
   useEffect(() => {
@@ -125,10 +128,15 @@ export function Header() {
         {t.skip}
       </a>
       <div className="mx-auto flex w-full max-w-5xl items-center justify-between px-6 py-3">
-        <Link href={isEn ? "/en" : "/"} className="flex items-center gap-2 text-sm font-semibold tracking-tight">
-          <span className="rounded-md bg-accent px-2 py-1 text-accent-foreground">smarterlogicweb</span>
-          <span className="sr-only">{isEn ? "Home" : "Accueil"}</span>
-        </Link>
+        <div className="flex items-center gap-3">
+          <Link href={isEn ? "/en" : "/"} className="flex items-center gap-2 text-sm font-semibold tracking-tight">
+            <span className="rounded-md bg-accent px-2 py-1 text-accent-foreground">smarterlogicweb</span>
+            <span className="sr-only">{isEn ? "Home" : "Accueil"}</span>
+          </Link>
+          <span className="hidden text-xs text-muted-foreground md:inline">
+            {t.baseline}
+          </span>
+        </div>
 
         <nav aria-label={isEn ? "Main navigation" : "Navigation principale"} className="hidden items-center gap-6 md:flex">
           {/* Projets dropdown */}
@@ -207,11 +215,11 @@ export function Header() {
             asChild
             size="sm"
             className="rounded-full px-4 py-2 text-sm font-medium"
-            aria-label={isEn ? "Get a free quote by email" : "Obtenir un devis gratuit par email"}
+            aria-label={isEn ? "View pricing and examples" : "Voir les tarifs et exemples"}
           >
             <Link
-              href="mailto:contact@smarterlogicweb.com?subject=Devis%20gratuit%20-%20Nouveau%20projet"
-              onClick={() => track("cta_devis_mailto_header")}
+              href={pricingHref}
+              onClick={() => track("cta_view_pricing_header")}
             >
               {t.cta}
             </Link>
@@ -325,15 +333,18 @@ export function Header() {
             </nav>
 
             <div className="mt-6">
-              <Button
+             <<Button
                 asChild
                 className="w-full rounded-full"
-                aria-label={isEn ? "Get a free quote by email" : "Obtenir un devis gratuit par email"}
+                aria-label={isEn ? "View pricing and examples" : "Voir les tarifs et exemples"}
                 onClick={() => setOpen(false)}
               >
-                <Link href="mailto:contact@smarterlogicweb.com?subject=Devis%20gratuit%20-%20Nouveau%20projet" onClick={() => track("cta_devis_mailto_header_mobile")}>
+               < Link href={pricingHref} onClick={() => track("cta_view_pricing_header_mobile")}>
                   {t.cta}
-                </Link>
+              </ctLink>
+            </r_Button>
+          </  div>
+        </                </Link>
               </Button>
             </div>
           </div>

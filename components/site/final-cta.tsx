@@ -15,8 +15,11 @@ export function FinalCTA() {
           estimation personnalisée sous 48h.
         </p>
 
-        <div className="mt-6">
+        <div className="mt-6 flex flex-col items-center justify-center gap-3 sm:flex-row">
           <Button asChild size="lg" variant="cta" className="rounded-full animate-[pulse_3s_ease-in-out_infinite]">
+            <Link href="#tarifs">Voir les tarifs et exemples</Link>
+          </Button>
+          <Button asChild size="lg" variant="secondary" className="rounded-full">
             <Link href="/contact">Discutons de votre projet</Link>
           </Button>
         </div>

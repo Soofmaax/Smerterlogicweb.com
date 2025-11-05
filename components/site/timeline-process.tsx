@@ -80,7 +80,7 @@ export function TimelineProcess() {
       <div className="mb-8 text-center">
         <h2 className="font-heading text-3xl font-semibold md:text-4xl">Processus de travail</h2>
         <p className="mt-2 text-foreground/70">
-          Un déroulé clair en 4 étapes, avec des connecteurs animés pour suivre la progression.
+          Comment on travaille ensemble ? C&apos;est simple et sans surprise.
         </p>
       </div>
 
