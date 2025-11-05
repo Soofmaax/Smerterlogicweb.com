@@ -15,7 +15,20 @@ export function ProjectsGrid({ items }: { items: CaseItem[] }) {
   const [filter, setFilter] = React.useState<Filter>("all");
   const [animState, setAnimState] = React.useState<"idle" | "out" | "in">("idle");
   const [openIndex, setOpenIndex] = React.useState<number | null>(null);
+  const [liked, setLiked] = React.useState<Record<string, boolean>>({});
 
+  React.useEffect(() => {
+    const onVoice = (e: Event) => {
+      const ce = e as CustomEvent<{ filter?: Filter }>;
+      const f = ce.detail?.filter;
+      if (f === "artisans" || f === "associations" || f === "all") {
+        applyFilter(f);
+      }
+    };
+    window.addEventListener("voice-filter", onVoice as EventListener);
+    return () => window.removeEventListener("voice-filter", onVoice as EventListener);
+  }, []);
+  
   const filtered = React.useMemo(() => {
     if (filter === "all") return items;
     if (filter === "artisans") return items.filter((i) => i.sector === "Artisans & TPE");
@@ -92,8 +105,22 @@ function ProjectCard({ p, onOpen }: { p: CaseItem; onOpen: () => void }) {
 
   const topKpi = p.kpis && p.kpis.length ? p.kpis[0] : null;
 
+  const onDouble = () => {
+    try {
+      // subtle like / bookmark effect by toggling outline
+      const el = document.activeElement as HTMLElement | null;
+      const card = el?.closest(".project-card") || null;
+      if (card) {
+        card.classList.toggle("ring-2");
+        card.classList.toggle("ring-amber-400");
+      }
+    } catch {
+      // ignore
+    }
+  };
+
   return (
-    <article className="project-card relative rounded-[20px] border bg-card p-4 card-elevated pricing-animated offer-lift">
+    <article className="project-card relative rounded-[20px] border bg-card p-4 card-elevated pricing-animated offer-lift" onDoubleClick={onDouble}>
       {/* Mockups */}
       <div className="relative rounded-lg border bg-background p-3">
         {/* Result badge overlay */}

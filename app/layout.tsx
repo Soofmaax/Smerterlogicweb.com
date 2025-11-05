@@ -9,6 +9,9 @@ import { Chatbot } from "@/components/site/chatbot";
 import { CookieConsent } from "@/components/site/cookie-consent";
 import { BackToTop } from "@/components/site/back-to-top";
 import { Cursor } from "@/components/site/cursor";
+import { EasterEggs } from "@/components/site/easter-eggs";
+import { SmartCTAs } from "@/components/site/smart-ctas";
+import { VoiceCommands } from "@/components/site/voice-commands";
 import Script from "next/script";
 
 const inter = Inter({
@@ -152,8 +155,11 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
 
         {/* Right-hand friendly floating actions */}
         <BackToTop />
+        <SmartCTAs />
+        <VoiceCommands />
 
-        {/* Chatbot lead capture */}
+        {/* Easter Eggs & Chatbot */}
+        <EasterEggs />
         <Chatbot />
       </body>
     </html>

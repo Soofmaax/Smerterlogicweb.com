@@ -4,6 +4,7 @@ import * as React from "react";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { CheckCircle2 } from "lucide-react";
+import { Particles } from "@/components/site/particles";
 
 export function HeroTyped() {
   const title = "Un Site Web Qui Vous Amène des Clients Chaque Jour";
@@ -115,6 +116,7 @@ export function HeroTyped() {
         <div className="hero-gradient-animated absolute inset-0 rounded-[28px] opacity-60" />
         <div ref={p1Ref} className="absolute -left-16 top-8 h-40 w-40 rounded-full bg-primary/10 blur-2xl" />
         <div ref={p2Ref} className="absolute -right-20 top-28 h-56 w-56 rounded-full bg-amber-300/10 blur-3xl" />
+        <Particles />
       </div>
 
       {/* Small badge */}
@@ -141,7 +143,7 @@ export function HeroTyped() {
       </p>
 
       <div className="mt-6 flex flex-col gap-3 sm:flex-row">
-        <Button asChild size="lg" variant="cta" className="rounded-full">
+        <Button asChild size="lg" variant="cta" className="rounded-full button-glitch" data-text="Obtenir un devis gratuit">
           <Link href="/contact">Obtenir un devis gratuit</Link>
         </Button>
         <Button asChild size="lg" variant="secondary" className="rounded-full">

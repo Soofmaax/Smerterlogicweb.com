@@ -55,5 +55,14 @@
       <p hidden><input name="origin" /></p>
       <button type="submit">Envoyer</button>
     </form>
+
+    <!-- Hidden copy for recruiter lead (Easter egg) -->
+    <form name="recruiter-lead" method="POST" data-netlify="true" action="/merci" hidden>
+      <input type="hidden" name="form-name" value="recruiter-lead" />
+      <p hidden><input name="name" /></p>
+      <p hidden><input name="email" /></p>
+      <p hidden><input name="company" /></p>
+      <button type="submit">Envoyer</button>
+    </form>
   </body>
 </html>
