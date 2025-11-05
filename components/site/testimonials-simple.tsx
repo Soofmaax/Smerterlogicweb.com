@@ -43,7 +43,7 @@ export function TestimonialsSimple() {
     <section className="mx-auto w-full max-w-5xl px-6 py-12">
       <div className="text-center">
         <h2 className="font-heading text-3xl font-semibold md:text-4xl">Ce Que Disent Mes Clients</h2>
-        <p className="mt-2 text-foreground/70">Des retours concrets sur l'impact business.</p>
+        <p className="mt-2 text-foreground/70">Des retours concrets sur l’impact business.</p>
       </div>
 
       <div className="mt-6 grid gap-4 md:grid-cols-3">

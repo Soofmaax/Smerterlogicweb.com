@@ -333,18 +333,15 @@ export function Header() {
             </nav>
 
             <div className="mt-6">
-             <<Button
+              <Button
                 asChild
                 className="w-full rounded-full"
                 aria-label={isEn ? "View pricing and examples" : "Voir les tarifs et exemples"}
                 onClick={() => setOpen(false)}
               >
-               < Link href={pricingHref} onClick={() => track("cta_view_pricing_header_mobile")}>
+                <Link href={pricingHref} onClick={() => track("cta_view_pricing_header_mobile")}>
                   {t.cta}
-              </ctLink>
-            </r_Button>
-          </  div>
-        </                </Link>
+                </Link>
               </Button>
             </div>
           </div>

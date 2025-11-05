@@ -7,7 +7,7 @@ import { CheckCircle2 } from "lucide-react";
 
 export function HeroTyped() {
   const title = "Votre Site Web Qui Vous Ramène des Clients Tous Les Jours";
-  const words = ["Rapides", "Modernes", "Efficaces", "Professionnels"];
+  const words = React.useMemo(() => ["Rapides", "Modernes", "Efficaces", "Professionnels"], []);
   const [typedWord, setTypedWord] = React.useState("");
   const [wordIndex, setWordIndex] = React.useState(0);
   const [phase, setPhase] = React.useState<"typing" | "pausing" | "deleting">("typing");
