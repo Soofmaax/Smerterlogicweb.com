@@ -54,10 +54,9 @@ export function Chatbot() {
   const pathname = usePathname() || "/";
   const { typing, show } = useTypingDelay();
   const openedRef = React.useRef(false);
-  const greetRef = React.useRef&lt;() =&gt; void&gt;(() =&gt; {});
-  const goTarifsRef = React.useRef&lt;() =&gt; void&gt;(() =&gt; {});
-  const goFormuleRef = React.useRef&lt;() =&gt; void&gt;(() =&gt; {});dRef = React.useRef(false);
   const greetRef = React.useRef<() => void>(() => {});
+  const goTarifsRef = React.useRef<() => void>(() => {});
+  const goFormuleRef = React.useRef<() => void>(() => {});
 
   const push = React.useCallback((role: Role, content: React.ReactNode) => {
     setMessages((m) => [...m, { id: `${Date.now()}-${m.length}`, role, content }]);
@@ -70,16 +69,16 @@ export function Chatbot() {
       track(`chat_recommend_${a}`);
       push(
         "bot",
-        &lt;&gt;
-          Pour {activity}, commencez avec &lt;strong&gt;Vitrine&lt;/strong&gt; pour une présence claire. Si vous avez besoin de blog, réservations ou intégrations avancées, passez sur &lt;strong&gt;Business&lt;/strong&gt; ou &lt;strong&gt;Premium&lt;/strong&gt;.
-        &lt;/&gt;
+        <>
+          Pour {activity}, commencez avec <strong>Vitrine</strong> pour une présence claire. Si vous avez besoin de blog, réservations ou intégrations avancées, passez sur <strong>Business</strong> ou <strong>Premium</strong>.
+        </>
       );
       push(
         "bot",
-        &lt;div className="mt-2 flex flex-wrap gap-2"&gt;
-          &lt;QuickButton onClick={() =&gt; goFormuleRef.current()}&gt;Lancer le mini‑quiz&lt;/QuickButton&gt;
-          &lt;QuickButton onClick={() =&gt; goTarifsRef.current()}&gt;Voir les tarifs &lt;ChevronRight className="h-4 w-4" /&gt;&lt;/QuickButton&gt;
-        &lt;/div&gt;
+        <div className="mt-2 flex flex-wrap gap-2">
+          <QuickButton onClick={() => goFormuleRef.current()}>Lancer le mini‑quiz</QuickButton>
+          <QuickButton onClick={() => goTarifsRef.current()}>Voir les tarifs <ChevronRight className="h-4 w-4" /></QuickButton>
+        </div>
       );
     },
     [push, goFormuleRef, goTarifsRef]

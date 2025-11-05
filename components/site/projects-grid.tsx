@@ -19,7 +19,7 @@ export function ProjectsGrid({ items }: { items: CaseItem[] }) {
 
   React.useEffect(() => {
     const onVoice = (e: Event) => {
-      const ce = e as CustomEvent&lt;{ filter?: Filter }&gt;;
+      const ce = e as CustomEvent<{ filter?: Filter }>;
       const f = ce.detail?.filter;
       if (f === "artisans" || f === "associations" || f === "all") {
         if (f === filter) return;
