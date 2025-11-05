@@ -82,10 +82,10 @@ export function SeeTheDifference() {
     <section ref={rootRef} className="mx-auto w-full max-w-5xl px-6 py-12 rounded-[28px] border bg-muted/40">
       <div className="text-center">
         <h2 className="font-heading text-3xl font-semibold md:text-4xl" data-reveal>
-          Ce qui Rend Votre Site Vivant et Agréable
+          Votre Site Travaille Pour Vous
         </h2>
         <p className="mt-2 text-foreground/80" data-reveal>
-          Un site professionnel ne se limite pas à afficher des informations. Chaque interaction doit être fluide et donner envie de rester. Voici quelques exemples concrets de ce que j&apos;intègre dans vos sites.
+          Votre site ne dort jamais : boutons qui incitent à l’action, images qui se chargent instantanément, navigation fluide sur mobile. Tout est pensé pour que vos visiteurs deviennent des clients.
         </p>
         <p className="mt-4 text-base font-semibold text-muted-foreground" data-reveal>
           Survolez, cliquez, testez : tout est interactif ci‑dessous.
@@ -116,23 +116,23 @@ export function SeeTheDifference() {
       {/* Demo A: Buttons */}
       <div id="demo-a" className="mt-10" data-reveal>
         <h3 className="font-heading text-xl font-semibold">Boutons qui Réagissent</h3>
+        <p className="mt-2 text-sm text-foreground/80">
+          Chaque bouton réagit instantanément quand vos visiteurs interagissent avec. Ces micro‑animations guident naturellement vers l’action sans être envahissantes.
+        </p>
         <div className="mt-4 grid gap-3 sm:grid-cols-3">
           {/* Elevation on hover */}
           <Button className="rounded-full shadow-sm transition-all duration-300 hover:-translate-y-0.5 hover:shadow-lg">
-            Survol &amp; élévation
+            Survol : le bouton se soulève
           </Button>
           {/* Color shift + slight scale */}
           <Button className="rounded-full bg-primary/90 text-primary-foreground transition-all duration-300 hover:scale-[1.03] hover:bg-primary">
-            Couleur &amp; scale
+            Effet couleur au survol
           </Button>
           {/* Ripple (CTA variant) */}
           <Button variant="cta" className="rounded-full">
-            Effet ripple au clic
+            Animation au clic
           </Button>
         </div>
-        <p className="mt-3 text-sm text-foreground/80">
-          Chaque bouton réagit instantanément quand vos visiteurs interagissent avec. Ces micro‑animations guident naturellement vers l&apos;action sans être envahissantes.
-        </p>
       </div>
 
       {/* Demo B: Images reveal */}

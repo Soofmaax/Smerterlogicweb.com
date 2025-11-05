@@ -45,7 +45,7 @@ export function PerformanceVisible() {
     <section id="perf" className="mx-auto w-full max-w-5xl px-6 py-12">
       <div className="mb-6 text-center">
         <h2 className="font-heading text-3xl font-semibold md:text-4xl">Performances Visibles</h2>
-        <p className="mt-2 text-foreground/70">Des preuves chiffrées, compréhensibles sans jargon.</p>
+        <p className="mt-2 text-foreground/70">Ces chiffres ne sont pas juste techniques. Un site rapide retient vos visiteurs et améliore votre visibilité sur Google.</p>
       </div>
 
       <div className="grid gap-4 sm:grid-cols-3">

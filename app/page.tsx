@@ -56,6 +56,9 @@ export default function Page() {
       {/* Pourquoi investir (Wix/WordPress vs sur-mesure) */}
       <WhyInvest />
 
+      {/* Témoignages */}
+      <TestimonialsSimple />
+
       {/* Offres & Tarifs */}
       <PricingOffers />
 
@@ -107,9 +110,6 @@ export default function Page() {
 
       {/* Mes Réalisations */}
       <RealisationsGrid />
-
-      {/* Témoignages */}
-      <TestimonialsSimple />
     </div>
   );
 }

@@ -38,7 +38,7 @@ export function Header() {
               item3: "Ongoing support",
             },
             cta: "View pricing and examples",
-            baseline: "I build simple, effective websites so your customers can find you easily",
+            baseline: "Your website that works for you 24/7: visible on Google, fast, and converts visitors into customers",
             lang: "FR",
           }
         : {
@@ -61,7 +61,7 @@ export function Header() {
               item3: "Accompagnement continu",
             },
             cta: "Voir les tarifs et exemples",
-            baseline: "Je crée des sites web simples et efficaces pour que vos clients vous trouvent facilement",
+            baseline: "Votre site qui travaille pour vous 24h/24 : visible sur Google, rapide, et qui transforme vos visiteurs en clients",
             lang: "EN",
           },
     [isEn]
