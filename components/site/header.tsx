@@ -134,9 +134,9 @@ export function Header() {
             <Image
               src="/Smarter Logic Web.svg"
               alt="smarterlogicweb"
-              width={64}
-              height={64}
-              className="h-16 w-16 transition-transform hover:scale-105"
+              width={96}
+              height={96}
+              className="h-20 w-20 transition-transform hover:scale-105"
               priority
             />
             <span className="sr-only">{isEn ? "Home" : "Accueil"}</span>
@@ -282,7 +282,7 @@ export function Header() {
           <div className="mx-auto flex w-full max-w-5xl flex-col px-6 py-6">
             <div className="flex items-center justify-between">
               <Link href={isEn ? "/en" : "/"} className="flex items-center gap-3 text-sm font-semibold tracking-tight rounded-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/60 focus-visible:ring-offset-2 focus-visible:ring-offset-background" aria-label={isEn ? "Home — smarterlogicweb" : "Accueil — smarterlogicweb"} title={isEn ? "Home — smarterlogicweb" : "Accueil — smarterlogicweb"} onClick={() => setOpen(false)}>
-                <Image src="/Smarter Logic Web.svg" alt="smarterlogicweb" width={64} height={64} className="h-16 w-16 transition-transform hover:scale-105" />
+                <Image src="/Smarter Logic Web.svg" alt="smarterlogicweb" width={96} height={96} className="h-20 w-20 transition-transform hover:scale-105" />
                 <span className="sr-only">{isEn ? "Home" : "Accueil"}</span>
               </Link>
               <button
