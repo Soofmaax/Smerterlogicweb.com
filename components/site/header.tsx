@@ -130,13 +130,13 @@ export function Header() {
       </a>
       <div className="mx-auto flex w-full max-w-5xl items-center justify-between px-6 py-3">
         <div className="flex items-center gap-3">
-          <Link href={isEn ? "/en" : "/"} className="flex items-center gap-2 text-sm font-semibold tracking-tight">
+          <Link href={isEn ? "/en" : "/"} className="flex items-center gap-3 text-sm font-semibold tracking-tight" aria-label={isEn ? "Home — smarterlogicweb" : "Accueil — smarterlogicweb"} title={isEn ? "Home — smarterlogicweb" : "Accueil — smarterlogicweb"}>
             <Image
               src="/Smarter Logic Web.svg"
               alt="smarterlogicweb"
-              width={28}
-              height={28}
-              className="h-7 w-7"
+              width={40}
+              height={40}
+              className="h-10 w-10 transition-transform hover:scale-105"
               priority
             />
             <span className="sr-only">{isEn ? "Home" : "Accueil"}</span>
@@ -233,7 +233,7 @@ export function Header() {
               </Link>
 
               {/* Language switch */}
-              <Link href={langSwitchHref} className="text-xs text-muted-foreground hover:text-foreground" aria-label="Switch language">
+              <Link href={langSwitchHref} className="inline-flex items-center rounded-full border px-2 py-1 text-xs text-muted-foreground hover:bg-accent/50 hover:text-foreground transition" aria-label={isEn ? "Basculer en français" : "Switch to English"}>
                 {t.lang}
               </Link>
             </nav>
@@ -279,8 +279,8 @@ export function Header() {
         >
           <div className="mx-auto flex w-full max-w-5xl flex-col px-6 py-6">
             <div className="flex items-center justify-between">
-              <Link href={isEn ? "/en" : "/"} className="flex items-center gap-2 text-sm font-semibold tracking-tight" onClick={() => setOpen(false)}>
-                <Image src="/Smarter Logic Web.svg" alt="smarterlogicweb" width={28} height={28} className="h-7 w-7" />
+              <Link href={isEn ? "/en" : "/"} className="flex items-center gap-3 text-sm font-semibold tracking-tight" aria-label={isEn ? "Home — smarterlogicweb" : "Accueil — smarterlogicweb"} title={isEn ? "Home — smarterlogicweb" : "Accueil — smarterlogicweb"} onClick={() => setOpen(false)}>
+                <Image src="/Smarter Logic Web.svg" alt="smarterlogicweb" width={40} height={40} className="h-10 w-10 transition-transform hover:scale-105" />
                 <span className="sr-only">{isEn ? "Home" : "Accueil"}</span>
               </Link>
               <button
@@ -357,7 +357,7 @@ export function Header() {
 
               {/* Language switch */}
               <div className="pt-2">
-                <Link href={langSwitchHref} className="text-sm text-muted-foreground hover:text-foreground" onClick={() => setOpen(false)}>
+                <Link href={langSwitchHref} className="inline-flex items-center rounded-full border px-2 py-1 text-sm text-muted-foreground hover:bg-accent/50 hover:text-foreground transition" aria-label={isEn ? "Basculer en français" : "Switch to English"} onClick={() => setOpen(false)}>
                   {t.lang}
                 </Link>
               </div>
