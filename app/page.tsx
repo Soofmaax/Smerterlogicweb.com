@@ -135,15 +135,4 @@ export default function Page() {
       <FinalCTA />
     </div>
   );
-} className="transition-transform group-hover:scale-110" />
-              <span>Découvrez mon engagement associatif</span>
-            </Link>
-          </div>
-        </div>
-      </section>
-
-      {/* Final CTA before footer */}
-      <FinalCTA />
-    </div>
-  );
 }
