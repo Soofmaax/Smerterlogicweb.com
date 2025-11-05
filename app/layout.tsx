@@ -52,9 +52,9 @@ export const metadata: Metadata = {
   },
   icons: {
     // Add a cache-busting query to ensure browsers refresh the favicon
-    icon: [{ url: "/icon.svg?v=2", type: "image/svg+xml" }],
+    icon: [{ url: "/icon.svg?v=3", type: "image/svg+xml" }],
     apple: "/apple-touch-icon",
-    shortcut: ["/icon.svg?v=2"],
+    shortcut: ["/icon.svg?v=3"],
   },
   manifest: "/manifest.webmanifest",
   openGraph: {

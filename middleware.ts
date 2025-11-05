@@ -11,9 +11,19 @@ export function middleware(req: NextRequest) {
     pathname === "/favicon-32x32.png"
   ) {
     const url = req.nextUrl.clone();
-    url.pathname = "/icon.svg";
+    url.pathname = "/icon.svg?v=3";
     const res = NextResponse.redirect(url, 308);
     // Prevent long-term CDN/browser cache of legacy paths
+    res.headers.set("Cache-Control", "no-store, must-revalidate");
+    return res;
+  }
+
+  // Force /icon.svg to the new logo in /public (cache-busted)
+  if (pathname === "/icon.svg") {
+    const url = req.nextUrl.clone();
+    url.pathname = "/Smarter Logic Web.svg";
+    url.search = "?v=3";
+    const res = NextResponse.redirect(url, 308);
     res.headers.set("Cache-Control", "no-store, must-revalidate");
     return res;
   }
@@ -30,5 +40,5 @@ export function middleware(req: NextRequest) {
 }
 
 export const config = {
-  matcher: ["/favicon.ico", "/favicon-16x16.png", "/favicon-32x32.png", "/site.webmanifest"],
+  matcher: ["/favicon.ico", "/favicon-16x16.png", "/favicon-32x32.png", "/site.webmanifest", "/icon.svg"],
 };
