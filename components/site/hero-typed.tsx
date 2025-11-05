@@ -124,19 +124,22 @@ export function HeroTyped() {
       <div className="relative z-10">
       {/* Urgency badge */}
       <div className="mb-6">
-        <span className="inline-flex rounded-full border border-foreground/15 bg-card px-3 py-1 text-sm text-foreground/80">
-          🔥 2 places disponibles en novembre 2025
+        <span className="inline-flex items-center gap-1 rounded-full border border-amber-300 bg-amber-50 px-3 py-1 text-sm font-semibold text-amber-700 dark:bg-amber-400/10 dark:text-amber-300">
+          <span aria-hidden>🔥</span> 2 places disponibles en novembre 2025
         </span>
       </div>
 
       {/* Title with typewriter */}
-      <h1 className="font-heading text-4xl font-bold tracking-tight text-foreground md:text-6xl text-balance">
+      <h1 className="font-heading text-4xl font-bold tracking-tight text-slate-800 md:text-6xl text-balance">
         {titleTyped || title}
-        {showCaretTitle && <span className="ml-1 inline-block w-[2px] animate-pulse bg-foreground align-middle" style={{ height: "1em" }} />}
+        {showCaretTitle && <span className="ml-1 inline-block w-[2px] animate-pulse bg-slate-800 align-middle" style={{ height: "1em" }} />}
       </h1>
 
-      {/* Animated gradient word (WOW) */}
-      <div aria-live="polite" className="mt-2 text-2xl font-semibold hero-title md:text-3xl">
+      {/* Animated word: amber for "Professionnels", gradient for others */}
+      <div
+        aria-live="polite"
+        className={`mt-2 text-2xl font-semibold md:text-3xl ${typedWord === "Professionnels" ? "text-amber-600" : "hero-title"}`}
+      >
         {typedWord}
       </div>
 
@@ -150,8 +153,8 @@ export function HeroTyped() {
           label="Réserver mon audit gratuit (15 min)"
           className="button-glitch h-12 px-8 text-base md:h-14 md:px-10 md:text-lg"
         />
-        <Button asChild size="lg" variant="secondary" className="rounded-full">
-          <Link href="/contact">Discutons de votre projet</Link>
+        <Button asChild size="lg" variant="outline" className="rounded-full">
+          <Link href="/contact" className="hover:bg-amber-50 hover:border-amber-300">Discutons de votre projet</Link>
         </Button>
       </div>
 
