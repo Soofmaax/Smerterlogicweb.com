@@ -24,11 +24,6 @@ export function Particles() {
     if (prefersReduced || manualReduced) return;
 
     const target = hostRef.current || document.body;
-    // Ensure host has positioning context
-    const prevPos = target.style.position;
-    if (!prevPos || prevPos === "static") {
-      target.style.position = "relative";
-    }
 
     const canvas = document.createElement("canvas");
     canvas.className = "particles-layer";
@@ -161,10 +156,6 @@ export function Particles() {
       canvas.removeEventListener("mouseleave", onLeave);
       if (rafRef.current) cancelAnimationFrame(rafRef.current);
       canvas.remove();
-      // restore previous position style if it was empty
-      if (target && prevPos === "" ) {
-        target.style.position = "";
-      }
     };
   }, []);
 

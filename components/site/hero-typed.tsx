@@ -114,13 +114,14 @@ export function HeroTyped() {
   return (
     <section className="relative mx-auto w-full max-w-5xl px-6 py-16 md:py-24 snap-start">
       {/* Subtle animated background + parallax shapes */}
-      <div aria-hidden className="pointer-events-none absolute inset-0 -z-10">
+      <div aria-hidden className="pointer-events-none absolute inset-0 z-0">
         <div className="hero-gradient-animated absolute inset-0 rounded-[28px] opacity-60" />
         <div ref={p1Ref} className="absolute -left-16 top-8 h-40 w-40 rounded-full bg-primary/10 blur-2xl" />
         <div ref={p2Ref} className="absolute -right-20 top-28 h-56 w-56 rounded-full bg-amber-300/10 blur-3xl" />
         <Particles />
       </div>
 
+      <div className="relative z-10">
       {/* Urgency badge */}
       <div className="mb-6">
         <span className="inline-flex rounded-full border border-foreground/15 bg-card px-3 py-1 text-sm text-foreground/80">
@@ -215,6 +216,7 @@ export function HeroTyped() {
 
       {/* Live code preview (real file) */}
       <LiveCode path="components/site/hero-typed.tsx" title="Code du Hero" />
+      </div>
     </section>
   );
 }
