@@ -11,6 +11,7 @@ type Item = {
 };
 
 const items: Item[] = [
+  { title: "BMS Ventouse", subtitle: "bmsventouse.fr", img: "", href: "https://bmsventouse.fr" },
   { title: "Plomberie Martin", subtitle: "Plombier à Paris", img: "", href: "" },
   { title: "Boulangerie Les Saveurs", subtitle: "Boulangerie à Lyon", img: "", href: "" },
   { title: "Menuiserie Dubois", subtitle: "Menuiserie à Nantes", img: "", href: "" },
