@@ -7,6 +7,7 @@ import { usePathname } from "next/navigation";
 import { Button } from "@/components/ui/button";
 import { Menu, X, ChevronDown } from "lucide-react";
 import { track } from "@/lib/analytics";
+import { availablePathsFR, availablePathsEN } from "@/data/routes";
 
 export function Header() {
   const [open, setOpen] = useState(false);
@@ -15,6 +16,7 @@ export function Header() {
   const pathname = usePathname() || "/";
   const isEn = pathname.startsWith("/en");
   const prefix = isEn ? "/en" : "";
+  const available = isEn ? availablePathsEN : availablePathsFR;
 
   const t = useMemo(
     () =>
@@ -151,81 +153,95 @@ export function Header() {
           const isAbout = pathname.startsWith(`${isEn ? "/en" : ""}/${isEn ? "about" : "a-propos"}`);
           const isCommitment = pathname.startsWith(`${isEn ? "/en" : ""}/${isEn ? "nonprofit-commitment" : "engagement-associatif"}`);
           const isContact = pathname.startsWith(`${isEn ? "/en" : ""}/contact`);
+
+          const showProjects = available.has(isEn ? "projects" : "projets");
+          const showServices = available.has("services");
+          const showAbout = available.has(isEn ? "about" : "a-propos");
+          const showCommitment = available.has(isEn ? "nonprofit-commitment" : "engagement-associatif");
+          // Contact: always show, even if the page is missing (fallback to /contact)
           // Render nav with computed states
           return (
             <nav aria-label={isEn ? "Main navigation" : "Navigation principale"} className="hidden items-center gap-6 md:flex">
               {/* Projets dropdown */}
-              <div className="relative group">
-                <button
-                  type="button"
-                  className={`inline-flex items-center gap-1 text-sm transition-colors hover:text-foreground ${isProjects ? "text-foreground font-semibold" : "text-muted-foreground"} rounded-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/60`}
-                  aria-haspopup="menu"
-                  aria-controls="menu-projects"
-                  aria-expanded={isProjects}
-                  aria-current={isProjects ? "page" : undefined}
-                >
-                  {t.nav.projects}
-                  <ChevronDown className="h-4 w-4 opacity-70 transition-transform group-hover:rotate-180" />
-                </button>
-                <div
-                  role="menu"
-                  className="pointer-events-none absolute left-0 top-full z-50 mt-2 w-56 rounded-lg border bg-popover p-2 opacity-0 shadow-sm transition group-hover:pointer-events-auto group-hover:opacity-100 group-focus-within:pointer-events-auto group-focus-within:opacity-100"
-                >
-                  <Link href={`${prefix}/${isEn ? "projects" : "projets"}#refonte-associatif`.replace("//", "/")} role="menuitem" className="block rounded-md px-3 py-2 text-sm text-foreground hover:bg-accent/60">
-                    {t.projects.item1}
-                  </Link>
-                  <Link href={`${prefix}/${isEn ? "projects" : "projets"}#site-vitrine-artisan`.replace("//", "/")} role="menuitem" className="block rounded-md px-3 py-2 text-sm text-foreground hover:bg-accent/60">
-                    {t.projects.item2}
-                  </Link>
-                  <Link href={`${prefix}/${isEn ? "projects" : "projets"}#optimisation-performance`.replace("//", "/")} role="menuitem" className="block rounded-md px-3 py-2 text-sm text-foreground hover:bg-accent/60">
-                    {t.projects.item3}
-                  </Link>
+              {showProjects && (
+                <div className="relative group">
+                  <button
+                    type="button"
+                    className={`inline-flex items-center gap-1 text-sm transition-colors hover:text-foreground ${isProjects ? "text-foreground font-semibold" : "text-muted-foreground"} rounded-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/60`}
+                    aria-haspopup="menu"
+                    aria-controls="menu-projects"
+                    aria-expanded={isProjects}
+                    aria-current={isProjects ? "page" : undefined}
+                  >
+                    {t.nav.projects}
+                    <ChevronDown className="h-4 w-4 opacity-70 transition-transform group-hover:rotate-180" />
+                  </button>
+                  <div
+                    role="menu"
+                    className="pointer-events-none absolute left-0 top-full z-50 mt-2 w-56 rounded-lg border bg-popover p-2 opacity-0 shadow-sm transition group-hover:pointer-events-auto group-hover:opacity-100 group-focus-within:pointer-events-auto group-focus-within:opacity-100"
+                  >
+                    <Link href={`${prefix}/${isEn ? "projects" : "projets"}#refonte-associatif`.replace("//", "/")} role="menuitem" className="block rounded-md px-3 py-2 text-sm text-foreground hover:bg-accent/60">
+                      {t.projects.item1}
+                    </Link>
+                    <Link href={`${prefix}/${isEn ? "projects" : "projets"}#site-vitrine-artisan`.replace("//", "/")} role="menuitem" className="block rounded-md px-3 py-2 text-sm text-foreground hover:bg-accent/60">
+                      {t.projects.item2}
+                    </Link>
+                    <Link href={`${prefix}/${isEn ? "projects" : "projets"}#optimisation-performance`.replace("//", "/")} role="menuitem" className="block rounded-md px-3 py-2 text-sm text-foreground hover:bg-accent/60">
+                      {t.projects.item3}
+                    </Link>
+                  </div>
                 </div>
-              </div>
+              )}
 
               {/* Services dropdown */}
-              <div className="relative group">
-                <button
-                  type="button"
-                  className={`inline-flex items-center gap-1 text-sm transition-colors hover:text-foreground ${isServices ? "text-foreground font-semibold" : "text-muted-foreground"} rounded-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/60`}
-                  aria-haspopup="menu"
-                  aria-controls="menu-services"
-                  aria-expanded={isServices}
-                  aria-current={isServices ? "page" : undefined}
-                >
-                  {t.nav.services}
-                  <ChevronDown className="h-4 w-4 opacity-70 transition-transform group-hover:rotate-180" />
-                </button>
-                <div
-                  role="menu"
-                  className="pointer-events-none absolute left-0 top-full z-50 mt-2 w-56 rounded-lg border bg-popover p-2 opacity-0 shadow-sm transition group-hover:pointer-events-auto group-hover:opacity-100 group-focus-within:pointer-events-auto group-focus-within:opacity-100"
-                >
-                  <Link href={`${prefix}/services#vitrine`.replace("//", "/")} role="menuitem" className="block rounded-md px-3 py-2 text-sm text-foreground hover:bg-accent/60">
-                    {t.services.item1}
-                  </Link>
-                  <Link href={`${prefix}/services#refonte`.replace("//", "/")} role="menuitem" className="block rounded-md px-3 py-2 text-sm text-foreground hover:bg-accent/60">
-                    {t.services.item2}
-                  </Link>
-                  <Link href={`${prefix}/services#accompagnement`.replace("//", "/")} role="menuitem" className="block rounded-md px-3 py-2 text-sm text-foreground hover:bg-accent/60">
-                    {t.services.item3}
-                  </Link>
+              {showServices && (
+                <div className="relative group">
+                  <button
+                    type="button"
+                    className={`inline-flex items-center gap-1 text-sm transition-colors hover:text-foreground ${isServices ? "text-foreground font-semibold" : "text-muted-foreground"} rounded-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/60`}
+                    aria-haspopup="menu"
+                    aria-controls="menu-services"
+                    aria-expanded={isServices}
+                    aria-current={isServices ? "page" : undefined}
+                  >
+                    {t.nav.services}
+                    <ChevronDown className="h-4 w-4 opacity-70 transition-transform group-hover:rotate-180" />
+                  </button>
+                  <div
+                    role="menu"
+                    className="pointer-events-none absolute left-0 top-full z-50 mt-2 w-56 rounded-lg border bg-popover p-2 opacity-0 shadow-sm transition group-hover:pointer-events-auto group-hover:opacity-100 group-focus-within:pointer-events-auto group-focus-within:opacity-100"
+                  >
+                    <Link href={`${prefix}/services#vitrine`.replace("//", "/")} role="menuitem" className="block rounded-md px-3 py-2 text-sm text-foreground hover:bg-accent/60">
+                      {t.services.item1}
+                    </Link>
+                    <Link href={`${prefix}/services#refonte`.replace("//", "/")} role="menuitem" className="block rounded-md px-3 py-2 text-sm text-foreground hover:bg-accent/60">
+                      {t.services.item2}
+                    </Link>
+                    <Link href={`${prefix}/services#accompagnement`.replace("//", "/")} role="menuitem" className="block rounded-md px-3 py-2 text-sm text-foreground hover:bg-accent/60">
+                      {t.services.item3}
+                    </Link>
+                  </div>
                 </div>
-              </div>
+              )}
 
-              <Link
-                href={`${prefix}/${isEn ? "about" : "a-propos"}`.replace("//", "/")}
-                className={`text-sm transition-colors hover:text-foreground ${isAbout ? "text-foreground font-semibold" : "text-muted-foreground"} rounded-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/50`}
-                aria-current={isAbout ? "page" : undefined}
-              >
-                {t.nav.about}
-              </Link>
-              <Link
-                href={`${prefix}/${isEn ? "nonprofit-commitment" : "engagement-associatif"}`.replace("//", "/")}
-                className={`text-sm transition-colors hover:text-foreground ${isCommitment ? "text-foreground font-semibold" : "text-muted-foreground"} rounded-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/50`}
-                aria-current={isCommitment ? "page" : undefined}
-              >
-                {t.nav.commitment}
-              </Link>
+              {showAbout && (
+                <Link
+                  href={`${prefix}/${isEn ? "about" : "a-propos"}`.replace("//", "/")}
+                  className={`text-sm transition-colors hover:text-foreground ${isAbout ? "text-foreground font-semibold" : "text-muted-foreground"} rounded-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/50`}
+                  aria-current={isAbout ? "page" : undefined}
+                >
+                  {t.nav.about}
+                </Link>
+              )}
+              {showCommitment && (
+                <Link
+                  href={`${prefix}/${isEn ? "nonprofit-commitment" : "engagement-associatif"}`.replace("//", "/")}
+                  className={`text-sm transition-colors hover:text-foreground ${isCommitment ? "text-foreground font-semibold" : "text-muted-foreground"} rounded-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/50`}
+                  aria-current={isCommitment ? "page" : undefined}
+                >
+                  {t.nav.commitment}
+                </Link>
+              )}
               <Link
                 href={`${prefix}/contact`.replace("//", "/")}
                 className={`text-sm transition-colors hover:text-foreground ${isContact ? "text-foreground font-semibold" : "text-muted-foreground"} rounded-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/50`}
@@ -296,63 +312,71 @@ export function Header() {
 
             <nav className="mt-6 space-y-2 text-lg" aria-label={isEn ? "Mobile navigation" : "Navigation mobile"}>
               {/* Projets with submenu */}
-              <div>
-                <button
-                  className="flex w-full items-center justify-between rounded-md px-2 py-2 text-left text-foreground hover:bg-accent/50"
-                  aria-expanded={openProjets}
-                  aria-controls="submenu-projets"
-                  onClick={() => setOpenProjets((v) => !v)}
-                >
-                  <span>{t.nav.projects}</span>
-                  <ChevronDown className={`h-5 w-5 transition-transform ${openProjets ? "rotate-180" : ""}`} />
-                </button>
-                {openProjets && (
-                  <div id="submenu-projets" className="ml-4 border-l pl-3">
-                    <Link href={`${prefix}/${isEn ? "projects" : "projets"}#refonte-associatif`.replace("//", "/")} className="block py-2 text-muted-foreground hover:text-foreground" onClick={() => setOpen(false)}>
-                      {t.projects.item1}
-                    </Link>
-                    <Link href={`${prefix}/${isEn ? "projects" : "projets"}#site-vitrine-artisan`.replace("//", "/")} className="block py-2 text-muted-foreground hover:text-foreground" onClick={() => setOpen(false)}>
-                      {t.projects.item2}
-                    </Link>
-                    <Link href={`${prefix}/${isEn ? "projects" : "projets"}#optimisation-performance`.replace("//", "/")} className="block py-2 text-muted-foreground hover:text-foreground" onClick={() => setOpen(false)}>
-                      {t.projects.item3}
-                    </Link>
-                  </div>
-                )}
-              </div>
+              {available.has(isEn ? "projects" : "projets") && (
+                <div>
+                  <button
+                    className="flex w-full items-center justify-between rounded-md px-2 py-2 text-left text-foreground hover:bg-accent/50"
+                    aria-expanded={openProjets}
+                    aria-controls="submenu-projets"
+                    onClick={() => setOpenProjets((v) => !v)}
+                  >
+                    <span>{t.nav.projects}</span>
+                    <ChevronDown className={`h-5 w-5 transition-transform ${openProjets ? "rotate-180" : ""}`} />
+                  </button>
+                  {openProjets && (
+                    <div id="submenu-projets" className="ml-4 border-l pl-3">
+                      <Link href={`${prefix}/${isEn ? "projects" : "projets"}#refonte-associatif`.replace("//", "/")} className="block py-2 text-muted-foreground hover:text-foreground" onClick={() => setOpen(false)}>
+                        {t.projects.item1}
+                      </Link>
+                      <Link href={`${prefix}/${isEn ? "projects" : "projets"}#site-vitrine-artisan`.replace("//", "/")} className="block py-2 text-muted-foreground hover:text-foreground" onClick={() => setOpen(false)}>
+                        {t.projects.item2}
+                      </Link>
+                      <Link href={`${prefix}/${isEn ? "projects" : "projets"}#optimisation-performance`.replace("//", "/")} className="block py-2 text-muted-foreground hover:text-foreground" onClick={() => setOpen(false)}>
+                        {t.projects.item3}
+                      </Link>
+                    </div>
+                  )}
+                </div>
+              )}
 
               {/* Services with submenu */}
-              <div className="mt-1">
-                <button
-                  className="flex w-full items-center justify-between rounded-md px-2 py-2 text-left text-foreground hover:bg-accent/50"
-                  aria-expanded={openServices}
-                  aria-controls="submenu-services"
-                  onClick={() => setOpenServices((v) => !v)}
-                >
-                  <span>{t.nav.services}</span>
-                  <ChevronDown className={`h-5 w-5 transition-transform ${openServices ? "rotate-180" : ""}`} />
-                </button>
-                {openServices && (
-                  <div id="submenu-services" className="ml-4 border-l pl-3">
-                    <Link href={`${prefix}/services#vitrine`.replace("//", "/")} className="block py-2 text-muted-foreground hover:text-foreground" onClick={() => setOpen(false)}>
-                      {t.services.item1}
-                    </Link>
-                    <Link href={`${prefix}/services#refonte`.replace("//", "/")} className="block py-2 text-muted-foreground hover:text-foreground" onClick={() => setOpen(false)}>
-                      {t.services.item2}
-                    </Link>
-                    <Link href={`${prefix}/services#accompagnement`.replace("//", "/")} className="block py-2 text-muted-foreground hover:text-foreground" onClick={() => setOpen(false)}>
-                      {t.services.item3}
-                    </Link>
-                  </div>
-                )}
-              </div>
+              {available.has("services") && (
+                <div className="mt-1">
+                  <button
+                    className="flex w-full items-center justify-between rounded-md px-2 py-2 text-left text-foreground hover:bg-accent/50"
+                    aria-expanded={openServices}
+                    aria-controls="submenu-services"
+                    onClick={() => setOpenServices((v) => !v)}
+                  >
+                    <span>{t.nav.services}</span>
+                    <ChevronDown className={`h-5 w-5 transition-transform ${openServices ? "rotate-180" : ""}`} />
+                  </button>
+                  {openServices && (
+                    <div id="submenu-services" className="ml-4 border-l pl-3">
+                      <Link href={`${prefix}/services#vitrine`.replace("//", "/")} className="block py-2 text-muted-foreground hover:text-foreground" onClick={() => setOpen(false)}>
+                        {t.services.item1}
+                      </Link>
+                      <Link href={`${prefix}/services#refonte`.replace("//", "/")} className="block py-2 text-muted-foreground hover:text-foreground" onClick={() => setOpen(false)}>
+                        {t.services.item2}
+                      </Link>
+                      <Link href={`${prefix}/services#accompagnement`.replace("//", "/")} className="block py-2 text-muted-foreground hover:text-foreground" onClick={() => setOpen(false)}>
+                        {t.services.item3}
+                      </Link>
+                    </div>
+                  )}
+                </div>
+              )}
 
-              <Link href={`${prefix}/a-propos`.replace("//", "/")} className="block rounded-md px-2 py-2 text-foreground hover:bg-accent/50" onClick={() => setOpen(false)}>
-                {t.nav.about}
-              </Link>
-              <Link href={`${prefix}/engagement-associatif`.replace("//", "/")} className="block rounded-md px-2 py-2 text-foreground hover:bg-accent/50" onClick={() => setOpen(false)}>
-                {t.nav.commitment}
-              </Link>
+              {available.has(isEn ? "about" : "a-propos") && (
+                <Link href={`${prefix}/${isEn ? "about" : "a-propos"}`.replace("//", "/")} className="block rounded-md px-2 py-2 text-foreground hover:bg-accent/50" onClick={() => setOpen(false)}>
+                  {t.nav.about}
+                </Link>
+              )}
+              {available.has(isEn ? "nonprofit-commitment" : "engagement-associatif") && (
+                <Link href={`${prefix}/${isEn ? "nonprofit-commitment" : "engagement-associatif"}`.replace("//", "/")} className="block rounded-md px-2 py-2 text-foreground hover:bg-accent/50" onClick={() => setOpen(false)}>
+                  {t.nav.commitment}
+                </Link>
+              )}
               <Link href={`${prefix}/contact`.replace("//", "/")} className="block rounded-md px-2 py-2 text-foreground hover:bg-accent/50" onClick={() => setOpen(false)}>
                 {t.nav.contact}
               </Link>
