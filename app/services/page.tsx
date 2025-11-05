@@ -1,7 +1,11 @@
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
-import { TrackedLink } from "@/components/site/tracked-link";
+import { ServicesOffers } from "@/components/site/services-offers";
+import { ServicesCompare } from "@/components/site/services-compare";
+import { ServicesExtras } from "@/components/site/services-extras";
+import { ServicesTimelineSimple } from "@/components/site/services-timeline-simple";
+import { FAQServices } from "@/components/site/faq-services";
 
 export const metadata = {
   title: "Services — smarterlogicweb.com",
@@ -24,54 +28,53 @@ export const metadata = {
 
 export default function ServicesPage() {
   return (
-    <section className="mx-auto w-full max-w-5xl px-6 py-16 md:py-24">
-      <div className="mx-auto max-w-3xl text-center">
-        <Badge variant="secondary" className="px-3 py-1">Offre</Badge>
+    <div className="relative mx-auto w-full max-w-6xl px-6 py-16 md:py-24">
+      {/* Hero background accents */}
+      <div aria-hidden className="pointer-events-none absolute inset-0 -z-10">
+        <div className="hero-gradient-animated absolute inset-0 rounded-[28px] opacity-60" />
+      </div>
+
+      {/* Hero */}
+      <section className="mx-auto max-w-3xl text-center">
+        <Badge variant="secondary" className="px-3 py-1">Services</Badge>
         <h1 className="mt-4 font-heading text-4xl font-bold tracking-tight md:text-5xl">
-          Des sites sur-mesure, simples, performants, orientés résultats.
+          Des Sites Web Pensés Pour Votre Activité
         </h1>
         <p className="mt-4 text-foreground/80">
-          Je conçois des interfaces épurées, rapides, optimisées SEO, et faciles à maintenir. Vous vous concentrez sur votre activité, je m’occupe du reste.
+          Du site vitrine simple au site business complet. Choisissez la formule adaptée à vos besoins.
         </p>
-      </div>
+      </section>
 
-      <div className="mt-12 grid gap-6 md:grid-cols-3">
-        <div id="vitrine" className="rounded-[28px] card-elevated border bg-card p-6 shadow-sm scroll-mt-28">
-          <h3 className="font-heading text-xl font-semibold">Site vitrine rapide</h3>
-          <ul className="mt-3 list-disc pl-5 text-sm leading-relaxed text-foreground/80">
-            <li>Next.js + Tailwind CSS</li>
-            <li>Pages clés: Accueil, Services, À propos, Contact</li>
-            <li>SEO technique, performance Lighthouse</li>
-            <li>Livraison 2–3 semaines</li>
-          </ul>
-        </div>
-        <div id="refonte" className="rounded-[28px] card-elevated border bg-card p-6 shadow-sm scroll-mt-28">
-          <h3 className="font-heading text-xl font-semibold">Refonte & optimisation</h3>
-          <ul className="mt-3 list-disc pl-5 text-sm leading-relaxed text-foreground/80">
-            <li>Audit UX, accessibilité (WCAG), performance</li>
-            <li>Nettoyage du design, hiérarchie visuelle</li>
-            <li>Amélioration du référencement</li>
-            <li>Migration vers Next.js si pertinent</li>
-          </ul>
-        </div>
-        <div id="accompagnement" className="rounded-[28px] card-elevated border bg-card p-6 shadow-sm scroll-mt-28">
-          <h3 className="font-heading text-xl font-semibold">Accompagnement continu</h3>
-          <ul className="mt-3 list-disc pl-5 text-sm leading-relaxed text-foreground/80">
-            <li>Mises à jour, contenus, évolutions</li>
-            <li>Optimisations A/B et suivi conversions</li>
-            <li>Support prioritaire</li>
-            <li>Forfait mensuel flexible</li>
-          </ul>
-        </div>
-      </div>
+      {/* Offres principales */}
+      <ServicesOffers />
 
-      <div className="mt-10 flex justify-center">
-        <Button asChild size="lg" className="rounded-full">
-          <TrackedLink href="mailto:contact@smarterlogicweb.com?subject=Devis%20services%20web" eventName="cta_devis_mailto_services">
-            Obtenir mon devis gratuit
-          </TrackedLink>
-        </Button>
-      </div>
-    </section>
+      {/* Comparatif visuel */}
+      <ServicesCompare />
+
+      {/* Services complémentaires */}
+      <ServicesExtras />
+
+      {/* Processus de collaboration */}
+      <ServicesTimelineSimple />
+
+      {/* FAQ spécifique services */}
+      <FAQServices />
+
+      {/* CTA final */}
+      <section className="mx-auto mt-2 w-full max-w-5xl px-0 py-12">
+        <div className="rounded-[28px] card-elevated border bg-card p-6 text-center">
+          <h2 className="font-heading text-2xl font-semibold">Pas Sûr de la Formule qui Vous Convient ?</h2>
+          <p className="mt-2 text-foreground/80">Appelons-nous 15 minutes. Je vous aide à choisir gratuitement.</p>
+          <div className="mt-5 flex flex-col items-center justify-center gap-3 sm:flex-row">
+            <Button asChild className="rounded-full btn-pulse" variant="cta">
+              <Link href="/contact">Demander un devis</Link>
+            </Button>
+            <Button asChild className="rounded-full" variant="secondary">
+              <a href="mailto:contact@smarterlogicweb.com?subject=Prendre%20rendez-vous%20t%C3%A9l%C3%A9phonique">Prendre rendez-vous téléphonique</a>
+            </Button>
+          </div>
+        </div>
+      </section>
+    </div>
   );
 }

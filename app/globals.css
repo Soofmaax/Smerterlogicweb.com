@@ -239,6 +239,36 @@ a.link-underline:focus-visible::after {
   }
 }
 
+/* Offers lift effect */
+.offer-lift {
+  transition: transform 300ms ease, box-shadow 300ms ease;
+}
+.offer-lift:hover {
+  transform: translateY(-8px) rotateX(var(--rx)) rotateY(var(--ry));
+  box-shadow: 0 16px 40px rgba(17, 24, 39, 0.12);
+}
+
+/* Subtle pulse for CTA */
+.btn-pulse {
+  animation: pulseSubtle 2200ms ease-in-out infinite;
+  transform-origin: center;
+}
+@keyframes pulseSubtle {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.03); }
+}
+
+/* Check animation */
+.row-check .check-appear {
+  transform: scale(0.7) rotate(-12deg);
+  opacity: 0;
+  transition: transform 300ms ease, opacity 300ms ease;
+}
+.row-check.in-view .check-appear {
+  transform: scale(1) rotate(0deg);
+  opacity: 1;
+}
+
 .card-elevated::after {
   content: "";
   position: absolute;
