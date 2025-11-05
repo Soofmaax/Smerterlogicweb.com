@@ -32,8 +32,8 @@ export function Particles() {
     const dpr = Math.min(2, window.devicePixelRatio || 1);
 
     const isMobile = window.matchMedia?.("(max-width: 768px)")?.matches ?? false;
-    const count = isMobile ? 40 : 80;
-    const linkDist = isMobile ? 80 * dpr : 120 * dpr;
+    const count = isMobile ? 60 : 100;
+    const linkDist = isMobile ? 100 * dpr : 140 * dpr;
 
     const resize = () => {
       const rect = target.getBoundingClientRect();
@@ -51,8 +51,13 @@ export function Particles() {
       vy: (Math.random() - 0.5) * 0.6,
     }));
 
+    let paused = false;
+
     const step = () => {
-      if (!ctx) return;
+      if (!ctx || paused) {
+        rafRef.current = requestAnimationFrame(step);
+        return;
+      }
       ctx.clearRect(0, 0, canvas.width, canvas.height);
 
       const parts = particlesRef.current;
@@ -119,12 +124,24 @@ export function Particles() {
       mouseRef.current.y = -9999;
     };
 
+    const onVisibility = () => {
+      paused = document.hidden;
+    };
+    const onFocus = () => { paused = false; };
+    const onBlur = () => { paused = true; };
+
     window.addEventListener("resize", resize);
+    window.addEventListener("visibilitychange", onVisibility);
+    window.addEventListener("focus", onFocus);
+    window.addEventListener("blur", onBlur);
     canvas.addEventListener("mousemove", onMove);
     canvas.addEventListener("mouseleave", onLeave);
 
     return () => {
       window.removeEventListener("resize", resize);
+      window.removeEventListener("visibilitychange", onVisibility);
+      window.removeEventListener("focus", onFocus);
+      window.removeEventListener("blur", onBlur);
       canvas.removeEventListener("mousemove", onMove);
       canvas.removeEventListener("mouseleave", onLeave);
       if (rafRef.current) cancelAnimationFrame(rafRef.current);

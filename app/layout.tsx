@@ -13,6 +13,7 @@ import { EasterEggs } from "@/components/site/easter-eggs";
 import { SmartCTAs } from "@/components/site/smart-ctas";
 import { VoiceCommands } from "@/components/site/voice-commands";
 import { AssistantOverlay } from "@/components/site/assistant-overlay";
+import { GyroTilt } from "@/components/site/gyro-tilt";
 import Script from "next/script";
 
 const inter = Inter({
@@ -147,6 +148,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <UXEnhancer />
         <ScrollProgress />
         <Cursor />
+        <GyroTilt />
 
         <div className="flex min-h-screen flex-col">
           <Header />

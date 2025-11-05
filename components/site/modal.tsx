@@ -1,6 +1,7 @@
 "use client";
 
 import * as React from "react";
+import { PinchZoom } from "@/components/site/pinch-zoom";
 
 export function Modal({
   open,
@@ -43,6 +44,8 @@ export function Modal({
       }}
     >
       <div className="modal-content relative w-full max-w-3xl rounded-2xl border bg-card p-4 shadow-xl ring-1 ring-black/10">
+        {/* Attach pinch-zoom within modal scope */}
+        <PinchZoom root={overlayRef} />
         {children}
       </div>
     </div>

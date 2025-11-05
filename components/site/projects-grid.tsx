@@ -28,7 +28,28 @@ export function ProjectsGrid({ items }: { items: CaseItem[] }) {
     window.addEventListener("voice-filter", onVoice as EventListener);
     return () => window.removeEventListener("voice-filter", onVoice as EventListener);
   }, []);
-  
+
+  // persistent likes
+  React.useEffect(() => {
+    try {
+      const raw = localStorage.getItem("liked_projects");
+      if (raw) setLiked(JSON.parse(raw));
+    } catch {
+      // ignore
+    }
+  }, []);
+  const toggleLike = (id: string) => {
+    setLiked((prev) => {
+      const next = { ...prev, [id]: !prev[id] };
+      try {
+        localStorage.setItem("liked_projects", JSON.stringify(next));
+      } catch {
+        // ignore
+      }
+      return next;
+    });
+  };
+
   const filtered = React.useMemo(() => {
     if (filter === "all") return items;
     if (filter === "artisans") return items.filter((i) => i.sector === "Artisans & TPE");
@@ -69,7 +90,7 @@ export function ProjectsGrid({ items }: { items: CaseItem[] }) {
       {/* Grid */}
       <div className={cn("grid-filter-anim mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-3", animState !== "idle" && animState)}>
         {filtered.map((p, i) => (
-          <ProjectCard key={p.id} p={p} onOpen={() => setOpenIndex(i)} />
+          <ProjectCard key={p.id} p={p} liked={!!liked[p.id]} onLike={() => toggleLike(p.id)} onOpen={() => setOpenIndex(i)} />
         ))}
       </div>
 
@@ -95,7 +116,7 @@ function FilterButton({ active, onClick, children }: { active: boolean; onClick:
   );
 }
 
-function ProjectCard({ p, onOpen }: { p: CaseItem; onOpen: () => void }) {
+function ProjectCard({ p, liked, onLike, onOpen }: { p: CaseItem; liked: boolean; onLike: () => void; onOpen: () => void }) {
   const desktop = p.images?.[0] || "";
   const mobile = p.images?.[1] || "";
   const sectorBadge =
@@ -106,21 +127,17 @@ function ProjectCard({ p, onOpen }: { p: CaseItem; onOpen: () => void }) {
   const topKpi = p.kpis && p.kpis.length ? p.kpis[0] : null;
 
   const onDouble = () => {
-    try {
-      // subtle like / bookmark effect by toggling outline
-      const el = document.activeElement as HTMLElement | null;
-      const card = el?.closest(".project-card") || null;
-      if (card) {
-        card.classList.toggle("ring-2");
-        card.classList.toggle("ring-amber-400");
-      }
-    } catch {
-      // ignore
-    }
+    onLike();
   };
 
   return (
-    <article className="project-card relative rounded-[20px] border bg-card p-4 card-elevated pricing-animated offer-lift" onDoubleClick={onDouble}>
+    <article
+      className={cn(
+        "project-card relative rounded-[20px] border bg-card p-4 card-elevated pricing-animated offer-lift",
+        liked && "ring-2 ring-amber-400"
+      )}
+      onDoubleClick={onDouble}
+    >
       {/* Mockups */}
       <div className="relative rounded-lg border bg-background p-3">
         {/* Result badge overlay */}
@@ -130,7 +147,22 @@ function ProjectCard({ p, onOpen }: { p: CaseItem; onOpen: () => void }) {
             <span className="text-muted-foreground">{topKpi.label}</span>
           </div>
         ) : null}
-        <div className="relative aspect-[16/9] w-full overflow-hidden rounded-md">
+
+        {/* Like icon */}
+        <button
+          type="button"
+          onClick={onLike}
+          aria-pressed={liked}
+          aria-label={liked ? "Retirer des favoris" : "Ajouter aux favoris"}
+          className={cn(
+            "absolute right-3 top-3 z-10 inline-flex h-8 w-8 items-center justify-center rounded-full border bg-card/80 shadow-sm backdrop-blur transition",
+            liked ? "text-amber-600" : "text-muted-foreground hover:bg-accent"
+          )}
+        >
+          {liked ? "❤️" : "🤍"}
+        </button>
+
+        <div className="relative aspect-[16/9] w-full overflow-hidden rounded-md zoomable">
           {desktop ? (
             <Image
               src={desktop}
@@ -146,7 +178,7 @@ function ProjectCard({ p, onOpen }: { p: CaseItem; onOpen: () => void }) {
           )}
         </div>
         <div className="absolute bottom-3 right-3 w-24 overflow-hidden rounded-md border shadow-sm sm:w-28">
-          <div className="relative aspect-[9/16] w-full">
+          <div className="relative aspect-[9/16] w-full zoomable">
             {mobile ? (
               <Image
                 src={mobile}

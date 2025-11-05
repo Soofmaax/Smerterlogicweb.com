@@ -123,6 +123,53 @@ function HorizontalCarousel({
     };
   }, []);
 
+  // touch swipe
+  React.useEffect(() => {
+    const vp = viewportRef.current;
+    if (!vp) return;
+    let startX = 0;
+    let startY = 0;
+    let dragging = false;
+
+    const onTouchStart = (e: TouchEvent) => {
+      const t = e.touches[0];
+      startX = t.clientX;
+      startY = t.clientY;
+      dragging = true;
+    };
+    const onTouchMove = (e: TouchEvent) => {
+      if (!dragging) return;
+      const t = e.touches[0];
+      const dx = t.clientX - startX;
+      const dy = t.clientY - startY;
+      // if horizontal swipe dominates
+      if (Math.abs(dx) > Math.abs(dy) && Math.abs(dx) > 24) {
+        e.preventDefault();
+      }
+    };
+    const onTouchEnd = (e: TouchEvent) => {
+      if (!dragging) return;
+      dragging = false;
+      const t = e.changedTouches[0];
+      const dx = t.clientX - startX;
+      const threshold = 48; // px
+      if (Math.abs(dx) > threshold) {
+        if (dx < 0) next();
+        else prev();
+      }
+    };
+
+    vp.addEventListener("touchstart", onTouchStart, { passive: true });
+    vp.addEventListener("touchmove", onTouchMove, { passive: false });
+    vp.addEventListener("touchend", onTouchEnd);
+
+    return () => {
+      vp.removeEventListener("touchstart", onTouchStart);
+      vp.removeEventListener("touchmove", onTouchMove);
+      vp.removeEventListener("touchend", onTouchEnd);
+    };
+  }, [next, prev]);
+
   return (
     <div ref={rootRef} className={cn("relative", className)} aria-label={ariaLabel}>
       <div
