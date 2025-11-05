@@ -398,6 +398,16 @@ a.link-underline:focus-visible::after {
   box-shadow: 0 20px 40px rgba(17,24,39,0.25);
 }
 
+/* FAQ question pulse highlight (on deep link) */
+@keyframes pulseTwice {
+  0% { box-shadow: 0 0 0 0 hsl(var(--primary) / 0.25); }
+  50% { box-shadow: 0 0 0 6px hsl(var(--primary) / 0.12); }
+  100% { box-shadow: 0 0 0 0 hsl(var(--primary) / 0.0); }
+}
+.question-pulse {
+  animation: pulseTwice 800ms ease-in-out 2;
+}
+
 /* Flip 3D cards */
 .flip-card {
   perspective: 1000px;
