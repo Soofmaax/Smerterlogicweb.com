@@ -210,29 +210,50 @@ function HorizontalCarousel({
     const onWheel = (e: WheelEvent) => {
       const dx = e.deltaX;
       const dy = e.deltaY;
-      // only intercept clearly horizontal gestures
-      if (Math.abs(dx) <= Math.abs(dy) || Math.abs(dx) < 10) return;
-      e.preventDefault();
-      if (wheelLocked) return;
-      wheelLocked = true;
-      if (dx > 0) next();
-      else prev();
-      // small lock to avoid multiple triggers per gesture
-      setTimeout(() => {
-        wheelLocked = false;
-      }, 300);
+      let handled = false;
+
+      // Horizontal gesture: next/prev
+      if (Math.abs(dx) > Math.abs(dy) && Math.abs(dx) >= 10) {
+        handled = true;
+        if (!wheelLocked) {
+          wheelLocked = true;
+          if (dx > 0) next();
+          else prev();
+          setTimeout(() => {
+            wheelLocked = false;
+          }, 300);
+        }
+      }
+      // Vertical gesture over carousel: also page through
+      else if (Math.abs(dy) >= 24) {
+        handled = true;
+        if (!wheelLocked) {
+          wheelLocked = true;
+          if (dy > 0) next();
+          else prev();
+          setTimeout(() => {
+            wheelLocked = false;
+          }, 300);
+        }
+      }
+
+      if (handled) {
+        e.preventDefault();
+      }
     };
 
     vp.addEventListener("touchstart", onTouchStart, { passive: true });
     vp.addEventListener("touchmove", onTouchMove, { passive: false });
     vp.addEventListener("touchend", onTouchEnd);
-    vp.addEventListener("wheel", onWheel, { passive: false });
+
+    const node = rootRef.current;
+    if (node) node.addEventListener("wheel", onWheel, { passive: false });
 
     return () => {
       vp.removeEventListener("touchstart", onTouchStart);
       vp.removeEventListener("touchmove", onTouchMove);
       vp.removeEventListener("touchend", onTouchEnd);
-      vp.removeEventListener("wheel", onWheel);
+      if (node) node.removeEventListener("wheel", onWheel);
     };
   }, [next, prev]);
 
