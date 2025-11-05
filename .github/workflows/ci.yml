@@ -1,16 +1,19 @@
 name: CI
 
 on:
-  # Run on pushes to protected branches only (avoids duplicate runs on feature branches)
+  # Run on pushes to all branches so you can fix issues while working
   push:
     branches:
-      - main
-      - master
-  # Run on PRs targeting protected branches
+      - "**"
+  # Run on PRs only for initial events to avoid duplicate runs on each push
   pull_request:
     branches:
       - main
       - master
+    types:
+      - opened
+      - reopened
+      - ready_for_review
   # Allow manual runs
   workflow_dispatch:
 
