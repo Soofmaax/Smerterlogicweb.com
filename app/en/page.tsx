@@ -7,6 +7,12 @@ import { Carousel } from "@/components/site/carousel";
 import { Reveal } from "@/components/site/reveal";
 import { Button } from "@/components/ui/button";
 import { HeroTypedEN } from "@/components/site/hero-typed-en";
+import { WhyInvestEN } from "@/components/site/why-invest-en";
+import { TestimonialsSimpleEN } from "@/components/site/testimonials-simple-en";
+import { RealisationsGridEN } from "@/components/site/realisations-grid-en";
+import { PerformanceVisibleEN } from "@/components/site/performance-visible-en";
+import { ExpertiseWhyEN } from "@/components/site/expertise-why-en";
+import { TechnologiesGridEN } from "@/components/site/technologies-grid-en";
 
 export const metadata = {
   title: "Your website, finally simple and fast.",
@@ -38,6 +44,32 @@ export default function Page() {
 
       {/* New Hero with typing effect */}
       <HeroTypedEN />
+
+      {/* Why invest */}
+      <Reveal className="reveal-fade-up">
+        <WhyInvestEN />
+      </Reveal>
+
+      {/* Testimonials */}
+      <TestimonialsSimpleEN />
+
+      {/* My work */}
+      <RealisationsGridEN />
+
+      {/* Visible performance */}
+      <PerformanceVisibleEN />
+
+      {/* Expertise */}
+      <Reveal className="reveal-fade-up">
+        <ExpertiseWhyEN />
+      </Reveal>
+
+      {/* Technologies */}
+      <Reveal className="reveal-fade-up">
+        <TechnologiesGridEN />
+      </Reveal>
+
+      {/* Keep existing blocks below if you want to retain them; they remain for now */}
 
       {/* Stats */}
       <section className="mx-auto w-full max-w-3xl px-6 py-2">
@@ -120,121 +152,6 @@ export default function Page() {
             </ul>
           </Reveal>
         </div>
-      </section>
-
-      {/* Secondary CTA */}
-      <section className="mx-auto w-full max-w-3xl px-6 pb-10">
-        <div className="rounded-[28px] card-elevated border bg-card p-6">
-          <h3 className="font-heading text-2xl font-semibold">Trusted web solutions, tailored to you.</h3>
-          <p className="mt-2 text-foreground/80">
-            From showcase sites to performance optimisation and accessibility — I&#39;m here to help.
-          </p>
-          <div className="mt-5 flex flex-col gap-3 sm:flex-row">
-            <Button asChild className="rounded-full">
-              <TrackedLink href="mailto:contact@smarterlogicweb.com?subject=Free%20quote" eventName="cta_devis_mailto_hero">
-                Get my free quote
-              </TrackedLink>
-            </Button>
-            <Link href="/en/nonprofit-commitment" className="group inline-flex items-center justify-center gap-2 rounded-full px-4 py-3 text-sm text-muted-foreground hover:text-foreground">
-              <Heart size={16} className="transition-transform group-hover:scale-110" />
-              <span>Discover my nonprofit commitment</span>
-            </Link>
-          </div>
-        </div>
-      </section>
-
-      {/* Partners logos block — horizontal carousel */}
-      <section className="mx-auto w-full max-w-3xl px-6 pb-10">
-        <Reveal className="reveal-clip block">
-          <div className="overflow-hidden rounded-[28px] card-elevated border p-6 bg-card">
-            <h3 className="text-center font-heading text-2xl font-semibold md:text-3xl">
-              Trusted by future partners
-            </h3>
-            <p className="mt-2 text-center text-foreground/70">
-              Join upcoming partners and satisfied clients.
-            </p>
-
-            <div className="mt-6">
-              <Carousel
-                orientation="horizontal"
-                autoplay
-                intervalMs={3500}
-                ariaLabel="Partner logos"
-                items={[
-                  "Your logo",
-                  "Client A",
-                  "Client B",
-                  "Client C",
-                  "Client D",
-                  "Client E",
-                  "Client F",
-                  "Client G",
-                ].map((name) => (
-                  <div
-                    key={name}
-                    className="flex h-16 items-center justify-center rounded-2xl bg-white/70 text-sm font-medium text-foreground/60 ring-1 ring-black/5 dark:bg-white/5 dark:text-white/70"
-                    aria-label={`Logo ${name}`}
-                  >
-                    {name}
-                  </div>
-                ))}
-              />
-            </div>
-          </div>
-        </Reveal>
-      </section>
-
-      {/* Resources — horizontal carousel */}
-      <section className="mx-auto w-full max-w-3xl px-6 pb-20">
-        <Reveal className="reveal-clip block">
-          <div className="overflow-hidden rounded-[28px] card-elevated border p-6 bg-card">
-            <h3 className="text-center font-heading text-2xl font-semibold md:text-3xl">
-              Latest resources
-            </h3>
-            <p className="mt-2 text-center text-foreground/70">
-              Clear tips to improve your site and conversions.
-            </p>
-            <div className="mt-6">
-              <Carousel
-                orientation="horizontal"
-                autoplay
-                intervalMs={3800}
-                ariaLabel="Resources"
-                items={[
-                  {
-                    title: "Optimise Core Web Vitals",
-                    category: "Performance",
-                  },
-                  {
-                    title: "Accessibility: 10 key points",
-                    category: "A11y",
-                  },
-                  {
-                    title: "Technical SEO with Next.js",
-                    category: "SEO",
-                  },
-                  {
-                    title: "Redesign: where to start",
-                    category: "UX",
-                  },
-                  {
-                    title: "Forms that convert",
-                    category: "Conversion",
-                  },
-                ].map((r, i) => (
-                  <article key={i} className="rounded-[20px] border bg-card p-5 transition hover:shadow-md focus-within:outline-none focus-within:ring-2 focus-within:ring-primary/60">
-                    <div className="text-xs uppercase tracking-wide text-muted-foreground">{r.category}</div>
-                    <h4 className="mt-2 font-heading text-lg font-semibold">{r.title}</h4>
-                    <p className="mt-2 text-sm text-foreground/70">Quick read — practical best practices.</p>
-                    <a href="#" className="link-underline mt-3 inline-block rounded text-sm text-primary focus:outline-none focus-visible:ring-2 focus-visible:ring-primary/60">
-                      Read
-                    </a>
-                  </article>
-                ))}
-              />
-            </div>
-          </div>
-        </Reveal>
       </section>
     </div>
   );

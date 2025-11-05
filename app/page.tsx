@@ -16,6 +16,7 @@ import { WhyInvest } from "@/components/site/why-invest";
 import { RealisationsGrid } from "@/components/site/realisations-grid";
 import { TestimonialsSimple } from "@/components/site/testimonials-simple";
 import { FinalCTA } from "@/components/site/final-cta";
+import { Reveal } from "@/components/site/reveal";
 
 export const metadata = {
   title: "Votre site web, enfin simple et performant.",
@@ -51,13 +52,20 @@ export default function Page() {
       
 
       {/* Pourquoi mon expertise */}
-      <ExpertiseWhy />
+      <Reveal className="reveal-fade-up">
+        <ExpertiseWhy />
+      </Reveal>
 
       {/* Pourquoi investir (Wix/WordPress vs sur-mesure) */}
-      <WhyInvest />
+      <Reveal className="reveal-fade-up">
+        <WhyInvest />
+      </Reveal>
 
       {/* Témoignages */}
       <TestimonialsSimple />
+
+      {/* Mes Réalisations */}
+      <RealisationsGrid />
 
       {/* Offres & Tarifs */}
       <PricingOffers />
@@ -78,13 +86,17 @@ export default function Page() {
       <AfterFirstYear />
 
       {/* Technologies */}
-      <TechnologiesGrid />
+      <Reveal className="reveal-fade-up">
+        <TechnologiesGrid />
+      </Reveal>
 
       {/* FAQ */}
       <FAQAccordion />
 
       {/* Services d'adaptation graphique */}
-      <ServicesAdaptation />
+      <Reveal className="reveal-fade-up">
+        <ServicesAdaptation />
+      </Reveal>
 
       {/* CTA secondary */}
       <section className="mx-auto w-full max-w-3xl px-6 pb-10">
@@ -107,9 +119,6 @@ export default function Page() {
 
       {/* Final CTA before footer */}
       <FinalCTA />
-
-      {/* Mes Réalisations */}
-      <RealisationsGrid />
     </div>
   );
 }
