@@ -1,0 +1,88 @@
+{
+  "version": "0.2",
+  "language": "en,fr",
+  "allowCompoundWords": true,
+  "dictionaryDefinitions": [
+    { "name": "en_us", "path": "node_modules/@cspell/dict-en_us/cspell-ext.json" },
+    { "name": "fr-fr", "path": "node_modules/@cspell/dict-fr-fr/cspell-ext.json" },
+    { "name": "software-terms", "path": "node_modules/@cspell/dict-software-terms/cspell-ext.json" }
+  ],
+  "dictionaries": [
+    "en_us",
+    "fr-fr",
+    "software-terms"
+  ],
+  "languageSettings": [
+    {
+      "languageId": "typescript,typescriptreact,javascript,javascriptreact,markdown",
+      "dictionaries": ["en_us", "fr-fr", "software-terms"]
+    }
+  ],
+  "ignorePaths": [
+    "node_modules",
+    ".next",
+    "public",
+    "coverage",
+    "dist",
+    "build",
+    "**/*-lock.json",
+    "package-lock.json"
+  ],
+  "ignoreRegExpList": [
+    "/https?:[^\\s)]+/g",
+    "/[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}/g",
+    "/class(Name)?=\\\"[^\\\"]+\\\"/g"
+  ],
+  "words": [
+    "Next.js",
+    "TypeScript",
+    "Tailwind",
+    "lucide",
+    "Netlify",
+    "Umami",
+    "Plausible",
+    "favicon",
+    "webmanifest",
+    "CTA",
+    "SEO",
+    "Lighthouse",
+    "smarterlogicweb",
+    "Soofmaax",
+    "Reveal",
+    "Magnetic",
+    "Gauge",
+    "Carousel",
+    "Lightbox",
+    "Stars",
+    "avatar",
+    "reviews",
+    "testimonials",
+    "foreground",
+    "rounded",
+    "popover",
+    "emerald",
+    "amber",
+    "slate",
+    "card",
+    "nonprofit",
+    "commitment",
+    "about",
+    "propos",
+    "bmsventouse",
+    "Julien",
+    "Marie",
+    "Thomas",
+    "Nantes",
+    "Saveurs",
+    "Dubois",
+    "Ventouse",
+    "kpis",
+    "Développeuse",
+    "simplicité",
+    "exigence",
+    "présence",
+    "ligne",
+    "Écoute",
+    "Passionnée"
+  ]
+}

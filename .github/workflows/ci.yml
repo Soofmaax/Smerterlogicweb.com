@@ -1,0 +1,105 @@
+name: CI
+
+on:
+  # Run on pushes to all branches so you can fix issues while working
+  push:
+    branches:
+      - "**"
+  # Run on PRs only for initial events to avoid duplicate runs on each push
+  pull_request:
+    branches:
+      - main
+      - master
+    types:
+      - opened
+      - reopened
+      - ready_for_review
+  # Allow manual runs
+  workflow_dispatch:
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.head_ref || github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  spellcheck:
+    name: Spell Check (FR/EN)
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 18
+
+      - name: Install cspell dictionaries (FR/EN + software terms)
+        run: npm install --no-save @cspell/dict-fr-fr @cspell/dict-en_us @cspell/dict-software-terms
+
+      - name: Spell Check
+        uses: streetsidesoftware/cspell-action@v2
+        with:
+          files: |
+            **/*.{ts,tsx,js,jsx,md}
+            app/**/*.{ts,tsx}
+            components/**/*.{ts,tsx}
+            data/**/*.{ts,tsx,md}
+            docs/**/*.md
+          config: ./cspell.json
+          check_dot_files: false
+          incremental_files_only: false
+          strict: false
+
+  build:
+    name: Lint & Build
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    needs: [spellcheck]
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 18
+          # Do not enable caching until a lockfile is committed
+          # cache: npm
+
+      # Enforce lockfile on protected branches, but still allow PRs to generate it once for CI
+      - name: Ensure lockfile exists on main
+        if: github.ref == 'refs/heads/main' || github.ref == 'refs/heads/master'
+        run: |
+          if [ ! -f package-lock.json ]; then
+            echo "Error: package-lock.json is required on main/master. Commit the lockfile." >&2
+            exit 1
+          fi
+
+      - name: Generate package-lock.json if missing (PRs/feature branches)
+        if: github.ref != 'refs/heads/main' && github.ref != 'refs/heads/master'
+        run: |
+          if [ ! -f package-lock.json ]; then
+            echo "package-lock.json missing. Generating one for this CI run (please commit it in your PR)."
+            npm i --package-lock-only
+          fi
+
+      - name: Install dependencies (npm ci with lockfile)
+        run: npm ci
+
+      - name: Lint
+        run: npm run lint
+
+      - name: Build (type-check included)
+        run: npm run build
+
+      # If build fails, upload .next artifacts to help diagnose
+      - name: Upload .next debug artifacts (on failure)
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: next-debug
+          path: |
+            .next
+          if-no-files-found: ignore

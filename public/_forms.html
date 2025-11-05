@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8" />
+    <title>Hidden Forms for Netlify</title>
+  </head>
+  <body>
+    <!-- Hidden copy of the form so Netlify can detect it at build time -->
+    <form name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field" action="/merci" hidden>
+      <input type="hidden" name="form-name" value="contact" />
+      <p hidden>
+        <label>Ne pas remplir: <input name="bot-field" /></label>
+      </p>
+      <p hidden><input name="name" /></p>
+      <p hidden><input name="email" /></p>
+      <p hidden><textarea name="message"></textarea></p>
+      <p hidden><input type="checkbox" name="consent" /></p>
+      <div data-netlify-recaptcha="true"></div>
+      <button type="submit">Envoyer</button>
+    </form>
+
+    <!-- Hidden copy for association application -->
+    <form name="association-application" method="POST" data-netlify="true" netlify-honeypot="bot-field" action="/merci" hidden>
+      <input type="hidden" name="form-name" value="association-application" />
+      <p hidden>
+        <label>Ne pas remplir: <input name="bot-field" /></label>
+      </p>
+      <p hidden><input name="association" /></p>
+      <p hidden><input name="email" /></p>
+      <p hidden><textarea name="mission"></textarea></p>
+      <p hidden><textarea name="why"></textarea></p>
+      <p hidden><input name="website" /></p>
+      <button type="submit">Envoyer</button>
+    </form>
+
+    <!-- Hidden copy for chatbot lead -->
+    <form name="chat-lead" method="POST" data-netlify="true" netlify-honeypot="bot-field" action="/merci" hidden>
+      <input type="hidden" name="form-name" value="chat-lead" />
+      <p hidden><input name="email" /></p>
+      <p hidden><input name="name" /></p>
+      <p hidden><input name="phone" /></p>
+      <p hidden><input name="slot" /></p>
+      <p hidden><input name="activity" /></p>
+      <p hidden><input name="plan" /></p>
+      <p hidden><input name="leadType" /></p>
+      <p hidden><input name="origin" /></p>
+      <button type="submit">Envoyer</button>
+    </form>
+
+    <!-- Hidden copy for chatbot question -->
+    <form name="chat-question" method="POST" data-netlify="true" netlify-honeypot="bot-field" action="/merci" hidden>
+      <input type="hidden" name="form-name" value="chat-question" />
+      <p hidden><input name="email" /></p>
+      <p hidden><textarea name="message"></textarea></p>
+      <p hidden><input name="origin" /></p>
+      <button type="submit">Envoyer</button>
+    </form>
+
+    <!-- Hidden copy for recruiter lead (Easter egg) -->
+    <form name="recruiter-lead" method="POST" data-netlify="true" action="/merci" hidden>
+      <input type="hidden" name="form-name" value="recruiter-lead" />
+      <p hidden><input name="name" /></p>
+      <p hidden><input name="email" /></p>
+      <p hidden><input name="company" /></p>
+      <button type="submit">Envoyer</button>
+    </form>
+  </body>
+</html>
