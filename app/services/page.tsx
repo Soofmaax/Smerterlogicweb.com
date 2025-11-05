@@ -50,10 +50,10 @@ export default function ServicesPage() {
       <ServicesOffers />
 
       {/* Comparatif visuel */}
-     <<ServicesCompare />
+      <ServicesCompare />
 
       {/* Avis Google */}
-     <eGoogleReviews title="Ils en parlent />
+      <GoogleReviews title="Ils en parlent" />
 
       {/* Processus de collaboration */}
       <ServicesTimelineSimple />
