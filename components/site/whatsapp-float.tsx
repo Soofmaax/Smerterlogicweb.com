@@ -33,7 +33,7 @@ export function WhatsAppFloat() {
         href={href}
         target="_blank"
         rel="noreferrer"
-        className="group inline-flex items-center gap-2 rounded-full bg-[#25D366] px-4 py-3 text-sm font-semibold text-white shadow-lg transition-transform hover:scale-[1.04] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/70"
+        className="group inline-flex items-center gap-2 rounded-full bg-amber-600 px-4 py-3 text-sm font-semibold text-white shadow-lg transition-transform hover:scale-[1.04] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-200"
         aria-label="Discutons de votre projet sur WhatsApp"
       >
         <span className="inline-flex h-5 w-5 items-center justify-center rounded-full bg-white/15">

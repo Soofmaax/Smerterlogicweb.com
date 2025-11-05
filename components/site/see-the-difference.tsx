@@ -12,10 +12,10 @@ export function SeeTheDifference() {
   // Demo images (placeholders until real project shots are wired)
   const demoImgs = React.useMemo(
     () => [
-      "https://placehold.co/480x200/png?text=Demo+1",
-      "https://placehold.co/480x200/png?text=Demo+2",
-      "https://placehold.co/480x200/png?text=Demo+3",
-      "https://placehold.co/480x200/png?text=Demo+4",
+      "https://picsum.photos/seed/demo1/480/200",
+      "https://picsum.photos/seed/demo2/480/200",
+      "https://picsum.photos/seed/demo3/480/200",
+      "https://picsum.photos/seed/demo4/480/200",
     ],
     []
   );
@@ -79,7 +79,7 @@ export function SeeTheDifference() {
           }
         });
       },
-      { root: rootEl, rootMargin: "0px 0px -60% 0px", threshold: 0.2 }
+      { root: null, rootMargin: "0px 0px -60% 0px", threshold: 0.2 }
     );
     sections.forEach((s) => io.observe(s));
 
