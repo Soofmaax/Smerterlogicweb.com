@@ -205,14 +205,34 @@ function HorizontalCarousel({
       }
     };
 
+    // Wheel-to-snap (trackpad horizontal gesture)
+    let wheelLocked = false;
+    const onWheel = (e: WheelEvent) => {
+      const dx = e.deltaX;
+      const dy = e.deltaY;
+      // only intercept clearly horizontal gestures
+      if (Math.abs(dx) <= Math.abs(dy) || Math.abs(dx) < 10) return;
+      e.preventDefault();
+      if (wheelLocked) return;
+      wheelLocked = true;
+      if (dx > 0) next();
+      else prev();
+      // small lock to avoid multiple triggers per gesture
+      setTimeout(() => {
+        wheelLocked = false;
+      }, 300);
+    };
+
     vp.addEventListener("touchstart", onTouchStart, { passive: true });
     vp.addEventListener("touchmove", onTouchMove, { passive: false });
     vp.addEventListener("touchend", onTouchEnd);
+    vp.addEventListener("wheel", onWheel, { passive: false });
 
     return () => {
       vp.removeEventListener("touchstart", onTouchStart);
       vp.removeEventListener("touchmove", onTouchMove);
       vp.removeEventListener("touchend", onTouchEnd);
+      vp.removeEventListener("wheel", onWheel);
     };
   }, [next, prev]);
 
