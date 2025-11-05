@@ -17,7 +17,7 @@ jobs:
           node-version: 18
 
       - name: Install cspell dictionaries (FR/EN + software terms)
-        run: npm install --no-save @cspell/dict-fr-fr @cspell/dict-en-us @cspell/dict-software-terms
+        run: npm install --no-save @cspell/dict-fr-fr @cspell/dict-en_us @cspell/dict-software-terms
 
       - name: Spell Check
         uses: streetsidesoftware/cspell-action@v2

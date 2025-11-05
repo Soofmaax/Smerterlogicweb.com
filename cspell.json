@@ -3,12 +3,12 @@
   "language": "en,fr",
   "allowCompoundWords": true,
   "dictionaryDefinitions": [
-    { "name": "en-us", "path": "node_modules/@cspell/dict-en-us/cspell-ext.json" },
+    { "name": "en_us", "path": "node_modules/@cspell/dict-en_us/cspell-ext.json" },
     { "name": "fr-fr", "path": "node_modules/@cspell/dict-fr-fr/cspell-ext.json" },
     { "name": "software-terms", "path": "node_modules/@cspell/dict-software-terms/cspell-ext.json" }
   ],
   "dictionaries": [
-    "en-us",
+    "en_us",
     "fr-fr",
     "software-terms"
   ],
