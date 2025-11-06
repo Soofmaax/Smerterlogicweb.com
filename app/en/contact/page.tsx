@@ -41,6 +41,11 @@ export default function ContactPage() {
 
         <div className="mt-6 flex flex-wrap items-center gap-4">
           <BookingButton size="lg" className="rounded-full" label="Book my free audit (15 min)" />
+          {process.env.NEXT_PUBLIC_PHONE ? (
+            <Button asChild size="lg" className="rounded-full">
+              <a href={`tel:${(process.env.NEXT_PUBLIC_PHONE as string).replace(/[^+\d]/g, "")}`}>📞 Call now</a>
+            </Button>
+          ) : null}
           <Button asChild size="lg" className="rounded-full">
             <TrackedLink href="mailto:contact@smarterlogicweb.com?subject=Free%20quote" eventName="cta_devis_mailto_contact">
               <span className="inline-flex items-center gap-2"><Mail className="h-4 w-4" /> contact@smarterlogicweb.com</span>

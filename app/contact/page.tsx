@@ -49,6 +49,11 @@ export default function ContactPage() {
             </TrackedLink>
           </Button>
           <BookingButton size="lg" className="rounded-full" label="Réserver mon audit gratuit (15 min)" />
+          {process.env.NEXT_PUBLIC_PHONE ? (
+            <Button asChild size="lg" className="rounded-full">
+              <a href={`tel:${(process.env.NEXT_PUBLIC_PHONE as string).replace(/[^+\d]/g, "")}`}>📞 Appeler</a>
+            </Button>
+          ) : null}
           <Link href="/" className="text-sm text-muted-foreground hover:text-foreground">Retour à l’accueil</Link>
         </div>
 

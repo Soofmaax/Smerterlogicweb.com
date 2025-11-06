@@ -103,6 +103,21 @@ export function Header() {
   const langSwitchHref = switchLocalePath(pathname);
   const pricingHref = isEn ? "/en#tarifs" : "/#tarifs";
 
+  // Phone CTA (desktop)
+  const rawPhone = process.env.NEXT_PUBLIC_PHONE || "";
+  const sanitizePhone = (p: string) => p.replace(/[^+\d]/g, "");
+  const callHref = rawPhone ? `tel:${sanitizePhone(rawPhone)}` : (isEn ? "/en/contact" : "/contact");
+  const displayPhone = useMemo(() => {
+    const s = rawPhone.replace(/[^\d+]/g, "");
+    if (s.startsWith("+33") && s.length >= 12) {
+      const digits = s.replace("+33", "0");
+      return digits.replace(/(\d{2})(?=\d)/g, "$1 ").trim();
+    }
+    const d = s.replace(/\D/g, "");
+    if (d.length === 10) return d.replace(/(\d{2})(?=\d)/g, "$1 ").trim();
+    return rawPhone || (isEn ? "Call" : "Appeler");
+  }, [rawPhone, isEn]);
+
   // Close on ESC and lock scroll when open
   useEffect(() => {
     function onKey(e: KeyboardEvent) {
@@ -259,7 +274,17 @@ export function Header() {
         })()}
 
         {/* CTA desktop */}
-        <div className="hidden md:block">
+        <div className="hidden items-center gap-2 md:flex">
+          {rawPhone ? (
+            <Button
+              asChild
+              size="sm"
+              className="rounded-full px-4 py-2 text-sm font-medium"
+              aria-label={isEn ? "Call now" : "Appeler maintenant"}
+            >
+              <a href={callHref} onClick={() => track("cta_call_header")}>📞 {displayPhone}</a>
+            </Button>
+          ) : null}
           <Button
             asChild
             size="sm"
