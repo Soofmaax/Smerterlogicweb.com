@@ -18,6 +18,7 @@ import { ReduceMotionToggle } from "@/components/site/reduce-motion-toggle";
 import { WhatsAppFloat } from "@/components/site/whatsapp-float";
 import { UrgencyBanner } from "@/components/site/urgency-banner";
 import { StickyMobileCTA } from "@/components/site/sticky-mobile-cta";
+import { ExitIntentPopup } from "@/components/site/exit-intent-popup";
 import Script from "next/script";
 
 const inter = Inter({
@@ -172,6 +173,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <ReduceMotionToggle />
         <WhatsAppFloat />
         <StickyMobileCTA />
+        <ExitIntentPopup />
 
         {/* Easter Eggs & Chatbot */}
         <EasterEggs />

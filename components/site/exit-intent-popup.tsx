@@ -1,0 +1,93 @@
+"use client";
+
+import * as React from "react";
+import { Modal } from "@/components/site/modal";
+import { Button } from "@/components/ui/button";
+
+export function ExitIntentPopup() {
+  const [open, setOpen] = React.useState(false);
+
+  React.useEffect(() => {
+    // Only desktop (ignore touch devices)
+    if (typeof window === "undefined") return;
+    const isTouch = "ontouchstart" in window || navigator.maxTouchPoints > 0;
+    if (isTouch) return;
+
+    // Only trigger once per session
+    try {
+      if (sessionStorage.getItem("exit_intent_shown") === "1") return;
+    } catch {
+      // no-op
+    }
+
+    const onMouseOut = (e: MouseEvent) => {
+      const y = e.clientY;
+      const to = (e as any).relatedTarget || (e as any).toElement;
+      // Exit at top of viewport with no related target (leaving document)
+      if (y <= 0 && !to) {
+        setOpen(true);
+        try {
+          sessionStorage.setItem("exit_intent_shown", "1");
+        } catch {
+          // ignore
+        }
+        // Detach listener after trigger
+        document.removeEventListener("mouseout", onMouseOut);
+      }
+    };
+
+    document.addEventListener("mouseout", onMouseOut);
+    return () => document.removeEventListener("mouseout", onMouseOut);
+  }, []);
+
+  const onSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    const fd = new FormData(e.currentTarget);
+    const email = String(fd.get("email") || "");
+    // TODO: hook to your newsletter or email service; for now just close.
+    // You can also trigger a download here or send to /api/subscribe.
+    setOpen(false);
+  };
+
+  if (!open) return null;
+
+  return (
+    <Modal open={open} onClose={() => setOpen(false)} ariaLabel="Télécharger le guide gratuit">
+      <div className="flex items-start justify-between gap-3 px-2 pb-2">
+        <h3 className="text-lg font-bold leading-snug">
+          Attendez ! Téléchargez notre guide gratuit :{" "}
+          <span className="text-primary">Les 7 erreurs fatales des artisans sur le web</span>
+        </h3>
+        <button
+          type="button"
+          className="rounded-full border px-3 py-1 text-xs hover:bg-accent"
+          onClick={() => setOpen(false)}
+          aria-label="Fermer"
+        >
+          Fermer
+        </button>
+      </div>
+
+      <form onSubmit={onSubmit} className="space-y-3 p-2">
+        <label htmlFor="exit-email" className="block text-sm font-medium">
+          Votre email
+        </label>
+        <input
+          id="exit-email"
+          name="email"
+          type="email"
+          required
+          placeholder="vous@exemple.com"
+          className="w-full rounded-lg border px-3 py-2 text-sm outline-none focus:ring-2 focus:ring-primary"
+        />
+        <Button type="submit" className="w-full rounded-full text-base">
+          📥 Télécharger le guide gratuit
+        </Button>
+      </form>
+
+      <p className="px-2 pt-1 text-center text-xs text-muted-foreground">
+        Aucun spam. Vous pouvez vous désinscrire à tout moment.
+      </p>
+    </Modal>
+  );
+}
