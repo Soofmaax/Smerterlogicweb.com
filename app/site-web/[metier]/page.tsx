@@ -1,5 +1,6 @@
 import * as React from "react";
 import type { Metadata } from "next";
+import Link from "next/link";
 import { Particles } from "@/components/site/particles";
 import { PricingOffers } from "@/components/site/pricing-offers";
 import { TestimonialsSimple } from "@/components/site/testimonials-simple";
@@ -17,6 +18,14 @@ const LABELS: Record<string, string> = {
   boulanger: "Boulanger",
   coiffeur: "Coiffeur",
   "artisan-batiment": "Artisan du Bâtiment",
+};
+
+const BENEFICES: Record<string, string[]> = {
+  plombier: ["Urgences 24/7", "Formulaire de devis rapide", "SEO local: fuites, débouchage"],
+  electricien: ["Dépannage express", "Mise en conformité", "SEO local: électricien + ville"],
+  boulanger: ["Menu & horaires visibles", "Google Maps", "Avis clients mis en avant"],
+  coiffeur: ["Prise de RDV facile", "Galerie avant/après", "Mobile‑first"],
+  "artisan-batiment": ["Chantiers en avant", "Demande de devis simple", "Fiches services SEO"],
 };
 
 const CASES_BY_METIER: Record<string, string[]> = {
@@ -63,6 +72,11 @@ export default function MetierPage({ params }: PageProps) {
   const label = LABELS[metier] || metier;
   const caseIds = CASES_BY_METIER[metier] || [];
   const relevant = projectsFR.cases.filter((c) => caseIds.includes(c.id)).slice(0, 3);
+  const benefs = BENEFICES[metier] || [];
+
+  const otherLinks = (Object.keys(LABELS) as string[])
+    .filter((m) => m !== metier)
+    .map((m) => ({ slug: m, label: LABELS[m] || m }));
 
   return (
     <div className="relative mx-auto w-full max-w-6xl px-6 py-16 md:py-24">
@@ -84,6 +98,26 @@ export default function MetierPage({ params }: PageProps) {
           Site rapide, référencement local, appels à l’action pertinents — conçu pour générer des devis pour votre
           activité de {label.toLowerCase()}.
         </p>
+        {benefs.length > 0 && (
+          <ul className="mt-4 flex flex-wrap items-center justify-center gap-2 text-sm">
+            {benefs.map((b) => (
+              <li key={b} className="rounded-full border border-foreground/15 bg-card px-3 py-1 text-foreground/80">
+                {b}
+              </li>
+            ))}
+          </ul>
+        )}
+        {otherLinks.length > 0 && (
+          <div className="mt-5 text-sm text-foreground/70">
+            Autres métiers:{" "}
+            {otherLinks.map((o, i) => (
+              <React.Fragment key={o.slug}>
+                <Link className="link-underline" href={`/site-web/${o.slug}`}>{o.label}</Link>
+                {i < otherLinks.length - 1 ? " · " : ""}
+              </React.Fragment>
+            ))}
+          </div>
+        )}
       </section>
 
       {/* Offres réutilisées */}

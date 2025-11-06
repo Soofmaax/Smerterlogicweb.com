@@ -12,6 +12,14 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.9,
   }));
 
+  const enTrades = ["plumber", "electrician", "baker", "hairdresser", "general-contractor"];
+  const localSeoPagesEN = enTrades.map((t) => ({
+    url: `${baseUrl}/en/website/${t}`,
+    lastModified: now,
+    changeFrequency: "monthly",
+    priority: 0.8,
+  }));
+
   return [
     // FR
     { url: `${baseUrl}/`, lastModified: now, changeFrequency: "monthly", priority: 1 },
@@ -44,5 +52,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${baseUrl}/en/security`, lastModified: now, changeFrequency: "yearly", priority: 0.3 },
     { url: `${baseUrl}/en/faq`, lastModified: now, changeFrequency: "yearly", priority: 0.3 },
     { url: `${baseUrl}/en/thank-you`, lastModified: now, changeFrequency: "yearly", priority: 0.2 },
+
+    // Local SEO pages (EN)
+    ...localSeoPagesEN,
   ];
 }
