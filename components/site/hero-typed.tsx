@@ -9,7 +9,7 @@ import { LiveCode } from "@/components/site/live-code";
 import { BookingButton } from "@/components/site/booking-modal";
 
 export function HeroTyped() {
-  const title = "Obtenez 3 à 5 Nouveaux Clients par Mois Grâce à Votre Site Web";
+  const title = "Votre site web actuel vous fait perdre 15 clients par mois.";
   const words = React.useMemo(() => ["Rapides", "Modernes", "Efficaces", "Professionnels"], []);
   const [typedWord, setTypedWord] = React.useState("");
   const [wordIndex, setWordIndex] = React.useState(0);
@@ -145,7 +145,7 @@ export function HeroTyped() {
 
       {/* Subheading */}
       <p className="mt-6 text-lg leading-relaxed text-foreground/80 md:text-xl">
-        En 8 semaines, vous êtes visible sur Google
+        Nous créons des sites qui génèrent des devis qualifiés 24/7. Nos clients obtiennent +127% de demandes en 90 jours.
       </p>
 
       <div className="mt-6 flex flex-col gap-3 sm:flex-row">
