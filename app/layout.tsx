@@ -114,6 +114,20 @@ const jsonLdSite = {
   name: "smarterlogicweb.com",
 };
 
+const phonePublic = process.env.NEXT_PUBLIC_PHONE || "";
+const jsonLdLocalBusiness = {
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  name: "smarterlogicweb",
+  url: "https://smarterlogicweb.com",
+  areaServed: "France",
+  address: {
+    "@type": "PostalAddress",
+    addressCountry: "FR",
+  },
+  ...(phonePublic ? { telephone: phonePublic } : {}),
+};
+
 export const viewport = {
   width: "device-width",
   initialScale: 1,
@@ -141,6 +155,11 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           type="application/ld+json"
           suppressHydrationWarning
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLdSite) }}
+        />
+        <script
+          type="application/ld+json"
+          suppressHydrationWarning
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLdLocalBusiness) }}
         />
 
         {/* Analytics */}
