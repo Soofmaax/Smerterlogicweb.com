@@ -6,7 +6,7 @@ import Link from "next/link";
 import { Button } from "@/components/ui/button";
 
 export function HeroTypedEN() {
-  const title = "Is your website holding back your growth?";
+  const title = "Your current website is costing you 15 clients every month.";
   const [mounted, setMounted] = React.useState(false);
   React.useEffect(() => setMounted(true), []);
 
@@ -48,7 +48,7 @@ export function HeroTypedEN() {
       </h1>
 
       <p className="mt-6 text-lg leading-relaxed text-foreground/80 md:text-xl">
-        I build fast, professional websites that turn visitors into customers.
+        We build websites that generate qualified leads 24/7. Our clients get +127% more inquiries in 90 days.
       </p>
 
       <div className="mt-6">
