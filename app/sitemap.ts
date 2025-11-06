@@ -8,7 +8,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const localSeoPages = metiers.map((m) => ({
     url: `${baseUrl}/site-web/${m}`,
     lastModified: now,
-    changeFrequency: "monthly",
+    changeFrequency: "monthly" as const,
     priority: 0.9,
   }));
 
@@ -16,7 +16,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const localSeoPagesEN = enTrades.map((t) => ({
     url: `${baseUrl}/en/website/${t}`,
     lastModified: now,
-    changeFrequency: "monthly",
+    changeFrequency: "monthly" as const,
     priority: 0.8,
   }));
 

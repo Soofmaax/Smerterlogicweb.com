@@ -141,6 +141,7 @@ export default function MetierPage({ params }: PageProps) {
                   {after && <div className="mb-2 text-2xl font-extrabold text-emerald-600">{after}</div>}
                   <blockquote className="text-foreground/90">{c.testimonialFull}</blockquote>
                   <figcaption className="mt-4 flex items-center gap-3">
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
                     <img
                       src={photo}
                       alt={author}
