@@ -500,3 +500,19 @@ function VerticalCarousel({
     </div>
   );
 }
+      <div className="absolute inset-x-0 bottom-2 flex justify-center gap-2">
+        {items.map((_, i) => (
+          <button
+            key={i}
+            aria-label={`Go to item ${i + 1}`}
+            className={cn(
+              "h-2.5 w-2.5 rounded-full ring-1 ring-black/10 transition",
+              i === index ? "bg-primary" : "bg-foreground/20 hover:bg-foreground/40"
+            )}
+            onClick={() => setIndex(i)}
+          />
+        ))}
+      </div>
+    </div>
+  );
+}
