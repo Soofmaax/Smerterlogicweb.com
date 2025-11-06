@@ -4,6 +4,7 @@ import * as React from "react";
 import { useForm } from "react-hook-form";
 import { CheckCircle2, Loader2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { useSearchParams } from "next/navigation";
 
 type Props = {
   locale: "fr" | "en";
@@ -19,11 +20,14 @@ type Fields = {
 };
 
 export function ContactForm({ locale, action }: Props) {
+  const searchParams = useSearchParams();
+
   const {
     register,
     handleSubmit,
     formState: { errors, isSubmitting, isValid, touchedFields },
     watch,
+    setValue,
   } = useForm<Fields>({ mode: "onChange" });
 
   const onSubmit = async (_: Fields, e?: React.BaseSyntheticEvent) => {
@@ -49,19 +53,97 @@ export function ContactForm({ locale, action }: Props) {
     placeholderCity: locale === "fr" ? "Votre ville" : "Your city",
   };
 
+  // Prefill from localStorage, URL params, and referrer
+  React.useEffect(() => {
+    try {
+      const lf = (k: string) => {
+        try {
+          return localStorage.getItem(k) || "";
+        } catch {
+          return "";
+        }
+      };
+
+      const urlFirst = searchParams?.get("first") || searchParams?.get("prenom") || searchParams?.get("firstName") || "";
+      const urlPhone = searchParams?.get("phone") || searchParams?.get("tel") || "";
+      const urlMetier = searchParams?.get("metier") || searchParams?.get("trade") || "";
+      const urlCity = searchParams?.get("city") || "";
+
+      const fromReferrer = (() => {
+        if (typeof document === "undefined") return "";
+        const ref = document.referrer || "";
+        const mFr = ref.match(/\/site-web\/([^/?#]+)/i);
+        const mEn = ref.match(/\/en\/website\/([^/?#]+)/i);
+        const slug = (mFr?.[1] || mEn?.[1] || "").toLowerCase();
+        if (!slug) return "";
+        const mapFR: Record<string, string> = {
+          plombier: "Plombier",
+          electricien: "Électricien",
+          boulanger: "Boulanger",
+          coiffeur: "Coiffeur",
+          "artisan-batiment": "Artisan du Bâtiment",
+        };
+        const mapEN: Record<string, string> = {
+          plumber: "Plumber",
+          electrician: "Electrician",
+          baker: "Baker",
+          hairdresser: "Hairdresser",
+          "general-contractor": "General Contractor",
+        };
+        return (locale === "fr" ? mapFR[slug] : mapEN[slug]) || "";
+      })();
+
+      const initialFirst = urlFirst || lf("contact:firstName");
+      const initialPhone = urlPhone || lf("contact:phone");
+      const initialMetier = urlMetier || fromReferrer || lf("contact:metier");
+      const initialCity = urlCity || lf("contact:city");
+
+      if (initialFirst) setValue("firstName", initialFirst, { shouldValidate: true });
+      if (initialPhone) setValue("phone", initialPhone, { shouldValidate: true });
+      if (initialMetier) setValue("metier", initialMetier, { shouldValidate: true });
+      if (initialCity) setValue("city", initialCity, { shouldValidate: true });
+    } catch {
+      // ignore
+    }
+  }, [searchParams, setValue, locale]);
+
+  // Persist as user types
   const firstNameVal = watch("firstName");
   const phoneVal = watch("phone");
   const metierVal = watch("metier");
+  const cityVal = watch("city");
+
+  React.useEffect(() => {
+    try {
+      localStorage.setItem("contact:firstName", firstNameVal || "");
+    } catch {}
+  }, [firstNameVal]);
+
+  React.useEffect(() => {
+    try {
+      localStorage.setItem("contact:phone", phoneVal || "");
+    } catch {}
+  }, [phoneVal]);
+
+  React.useEffect(() => {
+    try {
+      localStorage.setItem("contact:metier", metierVal || "");
+    } catch {}
+  }, [metierVal]);
+
+  React.useEffect(() => {
+    try {
+      localStorage.setItem("contact:city", cityVal || "");
+    } catch {}
+  }, [cityVal]);
 
   const validatePhone = (val: string) => {
     const raw = String(val || "");
-    const sanitized = raw.replace(/[\\s.()-]/g, "");
+    const sanitized = raw.replace(/[\s.()-]/g, "");
     if (locale === "fr") {
-      // Accept formats like 06XXXXXXXX or +33XXXXXXXXX (no spaces after sanitize)
       const ok = /^(\+33|0)[1-9]\d{8}$/.test(sanitized);
       return ok || t.invalidPhone;
     }
-    // Generic international lenient check for EN
     const ok = /^[+]?[\d\s().-]{6,}$/.test(raw);
     return ok || t.invalidPhone;
   };
