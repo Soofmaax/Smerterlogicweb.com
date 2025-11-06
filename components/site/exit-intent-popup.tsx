@@ -6,6 +6,9 @@ import { Button } from "@/components/ui/button";
 
 export function ExitIntentPopup() {
   const [open, setOpen] = React.useState(false);
+  const [busy, setBusy] = React.useState(false);
+  const [downloadUrl, setDownloadUrl] = React.useState<string | null>(null);
+  const [error, setError] = React.useState<string | null>(null);
 
   React.useEffect(() => {
     // Only desktop (ignore touch devices)
@@ -40,13 +43,35 @@ export function ExitIntentPopup() {
     return () => document.removeEventListener("mouseout", onMouseOut);
   }, []);
 
-  const onSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const onSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    setBusy(true);
+    setError(null);
     const fd = new FormData(e.currentTarget);
     const email = String(fd.get("email") || "");
-    // TODO: hook to your newsletter or email service; for now just close.
-    // You can also trigger a download here or send to /api/subscribe.
-    setOpen(false);
+
+    try {
+      const res = await fetch("/api/subscribe", {
+        method: "POST",
+        headers: { "content-type": "application/json", "x-pathname": window.location.pathname },
+        body: JSON.stringify({ email }),
+      });
+      const data = await res.json();
+      if (!res.ok || !data?.ok) {
+        throw new Error("subscribe_failed");
+      }
+      const url = String(data.downloadUrl || "");
+      setDownloadUrl(url || null);
+      if (url) {
+        try {
+          window.open(url, "_blank", "noopener,noreferrer");
+        } catch {}
+      }
+    } catch {
+      setError("Une erreur est survenue. Merci de réessayer.");
+    } finally {
+      setBusy(false);
+    }
   };
 
   if (!open) return null;
@@ -80,9 +105,18 @@ export function ExitIntentPopup() {
           placeholder="vous@exemple.com"
           className="w-full rounded-lg border px-3 py-2 text-sm outline-none focus:ring-2 focus:ring-primary"
         />
-        <Button type="submit" className="w-full rounded-full text-base">
+        <Button type="submit" className="w-full rounded-full text-base" disabled={busy}>
           📥 Télécharger le guide gratuit
         </Button>
+        {error && <p className="text-sm text-red-600">{error}</p>}
+        {downloadUrl && (
+          <p className="text-sm">
+            Merci ! Votre téléchargement est prêt:{" "}
+            <a className="link-underline" href={downloadUrl} target="_blank" rel="noopener noreferrer">
+              ouvrir le PDF
+            </a>
+          </p>
+        )}
       </form>
 
       <p className="px-2 pt-1 text-center text-xs text-muted-foreground">
