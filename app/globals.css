@@ -722,6 +722,13 @@ html.retro * {
     transform: none !important;
     clip-path: none !important;
   }
+  /* Ensure images are visible without reveal animation */
+  .reveal-image {
+    opacity: 1 !important;
+    transform: none !important;
+    filter: none !important;
+    transition: none !important;
+  }
   .btn-ripple::after {
     transition: none;
   }
