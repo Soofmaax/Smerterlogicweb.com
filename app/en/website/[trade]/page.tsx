@@ -4,6 +4,8 @@ import Link from "next/link";
 import { Particles } from "@/components/site/particles";
 import { TestimonialsSimpleEN } from "@/components/site/testimonials-simple-en";
 
+export const dynamic = "force-dynamic";
+
 type PageProps = {
   params: { trade: string };
 };
