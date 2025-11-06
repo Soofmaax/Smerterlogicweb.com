@@ -34,7 +34,7 @@ export function StickyMobileCTA() {
   // Right-hand friendly floating CTA (avoids overlap with chat bubble)
   return (
     <div className="md:hidden fixed bottom-20 right-4 z-40">
-      <BookingButton size="sm" className="rounded-full shadow-lg" label="Réserver mon audit (15 min)" />
+      <BookingButton size="sm" className="rounded-full shadow-lg" label="Appelez-moi pour un devis gratuit" />
     </div>
   );
 }
