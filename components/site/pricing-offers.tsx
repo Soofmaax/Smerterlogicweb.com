@@ -69,9 +69,13 @@ export function PricingOffers() {
         </p>
       </div>
 
-      {/* Availability note */}
+      {/* Availability note (synced with UrgencyBanner) */}
       <p className="mb-4 text-center text-sm font-medium text-red-600 dark:text-red-400 motion-safe:animate-pulse">
-        Seulement 2 créneaux disponibles ce mois-ci. Réservez vite pour garantir votre délai de livraison.
+        <span className="mr-1">⚠️</span>
+        Plus que 2 créneaux disponibles ce mois-ci.{" "}
+        <a href="/contact" className="link-underline">
+          Réservez votre audit gratuit&nbsp;!
+        </a>
       </p>
 
       {/* Carousel horizontal (affiche 1 / 2 / 3 cartes selon la largeur) */}
