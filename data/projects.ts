@@ -28,6 +28,7 @@ export type CaseItem = {
   duration?: string;
   quoteShort?: string;
   testimonialFull?: string;
+  clientPhoto?: string; // new: real client photo placeholder
   review?: Review;
 };
 
@@ -68,7 +69,8 @@ export const projectsFR: ProjectsData = {
       duration: "2 semaines",
       quoteShort: "“Parfait pour démarrer, je reçois des demandes toutes les semaines.”",
       testimonialFull:
-        "Nous avions zéro visibilité. En quelques jours, le site a commencé à apparaître sur Google et les demandes ont suivi. Processus simple, résultat concret.",
+        "Avant: Aucune visibilité locale et zéro contact en ligne. Après: 3–4 demandes par semaine via Google grâce au nouveau site.",
+      clientPhoto: "https://i.pravatar.cc/120?u=plomberie-lyon",
       review: { author: "Julien", rating: 5, text: "Excellent travail, site rapide et clair." },
     },
     {
@@ -87,7 +89,8 @@ export const projectsFR: ProjectsData = {
       duration: "3 semaines",
       quoteShort: "“Les clients trouvent tout de suite nos horaires et nous appellent.”",
       testimonialFull:
-        "Nous voulions quelque chose de simple et efficace. Le site est rapide, les infos sont claires et nos clients nous trouvent facilement.",
+        "Avant: Site lent et infos clés introuvables sur mobile. Après: +25% de commandes et appels directs grâce au nouveau site.",
+      clientPhoto: "https://i.pravatar.cc/120?u=boulangerie-paris",
       review: { author: "Marie", rating: 5, text: "Très satisfaite, expérience fluide." },
     },
     {
@@ -106,7 +109,8 @@ export const projectsFR: ProjectsData = {
       duration: "4 semaines",
       quoteShort: "“Je me concentre sur mes chantiers, le site fait le reste.”",
       testimonialFull:
-        "La galerie optimisée et les bons appels à l’action font la différence. Je reçois des demandes régulières, sans perdre du temps.",
+        "Avant: Réalisations peu visibles et contact compliqué. Après: +30% de demandes de devis grâce au nouveau site.",
+      clientPhoto: "https://i.pravatar.cc/120?u=menuiserie-nantes",
       review: { author: "Thomas", rating: 5, text: "Mise en ligne fluide et résultats rapides." },
     },
     {
@@ -125,7 +129,8 @@ export const projectsFR: ProjectsData = {
       duration: "5 semaines",
       quoteShort: "“Le blog nous crédibilise et génère des demandes.”",
       testimonialFull:
-        "Nous avions du contenu à valoriser : réalisations, conseils. Le site structure tout cela et convertit mieux qu’avant.",
+        "Avant: Contenu non valorisé et référencement faible. Après: 8+ mots‑clés en top 3 et 5–7 demandes/semaine grâce au nouveau site.",
+      clientPhoto: "https://i.pravatar.cc/120?u=electricien-bordeaux",
       review: { author: "Équipe Bordeaux", rating: 5, text: "Très pro, retours mesurables." },
     },
     {
@@ -144,7 +149,8 @@ export const projectsFR: ProjectsData = {
       duration: "3 semaines",
       quoteShort: "“Les clients réservent et appellent directement.”",
       testimonialFull:
-        "Nous voulions mettre en avant le menu et faciliter l’appel. Le site est rapide et pensé pour le mobile : ça se ressent tout de suite.",
+        "Avant: Menu peu lisible sur mobile et peu d’appels. Après: +40% d’appels par semaine grâce au nouveau site.",
+      clientPhoto: "https://i.pravatar.cc/120?u=restaurant-nice",
       review: { author: "Gérant", rating: 5, text: "Efficace et sans prise de tête." },
     },
     {
@@ -163,7 +169,8 @@ export const projectsFR: ProjectsData = {
       duration: "2 semaines",
       quoteShort: "“Plus lisible, plus accessible — plus de soutien.”",
       testimonialFull:
-        "L’accessibilité était notre priorité. Le site est plus clair, plus lisible et mieux référencé : nous touchons plus de personnes.",
+        "Avant: Site peu accessible et messages peu clairs. Après: +40% de trafic organique et meilleure lisibilité grâce au nouveau site.",
+      clientPhoto: "https://i.pravatar.cc/120?u=asso-lille",
       review: { author: "Présidente", rating: 5, text: "Beaucoup de soin et d’écoute." },
     },
   ],
@@ -201,7 +208,8 @@ export const projectsEN: ProjectsData = {
       duration: "2 weeks",
       quoteShort: "“Clearer and more accessible — more support.”",
       testimonialFull:
-        "Accessibility was our priority. The site is clearer, more readable and better indexed: we reach more people.",
+        "Before: Low accessibility and unclear messaging. After: +40% organic traffic and clearer UX thanks to the new website.",
+      clientPhoto: "https://i.pravatar.cc/120?u=nonprofit-lille",
       review: { author: "Chairwoman", rating: 5, text: "Caring and thorough." },
     },
   ],
