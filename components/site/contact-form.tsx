@@ -14,6 +14,7 @@ type Fields = {
   firstName: string;
   phone: string;
   metier: string;
+  city?: string;
   "bot-field"?: string;
 };
 
@@ -34,6 +35,7 @@ export function ContactForm({ locale, action }: Props) {
     firstName: locale === "fr" ? "Prénom" : "First name",
     phone: locale === "fr" ? "Téléphone" : "Phone",
     metier: locale === "fr" ? "Métier" : "Trade",
+    city: locale === "fr" ? "Ville (optionnel)" : "City (optional)",
     send: locale === "fr" ? "📞 Être rappelé aujourd'hui" : "📞 Call me back today",
     sending: locale === "fr" ? "Envoi en cours..." : "Sending...",
     required: locale === "fr" ? "Champ requis." : "Required field.",
@@ -41,13 +43,28 @@ export function ContactForm({ locale, action }: Props) {
       locale === "fr"
         ? "✓ Sans engagement ✓ Réponse sous 2h ✓ Audit offert"
         : "✓ No commitment ✓ Reply within 2h ✓ Free audit",
+    invalidPhone: locale === "fr" ? "Numéro invalide (ex: 06 12 34 56 78)." : "Invalid phone number.",
     placeholderFirst: locale === "fr" ? "Votre prénom" : "Your first name",
     placeholderPhone: locale === "fr" ? "06 12 34 56 78" : "+33 6 12 34 56 78",
+    placeholderCity: locale === "fr" ? "Votre ville" : "Your city",
   };
 
   const firstNameVal = watch("firstName");
   const phoneVal = watch("phone");
   const metierVal = watch("metier");
+
+  const validatePhone = (val: string) => {
+    const raw = String(val || "");
+    const sanitized = raw.replace(/[\\s.()-]/g, "");
+    if (locale === "fr") {
+      // Accept formats like 06XXXXXXXX or +33XXXXXXXXX (no spaces after sanitize)
+      const ok = /^(\+33|0)[1-9]\d{8}$/.test(sanitized);
+      return ok || t.invalidPhone;
+    }
+    // Generic international lenient check for EN
+    const ok = /^[+]?[\d\s().-]{6,}$/.test(raw);
+    return ok || t.invalidPhone;
+  };
 
   return (
     <form
@@ -84,7 +101,7 @@ export function ContactForm({ locale, action }: Props) {
           >
             {t.firstName}
           </label>
-          {touchedFields.firstName && !errors.firstName && firstNameVal ? (
+          {touchedFields.firstName && !errors.firstName ? (
             <CheckCircle2 className="pointer-events-none absolute right-3 top-1/2 h-5 w-5 -translate-y-1/2 text-green-500 transition-transform duration-300" />
           ) : null}
         </div>
@@ -104,7 +121,7 @@ export function ContactForm({ locale, action }: Props) {
             placeholder=" "
             {...register("phone", {
               required: t.required,
-              minLength: { value: 6, message: t.required },
+              validate: validatePhone,
             })}
           />
           <label
@@ -115,7 +132,7 @@ export function ContactForm({ locale, action }: Props) {
           >
             {t.phone}
           </label>
-          {touchedFields.phone && !errors.phone && phoneVal ? (
+          {touchedFields.phone && !errors.phone ? (
             <CheckCircle2 className="pointer-events-none absolute right-3 top-1/2 h-5 w-5 -translate-y-1/2 text-green-500 transition-transform duration-300" />
           ) : null}
         </div>
@@ -144,6 +161,27 @@ export function ContactForm({ locale, action }: Props) {
           </select>
         </div>
         {errors.metier && <div className="text-sm text-red-500">{errors.metier.message}</div>}
+      </div>
+
+      {/* Ville (optionnel) */}
+      <div className="grid gap-2">
+        <div className="relative fl-group">
+          <input
+            id="city"
+            name="city"
+            className="peer fl-input h-11 w-full rounded-md border border-foreground/20 bg-background px-3 outline-none ring-offset-background transition-colors input-glow placeholder-transparent"
+            placeholder=" "
+            {...register("city")}
+          />
+          <label
+            htmlFor="city"
+            className="pointer-events-none absolute left-3 top-1/2 -translate-y-1/2 text-sm text-muted-foreground transition-all duration-200
+            peer-focus:top-1.5 peer-focus:text-xs peer-focus:text-foreground
+            peer-[:not(:placeholder-shown)]:top-1.5 peer-[:not(:placeholder-shown)]:text-xs peer-[:not(:placeholder-shown)]:text-foreground"
+          >
+            {t.city}
+          </label>
+        </div>
       </div>
 
       <div>
