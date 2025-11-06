@@ -168,7 +168,6 @@ export function ContactForm({ locale, action }: Props) {
         <div className="relative fl-group">
           <input
             id="firstName"
-            name="firstName"
             className={`peer fl-input h-11 w-full rounded-md border bg-background px-3 outline-none ring-offset-background transition-colors input-glow placeholder-transparent
             ${errors.firstName ? "border-red-400" : "border-foreground/20"}
             `}
@@ -195,7 +194,6 @@ export function ContactForm({ locale, action }: Props) {
         <div className="relative fl-group">
           <input
             id="phone"
-            name="phone"
             type="tel"
             className={`peer fl-input h-11 w-full rounded-md border bg-background px-3 outline-none ring-offset-background transition-colors input-glow placeholder-transparent
             ${errors.phone ? "border-red-400" : "border-foreground/20"}
@@ -226,7 +224,6 @@ export function ContactForm({ locale, action }: Props) {
         <div className="relative">
           <select
             id="metier"
-            name="metier"
             className={`h-11 w-full rounded-md border bg-background px-3 text-sm outline-none ring-offset-background transition-colors
             ${errors.metier ? "border-red-400" : "border-foreground/20"}
             `}
@@ -250,7 +247,6 @@ export function ContactForm({ locale, action }: Props) {
         <div className="relative fl-group">
           <input
             id="city"
-            name="city"
             className="peer fl-input h-11 w-full rounded-md border border-foreground/20 bg-background px-3 outline-none ring-offset-background transition-colors input-glow placeholder-transparent"
             placeholder=" "
             {...register("city")}
