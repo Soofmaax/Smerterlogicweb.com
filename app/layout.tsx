@@ -16,6 +16,7 @@ import { AssistantOverlay } from "@/components/site/assistant-overlay";
 import { GyroTilt } from "@/components/site/gyro-tilt";
 import { ReduceMotionToggle } from "@/components/site/reduce-motion-toggle";
 import { WhatsAppFloat } from "@/components/site/whatsapp-float";
+import { UrgencyBanner } from "@/components/site/urgency-banner";
 import Script from "next/script";
 
 const inter = Inter({
@@ -152,6 +153,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <ScrollProgress />
         <Cursor />
         <GyroTilt />
+
+        {/* Urgency fixed banner at top + spacer to avoid overlap */}
+        <UrgencyBanner />
+        <div aria-hidden className="h-11" />
 
         <div className="flex min-h-screen flex-col">
           <Header />
