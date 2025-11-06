@@ -173,12 +173,12 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <ReduceMotionToggle />
         <WhatsAppFloat />
         <StickyMobileCTA />
-        <ExitIntentPopup />
 
         {/* Easter Eggs & Chatbot */}
         <EasterEggs />
         <AssistantOverlay />
         <Chatbot />
+        <ExitIntentPopup />
       </body>
     </html>
   );
