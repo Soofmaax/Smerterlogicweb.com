@@ -69,6 +69,11 @@ export function PricingOffers() {
         </p>
       </div>
 
+      {/* Availability note */}
+      <p className="mb-4 text-center text-sm font-medium text-red-600 dark:text-red-400 motion-safe:animate-pulse">
+        Seulement 2 créneaux disponibles ce mois-ci. Réservez vite pour garantir votre délai de livraison.
+      </p>
+
       {/* Carousel horizontal (affiche 1 / 2 / 3 cartes selon la largeur) */}
       <Carousel items={slides} ariaLabel="Offres et tarifs" centerEmphasis />
 
