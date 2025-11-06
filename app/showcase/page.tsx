@@ -1,13 +1,8 @@
+"use client";
 /* eslint-disable @next/next/no-img-element */
-import Image from "next/image";
+
 import React from "react";
 import { Carousel } from "@/components/site/carousel";
-
-export const metadata = {
-  title: "Carousel Showcase — smarterlogicweb.com",
-  description:
-    "Démonstration de carrousels: portfolio, témoignages et galerie d’images. Animations fluides, accessibilité, et design moderne.",
-};
 
 function Card({ img, title, desc }: { img: string; title: string; desc: string }) {
   return (
