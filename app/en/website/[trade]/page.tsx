@@ -10,8 +10,6 @@ type PageProps = {
   params: { trade: string };
 };
 
-const TRADES = ["plumber", "electrician", "baker", "hairdresser", "general-contractor"] as const;
-
 const LABELS: Record<string, string> = {
   plumber: "Plumber",
   electrician: "Electrician",
@@ -27,10 +25,6 @@ const BENEFITS: Record<string, string[]> = {
   hairdresser: ["Easy booking", "Before/after gallery", "Mobile‑first"],
   "general-contractor": ["Project showcase", "Simple quote requests", "Service pages (SEO)"],
 };
-
-export function generateStaticParams() {
-  return TRADES.map((t) => ({ trade: t }));
-}
 
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const label = LABELS[params.trade] || params.trade;
