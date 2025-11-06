@@ -6,7 +6,7 @@ import { Button } from "@/components/ui/button";
 import { CheckCircle2 } from "lucide-react";
 import { Particles } from "@/components/site/particles";
 import { LiveCode } from "@/components/site/live-code";
-import { BookingButton } from "@/components/site/booking-modal";
+
 
 export function HeroTyped() {
   const title = "Votre site web actuel vous fait perdre 15 clients par mois.";
@@ -16,6 +16,13 @@ export function HeroTyped() {
   const [phase, setPhase] = React.useState<"typing" | "pausing" | "deleting">("typing");
   const [titleTyped, setTitleTyped] = React.useState("");
   const [showCaretTitle, setShowCaretTitle] = React.useState(true);
+
+  // Primary CTA destination: phone > calendly > /contact
+  const rawPhone = process.env.NEXT_PUBLIC_PHONE || "";
+  const rawBooking = process.env.NEXT_PUBLIC_BOOKING_URL || "";
+  const sanitizePhone = (p: string) => p.replace(/[^+\d]/g, "");
+  const primaryHref = rawPhone ? `tel:${sanitizePhone(rawPhone)}` : (rawBooking ? rawBooking : "/contact");
+  const isInternal = primaryHref.startsWith("/");
 
   // parallax refs
   const p1Ref = React.useRef<HTMLDivElement | null>(null);
@@ -149,10 +156,27 @@ export function HeroTyped() {
       </p>
 
       <div className="mt-6 flex flex-col gap-3 sm:flex-row">
-        <BookingButton
-          label="Réserver mon audit gratuit (15 min)"
-          className="button-glitch h-12 px-8 text-base md:h-14 md:px-10 md:text-lg"
-        />
+        {isInternal ? (
+          <Button
+            asChild
+            size="lg"
+            variant="default"
+            className="rounded-full h-16 px-8 text-xl bg-green-500 text-white hover:bg-green-600 shadow-lg btn-pulse"
+          >
+            <Link href={primaryHref}>📞 Audit GRATUIT - Je veux plus de clients</Link>
+          </Button>
+        ) : (
+          <Button
+            asChild
+            size="lg"
+            variant="default"
+            className="rounded-full h-16 px-8 text-xl bg-green-500 text-white hover:bg-green-600 shadow-lg btn-pulse"
+          >
+            <a href={primaryHref} target="_blank" rel="noopener noreferrer">
+              📞 Audit GRATUIT - Je veux plus de clients
+            </a>
+          </Button>
+        )}
         <Button asChild size="lg" variant="outline" className="rounded-full">
           <Link href="/contact" className="hover:bg-amber-50 hover:border-amber-300">Discutons de votre projet</Link>
         </Button>
