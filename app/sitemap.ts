@@ -3,6 +3,14 @@ import type { MetadataRoute } from "next";
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = "https://smarterlogicweb.com";
   const now = new Date();
+  const metiers = ["plombier", "electricien", "boulanger", "coiffeur", "artisan-batiment"];
+
+  const localSeoPages = metiers.map((m) => ({
+    url: `${baseUrl}/site-web/${m}`,
+    lastModified: now,
+    changeFrequency: "monthly",
+    priority: 0.9,
+  }));
 
   return [
     // FR
@@ -19,6 +27,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${baseUrl}/securite`, lastModified: now, changeFrequency: "yearly", priority: 0.3 },
     { url: `${baseUrl}/faq`, lastModified: now, changeFrequency: "yearly", priority: 0.3 },
     { url: `${baseUrl}/merci`, lastModified: now, changeFrequency: "yearly", priority: 0.2 },
+
+    // Local SEO pages
+    ...localSeoPages,
 
     // EN
     { url: `${baseUrl}/en`, lastModified: now, changeFrequency: "monthly", priority: 1 },
