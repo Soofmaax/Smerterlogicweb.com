@@ -2,21 +2,28 @@
 
 import * as React from "react";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 
 export function StickyMobileCTA() {
   const [visible, setVisible] = React.useState(true);
+  const pathname = (typeof window !== "undefined" ? window.location.pathname : usePathname?.()) || "/";
+  const isEn = pathname.startsWith("/en");
 
   // Compute primary href: phone > booking > /contact
   const rawPhone = process.env.NEXT_PUBLIC_PHONE || "";
   const rawBooking = process.env.NEXT_PUBLIC_BOOKING_URL || "";
   const sanitizePhone = (p: string) => p.replace(/[^+\d]/g, "");
-  const href = rawPhone ? `tel:${sanitizePhone(rawPhone)}` : (rawBooking || "/contact");
+  const href = rawPhone ? `tel:${sanitizePhone(rawPhone)}` : (rawBooking || (isEn ? "/en/contact" : "/contact"));
   const isInternal = href.startsWith("/");
 
+  // Aggressive label localized
+  const label = isEn ? "Call me for a free quote" : "Appelez-moi pour un devis gratuit";
+
   React.useEffect(() => {
-    // Hide on /contact page
+    // Hide on contact page (FR or EN)
     if (typeof window === "undefined") return;
-    if (window.location.pathname.includes("/contact")) {
+    const path = window.location.pathname;
+    if (path.includes("/contact")) {
       setVisible(false);
       return;
     }
@@ -47,7 +54,7 @@ export function StickyMobileCTA() {
             href={href}
             className="block w-full rounded-full bg-green-600 px-5 py-3 text-center text-base font-semibold text-white shadow-lg transition hover:bg-green-700 active:scale-[0.99]"
           >
-            Appelez-moi pour un devis gratuit
+            {label}
           </Link>
         ) : (
           <a
@@ -56,7 +63,7 @@ export function StickyMobileCTA() {
             rel={href.startsWith("http") ? "noopener noreferrer" : undefined}
             className="block w-full rounded-full bg-green-600 px-5 py-3 text-center text-base font-semibold text-white shadow-lg transition hover:bg-green-700 active:scale-[0.99]"
           >
-            Appelez-moi pour un devis gratuit
+            {label}
           </a>
         )}
       </div>
