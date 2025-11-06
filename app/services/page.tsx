@@ -8,6 +8,11 @@ import { ServicesTimelineSimple } from "@/components/site/services-timeline-simp
 import { FAQServices } from "@/components/site/faq-services";
 import { GoogleReviews, GoogleReviewsBadge } from "@/components/site/google-reviews";
 import { StickyMobileCTA } from "@/components/site/sticky-mobile-cta";
+import { BookingButton } from "@/components/site/booking-modal";
+import { Guarantee } from "@/components/site/guarantee";
+import { FinalCTA } from "@/components/site/final-cta";
+import { Particles } from "@/components/site/particles";
+import { RightDotsNav } from "@/components/site/right-dots-nav";
 
 export const metadata = {
   title: "Services — smarterlogicweb.com",
@@ -34,7 +39,20 @@ export default function ServicesPage() {
       {/* Hero background accents */}
       <div aria-hidden className="pointer-events-none absolute inset-0 -z-10">
         <div className="hero-gradient-animated absolute inset-0 rounded-[28px] opacity-60" />
+        <Particles />
       </div>
+
+      {/* Right-hand dots navigation for quick section jumps */}
+      <RightDotsNav
+        sections={[
+          { id: "offres", label: "Offres" },
+          { id: "comparatif", label: "Comparatif" },
+          { id: "avis", label: "Avis" },
+          { id: "processus", label: "Processus" },
+          { id: "faq", label: "FAQ" },
+        ]}
+        offset={80}
+      />
 
       {/* Hero */}
       <section className="mx-auto max-w-3xl text-center">
@@ -48,19 +66,34 @@ export default function ServicesPage() {
       </section>
 
       {/* Offres principales */}
-      <ServicesOffers />
+      <section id="offres" className="scroll-mt-24">
+        <ServicesOffers />
+      </section>
 
       {/* Comparatif visuel */}
-      <ServicesCompare />
+      <section id="comparatif" className="mt-10 scroll-mt-24">
+        <ServicesCompare />
+      </section>
 
       {/* Avis Google */}
-      <GoogleReviews title="Ils en parlent" />
+      <section id="avis" className="mt-10 scroll-mt-24">
+        <GoogleReviews title="Ils en parlent" />
+      </section>
 
       {/* Processus de collaboration */}
-      <ServicesTimelineSimple />
+      <section id="processus" className="mt-10 scroll-mt-24">
+        <ServicesTimelineSimple />
+      </section>
+
+      {/* Garantie de résultat */}
+      <div className="mt-10">
+        <Guarantee />
+      </div>
 
       {/* FAQ spécifique services */}
-      <FAQServices />
+      <section id="faq" className="mt-6 scroll-mt-24">
+        <FAQServices />
+      </section>
 
       {/* CTA final */}
       <section className="mx-auto mt-2 w-full max-w-5xl px-0 py-12">
@@ -68,9 +101,7 @@ export default function ServicesPage() {
           <h2 className="font-heading text-2xl font-semibold">Pas Sûr de la Formule qui Vous Convient ?</h2>
           <p className="mt-2 text-foreground/80">Appelons-nous 15 minutes. Je vous aide à choisir gratuitement.</p>
           <div className="mt-5 flex flex-col items-center justify-center gap-3 sm:flex-row">
-            <Button asChild className="rounded-full btn-pulse" variant="cta">
-              <Link href="/contact">Demander un devis</Link>
-            </Button>
+            <BookingButton className="rounded-full btn-pulse" size="lg" label="Réserver mon audit gratuit (15 min)" />
             <Button asChild className="rounded-full" variant="secondary">
               <a href="mailto:contact@smarterlogicweb.com?subject=Prendre%20rendez-vous%20t%C3%A9l%C3%A9phonique">Prendre rendez-vous téléphonique</a>
             </Button>
@@ -81,6 +112,9 @@ export default function ServicesPage() {
           </div>
         </div>
       </section>
+
+      {/* Final CTA (global) */}
+      <FinalCTA />
 
       {/* Sticky CTA mobile */}
       <StickyMobileCTA />

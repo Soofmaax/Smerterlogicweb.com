@@ -3,8 +3,8 @@
 import * as React from "react";
 import { useForm } from "react-hook-form";
 import { CheckCircle2, Loader2 } from "lucide-react";
-import Link from "next/link";
 import { Button } from "@/components/ui/button";
+import { useSearchParams } from "next/navigation";
 
 type Props = {
   locale: "fr" | "en";
@@ -12,19 +12,22 @@ type Props = {
 };
 
 type Fields = {
-  name: string;
-  email: string;
-  message: string;
-  consent: boolean;
+  firstName: string;
+  phone: string;
+  metier: string;
+  city?: string;
   "bot-field"?: string;
 };
 
 export function ContactForm({ locale, action }: Props) {
+  const searchParams = useSearchParams();
+
   const {
     register,
     handleSubmit,
     formState: { errors, isSubmitting, isValid, touchedFields },
     watch,
+    setValue,
   } = useForm<Fields>({ mode: "onChange" });
 
   const onSubmit = async (_: Fields, e?: React.BaseSyntheticEvent) => {
@@ -33,29 +36,117 @@ export function ContactForm({ locale, action }: Props) {
   };
 
   const t = {
-    name: locale === "fr" ? "Nom" : "Name",
-    email: "Email",
-    message: locale === "fr" ? "Message" : "Message",
-    consentLabel:
-      locale === "fr"
-        ? <>J’accepte le traitement de mes données. Voir <Link href="/politique-de-confidentialite" className="underline">la politique de confidentialité</Link>.</>
-        : <>I agree to the processing of my data. See <Link href="/en/privacy-policy" className="underline">the privacy policy</Link>.</>,
-    send: locale === "fr" ? "Envoyer" : "Send",
+    firstName: locale === "fr" ? "Prénom" : "First name",
+    phone: locale === "fr" ? "Téléphone" : "Phone",
+    metier: locale === "fr" ? "Métier" : "Trade",
+    city: locale === "fr" ? "Ville (optionnel)" : "City (optional)",
+    send: locale === "fr" ? "📞 Être rappelé aujourd'hui" : "📞 Call me back today",
     sending: locale === "fr" ? "Envoi en cours..." : "Sending...",
-    placeholderName: locale === "fr" ? "Votre nom" : "Your name",
-    placeholderEmail: locale === "fr" ? "votrenom@email.com" : "you@email.com",
-    placeholderMsg:
-      locale === "fr"
-        ? "Décrivez votre besoin, votre objectif et votre échéance."
-        : "Describe your needs, goal and timeline.",
-    tooShort: locale === "fr" ? "Au moins 20 caractères." : "At least 20 characters.",
-    invalidEmail: locale === "fr" ? "Email invalide." : "Invalid email.",
     required: locale === "fr" ? "Champ requis." : "Required field.",
+    reassurance:
+      locale === "fr"
+        ? "✓ Sans engagement ✓ Réponse sous 2h ✓ Audit offert"
+        : "✓ No commitment ✓ Reply within 2h ✓ Free audit",
+    invalidPhone: locale === "fr" ? "Numéro invalide (ex: 06 12 34 56 78)." : "Invalid phone number.",
+    placeholderFirst: locale === "fr" ? "Votre prénom" : "Your first name",
+    placeholderPhone: locale === "fr" ? "06 12 34 56 78" : "+33 6 12 34 56 78",
+    placeholderCity: locale === "fr" ? "Votre ville" : "Your city",
   };
 
-  const nameVal = watch("name");
-  const emailVal = watch("email");
-  const messageVal = watch("message");
+  // Prefill from localStorage, URL params, and referrer
+  React.useEffect(() => {
+    try {
+      const lf = (k: string) => {
+        try {
+          return localStorage.getItem(k) || "";
+        } catch {
+          return "";
+        }
+      };
+
+      const urlFirst = searchParams?.get("first") || searchParams?.get("prenom") || searchParams?.get("firstName") || "";
+      const urlPhone = searchParams?.get("phone") || searchParams?.get("tel") || "";
+      const urlMetier = searchParams?.get("metier") || searchParams?.get("trade") || "";
+      const urlCity = searchParams?.get("city") || "";
+
+      const fromReferrer = (() => {
+        if (typeof document === "undefined") return "";
+        const ref = document.referrer || "";
+        const mFr = ref.match(/\/site-web\/([^/?#]+)/i);
+        const mEn = ref.match(/\/en\/website\/([^/?#]+)/i);
+        const slug = (mFr?.[1] || mEn?.[1] || "").toLowerCase();
+        if (!slug) return "";
+        const mapFR: Record<string, string> = {
+          plombier: "Plombier",
+          electricien: "Électricien",
+          boulanger: "Boulanger",
+          coiffeur: "Coiffeur",
+          "artisan-batiment": "Artisan du Bâtiment",
+        };
+        const mapEN: Record<string, string> = {
+          plumber: "Plumber",
+          electrician: "Electrician",
+          baker: "Baker",
+          hairdresser: "Hairdresser",
+          "general-contractor": "General Contractor",
+        };
+        return (locale === "fr" ? mapFR[slug] : mapEN[slug]) || "";
+      })();
+
+      const initialFirst = urlFirst || lf("contact:firstName");
+      const initialPhone = urlPhone || lf("contact:phone");
+      const initialMetier = urlMetier || fromReferrer || lf("contact:metier");
+      const initialCity = urlCity || lf("contact:city");
+
+      if (initialFirst) setValue("firstName", initialFirst, { shouldValidate: true });
+      if (initialPhone) setValue("phone", initialPhone, { shouldValidate: true });
+      if (initialMetier) setValue("metier", initialMetier, { shouldValidate: true });
+      if (initialCity) setValue("city", initialCity, { shouldValidate: true });
+    } catch {
+      // ignore
+    }
+  }, [searchParams, setValue, locale]);
+
+  // Persist as user types
+  const firstNameVal = watch("firstName");
+  const phoneVal = watch("phone");
+  const metierVal = watch("metier");
+  const cityVal = watch("city");
+
+  React.useEffect(() => {
+    try {
+      localStorage.setItem("contact:firstName", firstNameVal || "");
+    } catch {}
+  }, [firstNameVal]);
+
+  React.useEffect(() => {
+    try {
+      localStorage.setItem("contact:phone", phoneVal || "");
+    } catch {}
+  }, [phoneVal]);
+
+  React.useEffect(() => {
+    try {
+      localStorage.setItem("contact:metier", metierVal || "");
+    } catch {}
+  }, [metierVal]);
+
+  React.useEffect(() => {
+    try {
+      localStorage.setItem("contact:city", cityVal || "");
+    } catch {}
+  }, [cityVal]);
+
+  const validatePhone = (val: string) => {
+    const raw = String(val || "");
+    const sanitized = raw.replace(/[\s.()-]/g, "");
+    if (locale === "fr") {
+      const ok = /^(\+33|0)[1-9]\d{8}$/.test(sanitized);
+      return ok || t.invalidPhone;
+    }
+    const ok = /^[+]?[\d\s().-]{6,}$/.test(raw);
+    return ok || t.invalidPhone;
+  };
 
   return (
     <form
@@ -72,96 +163,103 @@ export function ContactForm({ locale, action }: Props) {
         <label>Don’t fill: <input {...register("bot-field")} /></label>
       </p>
 
-      {/* Name (floating label) */}
+      {/* Prénom */}
       <div className="grid gap-2">
         <div className="relative fl-group">
           <input
-            id="name"
+            id="firstName"
             className={`peer fl-input h-11 w-full rounded-md border bg-background px-3 outline-none ring-offset-background transition-colors input-glow placeholder-transparent
-            ${errors.name ? "border-red-400" : "border-foreground/20"}
+            ${errors.firstName ? "border-red-400" : "border-foreground/20"}
             `}
             placeholder=" "
-            {...register("name", { required: t.required })}
+            {...register("firstName", { required: t.required })}
           />
           <label
-            htmlFor="name"
+            htmlFor="firstName"
             className="pointer-events-none absolute left-3 top-1/2 -translate-y-1/2 text-sm text-muted-foreground transition-all duration-200
             peer-focus:top-1.5 peer-focus:text-xs peer-focus:text-foreground
             peer-[:not(:placeholder-shown)]:top-1.5 peer-[:not(:placeholder-shown)]:text-xs peer-[:not(:placeholder-shown)]:text-foreground"
           >
-            {t.name}
+            {t.firstName}
           </label>
-          {touchedFields.name && !errors.name && nameVal ? (
+          {touchedFields.firstName && !errors.firstName ? (
             <CheckCircle2 className="pointer-events-none absolute right-3 top-1/2 h-5 w-5 -translate-y-1/2 text-green-500 transition-transform duration-300" />
           ) : null}
         </div>
-        {errors.name && <div className="text-sm text-red-500">{errors.name.message}</div>}
+        {errors.firstName && <div className="text-sm text-red-500">{errors.firstName.message}</div>}
       </div>
 
-      {/* Email (floating label) */}
+      {/* Téléphone */}
       <div className="grid gap-2">
         <div className="relative fl-group">
           <input
-            id="email"
-            type="email"
+            id="phone"
+            type="tel"
             className={`peer fl-input h-11 w-full rounded-md border bg-background px-3 outline-none ring-offset-background transition-colors input-glow placeholder-transparent
-            ${errors.email ? "border-red-400" : "border-foreground/20"}
+            ${errors.phone ? "border-red-400" : "border-foreground/20"}
             `}
             placeholder=" "
-            {...register("email", {
+            {...register("phone", {
               required: t.required,
-              pattern: { value: /^[^\\s@]+@[^\\s@]+\\.[^\\s@]+$/, message: t.invalidEmail },
+              validate: validatePhone,
             })}
           />
           <label
-            htmlFor="email"
+            htmlFor="phone"
             className="pointer-events-none absolute left-3 top-1/2 -translate-y-1/2 text-sm text-muted-foreground transition-all duration-200
             peer-focus:top-1.5 peer-focus:text-xs peer-focus:text-foreground
             peer-[:not(:placeholder-shown)]:top-1.5 peer-[:not(:placeholder-shown)]:text-xs peer-[:not(:placeholder-shown)]:text-foreground"
           >
-            {t.email}
+            {t.phone}
           </label>
-          {touchedFields.email && !errors.email && emailVal ? (
+          {touchedFields.phone && !errors.phone ? (
             <CheckCircle2 className="pointer-events-none absolute right-3 top-1/2 h-5 w-5 -translate-y-1/2 text-green-500 transition-transform duration-300" />
           ) : null}
         </div>
-        {errors.email && <div className="text-sm text-red-500">{errors.email.message}</div>}
+        {errors.phone && <div className="text-sm text-red-500">{errors.phone.message}</div>}
       </div>
 
-      {/* Message (floating label) */}
+      {/* Métier */}
+      <div className="grid gap-2">
+        <div className="relative">
+          <select
+            id="metier"
+            className={`h-11 w-full rounded-md border bg-background px-3 text-sm outline-none ring-offset-background transition-colors
+            ${errors.metier ? "border-red-400" : "border-foreground/20"}
+            `}
+            {...register("metier", { required: t.required })}
+            defaultValue=""
+          >
+            <option value="" disabled>{t.metier}</option>
+            <option value="Plombier">{locale === "fr" ? "Plombier" : "Plumber"}</option>
+            <option value="Électricien">{locale === "fr" ? "Électricien" : "Electrician"}</option>
+            <option value="Boulanger">{locale === "fr" ? "Boulanger" : "Baker"}</option>
+            <option value="Coiffeur">{locale === "fr" ? "Coiffeur" : "Hairdresser"}</option>
+            <option value="Artisan du Bâtiment">{locale === "fr" ? "Artisan du Bâtiment" : "General Contractor"}</option>
+            <option value="Autre">{locale === "fr" ? "Autre" : "Other"}</option>
+          </select>
+        </div>
+        {errors.metier && <div className="text-sm text-red-500">{errors.metier.message}</div>}
+      </div>
+
+      {/* Ville (optionnel) */}
       <div className="grid gap-2">
         <div className="relative fl-group">
-          <textarea
-            id="message"
-            rows={6}
-            className={`peer fl-input w-full rounded-md border bg-background px-3 py-2 outline-none ring-offset-background transition-colors input-glow placeholder-transparent
-            ${errors.message ? "border-red-400" : "border-foreground/20"}
-            `}
+          <input
+            id="city"
+            className="peer fl-input h-11 w-full rounded-md border border-foreground/20 bg-background px-3 outline-none ring-offset-background transition-colors input-glow placeholder-transparent"
             placeholder=" "
-            {...register("message", {
-              required: t.required,
-              minLength: { value: 20, message: t.tooShort },
-            })}
+            {...register("city")}
           />
           <label
-            htmlFor="message"
-            className="pointer-events-none absolute left-3 top-3 text-sm text-muted-foreground transition-all duration-200
+            htmlFor="city"
+            className="pointer-events-none absolute left-3 top-1/2 -translate-y-1/2 text-sm text-muted-foreground transition-all duration-200
             peer-focus:top-1.5 peer-focus:text-xs peer-focus:text-foreground
             peer-[:not(:placeholder-shown)]:top-1.5 peer-[:not(:placeholder-shown)]:text-xs peer-[:not(:placeholder-shown)]:text-foreground"
           >
-            {t.message}
+            {t.city}
           </label>
-          {touchedFields.message && !errors.message && messageVal && messageVal.length >= 20 ? (
-            <CheckCircle2 className="pointer-events-none absolute right-3 top-3 h-5 w-5 text-green-500 transition-transform duration-300" />
-          ) : null}
         </div>
-        {errors.message && <div className="text-sm text-red-500">{errors.message.message}</div>}
-      </div>
-
-      {/* Consent */}
-      <div className="flex items-start gap-2">
-        <input id="consent" type="checkbox" required className="mt-1" {...register("consent", { required: true })} />
-        <label htmlFor="consent" className="text-sm text-foreground/80">{t.consentLabel}</label>
       </div>
 
       <div>
@@ -175,6 +273,7 @@ export function ContactForm({ locale, action }: Props) {
             t.send
           )}
         </Button>
+        <p className="mt-2 text-xs text-muted-foreground">{t.reassurance}</p>
       </div>
     </form>
   );

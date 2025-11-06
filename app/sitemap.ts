@@ -3,6 +3,22 @@ import type { MetadataRoute } from "next";
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = "https://smarterlogicweb.com";
   const now = new Date();
+  const metiers = ["plombier", "electricien", "boulanger", "coiffeur", "artisan-batiment"];
+
+  const localSeoPages = metiers.map((m) => ({
+    url: `${baseUrl}/site-web/${m}`,
+    lastModified: now,
+    changeFrequency: "monthly" as const,
+    priority: 0.9,
+  }));
+
+  const enTrades = ["plumber", "electrician", "baker", "hairdresser", "general-contractor"];
+  const localSeoPagesEN = enTrades.map((t) => ({
+    url: `${baseUrl}/en/website/${t}`,
+    lastModified: now,
+    changeFrequency: "monthly" as const,
+    priority: 0.8,
+  }));
 
   return [
     // FR
@@ -20,6 +36,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${baseUrl}/faq`, lastModified: now, changeFrequency: "yearly", priority: 0.3 },
     { url: `${baseUrl}/merci`, lastModified: now, changeFrequency: "yearly", priority: 0.2 },
 
+    // Local SEO pages
+    ...localSeoPages,
+
     // EN
     { url: `${baseUrl}/en`, lastModified: now, changeFrequency: "monthly", priority: 1 },
     { url: `${baseUrl}/en/projects`, lastModified: now, changeFrequency: "monthly", priority: 0.8 },
@@ -33,5 +52,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${baseUrl}/en/security`, lastModified: now, changeFrequency: "yearly", priority: 0.3 },
     { url: `${baseUrl}/en/faq`, lastModified: now, changeFrequency: "yearly", priority: 0.3 },
     { url: `${baseUrl}/en/thank-you`, lastModified: now, changeFrequency: "yearly", priority: 0.2 },
+
+    // Local SEO pages (EN)
+    ...localSeoPagesEN,
   ];
 }

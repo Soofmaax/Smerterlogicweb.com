@@ -7,14 +7,22 @@ import { CheckCircle2 } from "lucide-react";
 import { Particles } from "@/components/site/particles";
 import { LiveCode } from "@/components/site/live-code";
 
+
 export function HeroTyped() {
-  const title = "Un Site Web Qui Vous Amène des Clients Chaque Jour";
+  const title = "Votre site web actuel vous fait perdre 15 clients par mois.";
   const words = React.useMemo(() => ["Rapides", "Modernes", "Efficaces", "Professionnels"], []);
   const [typedWord, setTypedWord] = React.useState("");
   const [wordIndex, setWordIndex] = React.useState(0);
   const [phase, setPhase] = React.useState<"typing" | "pausing" | "deleting">("typing");
   const [titleTyped, setTitleTyped] = React.useState("");
   const [showCaretTitle, setShowCaretTitle] = React.useState(true);
+
+  // Primary CTA destination: phone > calendly > /contact
+  const rawPhone = process.env.NEXT_PUBLIC_PHONE || "";
+  const rawBooking = process.env.NEXT_PUBLIC_BOOKING_URL || "";
+  const sanitizePhone = (p: string) => p.replace(/[^+\d]/g, "");
+  const primaryHref = rawPhone ? `tel:${sanitizePhone(rawPhone)}` : (rawBooking ? rawBooking : "/contact");
+  const isInternal = primaryHref.startsWith("/");
 
   // parallax refs
   const p1Ref = React.useRef<HTMLDivElement | null>(null);
@@ -113,43 +121,70 @@ export function HeroTyped() {
   return (
     <section className="relative mx-auto w-full max-w-5xl px-6 py-16 md:py-24 snap-start">
       {/* Subtle animated background + parallax shapes */}
-      <div aria-hidden className="pointer-events-none absolute inset-0 -z-10">
+      <div aria-hidden className="pointer-events-none absolute inset-0 z-0">
         <div className="hero-gradient-animated absolute inset-0 rounded-[28px] opacity-60" />
         <div ref={p1Ref} className="absolute -left-16 top-8 h-40 w-40 rounded-full bg-primary/10 blur-2xl" />
         <div ref={p2Ref} className="absolute -right-20 top-28 h-56 w-56 rounded-full bg-amber-300/10 blur-3xl" />
         <Particles />
       </div>
 
-      {/* Small badge */}
+      <div className="relative z-10">
+      {/* Urgency badge */}
       <div className="mb-6">
-        <span className="inline-flex rounded-full border border-foreground/15 bg-card px-3 py-1 text-sm text-foreground/80">
-          Studio web
+        <span className="inline-flex items-center gap-1 rounded-full border border-amber-300 bg-amber-50 px-3 py-1 text-sm font-semibold text-amber-700 dark:bg-amber-400/10 dark:text-amber-300">
+          <span aria-hidden>🔥</span> 2 places disponibles en novembre 2025
         </span>
       </div>
 
       {/* Title with typewriter */}
-      <h1 className="font-heading text-4xl font-bold tracking-tight text-foreground md:text-6xl text-balance">
+      <h1 className="font-heading text-4xl font-bold tracking-tight text-slate-800 md:text-6xl text-balance">
         {titleTyped || title}
-        {showCaretTitle && <span className="ml-1 inline-block w-[2px] animate-pulse bg-foreground align-middle" style={{ height: "1em" }} />}
+        {showCaretTitle && <span className="ml-1 inline-block w-[2px] animate-pulse bg-slate-800 align-middle" style={{ height: "1em" }} />}
       </h1>
 
-      {/* Animated gradient word (WOW) */}
-      <div aria-live="polite" className="mt-2 text-2xl font-semibold hero-title md:text-3xl">
+      {/* Animated word: amber for "Professionnels", gradient for others */}
+      <div
+        aria-live="polite"
+        className={`mt-2 text-2xl font-semibold md:text-3xl ${typedWord === "Professionnels" ? "text-amber-600" : "hero-title"}`}
+      >
         {typedWord}
       </div>
 
       {/* Subheading */}
       <p className="mt-6 text-lg leading-relaxed text-foreground/80 md:text-xl">
-        Pour artisans et commerces locaux : un site rapide, visible sur Google, qui transforme vos visiteurs en clients. Simple, sans jargon technique.
+        Nous créons des sites qui génèrent des devis qualifiés 24/7. Nos clients obtiennent +127% de demandes en 90 jours.
       </p>
 
       <div className="mt-6 flex flex-col gap-3 sm:flex-row">
-        <Button asChild size="lg" variant="cta" className="rounded-full button-glitch" data-text="Obtenir un devis gratuit">
-          <Link href="/contact">Obtenir un devis gratuit</Link>
+        {isInternal ? (
+          <Button
+            asChild
+            size="lg"
+            variant="default"
+            className="rounded-full h-16 px-8 text-xl bg-green-500 text-white hover:bg-green-600 shadow-lg btn-pulse"
+          >
+            <Link href={primaryHref}>📞 Audit GRATUIT - Je veux plus de clients</Link>
+          </Button>
+        ) : (
+          <Button
+            asChild
+            size="lg"
+            variant="default"
+            className="rounded-full h-16 px-8 text-xl bg-green-500 text-white hover:bg-green-600 shadow-lg btn-pulse"
+          >
+            <a href={primaryHref} target="_blank" rel="noopener noreferrer">
+              📞 Audit GRATUIT - Je veux plus de clients
+            </a>
+          </Button>
+        )}
+        <Button asChild size="lg" variant="outline" className="rounded-full">
+          <Link href="/contact" className="hover:bg-amber-50 hover:border-amber-300">Discutons de votre projet</Link>
         </Button>
-        <Button asChild size="lg" variant="secondary" className="rounded-full">
-          <Link href="/contact">Discutons de votre projet</Link>
-        </Button>
+      </div>
+
+      {/* Urgency subtext */}
+      <div className="mt-2 text-sm text-muted-foreground">
+        Prochain démarrage : semaine du 18 novembre
       </div>
 
       {/* Reassurance badges */}
@@ -208,6 +243,7 @@ export function HeroTyped() {
 
       {/* Live code preview (real file) */}
       <LiveCode path="components/site/hero-typed.tsx" title="Code du Hero" />
+      </div>
     </section>
   );
 }

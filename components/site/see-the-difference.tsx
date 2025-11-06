@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 "use client";
 
 import * as React from "react";
@@ -8,6 +9,20 @@ import { MonitorSmartphone, Wrench, ShieldCheck, MousePointerClick, Timer, Smart
 export function SeeTheDifference() {
   const rootRef = React.useRef<HTMLDivElement | null>(null);
   const [activeAnchor, setActiveAnchor] = React.useState<string>("demo-a");
+
+  // Demo images (placeholders until real project shots are wired)
+  const demoImgs = React.useMemo(() => {
+    const raw = process.env.NEXT_PUBLIC_DEMO_IMAGES || "";
+    const fromEnv = raw.split(",").map((s) => s.trim()).filter(Boolean);
+    if (fromEnv.length >= 4) return fromEnv.slice(0, 4);
+    // fallback placeholders (safe defaults)
+    return [
+      "https://picsum.photos/seed/demo1/480/200",
+      "https://picsum.photos/seed/demo2/480/200",
+      "https://picsum.photos/seed/demo3/480/200",
+      "https://picsum.photos/seed/demo4/480/200",
+    ];
+  }, []);
 
   // prefers-reduced-motion
   const prefersReduced =
@@ -40,7 +55,7 @@ export function SeeTheDifference() {
   React.useEffect(() => {
     if (!rootRef.current) return;
     const rootEl = rootRef.current;
-    const sections = ["demo-a", "demo-b", "demo-c", "demo-d"].map((id) =>
+    const sections = ["demo-a", "demo-b", "demo-d", "perf"].map((id) =>
       rootEl.querySelector<HTMLElement>(`#${id}`)
     ).filter(Boolean) as HTMLElement[];
 
@@ -68,7 +83,7 @@ export function SeeTheDifference() {
           }
         });
       },
-      { root: rootEl, rootMargin: "0px 0px -60% 0px", threshold: 0.2 }
+      { root: null, rootMargin: "0px 0px -60% 0px", threshold: 0.2 }
     );
     sections.forEach((s) => io.observe(s));
 
@@ -98,7 +113,6 @@ export function SeeTheDifference() {
           {[
             { id: "demo-a", label: "Boutons" },
             { id: "demo-b", label: "Images" },
-            { id: "demo-c", label: "Cartes" },
             { id: "demo-d", label: "Navigation" },
           ].map((it) => (
             <Link
@@ -129,7 +143,7 @@ export function SeeTheDifference() {
             Effet couleur au survol
           </Button>
           {/* Ripple (CTA variant) */}
-          <Button variant="cta" className="rounded-full">
+          <Button variant="cta" className="rounded-full btn-ripple relative overflow-hidden">
             Animation au clic
           </Button>
         </div>
@@ -139,37 +153,21 @@ export function SeeTheDifference() {
       <div id="demo-b" className="mt-10" data-reveal>
         <h3 className="font-heading text-xl font-semibold">Images qui Se Révèlent en Douceur</h3>
         <div className="mt-4 grid gap-3 sm:grid-cols-4">
-          {[1, 2, 3, 4].map((i) => (
-            <div
-              key={i}
-              data-reveal-image
-              className="reveal-image h-28 rounded-lg border bg-gradient-to-br from-slate-100 to-slate-200 dark:from-slate-800 dark:to-slate-700"
-              role="img"
-              aria-label={`Image démo ${i}`}
-            />
+          {demoImgs.map((src, i) => (
+            <figure key={i} className="overflow-hidden rounded-lg border">
+              <img
+                src={src}
+                alt={`Image démo ${i + 1}`}
+                data-reveal-image
+                className="reveal-image h-28 w-full object-cover"
+                loading="lazy"
+              />
+              <figcaption className="sr-only">{`Image démo ${i + 1}`}</figcaption>
+            </figure>
           ))}
         </div>
         <p className="mt-3 text-sm text-foreground/80">
           Vos photos de projets ou produits apparaissent progressivement quand le visiteur fait défiler la page. Cela rend la navigation plus agréable et accélère le chargement initial.
-        </p>
-      </div>
-
-      {/* Demo C: Service cards */}
-      <div id="demo-c" className="mt-10" data-reveal>
-        <h3 className="font-heading text-xl font-semibold">Cartes de Services Interactives</h3>
-        <div className="mt-4 grid gap-4 sm:grid-cols-3">
-          <ServiceCard icon={<Wrench className="h-5 w-5 transition-transform duration-300 group-hover:-rotate-6" />} title="Maintenance simplifiée">
-            Mises à jour et sécurité assurées sans friction.
-          </ServiceCard>
-          <ServiceCard icon={<MonitorSmartphone className="h-5 w-5 transition-transform duration-300 group-hover:scale-110" />} title="Responsive précis">
-            Expérience cohérente sur mobile, tablette et desktop.
-          </ServiceCard>
-          <ServiceCard icon={<ShieldCheck className="h-5 w-5 transition-transform duration-300 group-hover:rotate-6" />} title="Performance &amp; A11y">
-            Rapidité, accessibilité et SEO intégrés par défaut.
-          </ServiceCard>
-        </div>
-        <p className="mt-3 text-sm text-foreground/80">
-          Quand vos visiteurs explorent vos services, chaque élément réagit de façon subtile pour montrer qu&apos;il est cliquable et attirer l&apos;attention sur les informations importantes.
         </p>
       </div>
 
@@ -179,15 +177,12 @@ export function SeeTheDifference() {
         <p className="mt-2 text-sm text-foreground/80">
           La navigation dans votre site est douce et naturelle. Pas de sauts brusques qui désorientent vos visiteurs.
         </p>
-        <div className="mt-4 grid gap-3 md:grid-cols-4">
+        <div className="mt-4 grid gap-3 md:grid-cols-3">
           <a href="#demo-a" data-anchor className="flex items-center justify-center gap-2 rounded-lg border bg-card p-3 transition-colors hover:bg-accent">
             <MousePointerClick className="h-4 w-4" /> Boutons
           </a>
           <a href="#demo-b" data-anchor className="flex items-center justify-center gap-2 rounded-lg border bg-card p-3 transition-colors hover:bg-accent">
             <MousePointerClick className="h-4 w-4" /> Images
-          </a>
-          <a href="#demo-c" data-anchor className="flex items-center justify-center gap-2 rounded-lg border bg-card p-3 transition-colors hover:bg-accent">
-            <MousePointerClick className="h-4 w-4" /> Cartes
           </a>
           <a href="#perf" data-anchor className="flex items-center justify-center gap-2 rounded-lg border bg-card p-3 transition-colors hover:bg-accent">
             <MousePointerClick className="h-4 w-4" /> Performances
@@ -195,7 +190,18 @@ export function SeeTheDifference() {
         </div>
       </div>
 
-      
+      {/* Demo C: Performances mesurables */}
+      <div id="perf" className="mt-10" data-reveal>
+        <h3 className="font-heading text-xl font-semibold">Performances Mesurables</h3>
+        <p className="mt-2 text-sm text-foreground/80">
+          Des indicateurs concrets pour vérifier que votre site travaille pour vous.
+        </p>
+        <div className="mt-4 grid gap-3 sm:grid-cols-3">
+          <GaugeCard label="Score Lighthouse" value={92} unit="%" icon={<Timer className="h-4 w-4" />} />
+          <CounterCard label="Pages vues / mois" value={2800} icon={<MonitorSmartphone className="h-4 w-4" />} />
+          <CounterCard label="Conversions / mois" value={25} icon={<MousePointerClick className="h-4 w-4" />} />
+        </div>
+      </div>
 
       {/* Conclusion + CTA */}
       <div className="mt-10 text-center" data-reveal>

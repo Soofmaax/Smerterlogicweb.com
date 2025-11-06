@@ -31,7 +31,7 @@ export function BackToTop() {
       type="button"
       aria-label="Revenir en haut"
       onClick={onClick}
-      className="fixed bottom-20 right-4 z-50 inline-flex h-11 w-11 items-center justify-center rounded-full border bg-card text-foreground shadow-md transition hover:translate-y-[-2px] hover:shadow-lg focus:outline-none focus-visible:ring-2 focus-visible:ring-primary/60 md:bottom-6 md:right-6"
+      className="fixed bottom-6 right-24 z-50 inline-flex h-11 w-11 items-center justify-center rounded-full border bg-card text-foreground shadow-md transition hover:translate-y-[-2px] hover:shadow-lg focus:outline-none focus-visible:ring-2 focus-visible:ring-primary/60 md:bottom-6 md:right-24"
     >
       <ArrowUp className="h-5 w-5" />
     </button>

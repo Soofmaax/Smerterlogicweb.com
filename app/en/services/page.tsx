@@ -2,6 +2,10 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import { TrackedLink } from "@/components/site/tracked-link";
+import { BookingButton } from "@/components/site/booking-modal";
+import { FinalCTA } from "@/components/site/final-cta";
+import { Particles } from "@/components/site/particles";
+import { GoogleReviewsBadge } from "@/components/site/google-reviews";
 
 export const metadata = {
   title: "Services — smarterlogicweb.com",
@@ -25,6 +29,11 @@ export const metadata = {
 export default function ServicesPage() {
   return (
     <section className="mx-auto w-full max-w-5xl px-6 py-16 md:py-24">
+      <div aria-hidden className="pointer-events-none absolute inset-0 -z-10">
+        <div className="hero-gradient-animated absolute inset-0 rounded-[28px] opacity-60" />
+        <Particles />
+      </div>
+
       <div className="mx-auto max-w-3xl text-center">
         <Badge variant="secondary" className="px-3 py-1">Offer</Badge>
         <h1 className="mt-4 font-heading text-4xl font-bold tracking-tight md:text-5xl">
@@ -65,13 +74,18 @@ export default function ServicesPage() {
         </div>
       </div>
 
-      <div className="mt-10 flex justify-center">
+      <div className="mt-10 flex flex-col items-center gap-3 justify-center">
+        <BookingButton className="rounded-full" size="lg" label="Book my free audit (15 min)" />
         <Button asChild size="lg" className="rounded-full">
           <TrackedLink href="mailto:contact@smarterlogicweb.com?subject=Web%20services%20quote" eventName="cta_devis_mailto_services">
             Get my free quote
           </TrackedLink>
         </Button>
+        <div className="mt-2">
+          <GoogleReviewsBadge />
+        </div>
       </div>
+    <FinalCTA />
     </section>
   );
 }

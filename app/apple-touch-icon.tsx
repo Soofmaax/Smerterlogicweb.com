@@ -12,7 +12,8 @@ export default function AppleTouchIcon() {
           width: "100%",
           height: "100%",
           display: "flex",
-          background: "linear-gradient(135deg, #2f7e6b 0%, #e66886 100%)",
+          // Brand blue gradient background to replace old pink/green
+          background: "linear-gradient(135deg, #2563EB 0%, #60A5FA 100%)",
           alignItems: "center",
           justifyContent: "center",
           borderRadius: 36,

@@ -5,6 +5,11 @@ import { Reveal } from "@/components/site/reveal";
 import { MagneticZone } from "@/components/site/magnetic";
 import { StickyMobileCTA } from "@/components/site/sticky-mobile-cta";
 import { CheckCircle2, Handshake, Gauge } from "lucide-react";
+import { BookingButton } from "@/components/site/booking-modal";
+import { GoogleReviewsBadge } from "@/components/site/google-reviews";
+import { Guarantee } from "@/components/site/guarantee";
+import { FinalCTA } from "@/components/site/final-cta";
+import { Particles } from "@/components/site/particles";
 
 export const metadata = {
   title: "À propos — smarterlogicweb.com",
@@ -30,6 +35,7 @@ export default function AProposPage() {
       {/* Hero ambient background */}
       <div aria-hidden className="pointer-events-none absolute inset-0 -z-10">
         <div className="hero-gradient-animated absolute inset-0 rounded-[28px] opacity-60" />
+        <Particles />
       </div>
 
       {/* Section 1 — Hero */}
@@ -93,6 +99,11 @@ export default function AProposPage() {
         </Reveal>
       </div>
 
+      {/* Garantie de résultat */}
+      <div className="mt-10">
+        <Guarantee />
+      </div>
+
       {/* Section 4 — Pourquoi me choisir */}
       <div className="mt-10 rounded-[20px] border bg-card p-6">
         <Reveal as="h2" className="h2-underline font-heading text-3xl font-semibold md:text-4xl">Pourquoi me choisir</Reveal>
@@ -109,18 +120,25 @@ export default function AProposPage() {
       <div className="mt-10 rounded-[28px] card-elevated border bg-primary/5 p-6">
         <Reveal as="h2" className="h2-underline font-heading text-2xl font-semibold">Prêt à Donner à Votre Entreprise le Site qu&apos;elle Mérite ?</Reveal>
         <MagneticZone>
-          <div className="mt-4">
-            <Button asChild size="lg" variant="cta" className="rounded-full" data-magnetic="true">
+          <div className="mt-4 flex flex-col items-center gap-3 sm:flex-row">
+            <BookingButton size="lg" className="rounded-full" label="Réserver mon audit gratuit (15 min)" />
+            <Button asChild size="lg" variant="secondary" className="rounded-full" data-magnetic="true">
               <Link href="/contact">Obtenir mon devis gratuit</Link>
             </Button>
           </div>
         </MagneticZone>
+        <div className="mt-4 flex items-center justify-center">
+          <GoogleReviewsBadge />
+        </div>
       </div>
 
       {/* Lien projets */}
       <div className="mt-6 text-center">
         <Link href="/projets" className="link-underline text-sm text-primary">Voir des réalisations</Link>
       </div>
+
+      {/* Final CTA global */}
+      <FinalCTA />
 
       {/* Sticky CTA mobile */}
       <StickyMobileCTA />

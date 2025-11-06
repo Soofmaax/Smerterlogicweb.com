@@ -59,7 +59,7 @@ export function SmartCTAs() {
   if (!visible || !msg) return null;
 
   return (
-    <div className="fixed bottom-6 right-6 z-[60]">
+    <div className="fixed bottom-24 right-6 z-[45]">
       <div className="rounded-full border bg-card px-4 py-2 shadow-lg">
         <div className="flex items-center gap-3">
           <span className="text-sm">{msg}</span>

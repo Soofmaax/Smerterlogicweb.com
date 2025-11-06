@@ -3,6 +3,13 @@ import "../globals.css";
 import { Inter, DM_Sans } from "next/font/google";
 import { Header } from "@/components/site/header";
 import { Footer } from "@/components/site/footer";
+import { UXEnhancer } from "@/components/site/ux-enhancer";
+import { ScrollProgress } from "@/components/site/scroll-progress";
+import { Cursor } from "@/components/site/cursor";
+import { GyroTilt } from "@/components/site/gyro-tilt";
+import { ReduceMotionToggle } from "@/components/site/reduce-motion-toggle";
+import { SmartCTAs } from "@/components/site/smart-ctas";
+import { WhatsAppFloat } from "@/components/site/whatsapp-float";
 import Script from "next/script";
 
 const inter = Inter({
@@ -38,10 +45,16 @@ export const metadata: Metadata = {
     canonical: "/en",
   },
   icons: {
-    icon: "/icon.svg",
-    apple: "/apple-touch-icon",
+    icon: [
+      { url: "/favicon.ico?v=5" },
+      { url: "/favicon-32x32.png?v=5", sizes: "32x32", type: "image/png" },
+      { url: "/favicon-16x16.png?v=5", sizes: "16x16", type: "image/png" },
+      { url: "/logo.svg?v=5", type: "image/svg+xml" },
+    ],
+    apple: "/apple-touch-icon.png?v=5",
+    shortcut: ["/favicon.ico?v=5"],
   },
-  manifest: "/manifest.webmanifest",
+  manifest: "/manifest.webmanifest?v=5",
   openGraph: {
     type: "website",
     locale: "en_US",
@@ -129,11 +142,22 @@ export default function EnLayout({ children }: { children: React.ReactNode }) {
           <Script strategy="lazyOnload" src={umamiSrc} data-website-id={umamiWebsiteId} />
         )}
 
+        {/* UX extras */}
+        <UXEnhancer />
+        <ScrollProgress />
+        <Cursor />
+        <GyroTilt />
+
         <div className="flex min-h-screen flex-col">
           <Header />
           <main id="content" className="flex-1">{children}</main>
           <Footer />
         </div>
+
+        {/* Right-hand friendly floating actions */}
+        <ReduceMotionToggle />
+        <WhatsAppFloat />
+        <SmartCTAs />
       </body>
     </html>
   );

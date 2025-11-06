@@ -1,45 +1,21 @@
+/* eslint-disable @next/next/no-img-element */
 "use client";
 
 import * as React from "react";
 import { Reveal } from "@/components/site/reveal";
+import { projectsFR } from "@/data/projects";
 
-type Testimonial = {
-  quote: string;
-  author: string;
-  role: string;
-};
-
-const data: Testimonial[] = [
-  {
-    quote:
-      "Depuis que j'ai mon nouveau site, je reçois 3 à 4 demandes de devis par semaine via Google.",
-    author: "Julien",
-    role: "Plombier à Lyon",
-  },
-  {
-    quote:
-      "Site clair et rapide. Les clients trouvent facilement nos horaires et nous appellent directement.",
-    author: "Marie",
-    role: "Boulangerie à Paris",
-  },
-  {
-    quote:
-      "Mise en ligne fluide, pas de prise de tête côté technique. Je me concentre sur mes chantiers.",
-    author: "Thomas",
-    role: "Menuisier à Nantes",
-  },
-];
-
-function Avatar({ name }: { name: string }) {
-  const initial = (name || "?").charAt(0).toUpperCase();
-  return (
-    <div className="flex h-10 w-10 items-center justify-center rounded-full bg-primary/10 text-sm font-semibold text-primary ring-1 ring-black/5">
-      {initial}
-    </div>
-  );
+function extractAfter(testimonial: string | undefined): string | null {
+  if (!testimonial) return null;
+  const fr = testimonial.match(/Après:\s*(.+?)(?:\s+gr[aâ]ce.+)?$/i);
+  if (fr && fr[1]) return fr[1].trim();
+  const en = testimonial.match(/After:\s*(.+?)(?:\s+thanks.+)?$/i);
+  if (en && en[1]) return en[1].trim();
+  return null;
 }
 
 export function TestimonialsSimple() {
+  const cases = projectsFR.cases.slice(0, 3);
   return (
     <section className="mx-auto w-full max-w-5xl px-6 py-12">
       <div className="text-center">
@@ -49,20 +25,40 @@ export function TestimonialsSimple() {
 
       <Reveal className="reveal-fade-up">
         <div className="mt-6 grid gap-4 md:grid-cols-3">
-          {data.map((t, i) => (
-            <figure key={i} className="rounded-2xl border bg-card p-5" style={{ transitionDelay: `${i * 150}ms` }}>
-              <blockquote className="text-foreground/90">
-                “{t.quote}”
-              </blockquote>
-              <figcaption className="mt-4 flex items-center gap-3">
-                <Avatar name={t.author} />
-                <div className="text-sm">
-                  <div className="font-semibold">{t.author}</div>
-                  <div className="text-muted-foreground">{t.role}</div>
-                </div>
-              </figcaption>
-            </figure>
-          ))}
+          {cases.map((c, i) => {
+            const after = extractAfter(c.testimonialFull) ||
+              (c.kpis && c.kpis.length
+                ? `${c.kpis[0].value} ${c.kpis[0].label.toLowerCase()}`
+                : null);
+            const author = c.review?.author || "Client";
+            const role = c.title || "";
+            const photo = c.clientPhoto || `https://i.pravatar.cc/120?u=${c.id}`;
+            return (
+              <figure key={c.id} className="rounded-2xl border bg-card p-5" style={{ transitionDelay: `${i * 150}ms` }}>
+                {after && (
+                  <div className="mb-2 text-2xl font-extrabold text-emerald-600">
+                    {after}
+                  </div>
+                )}
+                <blockquote className="text-foreground/90">
+                  {c.testimonialFull}
+                </blockquote>
+                <figcaption className="mt-4 flex items-center gap-3">
+                  <img
+                    src={photo}
+                    alt={author}
+                    className="h-10 w-10 rounded-full object-cover"
+                    loading="lazy"
+                    decoding="async"
+                  />
+                  <div className="text-sm">
+                    <div className="font-semibold">{author}</div>
+                    <div className="text-muted-foreground">{role}</div>
+                  </div>
+                </figcaption>
+              </figure>
+            );
+          })}
         </div>
       </Reveal>
     </section>

@@ -17,7 +17,7 @@ const steps: Step[] = [
     title: "Audit et stratégie",
     duration: "1–2 jours",
     desc:
-      "Analyse de vos besoins et de votre concurrence, définition de la structure optimale et des objectifs clés.",
+      "Analyse besoins et concurrence, structure et objectifs clairs.",
     Icon: MessageSquare,
   },
   {
@@ -25,7 +25,7 @@ const steps: Step[] = [
     title: "Plan de votre site",
     duration: "2–3 jours",
     desc:
-      "Conception claire du plan et des pages en respectant votre charte et vos contenus.",
+      "Plan du site et pages selon votre charte et contenus.",
     Icon: Palette,
   },
   {
@@ -33,7 +33,7 @@ const steps: Step[] = [
     title: "Développement",
     duration: "5–10 jours",
     desc:
-      "Intégration soignée avec des technologies performantes. Visible sur Google dès le départ.",
+      "Développement soigné, technologies performantes. Visible sur Google dès le départ.",
     Icon: Code,
   },
   {
@@ -41,7 +41,7 @@ const steps: Step[] = [
     title: "Tests et mise en ligne",
     duration: "2–3 jours",
     desc:
-      "Tests multi‑devices, optimisation des performances, mise en ligne et formation à la gestion des contenus.",
+      "Tests multi‑devices, optimisation, mise en ligne et mini‑formation.",
     Icon: Rocket,
   },
 ];

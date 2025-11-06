@@ -15,6 +15,10 @@ import { VoiceCommands } from "@/components/site/voice-commands";
 import { AssistantOverlay } from "@/components/site/assistant-overlay";
 import { GyroTilt } from "@/components/site/gyro-tilt";
 import { ReduceMotionToggle } from "@/components/site/reduce-motion-toggle";
+import { WhatsAppFloat } from "@/components/site/whatsapp-float";
+import { UrgencyBanner } from "@/components/site/urgency-banner";
+import { StickyMobileCTA } from "@/components/site/sticky-mobile-cta";
+import { ExitIntentPopup } from "@/components/site/exit-intent-popup";
 import Script from "next/script";
 
 const inter = Inter({
@@ -50,11 +54,16 @@ export const metadata: Metadata = {
     canonical: "/",
   },
   icons: {
-    icon: [{ url: "/icon.svg", type: "image/svg+xml" }],
-    apple: "/apple-touch-icon",
-    shortcut: ["/icon.svg"],
+    icon: [
+      { url: "/favicon.ico?v=5" },
+      { url: "/favicon-32x32.png?v=5", sizes: "32x32", type: "image/png" },
+      { url: "/favicon-16x16.png?v=5", sizes: "16x16", type: "image/png" },
+      { url: "/logo.svg?v=5", type: "image/svg+xml" },
+    ],
+    apple: "/apple-touch-icon.png?v=5",
+    shortcut: ["/favicon.ico?v=5"],
   },
-  manifest: "/manifest.webmanifest",
+  manifest: "/manifest.webmanifest?v=5",
   openGraph: {
     type: "website",
     locale: "fr_FR",
@@ -105,6 +114,20 @@ const jsonLdSite = {
   name: "smarterlogicweb.com",
 };
 
+const phonePublic = process.env.NEXT_PUBLIC_PHONE || "";
+const jsonLdLocalBusiness = {
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  name: "smarterlogicweb",
+  url: "https://smarterlogicweb.com",
+  areaServed: "France",
+  address: {
+    "@type": "PostalAddress",
+    addressCountry: "FR",
+  },
+  ...(phonePublic ? { telephone: phonePublic } : {}),
+};
+
 export const viewport = {
   width: "device-width",
   initialScale: 1,
@@ -133,6 +156,11 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           suppressHydrationWarning
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLdSite) }}
         />
+        <script
+          type="application/ld+json"
+          suppressHydrationWarning
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLdLocalBusiness) }}
+        />
 
         {/* Analytics */}
         {provider === "plausible" && (
@@ -147,6 +175,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <Cursor />
         <GyroTilt />
 
+        {/* Urgency fixed banner at top + spacer to avoid overlap */}
+        <UrgencyBanner />
+        <div aria-hidden className="h-11" />
+
         <div className="flex min-h-screen flex-col">
           <Header />
           <main id="content" className="flex-1 snap-y">{children}</main>
@@ -158,11 +190,14 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <SmartCTAs />
         <VoiceCommands />
         <ReduceMotionToggle />
+        <WhatsAppFloat />
+        <StickyMobileCTA />
 
         {/* Easter Eggs & Chatbot */}
         <EasterEggs />
         <AssistantOverlay />
         <Chatbot />
+        <ExitIntentPopup />
       </body>
     </html>
   );

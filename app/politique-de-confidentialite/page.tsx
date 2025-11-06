@@ -58,6 +58,13 @@ export default function PolitiqueConfidentialitePage() {
             <a href="mailto:contact@smarterlogicweb.com">contact@smarterlogicweb.com</a>.
           </p>
         </div>
+
+        {/* Mini CTA discret */}
+        <div className="mt-8 flex justify-center">
+          <a href="/contact" className="inline-flex items-center rounded-full border px-4 py-2 text-sm hover:bg-accent/50">
+            Besoin d’aide ? Contactez-moi
+          </a>
+        </div>
       </div>
     </section>
   );
