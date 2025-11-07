@@ -70,7 +70,7 @@ export function PricingOffers() {
       </div>
 
       {/* Availability note (synced with UrgencyBanner) */}
-      <p className="mb-4 text-center text-sm font-medium text-red-600 dark:text-red-400 motion-safe:animate-pulse">
+      <p className="mb-4 text-center text-sm font-medium text-primary motion-safe:animate-pulse">
         <span className="mr-1">⚠️</span>
         Plus que 2 créneaux disponibles ce mois-ci.{" "}
         <a href="/contact" className="link-underline">
