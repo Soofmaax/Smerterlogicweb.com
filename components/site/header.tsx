@@ -82,6 +82,7 @@ export function Header() {
     "politique-de-confidentialite": "privacy-policy",
     "merci": "thank-you",
     "securite": "security",
+    "blog": "blog",
   };
   const enToFr: Record<string, string> = Object.fromEntries(Object.entries(frToEn).map(([k, v]) => [v, k]));
 
@@ -168,11 +169,13 @@ export function Header() {
           const isAbout = pathname.startsWith(`${isEn ? "/en" : ""}/${isEn ? "about" : "a-propos"}`);
           const isCommitment = pathname.startsWith(`${isEn ? "/en" : ""}/${isEn ? "nonprofit-commitment" : "engagement-associatif"}`);
           const isContact = pathname.startsWith(`${isEn ? "/en" : ""}/contact`);
+          const isBlog = pathname.startsWith(`${isEn ? "/en" : ""}/blog`);
 
           const showProjects = available.has(isEn ? "projects" : "projets");
           const showServices = available.has("services");
           const showAbout = available.has(isEn ? "about" : "a-propos");
           const showCommitment = available.has(isEn ? "nonprofit-commitment" : "engagement-associatif");
+          const showBlog = available.has("blog");
           // Contact: always show, even if the page is missing (fallback to /contact)
           // Render nav with computed states
           return (
@@ -255,6 +258,15 @@ export function Header() {
                   aria-current={isCommitment ? "page" : undefined}
                 >
                   {t.nav.commitment}
+                </Link>
+              )}
+              {showBlog && (
+                <Link
+                  href={`${prefix}/blog`.replace("//", "/")}
+                  className={`text-sm transition-colors hover:text-foreground ${isBlog ? "text-foreground font-semibold" : "text-muted-foreground"} rounded-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/50`}
+                  aria-current={isBlog ? "page" : undefined}
+                >
+                  Blog
                 </Link>
               )}
               <Link
@@ -400,6 +412,11 @@ export function Header() {
               {available.has(isEn ? "nonprofit-commitment" : "engagement-associatif") && (
                 <Link href={`${prefix}/${isEn ? "nonprofit-commitment" : "engagement-associatif"}`.replace("//", "/")} className="block rounded-md px-2 py-2 text-foreground hover:bg-accent/50" onClick={() => setOpen(false)}>
                   {t.nav.commitment}
+                </Link>
+              )}
+              {available.has("blog") && (
+                <Link href={`${prefix}/blog`.replace("//", "/")} className="block rounded-md px-2 py-2 text-foreground hover:bg-accent/50" onClick={() => setOpen(false)}>
+                  Blog
                 </Link>
               )}
               <Link href={`${prefix}/contact`.replace("//", "/")} className="block rounded-md px-2 py-2 text-foreground hover:bg-accent/50" onClick={() => setOpen(false)}>

@@ -9,6 +9,7 @@ export const availablePathsFR = new Set<string>([
   "a-propos",
   "engagement-associatif",
   "contact",
+  "blog",
   // Other pages that exist but are not in the main nav:
   "faq",
   "candidature-association",
@@ -26,6 +27,7 @@ export const availablePathsEN = new Set<string>([
   "about",
   "nonprofit-commitment",
   "contact",
+  "blog",
   // Other pages that exist but are not in the main nav:
   "legal-notice",
   "privacy-policy",
