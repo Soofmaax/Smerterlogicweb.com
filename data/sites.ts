@@ -43,22 +43,6 @@ export const sitesFR: SiteEntry[] = [
     domain: "bm-valocation.com",
     sector: "Automobile",
   },
-  {
-    id: "studielan-netlify",
-    title: "Studielan",
-    subtitle: "Démo fictive",
-    href: "https://studielan.netlify.app",
-    status: "demo",
-    domain: "studielan.netlify.app",
-    sector: "Éducation",
-  },
-  {
-    id: "jurislex-netlify",
-    title: "JurisLex",
-    subtitle: "Démo fictive — avocats & comptables",
-    href: "https://jurislex.netlify.app",
-    status: "demo",
-    domain: "jurislex.netlify.app",
-    sector: "Professions libérales",
-  },
+  
+  
 ];
