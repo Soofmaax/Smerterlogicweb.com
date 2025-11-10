@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button";
 import { HeroTyped } from "@/components/site/hero-typed";
 import { PricingOffers } from "@/components/site/pricing-offers";
 import { SeeTheDifference } from "@/components/site/see-the-difference";
-import { PerformanceVisible } from "@/components/site/performance-visible";
+
 import { TimelineProcess } from "@/components/site/timeline-process";
 import { ExpertiseWhy } from "@/components/site/expertise-why";
 import { TechnologiesGrid } from "@/components/site/technologies-grid";
@@ -87,8 +87,7 @@ export default function Page() {
       {/* Section interactive — Voyez la Différence */}
       <SeeTheDifference />
 
-      {/* Performances visibles */}
-      <PerformanceVisible />
+      
 
       {/* Processus de travail */}
       <TimelineProcess />
