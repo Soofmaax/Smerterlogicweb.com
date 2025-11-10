@@ -97,7 +97,7 @@ jobs:
       # If build fails, upload .next artifacts to help diagnose
       - name: Upload .next debug artifacts (on failure)
         if: failure()
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v5
         with:
           name: next-debug
           path: |
