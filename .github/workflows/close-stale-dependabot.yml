@@ -1,0 +1,22 @@
+name: Close stale Dependabot PRs
+
+on:
+  schedule:
+    - cron: "0 3 * * *"
+  workflow_dispatch:
+
+permissions:
+  pull-requests: write
+
+jobs:
+  stale:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/stale@v9
+        with:
+          days-before-stale: 14
+          days-before-close: 7
+          only-labels: dependencies
+          stale-pr-label: stale
+          stale-pr-message: "PR Dependabot inactive — sera fermée si pas d’activité."
+          close-pr-message: "Fermeture automatique de la PR Dependabot pour inactivité."

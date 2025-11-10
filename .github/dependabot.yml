@@ -11,8 +11,31 @@ updates:
       prefix: "deps"
     labels:
       - "dependencies"
+    groups:
+      npm-minor-patch:
+        update-types:
+          - "minor"
+          - "patch"
     ignore:
+      # Garder Next en majeur pour migration orchestrée
       - dependency-name: "next"
+        update-types: ["version-update:semver-major"]
+      # Éviter les majors risqués sans migration dédiée
+      - dependency-name: "react"
+        update-types: ["version-update:semver-major"]
+      - dependency-name: "react-dom"
+        update-types: ["version-update:semver-major"]
+      - dependency-name: "eslint"
+        update-types: ["version-update:semver-major"]
+      - dependency-name: "eslint-config-next"
+        update-types: ["version-update:semver-major"]
+      - dependency-name: "tailwindcss"
+        update-types: ["version-update:semver-major"]
+      - dependency-name: "typescript"
+        update-types: ["version-update:semver-major"]
+      - dependency-name: "@types/node"
+        update-types: ["version-update:semver-major"]
+      - dependency-name: "framer-motion"
         update-types: ["version-update:semver-major"]
 
   - package-ecosystem: "github-actions"
@@ -23,3 +46,8 @@ updates:
       time: "03:30"
     labels:
       - "dependencies"
+    groups:
+      gha-minor-patch:
+        update-types:
+          - "minor"
+          - "patch"
