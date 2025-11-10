@@ -71,7 +71,7 @@ export function Chatbot() {
       push(
         "bot",
         <>
-          Pour {activity}, commencez avec <strong>Vitrine</strong> pour une présence claire. Si vous avez besoin de blog, réservations ou intégrations avancées, passez sur <strong>Business</strong> ou <strong>Premium</strong>.
+          Pour {activity}, commencez avec <strong>Essentiel</strong> pour une présence claire. Si vous avez besoin de blog/actualités, FAQ/témoignages ou d’intégrations avancées, passez sur <strong>Professionnel</strong> ou <strong>Premium</strong>.
         </>
       );
       push(
@@ -121,13 +121,17 @@ export function Chatbot() {
   const goTarifs = React.useCallback(() => {
     setBranch("tarifs");
     track("chat_branch_tarifs");
-    push("bot", <>Trois formules : Essentiel (1 490€ TTC), Professionnel (2 490€ TTC), Premium (4 990€ TTC). Quelle activité exercez‑vous</"b>);
     push(
       "bot",
-     <ldiv className="mt-2 flex flex-wrap gap-2">
+      <>Trois formules : Essentiel (1 490€ TTC), Professionnel (2 490€ TTC), Premium (4 990€ TTC). Quelle activité exercez‑vous ?</>
+    );
+    push(
+      "bot",
+      <div className="mt-2 flex flex-wrap gap-2">
         {["Artisan", "Commerce", "TPE", "Association"].map((a) => (
-         <nQuickButton key={a} onClick={() => recommend(a)}>
-            {aton>
+          <QuickButton key={a} onClick={() => recommend(a)}>
+            {a}
+          </QuickButton>
         ))}
       </div>
     );
@@ -348,14 +352,14 @@ export function Chatbot() {
 
   const faqAuto = (t: string): React.ReactNode => {
     const pairs: Array<[RegExp, React.ReactNode]> = [
-      [/prix|tarif|co[uû]t/, <>Entre 1800€ et 5500€ selon vos besoins. Prix fixe annoncé dès le départ, pas de surprises. Voir <Link href="/#tarifs" className="underline">Tarifs</Link>.</>],
-      [/d[ée]lai|combien de temps/, <>Vitrine: 2‑3 semaines, Business: 3‑4 semaines, Premium: 4‑6 semaines (après réception contenus).</>],
-      [/wordpress|wix/, <>Wix: lent/limité; WordPress: maintenance et sécurité. Mon approche: rapide, sécurisée et simple d’usage.</>],
-      [/maintenance|bug|support/, <>Support prioritaire 3 mois inclus. Option maintenance 20€/mois (MAJ, sauvegardes, corrections).</>],
-      [/h[ée]bergement|serveur/, <>Hébergement pro (Netlify/Vercel). 1ère année incluse, ensuite 20€/mois.</>],
+      [/prix|tarif|co[uû]t/, <>Entre 1 490€ et 4 990€ TTC selon vos besoins. Prix fixe annoncé dès le départ, pas de surprises. Voir <Link href="/#tarifs" className="underline">Tarifs</Link>.</>],
+      [/d[ée]lai|combien de temps/, <>Essentiel: 2‑3 semaines, Professionnel: 4‑6 semaines, Premium: 8‑12 semaines (après réception contenus).</>],
+      [/wordpress|wix/, <>Wix: lent/limité; WordPress: maintenance et sécurité. Mon approche: statique sur‑mesure — rapide, sécurisée et simple d’usage.</>],
+      [/maintenance|bug|support/, <>Support prioritaire inclus selon offre. Option <strong>Formule Évolution</strong> à 20€/mois (1h/mois cumulable, monitoring, tweaks).</>],
+      [/h[ée]bergement|serveur/, <>Hébergement Netlify gratuit à vie; pas de maintenance obligatoire. Option <strong>Formule Évolution</strong> si souhaitée.</>],
       [/seo|google|r[ée]f[ée]rencement/, <>SEO on‑page inclus. Les résultats naturels prennent 2‑3 mois. Je vous forme aux bonnes pratiques.</>],
       [/publicit[ée]|ads|adwords/, <>Pas obligatoire. Le SEO suffit souvent aux artisans locaux; la pub peut accélérer si besoin.</>],
-      [/analytics|stat/, <>Suivi des visiteurs inclus sur Business et Premium. Tableau simple et clair.</>],
+      [/analytics|stat/, <>Suivi des visiteurs (GA4/Plausible) selon offre. Tableau simple et clair.</>],
     ];
     const hit = pairs.find(([re]) => re.test(t));
     if (hit) return hit[1];
