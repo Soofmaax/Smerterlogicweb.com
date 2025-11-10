@@ -66,7 +66,7 @@ export function ProjectsShowcase({
         {dense && (
           <button
             type="button"
-            className="inline-flex items-center rounded-full border border-foreground/15 bg-card px-3 py-1.5 text-sm shadow-sm transition hover:bg-accent focus:outline-none focus-visible:ring-2 focus-visible:ring-primary/60"
+            className="badge-premium inline-flex items-center rounded-full border border-foreground/15 bg-card px-3 py-1.5 text-sm shadow-sm transition hover:bg-accent focus:outline-none focus-visible:ring-2 focus-visible:ring-primary/60"
             aria-label={`${labelOpen}: ${item.title}`}
             onClick={() => {
               setIndex(i);
