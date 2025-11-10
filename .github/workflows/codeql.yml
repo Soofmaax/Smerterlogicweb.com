@@ -8,6 +8,10 @@ on:
   schedule:
     - cron: "21 3 * * 3"
 
+concurrency:
+  group: ${{ github.workflow }}-${{ github.head_ref || github.ref }}
+  cancel-in-progress: true
+
 jobs:
   analyze:
     name: Analyze (CodeQL)
