@@ -39,7 +39,7 @@
     "eslint-config-next": "14.2.5",
     "@netlify/plugin-nextjs": "^5.8.0",
     "@types/react": "^18.3.3",
-    "@types/node": "^20.14.2"
+    "@types/node": "^24.10.0"
   },
   "engines": {
     "node": ">=18.17.0"
