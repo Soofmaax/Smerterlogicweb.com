@@ -25,7 +25,7 @@ export const metadata = {
     description:
       "Prix site vitrine 2025 : de 300€ à 30 000€. Découvrez les vrais tarifs, ce qui est inclus, et comment éviter de payer deux fois pour le même site.",
     url: "https://smarterlogicweb.com/cout-site-vitrine-2025",
-    images: [coverImg],
+    images: ["/cout-site-vitrine-2025/opengraph-image"],
   },
 };
 

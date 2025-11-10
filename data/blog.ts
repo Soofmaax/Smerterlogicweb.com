@@ -176,6 +176,7 @@ export const BLOG_POSTS: BlogPost[] = [
         <li><strong>Premium (4 990€)</strong> : 10‑15 pages ou multilingue, stratégie SEO 6 mois, intégrations avancées (CRM, API), 6 mois support premium.</li>
       </ul>
       <p><em>Pourquoi nos tarifs diffèrent</em> : statique ≠ WordPress (maintenance obligatoire, sécurité, lenteur). Statique : 0 maintenance, sécurité maximale, ultra‑rapide.</p>
+      <p>Consultez la <a href="/tarifs-2025">grille des Tarifs 2025</a> pour le détail des inclusions et modalités.</p>
 
       <h2>Verdict : ne choisissez pas sur le prix initial, choisissez sur le coût réel</h2>
       <p>Un site à 300€ coûte en réalité 3 200€ (contenu + SEO + maintenance). Un site statique à 2 490€ tout inclus est objectivement moins cher sur 3 ans.</p>
@@ -190,9 +191,9 @@ export const BLOG_POSTS: BlogPost[] = [
       <h3>Un site à 300€ est‑il fiable ?</h3>
       <p>Non. 300€ = installation WordPress + thème générique + pages vides. Ajoutez 1 000€ de rédaction, 500€ de design, 800€ de SEO ⇒ 2 600€ minimum… et souvent 0 résultat.</p>
       <h3>Quels sont les frais annuels après la création du site ?</h3>
-      <p>WordPress : 340€ à 2 100€/an (maintenance 290€ à 1 800€ + domaine/hébergement). Statique : 10€ à 50€/an (domaine), hébergement Netlify/Vercel gratuit, maintenance 0€.</p>
+      <p>WordPress : 340€ à 2 100€/an (maintenance 290€ à 1 800€ + domaine et hébergement 50€ à 300€). Statique : 10€ à 50€ par an (domaine uniquement, hébergement gratuit type Netlify). Maintenance : zéro euro (aucune mise à jour nécessaire). Total : 10€ à 50€ par an.</p>
       <h3>Est‑ce que je possède mon site après paiement ?</h3>
-      <p>SaaS (Wix, Squarespace) : non (vous louez). Freelance/Agence : normalement oui — vérifiez que le code est remis et le domaine à votre nom. Nos sites : propriété totale (code GitHub, domaine au nom du client).</p>
+      <p>SaaS (Wix, Squarespace) : non, vous louez. Si vous arrêtez l’abonnement, tout disparaît. Freelance ou agence : normalement oui, mais vérifiez dans le devis que le code source vous est remis et que le domaine est à votre nom. Nos sites : oui, propriété totale. Code source remis sur GitHub, domaine à votre nom.</p>
       <h3>WordPress ou site statique : lequel choisir ?</h3>
       <p>Statique si vous voulez 0 maintenance, vitesse et sécurité. WordPress si blog très actif/e‑commerce complexe et si vous acceptez la maintenance. Pour 95 % des TPE (vitrine), statique est plus rentable sur 3 ans.</p>
     `,
@@ -302,7 +303,8 @@ export const BLOG_POSTS: BlogPost[] = [
 
       <h2>Verdict : le vrai coût, c’est le TCO sur 3 ans</h2>
       <p>Le site le moins cher à l’achat n’est pas forcément le moins cher sur 3 ans. Calculez le TCO, vérifiez la propriété (domaine + code), exigez la liste des coûts récurrents.</p>
-      <p>Besoin d’un site sans frais cachés ? Sites statiques optimisés TPE/PME : design sur‑mesure, contenu inclus (selon offre), ultra‑rapide, 0 maintenance. Exemples : bmsventouse.fr.</p>
+      <p>Besoin d’un site sans frais cachés ? Sites statiques optimisés TPE/PME : design sur‑mesure, contenu inclus (selon offre), ultra‑rapide, 0 maintenance. Exemples : bmsventouse.fr. Consultez la <a href="/tarifs-2025">grille des Tarifs 2025</a> pour choisir l’offre adaptée.</p>
+      <p>Pour comparer précisément les budgets et scénarios, lisez le <a href="/cout-site-vitrine-2025">Guide des vrais prix 2025</a>.</p>
 
       <h2>FAQ</h2>
       <h3>Quels sont les frais annuels minimum pour un site vitrine ?</h3>

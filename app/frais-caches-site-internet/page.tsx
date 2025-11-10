@@ -26,7 +26,7 @@ export const metadata = {
     description:
       "Maintenance 290–1 800€/an pour WordPress, 0€ pour site statique. Découvrez le vrai coût total sur 3 ans et les modalités de paiement.",
     url: "https://smarterlogicweb.com/frais-caches-site-internet",
-    images: [coverImg],
+    images: ["/frais-caches-site-internet/opengraph-image"],
   },
 };
 
