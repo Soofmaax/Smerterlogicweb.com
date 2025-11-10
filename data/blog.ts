@@ -205,4 +205,124 @@ export const BLOG_POSTS: BlogPost[] = [
       "prix site internet entreprise France",
     ],
   },
+  {
+    slug: "frais-caches-site-internet",
+    locale: "fr",
+    title: "Frais cachés : ce qu'il faut anticiper après la livraison du site",
+    summary:
+      "Maintenance 290–1 800€/an pour WordPress, 0€ pour site statique. Découvrez le vrai coût total sur 3 ans et les modalités de paiement.",
+    contentHtml: `
+      <p>Vous venez de payer 1 500€ pour créer votre site vitrine. Le freelance vous a livré un site propre, rapide, fonctionnel. Vous êtes content. Trois mois plus tard, première facture surprise : 150€ de maintenance. Puis 80€ pour une licence de plugin. Puis 200€ pour corriger un bug après une mise à jour WordPress. Au bout d’un an, vous avez dépensé 2 100€. 40 % de plus que le prix de création.</p>
+      <p><strong>Bienvenue dans le monde des frais cachés.</strong></p>
+      <p>Je crée des sites pour des TPE et PME depuis 2020. Et je vais vous dire ce que personne n’explique au moment de signer le devis : le prix de création n’est qu’une partie de l’histoire. Le vrai indicateur, c’est le <strong>Coût Total de Possession</strong> sur trois ans (TCO). Et là, les différences sont massives.</p>
+      <p>Un site WordPress à 1 500€ vous coûtera 3 300€ à 5 100€ sur trois ans. Un site statique à 2 490€ vous coûtera 2 490€. 0€ de maintenance après. Dans cet article, on décortique tous les frais récurrents, on compare les vrais coûts, et on clarifie les modalités de paiement pour que vous ne soyez plus jamais surpris.</p>
+
+      <h2>Le Coût Total de Possession : l’indicateur que personne ne vous montre</h2>
+      <p>Le TCO, c’est la somme de tous les coûts liés à votre site sur une période donnée : création + hébergement + domaine + maintenance + licences + évolutions.</p>
+      <p>Un site créé pour 800€ peut vous coûter 600€ par an de maintenance — soit 2 600€ sur 3 ans. Un site créé pour 2 490€ sans maintenance vous coûte 2 490€. Point final. <em>Exigez le TCO</em> avant de signer.</p>
+
+      <h2>Les coûts récurrents obligatoires</h2>
+      <p><strong>Domaine</strong> : 10–20€/an (.fr/.com). Vérifiez que le domaine est à votre nom (piège fréquent).</p>
+      <p><strong>Hébergement</strong> : statique = Netlify/Vercel gratuit ; WordPress mutualisé = 50–120€/an ; VPS = 600–4 800€/an (souvent inutile pour une vitrine).</p>
+      <p><strong>Licences plugins (WordPress)</strong> : 50–1 200€/an selon fonctionnalités. Formulaires, sécurité, sauvegardes, SEO… Les versions gratuites finissent souvent en premium.</p>
+      <p><em>Minimum incompressible/an</em> : 110–640€ (domaine + hébergement + quelques licences).</p>
+
+      <h2>La maintenance technique : le gouffre WordPress</h2>
+      <p>WordPress = mises à jour du core, des plugins, du thème + sauvegardes + correctifs + surveillance. Les tarifs 2025 : 290–1 800€/an (freelance → agence).</p>
+      <p>Sans maintenance, votre site devient vulnérable (43 % des hacks viennent de plugins/thèmes obsolètes). <strong>Nettoyage après piratage</strong> : 500–2 000€.</p>
+      <p>Site <strong>statique</strong> : code pur (HTML/CSS/JS), pas de base de données, pas de plugins → <strong>0€ maintenance</strong>, hébergement gratuit, domaine 10–20€/an.</p>
+
+      <h3>Comparatif sur 3 ans</h3>
+      <table>
+        <thead>
+          <tr>
+            <th>Technologie</th>
+            <th>Création</th>
+            <th>Maintenance/an</th>
+            <th>Hébergement/an</th>
+            <th>Domaine/an</th>
+            <th>Total 3 ans</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>WordPress (basique)</td>
+            <td>800€</td>
+            <td>290€</td>
+            <td>60€</td>
+            <td>15€</td>
+            <td>2 195€</td>
+          </tr>
+          <tr>
+            <td>WordPress (agence)</td>
+            <td>3 500€</td>
+            <td>1 800€</td>
+            <td>700€</td>
+            <td>15€</td>
+            <td>11 945€</td>
+          </tr>
+          <tr>
+            <td>Statique — Essentiel</td>
+            <td>1 490€</td>
+            <td>0€</td>
+            <td>0€</td>
+            <td>10€</td>
+            <td>1 520€</td>
+          </tr>
+          <tr>
+            <td>Statique — Professionnel</td>
+            <td>2 490€</td>
+            <td>0€</td>
+            <td>0€</td>
+            <td>10€</td>
+            <td>2 520€</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h2>SEO continu & contenu</h2>
+      <p>Le SEO est un marathon. Forfaits d’accompagnement : 300–1 500€/mois selon ambition. Rédaction SEO (1 000–1 500 mots) : 150–400€/article.</p>
+      <p>Beaucoup de TPE peuvent se contenter d’un site bien optimisé au départ + quelques optimisations ponctuelles. Les secteurs très compétitifs nécessitent un effort mensuel.</p>
+
+      <h2>Formule Évolution : faire évoluer sans exploser le budget</h2>
+      <p>20€/mois, sans engagement. 1h/mois de modifications (cumulable 3 mois). Ajustements, petites pages, optimisations ponctuelles, monitoring, support prioritaire.</p>
+      <p>Tarifs préférentiels : refonte –30 %, fonctionnalités –25 %, article SEO 99€.</p>
+
+      <h2>Modalités de paiement : acompte, échelonné, abonnement</h2>
+      <p><strong>Acompte 50 %</strong> à la signature. Jalons : 50 % (début) + 30 % (maquettes validées) + 20 % (livraison).</p>
+      <p><strong>Abonnement mensuel</strong> : 120–500€/mois (hébergement + maintenance + évolutions mineures). Attention à la <em>propriété</em> : souvent vous ne possédez pas le code. Sur 3 ans : 3 600–18 000€.</p>
+
+      <h2>Pièges à éviter</h2>
+      <ul>
+        <li>Abonnements pré‑cochés chez certains registrars (lisez chaque ligne).</li>
+        <li>Renouvellement auto avec hausse du prix (désactivez, mettez une alerte).</li>
+        <li>Plugins qui passent de gratuit à payant (demandez la liste et les coûts).</li>
+        <li>Maintenance avec engagement ≥ 12 mois (refusez ; privilégiez résiliation à 1 mois).</li>
+      </ul>
+
+      <h2>Verdict : le vrai coût, c’est le TCO sur 3 ans</h2>
+      <p>Le site le moins cher à l’achat n’est pas forcément le moins cher sur 3 ans. Calculez le TCO, vérifiez la propriété (domaine + code), exigez la liste des coûts récurrents.</p>
+      <p>Besoin d’un site sans frais cachés ? Sites statiques optimisés TPE/PME : design sur‑mesure, contenu inclus (selon offre), ultra‑rapide, 0 maintenance. Exemples : bmsventouse.fr.</p>
+
+      <h2>FAQ</h2>
+      <h3>Quels sont les frais annuels minimum pour un site vitrine ?</h3>
+      <p>WordPress : 340–2 100€/an (domaine + hébergement + maintenance obligatoire). Statique : 10–50€/an (domaine), hébergement gratuit, 0 maintenance.</p>
+      <h3>La maintenance WordPress est‑elle obligatoire ?</h3>
+      <p>Oui : sans mises à jour régulières, votre site devient vulnérable et peut être piraté (nettoyage 500–2 000€).</p>
+      <h3>Pourquoi un site statique n’a pas de maintenance ?</h3>
+      <p>Pas de base de données ni de plugins : le site est figé, ultra‑sécurisé, rapide. Il tourne des années sans intervention.</p>
+      <h3>Qu’est‑ce que la Formule Évolution à 20€/mois ?</h3>
+      <p>1h de modifications/mois (cumulable 3 mois), optimisations ponctuelles, monitoring, support prioritaire, tarifs préférentiels.</p>
+      <h3>Abonnement ou achat comptant ?</h3>
+      <p>Achat si vous voulez posséder à vie (statique = idéal). Abonnement si vous acceptez de ne pas posséder et déléguer totalement — plus cher sur 3 ans.</p>
+    `,
+    tags: [
+      "frais cachés site internet",
+      "coût maintenance site vitrine",
+      "abonnement site web mensuel",
+      "acompte création site internet",
+      "maintenance site WordPress",
+      "frais annuels site internet entreprise",
+    ],
+  },
 ];
