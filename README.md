@@ -1,202 +1,103 @@
-# smarterlogicweb — Landing Next.js 14 (App Router) FR/EN
+<div align="center">
+  <img src="./public/logo.svg" alt="SmarterLogicWeb" height="72" />
+  <h1>🚀 SmarterLogicWeb — Site Vitrine Next.js 14 (FR/EN)</h1>
+  <p><strong>Solutions web intelligentes, rapides et orientées conversion.</strong></p>
 
-Site vitrine moderne et bilingue (FR/EN) construit avec Next.js App Router, Tailwind CSS et composants shadcn‑style. Design premium inspiré “curveball-like” : grandes cartes arrondies, gradient plum sombre, pills, gloss + grain subtil, micro‑animations.
+  <a href="https://github.com/Soofmaax/Smerterlogicweb.com/actions/workflows/ci.yml">
+    <img alt="CI" src="https://github.com/Soofmaax/Smerterlogicweb.com/actions/workflows/ci.yml/badge.svg" />
+  </a>
+  <a href="https://github.com/Soofmaax/Smerterlogicweb.com/actions/workflows/security.yml">
+    <img alt="Security Scan" src="https://github.com/Soofmaax/Smerterlogicweb.com/actions/workflows/security.yml/badge.svg" />
+  </a>
+  <a href="https://github.com/Soofmaax/Smerterlogicweb.com/actions/workflows/codeql.yml">
+    <img alt="CodeQL" src="https://github.com/Soofmaax/Smerterlogicweb.com/actions/workflows/codeql.yml/badge.svg" />
+  </a>
+  <a href="./LICENSE">
+    <img alt="License: MIT" src="https://img.shields.io/badge/License-MIT-blue.svg" />
+  </a>
 
-Sommaire
-- Aperçu
-- Démo & Liens
-- Captures (Screenshots)
-- Stack & Architecture
-- Fonctionnalités clés
-- Qualité & CI
-- Démarrage & Scripts
-- Déploiement Netlify
-- Dépannage Netlify (FAQ)
-- Sécurité & Headers (CSP, HSTS…)
-- Accessibilité (WCAG AA)
-- Performance (Core Web Vitals)
-- SEO technique
-- Variables d’environnement
-- Infos à renseigner (TODO)
-- Contribuer
-- Licence
+  <p>
+    <a href="#-pourquoi-ce-projet-">Pourquoi ce projet ?</a> •
+    <a href="#-features">Features</a> •
+    <a href="#-demo">Demo</a> •
+    <a href="#-quick-start">Quick Start</a> •
+    <a href="#-documentation">Docs</a> •
+    <a href="#-support--contact">Support</a>
+  </p>
+</div>
 
-## Aperçu
+---
 
-- Next.js 14 App Router, TypeScript, Tailwind CSS 3
-- i18n FR/EN via next.config.mjs (locales: fr, en)
-- Composants UI minimalistes (Button, Badge) + classes utilitaires
-- Esthétique : cartes arrondies (rounded‑[28px]) avec effet “gloss” et “grain” subtils, micro‑hover (lift + soft shadow)
-- Pages prêtes : Accueil, Services, Projets, À propos, Contact, Engagement associatif, Mentions, Confidentialité, Sécurité, 404/500, FR/EN
-- SEO : metadata globales, alternates hreflang, sitemap, robots, Open Graph image route
-- Analytics : Plausible (par défaut) ou Umami (switchable via env)
-- Formulaire Contact: Netlify Forms + reCAPTCHA, page /merci
-- Sécurité : Netlify headers (HSTS, XFO, nosniff, CSP…), endpoint /api/csp-report, endpoint /api/health
-- PWA: manifest route + Apple touch icon dynamique
+🎯 Pourquoi ce projet ?
+- Vitrine premium pour artisans/PME, bilingue FR/EN, orientée conversion (CTA clairs, performances élevées).
+- Architecture moderne (Next.js 14 App Router) + sécurité soignée (CSP, HSTS, rate limiting).
+- Intégration optionnelle BaaS (Supabase) pour capter/persister les leads — sans backend lourd.
 
-## Démo & Liens
+✨ Features
+- 🧭 Bilingue FR/EN avec routing i18n (Next.js App Router)
+- 🎨 Design premium (cartes arrondies, gloss subtil, animations accessibles)
+- 🧩 Composants UI réutilisables (Button, Badge, Carousel…)
+- 🔒 Sécurité: CSP stricte, HSTS, headers, endpoint /api/csp-report
+- 🚦 Healthcheck: /api/health
+- 📈 Analytics: Plausible ou Umami (via env)
+- 📨 leads: /api/subscribe (validation stricte + rate limit) + persistance Supabase (optionnelle)
+- 🧪 CI/CD: Lint/Build, CodeQL, Security Scan (audit + SBOM), Dependabot
 
-- Live (à compléter): https://votre‑domaine.netlify.app/
-- robots.txt: https://votre‑domaine.netlify.app/robots.txt
-- sitemap.xml: https://votre‑domaine.netlify.app/sitemap.xml
-- Health: https://votre‑domaine.netlify.app/api/health
+🎥 Demo
+- Site: https://smarterlogicweb.com (mettre à jour si nécessaire)
+- Sitemap: /sitemap.xml • Robots: /robots.txt • Health: /api/health
+- Screenshots: placez vos captures dans public/screenshots et référencez-les ici.
 
-Remplacez les URLs ci‑dessus par votre domaine une fois déployé. Pensez à mettre à jour:
-- app/sitemap.ts → const baseUrl = "https://votre‑domaine"
-- app/robots.ts → sitemap / host
-- netlify.toml → Report-To URL (csp‑report) si vous conservez le reporting CSP
+🚀 Quick Start
+1) Installer
+   - npm install
+2) Développer
+   - npm run dev
+   - http://localhost:3000
+3) Build/Run
+   - npm run build && npm run start
 
-## Captures (Screenshots)
+📚 Documentation
+- Démarrage, configuration, architecture, déploiement, API et troubleshooting:
+  - docs/README.md — [Index](file:///docs/README.md)
+  - docs/getting-started/quick-start.md — [Quick Start](file:///docs/getting-started/quick-start.md)
+  - ARCHITECTURE.md — [Vue d’ensemble](file:///ARCHITECTURE.md)
 
-Option 1 (rapide): faites des captures manuelles et placez‑les dans public/screenshots puis référencez‑les dans ce README.
+🛠️ Tech Stack
+- Frontend: Next.js 14, React 18, TypeScript, Tailwind CSS, lucide-react
+- CI/CD: GitHub Actions (CI, Security, CodeQL)
+- Hébergement: Netlify (plugin Next.js)
+- BaaS (optionnel): Supabase (Postgres + RLS) pour leads
 
-Option 2 (automatisé):
-- Installez Puppeteer: npm i -D puppeteer
-- Écrivez un petit script screenshots.mjs qui visite /, /services, /contact et enregistre des PNG dans public/screenshots
-- Ajoutez un script npm "screenshots": "node scripts/screenshots.mjs"
-
-## Stack & Architecture
-
-- Next.js 14 App Router (app/)
-- Tailwind CSS 3 (tailwind.config.ts), tokens HSL via app/globals.css
-- Icônes lucide-react
-- Fonts : Inter (titres), DM Sans (texte) via next/font
-- i18n: next.config.mjs (locales ["fr","en"], defaultLocale "fr")
-- Composants:
-  - components/ui/button.tsx, components/ui/badge.tsx
-  - components/site/header.tsx, components/site/footer.tsx
-  - components/site/stats-card.tsx
-- Pages:
-  - FR: /, /services, /projets, /a-propos, /contact, /engagement-associatif, /mentions-legales, /politique-de-confidentialite, /securite, /merci
-  - EN: /en, /en/services, /en/projects, /en/about, /en/contact, /en/nonprofit-commitment, /en/legal-notice, /en/privacy-policy, /en/security, /en/thank-you
-- Données:
-  - data/stats.ts — chiffres placeholders de démarrage (une seule carte affichée), remplacez dès que vous avez des métriques réelles
-- SEO/Assets:
-  - app/opengraph-image.tsx (image OG dynamique)
-  - app/manifest.ts, app/apple-touch-icon.tsx
-  - app/sitemap.ts, app/robots.ts
-- API:
-  - /api/health (status JSON)
-  - /api/csp-report (CSP reports)
-
-Voir ARCHITECTURE.md pour le détail des dossiers et flux.
-
-## Fonctionnalités clés
-
-- Hero “pill” + carte gradient arrondie (sans assets externes, compatible CSP)
-- Cartes de statistiques “curveball-like”
-- Section “logos partenaires” en gradient pastel
-- Header/Nav bilingue (desktop: dropdowns; mobile: drawer + accordions), skip link
-- Footer structuré, liens légaux et sociaux, mailto CTA
-- Formulaire Netlify Forms (honeypot + reCAPTCHA), redirection /merci
-
-## Qualité & CI
-
-- ESLint Next (config incluse), TypeScript strict
-- Vous pouvez ajouter ultérieurement une CI GitHub Actions pour lint/build/test et un audit Lighthouse/Axe (voir section “Audit automatisé de PR” dans cet exemple de doc)
-
-## Démarrage & Scripts
-
-- Installer: npm install
-- Développement: npm run dev
-- Build: npm run build
-- Start (production locale): npm run start
-- Lint: npm run lint
-
-## Déploiement Netlify
-
-- netlify.toml contient:
-  - build: command = "next build", publish = ".next"
-  - plugin: @netlify/plugin-nextjs
-  - environment:
-    - NODE_VERSION=18.20.3
-    - NEXT_TELEMETRY_DISABLED=1
-  - headers sécurité (HSTS, XFO, nosniff, Referrer-Policy, CSP…)
-  - cache agressif immutable sur assets
-  - redirects vers /sitemap et /robots
-
-Étapes:
-1) Connectez le repo à Netlify
-2) Site settings → Build & deploy:
-   - Build command: next build (ou npm run build)
-   - Publish directory: .next
-3) (Optionnel) Variables d’environnement (voir plus bas)
-4) Trigger deploy → Clear cache and deploy site
-
-Testez ensuite /api/health pour vérifier le runtime Next. Si 404 → plugin non actif ou build non pris en charge (voir FAQ).
-
-## Dépannage Netlify (FAQ)
-
-- Page blanche ou rien ne s’affiche
-  - Ouvrez /api/health → doit renvoyer { status: "ok" }. Si 404, vérifiez:
-    - [[plugins]] package = "@netlify/plugin-nextjs" dans netlify.toml
-    - Clear cache and deploy
-    - Build command et publish directory alignés
-  - Console navigateur: erreurs CSP “Refused to execute inline script” ?
-    - Je peux basculer temporairement la CSP en Report-Only pour valider l’UI, puis réactiver en enforcement.
-- Sitemap/robots pointent vers un autre domaine
-  - Mettez à jour app/sitemap.ts et app/robots.ts avec votre domaine.
-
-## Sécurité & Headers
-
-- HSTS, X‑Frame‑Options, X‑Content‑Type‑Options, Referrer‑Policy, Permissions‑Policy
-- CSP stricte (script-src: self + plausible/umami + google si reCAPTCHA)
-- Reporting CSP vers /api/csp-report (Report-To + report-uri). Adaptez le domaine dans netlify.toml.
-- Cache immutable pour les assets.
-
-## Accessibilité (WCAG AA)
-
-- Skip link (#content)
-- Landmarks (aria-labels) dans header/nav
-- Focus visibles, contrastes, contenus lisibles
-- Mobile: menu drawer + accordéons accessibles
-
-## Performance (Core Web Vitals)
-
-- Next.js App Router, CSS utilitaires Tailwind
-- Sans image externe pour les visuels “gradient”
-- Lazy et tailles explicites sur images (là où présentes)
-- OG et Apple icon générés côté edge
-
-## SEO technique
-
-- Metadata complètes (title/description/OG/Twitter), alternates hreflang
-- Sitemap et robots (routes Next)
-- JSON‑LD Organization + WebSite injectés
-- Bloc “logos partenaires” prêt pour vrais logos (SVG/PNG)
-
-## Variables d’environnement
-
-Créez un fichier .env.local (non commité) à la racine ou définissez-les dans Netlify:
-
-```
-NEXT_PUBLIC_ANALYTICS_PROVIDER=plausible   # ou umami
-NEXT_PUBLIC_PLAUSIBLE_DOMAIN=smarterlogicweb.com
-NEXT_PUBLIC_UMAMI_SRC=https://analytics.umami.is/script.js
-NEXT_PUBLIC_UMAMI_WEBSITE_ID=
-```
-
+🔑 Variables d’environnement (extraits)
 Voir .env.example — [Télécharger](file:///.env.example)
+- NEXT_PUBLIC_ANALYTICS_PROVIDER=plausible|umami
+- GOOGLE_PLACES_API_KEY / GOOGLE_PLACE_ID
+- NEXT_PUBLIC_GUIDE_PDF_URL
+- SUBSCRIBE_WEBHOOK (Zapier/Make)
+- SUPABASE_URL / SUPABASE_SERVICE_ROLE (optionnel leads)
 
-## Infos à renseigner (TODO)
-
-- Domaine final dans:
-  - app/sitemap.ts (baseUrl)
-  - app/robots.ts (sitemap/host)
-  - netlify.toml (Report-To URL → /api/csp-report)
-- Liens sociaux (Header/Footer + JSON‑LD Organization) si besoin d’actualisation
-- Logos réels dans la section “logos partenaires”
-- Chiffres réels de stats (data/stats.ts) et réactivation de la 2e carte si souhaitée
-
-## Contribuer
-
-- Conventions: Conventional Commits (feat:, fix:, chore:, docs:…)
-- Branches: feature/*, fix/*, chore/*, docs/*
+🤝 Contributing
+- Conventions: Conventional Commits
 - Lint: npm run lint
-- TypeScript strict: corrigez les erreurs TS avant PR
+- PRs bienvenues — voir CONTRIBUTING.md — [Lire](file:///CONTRIBUTING.md)
 
-Voir CONTRIBUTING.md — [Télécharger](file:///CONTRIBUTING.md)
+📝 License
+- MIT — [LICENSE](file:///LICENSE)
 
-## Licence
+📧 Support & Contact
+- SmarterLogicWeb — contact@smarterlogicweb.com
+- Website: https://smarterlogicweb.com
 
-Projet privé pour l’instant. Ajoutez une licence (MIT par exemple) si nécessaire.
+---
+
+<div align="center">
+  <p>Made with ❤️ by <strong>SmarterLogicWeb</strong></p>
+  <p>
+    🌐 <a href="https://smarterlogicweb.com">Website</a> •
+    📧 <a href="mailto:contact@smarterlogicweb.com">Contact</a>
+  </p>
+  <p>
+    <sub>© 2025 SmarterLogicWeb. All rights reserved.</sub>
+  </p>
+</div>

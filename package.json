@@ -3,6 +3,18 @@
   "version": "0.1.0",
   "private": true,
   "type": "module",
+  "description": "SmarterLogicWeb — Site vitrine Next.js 14 (FR/EN) premium, sécurisé et orienté conversion.",
+  "author": "SmarterLogicWeb <contact@smarterlogicweb.com>",
+  "homepage": "https://smarterlogicweb.com",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Soofmaax/Smerterlogicweb.com.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Soofmaax/Smerterlogicweb.com/issues",
+    "email": "contact@smarterlogicweb.com"
+  },
+  "license": "MIT",
   "scripts": {
     "dev": "next dev -p 3000",
     "build": "next build",
