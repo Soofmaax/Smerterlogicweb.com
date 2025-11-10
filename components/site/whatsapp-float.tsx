@@ -28,7 +28,7 @@ export function WhatsAppFloat() {
   if (hideOn.has(pathname)) return null;
 
   return (
-    <div className="fixed bottom-6 left-4 z-[35] md:bottom-24 md:left-auto md:right-6">
+    <div className="fixed bottom-6 left-4 z-[35] md:bottom-6 md:left-auto md:right-6">
       <Link
         href={href}
         target="_blank"

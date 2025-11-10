@@ -177,9 +177,7 @@ export function HeroTyped() {
             </a>
           </Button>
         )}
-        <Button asChild size="lg" variant="outline" className="rounded-full">
-          <Link href="/contact" className="hover:bg-amber-50 hover:border-amber-300">Discutons de votre projet</Link>
-        </Button>
+        
       </div>
 
       {/* Urgency subtext */}
