@@ -42,7 +42,7 @@ jobs:
           fi
       - run: npm ci
       - name: CycloneDX SBOM
-        uses: CycloneDX/gh-node-module-generatebom@v2
+        uses: CycloneDX/gh-node-module-generatebom@v1
         with:
           output: "./bom.xml"
       - name: Upload SBOM
