@@ -11,6 +11,7 @@ const nextConfig = {
     remotePatterns: [
       { protocol: "https", hostname: "bmsventouse.fr" },
       { protocol: "https", hostname: "image.thum.io" },
+      { protocol: "https", hostname: "images.unsplash.com" },
     ],
   },
   // Build a minimal standalone server for custom hosting platforms (e.g., Docker, generic PaaS).
