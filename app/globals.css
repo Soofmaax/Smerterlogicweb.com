@@ -754,7 +754,15 @@ html.retro * {
   100% { background-position: 0% 50%; }
 }
 .hero-title {
-  background: linear-gradient(45deg, #ff6b6b, #4ecdc4, #45b7d1, #96ceb4);
+  /* Premium blue spectrum — no red, subtle teal/cyan accents */
+  background: linear-gradient(
+    45deg,
+    #1e3a8a, /* indigo-900 */
+    #2563eb, /* blue-600 (brand) */
+    #06b6d4, /* cyan-500 */
+    #0ea5e9, /* sky-500 */
+    #1d4ed8  /* blue-700 */
+  );
   background-size: 400% 400%;
   animation: gradient-morph 8s ease infinite;
   -webkit-background-clip: text;
