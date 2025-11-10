@@ -247,7 +247,13 @@ export function Chatbot() {
       } catch {}
     };
 
-    if (pathname.includes("/contact")) return;
+    // Disable bubble entirely on mobile and on home page
+    const isMobile = typeof window !== "undefined" && window.matchMedia && window.matchMedia("(max-width: 767px)").matches;
+    const isHome = pathname === "/" || pathname === "/fr";
+    if (isMobile || isHome || pathname.includes("/contact")) {
+      setBubbleVisible(false);
+      return;
+    }
 
     let inTarifs = false;
     let lastY = typeof window !== "undefined" ? window.scrollY : 0;
@@ -311,7 +317,7 @@ export function Chatbot() {
           setBubbleVisible(true);
           snooze();
         }
-      }, 45000);
+      }, 30000);
     }
 
     return () => {
