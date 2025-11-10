@@ -55,13 +55,11 @@ export const metadata: Metadata = {
   },
   icons: {
     icon: [
-      { url: "/favicon.ico?v=5" },
-      { url: "/favicon-32x32.png?v=5", sizes: "32x32", type: "image/png" },
-      { url: "/favicon-16x16.png?v=5", sizes: "16x16", type: "image/png" },
-      { url: "/logo.svg?v=5", type: "image/svg+xml" },
+      { url: "/icon", sizes: "32x32", type: "image/png" },
+      { url: "/logo.svg", type: "image/svg+xml" },
     ],
-    apple: "/apple-touch-icon.png?v=5",
-    shortcut: ["/favicon.ico?v=5"],
+    apple: "/apple-touch-icon",
+    shortcut: ["/icon"],
   },
   manifest: "/manifest.webmanifest?v=5",
   openGraph: {
