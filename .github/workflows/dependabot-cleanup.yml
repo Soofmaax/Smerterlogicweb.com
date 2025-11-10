@@ -1,0 +1,26 @@
+name: Dependabot cleanup (close all current PRs)
+
+on:
+  workflow_dispatch:
+
+permissions:
+  pull-requests: write
+
+jobs:
+  close:
+    runs-on: ubuntu-latest
+    steps:
+      - name: List and close Dependabot PRs
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const { owner, repo } = context.repo;
+            const prs = await github.paginate(github.rest.pulls.list, { owner, repo, state: "open", per_page: 100 });
+            const dependabotPRs = prs.filter(pr => pr.user && pr.user.login === "dependabot[bot]");
+            core.info(`Found ${dependabotPRs.length} open Dependabot PR(s).`);
+            for (const pr of dependabotPRs) {
+              await github.rest.pulls.update({
+                owner, repo, pull_number: pr.number, state: "closed"
+              });
+              core.info(`Closed #${pr.number} — ${pr.title}`);
+            }
