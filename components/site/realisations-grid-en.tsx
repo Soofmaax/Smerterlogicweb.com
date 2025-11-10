@@ -13,7 +13,7 @@ type Item = {
 };
 
 const items: Item[] = [
-  { title: "BMS Ventouse", subtitle: "bmsventouse.fr", img: "", href: "https://bmsventouse.fr", status: "live", domain: "bmsventouse.fr" },
+  { title: "BMS Ventouse", subtitle: "bmsventouse.fr", img: "https://image.thum.io/get/width/800/crop/600/https://bmsventouse.fr", href: "https://bmsventouse.fr", status: "live", domain: "bmsventouse.fr" },
 ];
 
 export function RealisationsGridEN() {
