@@ -107,3 +107,34 @@ export function formatDate(d: Date, locale: BlogLocale): string {
     day: "numeric",
   });
 }
+
+// Initial burst: publish the first N posts immediately, then follow M/W/F schedule for the rest.
+function getInitialPublishCount(locale: BlogLocale): number {
+  const key = locale === "fr" ? "BLOG_INITIAL_PUBLISH_COUNT_FR" : "BLOG_INITIAL_PUBLISH_COUNT_EN";
+  const raw = process.env[key];
+  const n = raw ? Number(raw) : 10;
+  return Number.isFinite(n) && n >= 0 ? n : 10;
+}
+
+export function getPublishedPostsBurst(allPosts: BlogPost[], locale: BlogLocale, now = new Date()): ScheduledPost[] {
+  const ordered = schedulePosts(allPosts.filter((p) => p.locale === locale), locale);
+  const initialCount = getInitialPublishCount(locale);
+  return ordered.filter((p, idx) => idx < initialCount || p.publishAt.getTime() <= now.getTime());
+}
+
+export function getScheduledPostBySlugBurst(
+  posts: BlogPost[],
+  slug: string,
+  locale: BlogLocale,
+  now = new Date()
+):
+  | { post: ScheduledPost; isPublished: boolean }
+  | null {
+  const ordered = schedulePosts(posts.filter((p) => p.locale === locale), locale);
+  const matchIdx = ordered.findIndex((p) => p.slug === slug);
+  if (matchIdx === -1) return null;
+  const post = ordered[matchIdx];
+  const initialCount = getInitialPublishCount(locale);
+  const isPublished = matchIdx < initialCount || post.publishAt.getTime() <= now.getTime();
+  return { post, isPublished };
+}

@@ -194,8 +194,9 @@ export const BLOG_POSTS: BlogPost[] = [
       <p>WordPress : 340€ à 2 100€/an (maintenance 290€ à 1 800€ + domaine et hébergement 50€ à 300€). Statique : 10€ à 50€ par an (domaine uniquement, hébergement gratuit type Netlify). Maintenance : zéro euro (aucune mise à jour nécessaire). Total : 10€ à 50€ par an.</p>
       <h3>Est‑ce que je possède mon site après paiement ?</h3>
       <p>SaaS (Wix, Squarespace) : non, vous louez. Si vous arrêtez l’abonnement, tout disparaît. Freelance ou agence : normalement oui, mais vérifiez dans le devis que le code source vous est remis et que le domaine est à votre nom. Nos sites : oui, propriété totale. Code source remis sur GitHub, domaine à votre nom.</p>
-      <h3>WordPress ou site statique : lequel choisir ?</h3>
+      <h3>WordPress ou site statique : lequel choisir ?</h3>
       <p>Statique si vous voulez 0 maintenance, vitesse et sécurité. WordPress si blog très actif/e‑commerce complexe et si vous acceptez la maintenance. Pour 95 % des TPE (vitrine), statique est plus rentable sur 3 ans.</p>
+      <p class="mt-2">Voir aussi : <a href="/frais-caches-site-internet">Frais cachés — ce qu’il faut anticiper après la livraison</a>.</p>
     `,
     tags: [
       "coût site vitrine 2025",
@@ -317,6 +318,7 @@ export const BLOG_POSTS: BlogPost[] = [
       <p>1h de modifications/mois (cumulable 3 mois), optimisations ponctuelles, monitoring, support prioritaire, tarifs préférentiels.</p>
       <h3>Abonnement ou achat comptant ?</h3>
       <p>Achat si vous voulez posséder à vie (statique = idéal). Abonnement si vous acceptez de ne pas posséder et déléguer totalement — plus cher sur 3 ans.</p>
+      <p class="mt-2">Voir aussi : <a href="/cout-site-vitrine-2025">Guide des vrais prix 2025</a> pour comparer les budgets et scénarios.</p>
     `,
     tags: [
       "frais cachés site internet",
