@@ -73,4 +73,4 @@ Voir [CODE_OF_CONDUCT.md](./CODE_OF_CONDUCT.md).
 
 ## Contact
 
-Questions: contact@smarterlogicweb.com
+Questions: admin@smarterlogicweb.com

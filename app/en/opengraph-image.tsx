@@ -7,7 +7,7 @@ export const size = {
 };
 export const contentType = "image/png";
 
-export default function OpengraphImage() {
+export default function OpengraphImageEN() {
   return new ImageResponse(
     (
       <div
@@ -47,11 +47,11 @@ export default function OpengraphImage() {
             letterSpacing: -1.5,
           }}
         >
-          Votre site web, enfin simple et performant.
+          Your website, finally simple and fast.
         </h1>
 
-        <p style={{ fontSize: 28, opacity: 0.8, maxWidth: 960 }}>
-          La qualité qui se mesure : vitesse, sécurité, résultats.
+        <p style={{ fontSize: 28, opacity: 0.9, maxWidth: 960 }}>
+          Quality you can measure: speed, security, results.
         </p>
       </div>
     ),

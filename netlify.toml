@@ -63,6 +63,27 @@
   [headers.values]
     Cache-Control = "no-store, must-revalidate"
 
+# Dynamic icon routes (Next.js app routes)
+[[headers]]
+  for = "/icon"
+  [headers.values]
+    Cache-Control = "no-store, must-revalidate"
+
+[[headers]]
+  for = "/icon-192"
+  [headers.values]
+    Cache-Control = "no-store, must-revalidate"
+
+[[headers]]
+  for = "/icon-512"
+  [headers.values]
+    Cache-Control = "no-store, must-revalidate"
+
+[[headers]]
+  for = "/apple-touch-icon"
+  [headers.values]
+    Cache-Control = "no-store, must-revalidate"
+
 # Helpful redirects to App Router metadata routes
 [[redirects]]
   from = "/sitemap.xml"

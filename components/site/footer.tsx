@@ -72,8 +72,8 @@ export function Footer() {
             </Link>
             <p className="mt-4 max-w-md text-sm text-muted-foreground">
               {isEn
-                ? "A logical and human online presence. Simplicity, performance and high standards to serve your goals."
-                : "Une présence en ligne logique et humaine. Simplicité, performance et exigence au service de vos objectifs."}
+                ? "Quality you can measure: speed, security, results."
+                : "La qualité qui se mesure : vitesse, sécurité, résultats."}
             </p>
             {/* Google Reviews badge */}
             <div className="mt-4">

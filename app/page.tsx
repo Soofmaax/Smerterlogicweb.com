@@ -23,7 +23,7 @@ import { Guarantee } from "@/components/site/guarantee";
 export const metadata = {
   title: "Votre site web, enfin simple et performant.",
   description:
-    "Je conçois et développe des sites web sur-mesure pour entrepreneurs et associations. Présence en ligne professionnelle, sans complexité.",
+    "La qualité qui se mesure : vitesse, sécurité, résultats. Je conçois et développe des sites web sur-mesure pour entrepreneurs et associations. Présence en ligne professionnelle, sans complexité.",
   alternates: {
     canonical: "/",
     languages: {
@@ -35,7 +35,7 @@ export const metadata = {
     url: "https://smarterlogicweb.com/",
     title: "Votre site web, enfin simple et performant. — smarterlogicweb.com",
     description:
-      "Sites web sur-mesure pour entrepreneurs et associations. Simple, performant, sans complexité — je m’occupe du reste.",
+      "La qualité qui se mesure : vitesse, sécurité, résultats. Sites web sur-mesure pour entrepreneurs et associations. Simple, performant, sans complexité — je m’occupe du reste.",
   },
 };
 

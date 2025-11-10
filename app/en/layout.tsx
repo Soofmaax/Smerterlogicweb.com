@@ -30,7 +30,7 @@ export const metadata: Metadata = {
     template: "%s — smarterlogicweb.com",
   },
   description:
-    "Custom websites for entrepreneurs and nonprofits. Simple, fast, no complexity — I handle the rest.",
+    "Quality you can measure: speed, security, results. Custom websites for entrepreneurs and nonprofits. Simple, fast, no complexity — I handle the rest.",
   keywords: [
     "front‑end developer",
     "showcase website",
@@ -46,13 +46,11 @@ export const metadata: Metadata = {
   },
   icons: {
     icon: [
-      { url: "/favicon.ico?v=5" },
-      { url: "/favicon-32x32.png?v=5", sizes: "32x32", type: "image/png" },
-      { url: "/favicon-16x16.png?v=5", sizes: "16x16", type: "image/png" },
-      { url: "/logo.svg?v=5", type: "image/svg+xml" },
+      { url: "/icon", sizes: "32x32", type: "image/png" },
+      { url: "/logo.svg", type: "image/svg+xml" },
     ],
-    apple: "/apple-touch-icon.png?v=5",
-    shortcut: ["/favicon.ico?v=5"],
+    apple: "/apple-touch-icon",
+    shortcut: ["/icon"],
   },
   manifest: "/manifest.webmanifest?v=5",
   openGraph: {
@@ -62,14 +60,14 @@ export const metadata: Metadata = {
     url: "https://smarterlogicweb.com/en",
     title: "smarterlogicweb.com — Front‑end developer",
     description:
-      "Custom websites for entrepreneurs and nonprofits. Simple, fast, no complexity — I handle the rest.",
+      "Quality you can measure: speed, security, results. Custom websites for entrepreneurs and nonprofits. Simple, fast, no complexity — I handle the rest.",
     images: ["/opengraph-image"],
   },
   twitter: {
     card: "summary_large_image",
     title: "smarterlogicweb.com — Front‑end developer",
     description:
-      "Custom websites for entrepreneurs and nonprofits. Simple, fast, no complexity — I handle the rest.",
+      "Quality you can measure: speed, security, results. Custom websites for entrepreneurs and nonprofits. Simple, fast, no complexity — I handle the rest.",
     images: ["/opengraph-image"],
   },
   robots: {
