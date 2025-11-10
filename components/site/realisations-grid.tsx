@@ -14,14 +14,14 @@ export function RealisationsGrid() {
         <p className="mt-2 text-foreground/70">Quelques exemples représentatifs par secteur (captures à venir).</p>
       </div>
 
-      <div className="mt-6 grid gap-4 sm:grid-cols-2 md:grid-cols-3">
+      <div className="mt-6 grid items-stretch gap-4 sm:grid-cols-2 md:grid-cols-3">
         {sitesFR.map((it, i) => {
           const isSoon = it.status === "soon" || (!it.href && it.status !== "live");
           const isDemo = it.status === "demo";
           return (
             <article
               key={`${it.id}-${i}`}
-              className={`relative rounded-2xl border bg-card p-3 ${isSoon ? "opacity-95" : ""}`}
+              className={`relative rounded-2xl border bg-card p-3 h-full flex flex-col ${isSoon ? "opacity-95" : ""}`}
             >
               {/* Status badge */}
               <div className="pointer-events-none absolute right-3 top-3">
@@ -49,7 +49,7 @@ export function RealisationsGrid() {
                 <div className="font-heading text-sm font-semibold">{it.title}</div>
                 <div className="text-xs text-muted-foreground">{it.subtitle}</div>
               </div>
-              <div className="mt-3">
+              <div className="mt-auto pt-3">
                 {!isSoon && it.href ? (
                   <a href={it.href} target="_blank" rel="noopener noreferrer" className="link-underline link-underline-strong text-sm text-primary">
                     {isDemo ? "Voir la démo" : "Voir le site"}

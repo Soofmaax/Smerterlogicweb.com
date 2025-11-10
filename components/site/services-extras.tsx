@@ -33,7 +33,7 @@ export function ServicesExtras() {
         <p className="mt-2 text-foreground/70">Des options utiles pour aller plus loin, quand vous en avez besoin.</p>
       </div>
 
-      <div className="grid gap-4 sm:grid-cols-2 md:grid-cols-4">
+      <div className="grid items-stretch gap-4 sm:grid-cols-2 md:grid-cols-4">
         {extras.map((e) => (
           <FlipCard key={e.title} extra={e} />
         ))}
@@ -51,7 +51,7 @@ function FlipCard({ extra }: { extra: Extra }) {
       onMouseLeave={() => setFlipped(false)}
       onClick={() => setFlipped((f) => !f)}
     >
-      <div className="flip-inner rounded-[20px] card-elevated border bg-card p-5" data-flipped={flipped}>
+      <div className="flip-inner rounded-[20px] card-elevated border bg-card p-5 h-full flex flex-col" data-flipped={flipped}>
         <div className="flip-face">
           <div className="flex items-center gap-2">
             <span className="inline-flex h-9 w-9 items-center justify-center rounded-full bg-accent">

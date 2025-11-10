@@ -24,7 +24,7 @@ export function TestimonialsSimple() {
       </div>
 
       <Reveal className="reveal-fade-up">
-        <div className="mt-6 grid gap-4 md:grid-cols-3">
+        <div className="mt-6 grid items-stretch gap-4 md:grid-cols-3">
           {cases.map((c, i) => {
             const after = extractAfter(c.testimonialFull) ||
               (c.kpis && c.kpis.length
@@ -34,7 +34,7 @@ export function TestimonialsSimple() {
             const role = c.title || "";
             const photo = c.clientPhoto || `https://i.pravatar.cc/120?u=${c.id}`;
             return (
-              <figure key={c.id} className="rounded-2xl border bg-card p-5" style={{ transitionDelay: `${i * 150}ms` }}>
+              <figure key={c.id} className="rounded-2xl border bg-card p-5 h-full flex flex-col" style={{ transitionDelay: `${i * 150}ms` }}>
                 {after && (
                   <div className="mb-2 text-2xl font-extrabold text-emerald-600">
                     {after}
@@ -43,7 +43,7 @@ export function TestimonialsSimple() {
                 <blockquote className="text-foreground/90">
                   {c.testimonialFull}
                 </blockquote>
-                <figcaption className="mt-4 flex items-center gap-3">
+                <figcaption className="mt-auto pt-4 flex items-center gap-3">
                   <img
                     src={photo}
                     alt={author}
