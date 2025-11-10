@@ -21,13 +21,13 @@ export default function Icon() {
         <span
           style={{
             color: "#ffffff",
-            fontSize: 20,
+            fontSize: 18,
             fontWeight: 800,
             fontFamily: "Inter, Arial, sans-serif",
             letterSpacing: -1,
           }}
         >
-          s
+          SLW
         </span>
       </div>
     ),
