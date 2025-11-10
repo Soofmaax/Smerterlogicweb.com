@@ -83,17 +83,17 @@ function OfferCard({
 
         <div className="mt-2 flex flex-wrap gap-2">
           {/* Secteurs (badges) */}
-          {name === "Site Vitrine" ? (
+          {name === "Essentiel" ? (
             <>
               <span className="inline-flex items-center rounded-full bg-blue-50 px-2.5 py-0.5 text-[10px] font-semibold text-blue-700 ring-1 ring-blue-200 dark:bg-blue-400/10 dark:text-blue-300">Artisanat</span>
               <span className="inline-flex items-center rounded-full bg-purple-50 px-2.5 py-0.5 text-[10px] font-semibold text-purple-700 ring-1 ring-purple-200 dark:bg-purple-400/10 dark:text-purple-300">Commerces</span>
               <span className="inline-flex items-center rounded-full bg-sky-50 px-2.5 py-0.5 text-[10px] font-semibold text-sky-700 ring-1 ring-sky-200 dark:bg-sky-400/10 dark:text-sky-300">Indépendants</span>
             </>
-          ) : name === "Site Business" ? (
+          ) : name === "Professionnel" ? (
             <>
-              <span className="inline-flex items-center rounded-full bg-blue-50 px-2.5 py-0.5 text-[10px] font-semibold text-blue-700 ring-1 ring-blue-200 dark:bg-blue-400/10 dark:text-blue-300">Bâtiment</span>
-              <span className="inline-flex items-center rounded-full bg-rose-50 px-2.5 py-0.5 text-[10px] font-semibold text-rose-700 ring-1 ring-rose-200 dark:bg-rose-400/10 dark:text-rose-300">Restauration</span>
-              <span className="inline-flex items-center rounded-full bg-amber-50 px-2.5 py-0.5 text-[10px] font-semibold text-amber-700 ring-1 ring-amber-200 dark:bg-amber-400/10 dark:text-amber-300">Services</span>
+              <span className="inline-flex items-center rounded-full bg-blue-50 px-2.5 py-0.5 text-[10px] font-semibold text-blue-700 ring-1 ring-blue-200 dark:bg-blue-400/10 dark:text-blue-300">Cabinets</span>
+              <span className="inline-flex items-center rounded-full bg-rose-50 px-2.5 py-0.5 text-[10px] font-semibold text-rose-700 ring-1 ring-rose-200 dark:bg-rose-400/10 dark:text-rose-300">Consultants</span>
+              <span className="inline-flex items-center rounded-full bg-amber-50 px-2.5 py-0.5 text-[10px] font-semibold text-amber-700 ring-1 ring-amber-200 dark:bg-amber-400/10 dark:text-amber-300">PME</span>
             </>
           ) : (
             <>

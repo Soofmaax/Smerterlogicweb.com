@@ -17,7 +17,7 @@ export type OfferFR = {
 export const OFFERS_FR: OfferFR[] = [
   {
     name: "Essentiel",
-    price: "1 490€",
+    price: "1 490€ TTC",
     recommended: false,
     forWho: "TPE, professions libérales en démarrage, budget maîtrisé",
     cases: [
@@ -40,7 +40,7 @@ export const OFFERS_FR: OfferFR[] = [
   },
   {
     name: "Professionnel",
-    price: "2 490€",
+    price: "2 490€ TTC",
     recommended: true,
     forWho: "Cabinets établis, TPE/PME qui veulent se différencier et attirer des clients",
     cases: [
@@ -65,7 +65,7 @@ export const OFFERS_FR: OfferFR[] = [
   },
   {
     name: "Premium",
-    price: "4 990€",
+    price: "4 990€ TTC",
     recommended: false,
     forWho: "Réseaux de cabinets, multi‑sites ou multilingues, projets complexes",
     cases: [
