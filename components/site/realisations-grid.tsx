@@ -2,22 +2,9 @@
 
 import * as React from "react";
 import Image from "next/image";
+import { sitesFR } from "@/data/sites";
 
-type Item = {
-  title: string;
-  subtitle: string;
-  href?: string;
-  img?: string;
-  status?: "live" | "soon";
-  domain?: string;
-};
-
-const items: Item[] = [
-  { title: "BMS Ventouse", subtitle: "bmsventouse.fr", img: "", href: "https://bmsventouse.fr", status: "live", domain: "bmsventouse.fr" },
-  { title: "Plomberie Martin", subtitle: "Plombier à Paris", img: "", href: "", status: "soon" },
-  { title: "Boulangerie Les Saveurs", subtitle: "Boulangerie à Lyon", img: "", href: "", status: "soon" },
-  { title: "Menuiserie Dubois", subtitle: "Menuiserie à Nantes", img: "", href: "", status: "soon" },
-];
+type Status = "live" | "soon" | "demo";
 
 export function RealisationsGrid() {
   return (
@@ -28,17 +15,24 @@ export function RealisationsGrid() {
       </div>
 
       <div className="mt-6 grid gap-4 sm:grid-cols-2 md:grid-cols-3">
-        {items.map((it, i) => {
-          const isSoon = it.status === "soon" || !it.href;
+        {sitesFR.map((it, i) => {
+          const isSoon = it.status === "soon" || (!it.href && it.status !== "live");
+          const isDemo = it.status === "demo";
           return (
             <article
-              key={`${it.title}-${i}`}
+              key={`${it.id}-${i}`}
               className={`relative rounded-2xl border bg-card p-3 ${isSoon ? "opacity-95" : ""}`}
             >
               {/* Status badge */}
               <div className="pointer-events-none absolute right-3 top-3">
-                <span className={`inline-flex rounded-full px-2 py-0.5 text-xs ${isSoon ? "bg-amber-100 text-amber-700 dark:bg-amber-400/20 dark:text-amber-300" : "bg-emerald-100 text-emerald-700 dark:bg-emerald-400/20 dark:text-emerald-300"}`}>
-                  {isSoon ? "En cours" : "En ligne"}
+                <span className={`inline-flex rounded-full px-2 py-0.5 text-xs ${
+                  isDemo
+                    ? "bg-blue-100 text-blue-700 dark:bg-blue-400/20 dark:text-blue-300"
+                    : isSoon
+                      ? "bg-amber-100 text-amber-700 dark:bg-amber-400/20 dark:text-amber-300"
+                      : "bg-emerald-100 text-emerald-700 dark:bg-emerald-400/20 dark:text-emerald-300"
+                }`}>
+                  {isDemo ? "Démo" : isSoon ? "En cours" : "En ligne"}
                 </span>
               </div>
 
@@ -47,7 +41,7 @@ export function RealisationsGrid() {
                   <Image src={it.img} alt={it.title} fill sizes="(max-width:768px) 100vw, 33vw" style={{ objectFit: "cover" }} />
                 ) : (
                   <div className="absolute inset-0 grid place-items-center text-xs text-muted-foreground">
-                    {isSoon ? "Bientôt disponible" : "Aperçu"}
+                    {isSoon ? "Bientôt disponible" : isDemo ? "Aperçu démo" : "Aperçu"}
                   </div>
                 )}
               </div>
@@ -58,7 +52,7 @@ export function RealisationsGrid() {
               <div className="mt-3">
                 {!isSoon && it.href ? (
                   <a href={it.href} target="_blank" rel="noopener noreferrer" className="link-underline link-underline-strong text-sm text-primary">
-                    Voir le site
+                    {isDemo ? "Voir la démo" : "Voir le site"}
                   </a>
                 ) : (
                   <span className="text-xs text-muted-foreground">
