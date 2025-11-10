@@ -99,6 +99,7 @@ function HorizontalCarousel({
   const [inView, setInView] = React.useState(true);
   const [announce, setAnnounce] = React.useState("");
   const [progress, setProgress] = React.useState(0);
+  const [rowH, setRowH] = React.useState(0);
 
   const duration = Math.max(2000, intervalMs || 4000);
 
@@ -131,8 +132,20 @@ function HorizontalCarousel({
 
   // sync on resize
   React.useEffect(() => {
-    const onResize = () => scrollToIndex(index);
+    const measure = () => {
+      const vp = viewportRef.current;
+      if (!vp) return;
+      const children = Array.from(vp.children) as HTMLElement[];
+      const max = children.reduce((m, el) => Math.max(m, el.offsetHeight), 0);
+      if (max > 0) setRowH(max);
+    };
+    const onResize = () => {
+      scrollToIndex(index);
+      measure();
+    };
     window.addEventListener("resize", onResize);
+    // initial measure
+    measure();
     return () => window.removeEventListener("resize", onResize);
   }, [index, scrollToIndex]);
 
@@ -210,6 +223,7 @@ function HorizontalCarousel({
         const center = vp.scrollLeft + vp.clientWidth / 2;
         let best = 0;
         let bestDist = Number.POSITIVE_INFINITY;
+        let maxH = 0;
         children.forEach((child, i) => {
           const mid = child.offsetLeft + child.offsetWidth / 2;
           const d = Math.abs(mid - center);
@@ -217,8 +231,10 @@ function HorizontalCarousel({
             bestDist = d;
             best = i;
           }
+          maxH = Math.max(maxH, child.offsetHeight);
         });
         setIndex(best);
+        if (maxH > 0) setRowH(maxH);
         ticking = false;
       });
     };
@@ -385,7 +401,7 @@ function HorizontalCarousel({
                   : "scale-[0.96] opacity-80"
                 : ""
             )}
-            style={{ willChange: "transform" }}
+            style={{ willChange: "transform", minHeight: rowH ? `${rowH}px` : undefined }}
             aria-label={labels.slideAria(i, total)}
             onClick={() => {
               setIndex(i);

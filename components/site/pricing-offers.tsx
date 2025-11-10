@@ -33,7 +33,7 @@ export function PricingOffers() {
       </p>
 
       {/* Grille statique — lisibilité optimale, sans scroll horizontal */}
-      <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+      <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3 items-stretch">
         {slides}
       </div>
 
@@ -50,7 +50,7 @@ function PlanCard({ plan }: { plan: Plan }) {
   return (
     <article
       className={cn(
-        "relative rounded-[24px] border bg-card p-5 transition card-elevated hover:shadow-lg min-h-[22rem] flex flex-col",
+        "relative rounded-[24px] border bg-card p-5 transition card-elevated hover:shadow-lg min-h-[22rem] h-full flex flex-col",
         plan.recommended ? "ring-2 ring-amber-400 border-amber-300" : ""
       )}
     >

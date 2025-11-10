@@ -59,7 +59,7 @@ function OfferCard({
   return (
     <article
       className={cn(
-        "relative rounded-[24px] border bg-card p-6 transition card-elevated hover:shadow-lg min-h-[24rem] flex flex-col",
+        "relative rounded-[24px] border bg-card p-6 transition card-elevated hover:shadow-lg min-h-[24rem] h-full flex flex-col",
         recommended ? "ring-2 ring-amber-400 border-amber-300" : ""
       )}
     >
