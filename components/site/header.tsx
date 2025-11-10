@@ -41,7 +41,7 @@ export function Header() {
               item3: "Ongoing support",
             },
             cta: "View pricing and examples",
-            baseline: "Your website that works for you 24/7: visible on Google, fast, and converts visitors into customers",
+            baseline: "Quality you can measure: speed, security, results.",
             lang: "FR",
           }
         : {
@@ -64,7 +64,7 @@ export function Header() {
               item3: "Accompagnement continu",
             },
             cta: "Voir les tarifs et exemples",
-            baseline: "Votre site qui travaille pour vous 24h/24 : visible sur Google, rapide, et qui transforme vos visiteurs en clients",
+            baseline: "La qualité qui se mesure : vitesse, sécurité, résultats.",
             lang: "EN",
           },
     [isEn]

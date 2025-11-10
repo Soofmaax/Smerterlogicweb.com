@@ -17,7 +17,7 @@ import { TechnologiesGridEN } from "@/components/site/technologies-grid-en";
 export const metadata = {
   title: "Your website, finally simple and fast.",
   description:
-    "I design and build custom websites for entrepreneurs and nonprofits. A professional online presence, without complexity.",
+    "Quality you can measure: speed, security, results. I design and build custom websites for entrepreneurs and nonprofits. A professional online presence, without complexity.",
   alternates: {
     canonical: "/en",
     languages: {
@@ -29,7 +29,7 @@ export const metadata = {
     url: "https://smarterlogicweb.com/en",
     title: "Your website, finally simple and fast. — smarterlogicweb.com",
     description:
-      "Custom websites for entrepreneurs and nonprofits. Simple, fast, no complexity — I handle the rest.",
+      "Quality you can measure: speed, security, results. Custom websites for entrepreneurs and nonprofits. Simple, fast, no complexity — I handle the rest.",
   },
 };
 

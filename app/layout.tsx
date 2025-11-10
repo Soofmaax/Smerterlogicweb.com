@@ -39,7 +39,7 @@ export const metadata: Metadata = {
     template: "%s — smarterlogicweb.com",
   },
   description:
-    "Sites web sur-mesure pour entrepreneurs et associations. Simple, performant, sans complexité — je m’occupe du reste.",
+    "La qualité qui se mesure : vitesse, sécurité, résultats. Sites web sur-mesure pour entrepreneurs et associations. Simple, performant, sans complexité — je m’occupe du reste.",
   keywords: [
     "développeuse front-end",
     "site vitrine",
@@ -71,14 +71,14 @@ export const metadata: Metadata = {
     url: "https://smarterlogicweb.com",
     title: "smarterlogicweb.com — Développeuse front-end",
     description:
-      "Sites web sur-mesure pour entrepreneurs et associations. Simple, performant, sans complexité — je m’occupe du reste.",
+      "La qualité qui se mesure : vitesse, sécurité, résultats. Sites web sur-mesure pour entrepreneurs et associations. Simple, performant, sans complexité — je m’occupe du reste.",
     images: ["/opengraph-image"],
   },
   twitter: {
     card: "summary_large_image",
     title: "smarterlogicweb.com — Développeuse front-end",
     description:
-      "Sites web sur-mesure pour entrepreneurs et associations. Simple, performant, sans complexité — je m’occupe du reste.",
+      "La qualité qui se mesure : vitesse, sécurité, résultats. Sites web sur-mesure pour entrepreneurs et associations. Simple, performant, sans complexité — je m’occupe du reste.",
     images: ["/opengraph-image"],
   },
   robots: {

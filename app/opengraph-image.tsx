@@ -50,7 +50,7 @@ export default function OpengraphImage() {
         </h1>
 
         <p style={{ fontSize: 28, opacity: 0.8, maxWidth: 960 }}>
-          Sites web sur‑mesure pour entrepreneurs et associations. Simplicité, performance, exigence.
+          La qualité qui se mesure : vitesse, sécurité, résultats.
         </p>
       </div>
     ),

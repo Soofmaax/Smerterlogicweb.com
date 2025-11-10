@@ -30,7 +30,7 @@ export const metadata: Metadata = {
     template: "%s — smarterlogicweb.com",
   },
   description:
-    "Custom websites for entrepreneurs and nonprofits. Simple, fast, no complexity — I handle the rest.",
+    "Quality you can measure: speed, security, results. Custom websites for entrepreneurs and nonprofits. Simple, fast, no complexity — I handle the rest.",
   keywords: [
     "front‑end developer",
     "showcase website",
@@ -62,14 +62,14 @@ export const metadata: Metadata = {
     url: "https://smarterlogicweb.com/en",
     title: "smarterlogicweb.com — Front‑end developer",
     description:
-      "Custom websites for entrepreneurs and nonprofits. Simple, fast, no complexity — I handle the rest.",
+      "Quality you can measure: speed, security, results. Custom websites for entrepreneurs and nonprofits. Simple, fast, no complexity — I handle the rest.",
     images: ["/opengraph-image"],
   },
   twitter: {
     card: "summary_large_image",
     title: "smarterlogicweb.com — Front‑end developer",
     description:
-      "Custom websites for entrepreneurs and nonprofits. Simple, fast, no complexity — I handle the rest.",
+      "Quality you can measure: speed, security, results. Custom websites for entrepreneurs and nonprofits. Simple, fast, no complexity — I handle the rest.",
     images: ["/opengraph-image"],
   },
   robots: {

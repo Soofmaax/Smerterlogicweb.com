@@ -5,7 +5,7 @@ export default function manifest(): MetadataRoute.Manifest {
     name: "smarterlogicweb.com",
     short_name: "smarterlogicweb",
     description:
-      "Sites web sur-mesure pour entrepreneurs et associations. Simple, performant, sans complexité — je m’occupe du reste.",
+      "La qualité qui se mesure : vitesse, sécurité, résultats. Sites web sur-mesure pour entrepreneurs et associations. Simple, performant, sans complexité — je m’occupe du reste.",
     start_url: "/",
     scope: "/",
     display: "standalone",
