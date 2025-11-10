@@ -2,6 +2,7 @@ export const runtime = "nodejs";
 
 import { checkRateLimit } from "@/lib/rate-limit";
 import { getClientIpFromHeaders, isValidEmail, readJsonWithLimit } from "@/lib/security";
+import { createClient } from "@supabase/supabase-js";
 
 function json(data: any, init?: ResponseInit) {
   return new Response(JSON.stringify(data), {
@@ -64,6 +65,26 @@ export async function POST(req: Request) {
     ua: req.headers.get("user-agent") || null,
     path: req.headers.get("x-pathname") || null,
   };
+
+  // Optional: persist lead in Supabase (server-side only)
+  const supabaseUrl = process.env.SUPABASE_URL;
+  const supabaseServiceRole = process.env.SUPABASE_SERVICE_ROLE;
+  if (supabaseUrl && supabaseServiceRole) {
+    try {
+      const supabase = createClient(supabaseUrl, supabaseServiceRole, { auth: { persistSession: false } });
+      await supabase.from("leads").insert([
+        {
+          email: payload.email,
+          ua: payload.ua,
+          path: payload.path,
+          ip: payload.ip,
+          ts: payload.ts,
+        },
+      ]);
+    } catch {
+      // Swallow DB errors to avoid blocking UX
+    }
+  }
 
   // Option 1: webhook (Zapier/Make/Sheet monkey)
   const webhook = process.env.SUBSCRIBE_WEBHOOK || "";
