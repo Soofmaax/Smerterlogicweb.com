@@ -1,7 +1,7 @@
 <div align="center">
   <img src="./public/logo.svg" alt="SmarterLogicWeb" height="72" />
   <h1>🚀 SmarterLogicWeb — Site Vitrine Next.js 14 (FR/EN)</h1>
-  <p><strong>Solutions web intelligentes, rapides et orientées conversion.</strong></p>
+  <p><strong>La qualité qui se mesure : vitesse, sécurité, résultats.</strong></p>
 
   <a href="https://github.com/Soofmaax/Smerterlogicweb.com/actions/workflows/ci.yml">
     <img alt="CI" src="https://github.com/Soofmaax/Smerterlogicweb.com/actions/workflows/ci.yml/badge.svg" />
