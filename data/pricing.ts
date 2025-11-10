@@ -1,6 +1,8 @@
 /**
  * Centralised commercial and pricing data (FR)
  * Update values here to reflect your strategy. Components import from this file.
+ *
+ * 2025 Grid — Static sites for professions libérales (avocats, experts-comptables, architectes…)
  */
 
 export type OfferFR = {
@@ -15,68 +17,78 @@ export type OfferFR = {
 
 export const OFFERS_FR: OfferFR[] = [
   {
-    name: "Site Vitrine",
-    price: "1800€",
+    name: "Essentiel",
+    price: "1 490€ TTC (paiement unique)",
     recommended: false,
-    forWho:
-      "Idéal pour artisans qui débutent en ligne, commerces locaux, indépendants.",
+    forWho: "TPE, professions libérales en démarrage, budget maîtrisé",
     cases: [
-      "Plombier qui veut être trouvé sur Google",
-      "Boulangerie qui veut montrer ses produits",
-      "Menuisier qui veut présenter ses réalisations",
+      "Cabinet d’avocats en démarrage",
+      "Expert‑comptable local",
+      "Architecte indépendant",
     ],
     includes: [
-      "3 à 5 pages claires (Accueil, Services, Réalisations, À propos, Contact)",
-      "Formulaire pour recevoir des demandes de devis",
-      "Visible sur Google dès le lancement",
-      "Rapide sur téléphone et ordinateur",
-      "Adresse et horaires d'ouverture bien visibles",
+      "Site statique 3 à 5 pages (Accueil, Services, À propos, Contact + mentions légales)",
+      "Template semi‑personnalisé (couleurs, logo, responsive)",
+      "Contenu structuré (rédaction guidée, optimisation basique)",
+      "SEO technique de base (title, meta, sitemap, Hn, images)",
+      "Formulaire de contact sécurisé, Google Maps, SSL",
+      "Hébergement Netlify gratuit à vie",
+      "Nom de domaine offert 1 an (.fr ou .com) + configuration DNS",
+      "Livraison clé en main + documentation PDF",
+      "Support email 1 mois",
+      "Propriété totale (code source remis, domaine à votre nom, aucune dépendance)",
+      "Délai: 2–3 semaines",
     ],
-    quote:
-      "“Le Site Vitrine nous a permis d’être contactés toutes les semaines.”",
   },
   {
-    name: "Site Business",
-    price: "3200€",
+    name: "Professionnel",
+    price: "2 490€ TTC (paiement unique)",
     recommended: true,
     forWho:
-      "Pour artisans établis, commerces avec galerie photos, entreprises qui veulent générer plus de contacts.",
+      "Cabinets établis, TPE/PME qui veulent se différencier et attirer des clients via leur site",
     cases: [
-      "Électricien avec 20 ans d'expérience et beaucoup de réalisations",
-      "Restaurant qui veut afficher son menu",
-      "Entreprise du bâtiment qui gère plusieurs demandes par semaine",
+      "Cabinet multi‑expertises (pages services détaillées)",
+      "Consultant qui veut capter des leads qualifiés",
     ],
     includes: [
-      "5 à 10 pages",
-      "Galerie photos illimitée et optimisée",
-      "Blog pour partager votre expertise",
-      "Espace actualités / promotions",
-      "Suivi des visiteurs (Analytics simplifié)",
-      "Optimisation avancée pour être premier sur Google",
+      "Site statique 5 à 8 pages",
+      "Design 100% sur‑mesure (maquettes Figma validées)",
+      "Rédaction complète incluse (SEO + recherche de mots‑clés)",
+      "SEO avancé (audit sémantique, longue traîne, maillage interne, Schema.org)",
+      "Intégrations pro: GA4 + Plausible, Search Console, Calendly, formulaire multi‑étapes",
+      "Performance garantie: PageSpeed ≥95 desktop, ≥90 mobile, <1,5s",
+      "Livraison clé en main + tutoriel vidéo Analytics + documentation",
+      "Support email prioritaire 3 mois",
+      "Propriété + sécurité: code sur GitHub privé, sauvegardes automatiques quotidiennes",
+      "Délai: 4–6 semaines",
     ],
     quote:
-      "“Nous avons multiplié les demandes de devis grâce à la galerie et au blog.”",
+      "Exemple: bmsventouse.fr — en ligne depuis 07/2025, page 1 Google sur requêtes cibles, leads France/Belgique/USA.",
   },
   {
-    name: "Site Premium",
-    price: "5500€",
+    name: "Premium",
+    price: "4 990€ TTC (paiement unique)",
     recommended: false,
-    forWho: "TPE/PME qui veulent un outil de vente complet et automatisé.",
+    forWho:
+      "Réseaux de cabinets, sites complexes, projets multi‑sites ou multilingues",
     cases: [
-      "Entreprise avec plusieurs services",
-      "Artisan qui veut prendre des réservations en ligne",
-      "Commerce qui souhaite vendre en ligne",
+      "Cabinet international (FR/EN)",
+      "Réseau multi‑bureaux",
+      "Site haut de gamme à forte différenciation",
     ],
     includes: [
-      "Pages illimitées",
-      "Prise de rendez‑vous en ligne",
-      "Intégrations avancées (calendrier, CRM, facturation)",
-      "Espace client sécurisé",
-      "Multilingue si besoin",
-      "3 mois de suivi marketing inclus",
+      "Site statique 10 à 15 pages OU multilingue (FR/EN)",
+      "Design premium animé (micro‑interactions, direction artistique poussée)",
+      "Rédaction longue (jusqu’à 15 pages) + 5 articles SEO (1 500 mots)",
+      "Glossaire métier ou FAQ exhaustive; pages piliers",
+      "Stratégie SEO complète 6 mois (audit concurrentiel, planning éditorial, netlinking initial)",
+      "Intégrations avancées: CRM (Zoho/HubSpot/Salesforce), API externes, espace client, formulaires conditionnels, chatbot",
+      "Performance ultra‑optimisée: PageSpeed ≥98, CDN mondial, optimisation avancée",
+      "6 mois de Formule Évolution offerts (valeur 120€)",
+      "Livraison premium (présentation des performances 30 min) + guide PDF + vidéos",
+      "Support prioritaire téléphonique 6 mois",
+      "Délai: 8–12 semaines",
     ],
-    quote:
-      "“Un vrai gain de temps: les rendez‑vous et demandes sont automatisés.”",
   },
 ];
 
@@ -89,46 +101,46 @@ export type PlanFR = {
 
 export const PLANS_FR: PlanFR[] = [
   {
-    name: "Site Vitrine",
-    price: "À partir de 1 200€",
+    name: "Essentiel",
+    price: "1 490€ TTC (paiement unique)",
     features: [
-      "3 à 5 pages responsive",
-      "Design moderne adapté à votre charte",
-      "SEO on‑page complet",
-      "Formulaire de contact sécurisé",
-      "Google Maps + horaires",
-      "Score PageSpeed > 90",
-      "Hébergement + domaine 1 an offerts",
-      "Formation mise à jour contenu basique",
+      "Site statique 3–5 pages",
+      "Template semi‑personnalisé",
+      "SEO technique de base",
+      "Formulaire contact + Maps + SSL",
+      "Hébergement Netlify gratuit",
+      "Domaine offert 1 an",
+      "Livraison clé en main",
+      "Support email 1 mois",
     ],
   },
   {
-    name: "Site Business",
-    price: "À partir de 2 500€",
+    name: "Professionnel",
+    price: "2 490€ TTC (paiement unique)",
     recommended: true,
     features: [
-      "5 à 10 pages",
-      "Présentation de vos réalisations",
-      "Blog avec catégories",
-      "Espace actus / promotions",
-      "Suivi de vos visiteurs",
-      "Boutons qui incitent vos visiteurs à vous contacter",
+      "5–8 pages",
+      "Design 100% sur‑mesure",
+      "Rédaction complète incluse",
+      "SEO avancé (audit + longue traîne)",
+      "Intégrations pro (GA4, Plausible, Calendly)",
+      "Formulaire multi‑étapes",
+      "Performance garantie ≥95/≥90/<1,5s",
       "Support prioritaire 3 mois",
-      "Sauvegardes automatiques hebdomadaires",
     ],
   },
   {
-    name: "Site Premium",
-    price: "Sur devis, à partir de 4 500€",
+    name: "Premium",
+    price: "4 990€ TTC (paiement unique)",
     features: [
-      "Réservation / demande de devis en ligne",
-      "Espace client sécurisé (si besoin)",
-      "Intégrations API (CRM, calendrier…)",
-      "PWA si pertinent",
-      "Multilingue si besoin",
-      "Suivi positionnement SEO 3 mois",
-      "Maintenance et mises à jour annuelles incluses",
-      "Accompagnement marketing digital de base",
+      "10–15 pages ou multilingue (FR/EN)",
+      "Design premium + animations",
+      "Rédaction longue + 5 articles SEO",
+      "Stratégie SEO complète 6 mois",
+      "CRM + API + espace client + chatbot",
+      "PageSpeed ≥98 + CDN mondial",
+      "6 mois Formule Évolution offerts",
+      "Support téléphonique 6 mois",
     ],
   },
 ];
@@ -148,9 +160,9 @@ export const EXTRAS_FR: ExtraFR[] = [
     iconKey: "brush",
   },
   {
-    title: "Maintenance & hébergement",
-    price: "Dès 8€/mois",
-    desc: "Mises à jour, sauvegardes, corrections, hébergement performant en option.",
+    title: "Formule Évolution (optionnelle)",
+    price: "20€/mois",
+    desc: "Sans engagement. 1h de modifications/mois, support prioritaire, monitoring et tarifs préférentiels.",
     iconKey: "server",
   },
   {
@@ -168,8 +180,8 @@ export const EXTRAS_FR: ExtraFR[] = [
 ];
 
 // Shared commercial constants (FR)
-export const MAINTENANCE_MONTHLY_FROM_EUR = 8;
-export const AFTER_FIRST_YEAR_MAINTENANCE_MONTHLY_EUR = 20;
+export const MAINTENANCE_MONTHLY_FROM_EUR = 0; // Sites statiques: zéro maintenance technique obligatoire
+export const EVOLUTION_MONTHLY_EUR = 20; // Formule Évolution (optionnelle)
 export const URGENCY_SLOTS_LEFT_MONTH = 2;
 export const GUARANTEE_TEXT_FR =
-  "Garantie 1ère page Google sous 60 jours ou je continue gratuitement.";
+  "Performance garantie: Professionnel ≥95 (desktop) / ≥90 (mobile) et <1,5s; Premium ≥98 (desktop).";
