@@ -268,31 +268,24 @@ function HorizontalCarousel({
     const onWheel = (e: WheelEvent) => {
       const dx = e.deltaX;
       const dy = e.deltaY;
-      let handled = false;
 
-      if (Math.abs(dx) > Math.abs(dy) && Math.abs(dx) >= 10) {
-        handled = true;
-        if (!wheelLocked) {
-          wheelLocked = true;
-          if (dx > 0) next();
-          else prev();
-          setTimeout(() => {
-            wheelLocked = false;
-          }, 320);
-        }
-      } else if (Math.abs(dy) >= 36) {
-        handled = true;
-        if (!wheelLocked) {
-          wheelLocked = true;
-          if (dy > 0) next();
-          else prev();
-          setTimeout(() => {
-            wheelLocked = false;
-          }, 320);
-        }
+      // Only handle horizontal gestures. Let vertical scroll pass through
+      // so the user can scroll inside cards/content.
+      if (Math.abs(dx) <= Math.abs(dy) || Math.abs(dx) < 10) {
+        return; // do not block native vertical scroll
       }
 
-      if (handled) e.preventDefault();
+      if (!wheelLocked) {
+        wheelLocked = true;
+        if (dx > 0) next();
+        else prev();
+        setTimeout(() => {
+          wheelLocked = false;
+        }, 320);
+      }
+
+      // Prevent horizontal scrolling default to avoid awkward partial snaps
+      e.preventDefault();
     };
 
     vp.addEventListener("touchstart", onTouchStart, { passive: true });
@@ -389,11 +382,15 @@ function HorizontalCarousel({
               centerEmphasis
                 ? i === index
                   ? "scale-[1.02] opacity-100 z-10"
-                  : "scale-[0.96] opacity-80 blur-[1px] saturate-75"
+                  : "scale-[0.96] opacity-80"
                 : ""
             )}
             style={{ willChange: "transform" }}
             aria-label={labels.slideAria(i, total)}
+            onClick={() => {
+              setIndex(i);
+              scrollToIndex(i);
+            }}
           >
             {node}
           </div>

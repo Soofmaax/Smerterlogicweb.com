@@ -49,12 +49,11 @@ function PlanCard({ plan }: { plan: Plan }) {
   return (
     <article
       className={cn(
-        "group pricing-spin relative rounded-[24px] border bg-card p-5 transition duration-300 pricing-animated",
-        "hover:-translate-y-1 hover:shadow-lg card-elevated",
-        plan.recommended ? "ring-2 ring-amber-400 md:scale-[1.04] border-amber-300 shadow-xl" : ""
+        "relative rounded-[24px] border bg-card p-5 transition card-elevated hover:shadow-lg min-h-[22rem] flex flex-col",
+        plan.recommended ? "ring-2 ring-amber-400 border-amber-300" : ""
       )}
     >
-      <div className="spin-inner">
+      <div className="flex flex-col h-full">
         {/* Header: title + recommended pill aligned right */}
         <div className="flex items-center justify-between gap-2">
           <h3 className="font-heading text-lg font-semibold">{plan.name}</h3>
@@ -76,7 +75,7 @@ function PlanCard({ plan }: { plan: Plan }) {
           ))}
         </ul>
 
-        <div className="mt-5">
+        <div className="mt-auto pt-4">
           <BookingButton className="w-full h-11 md:h-12 text-base" label="Réserver mon audit gratuit (15 min)" />
         </div>
       </div>

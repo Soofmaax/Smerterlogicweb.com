@@ -59,11 +59,11 @@ function OfferCard({
   return (
     <article
       className={cn(
-        "pricing-spin relative rounded-[24px] border bg-card p-6 transition duration-300 card-elevated pricing-animated offer-lift",
-        recommended ? "ring-2 ring-amber-400 border-amber-300 shadow-xl md:scale-[1.02]" : ""
+        "relative rounded-[24px] border bg-card p-6 transition card-elevated hover:shadow-lg min-h-[24rem] flex flex-col",
+        recommended ? "ring-2 ring-amber-400 border-amber-300" : ""
       )}
     >
-      <div className="spin-inner">
+      <div className="flex flex-col h-full">
         {/* Titre + badge recommandé aligné à droite */}
         <div className="flex items-center justify-between gap-2">
           <h3 className="font-heading text-xl font-semibold">{name}</h3>
@@ -127,7 +127,7 @@ function OfferCard({
 
         {quote ? <p className="mt-4 text-sm italic text-foreground/70">{quote}</p> : null}
 
-        <div className="mt-5">
+        <div className="mt-auto pt-4">
           <BookingButton className="w-full h-11 text-base rounded-full" label="Réserver mon audit gratuit (15 min)" />
         </div>
       </div>
