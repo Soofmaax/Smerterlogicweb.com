@@ -112,7 +112,7 @@ export default function MetierPage({ params }: PageProps) {
             Autres métiers:{" "}
             {otherLinks.map((o, i) => (
               <React.Fragment key={o.slug}>
-                <Link className="link-underline" href={`/site-web/${o.slug}`}>{o.label}</Link>
+                <Link className="link-underline link-underline-strong" href={`/site-web/${o.slug}`}>{o.label}</Link>
                 {i < otherLinks.length - 1 ? " · " : ""}
               </React.Fragment>
             ))}

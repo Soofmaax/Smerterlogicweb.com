@@ -86,7 +86,7 @@ export default function TradePageEN({ params }: PageProps) {
             Other trades:{" "}
             {otherLinks.map((o, i) => (
               <React.Fragment key={o.slug}>
-                <Link className="link-underline" href={`/en/website/${o.slug}`}>{o.label}</Link>
+                <Link className="link-underline link-underline-strong" href={`/en/website/${o.slug}`}>{o.label}</Link>
                 {i < otherLinks.length - 1 ? " · " : ""}
               </React.Fragment>
             ))}

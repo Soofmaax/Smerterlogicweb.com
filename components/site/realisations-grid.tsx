@@ -57,7 +57,7 @@ export function RealisationsGrid() {
               </div>
               <div className="mt-3">
                 {!isSoon && it.href ? (
-                  <a href={it.href} target="_blank" rel="noopener noreferrer" className="link-underline text-sm text-primary">
+                  <a href={it.href} target="_blank" rel="noopener noreferrer" className="link-underline link-underline-strong text-sm text-primary">
                     Voir le site
                   </a>
                 ) : (
