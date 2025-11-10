@@ -38,7 +38,7 @@ jobs:
         run: npm install --no-save @cspell/dict-fr-fr @cspell/dict-en_us @cspell/dict-software-terms
 
       - name: Spell Check
-        uses: streetsidesoftware/cspell-action@v2
+        uses: streetsidesoftware/cspell-action@v8
         with:
           files: |
             **/*.{ts,tsx,js,jsx,md}
