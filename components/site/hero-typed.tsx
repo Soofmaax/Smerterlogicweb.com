@@ -205,7 +205,7 @@ export function HeroTyped() {
         <div ref={mockRef} className="rounded-[20px] border bg-card p-4 shadow-sm">
           {/* Browser frame */}
           <div className="flex items-center gap-1 pb-3">
-            <span className="h-2.5 w-2.5 rounded-full bg-red-400/60" />
+            <span className="h-2.5 w-2.5 rounded-full bg-sky-400/60" />
             <span className="h-2.5 w-2.5 rounded-full bg-amber-400/70" />
             <span className="h-2.5 w-2.5 rounded-full bg-green-400/70" />
             <div className="ml-3 h-5 flex-1 rounded bg-muted/60" />
