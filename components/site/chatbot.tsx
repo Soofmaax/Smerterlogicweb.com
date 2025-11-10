@@ -47,6 +47,7 @@ function QuickButton(props: React.ButtonHTMLAttributes<HTMLButtonElement>) {
 
 export function Chatbot() {
   const [open, setOpen] = React.useState(false);
+  const [bubbleVisible, setBubbleVisible] = React.useState(false); // bubble hidden until hesitation detected
   const [messages, setMessages] = React.useState<Message[]>([]);
   const [branch, setBranch] = React.useState<Branch>("home");
   const [input, setInput] = React.useState("");
@@ -120,14 +121,13 @@ export function Chatbot() {
   const goTarifs = React.useCallback(() => {
     setBranch("tarifs");
     track("chat_branch_tarifs");
-    push("bot", <>Trois formules : Vitrine (1800€), Business (3200€), Premium (5500€). Quelle activité exercez‑vous ?</>);
+    push("bot", <>Trois formules : Essentiel (1 490€ TTC), Professionnel (2 490€ TTC), Premium (4 990€ TTC). Quelle activité exercez‑vous</"b>);
     push(
       "bot",
-      <div className="mt-2 flex flex-wrap gap-2">
+     <ldiv className="mt-2 flex flex-wrap gap-2">
         {["Artisan", "Commerce", "TPE", "Association"].map((a) => (
-          <QuickButton key={a} onClick={() => recommend(a)}>
-            {a}
-          </QuickButton>
+         <nQuickButton key={a} onClick={() => recommend(a)}>
+            {aton>
         ))}
       </div>
     );
@@ -228,60 +228,102 @@ export function Chatbot() {
     goFormuleRef.current = goFormule;
   }, [goFormule]);
 
-  // Triggers
+  // Hesitation detection — show bubble only when user seems uncertain
   React.useEffect(() => {
-    // Manual open is always available via bubble click
     const snoozeKey = "chat_snooze";
     const hasSnooze = () => {
-      const v = localStorage.getItem(snoozeKey);
-      if (!v) return false;
-      const until = Number(v);
-      return until && until > Date.now();
-    };
-    const snooze = () => localStorage.setItem(snoozeKey, String(Date.now() + 24 * 60 * 60 * 1000)); // 24h
-
-    // Do not auto-open on /contact or on small screens (mobile)
-    const isMobile = typeof window !== "undefined" && window.matchMedia && window.matchMedia("(max-width: 767px)").matches;
-    if (pathname.includes("/contact") || isMobile) {
-      return;
-    }
-
-    // 30s on /services
-    let t: any;
-    if (pathname.includes("/services") && !hasSnooze()) {
-      t = setTimeout(() => openChat("services_30s"), 30000);
-    }
-    // Exit intent on pricing hash
-    const onLeave = (e: MouseEvent) => {
-      if (e.clientY <= 0 && !hasSnooze()) {
-        if (location.hash.includes("tarifs") || pathname.includes("/services")) {
-          openChat("exit_tarifs");
-          snooze();
-        }
+      try {
+        const v = localStorage.getItem(snoozeKey);
+        if (!v) return false;
+        const until = Number(v);
+        return !!until && until > Date.now();
+      } catch {
+        return false;
       }
     };
-    window.addEventListener("mouseleave", onLeave);
+    const snooze = () => {
+      try {
+        localStorage.setItem(snoozeKey, String(Date.now() + 24 * 60 * 60 * 1000));
+      } catch {}
+    };
 
-    // Scroll 70% on home
+    if (pathname.includes("/contact")) return;
+
+    let inTarifs = false;
+    let lastY = typeof window !== "undefined" ? window.scrollY : 0;
+    let lastDir = 0; // -1 up, 1 down
+    let turns = 0;
+    let lastActivity = Date.now();
+    const idleThresholdMs = 12000;
+
+    const onActivity = () => {
+      lastActivity = Date.now();
+    };
+
     const onScroll = () => {
-      if (openedRef.current || hasSnooze()) return;
-      if (pathname === "/" || pathname === "/fr") {
-        const sc = window.scrollY;
-        const h = document.documentElement.scrollHeight - window.innerHeight;
-        if (h > 0 && sc / h > 0.7) {
-          openChat("home_scroll_70");
-          snooze();
-        }
+      const y = window.scrollY;
+      const dy = y - lastY;
+      const dir = dy === 0 ? lastDir : dy > 0 ? 1 : -1;
+      if (lastDir && dir && dir !== lastDir) {
+        turns += 1;
+      }
+      lastDir = dir;
+      lastY = y;
+      onActivity();
+
+      if (!bubbleVisible && inTarifs && turns >= 3 && !hasSnooze()) {
+        setBubbleVisible(true);
+        snooze();
       }
     };
+
     window.addEventListener("scroll", onScroll, { passive: true });
+    window.addEventListener("mousemove", onActivity, { passive: true });
+    window.addEventListener("keydown", onActivity);
+    window.addEventListener("click", onActivity);
+
+    // Observe pricing section presence
+    let io: IntersectionObserver | null = null;
+    const target = document.getElementById("tarifs");
+    if (target) {
+      io = new IntersectionObserver(
+        (entries) => {
+          inTarifs = !!entries[0]?.isIntersecting;
+        },
+        { threshold: 0.2 }
+      );
+      io.observe(target);
+    }
+
+    // Idle in pricing section
+    const idleId = window.setInterval(() => {
+      if (!bubbleVisible && inTarifs && Date.now() - lastActivity > idleThresholdMs && !hasSnooze()) {
+        setBubbleVisible(true);
+        snooze();
+      }
+    }, 1000);
+
+    // Services page: dwell time without clicking
+    let dwellTimer: any;
+    if (pathname.includes("/services") && !hasSnooze()) {
+      dwellTimer = setTimeout(() => {
+        if (!bubbleVisible) {
+          setBubbleVisible(true);
+          snooze();
+        }
+      }, 45000);
+    }
 
     return () => {
-      clearTimeout(t);
-      window.removeEventListener("mouseleave", onLeave);
       window.removeEventListener("scroll", onScroll);
+      window.removeEventListener("mousemove", onActivity);
+      window.removeEventListener("keydown", onActivity);
+      window.removeEventListener("click", onActivity);
+      if (io) io.disconnect();
+      clearInterval(idleId);
+      clearTimeout(dwellTimer);
     };
-  }, [pathname, openChat]);
+  }, [pathname, bubbleVisible]);
 
   
 
@@ -323,8 +365,8 @@ export function Chatbot() {
 
   return (
     <>
-      {/* Floating bubble */}
-      {!open && (
+      {/* Floating bubble (shown only when hesitation detected) */}
+      {bubbleVisible && !open && (
         <button
           aria-label="Ouvrir le chat"
           className="chat-bubble fixed bottom-6 right-6 z-40 inline-flex h-14 w-14 items-center justify-center rounded-full bg-primary text-primary-foreground shadow-lg transition hover:opacity-90"

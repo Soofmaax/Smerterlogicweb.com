@@ -196,6 +196,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <AssistantOverlay />
         <Chatbot />
         <ExitIntentPopup />
+        {/* Cookie consent (shown when using GA) */}
+        <CookieConsent />
       </body>
     </html>
   );
