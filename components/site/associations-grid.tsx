@@ -40,7 +40,7 @@ function AssCard({ a, i }: { a: AssociationItem; i: number }) {
         {a.quote ? <p className="mt-2 text-sm italic text-foreground/70">“{a.quote}”</p> : null}
         <div className="mt-3">
           {a.url ? (
-            <Link href={a.url} target="_blank" rel="noreferrer" className="link-underline text-sm text-primary">
+            <Link href={a.url} target="_blank" rel="noreferrer" className="link-underline link-underline-strong text-sm text-primary">
               Voir le site
             </Link>
           ) : null}

@@ -70,7 +70,7 @@ export function ProjectsCases({
       <div className="mt-4 flex flex-wrap gap-2">
         <button
           type="button"
-          className="inline-flex items-center rounded-full border border-foreground/15 bg-card px-3 py-1.5 text-sm shadow-sm transition hover:bg-accent focus:outline-none focus-visible:ring-2 focus-visible:ring-primary/60"
+          className="badge-premium inline-flex items-center rounded-full border border-foreground/15 bg-card px-3 py-1.5 text-sm shadow-sm transition hover:bg-accent focus:outline-none focus-visible:ring-2 focus-visible:ring-primary/60"
           onClick={() => {
             setZoomIndex(index);
             setZoomOpen(true);
@@ -80,7 +80,7 @@ export function ProjectsCases({
         </button>
         <button
           type="button"
-          className="inline-flex items-center rounded-full border border-foreground/15 bg-card px-3 py-1.5 text-sm shadow-sm transition hover:bg-accent focus:outline-none focus-visible:ring-2 focus-visible:ring-primary/60"
+          className="badge-premium inline-flex items-center rounded-full border border-foreground/15 bg-card px-3 py-1.5 text-sm shadow-sm transition hover:bg-accent focus:outline-none focus-visible:ring-2 focus-visible:ring-primary/60"
           onClick={() => {
             setDetailsIndex(index);
             setDetailsOpen(true);
@@ -93,7 +93,7 @@ export function ProjectsCases({
             href={item.url}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center rounded-full border border-foreground/15 bg-card px-3 py-1.5 text-sm shadow-sm transition hover:bg-accent focus:outline-none focus-visible:ring-2 focus-visible:ring-primary/60"
+            className="badge-premium inline-flex items-center rounded-full border border-foreground/15 bg-card px-3 py-1.5 text-sm shadow-sm transition hover:bg-accent focus:outline-none focus-visible:ring-2 focus-visible:ring-primary/60"
           >
             {t("Voir le site", "Visit site")}
           </a>

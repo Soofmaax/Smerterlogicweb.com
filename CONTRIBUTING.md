@@ -1,67 +1,76 @@
-# Contribuer
+# Contribuer — SmarterLogicWeb
 
-Merci de votre intérêt pour ce projet. Voici les conventions et le flux de contribution.
+Merci de votre intérêt. Ce projet sert de vitrine professionnelle — nous maintenons un niveau de qualité élevé (performance, sécurité, accessibilité).
 
-## Pré-requis
+## Prérequis
 
-- Node 18 (Netlify build utilise Node 18.20.3)
-- npm 9+ (ou pnpm/yarn si vous préférez, mais le repo utilise npm)
+- Node.js ≥ 18.17 (Netlify: 18.20.3)
+- npm ≥ 9
 - Next.js 14, TypeScript 5, TailwindCSS 3
 
-## Installer et lancer
+## Installation & Scripts
 
-- npm install
-- npm run dev
-- npm run build
-- npm run start
-- npm run lint
+```bash
+npm install
+npm run dev       # dev server
+npm run build     # build production
+npm run start     # start production build
+npm run lint      # lint
+```
+
+## Style de code
+
+- TypeScript strict — corrigez tous les warnings/erreurs
+- ESLint Next — `npm run lint` doit passer
+- Accessibilité — focus visibles, aria-labels, contrastes conformes
+- UX — animations respectent `prefers-reduced-motion`
 
 ## Convention de commits
 
-Utilisez Conventional Commits:
+Conventional Commits:
 
 - feat: nouvelle fonctionnalité
 - fix: correction de bug
 - docs: documentation
-- chore: tâches diverses (outillage, config)
-- refactor: refactorisation sans changement de comportement
-- style: formatage, style (pas de code)
+- chore: maintenance/outillage
+- refactor: refactorisation sans changement fonctionnel
+- style: formatage uniquement
 - test: tests
 
 Exemples:
-- feat(home): add partners logo gradient section
-- fix(header): correct mobile drawer focus trap
-- docs(readme): add netlify troubleshooting section
+- feat(hero): premium animated banner with reduced-motion support
+- fix(api): rate-limit subscribe endpoint
+- docs(readme): add CI badges
 
-## Branches
+## Branching
 
-- feature/nom-fonctionnalite
-- fix/description-bug
-- chore/tache
-- docs/mise-a-jour-doc
+- feature/<slug>
+- fix/<slug>
+- chore/<slug>
+- docs/<slug>
 
-## Qualité
+Pull requests ciblent `main`.
 
-- Lint: npm run lint
-- TypeScript: corrigez toutes les erreurs TS
-- Accessibilité: vérifiez contrastes, focus, aria-labels
-- SEO: respect des balises meta importantes (title/description/canonical/OG/Twitter)
+## Processus de Pull Request
 
-## PR
-
-- Décrivez clairement la motivation, le comportement attendu et la solution
-- Joignez des captures (si UI)
-- Liez les issues si disponibles
-
-## Déploiement de preview
-
-- Netlify crée des “Deploy Previews” sur chaque PR
-- Vérifiez les pages clés: /, /services, /contact, /projets
-- Testez /api/health — doit renvoyer {status:"ok"}
+- Décrivez la motivation et le comportement attendu
+- Ajoutez des captures si l’UI change
+- Vérifiez:
+  - Lint/build OK
+  - Pages clés: `/`, `/services`, `/contact`
+  - API: `/api/health` renvoie `{status:"ok"}`
+- Liez les issues si applicable
 
 ## Sécurité
 
-- CSP: si vous ajoutez des scripts externes (ex: GA, Clarity), mettez à jour la directive script-src dans netlify.toml
-- Forms: conservez le honeypot et reCAPTCHA Netlify si vous modifiez le formulaire
+- CSP: si vous ajoutez des scripts externes, mettez à jour `netlify.toml` (directive `script-src`)
+- Secrets: **jamais** de secrets en clair — utilisez les variables d’environnement
+- API: validation d’inputs côté serveur obligatoire
 
-Merci !
+## Code of Conduct
+
+Voir [CODE_OF_CONDUCT.md](./CODE_OF_CONDUCT.md).
+
+## Contact
+
+Questions: contact@smarterlogicweb.com

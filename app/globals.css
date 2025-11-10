@@ -754,7 +754,15 @@ html.retro * {
   100% { background-position: 0% 50%; }
 }
 .hero-title {
-  background: linear-gradient(45deg, #ff6b6b, #4ecdc4, #45b7d1, #96ceb4);
+  /* Premium blue spectrum — no red, subtle teal/cyan accents */
+  background: linear-gradient(
+    45deg,
+    #1e3a8a, /* indigo-900 */
+    #2563eb, /* blue-600 (brand) */
+    #06b6d4, /* cyan-500 */
+    #0ea5e9, /* sky-500 */
+    #1d4ed8  /* blue-700 */
+  );
   background-size: 400% 400%;
   animation: gradient-morph 8s ease infinite;
   -webkit-background-clip: text;
@@ -859,4 +867,114 @@ html.retro * {
 .in-view .stars-top {
   /* animate to target width when entering viewport */
   width: var(--w, 0%);
+}
+
+/* Urgency banner — optional hachure stripes (blue/white) */
+.banner-stripes {
+  /* Diagonal repeating stripes using brand primary + page background for theme harmony */
+  background-image: repeating-linear-gradient(
+    45deg,
+    hsl(var(--primary)) 0 12px,
+    hsl(var(--background)) 12px 24px
+  );
+  background-size: 40px 40px;
+  animation: bannerStripesSlide 6s linear infinite;
+}
+
+/* Reduced motion: keep static */
+@media (prefers-reduced-motion: reduce) {
+  .banner-stripes {
+    animation: none !important;
+  }
+}
+
+@keyframes bannerStripesSlide {
+  from { background-position: 0 0; }
+  to   { background-position: 40px 0; }
+}
+
+/* Premium badge liseré (hover/focus-visible) */
+.badge-premium {
+  position: relative;
+  overflow: hidden;
+}
+.badge-premium::before {
+  content: "";
+  position: absolute;
+  inset: -1px;
+  border-radius: inherit;
+  padding: 1px;
+  background: linear-gradient(90deg, hsl(var(--primary) / 0.9), transparent 50%, hsl(var(--primary) / 0.9));
+  background-size: 200% 100%;
+  -webkit-mask:
+    linear-gradient(#000 0 0) content-box,
+    linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  opacity: 0;
+  transition: opacity 200ms ease, background-position 600ms ease;
+}
+.badge-premium:hover::before,
+.badge-premium:focus-visible::before {
+  opacity: 1;
+  background-position: 100% 0;
+}
+
+/* Premium link underline — thicker + smoother */
+a.link-underline-strong::after {
+  height: 2px;
+  transition: width 320ms ease;
+}
+
+/* Project card premium gloss/reflection */
+.project-card {
+  position: relative;
+  overflow: hidden;
+}
+.project-card::before {
+  content: "";
+  position: absolute;
+  left: 0; right: 0; top: -18%;
+  height: 40%;
+  background: linear-gradient(180deg, rgba(255,255,255,0.28) 0%, rgba(255,255,255,0.08) 45%, rgba(255,255,255,0) 70%);
+  border-radius: inherit;
+  pointer-events: none;
+  opacity: 0;
+  transform: translateY(0);
+  transition: opacity 280ms ease, transform 300ms ease;
+  mix-blend-mode: screen;
+}
+.project-card:hover::before,
+.project-card:focus-within::before {
+  opacity: 0.55;
+  transform: translateY(6px);
+}
+@media (prefers-reduced-motion: reduce) {
+  .project-card::before {
+    transition: opacity 0.2s ease;
+  }
+}
+
+/* Urgency banner — optional hachure stripes (blue/white) */
+.banner-stripes {
+  /* Diagonal repeating stripes using brand primary + page background for theme harmony */
+  background-image: repeating-linear-gradient(
+    45deg,
+    hsl(var(--primary)) 0 12px,
+    hsl(var(--background)) 12px 24px
+  );
+  background-size: 40px 40px;
+  animation: bannerStripesSlide 6s linear infinite;
+}
+
+/* Reduced motion: keep static */
+@media (prefers-reduced-motion: reduce) {
+  .banner-stripes {
+    animation: none !important;
+  }
+}
+
+@keyframes bannerStripesSlide {
+  from { background-position: 0 0; }
+  to   { background-position: 40px 0; }
 }

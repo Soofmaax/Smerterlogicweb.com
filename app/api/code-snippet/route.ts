@@ -12,6 +12,12 @@ const ALLOWED = new Set<string>([
 
 export async function GET(req: NextRequest) {
   try {
+    // Disable in production unless explicitly enabled
+    const enabled = process.env.CODE_SNIPPETS_ENABLED === "1" || process.env.NODE_ENV !== "production";
+    if (!enabled) {
+      return NextResponse.json({ error: "Not found" }, { status: 404 });
+    }
+
     const { searchParams } = new URL(req.url);
     const p = searchParams.get("path");
     if (!p || !ALLOWED.has(p)) {

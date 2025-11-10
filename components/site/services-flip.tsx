@@ -99,7 +99,7 @@ export function ServicesFlip3D() {
                   ))}
                 </ul>
                 <div className="mt-4">
-                  <a href="/services" className="link-underline text-sm text-primary">En savoir plus</a>
+                  <a href="/services" className="link-underline link-underline-strong text-sm text-primary">En savoir plus</a>
                 </div>
               </button>
             </div>

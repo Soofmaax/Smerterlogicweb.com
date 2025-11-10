@@ -148,7 +148,7 @@ function ProjectCard({ p, liked, onLike, onOpen }: { p: CaseItem; liked: boolean
       <div className="relative rounded-lg border bg-background p-3">
         {/* Result badge overlay */}
         {topKpi ? (
-          <div className="absolute left-3 top-3 z-10 rounded-full border bg-card/80 px-2.5 py-1 text-xs shadow-sm backdrop-blur">
+          <div className="badge-premium absolute left-3 top-3 z-10 rounded-full border bg-card/80 px-2.5 py-1 text-xs shadow-sm backdrop-blur">
             <span className="font-semibold">{topKpi.value}</span>{" "}
             <span className="text-muted-foreground">{topKpi.label}</span>
           </div>
@@ -233,7 +233,7 @@ function ProjectCard({ p, liked, onLike, onOpen }: { p: CaseItem; liked: boolean
         <button
           type="button"
           onClick={onOpen}
-          className="inline-flex items-center rounded-full border bg-card px-3 py-1.5 text-sm transition hover:bg-accent focus:outline-none focus-visible:ring-2 focus-visible:ring-primary/50"
+          className="badge-premium inline-flex items-center rounded-full border bg-card px-3 py-1.5 text-sm transition hover:bg-accent focus:outline-none focus-visible:ring-2:ring-primary/50"
         >
           Voir le projet
         </button>

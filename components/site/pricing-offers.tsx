@@ -70,10 +70,10 @@ export function PricingOffers() {
       </div>
 
       {/* Availability note (synced with UrgencyBanner) */}
-      <p className="mb-4 text-center text-sm font-medium text-red-600 dark:text-red-400 motion-safe:animate-pulse">
+      <p className="mb-4 text-center text-sm font-medium text-primary motion-safe:animate-pulse">
         <span className="mr-1">⚠️</span>
         Plus que 2 créneaux disponibles ce mois-ci.{" "}
-        <a href="/contact" className="link-underline">
+        <a href="/contact" className="link-underline link-underline-strong">
           Réservez votre audit gratuit&nbsp;!
         </a>
       </p>
@@ -104,7 +104,7 @@ function PlanCard({ plan }: { plan: Plan }) {
         <div className="flex items-center justify-between gap-2">
           <h3 className="font-heading text-lg font-semibold">{plan.name}</h3>
           {plan.recommended ? (
-            <span className="inline-flex items-center gap-1.5 rounded-full bg-amber-500/95 px-2.5 py-0.5 text-[11px] font-semibold text-white shadow">
+            <span className="badge-premium inline-flex items-center gap-1.5 rounded-full bg-amber-500/95 px-2.5 py-0.5 text-[11px] font-semibold text-white shadow focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/40">
               <Star className="h-3.5 w-3.5" /> Recommandé
             </span>
           ) : null}

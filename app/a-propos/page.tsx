@@ -134,7 +134,7 @@ export default function AProposPage() {
 
       {/* Lien projets */}
       <div className="mt-6 text-center">
-        <Link href="/projets" className="link-underline text-sm text-primary">Voir des réalisations</Link>
+        <Link href="/projets" className="link-underline link-underline-strong text-sm text-primary">Voir des réalisations</Link>
       </div>
 
       {/* Final CTA global */}

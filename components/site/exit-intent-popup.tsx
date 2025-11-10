@@ -112,7 +112,7 @@ export function ExitIntentPopup() {
         {downloadUrl && (
           <p className="text-sm">
             Merci ! Votre téléchargement est prêt:{" "}
-            <a className="link-underline" href={downloadUrl} target="_blank" rel="noopener noreferrer">
+            <a className="link-underline link-underline-strong" href={downloadUrl} target="_blank" rel="noopener noreferrer">
               ouvrir le PDF
             </a>
           </p>

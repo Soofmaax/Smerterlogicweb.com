@@ -32,7 +32,7 @@ export function ProjectsShowcase({
         {/* browser */}
         <div className="absolute inset-x-4 top-0 h-40 rounded-2xl border bg-gradient-to-br from-[#22232a] via-[#1c1e24] to-[#171921] shadow-sm">
           <div className="flex items-center gap-1 border-b border-white/10 px-3 py-2">
-            <span className="h-2.5 w-2.5 rounded-full bg-red-400/70" />
+            <span className="h-2.5 w-2.5 rounded-full bg-sky-400/70" />
             <span className="h-2.5 w-2.5 rounded-full bg-yellow-400/70" />
             <span className="h-2.5 w-2.5 rounded-full bg-green-400/70" />
             <div className="ml-3 h-4 flex-1 rounded bg-white/10" />
@@ -66,7 +66,7 @@ export function ProjectsShowcase({
         {dense && (
           <button
             type="button"
-            className="inline-flex items-center rounded-full border border-foreground/15 bg-card px-3 py-1.5 text-sm shadow-sm transition hover:bg-accent focus:outline-none focus-visible:ring-2 focus-visible:ring-primary/60"
+            className="badge-premium inline-flex items-center rounded-full border border-foreground/15 bg-card px-3 py-1.5 text-sm shadow-sm transition hover:bg-accent focus:outline-none focus-visible:ring-2 focus-visible:ring-primary/60"
             aria-label={`${labelOpen}: ${item.title}`}
             onClick={() => {
               setIndex(i);
