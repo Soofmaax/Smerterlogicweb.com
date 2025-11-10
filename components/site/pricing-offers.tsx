@@ -2,7 +2,6 @@ import * as React from "react";
 import { CheckCircle2, Star } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { BookingButton } from "@/components/site/booking-modal";
-import { Carousel } from "@/components/site/carousel";
 import { PLANS_FR, URGENCY_SLOTS_LEFT_MONTH } from "@/data/pricing";
 
 type Plan = {
@@ -25,7 +24,7 @@ export function PricingOffers() {
       </div>
 
       {/* Availability note (synced with UrgencyBanner) */}
-      <p className="mb-4 text-center text-sm font-medium text-primary motion-safe:animate-pulse">
+      <p className="mb-4 text-center text-sm font-medium text-primary">
         <span className="mr-1">⚠️</span>
         Plus que {URGENCY_SLOTS_LEFT_MONTH} créneaux disponibles ce mois-ci.{" "}
         <a href="/contact" className="link-underline link-underline-strong">
@@ -33,8 +32,10 @@ export function PricingOffers() {
         </a>
       </p>
 
-      {/* Carousel horizontal (affiche 1 / 2 / 3 cartes selon la largeur) */}
-      <Carousel items={slides} ariaLabel="Offres et tarifs" centerEmphasis />
+      {/* Grille statique — lisibilité optimale, sans scroll horizontal */}
+      <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+        {slides}
+      </div>
 
       <p className="mt-5 text-sm text-foreground/70">
         Important: ces tarifs s’appliquent si vous disposez déjà de votre identité visuelle (logo, charte graphique,
