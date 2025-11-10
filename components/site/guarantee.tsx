@@ -2,6 +2,7 @@
 
 import * as React from "react";
 import { ShieldCheck } from "lucide-react";
+import { GUARANTEE_TEXT_FR } from "@/data/pricing";
 
 export function Guarantee() {
   return (
@@ -14,7 +15,7 @@ export function Guarantee() {
           <div>
             <h3 className="font-heading text-xl font-semibold">Garantie de résultat</h3>
             <p className="mt-1 text-foreground/90">
-              Garantie 1ère page Google sous 60 jours ou je continue gratuitement.
+              {GUARANTEE_TEXT_FR}
             </p>
           </div>
         </div>

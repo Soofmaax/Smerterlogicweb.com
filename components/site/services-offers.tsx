@@ -6,72 +6,21 @@ import { Star, CheckCircle2 } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { Carousel } from "@/components/site/carousel";
 import { BookingButton } from "@/components/site/booking-modal";
+import { OFFERS_FR } from "@/data/pricing";
 
 export function ServicesOffers() {
-  const slides = [
+  const slides = OFFERS_FR.map((o) => (
     <OfferCard
-      key="vitrine"
-      name="Site Vitrine"
-      price="1800€"
-      recommended={false}
-      forWho="Idéal pour artisans qui débutent en ligne, commerces locaux, indépendants."
-      cases={[
-        "Plombier qui veut être trouvé sur Google",
-        "Boulangerie qui veut montrer ses produits",
-        "Menuisier qui veut présenter ses réalisations",
-      ]}
-      includes={[
-        "3 à 5 pages claires (Accueil, Services, Réalisations, À propos, Contact)",
-        "Formulaire pour recevoir des demandes de devis",
-        "Visible sur Google dès le lancement",
-        "Rapide sur téléphone et ordinateur",
-        "Adresse et horaires d'ouverture bien visibles",
-      ]}
-      quote="“Le Site Vitrine nous a permis d’être contactés toutes les semaines.”"
-    />,
-    <OfferCard
-      key="business"
-      name="Site Business"
-      price="3200€"
-      recommended
-      forWho="Pour artisans établis, commerces avec galerie photos, entreprises qui veulent générer plus de contacts."
-      cases={[
-        "Électricien avec 20 ans d'expérience et beaucoup de réalisations",
-        "Restaurant qui veut afficher son menu",
-        "Entreprise du bâtiment qui gère plusieurs demandes par semaine",
-      ]}
-      includes={[
-        "5 à 10 pages",
-        "Galerie photos illimitée et optimisée",
-        "Blog pour partager votre expertise",
-        "Espace actualités / promotions",
-        "Suivi des visiteurs (Analytics simplifié)",
-        "Optimisation avancée pour être premier sur Google",
-      ]}
-      quote="“Nous avons multiplié les demandes de devis grâce à la galerie et au blog.”"
-    />,
-    <OfferCard
-      key="premium"
-      name="Site Premium"
-      price="5500€"
-      recommended={false}
-      forWho="TPE/PME qui veulent un outil de vente complet et automatisé."
-      cases={[
-        "Entreprise avec plusieurs services",
-        "Artisan qui veut prendre des réservations en ligne",
-        "Commerce qui souhaite vendre en ligne",
-      ]}
-      includes={[
-        "Pages illimitées",
-        "Prise de rendez‑vous en ligne",
-        "Intégrations avancées (calendrier, CRM, facturation)",
-        "Espace client sécurisé",
-        "Multilingue si besoin",
-        "3 mois de suivi marketing inclus",
-      ]}
-      quote="“Un vrai gain de temps: les rendez‑vous et demandes sont automatisés.”"
-    />,
-  ];
+      key={o.name}
+      name={o.name}
+      price={o.price}
+      recommended={o.recommended}
+      forWho={o.forWho}
+      cases={o.cases}
+      includes={o.includes}
+      quote={o.quote}
+    />
+  ));
 
   return (
     <section className="mx-auto w-full max-w-5xl px-6 py-12">

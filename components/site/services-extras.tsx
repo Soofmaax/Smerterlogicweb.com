@@ -2,6 +2,7 @@
 
 import * as React from "react";
 import { Brush, Server, Shuffle, GraduationCap } from "lucide-react";
+import { EXTRAS_FR } from "@/data/pricing";
 
 type Extra = {
   title: string;
@@ -10,32 +11,19 @@ type Extra = {
   Icon: React.ComponentType<React.SVGProps<SVGSVGElement>>;
 };
 
-const extras: Extra[] = [
-  {
-    title: "Adaptation graphique",
-    price: "À partir de 150€",
-    desc: "Cartes de visite, flyers, QR codes, signature email — selon votre charte.",
-    Icon: Brush,
-  },
-  {
-    title: "Maintenance & hébergement",
-    price: "Dès 8€/mois",
-    desc: "Mises à jour, sauvegardes, corrections, hébergement performant en option.",
-    Icon: Server,
-  },
-  {
-    title: "Migration Wix/WordPress",
-    price: "Sur devis",
-    desc: "Reprise de contenu, nettoyage, optimisation performance & SEO.",
-    Icon: Shuffle,
-  },
-  {
-    title: "Formation personnalisée",
-    price: "60€/h",
-    desc: "Apprenez à mettre à jour vos contenus en toute autonomie.",
-    Icon: GraduationCap,
-  },
-];
+const ICONS = {
+  brush: Brush,
+  server: Server,
+  shuffle: Shuffle,
+  graduationCap: GraduationCap,
+} as const;
+
+const extras: Extra[] = EXTRAS_FR.map((e) => ({
+  title: e.title,
+  price: e.price,
+  desc: e.desc,
+  Icon: ICONS[e.iconKey],
+}));
 
 export function ServicesExtras() {
   return (

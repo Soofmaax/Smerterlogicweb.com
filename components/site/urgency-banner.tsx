@@ -2,6 +2,7 @@
 
 import * as React from "react";
 import Link from "next/link";
+import { URGENCY_SLOTS_LEFT_MONTH } from "@/data/pricing";
 
 /**
  * UrgencyBanner
@@ -48,7 +49,7 @@ export function UrgencyBanner({
       <div className="mx-auto w-full max-w-5xl px-4">
         <div className="flex items-center justify-center gap-3 py-2 text-sm">
           <span className="font-medium">
-            ⚡ Plus que 2 créneaux disponibles ce mois-ci. Réservez votre audit gratuit !
+            ⚡ Plus que {URGENCY_SLOTS_LEFT_MONTH} créneaux disponibles ce mois-ci. Réservez votre audit gratuit !
           </span>
           <Link
             href="/contact"

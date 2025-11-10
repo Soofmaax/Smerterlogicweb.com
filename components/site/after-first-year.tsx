@@ -1,5 +1,6 @@
 import * as React from "react";
 import { ShieldCheck, SwitchCamera } from "lucide-react";
+import { AFTER_FIRST_YEAR_MAINTENANCE_MONTHLY_EUR } from "@/data/pricing";
 
 export function AfterFirstYear() {
   return (
@@ -18,7 +19,7 @@ export function AfterFirstYear() {
             <h3 className="font-heading text-lg font-semibold">Maintenance & hébergement</h3>
           </div>
           <p className="mt-2 text-sm text-foreground/80">
-            Environ 20€ / mois pour l’hébergement, la surveillance basique et les mises à jour de sécurité.
+            Environ {AFTER_FIRST_YEAR_MAINTENANCE_MONTHLY_EUR}€ / mois pour l’hébergement, la surveillance basique et les mises à jour de sécurité.
           </p>
         </div>
 

@@ -1,3 +1,5 @@
+import { MAINTENANCE_MONTHLY_FROM_EUR } from "@/data/pricing";
+
 export function FAQServices() {
   return (
     <section className="mx-auto w-full max-w-5xl px-6 py-12">
@@ -22,7 +24,7 @@ export function FAQServices() {
           },
           {
             q: "Combien coûte l'hébergement après la première année ?",
-            a: "Selon vos besoins et le trafic : à partir de 8€/mois. Je vous conseille la meilleure option pour vos contraintes.",
+            a: `Selon vos besoins et le trafic : à partir de ${MAINTENANCE_MONTHLY_FROM_EUR}€/mois. Je vous conseille la meilleure option pour vos contraintes.`,
           },
         ].map((item, i) => (
           <details key={i} className="group p-4">

@@ -3,6 +3,7 @@ import { CheckCircle2, Star } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { BookingButton } from "@/components/site/booking-modal";
 import { Carousel } from "@/components/site/carousel";
+import { PLANS_FR, URGENCY_SLOTS_LEFT_MONTH } from "@/data/pricing";
 
 type Plan = {
   name: string;
@@ -11,54 +12,8 @@ type Plan = {
   recommended?: boolean;
 };
 
-const plans: Plan[] = [
-  {
-    name: "Site Vitrine",
-    price: "À partir de 1 200€",
-    features: [
-      "3 à 5 pages responsive",
-      "Design moderne adapté à votre charte",
-      "SEO on‑page complet",
-      "Formulaire de contact sécurisé",
-      "Google Maps + horaires",
-      "Score PageSpeed > 90",
-      "Hébergement + domaine 1 an offerts",
-      "Formation mise à jour contenu basique",
-    ],
-  },
-  {
-    name: "Site Business",
-    price: "À partir de 2 500€",
-    recommended: true,
-    features: [
-      "5 à 10 pages",
-      "Présentation de vos réalisations",
-      "Blog avec catégories",
-      "Espace actus / promotions",
-      "Suivi de vos visiteurs",
-      "Boutons qui incitent vos visiteurs à vous contacter",
-      "Support prioritaire 3 mois",
-      "Sauvegardes automatiques hebdomadaires",
-    ],
-  },
-  {
-    name: "Site Premium",
-    price: "Sur devis, à partir de 4 500€",
-    features: [
-      "Réservation / demande de devis en ligne",
-      "Espace client sécurisé (si besoin)",
-      "Intégrations API (CRM, calendrier…)",
-      "PWA si pertinent",
-      "Multilingue si besoin",
-      "Suivi positionnement SEO 3 mois",
-      "Maintenance et mises à jour annuelles incluses",
-      "Accompagnement marketing digital de base",
-    ],
-  },
-];
-
 export function PricingOffers() {
-  const slides = plans.map((plan) => <PlanCard key={plan.name} plan={plan} />);
+  const slides = PLANS_FR.map((plan) => <PlanCard key={plan.name} plan={plan} />);
 
   return (
     <section id="tarifs" className="mx-auto w-full max-w-5xl px-6 py-12">
@@ -72,7 +27,7 @@ export function PricingOffers() {
       {/* Availability note (synced with UrgencyBanner) */}
       <p className="mb-4 text-center text-sm font-medium text-primary motion-safe:animate-pulse">
         <span className="mr-1">⚠️</span>
-        Plus que 2 créneaux disponibles ce mois-ci.{" "}
+        Plus que {URGENCY_SLOTS_LEFT_MONTH} créneaux disponibles ce mois-ci.{" "}
         <a href="/contact" className="link-underline link-underline-strong">
           Réservez votre audit gratuit&nbsp;!
         </a>
