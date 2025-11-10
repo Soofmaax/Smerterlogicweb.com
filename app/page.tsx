@@ -3,7 +3,7 @@ import { Heart } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { HeroTyped } from "@/components/site/hero-typed";
 import { PricingOffers } from "@/components/site/pricing-offers";
-import { SeeTheDifference } from "@/components/site/see-the-difference";
+
 
 import { TimelineProcess } from "@/components/site/timeline-process";
 import { ExpertiseWhy } from "@/components/site/expertise-why";
@@ -84,8 +84,7 @@ export default function Page() {
       {/* Garantie */}
       <Guarantee />
 
-      {/* Section interactive — Voyez la Différence */}
-      <SeeTheDifference />
+      
 
       
 

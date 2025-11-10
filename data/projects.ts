@@ -52,7 +52,25 @@ export const projectsFR: ProjectsData = {
       subtitle: "First load optimisé, images responsive, mise en cache",
     },
   ],
-  cases: [],
+  cases: [
+    {
+      id: "bms-ventousage",
+      title: "BMS Ventousage — Logistique cinéma & événementiel",
+      tags: ["Next.js", "Statique", "SEO", "Performance", "Formulaires"],
+      description:
+        "Site statique professionnel mettant en avant les prestations de ventousage pour tournages et événements, avec formulaires de contact et informations claires.",
+      url: "https://bmsventouse.fr",
+      kpis: [
+        { label: "Performance", value: "95/100" },
+        { label: "Temps de chargement", value: "≈1,2s" },
+        { label: "Pagespeed (desktop)", value: "98+" },
+      ],
+      sector: "Artisans & TPE",
+      city: "Île‑de‑France",
+      duration: "3–4 semaines",
+      images: [],
+    },
+  ],
 };
 
 export const projectsEN: ProjectsData = {
