@@ -14,9 +14,6 @@ type Item = {
 
 const items: Item[] = [
   { title: "BMS Ventouse", subtitle: "bmsventouse.fr", img: "", href: "https://bmsventouse.fr", status: "live", domain: "bmsventouse.fr" },
-  { title: "Martin Plumbing", subtitle: "Plumber in Paris", img: "", href: "", status: "soon" },
-  { title: "Les Saveurs Bakery", subtitle: "Bakery in Lyon", img: "", href: "", status: "soon" },
-  { title: "Dubois Carpentry", subtitle: "Carpentry in Nantes", img: "", href: "", status: "soon" },
 ];
 
 export function RealisationsGridEN() {
@@ -24,7 +21,7 @@ export function RealisationsGridEN() {
     <section className="mx-auto w-full max-w-5xl px-6 py-12">
       <div className="text-center">
         <h2 className="font-heading text-3xl font-semibold md:text-4xl">My Work</h2>
-        <p className="mt-2 text-foreground/70">A few representative examples (screenshots coming soon).</p>
+        <p className="mt-2 text-foreground/70">A few representative examples.</p>
       </div>
 
       <div className="mt-6 grid items-stretch gap-4 sm:grid-cols-2 md:grid-cols-3">
