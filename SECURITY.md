@@ -10,7 +10,7 @@ This repository is actively maintained on the `main` branch. Security updates ar
 
 If you discover a security issue, please report it responsibly:
 
-- Email: security@smarterlogicweb.com (or contact@smarterlogicweb.com)
+- Email: security@smarterlogicweb.com (or admin@smarterlogicweb.com)
 - Subject: [Security Report] Vulnerability in smarterlogicweb.com
 - Include:
   - A clear description of the issue and potential impact
