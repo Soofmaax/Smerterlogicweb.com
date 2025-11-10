@@ -73,7 +73,7 @@ export function PricingOffers() {
       <p className="mb-4 text-center text-sm font-medium text-primary motion-safe:animate-pulse">
         <span className="mr-1">⚠️</span>
         Plus que 2 créneaux disponibles ce mois-ci.{" "}
-        <a href="/contact" className="link-underline">
+        <a href="/contact" className="link-underline link-underline-strong">
           Réservez votre audit gratuit&nbsp;!
         </a>
       </p>
