@@ -23,6 +23,12 @@ async function parseBody(req: Request) {
 }
 
 export async function POST(req: Request) {
+  // Drop oversized reports early
+  const cl = Number(req.headers.get("content-length") || "0");
+  if (cl && cl > 256000) {
+    return new Response(null, { status: 204 });
+  }
+
   const report = await parseBody(req);
   // Intentionally minimal: just log on server for diagnostics
   try {

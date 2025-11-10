@@ -1,4 +1,6 @@
 import { NextResponse } from "next/server";
+import { getClientIpFromHeaders } from "@/lib/security";
+import { checkRateLimit } from "@/lib/rate-limit";
 
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
@@ -12,7 +14,24 @@ type GooglePlaceReview = {
   time?: number; // unix seconds
 };
 
-export async function GET() {
+export async function GET(req: Request) {
+  const ip = getClientIpFromHeaders(req);
+  const rl = checkRateLimit(`googlerev:${ip}`, 60, 10 * 60 * 1000); // 60 req / 10 min per IP
+  if (!rl.ok) {
+    return NextResponse.json(
+      { error: "rate_limited" },
+      {
+        status: 429,
+        headers: {
+          "Retry-After": String(Math.ceil((rl.resetAt - Date.now()) / 1000)),
+          "X-RateLimit-Limit": String(rl.limit),
+          "X-RateLimit-Remaining": String(rl.remaining),
+          "X-RateLimit-Reset": String(Math.round(rl.resetAt / 1000)),
+        },
+      }
+    );
+  }
+
   const apiKey = process.env.GOOGLE_PLACES_API_KEY;
   const placeId = process.env.GOOGLE_PLACE_ID;
 
@@ -65,13 +84,22 @@ export async function GET() {
         return tb - ta;
       });
 
-    return NextResponse.json({
-      rating,
-      total,
-      reviews: mapped,
-      placeId,
-      mapsUrl: `https://www.google.com/maps/place/?q=place_id:${placeId}`,
-    });
+    return NextResponse.json(
+      {
+        rating,
+        total,
+        reviews: mapped,
+        placeId,
+        mapsUrl: `https://www.google.com/maps/place/?q=place_id:${placeId}`,
+      },
+      {
+        headers: {
+          "X-RateLimit-Limit": String(rl.limit),
+          "X-RateLimit-Remaining": String(Math.max(0, rl.remaining - 1)),
+          "X-RateLimit-Reset": String(Math.round(rl.resetAt / 1000)),
+        },
+      }
+    );
   } catch (err: any) {
     return NextResponse.json({ error: err?.message || "Unknown error" }, { status: 500 });
   }
