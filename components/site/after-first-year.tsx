@@ -1,6 +1,6 @@
 import * as React from "react";
 import { ShieldCheck, SwitchCamera } from "lucide-react";
-import { AFTER_FIRST_YEAR_MAINTENANCE_MONTHLY_EUR } from "@/data/pricing";
+import { EVOLUTION_MONTHLY_EUR } from "@/data/pricing";
 
 export function AfterFirstYear() {
   return (
@@ -16,10 +16,10 @@ export function AfterFirstYear() {
             <span className="inline-flex h-9 w-9 items-center justify-center rounded-full bg-accent">
               <ShieldCheck className="h-5 w-5" />
             </span>
-            <h3 className="font-heading text-lg font-semibold">Maintenance & hébergement</h3>
+            <h3 className="font-heading text-lg font-semibold">Sites statiques = pas de maintenance obligatoire</h3>
           </div>
           <p className="mt-2 text-sm text-foreground/80">
-            Environ {AFTER_FIRST_YEAR_MAINTENANCE_MONTHLY_EUR}€ / mois pour l’hébergement, la surveillance basique et les mises à jour de sécurité.
+            Hébergement Netlify gratuit à vie, domaine offert 1 an. Pas de base de données, pas de plugins — sécurité intrinsèque et site qui tourne des années sans mises à jour.
           </p>
         </div>
 
@@ -28,10 +28,10 @@ export function AfterFirstYear() {
             <span className="inline-flex h-9 w-9 items-center justify-center rounded-full bg-accent">
               <SwitchCamera className="h-5 w-5" />
             </span>
-            <h3 className="font-heading text-lg font-semibold">Migration vers votre hébergeur</h3>
+            <h3 className="font-heading text-lg font-semibold">Formule Évolution (option)</h3>
           </div>
           <p className="mt-2 text-sm text-foreground/80">
-            Je vous accompagne pour migrer sereinement : vous êtes propriétaire du code et restez libre.
+            {EVOLUTION_MONTHLY_EUR}€/mois, sans engagement: 1h de modifications/mois, heures cumulables sur 3 mois, support prioritaire et monitoring basique.
           </p>
         </div>
       </div>

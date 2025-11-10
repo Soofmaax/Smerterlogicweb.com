@@ -5,47 +5,63 @@ import { Reveal } from "@/components/site/reveal";
 
 type Cell = { type: "text"; value: string } | { type: "check"; value: boolean };
 
-const headers = ["Caractéristiques", "Vitrine", "Business", "Premium"];
+const headers = ["Caractéristiques", "Essentiel", "Professionnel", "Premium"];
 
 const rows: { label: string; cells: Cell[] }[] = [
+  {
+    label: "Prix TTC",
+    cells: [
+      { type: "text", value: "1 490€" },
+      { type: "text", value: "2 490€" },
+      { type: "text", value: "4 990€" },
+    ],
+  },
   {
     label: "Nombre de pages",
     cells: [
       { type: "text", value: "3–5" },
-      { type: "text", value: "5–10" },
-      { type: "text", value: "Illimitées" },
+      { type: "text", value: "5–8" },
+      { type: "text", value: "10–15 ou multilingue" },
     ],
   },
   {
-    label: "Galerie photos",
+    label: "Design",
     cells: [
-      { type: "text", value: "Basique" },
-      { type: "text", value: "Optimisée illimitée" },
-      { type: "text", value: "Optimisée illimitée" },
+      { type: "text", value: "Template personnalisé" },
+      { type: "text", value: "100% sur‑mesure" },
+      { type: "text", value: "Premium + animations" },
     ],
   },
   {
-    label: "Blog",
+    label: "Rédaction",
     cells: [
-      { type: "check", value: false },
-      { type: "check", value: true },
-      { type: "check", value: true },
+      { type: "text", value: "Guidée (vous rédigez)" },
+      { type: "text", value: "✅ Complète incluse" },
+      { type: "text", value: "✅ Longue format + blog" },
     ],
   },
   {
-    label: "Optimisation Google",
+    label: "SEO",
     cells: [
-      { type: "text", value: "Base" },
-      { type: "text", value: "Avancée" },
-      { type: "text", value: "Avancée +" },
+      { type: "text", value: "Technique de base" },
+      { type: "text", value: "✅ Avancé" },
+      { type: "text", value: "✅ Stratégie complète 6 mois" },
     ],
   },
   {
-    label: "Intégrations avancées",
+    label: "Intégrations",
     cells: [
-      { type: "check", value: false },
-      { type: "check", value: false },
-      { type: "check", value: true },
+      { type: "text", value: "Basiques" },
+      { type: "text", value: "Analytics + Calendly" },
+      { type: "text", value: "CRM + API avancées" },
+    ],
+  },
+  {
+    label: "Livraison",
+    cells: [
+      { type: "text", value: "Clé en main" },
+      { type: "text", value: "Clé en main + tuto vidéo" },
+      { type: "text", value: "Présentation 30 min" },
     ],
   },
   {
@@ -53,15 +69,31 @@ const rows: { label: string; cells: Cell[] }[] = [
     cells: [
       { type: "text", value: "1 mois" },
       { type: "text", value: "3 mois prioritaire" },
-      { type: "text", value: "3 mois + maintenance incluse" },
+      { type: "text", value: "6 mois + téléphone" },
     ],
   },
   {
-    label: "Délai de livraison",
+    label: "Formule Évolution",
+    cells: [
+      { type: "text", value: "Option 20€/mois" },
+      { type: "text", value: "Option 20€/mois" },
+      { type: "text", value: "✅ 6 mois offerts" },
+    ],
+  },
+  {
+    label: "Délai livraison",
     cells: [
       { type: "text", value: "2–3 semaines" },
-      { type: "text", value: "3–5 semaines" },
-      { type: "text", value: "4–8 semaines" },
+      { type: "text", value: "4–6 semaines" },
+      { type: "text", value: "8–12 semaines" },
+    ],
+  },
+  {
+    label: "Maintenance technique",
+    cells: [
+      { type: "text", value: "❌ Non nécessaire" },
+      { type: "text", value: "❌ Non nécessaire" },
+      { type: "text", value: "❌ Non nécessaire" },
     ],
   },
 ];
