@@ -102,7 +102,9 @@ export function Header() {
   }
 
   const langSwitchHref = switchLocalePath(pathname);
-  const pricingHref = isEn ? "/en#tarifs" : "/tarifs-2025";
+  const pricingHref = isEn
+    ? "/en#tarifs"
+    : (pathname === "/" ? "/#tarifs" : "/tarifs-2025#tarifs");
 
   // Phone CTA (desktop)
   const rawPhone = process.env.NEXT_PUBLIC_PHONE || "";

@@ -80,7 +80,7 @@ export default function Tarifs2025Page() {
       </section>
 
       {/* Offres & tarifs (cartes) */}
-      <section className="mt-10">
+      <section id="tarifs" className="mt-10">
         <PricingOffers />
       </section>
 
