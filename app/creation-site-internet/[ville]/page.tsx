@@ -84,9 +84,9 @@ export default function CityServicePage({ params }: Params) {
       "@type": "LocalBusiness",
       name: "smarterlogicweb",
       url: "https://smarterlogicweb.com",
-      areaServed: city.name,
+      areaServed: [city.name, ...city.satellites],
     },
-    areaServed: city.name,
+    areaServed: [city.name, ...city.satellites],
     offers: {
       "@type": "AggregateOffer",
       priceCurrency: "EUR",
@@ -197,6 +197,31 @@ export default function CityServicePage({ params }: Params) {
               <Link href="/services">Voir nos services</Link>
             </Button>
             <BookingButton className="rounded-full" size="lg" label={`Réserver mon audit — ${city.name}`} />
+          </div>
+        </div>
+      </section>
+
+      {/* Related cities & national page */}
+      <section className="mx-auto mt-4 w-full max-w-5xl px-0 py-6">
+        <div className="rounded-[24px] border bg-card p-5 card-elevated">
+          <h3 className="font-heading text-xl font-semibold">Voir aussi</h3>
+          <p className="mt-2 text-sm text-foreground/80">Autres villes proches ou similaires :</p>
+          <div className="mt-3 flex flex-wrap gap-3">
+            {getAllLocalCitySlugs()
+              .map((slug) => getLocalCityBySlug(slug))
+              .filter((c) => c && c.slug !== city.slug)
+              .filter((c) => c!.sectors.some((s) => city.sectors.includes(s)) || c!.competition === "Très Faible")
+              .slice(0, 3)
+              .map((c) => (
+                <Link key={c!.slug} href={`/creation-site-internet/${c!.slug}`} className="text-primary hover:underline">
+                  Création de site à {c!.name} — {c!.sectors[0]}
+                </Link>
+              ))}
+          </div>
+          <div className="mt-4">
+            <Link href="/creation-site-internet-france" className="text-primary hover:underline">
+              Toutes les villes desservies en France →
+            </Link>
           </div>
         </div>
       </section>

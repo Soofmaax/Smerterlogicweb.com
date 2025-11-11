@@ -1,4 +1,5 @@
 import type { MetadataRoute } from "next";
+import { getAllLocalCitySlugs } from "@/data/local-cities";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = "https://smarterlogicweb.com";
@@ -20,18 +21,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.8,
   }));
 
-  const pilotCities = [
-    "niort",
-    "montauban",
-    "chateauroux",
-    "montlucon",
-    "ales",
-    "saint-die-des-vosges",
-    "charleville-mezieres",
-    "vannes",
-    "cholet",
-    "thionville",
-  ];
+  const cityPages = getAllLocalCitySlugs().map((slug) => ({
+    url: `${baseUrl}/creation-site-internet/${slug}`,
+    lastModified: now,
+    changeFrequency: "monthly" as const,
+    priority: 0.85,
+  }));
 
   return [
     // FR
@@ -53,13 +48,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     // Local SEO pages by métier
     ...localSeoPages,
 
-    // Pilot city pages (FR)
-    ...pilotCities.map((slug) => ({
-      url: `${baseUrl}/creation-site-internet/${slug}`,
-      lastModified: now,
-      changeFrequency: "monthly" as const,
-      priority: 0.85,
-    })),
+    // All city pages (FR)
+    ...cityPages,
 
     // EN
     { url: `${baseUrl}/en`, lastModified: now, changeFrequency: "monthly", priority: 1 },
