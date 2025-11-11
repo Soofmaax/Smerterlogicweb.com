@@ -2,8 +2,8 @@
 slug: google-my-business-ou-site-web
 locale: fr
 title: "Site web ou fiche Google My Business : que privilégier ?"
-summary: "Fiche Google My Business ou site web en premier ? 70 % de visites en plus avec GMB complet, 50 % des recherches mobiles = visite le jour même. Stratégie séquentielle pour TPE."
-publishAt: 2025-11-03T09:00:00Z
+summary:
+  "Fiche Google My Business ou site web en premier ? 70 % de visites en plus avec GMB complet, 50 % des recherches mobiles = visite le jour même. Stratégie séquentielle pour TPE."
 tags:
   - "Google My Business ou site web"
   - "fiche GMB priorité"
@@ -12,6 +12,8 @@ tags:
   - "faut-il d'abord faire une fiche Google My Business ou un site web"
   - "créer fiche GMB avant site internet"
 ---
+
+# Site web ou fiche Google My Business : que privilégier ?
 
 <p>Vous avez décidé de développer votre présence en ligne. Bravo. Mais voici la question qui bloque tout : <strong>par quoi commencer</strong> ? Une fiche Google My Business ou un site web complet ?</p>
 <p>Vous avez un budget limité. Vous ne pouvez pas tout faire en même temps. Votre concurrent a déjà un site magnifique à 5 000€, mais il n’apparaît nulle part sur Google. Votre voisin a juste une fiche Google My Business gratuite, et il reçoit trois appels par jour. Vous ne savez pas quelle option est la bonne.</p>

@@ -13,6 +13,8 @@ tags:
   - "longue traîne SEO"
 ---
 
+# Les bases techniques du SEO pour votre site vitrine : ce qu'il faut vraiment savoir
+
 ## Introduction
 
 Vous venez de lancer votre site vitrine et vous vous demandez quand Google va enfin vous faire remonter dans les résultats de recherche. Votre concurrent apparaît en première page alors que vous êtes invisible. Vous avez entendu parler de SEO, de référencement naturel, mais personne ne vous explique concrètement ce qui compte vraiment d'un point de vue technique.

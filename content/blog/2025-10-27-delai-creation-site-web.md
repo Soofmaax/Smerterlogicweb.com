@@ -13,6 +13,8 @@ tags:
   - "délai moyen création site internet France"
 ---
 
+# Combien de temps pour avoir votre site en ligne ? (La vérité sur les délais réels)
+
 <p>Vous venez de signer le devis pour votre site vitrine. Le freelance vous dit : « On livre dans six à huit semaines. » Vous êtes content. Ça vous paraît raisonnable.</p>
 <p>Deux mois passent. Le freelance vous envoie la première maquette. Vous donnez votre retour. Une semaine de silence. Puis il revient avec des questions sur vos textes. Vous n'avez pas encore rédigé les contenus. Vous pensiez qu'il s'en chargeait. Nouveau délai. Trois semaines plus tard, vous validez enfin le design. Le développement commence. Un mois passe. Vous testez le site. Il y a des bugs. Corrections. Re-tests. Nouvelles corrections. Quatre mois et demi après la signature, votre site est enfin en ligne.</p>
 <p>Six à huit semaines annoncées. Dix-huit semaines effectives. Plus du double.</p>

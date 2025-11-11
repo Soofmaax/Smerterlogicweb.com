@@ -13,6 +13,8 @@ tags:
   - "infrastructure web"
 ---
 
+# Hébergement & infrastructure : ce que votre prestataire doit absolument vous garantir
+
 ## Introduction
 
 Vous venez de signer un contrat pour la création de votre site vitrine. Tout semble clair : le design, les fonctionnalités, le prix. Mais quand vous demandez "où sera hébergé mon site et qu'est-ce qui est garanti en cas de problème", vous obtenez souvent des réponses vagues. "Chez un hébergeur fiable", "Oui bien sûr il y a un CDN", "Ne vous inquiétez pas, tout est prévu".

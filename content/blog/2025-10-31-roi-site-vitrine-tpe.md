@@ -13,6 +13,8 @@ tags:
   - "comment savoir si mon site génère des clients"
 ---
 
+# Votre site servira-t-il réellement vos objectifs business ?
+
 <p>Vous avez payé 2 500€ pour créer votre site vitrine. Il est en ligne depuis trois mois. Il est joli. Le design est propre, les photos sont belles, les textes sont bien écrits. Vous êtes content du résultat esthétique.</p>
 <p><strong>Mais voici la vraie question : est‑ce que ce site vous rapporte de l’argent ?</strong></p>
 <p>Combien de clients vous a‑t‑il apportés ? Combien de demandes de devis avez‑vous reçues via le formulaire de contact ? Combien d’appels téléphoniques ont été générés parce que quelqu’un a trouvé votre site sur Google ? Si vous ne savez pas répondre, votre site est une décoration coûteuse, pas un investissement rentable.</p>

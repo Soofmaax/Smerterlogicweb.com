@@ -13,6 +13,8 @@ tags:
   - "frais annuels site internet entreprise"
 ---
 
+# Frais cachés : ce qu'il faut anticiper après la livraison du site
+
 <p>Vous venez de payer 1 500€ pour créer votre site vitrine. Le freelance vous a livré un site propre, rapide, fonctionnel. Vous êtes content. Trois mois plus tard, première facture surprise : 150€ de maintenance. Puis 80€ pour une licence de plugin. Puis 200€ pour corriger un bug après une mise à jour WordPress. Au bout d’un an, vous avez dépensé 2 100€. 40 % de plus que le prix de création.</p>
 <p><strong>Bienvenue dans le monde des frais cachés.</strong></p>
 <p>Je crée des sites pour des TPE et PME depuis 2020. Et je vais vous dire ce que personne n’explique au moment de signer le devis : le prix de création n’est qu’une partie de l’histoire. Le vrai indicateur, c’est le <strong>Coût Total de Possession</strong> sur trois ans (TCO). Et là, les différences sont massives.</p>
