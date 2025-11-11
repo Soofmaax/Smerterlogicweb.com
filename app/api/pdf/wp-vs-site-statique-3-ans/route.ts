@@ -7,6 +7,8 @@ import {
   bulletList,
   hr,
   addFooters,
+  calloutBox,
+  ctaBanner,
 } from "@/lib/pdf-brand";
 
 export const runtime = "nodejs";
@@ -15,10 +17,26 @@ export async function GET() {
   const { doc, fonts, cursor: start } = await createBrandDoc();
   let cursor = start;
 
+  // Cover
   cursor = heading1(doc, cursor, fonts, "WordPress vs Site Statique : Le VRAI coût sur 3 ans");
   cursor = paragraph(doc, cursor, fonts, "Guide comparatif 2025 pour professions libérales", 12);
-  cursor = hr(doc, cursor);
+  cursor = hr(doc, cursor, fonts);
 
+  // Executive summary (callout)
+  cursor = calloutBox(
+    doc,
+    cursor,
+    fonts,
+    "Résumé chiffré",
+    [
+      "WordPress (freelance, maintenance 50€/mois, licences 250€/an) : 4 050€ / 3 ans.",
+      "Site statique (Évolution 6 mois/an) : 2 895€ / 3 ans.",
+      "Économie estimée : ~1 155€ (≈ –28 %) — hors coûts indirects (pannes, sécurité, lenteur).",
+    ],
+    "info"
+  );
+
+  // Intro
   cursor = heading2(doc, cursor, fonts, "Introduction : L'illusion du « site WordPress pas cher »");
   cursor = paragraph(
     doc,
@@ -33,6 +51,7 @@ export async function GET() {
     "Ce guide présente une analyse chiffrée des coûts réels d’un site WordPress versus un site statique sur 3 ans afin de décider sur des faits, pas sur un prix d’appel."
   );
 
+  // WordPress TCO
   cursor = heading1(doc, cursor, fonts, "Partie 1 : Le coût total de possession d’un site WordPress");
   cursor = paragraph(
     doc,
@@ -68,6 +87,7 @@ export async function GET() {
     "Total 3 ans : 1 500€ + (850€ × 3) = 4 050€ (hors pannes/interventions urgentes).",
   ]);
 
+  // Static TCO
   cursor = heading1(doc, cursor, fonts, "Partie 2 : Le coût total de possession d’un site statique");
   cursor = paragraph(
     doc,
@@ -103,6 +123,7 @@ export async function GET() {
     "Total 3 ans : 2 490€ + (135€ × 3) = 2 895€ (ou 2 535€ sans Évolution).",
   ]);
 
+  // Comparison
   cursor = heading1(doc, cursor, fonts, "Partie 3 : Comparaison chiffrée et analyse");
   cursor = bulletList(doc, cursor, fonts, [
     "WordPress (freelance, maintenance 50€/mois, licences 250€/an) : 4 050€ / 3 ans.",
@@ -116,6 +137,7 @@ export async function GET() {
     "Hors coûts indirects : statique plus rapide (meilleure conversion), plus sécurisé (moins d’attaques), charge mentale nulle (pas de mises à jour continues)."
   );
 
+  // Why initial higher creation cost
   cursor = heading1(doc, cursor, fonts, "Partie 4 : Pourquoi le statique est‑il plus cher à la création ?");
   cursor = bulletList(doc, cursor, fonts, [
     "Exigence technique (Next.js/React), code sur‑mesure plutôt que templates.",
@@ -129,6 +151,7 @@ export async function GET() {
     "Pour un cabinet libéral (avocat, expert‑comptable, architecte…), la fiabilité et la vitesse priment : le site est un actif professionnel, pas un gadget."
   );
 
+  // Conclusion + CTA banner
   cursor = heading1(doc, cursor, fonts, "Conclusion : Choisir en fonction de vos priorités");
   cursor = paragraph(
     doc,
@@ -143,10 +166,10 @@ export async function GET() {
     "Pour les professions libérales, un site statique allie économie mesurable et tranquillité d’esprit. Vous investissez une fois, puis vous économisez."
   );
 
-  cursor = hr(doc, cursor);
-  cursor = heading2(doc, cursor, fonts, "Pour aller plus loin");
-  cursor = paragraph(doc, cursor, fonts, "Consultez la grille détaillée : smarterlogicweb.com/tarifs-2025");
-  cursor = paragraph(doc, cursor, fonts, "Questions ou devis ? contact@smarterlogicweb.com — Audit gratuit 15 min.");
+  cursor = ctaBanner(doc, cursor, fonts, [
+    "Voir la grille complète : smarterlogicweb.com/tarifs-2025",
+    "Discutons de votre projet : contact@smarterlogicweb.com (audit 15 min offert)",
+  ]);
 
   addFooters(doc, fonts);
 

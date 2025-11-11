@@ -41,7 +41,7 @@ export async function createBrandDoc() {
   return { doc, page, fonts, cursor };
 }
 
-export function ensureSpace(doc: PDFDocument, cursor: Cursor): Cursor {
+export function ensureSpace(doc: PDFDocument, cursor: Cursor, fonts: PdfFonts): Cursor {
   if (cursor.y >= MIN_Y) return cursor;
   const page = doc.addPage(A4 as any);
   // header bar on each new page
@@ -56,20 +56,20 @@ export function ensureSpace(doc: PDFDocument, cursor: Cursor): Cursor {
     x: MARGIN_X,
     y: A4[1] - 20,
     size: 10,
-    font: doc.getFont(StandardFonts.HelveticaBold),
+    font: fonts.bold,
     color: rgb(1, 1, 1),
   });
   return { page, y: TOP_Y };
 }
 
 export function heading1(doc: PDFDocument, cursor: Cursor, fonts: PdfFonts, text: string, size = 18): Cursor {
-  cursor = ensureSpace(doc, cursor);
+  cursor = ensureSpace(doc, cursor, fonts);
   cursor.page.drawText(text, { x: MARGIN_X, y: cursor.y, size, font: fonts.bold, color: TEXT_HEAD });
   return { ...cursor, y: cursor.y - (size + 10) };
 }
 
 export function heading2(doc: PDFDocument, cursor: Cursor, fonts: PdfFonts, text: string, size = 13): Cursor {
-  cursor = ensureSpace(doc, cursor);
+  cursor = ensureSpace(doc, cursor, fonts);
   cursor.page.drawText(text, { x: MARGIN_X, y: cursor.y, size, font: fonts.bold, color: rgb(0.12, 0.14, 0.22) });
   return { ...cursor, y: cursor.y - (size + 8) };
 }
@@ -86,7 +86,7 @@ export function paragraph(
   const maxWidth = A4[0] - MARGIN_X * 2;
   const lines = wrapText(text, fonts.regular, size, maxWidth);
   for (const line of lines) {
-    cursor = ensureSpace(doc, cursor);
+    cursor = ensureSpace(doc, cursor, fonts);
     cursor.page.drawText(line, { x: MARGIN_X, y: cursor.y, size, font: fonts.regular, color });
     cursor = { ...cursor, y: cursor.y - leading };
   }
@@ -96,7 +96,7 @@ export function paragraph(
 export function bulletList(doc: PDFDocument, cursor: Cursor, fonts: PdfFonts, items: string[], size = 11): Cursor {
   const maxWidth = A4[0] - MARGIN_X * 2 - 14;
   for (const item of items) {
-    cursor = ensureSpace(doc, cursor);
+    cursor = ensureSpace(doc, cursor, fonts);
     cursor.page.drawText("• ", { x: MARGIN_X, y: cursor.y, size, font: fonts.bold, color: rgb(0.12, 0.14, 0.22) });
     const lines = wrapText(item, fonts.regular, size, maxWidth);
     let x = MARGIN_X + 14;
@@ -104,15 +104,15 @@ export function bulletList(doc: PDFDocument, cursor: Cursor, fonts: PdfFonts, it
       cursor.page.drawText(lines[i], { x, y: cursor.y, size, font: fonts.regular, color: TEXT_MAIN });
       cursor = { ...cursor, y: cursor.y - 16 };
       x = MARGIN_X + 14;
-      if (cursor.y < MIN_Y) cursor = ensureSpace(doc, cursor);
+      if (cursor.y < MIN_Y) cursor = ensureSpace(doc, cursor, fonts);
     }
     cursor = { ...cursor, y: cursor.y - 2 };
   }
   return cursor;
 }
 
-export function hr(doc: PDFDocument, cursor: Cursor): Cursor {
-  cursor = ensureSpace(doc, cursor);
+export function hr(doc: PDFDocument, cursor: Cursor, fonts?: PdfFonts): Cursor {
+  if (fonts) cursor = ensureSpace(doc, cursor, fonts);
   cursor.page.drawLine({
     start: { x: MARGIN_X, y: cursor.y },
     end: { x: A4[0] - MARGIN_X, y: cursor.y },
@@ -169,4 +169,137 @@ export function wrapText(text: string, font: any, size: number, maxWidth: number
   }
   if (line) lines.push(line);
   return lines;
+}
+
+/* Extras: callout, checklist with ✓, CTA banner */
+
+export function calloutBox(
+  doc: PDFDocument,
+  cursor: Cursor,
+  fonts: PdfFonts,
+  title: string,
+  lines: string[],
+  tone: "info" | "success" | "warning" = "info"
+): Cursor {
+  const bg =
+    tone === "success"
+      ? rgb(0.92, 0.98, 0.94)
+      : tone === "warning"
+      ? rgb(0.99, 0.96, 0.9)
+      : rgb(0.93, 0.98, 0.99);
+  const border =
+    tone === "success"
+      ? rgb(0.6, 0.85, 0.7)
+      : tone === "warning"
+      ? rgb(0.95, 0.8, 0.5)
+      : BRAND_ACCENT;
+
+  // Measure height
+  const padding = 12;
+  let height = 0;
+  const titleSize = 12;
+  const bodySize = 10.5;
+  const maxWidth = A4[0] - MARGIN_X * 2 - padding * 2;
+  const titleLines = wrapText(title, fonts.bold, titleSize, maxWidth);
+  height += titleLines.length * 16 + 6;
+  for (const l of lines) {
+    const ls = wrapText(l, fonts.regular, bodySize, maxWidth);
+    height += ls.length * 14 + 2;
+  }
+  height += padding * 2;
+
+  // New page if needed
+  if (cursor.y - height < MIN_Y) {
+    cursor = ensureSpace(doc, cursor, fonts);
+  }
+
+  const yTop = cursor.y;
+  // Box
+  cursor.page.drawRectangle({
+    x: MARGIN_X,
+    y: yTop - height,
+    width: A4[0] - MARGIN_X * 2,
+    height,
+    color: bg,
+    borderColor: border,
+    borderWidth: 1,
+  });
+
+  // Title
+  let y = yTop - padding - titleSize;
+  for (const tl of titleLines) {
+    cursor.page.drawText(tl, { x: MARGIN_X + padding, y, size: titleSize, font: fonts.bold, color: TEXT_HEAD });
+    y -= 16;
+  }
+  y -= 2;
+
+  // Body
+  for (const l of lines) {
+    const ls = wrapText(l, fonts.regular, bodySize, maxWidth);
+    for (const line of ls) {
+      cursor.page.drawText(line, { x: MARGIN_X + padding, y, size: bodySize, font: fonts.regular, color: TEXT_MAIN });
+      y -= 14;
+    }
+    y -= 2;
+  }
+
+  return { ...cursor, y: yTop - height - 8 };
+}
+
+export function checkList(doc: PDFDocument, cursor: Cursor, fonts: PdfFonts, items: string[], size = 11): Cursor {
+  const maxWidth = A4[0] - MARGIN_X * 2 - 16;
+  for (const it of items) {
+    cursor = ensureSpace(doc, cursor, fonts);
+    cursor.page.drawText("✓ ", { x: MARGIN_X, y: cursor.y, size, font: fonts.bold, color: BRAND_PRIMARY });
+    const lines = wrapText(it, fonts.regular, size, maxWidth);
+    let x = MARGIN_X + 16;
+    for (const l of lines) {
+      cursor.page.drawText(l, { x, y: cursor.y, size, font: fonts.regular, color: TEXT_MAIN });
+      cursor = { ...cursor, y: cursor.y - 16 };
+      if (cursor.y < MIN_Y) cursor = ensureSpace(doc, cursor, fonts);
+    }
+    cursor = { ...cursor, y: cursor.y - 2 };
+  }
+  return cursor;
+}
+
+export function ctaBanner(
+  doc: PDFDocument,
+  cursor: Cursor,
+  fonts: PdfFonts,
+  lines: string[]
+): Cursor {
+  const padding = 14;
+  const size = 12.5;
+  const maxWidth = A4[0] - MARGIN_X * 2 - padding * 2;
+
+  // Measure height
+  let height = padding * 2;
+  for (const l of lines) {
+    const ls = wrapText(l, fonts.bold, size, maxWidth);
+    height += ls.length * 18 + 2;
+  }
+
+  if (cursor.y - height < MIN_Y) cursor = ensureSpace(doc, cursor, fonts);
+
+  const yTop = cursor.y;
+  cursor.page.drawRectangle({
+    x: MARGIN_X,
+    y: yTop - height,
+    width: A4[0] - MARGIN_X * 2,
+    height,
+    color: BRAND_PRIMARY,
+  });
+
+  let y = yTop - padding - size;
+  for (const l of lines) {
+    const ls = wrapText(l, fonts.bold, size, maxWidth);
+    for (const line of ls) {
+      cursor.page.drawText(line, { x: MARGIN_X + padding, y, size, font: fonts.bold, color: rgb(1, 1, 1) });
+      y -= 18;
+    }
+    y -= 2;
+  }
+
+  return { ...cursor, y: yTop - height - 10 };
 }

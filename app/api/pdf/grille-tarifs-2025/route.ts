@@ -7,6 +7,8 @@ import {
   bulletList,
   hr,
   addFooters,
+  calloutBox,
+  ctaBanner,
 } from "@/lib/pdf-brand";
 
 export const runtime = "nodejs";
@@ -18,7 +20,21 @@ export async function GET() {
   // Cover
   cursor = heading1(doc, cursor, fonts, "Grille Tarifs 2025 — Sites Statiques pour Professions Libérales");
   cursor = paragraph(doc, cursor, fonts, "Avocats, experts-comptables, architectes, notaires : votre présence en ligne, sans compromis", 12);
-  cursor = hr(doc, cursor);
+  cursor = hr(doc, cursor, fonts);
+
+  // Executive summary (callout)
+  cursor = calloutBox(
+    doc,
+    cursor,
+    fonts,
+    "Résumé",
+    [
+      "3 offres : Essentiel 1 490€ — Professionnel 2 490€ — Premium 4 990€ TTC.",
+      "Zéro maintenance obligatoire (statique) : seul le domaine (~15€/an).",
+      "Performance, sécurité, propriété du code et du domaine.",
+    ],
+    "info"
+  );
 
   // Introduction
   cursor = heading2(doc, cursor, fonts, "Introduction : Pourquoi cette grille tarifaire existe");
@@ -147,11 +163,9 @@ export async function GET() {
   ]);
 
   // CTA
-  cursor = hr(doc, cursor);
-  cursor = heading2(doc, cursor, fonts, "Prochaines étapes");
-  cursor = bulletList(doc, cursor, fonts, [
-    "Voir le détail et commander : smarterlogicweb.com/tarifs-2025",
-    "Question / devis : contact@smarterlogicweb.com",
+  cursor = ctaBanner(doc, cursor, fonts, [
+    "Consulter les détails et commander : smarterlogicweb.com/tarifs-2025",
+    "Un projet ? contact@smarterlogicweb.com — Audit gratuit 15 min",
   ]);
 
   addFooters(doc, fonts);
