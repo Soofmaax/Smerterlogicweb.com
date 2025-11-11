@@ -5,20 +5,15 @@ import { Header } from "@/components/site/header";
 import { Footer } from "@/components/site/footer";
 import { UXEnhancer } from "@/components/site/ux-enhancer";
 import { ScrollProgress } from "@/components/site/scroll-progress";
-import { Chatbot } from "@/components/site/chatbot";
 import { CookieConsent } from "@/components/site/cookie-consent";
-import { BackToTop } from "@/components/site/back-to-top";
 import { Cursor } from "@/components/site/cursor";
 import { EasterEggs } from "@/components/site/easter-eggs";
-import { SmartCTAs } from "@/components/site/smart-ctas";
 import { VoiceCommands } from "@/components/site/voice-commands";
 import { AssistantOverlay } from "@/components/site/assistant-overlay";
 import { GyroTilt } from "@/components/site/gyro-tilt";
 import { ReduceMotionToggle } from "@/components/site/reduce-motion-toggle";
-import { WhatsAppFloat } from "@/components/site/whatsapp-float";
 import { UrgencyBanner } from "@/components/site/urgency-banner";
-import { StickyMobileCTA } from "@/components/site/sticky-mobile-cta";
-import { ExitIntentPopup } from "@/components/site/exit-intent-popup";
+
 import Script from "next/script";
 
 const inter = Inter({
@@ -183,19 +178,15 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           <Footer />
         </div>
 
-        {/* Right-hand friendly floating actions */}
-        <BackToTop />
-        <SmartCTAs />
+        {/* Right-hand friendly floating actions (minimized: no floating widgets) */}
         <VoiceCommands />
         <ReduceMotionToggle />
-        <WhatsAppFloat />
-        <StickyMobileCTA />
 
-        {/* Easter Eggs & Chatbot */}
+        {/* Easter Eggs (fun, non-intrusive) */}
         <EasterEggs />
         <AssistantOverlay />
-        <Chatbot />
-        <ExitIntentPopup />
+        {/* Cookie consent (shown when using GA) */}
+        <CookieConsent />
       </body>
     </html>
   );

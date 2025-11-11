@@ -16,7 +16,7 @@ function AssCard({ a, i }: { a: AssociationItem; i: number }) {
   return (
     <Reveal className="reveal-fade-up">
       <article
-        className="rounded-[20px] card-elevated border bg-card p-5"
+        className="rounded-[20px] card-elevated border bg-card p-5 h-full flex flex-col"
         style={{ transitionDelay: `${i * 90}ms` }}
       >
         <div className="flex items-center gap-3">
@@ -38,12 +38,14 @@ function AssCard({ a, i }: { a: AssociationItem; i: number }) {
         </div>
         <p className="mt-3 text-sm text-foreground/80">{a.mission}</p>
         {a.quote ? <p className="mt-2 text-sm italic text-foreground/70">“{a.quote}”</p> : null}
-        <div className="mt-3">
+        <div className="mt-auto pt-3">
           {a.url ? (
             <Link href={a.url} target="_blank" rel="noreferrer" className="link-underline link-underline-strong text-sm text-primary">
               Voir le site
             </Link>
-          ) : null}
+          ) : (
+            <span className="text-xs text-muted-foreground">Site en préparation</span>
+          )}
         </div>
       </article>
     </Reveal>
@@ -53,7 +55,7 @@ function AssCard({ a, i }: { a: AssociationItem; i: number }) {
 export function AssociationsGrid({ items = associationsFR }: { items?: AssociationItem[] }) {
   return (
     <section className="mx-auto w-full max-w-6xl px-0">
-      <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+      <div className="grid items-stretch gap-4 sm:grid-cols-2 lg:grid-cols-3">
         {items.map((a, i) => (
           <AssCard key={a.id} a={a} i={i} />
         ))}

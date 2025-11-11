@@ -2,6 +2,7 @@
 
 import * as React from "react";
 import { Brush, Server, Shuffle, GraduationCap } from "lucide-react";
+import { EXTRAS_FR } from "@/data/pricing";
 
 type Extra = {
   title: string;
@@ -10,32 +11,19 @@ type Extra = {
   Icon: React.ComponentType<React.SVGProps<SVGSVGElement>>;
 };
 
-const extras: Extra[] = [
-  {
-    title: "Adaptation graphique",
-    price: "À partir de 150€",
-    desc: "Cartes de visite, flyers, QR codes, signature email — selon votre charte.",
-    Icon: Brush,
-  },
-  {
-    title: "Maintenance & hébergement",
-    price: "Dès 8€/mois",
-    desc: "Mises à jour, sauvegardes, corrections, hébergement performant en option.",
-    Icon: Server,
-  },
-  {
-    title: "Migration Wix/WordPress",
-    price: "Sur devis",
-    desc: "Reprise de contenu, nettoyage, optimisation performance & SEO.",
-    Icon: Shuffle,
-  },
-  {
-    title: "Formation personnalisée",
-    price: "60€/h",
-    desc: "Apprenez à mettre à jour vos contenus en toute autonomie.",
-    Icon: GraduationCap,
-  },
-];
+const ICONS = {
+  brush: Brush,
+  server: Server,
+  shuffle: Shuffle,
+  graduationCap: GraduationCap,
+} as const;
+
+const extras: Extra[] = EXTRAS_FR.map((e) => ({
+  title: e.title,
+  price: e.price,
+  desc: e.desc,
+  Icon: ICONS[e.iconKey],
+}));
 
 export function ServicesExtras() {
   return (
@@ -45,7 +33,7 @@ export function ServicesExtras() {
         <p className="mt-2 text-foreground/70">Des options utiles pour aller plus loin, quand vous en avez besoin.</p>
       </div>
 
-      <div className="grid gap-4 sm:grid-cols-2 md:grid-cols-4">
+      <div className="grid items-stretch gap-4 sm:grid-cols-2 md:grid-cols-4">
         {extras.map((e) => (
           <FlipCard key={e.title} extra={e} />
         ))}
@@ -63,7 +51,7 @@ function FlipCard({ extra }: { extra: Extra }) {
       onMouseLeave={() => setFlipped(false)}
       onClick={() => setFlipped((f) => !f)}
     >
-      <div className="flip-inner rounded-[20px] card-elevated border bg-card p-5" data-flipped={flipped}>
+      <div className="flip-inner rounded-[20px] card-elevated border bg-card p-5 h-full flex flex-col" data-flipped={flipped}>
         <div className="flip-face">
           <div className="flex items-center gap-2">
             <span className="inline-flex h-9 w-9 items-center justify-center rounded-full bg-accent">

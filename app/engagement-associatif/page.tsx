@@ -53,20 +53,18 @@ export default function EngagementAssociatifPage() {
       </div>
 
       {/* Vision */}
-      <div className="mx-auto mt-10 max-w-3xl">
+      <div className="mx-auto mt-10 max-w-4xl">
         <Reveal className="reveal-fade-up">
-          <h2 className="h2-underline inline-block font-heading text-3xl font-semibold md:text-4xl">Pourquoi Cet Engagement</h2>
-        </Reveal>
-        <Reveal className="reveal-fade-up">
-          <p className="mt-4 text-lg leading-relaxed text-foreground/80">
-            J&apos;ai créé smarterlogicweb avec une conviction : chaque artisan, commerce local ou association mérite un site web professionnel.
-            Trop souvent, les petites structures sont exclues du numérique à cause de prix prohibitifs ou d&apos;un discours trop technique.
-          </p>
-        </Reveal>
-        <Reveal className="reveal-fade-up">
-          <p className="mt-4 text-lg leading-relaxed text-foreground/80">
-            Mon engagement : rendre le web accessible avec tarifs transparents, accompagnement humain, zéro jargon.
-          </p>
+          <article className="rounded-[24px] border bg-card p-6">
+            <h2 className="h2-underline inline-block font-heading text-3xl font-semibold md:text-4xl">Pourquoi Cet Engagement</h2>
+            <p className="mt-4 text-lg leading-relaxed text-foreground/80">
+              J&apos;ai créé smarterlogicweb avec une conviction : chaque artisan, commerce local ou association mérite un site web professionnel.
+              Trop souvent, les petites structures sont exclues du numérique à cause de prix prohibitifs ou d&apos;un discours trop technique.
+            </p>
+            <p className="mt-4 text-lg leading-relaxed text-foreground/80">
+              Mon engagement : rendre le web accessible avec tarifs transparents, accompagnement humain, zéro jargon.
+            </p>
+          </article>
         </Reveal>
       </div>
 
@@ -156,16 +154,16 @@ export default function EngagementAssociatifPage() {
       {/* Critères de sélection */}
       <div className="mt-12">
         <Reveal className="reveal-fade-up">
-          <h2 className="font-heading text-2xl font-semibold">Comment Je Choisis l&apos;Association du Mois</h2>
-        </Reveal>
-        <Reveal className="reveal-fade-up">
-          <ul className="mt-3 space-y-2 text-sm text-foreground/80">
-            <li>• Projet d&apos;intérêt général authentique</li>
-            <li>• Impact local ou social significatif</li>
-            <li>• Besoin réel d&apos;une présence web</li>
-            <li>• Équipe motivée et disponible pour collaborer</li>
-            <li>• Pas de discrimination (toutes causes éligibles)</li>
-          </ul>
+          <article className="rounded-[24px] border bg-card p-6">
+            <h2 className="font-heading text-2xl font-semibold">Comment Je Choisis l&apos;Association du Mois</h2>
+            <ul className="mt-3 space-y-2 text-sm text-foreground/80">
+              <li>• Projet d&apos;intérêt général authentique</li>
+              <li>• Impact local ou social significatif</li>
+              <li>• Besoin réel d&apos;une présence web</li>
+              <li>• Équipe motivée et disponible pour collaborer</li>
+              <li>• Pas de discrimination (toutes causes éligibles)</li>
+            </ul>
+          </article>
         </Reveal>
       </div>
 

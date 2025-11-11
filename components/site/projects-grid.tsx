@@ -94,7 +94,7 @@ export function ProjectsGrid({ items }: { items: CaseItem[] }) {
       </div>
 
       {/* Grid */}
-      <div className={cn("grid-filter-anim mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-3", animState !== "idle" && animState)}>
+      <div className={cn("grid-filter-anim mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-3 items-stretch", animState !== "idle" && animState)}>
         {filtered.map((p, i) => (
           <ProjectCard key={p.id} p={p} liked={!!liked[p.id]} onLike={() => toggleLike(p.id)} onOpen={() => setOpenIndex(i)} />
         ))}
@@ -139,7 +139,7 @@ function ProjectCard({ p, liked, onLike, onOpen }: { p: CaseItem; liked: boolean
   return (
     <article
       className={cn(
-        "project-card relative rounded-[20px] border bg-card p-4 card-elevated pricing-animated offer-lift",
+        "project-card relative rounded-[20px] border bg-card p-4 card-elevated pricing-animated offer-lift h-full flex flex-col",
         liked && "ring-2 ring-amber-400"
       )}
       onDoubleClick={onDouble}
@@ -229,7 +229,7 @@ function ProjectCard({ p, liked, onLike, onOpen }: { p: CaseItem; liked: boolean
 
       {p.quoteShort ? <p className="mt-2 text-sm italic text-foreground/70">“{p.quoteShort.replace(/(^“|”$)/g, "")}”</p> : null}
 
-      <div className="mt-3">
+      <div className="mt-auto pt-3">
         <button
           type="button"
           onClick={onOpen}

@@ -1,12 +1,13 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { BLOG_POSTS } from "@/data/blog";
-import { getScheduledPostBySlug, formatDate } from "@/lib/blog";
+import { getScheduledPostBySlugBurst, formatDate } from "@/lib/blog";
+import { RecommendedArticles } from "@/components/site/recommended-articles";
 
 export const dynamic = "force-dynamic";
 
 export async function generateMetadata({ params }: { params: { slug: string } }) {
-  const result = getScheduledPostBySlug(BLOG_POSTS, params.slug, "fr");
+  const result = getScheduledPostBySlugBurst(BLOG_POSTS, params.slug, "fr");
   if (!result || !result.isPublished) {
     return {
       title: "Article non disponible",
@@ -28,7 +29,7 @@ export async function generateMetadata({ params }: { params: { slug: string } })
 }
 
 export default function BlogPostFR({ params }: { params: { slug: string } }) {
-  const result = getScheduledPostBySlug(BLOG_POSTS, params.slug, "fr");
+  const result = getScheduledPostBySlugBurst(BLOG_POSTS, params.slug, "fr");
   if (!result) notFound();
 
   const { post, isPublished } = result;
@@ -47,6 +48,8 @@ export default function BlogPostFR({ params }: { params: { slug: string } }) {
       </header>
 
       <div className="space-y-4 leading-relaxed" dangerouslySetInnerHTML={{ __html: post.contentHtml }} />
+
+      <RecommendedArticles currentSlug={post.slug} locale="fr" />
 
       <footer className="mt-8">
         <Link href="/blog" className="text-primary hover:underline">

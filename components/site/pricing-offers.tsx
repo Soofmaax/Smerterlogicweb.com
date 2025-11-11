@@ -2,7 +2,7 @@ import * as React from "react";
 import { CheckCircle2, Star } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { BookingButton } from "@/components/site/booking-modal";
-import { Carousel } from "@/components/site/carousel";
+import { PLANS_FR, URGENCY_SLOTS_LEFT_MONTH } from "@/data/pricing";
 
 type Plan = {
   name: string;
@@ -11,54 +11,8 @@ type Plan = {
   recommended?: boolean;
 };
 
-const plans: Plan[] = [
-  {
-    name: "Site Vitrine",
-    price: "À partir de 1 200€",
-    features: [
-      "3 à 5 pages responsive",
-      "Design moderne adapté à votre charte",
-      "SEO on‑page complet",
-      "Formulaire de contact sécurisé",
-      "Google Maps + horaires",
-      "Score PageSpeed > 90",
-      "Hébergement + domaine 1 an offerts",
-      "Formation mise à jour contenu basique",
-    ],
-  },
-  {
-    name: "Site Business",
-    price: "À partir de 2 500€",
-    recommended: true,
-    features: [
-      "5 à 10 pages",
-      "Présentation de vos réalisations",
-      "Blog avec catégories",
-      "Espace actus / promotions",
-      "Suivi de vos visiteurs",
-      "Boutons qui incitent vos visiteurs à vous contacter",
-      "Support prioritaire 3 mois",
-      "Sauvegardes automatiques hebdomadaires",
-    ],
-  },
-  {
-    name: "Site Premium",
-    price: "Sur devis, à partir de 4 500€",
-    features: [
-      "Réservation / demande de devis en ligne",
-      "Espace client sécurisé (si besoin)",
-      "Intégrations API (CRM, calendrier…)",
-      "PWA si pertinent",
-      "Multilingue si besoin",
-      "Suivi positionnement SEO 3 mois",
-      "Maintenance et mises à jour annuelles incluses",
-      "Accompagnement marketing digital de base",
-    ],
-  },
-];
-
 export function PricingOffers() {
-  const slides = plans.map((plan) => <PlanCard key={plan.name} plan={plan} />);
+  const slides = PLANS_FR.map((plan) => <PlanCard key={plan.name} plan={plan} />);
 
   return (
     <section id="tarifs" className="mx-auto w-full max-w-5xl px-6 py-12">
@@ -70,16 +24,18 @@ export function PricingOffers() {
       </div>
 
       {/* Availability note (synced with UrgencyBanner) */}
-      <p className="mb-4 text-center text-sm font-medium text-primary motion-safe:animate-pulse">
+      <p className="mb-4 text-center text-sm font-medium text-primary">
         <span className="mr-1">⚠️</span>
-        Plus que 2 créneaux disponibles ce mois-ci.{" "}
+        Plus que {URGENCY_SLOTS_LEFT_MONTH} créneaux disponibles ce mois-ci.{" "}
         <a href="/contact" className="link-underline link-underline-strong">
           Réservez votre audit gratuit&nbsp;!
         </a>
       </p>
 
-      {/* Carousel horizontal (affiche 1 / 2 / 3 cartes selon la largeur) */}
-      <Carousel items={slides} ariaLabel="Offres et tarifs" centerEmphasis />
+      {/* Grille statique — lisibilité optimale, sans scroll horizontal */}
+      <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3 items-stretch">
+        {slides}
+      </div>
 
       <p className="mt-5 text-sm text-foreground/70">
         Important: ces tarifs s’appliquent si vous disposez déjà de votre identité visuelle (logo, charte graphique,
@@ -94,12 +50,11 @@ function PlanCard({ plan }: { plan: Plan }) {
   return (
     <article
       className={cn(
-        "group pricing-spin relative rounded-[24px] border bg-card p-5 transition duration-300 pricing-animated",
-        "hover:-translate-y-1 hover:shadow-lg card-elevated",
-        plan.recommended ? "ring-2 ring-amber-400 md:scale-[1.04] border-amber-300 shadow-xl" : ""
+        "relative rounded-[24px] border bg-card p-5 transition card-elevated hover:shadow-lg min-h-[22rem] h-full flex flex-col",
+        plan.recommended ? "ring-2 ring-amber-400 border-amber-300" : ""
       )}
     >
-      <div className="spin-inner">
+      <div className="flex flex-col h-full">
         {/* Header: title + recommended pill aligned right */}
         <div className="flex items-center justify-between gap-2">
           <h3 className="font-heading text-lg font-semibold">{plan.name}</h3>
@@ -121,7 +76,7 @@ function PlanCard({ plan }: { plan: Plan }) {
           ))}
         </ul>
 
-        <div className="mt-5">
+        <div className="mt-auto pt-4">
           <BookingButton className="w-full h-11 md:h-12 text-base" label="Réserver mon audit gratuit (15 min)" />
         </div>
       </div>

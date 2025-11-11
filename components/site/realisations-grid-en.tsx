@@ -13,10 +13,7 @@ type Item = {
 };
 
 const items: Item[] = [
-  { title: "BMS Ventouse", subtitle: "bmsventouse.fr", img: "", href: "https://bmsventouse.fr", status: "live", domain: "bmsventouse.fr" },
-  { title: "Martin Plumbing", subtitle: "Plumber in Paris", img: "", href: "", status: "soon" },
-  { title: "Les Saveurs Bakery", subtitle: "Bakery in Lyon", img: "", href: "", status: "soon" },
-  { title: "Dubois Carpentry", subtitle: "Carpentry in Nantes", img: "", href: "", status: "soon" },
+  { title: "BMS Ventouse", subtitle: "bmsventouse.fr", img: "https://image.thum.io/get/width/800/crop/600/https://bmsventouse.fr", href: "https://bmsventouse.fr", status: "live", domain: "bmsventouse.fr" },
 ];
 
 export function RealisationsGridEN() {
@@ -24,16 +21,16 @@ export function RealisationsGridEN() {
     <section className="mx-auto w-full max-w-5xl px-6 py-12">
       <div className="text-center">
         <h2 className="font-heading text-3xl font-semibold md:text-4xl">My Work</h2>
-        <p className="mt-2 text-foreground/70">A few representative examples (screenshots coming soon).</p>
+        <p className="mt-2 text-foreground/70">A few representative examples.</p>
       </div>
 
-      <div className="mt-6 grid gap-4 sm:grid-cols-2 md:grid-cols-3">
+      <div className="mt-6 grid items-stretch gap-4 sm:grid-cols-2 md:grid-cols-3">
         {items.map((it, i) => {
           const isSoon = it.status === "soon" || !it.href;
           return (
             <article
               key={`${it.title}-${i}`}
-              className={`relative rounded-2xl border bg-card p-3 ${isSoon ? "opacity-95" : ""}`}
+              className={`relative rounded-2xl border bg-card p-3 h-full flex flex-col ${isSoon ? "opacity-95" : ""}`}
             >
               {/* Status badge */}
               <div className="pointer-events-none absolute right-3 top-3">
@@ -55,7 +52,7 @@ export function RealisationsGridEN() {
                 <div className="font-heading text-sm font-semibold">{it.title}</div>
                 <div className="text-xs text-muted-foreground">{it.subtitle}</div>
               </div>
-              <div className="mt-3">
+              <div className="mt-auto pt-3">
                 {!isSoon && it.href ? (
                   <a href={it.href} target="_blank" rel="noopener noreferrer" className="link-underline link-underline-strong text-sm text-primary">
                     View site

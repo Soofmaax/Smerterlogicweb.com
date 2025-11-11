@@ -8,6 +8,11 @@ const nextConfig = {
   },
   images: {
     formats: ["image/avif", "image/webp"],
+    remotePatterns: [
+      { protocol: "https", hostname: "bmsventouse.fr" },
+      { protocol: "https", hostname: "image.thum.io" },
+      { protocol: "https", hostname: "images.unsplash.com" },
+    ],
   },
   // Build a minimal standalone server for custom hosting platforms (e.g., Docker, generic PaaS).
   // Netlify plugin ignores this and uses its own runtime, so it's safe to keep.

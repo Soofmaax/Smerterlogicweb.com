@@ -51,7 +51,13 @@ export default function ProjetsPage() {
 
       {/* Grid + filters */}
       <div className="mt-10">
-        <ProjectsGrid items={projectsFR.cases} />
+        {projectsFR.cases.length > 0 ? (
+          <ProjectsGrid items={projectsFR.cases} />
+        ) : (
+          <div className="rounded-[28px] border bg-card p-6 text-center text-sm text-muted-foreground">
+            Projets en cours de publication — revenez bientôt.
+          </div>
+        )}
       </div>
 
       {/* Stats globales */}

@@ -47,6 +47,7 @@ function QuickButton(props: React.ButtonHTMLAttributes<HTMLButtonElement>) {
 
 export function Chatbot() {
   const [open, setOpen] = React.useState(false);
+  const [bubbleVisible, setBubbleVisible] = React.useState(false); // bubble hidden until hesitation detected
   const [messages, setMessages] = React.useState<Message[]>([]);
   const [branch, setBranch] = React.useState<Branch>("home");
   const [input, setInput] = React.useState("");
@@ -70,7 +71,7 @@ export function Chatbot() {
       push(
         "bot",
         <>
-          Pour {activity}, commencez avec <strong>Vitrine</strong> pour une présence claire. Si vous avez besoin de blog, réservations ou intégrations avancées, passez sur <strong>Business</strong> ou <strong>Premium</strong>.
+          Pour {activity}, commencez avec <strong>Essentiel</strong> pour une présence claire. Si vous avez besoin de blog/actualités, FAQ/témoignages ou d’intégrations avancées, passez sur <strong>Professionnel</strong> ou <strong>Premium</strong>.
         </>
       );
       push(
@@ -120,7 +121,10 @@ export function Chatbot() {
   const goTarifs = React.useCallback(() => {
     setBranch("tarifs");
     track("chat_branch_tarifs");
-    push("bot", <>Trois formules : Vitrine (1800€), Business (3200€), Premium (5500€). Quelle activité exercez‑vous ?</>);
+    push(
+      "bot",
+      <>Trois formules : Essentiel (1 490€ TTC), Professionnel (2 490€ TTC), Premium (4 990€ TTC). Quelle activité exercez‑vous ?</>
+    );
     push(
       "bot",
       <div className="mt-2 flex flex-wrap gap-2">
@@ -228,60 +232,108 @@ export function Chatbot() {
     goFormuleRef.current = goFormule;
   }, [goFormule]);
 
-  // Triggers
+  // Hesitation detection — show bubble only when user seems uncertain
   React.useEffect(() => {
-    // Manual open is always available via bubble click
     const snoozeKey = "chat_snooze";
     const hasSnooze = () => {
-      const v = localStorage.getItem(snoozeKey);
-      if (!v) return false;
-      const until = Number(v);
-      return until && until > Date.now();
+      try {
+        const v = localStorage.getItem(snoozeKey);
+        if (!v) return false;
+        const until = Number(v);
+        return !!until && until > Date.now();
+      } catch {
+        return false;
+      }
     };
-    const snooze = () => localStorage.setItem(snoozeKey, String(Date.now() + 24 * 60 * 60 * 1000)); // 24h
+    const snooze = () => {
+      try {
+        localStorage.setItem(snoozeKey, String(Date.now() + 24 * 60 * 60 * 1000));
+      } catch {}
+    };
 
-    // Do not auto-open on /contact or on small screens (mobile)
+    // Disable bubble entirely on mobile and on home page
     const isMobile = typeof window !== "undefined" && window.matchMedia && window.matchMedia("(max-width: 767px)").matches;
-    if (pathname.includes("/contact") || isMobile) {
+    const isHome = pathname === "/" || pathname === "/fr";
+    if (isMobile || isHome || pathname.includes("/contact")) {
+      setBubbleVisible(false);
       return;
     }
 
-    // 30s on /services
-    let t: any;
-    if (pathname.includes("/services") && !hasSnooze()) {
-      t = setTimeout(() => openChat("services_30s"), 30000);
-    }
-    // Exit intent on pricing hash
-    const onLeave = (e: MouseEvent) => {
-      if (e.clientY <= 0 && !hasSnooze()) {
-        if (location.hash.includes("tarifs") || pathname.includes("/services")) {
-          openChat("exit_tarifs");
-          snooze();
-        }
-      }
-    };
-    window.addEventListener("mouseleave", onLeave);
+    let inTarifs = false;
+    let lastY = typeof window !== "undefined" ? window.scrollY : 0;
+    let lastDir = 0; // -1 up, 1 down
+    let turns = 0;
+    let lastActivity = Date.now();
+    const idleThresholdMs = 12000;
 
-    // Scroll 70% on home
+    const onActivity = () => {
+      lastActivity = Date.now();
+    };
+
     const onScroll = () => {
-      if (openedRef.current || hasSnooze()) return;
-      if (pathname === "/" || pathname === "/fr") {
-        const sc = window.scrollY;
-        const h = document.documentElement.scrollHeight - window.innerHeight;
-        if (h > 0 && sc / h > 0.7) {
-          openChat("home_scroll_70");
-          snooze();
-        }
+      const y = window.scrollY;
+      const dy = y - lastY;
+      const dir = dy === 0 ? lastDir : dy > 0 ? 1 : -1;
+      if (lastDir && dir && dir !== lastDir) {
+        turns += 1;
+      }
+      lastDir = dir;
+      lastY = y;
+      onActivity();
+
+      if (!bubbleVisible && inTarifs && turns >= 3 && !hasSnooze()) {
+        setBubbleVisible(true);
+        snooze();
       }
     };
+
     window.addEventListener("scroll", onScroll, { passive: true });
+    window.addEventListener("mousemove", onActivity, { passive: true });
+    window.addEventListener("keydown", onActivity);
+    window.addEventListener("click", onActivity);
+
+    // Observe pricing section presence
+    let io: IntersectionObserver | null = null;
+    const target = document.getElementById("tarifs");
+    if (target) {
+      io = new IntersectionObserver(
+        (entries) => {
+          inTarifs = !!entries[0]?.isIntersecting;
+        },
+        { threshold: 0.2 }
+      );
+      io.observe(target);
+    }
+
+    // Idle in pricing section
+    const idleId = window.setInterval(() => {
+      if (!bubbleVisible && inTarifs && Date.now() - lastActivity > idleThresholdMs && !hasSnooze()) {
+        setBubbleVisible(true);
+        snooze();
+      }
+    }, 1000);
+
+    // Services page: dwell time without clicking
+    let dwellTimer: any;
+    if (pathname.includes("/services") && !hasSnooze()) {
+      dwellTimer = setTimeout(() => {
+        if (!bubbleVisible) {
+          setBubbleVisible(true);
+          snooze();
+        }
+      }, 30000);
+    }
 
     return () => {
-      clearTimeout(t);
-      window.removeEventListener("mouseleave", onLeave);
       window.removeEventListener("scroll", onScroll);
+      window.removeEventListener("mousemove", onActivity);
+      window.removeEventListener("keydown", onActivity);
+      window.removeEventListener("click", onActivity);
+      if (io) io.disconnect();
+      clearInterval(idleId);
+      clearTimeout(dwellTimer);
     };
-  }, [pathname, openChat]);
+  }, [pathname, bubbleVisible]);
 
   
 
@@ -300,14 +352,14 @@ export function Chatbot() {
 
   const faqAuto = (t: string): React.ReactNode => {
     const pairs: Array<[RegExp, React.ReactNode]> = [
-      [/prix|tarif|co[uû]t/, <>Entre 1800€ et 5500€ selon vos besoins. Prix fixe annoncé dès le départ, pas de surprises. Voir <Link href="/#tarifs" className="underline">Tarifs</Link>.</>],
-      [/d[ée]lai|combien de temps/, <>Vitrine: 2‑3 semaines, Business: 3‑4 semaines, Premium: 4‑6 semaines (après réception contenus).</>],
-      [/wordpress|wix/, <>Wix: lent/limité; WordPress: maintenance et sécurité. Mon approche: rapide, sécurisée et simple d’usage.</>],
-      [/maintenance|bug|support/, <>Support prioritaire 3 mois inclus. Option maintenance 20€/mois (MAJ, sauvegardes, corrections).</>],
-      [/h[ée]bergement|serveur/, <>Hébergement pro (Netlify/Vercel). 1ère année incluse, ensuite 20€/mois.</>],
+      [/prix|tarif|co[uû]t/, <>Entre 1 490€ et 4 990€ TTC selon vos besoins. Prix fixe annoncé dès le départ, pas de surprises. Voir <Link href="/#tarifs" className="underline">Tarifs</Link>.</>],
+      [/d[ée]lai|combien de temps/, <>Essentiel: 2‑3 semaines, Professionnel: 4‑6 semaines, Premium: 8‑12 semaines (après réception contenus).</>],
+      [/wordpress|wix/, <>Wix: lent/limité; WordPress: maintenance et sécurité. Mon approche: statique sur‑mesure — rapide, sécurisée et simple d’usage.</>],
+      [/maintenance|bug|support/, <>Support prioritaire inclus selon offre. Option <strong>Formule Évolution</strong> à 20€/mois (1h/mois cumulable, monitoring, tweaks).</>],
+      [/h[ée]bergement|serveur/, <>Hébergement Netlify gratuit à vie; pas de maintenance obligatoire. Option <strong>Formule Évolution</strong> si souhaitée.</>],
       [/seo|google|r[ée]f[ée]rencement/, <>SEO on‑page inclus. Les résultats naturels prennent 2‑3 mois. Je vous forme aux bonnes pratiques.</>],
       [/publicit[ée]|ads|adwords/, <>Pas obligatoire. Le SEO suffit souvent aux artisans locaux; la pub peut accélérer si besoin.</>],
-      [/analytics|stat/, <>Suivi des visiteurs inclus sur Business et Premium. Tableau simple et clair.</>],
+      [/analytics|stat/, <>Suivi des visiteurs (GA4/Plausible) selon offre. Tableau simple et clair.</>],
     ];
     const hit = pairs.find(([re]) => re.test(t));
     if (hit) return hit[1];
@@ -323,8 +375,8 @@ export function Chatbot() {
 
   return (
     <>
-      {/* Floating bubble */}
-      {!open && (
+      {/* Floating bubble (shown only when hesitation detected) */}
+      {bubbleVisible && !open && (
         <button
           aria-label="Ouvrir le chat"
           className="chat-bubble fixed bottom-6 right-6 z-40 inline-flex h-14 w-14 items-center justify-center rounded-full bg-primary text-primary-foreground shadow-lg transition hover:opacity-90"
