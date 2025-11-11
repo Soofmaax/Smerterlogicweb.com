@@ -62,6 +62,7 @@ export const BLOG_POSTS: BlogPost[] = [
     title: "Combien coûte un site vitrine en France en 2025 ? (Guide des vrais prix)",
     summary:
       "Prix site vitrine 2025 : de 300€ à 30 000€. Découvrez les vrais tarifs, ce qui est inclus, et comment éviter de payer deux fois pour le même site.",
+    publishAt: "2025-10-20T09:00:00Z",
     contentHtml: `
       <p>Vous avez demandé trois devis pour votre site vitrine. Premier freelance : 800€. Deuxième : 2 500€. Une agence parisienne : 8 000€. Même brief, même nombre de pages, même secteur d'activité.</p>
       <p>Votre première réaction ? « C’est quoi cette arnaque ? »</p>
@@ -799,6 +800,7 @@ export const BLOG_POSTS: BlogPost[] = [
     title: "Quel contenu pour convertir vos visiteurs en clients ?",
     summary:
       "Taux de conversion site B2B : 2-5% en moyenne. Apprenez à transformer les 95% qui partent : USP claire, tarifs transparents, preuve sociale, 4-5 pages minimum optimisées CRO.",
+    publishAt: "2025-11-05T09:00:00Z",
     contentHtml: `
       <p>Votre site est en ligne depuis trois mois. Il reçoit du trafic. Cent visiteurs par mois, deux cents, peut‑être cinq cents. Vous êtes content. <strong>Mais combien de ces visiteurs deviennent des clients ?</strong></p>
       <p>Vous regardez vos statistiques. 98 % des visiteurs quittent votre site sans rien faire. Pas d’appel. Pas de formulaire. Pas de demande de devis. <strong>Le problème n’est pas esthétique, il est stratégique.</strong> Votre contenu n’est pas conçu pour convertir, il est conçu pour plaire.</p>
@@ -1149,6 +1151,7 @@ export const BLOG_POSTS: BlogPost[] = [
     title: "Votre rôle dans la création du site : ce qu’on attend vraiment de vous",
     summary:
       "Rôle client création site web : contenu prêt en semaine 2, validations sous 48h, brief clair dès le départ. Découvrez la checklist pour livrer votre site 4 semaines plus tôt.",
+    publishAt: "2025-10-29T09:00:00Z",
     contentHtml: `
       <p>Votre site est en développement depuis huit semaines. Le freelance vous a envoyé trois emails pour demander vos textes. Vous n'avez toujours pas trouvé le temps de les rédiger. Il vous a envoyé la maquette du design il y a quinze jours. Vous ne l'avez pas encore regardée.</p>
       <p>Aujourd'hui, le freelance vous appelle. Il vous dit que le projet est bloqué. Il ne peut pas avancer sans vos textes. Il ne peut pas développer sans votre validation du design. Le délai initial de huit semaines ? On est maintenant à seize semaines. Le double.</p>
@@ -1260,6 +1263,7 @@ export const BLOG_POSTS: BlogPost[] = [
     title: "Maintenance technique : qui s'en occupe et à quel prix ?",
     summary:
       "Coût maintenance site web : 30€ à 500€/mois selon prestataire. DIY risqué, freelance 50-100€, agence 150-500€. Découvrez le vrai coût de la non-maintenance (1000€ à 50 000€ par panne).",
+    publishAt: "2025-11-07T09:00:00Z",
     contentHtml: `
       <p>Votre site est en ligne depuis six mois. Il fonctionne, il génère des clients. Puis un matin : <strong>erreur</strong>, page blanche, ou « This site has been hacked ». Urgence, facture, clients perdus. <strong>Comment éviter ça ?</strong> Par une maintenance technique adaptée… et maîtrisée en coût.</p>
       <p>Depuis 2020, je crée et maintiens des sites pour TPE/PME. <strong>Un site sans maintenance est une bombe à retardement</strong> : bugs, lenteurs, failles, piratage. <em>Coût moyen d’une panne</em> : 1 000 à 50 000€. <em>Coût préventif</em> : 30 à 500€/mois selon prestataire.</p>
@@ -1415,6 +1419,7 @@ export const BLOG_POSTS: BlogPost[] = [
     title: "Que comprend un forfait de maintenance pour un site vitrine ?",
     summary:
       "Forfait maintenance site web : mises à jour CMS/plugins, sauvegardes testées tous les 3 mois, monitoring 24/7, support Niveau 1-2-3, optimisation SEO. Vous pouvez modifier textes/photos vous-même, pas les plugins.",
+    publishAt: "2025-11-10T09:00:00Z",
     contentHtml: `
       <p>Vous venez de signer un forfait de maintenance pour votre site WordPress (50€/mois). Trois mois plus tard, vous voulez <strong>changer un texte</strong> : « ce n’est pas inclus ». Inversement, vous installez un <strong>nouveau plugin</strong> : le site se casse, la garantie saute. <strong>Conclusion</strong> : il faut clarifier <em>ce qui est inclus</em>, <em>ce qui ne l’est pas</em>, et <em>ce que vous pouvez faire vous‑même</em> sans risque.</p>
       <p>Un forfait de qualité repose sur <strong>4 piliers</strong> : (1) maintenance préventive/corrective, (2) sécurité & sauvegardes, (3) performance & SEO technique, (4) support structuré avec SLA. Voici <strong>ce que vous payez</strong> vraiment et <strong>comment utiliser votre site sans casse</strong>.</p>

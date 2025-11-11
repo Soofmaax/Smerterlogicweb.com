@@ -24,6 +24,12 @@ export async function generateMetadata({ params }: { params: { slug: string } })
         "en-US": `/en/blog/${post.slug}`,
       },
     },
+    openGraph: {
+      type: "article",
+      title: post.title,
+      description: post.summary ?? post.title,
+      publishedTime: post.publishAt.toISOString(),
+    },
   };
 }
 
