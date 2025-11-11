@@ -13,6 +13,7 @@ import { Guarantee } from "@/components/site/guarantee";
 import { FinalCTA } from "@/components/site/final-cta";
 import { Particles } from "@/components/site/particles";
 import { RightDotsNav } from "@/components/site/right-dots-nav";
+import { Breadcrumbs } from "@/components/site/breadcrumbs";
 
 export const metadata = {
   title: "Services — smarterlogicweb.com",
@@ -93,6 +94,15 @@ export default function ServicesPage() {
           Du site vitrine simple au site business complet. Choisissez la formule adaptée à vos besoins.
         </p>
       </section>
+
+      {/* Visible breadcrumbs */}
+      <Breadcrumbs
+        className="mt-2"
+        items={[
+          { label: "Accueil", href: "/" },
+          { label: "Services" },
+        ]}
+      />
 
       {/* Offres principales */}
       <section id="offres" className="scroll-mt-24">
