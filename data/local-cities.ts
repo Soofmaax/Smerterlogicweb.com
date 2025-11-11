@@ -9,6 +9,7 @@ export type LocalCity = {
   cci?: string; // local CCI label
   institutions?: string[]; // local institutions or clusters
   events?: string[]; // local economic/business events
+  h1Suffix?: string; // custom H1 suffix for geo-UX (e.g., "pour la Viticulture...")
   notes?: string; // optional context
 };
 
@@ -154,6 +155,7 @@ export const LOCAL_CITIES: LocalCity[] = [
     cci: "CCI Corrèze",
     institutions: ["Zones logistiques A20", "Filières agro (Corrèze)"],
     events: ["Foires gastronomiques locales", "Salons CCI Corrèze"],
+    h1Suffix: "pour l'Agroalimentaire et le Tourisme en Corrèze",
     notes: "A20, spécialités foie gras/truffes.",
   },
   {
@@ -162,11 +164,12 @@ export const LOCAL_CITIES: LocalCity[] = [
     departmentCode: "22",
     populationAgglo: "~60 000",
     competition: "Très Faible",
-    sectors: ["Télécommunications & Numérique", "Biotechnologies marines"],
+    sectors: ["Télécommunications", "Numérique", "Biotechnologies marines"],
     satellites: ["Perros-Guirec", "Paimpol"],
-    cci: "CCI Côtes-d'Armor",
+    cci: "CCI Côtes d'Armor",
     institutions: ["Orange Labs", "Technopôle Lannion"],
-    events: ["Rencontres tech locales", "Salons CCI Côtes-d'Armor"],
+    events: ["Rencontres tech locales", "Salons CCI Côtes d'Armor"],
+    h1Suffix: "pour les PME du Pôle Numérique et des Télécoms",
     notes: "Pôle télécom historique.",
   },
   {
@@ -175,11 +178,12 @@ export const LOCAL_CITIES: LocalCity[] = [
     departmentCode: "41",
     populationAgglo: "~80 000",
     competition: "Faible",
-    sectors: ["Tourisme Historique", "Cosmétique", "Pharmaceutique"],
+    sectors: ["Tourisme Historique", "Cosmétique", "Industrie Pharmaceutique"],
     satellites: ["Vendôme", "Romorantin"],
     cci: "CCI Loir-et-Cher",
     institutions: ["Cosmetic Valley (cluster)", "Châteaux de la Loire"],
     events: ["Salons beauté/cosmétique", "Salons CCI Loir-et-Cher"],
+    h1Suffix: "pour les Acteurs du Tourisme et de la Cosmetic Valley",
     notes: "Châteaux de la Loire, Cosmetic Valley.",
   },
   {
@@ -188,11 +192,12 @@ export const LOCAL_CITIES: LocalCity[] = [
     departmentCode: "39",
     populationAgglo: "~40 000",
     competition: "Très Faible",
-    sectors: ["Viticulture (Jura)", "Bois & Ameublement", "Logistique"],
+    sectors: ["Viticulture", "Bois & Ameublement", "Logistique"],
     satellites: ["Tavaux", "Mont-sous-Vaudrey"],
     cci: "CCI Jura",
     institutions: ["Maison natale de Pasteur (musée)", "Filière bois Jura"],
     events: ["Salons viticoles (Jura)", "Salons CCI Jura"],
+    h1Suffix: "pour les Vignerons et l'Industrie du Bois",
     notes: "Ville natale de Pasteur.",
   },
   {
@@ -206,6 +211,7 @@ export const LOCAL_CITIES: LocalCity[] = [
     cci: "CCI Hautes-Alpes",
     institutions: ["Office de tourisme Gap Tallard Vallées"],
     events: ["Festivals outdoor (montagne)", "Salons CCI Hautes-Alpes"],
+    h1Suffix: "pour les Professionnels du Tourisme et des Sports Outdoor",
   },
   {
     slug: "nevers",
@@ -213,11 +219,12 @@ export const LOCAL_CITIES: LocalCity[] = [
     departmentCode: "58",
     populationAgglo: "~70 000",
     competition: "Très Faible",
-    sectors: ["Automobile/Motorsport", "Céramique", "Santé"],
+    sectors: ["Industrie Automobile", "Céramique", "Santé"],
     satellites: ["Varennes-Vauzelles", "Decize"],
     cci: "CCI Nièvre",
     institutions: ["Circuit de Magny-Cours"],
     events: ["Événements motorsport régionaux", "Salons CCI Nièvre"],
+    h1Suffix: "pour l'Industrie et les Services de Santé",
     notes: "Circuit de Magny-Cours.",
   },
   {
@@ -231,7 +238,7 @@ export const LOCAL_CITIES: LocalCity[] = [
     cci: "CCI Aisne",
     institutions: ["Zones d'activités industrielles Aisne"],
     events: ["Forums emploi & industrie", "Salons CCI Aisne"],
-    notes: "Ville en reconversion, aides PME.",
+    h1Suffix: "pourn reconversion, aides PME.",
   },
   {
     slug: "agen",
@@ -239,11 +246,12 @@ export const LOCAL_CITIES: LocalCity[] = [
     departmentCode: "47",
     populationAgglo: "~100 000",
     competition: "Faible",
-    sectors: ["Agroalimentaire", "Aéronautique", "Santé"],
+    sectors: ["Agroalimentaire", "Aéronautique", "Pôle Santé"],
     satellites: ["Villeneuve-sur-Lot", "Marmande"],
     cci: "CCI Lot-et-Garonne",
     institutions: ["Filière pruneaux d'Agen", "Zone aéronautique locale"],
     events: ["Salons agro Lot-et-Garonne", "Salons CCI Lot-et-Garonne"],
+    h1Suffix: "pour l'Agroalimentaire (Pruneaux d'Agen) et l'Aéronautique",
     notes: "Pruneaux d'Agen.",
   },
   {
@@ -257,6 +265,7 @@ export const LOCAL_CITIES: LocalCity[] = [
     cci: "CCI Aude",
     institutions: ["Filières viticoles (Corbières, Minervois)", "Port de Narbonne (logistique)"],
     events: ["Salons viticoles Aude", "Salons CCI Aude"],
+    h1Suffix: "pour la Viticulture et le Tourisme Balnéaire",
   },
   {
     slug: "chalon-sur-saone",
@@ -264,11 +273,12 @@ export const LOCAL_CITIES: LocalCity[] = [
     departmentCode: "71",
     populationAgglo: "~100 000",
     competition: "Faible",
-    sectors: ["Métallurgie", "Viticulture", "Logistique Fluviale"],
+    sectors: ["Industrie Métallurgique", "Viticulture", "Logistique Fluviale"],
     satellites: ["Le Creusot", "Montceau-les-Mines"],
     cci: "CCI Saône-et-Loire",
     institutions: ["Clusters industriels Saône-et-Loire"],
     events: ["Salons Bourgogne (viticulture/industrie)", "Salons CCI Saône-et-Loire"],
+    h1Suffix: "pour l'Industrie et la Viticulture de Bourgogne",
     notes: "Bourgogne, industrie (Areva).",
   },
 ];

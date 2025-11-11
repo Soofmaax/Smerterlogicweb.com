@@ -121,7 +121,9 @@ export default function CityServicePage({ params }: Params) {
       {/* Hero */}
       <Reveal className="reveal-clip inline-block">
         <h1 className="font-heading text-4xl font-bold tracking-tight md:text-5xl text-balance">
-          Création de Site Internet à {city.name} : l'expertise digitale pour {sectorsSentence}
+          {city.h1Suffix
+            ? <>Création de Site Internet à {city.name} : {city.h1Suffix}</>
+            : <>Création de Site Internet à {city.name} : l&apos;expertise digitale pour {sectorsSentence}</>}
         </h1>
       </Reveal>
       <p className="mt-3 text-foreground/80 max-w-3xl">
