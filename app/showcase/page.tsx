@@ -67,7 +67,7 @@ export default function ShowcasePage() {
     </figure>,
     <figure key="t3" className="rounded-2xl border bg-card p-6 text-center shadow-sm">
       <blockquote className="text-lg italic">“On a enfin un site clair qui convertit. Très satisfait de l’accompagnement.”</blockquote>
-      <figcaption className="mt-2 text-sm text-foreground/70">— Sarah, Coach Sportive</figcaption>
+      <figcaption className="mt-2 text-sm text-foreground/70">— Sonia, Coach Sportive</figcaption>
     </figure>,
   ];
 

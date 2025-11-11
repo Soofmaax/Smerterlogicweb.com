@@ -60,13 +60,13 @@ export default function AProposPage() {
               S
             </div>
           </div>
-          <div className="mt-3 text-sm text-muted-foreground">Sarah — Front‑end</div>
+          <div className="mt-3 text-sm text-muted-foreground">Sonia — Front‑end</div>
         </div>
         {/* Story */}
         <div className="rounded-[20px] border bg-card p-6">
           <Reveal className="reveal-fade-up">
             <p className="text-foreground/80">
-              Je m&apos;appelle Sarah, développeuse front-end spécialisée dans la création de sites web pour artisans et TPE.
+              Je m&apos;appelle Sonia, développeuse front-end spécialisée dans la création de sites web pour artisans et TPE.
               Après avoir constaté que beaucoup d&apos;entreprises locales perdaient des clients faute de présence en ligne claire et professionnelle,
               j&apos;ai décidé de me concentrer sur ce secteur. Mon approche ? Transformer la technique en quelque chose de simple.
               Vous ne devez pas comprendre le code pour avoir un site performant.

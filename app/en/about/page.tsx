@@ -37,7 +37,7 @@ export default function AboutPage() {
       <div className="rounded-[28px] card-elevated border bg-card p-6 shadow-sm">
         <Badge variant="secondary" className="px-3 py-1">About</Badge>
         <h1 className="mt-4 font-heading text-4xl font-bold tracking-tight md:text-5xl">
-          Hi, I’m Sarah — front‑end developer.
+          Hi, I’m Sonia — front‑end developer.
         </h1>
         <p className="mt-4 text-lg leading-relaxed text-foreground/80">
           I help entrepreneurs and nonprofits build a clear, professional and fast online presence.
