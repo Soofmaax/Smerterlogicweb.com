@@ -312,6 +312,7 @@ export const BLOG_POSTS: BlogPost[] = [
     title: "Freelance vs Agence vs Builder : quel choix pour votre site statique ?",
     summary:
       "Freelance, agence ou builder No‑Code : quel prestataire choisir pour votre site vitrine ? Comparatif budget, qualité, maintenance. Site statique ou dynamique pour TPE ?",
+    publishAt: "2025-10-24T09:00:00Z",
     contentHtml: `
       <p>Vous avez décidé de créer votre site vitrine. Bravo, c’est déjà un premier pas. Maintenant, la vraie question : <strong>qui va le faire, et avec quelle technologie</strong> ?</p>
       <p>Vous avez trois options devant vous. Un freelance qui vous propose 2 800€. Une agence qui annonce 7 500€. Et Wix qui vous dit qu’avec 30€ par mois, vous pouvez tout faire vous‑même. Vous ne savez pas quelle différence justifie ces écarts de prix. Vous vous demandez si un <strong>site statique</strong> basique suffit, ou si vous devez investir dans un <strong>CMS dynamique</strong> pour évoluer plus tard.</p>
