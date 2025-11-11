@@ -17,4 +17,13 @@ export const RESOURCES: Resource[] = [
     pageHref: "/ressources/checklist-gmb",
     pdfHref: "/api/pdf/checklist-gmb",
   },
+  {
+    slug: "gmb-checklist",
+    locale: "en",
+    title: "Google Business Profile Checklist — Local Pack in 2–8 weeks",
+    summary:
+      "High‑impact actions to reach the Local Pack fast: complete profile, photos, reviews, NAP, posts.",
+    pageHref: "/en/resources/gmb-checklist",
+    pdfHref: "/api/pdf/gmb-checklist",
+  },
 ];
