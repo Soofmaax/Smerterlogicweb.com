@@ -40,8 +40,9 @@ function buildEmbedUrl(raw: string): string | null {
       return u.toString();
     }
 
-    // Google Forms share links are embeddable as-is (often already have embedded=true)
-    if ((hostname === "docs.google.com" || hostname.endsWith(".docs.google.com")) && u.pathname.includes("/forms/")) {
+  >
+// Google Forms: only forms hosted on docs.google.com are embeddable
+if (hostname === "docs.google.com" && uocs.google.com" || hostname.endsWith(".docs.google.com")) && u.pathname.includes("/forms/")) {
       if (!u.searchParams.has("embedded")) u.searchParams.set("embedded", "true");
       return u.toString();
     }
