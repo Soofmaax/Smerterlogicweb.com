@@ -4,6 +4,7 @@ import { BLOG_POSTS } from "@/data/blog";
 import { Particles } from "@/components/site/particles";
 import { Reveal } from "@/components/site/reveal";
 import { Button } from "@/components/ui/button";
+import { RecommendedArticles } from "@/components/site/recommended-articles";
 
 const coverImg = "https://images.unsplash.com/photo-1554224154-22dec7ec8818?auto=format&fit=crop&w=1600&q=80";
 const imgSaaS = "https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=1600&q=80";
@@ -140,6 +141,8 @@ export default function ArticlePrixSiteVitrine2025() {
           </figure>
         </div>
       </section>
+
+      <RecommendedArticles currentSlug={post.slug} locale="fr" />
 
       {/* CTA footer */}
       <section className="mx-auto mt-10 w-full max-w-5xl px-0 py-8">
