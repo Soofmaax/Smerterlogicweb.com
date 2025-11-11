@@ -14,7 +14,7 @@ const imgLocal = "https://images.unsplash.com/photo-1469474968028-56623f02e42e?a
 export const metadata = {
   title: "Votre site servira-t-il réellement vos objectifs business ?",
   description:
-    "ROI site vitrine TPE : 150% à 300% dès la première année si bien conçu. Transformez votre site en machine à clients — pas en décoration coûteuse.",
+    "ROI site vitrine TPE : 150% à 300% dès la première année si bien conçu. Découvrez comment transformer votre site en machine à clients, pas en simple décoration coûteuse.",
   alternates: {
     canonical: "/roi-site-vitrine-tpe",
     languages: {
@@ -24,7 +24,7 @@ export const metadata = {
   openGraph: {
     title: "Votre site servira-t-il réellement vos objectifs business ?",
     description:
-      "ROI site vitrine TPE : 150% à 300% dès la première année si bien conçu. Transformez votre site en machine à clients — pas en décoration coûteuse.",
+      "ROI site vitrine TPE : 150% à 300% dès la première année si bien conçu. Découvrez comment transformer votre site en machine à clients, pas en simple décoration coûteuse.",
     url: "https://smarterlogicweb.com/roi-site-vitrine-tpe",
     images: ["/roi-site-vitrine-tpe/opengraph-image"],
   },
