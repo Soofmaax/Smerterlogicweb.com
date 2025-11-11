@@ -7,6 +7,8 @@ export type LocalCity = {
   sectors: string[]; // key local sectors
   satellites: string[]; // nearby towns/zones
   cci?: string; // local CCI label
+  institutions?: string[]; // local institutions or clusters
+  events?: string[]; // local economic/business events
   notes?: string; // optional context
 };
 
@@ -20,7 +22,9 @@ export const LOCAL_CITIES: LocalCity[] = [
     sectors: ["Mutuelles & Assurances", "Fintech", "Tertiaire"],
     satellites: ["Parthenay", "Thouars"],
     cci: "CCI Deux-Sèvres",
-    notes: "Capitale des mutuelles : MAAF, MAIF, Groupama.",
+    institutions: ["MAIF", "MAAF", "Groupama"],
+    events: ["Rencontres Assurance & Mutuelles (locales)", "Salons CCI Deux-Sèvres"],
+    notes: "Capitale des mutuelles.",
   },
   {
     slug: "montauban",
@@ -31,6 +35,8 @@ export const LOCAL_CITIES: LocalCity[] = [
     sectors: ["Agroalimentaire", "Aéronautique", "Logistique"],
     satellites: ["Moissac", "Castelsarrasin"],
     cci: "CCI Tarn-et-Garonne",
+    institutions: ["CCI Tarn-et-Garonne", "Pôles agro & logistique"],
+    events: ["Forums B2B CCI", "Rencontres industrielles Tarn-et-Garonne"],
   },
   {
     slug: "chateauroux",
@@ -41,6 +47,8 @@ export const LOCAL_CITIES: LocalCity[] = [
     sectors: ["Défense & Aéronautique", "Logistique", "Textile"],
     satellites: ["Issoudun", "Le Blanc"],
     cci: "CCI Indre",
+    institutions: ["Aéroport de Châteauroux-Centre", "Zones logistiques"],
+    events: ["Salons CCI Indre", "Rencontres Aerospace (locales)"],
     notes: "Base aérienne, pôle Aerospace.",
   },
   {
@@ -52,6 +60,8 @@ export const LOCAL_CITIES: LocalCity[] = [
     sectors: ["Industrie Mécanique & Métallurgie", "Numérique", "Santé"],
     satellites: ["Commentry", "Désertines"],
     cci: "CCI Allier (Délégation de Montluçon)",
+    institutions: ["Technopôle et pôles numériques (locaux)"],
+    events: ["Salons industriels Allier"],
     notes: "Ville en reconversion, forte opportunité SEO.",
   },
   {
@@ -63,6 +73,8 @@ export const LOCAL_CITIES: LocalCity[] = [
     sectors: ["Mines & Énergie", "Tourisme Vert (Cévennes)", "Agroalimentaire"],
     satellites: ["Saint-Christol-lès-Alès", "La Grand-Combe"],
     cci: "CCI Gard (Délégation d'Alès)",
+    institutions: ["Pôle Mécanique Alès-Cévennes"],
+    events: ["Événements Cévenols (tourisme & industrie)", "Salons CCI Gard"],
     notes: "Pôle technologique.",
   },
   {
@@ -74,6 +86,8 @@ export const LOCAL_CITIES: LocalCity[] = [
     sectors: ["Bois & Forêt", "Textile", "Numérique"],
     satellites: ["Fraize", "Raon-l'Étape"],
     cci: "CCI des Vosges (Antenne de Saint-Dié)",
+    institutions: ["Clusters bois & textile (locaux)"],
+    events: ["Festival International de Géographie"],
     notes: "Festival International de Géographie.",
   },
   {
@@ -85,6 +99,8 @@ export const LOCAL_CITIES: LocalCity[] = [
     sectors: ["Métallurgie & Automobile", "Logistique", "Culture"],
     satellites: ["Sedan", "Rethel"],
     cci: "CCI Marne Ardennes (Site de Charleville-Mézières)",
+    institutions: ["Zones industrielles Ardennes"],
+    events: ["Festival Mondial des Marionnettes"],
     notes: "Festival mondial des marionnettes.",
   },
   {
@@ -96,6 +112,8 @@ export const LOCAL_CITIES: LocalCity[] = [
     sectors: ["Nautisme & Tourisme", "Agroalimentaire", "Cyber"],
     satellites: ["Auray", "Sarzeau"],
     cci: "CCI du Morbihan",
+    institutions: ["Pôle cybersécurité (Morbihan)"],
+    events: ["Semaine du Golfe (nautisme)", "Salons CCI Morbihan"],
     notes: "Golfe du Morbihan, pôle cyber.",
   },
   {
@@ -107,6 +125,8 @@ export const LOCAL_CITIES: LocalCity[] = [
     sectors: ["Textile & Mode", "Mécanique", "Agroalimentaire"],
     satellites: ["Maulévrier", "Mortagne-sur-Sèvre"],
     cci: "CCI Maine-et-Loire",
+    institutions: ["Clusters textile & mode (Anjou)"],
+    events: ["Salons professionnels Choletais"],
   },
   {
     slug: "thionville",
@@ -117,6 +137,8 @@ export const LOCAL_CITIES: LocalCity[] = [
     sectors: ["Transfrontalier (Luxembourg)", "Logistique", "Métallurgie"],
     satellites: ["Yutz", "Terville"],
     cci: "CCI Moselle Métropole Metz (Site de Thionville/Yutz)",
+    institutions: ["Zones transfrontalières (Lux)", "Parcs industriels Moselle"],
+    events: ["Rencontres transfrontalières PME"],
     notes: "Ancien bassin sidérurgique.",
   },
 
@@ -130,6 +152,8 @@ export const LOCAL_CITIES: LocalCity[] = [
     sectors: ["Agroalimentaire", "Logistique", "Tourisme Vert"],
     satellites: ["Tulle", "Ussel"],
     cci: "CCI Corrèze",
+    institutions: ["Zones logistiques A20", "Filières agro (Corrèze)"],
+    events: ["Foires gastronomiques locales", "Salons CCI Corrèze"],
     notes: "A20, spécialités foie gras/truffes.",
   },
   {
@@ -141,7 +165,9 @@ export const LOCAL_CITIES: LocalCity[] = [
     sectors: ["Télécommunications & Numérique", "Biotechnologies marines"],
     satellites: ["Perros-Guirec", "Paimpol"],
     cci: "CCI Côtes-d'Armor",
-    notes: "Orange Labs, pôle télécom historique.",
+    institutions: ["Orange Labs", "Technopôle Lannion"],
+    events: ["Rencontres tech locales", "Salons CCI Côtes-d'Armor"],
+    notes: "Pôle télécom historique.",
   },
   {
     slug: "blois",
@@ -152,6 +178,8 @@ export const LOCAL_CITIES: LocalCity[] = [
     sectors: ["Tourisme Historique", "Cosmétique", "Pharmaceutique"],
     satellites: ["Vendôme", "Romorantin"],
     cci: "CCI Loir-et-Cher",
+    institutions: ["Cosmetic Valley (cluster)", "Châteaux de la Loire"],
+    events: ["Salons beauté/cosmétique", "Salons CCI Loir-et-Cher"],
     notes: "Châteaux de la Loire, Cosmetic Valley.",
   },
   {
@@ -163,6 +191,8 @@ export const LOCAL_CITIES: LocalCity[] = [
     sectors: ["Viticulture (Jura)", "Bois & Ameublement", "Logistique"],
     satellites: ["Tavaux", "Mont-sous-Vaudrey"],
     cci: "CCI Jura",
+    institutions: ["Maison natale de Pasteur (musée)", "Filière bois Jura"],
+    events: ["Salons viticoles (Jura)", "Salons CCI Jura"],
     notes: "Ville natale de Pasteur.",
   },
   {
@@ -174,6 +204,8 @@ export const LOCAL_CITIES: LocalCity[] = [
     sectors: ["Tourisme de Montagne", "Sports Outdoor", "Agriculture de montagne"],
     satellites: ["Briançon", "Embrun"],
     cci: "CCI Hautes-Alpes",
+    institutions: ["Office de tourisme Gap Tallard Vallées"],
+    events: ["Festivals outdoor (montagne)", "Salons CCI Hautes-Alpes"],
   },
   {
     slug: "nevers",
@@ -184,6 +216,8 @@ export const LOCAL_CITIES: LocalCity[] = [
     sectors: ["Automobile/Motorsport", "Céramique", "Santé"],
     satellites: ["Varennes-Vauzelles", "Decize"],
     cci: "CCI Nièvre",
+    institutions: ["Circuit de Magny-Cours"],
+    events: ["Événements motorsport régionaux", "Salons CCI Nièvre"],
     notes: "Circuit de Magny-Cours.",
   },
   {
@@ -195,6 +229,8 @@ export const LOCAL_CITIES: LocalCity[] = [
     sectors: ["Agro-industrie", "Logistique", "Mécanique"],
     satellites: ["Tergnier", "Chauny"],
     cci: "CCI Aisne",
+    institutions: ["Zones d'activités industrielles Aisne"],
+    events: ["Forums emploi & industrie", "Salons CCI Aisne"],
     notes: "Ville en reconversion, aides PME.",
   },
   {
@@ -206,6 +242,8 @@ export const LOCAL_CITIES: LocalCity[] = [
     sectors: ["Agroalimentaire", "Aéronautique", "Santé"],
     satellites: ["Villeneuve-sur-Lot", "Marmande"],
     cci: "CCI Lot-et-Garonne",
+    institutions: ["Filière pruneaux d'Agen", "Zone aéronautique locale"],
+    events: ["Salons agro Lot-et-Garonne", "Salons CCI Lot-et-Garonne"],
     notes: "Pruneaux d'Agen.",
   },
   {
@@ -217,6 +255,8 @@ export const LOCAL_CITIES: LocalCity[] = [
     sectors: ["Viticulture", "Tourisme Balnéaire", "Logistique Portuaire"],
     satellites: ["Lézignan-Corbières", "Sigean"],
     cci: "CCI Aude",
+    institutions: ["Filières viticoles (Corbières, Minervois)", "Port de Narbonne (logistique)"],
+    events: ["Salons viticoles Aude", "Salons CCI Aude"],
   },
   {
     slug: "chalon-sur-saone",
@@ -227,6 +267,8 @@ export const LOCAL_CITIES: LocalCity[] = [
     sectors: ["Métallurgie", "Viticulture", "Logistique Fluviale"],
     satellites: ["Le Creusot", "Montceau-les-Mines"],
     cci: "CCI Saône-et-Loire",
+    institutions: ["Clusters industriels Saône-et-Loire"],
+    events: ["Salons Bourgogne (viticulture/industrie)", "Salons CCI Saône-et-Loire"],
     notes: "Bourgogne, industrie (Areva).",
   },
 ];

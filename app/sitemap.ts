@@ -28,6 +28,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.85,
   }));
 
+  const refonteCityPages = getAllLocalCitySlugs().map((slug) => ({
+    url: `${baseUrl}/refonte-web/${slug}`,
+    lastModified: now,
+    changeFrequency: "monthly" as const,
+    priority: 0.85,
+  }));
+
   const nationalPage = {
     url: `${baseUrl}/villes-intervention`,
     lastModified: now,
@@ -60,6 +67,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
     // All city pages (FR)
     ...cityPages,
+
+    // All refonte city pages (FR)
+    ...refonteCityPages,
 
     // EN
     { url: `${baseUrl}/en`, lastModified: now, changeFrequency: "monthly", priority: 1 },

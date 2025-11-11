@@ -3,6 +3,7 @@ import { notFound } from "next/navigation";
 import { getScheduledPostBySlugBurst, formatDate } from "@/lib/blog";
 import { getAllPosts } from "@/lib/blog-source";
 import { RecommendedArticles } from "@/components/site/recommended-articles";
+import { RelatedCities } from "@/components/site/related-cities";
 
 export const dynamic = "force-dynamic";
 
@@ -57,6 +58,8 @@ export default function BlogPostFR({ params }: { params: { slug: string } }) {
         className="prose prose-neutral dark:prose-invert max-w-none prose-headings:font-heading prose-a:text-primary prose-a:underline-offset-2 prose-img:rounded-lg prose-img:shadow-sm"
         dangerouslySetInnerHTML={{ __html: post.contentHtml }}
       />
+
+      <RelatedCities contentHtml={post.contentHtml} locale="fr" />
 
       <RecommendedArticles currentSlug={post.slug} locale="fr" />
 

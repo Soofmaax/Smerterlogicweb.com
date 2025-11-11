@@ -168,6 +168,24 @@ export default function CityServicePage({ params }: Params) {
         </section>
 
         <section>
+          <h2 className="font-heading text-2xl font-semibold">Institutions locales et événements économiques</h2>
+          <p className="mt-2 text-foreground/80">
+            Nous nous appuyons sur les ressources locales (CCI, pôles, évènements) pour adapter le contenu et les
+            preuves de confiance. À {city.name}, la {cciLabel} et les partenaires locaux facilitent l’ancrage régional.
+          </p>
+          {Array.isArray(city.institutions) && city.institutions.length > 0 ? (
+            <p className="mt-2 text-foreground/80">
+              Institutions clés: {city.institutions.join(", ")}.
+            </p>
+          ) : null}
+          {Array.isArray(city.events) && city.events.length > 0 ? (
+            <p className="mt-2 text-foreground/80">
+              Événements économiques: {city.events.join(", ")}.
+            </p>
+          ) : null}
+        </section>
+
+        <section>
           <blockquote className="rounded-xl border bg-muted/30 p-4 text-muted-foreground">
             “Le site refondu pour une PME locale de {city.name} a doublé les demandes de devis en 4 mois — grâce à la vitesse
             (LCP &lt; 1s), au contenu sectoriel, et à des CTA clairs.”
@@ -218,7 +236,10 @@ export default function CityServicePage({ params }: Params) {
                 </Link>
               ))}
           </div>
-          <div className="mt-4">
+          <div className="mt-4 flex flex-col gap-2">
+            <Link href={`/refonte-web/${city.slug}`} className="text-primary hover:underline">
+              Vous avez déjà un site ? Voir la refonte →
+            </Link>
             <Link href="/villes-intervention" className="text-primary hover:underline">
               Voir toutes nos villes d’intervention →
             </Link>

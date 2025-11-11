@@ -78,6 +78,7 @@ export default function ServicesPage() {
           { id: "avis", label: "Avis" },
           { id: "processus", label: "Processus" },
           { id: "faq", label: "FAQ" },
+          { id: "zones", label: "Zones" },
         ]}
         offset={80}
       />
@@ -121,6 +122,21 @@ export default function ServicesPage() {
       {/* FAQ spécifique services */}
       <section id="faq" className="mt-6 scroll-mt-24">
         <FAQServices />
+      </section>
+
+      {/* Zones desservies (silo national) */}
+      <section id="zones" className="mx-auto mt-6 w-full max-w-5xl px-0 py-8 scroll-mt-24">
+        <div className="rounded-[28px] card-elevated border bg-card p-6 text-center">
+          <h2 className="font-heading text-2xl font-semibold">Zones d’intervention (France)</h2>
+          <p className="mt-2 text-foreground/80">
+            Nous intervenons partout en France. Consultez la liste des villes et secteurs couverts.
+          </p>
+          <div className="mt-5">
+            <Button asChild className="rounded-full" variant="secondary">
+              <Link href="/villes-intervention">Voir toutes nos villes d’intervention</Link>
+            </Button>
+          </div>
+        </div>
       </section>
 
       {/* CTA final */}
