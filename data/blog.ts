@@ -181,7 +181,8 @@ export const BLOG_POSTS: BlogPost[] = [
       <h2>Verdict : ne choisissez pas sur le prix initial, choisissez sur le coût réel</h2>
       <p>Un site à 300€ coûte en réalité 3 200€ (contenu + SEO + maintenance). Un site statique à 2 490€ tout inclus est objectivement moins cher sur 3 ans.</p>
       <p>Faites le calcul. Exigez un devis détaillé. Et rappelez‑vous : votre site doit <strong>attirer des clients</strong>, pas juste exister.</p>
-      <p>Besoin d’un site qui attire des clients ? Sites statiques optimisés pour TPE/PME de tous secteurs. Design sur‑mesure, contenu inclus, ultra‑rapide, 0 maintenance. Exemples : bmsventouse.fr (positions 2‑10 en 4 mois). À partir de 1 490€. Code remis, domaine à votre nom.</p>
+      <p>Besoin d’un site qui attire des clients ? Sites statiques optimisés pour TPE/PME de tous secteurs. Design sur‑mesure, contenu inclus, ultra‑rapide, 0 maintenance. Exemples : bmsventouse.fr (positions 2–10 en 4 mois). À partir de 1 490€. Code remis, domaine à votre nom.</p>
+      <p class="mt-2">Voir aussi : <a href="/cout-maintenance-site-web">coût de la maintenance</a>, <a href="/contenu-forfait-maintenance-site-web">contenu d’un forfait de maintenance</a> et <a href="/frais-caches-site-internet">frais cachés après la livraison</a>.</p>ttire des clients ? Sites statiques optimisés pour TPE/PME de tous secteurs. Design sur‑mesure, contenu inclus, ultra‑rapide, 0 maintenance. Exemples : bmsventouse.fr (positions 2‑10 en 4 mois). À partir de 1 490€. Code remis, domaine à votre nom.</p>
       <p class="mt-2">Voir aussi : <a href="/cout-maintenance-site-web">coût de la maintenance</a>, <a href="/contenu-forfait-maintenance-site-web">contenu d’un forfait de maintenance</a> et <a href="/frais-caches-site-internet">frais cachés après la livraison</a>.</p>
 
       <h2>FAQ</h2>
@@ -1004,6 +1005,7 @@ export const BLOG_POSTS: BlogPost[] = [
       <h2>Verdict : sept à treize semaines suffisent si tout est carré</h2>
       <p>Brief clair, contenus rapides ou rédigés, validations 48 h → 7–13 semaines. Sinon 14–34. Ne cédez pas aux promesses « 3 semaines » pour un site vide.</p>
       <p>Besoin d'un site livré en 7–10 semaines maximum ? Sites statiques optimisés TPE/PME : design sur-mesure, contenus rédigés, SEO avancé, zéro maintenance. Planning jalonné, réactivité &lt; 24 h. Dès 1 490 €. Code remis, domaine à votre nom.</p>
+      <p class="mt-2">Voir aussi : <a href="/cout-maintenance-site-web">coût de la maintenance</a>, <a href="/contenu-forfait-maintenance-site-web">contenu d’un forfait de maintenance</a> et <a href="/frais-caches-site-internet">frais cachés après la livraison</a>.</p>
 
       <h2>FAQ</h2>
       <h3>Combien de temps faut-il réellement pour créer un site vitrine professionnel ?</h3>
