@@ -162,11 +162,11 @@ export default function ArticleFraisCachesSiteInternet() {
         </div>
       </section>
 
-      {QuickLinks />
+      <QuickLinks />
 
       {/* Back to blog */}
-     <ediv className="mt-4 text-center">
-       <sLink href="/primary hover:underline">← Retour aux articles</Link>
+      <div className="mt-4 text-center">
+        <Link href="/blog" className="text-primary hover:underline">← Retour aux articles</Link>
       </div>
     </section>
   );
