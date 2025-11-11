@@ -17,6 +17,13 @@ export type BlogPost = {
    * If provided, scheduling will respect this date instead of the automatic Mon/Wed/Fri cadence.
    */
   publishAt?: string;
+  /**
+   * Optional flags:
+   * - published: force immediate publication (uses "now" as publishAt if not set)
+   * - draft: hide from publication regardless of schedule
+   */
+  published?: boolean;
+  draft?: boolean;
 };
 
 export type ScheduledPost = BlogPost & {
@@ -96,10 +103,9 @@ export function schedulePosts(posts: BlogPost[], locale: BlogLocale): ScheduledP
   const dates = scheduleDates(posts.length, start);
   return posts.map((p, i) => {
     const explicit = parseDateISO(p.publishAt);
-    return { ...p, publishAt: explicit ?? dates
-
-export function getPublishedPosts(posts: ScheduledPost[], now = new Date()): ScheduledPost[] {
-  return posts.filter((p) => p.publishAt.getTime() <= now.getTime());
+    const publishNow = p.published === true && !explicit ? new Date() : null;
+    return { ...p, publishAt: explicit ?? publishNow ?? dates[i] };
+  });
 }
 
 export function getScheduledPostBySlug(posts: BlogPost[], slug: string, locale: BlogLocale, now = new Date()):
@@ -143,7 +149,12 @@ export function getPublishedPostsBurst(allPosts: BlogPost[], locale: BlogLocale,
   const initialCount = getInitialPublishCount(locale);
   const overrides = new Set(getOverrideSlugs(locale));
   return ordered.filter(
-    (p, idx) => idx < initialCount || p.publishAt.getTime() <= now.getTime() || overrides.has(p.slug)
+    (p, idx) =>
+      p.draft !== true &&
+      (p.published === true ||
+        idx < initialCount ||
+        p.publishAt.getTime() <= now.getTime() ||
+        overrides.has(p.slug))
   );
 }
 
@@ -161,6 +172,11 @@ export function getScheduledPostBySlugBurst(
   const post = ordered[matchIdx];
   const initialCount = getInitialPublishCount(locale);
   const overrides = new Set(getOverrideSlugs(locale));
-  const isPublished = matchIdx < initialCount || post.publishAt.getTime() <= now.getTime() || overrides.has(slug);
+  const isPublished =
+    post.draft !== true &&
+    (post.published === true ||
+      matchIdx < initialCount ||
+      post.publishAt.getTime() <= now.getTime() ||
+      overrides.has(slug));
   return { post, isPublished };
 }

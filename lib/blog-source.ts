@@ -15,7 +15,13 @@ import { BLOG_POSTS } from "@/data/blog";
  * - title: string (required)
  * - summary: string (optional)
  * - publishAt: ISO date string (optional)
+ * - published: boolean (optional; publish immediately)
+ * - draft: boolean (optional; hide from publication)
  * - tags: string[] (optional)
+ *
+ * Filename shortcut:
+ * - If file name starts with YYYY-MM-DD-..., use that date as publishAt automatically.
+ *   Example: 2025-01-05-mon-super-article.md
  */
 export function loadPostsFromMarkdown(): BlogPost[] {
   const contentDir = path.join(process.cwd(), "content", "blog");
@@ -33,12 +39,21 @@ export function loadPostsFromMarkdown(): BlogPost[] {
     const parsed = matter(raw);
 
     const slugFromFile = file.replace(/\.md$/i, "");
-    const slug: string = (parsed.data.slug as string) || slugFromFile;
+    const dateMatch = slugFromFile.match(/^(\d{4}-\d{2}-\d{2})-(.+)$/);
+    const hour = (() => {
+      const h = Number(process.env.BLOG_PUBLISH_HOUR || "9");
+      return Number.isFinite(h) && h >= 0 && h <= 23 ? h : 9;
+    })();
+    const publishAtFromName = dateMatch ? `${dateMatch[1]}T${String(hour).padStart(2, "0")}:00:00Z` : undefined;
+
+    const slug: string = (parsed.data.slug as string) || (dateMatch ? dateMatch[2] : slugFromFile);
 
     const locale = (parsed.data.locale as BlogLocale) || "fr";
     const title = (parsed.data.title as string) || slug;
     const summary = (parsed.data.summary as string) || undefined;
-    const publishAt = (parsed.data.publishAt as string) || undefined;
+    const publishAt = (parsed.data.publishAt as string) || publishAtFromName || undefined;
+    const published = parsed.data.published === true || false;
+    const draft = parsed.data.draft === true || false;
     const tags = Array.isArray(parsed.data.tags) ? (parsed.data.tags as string[]) : undefined;
 
     // Convert markdown body to HTML
@@ -50,6 +65,8 @@ export function loadPostsFromMarkdown(): BlogPost[] {
       title,
       summary,
       publishAt,
+      published,
+      draft,
       tags,
       contentHtml: html,
     });

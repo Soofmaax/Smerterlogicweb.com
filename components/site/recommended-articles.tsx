@@ -1,6 +1,6 @@
 import Link from "next/link";
-import { BLOG_POSTS } from "@/data/blog";
 import { getPublishedPostsBurst, schedulePosts, formatDate } from "@/lib/blog";
+import { getAllPosts } from "@/lib/blog-source";
 
 type Props = {
   currentSlug?: string;
@@ -9,8 +9,9 @@ type Props = {
 };
 
 export function RecommendedArticles({ currentSlug, locale = "fr", title }: Props) {
-  const scheduled = schedulePosts(BLOG_POSTS.filter((p) => p.locale === locale), locale);
-  const published = getPublishedPostsBurst(BLOG_POSTS, locale)
+  const all = getAllPosts();
+  const scheduled = schedulePosts(all.filter((p) => p.locale === locale), locale);
+  const published = getPublishedPostsBurst(all, locale)
     .sort((a, b) => b.publishAt.getTime() - a.publishAt.getTime())
     .filter((p) => p.slug !== currentSlug)
     .slice(0, 3);
