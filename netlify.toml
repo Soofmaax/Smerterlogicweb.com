@@ -94,3 +94,9 @@
   from = "/robots.txt"
   to = "/robots"
   status = 200
+
+# Redirect old national page to the new canonical
+[[redirects]]
+  from = "/creation-site-internet-france"
+  to = "/villes-intervention"
+  status = 301

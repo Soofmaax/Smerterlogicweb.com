@@ -219,8 +219,8 @@ export default function CityServicePage({ params }: Params) {
               ))}
           </div>
           <div className="mt-4">
-            <Link href="/creation-site-internet-france" className="text-primary hover:underline">
-              Toutes les villes desservies en France →
+            <Link href="/villes-intervention" className="text-primary hover:underline">
+              Voir toutes nos villes d’intervention →
             </Link>
           </div>
         </div>

@@ -28,6 +28,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.85,
   }));
 
+  const nationalPage = {
+    url: `${baseUrl}/villes-intervention`,
+    lastModified: now,
+    changeFrequency: "monthly" as const,
+    priority: 0.9,
+  };
+
   return [
     // FR
     { url: `${baseUrl}/`, lastModified: now, changeFrequency: "monthly", priority: 1 },
@@ -47,6 +54,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
     // Local SEO pages by métier
     ...localSeoPages,
+
+    // National cities page (FR)
+    nationalPage,
 
     // All city pages (FR)
     ...cityPages,

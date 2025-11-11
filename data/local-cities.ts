@@ -51,6 +51,7 @@ export const LOCAL_CITIES: LocalCity[] = [
     competition: "Très Faible",
     sectors: ["Industrie Mécanique & Métallurgie", "Numérique", "Santé"],
     satellites: ["Commentry", "Désertines"],
+    cci: "CCI Allier (Délégation de Montluçon)",
     notes: "Ville en reconversion, forte opportunité SEO.",
   },
   {
@@ -61,6 +62,7 @@ export const LOCAL_CITIES: LocalCity[] = [
     competition: "Faible",
     sectors: ["Mines & Énergie", "Tourisme Vert (Cévennes)", "Agroalimentaire"],
     satellites: ["Saint-Christol-lès-Alès", "La Grand-Combe"],
+    cci: "CCI Gard (Délégation d'Alès)",
     notes: "Pôle technologique.",
   },
   {
@@ -71,6 +73,7 @@ export const LOCAL_CITIES: LocalCity[] = [
     competition: "Très Faible",
     sectors: ["Bois & Forêt", "Textile", "Numérique"],
     satellites: ["Fraize", "Raon-l'Étape"],
+    cci: "CCI des Vosges (Antenne de Saint-Dié)",
     notes: "Festival International de Géographie.",
   },
   {
@@ -81,7 +84,7 @@ export const LOCAL_CITIES: LocalCity[] = [
     competition: "Faible",
     sectors: ["Métallurgie & Automobile", "Logistique", "Culture"],
     satellites: ["Sedan", "Rethel"],
-    cci: "CCI Ardennes",
+    cci: "CCI Marne Ardennes (Site de Charleville-Mézières)",
     notes: "Festival mondial des marionnettes.",
   },
   {
@@ -92,6 +95,7 @@ export const LOCAL_CITIES: LocalCity[] = [
     competition: "Modérée",
     sectors: ["Nautisme & Tourisme", "Agroalimentaire", "Cyber"],
     satellites: ["Auray", "Sarzeau"],
+    cci: "CCI du Morbihan",
     notes: "Golfe du Morbihan, pôle cyber.",
   },
   {
@@ -112,6 +116,7 @@ export const LOCAL_CITIES: LocalCity[] = [
     competition: "Faible",
     sectors: ["Transfrontalier (Luxembourg)", "Logistique", "Métallurgie"],
     satellites: ["Yutz", "Terville"],
+    cci: "CCI Moselle Métropole Metz (Site de Thionville/Yutz)",
     notes: "Ancien bassin sidérurgique.",
   },
 
