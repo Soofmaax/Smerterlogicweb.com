@@ -21,7 +21,7 @@ export const metadata = {
     canonical: "/tarifs-2025",
     languages: {
       "fr-FR": "/tarifs-2025",
-      "en-US": "/en#tarifs",
+      "en-US": "/en/services",
     },
   },
   openGraph: {

@@ -51,7 +51,7 @@ export default function ProjetsPage() {
       </div>
 
       {/* Grid + filters */}
-      <div className="mt-10">
+      <section id="cases" className="mt-10 scroll-mt-28">
         {projectsFR.cases.length > 0 ? (
           <ProjectsGrid items={projectsFR.cases} />
         ) : (
@@ -59,7 +59,7 @@ export default function ProjetsPage() {
             Projets en cours de publication — revenez bientôt.
           </div>
         )}
-      </div>
+      </section>
 
       {/* Stats globales */}
       <div className="mt-8">
