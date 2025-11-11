@@ -1,4 +1,6 @@
 import { PDFDocument, StandardFonts, rgb, PDFPage } from "pdf-lib";
+import { promises as fs } from "node:fs";
+import path from "node:path";
 
 export type PdfFonts = { regular: any; bold: any; heading?: any; headingBold?: any };
 export type Cursor = { page: PDFPage; y: number };
@@ -19,13 +21,6 @@ function normalizePdfText(text: string): string {
   return text.replace(/\u202F/g, " ");
 }
 
-async function fetchTTF(url: string): Promise<Uint8Array> {
-  const res = await fetch(url);
-  if (!res.ok) throw new Error(`Failed to fetch font: ${url}`);
-  const ab = await res.arrayBuffer();
-  return new Uint8Array(ab);
-}
-
 export async function createBrandDoc() {
   const doc = await PDFDocument.create();
   const page = doc.addPage(A4 as any);
@@ -36,32 +31,20 @@ export async function createBrandDoc() {
     bold: await doc.embedFont(StandardFonts.HelveticaBold),
   };
 
-  // Try to embed brand fonts (Inter for body, DM Sans for headings)
+  // Try to embed brand fonts from local files (public/fonts/pdf)
   try {
-    const interRegularURL =
-      process.env.PDF_FONT_INTER_REGULAR_URL ||
-      "https://github.com/google/fonts/raw/main/ofl/inter/static/Inter-Regular.ttf";
-    const interBoldURL =
-      process.env.PDF_FONT_INTER_BOLD_URL ||
-      "https://github.com/google/fonts/raw/main/ofl/inter/static/Inter-Bold.ttf";
-    const dmSansRegularURL =
-      process.env.PDF_FONT_DMSANS_REGULAR_URL ||
-      "https://github.com/google/fonts/raw/main/ofl/dmsans/static/DMSans-Regular.ttf";
-    const dmSansBoldURL =
-      process.env.PDF_FONT_DMSANS_BOLD_URL ||
-      "https://github.com/google/fonts/raw/main/ofl/dmsans/static/DMSans-Bold.ttf";
-
+    const base = path.join(process.cwd(), "public", "fonts", "pdf");
     const [interReg, interBold, dmReg, dmBold] = await Promise.all([
-      fetchTTF(interRegularURL),
-      fetchTTF(interBoldURL),
-      fetchTTF(dmSansRegularURL),
-      fetchTTF(dmSansBoldURL),
+      fs.readFile(path.join(base, "Inter-Regular.ttf")),
+      fs.readFile(path.join(base, "Inter-Bold.ttf")),
+      fs.readFile(path.join(base, "DMSans-Regular.ttf")),
+      fs.readFile(path.join(base, "DMSans-Bold.ttf")),
     ]);
 
-    const interRegular = await doc.embedFont(interReg);
-    const interBoldF = await doc.embedFont(interBold);
-    const dmRegular = await doc.embedFont(dmReg);
-    const dmBoldF = await doc.embedFont(dmBold);
+    const interRegular = await doc.embedFont(interReg as unknown as Uint8Array);
+    const interBoldF = await doc.embedFont(interBold as unknown as Uint8Array);
+    const dmRegular = await doc.embedFont(dmReg as unknown as Uint8Array);
+    const dmBoldF = await doc.embedFont(dmBold as unknown as Uint8Array);
 
     fonts = {
       regular: interRegular,

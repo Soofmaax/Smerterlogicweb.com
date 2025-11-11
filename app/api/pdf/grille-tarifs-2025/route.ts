@@ -12,6 +12,7 @@ import {
 } from "@/lib/pdf-brand";
 
 export const runtime = "nodejs";
+export const dynamic = "force-dynamic";
 
 export async function GET() {
   const { doc, fonts, cursor: start } = await createBrandDoc();
