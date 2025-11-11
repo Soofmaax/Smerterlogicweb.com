@@ -9,6 +9,7 @@ import { BookingButton } from "@/components/site/booking-modal";
 import { GoogleReviewsBadge } from "@/components/site/google-reviews";
 import { FinalCTA } from "@/components/site/final-cta";
 import { Particles } from "@/components/site/particles";
+import { QuickLinks } from "@/components/site/quick-links";
 
 export const metadata = {
   title: "Projets — smarterlogicweb.com",
@@ -83,6 +84,8 @@ export default function ProjetsPage() {
 
       {/* Final CTA global */}
       <FinalCTA />
+
+      <QuickLinks />
 
       {/* Sticky CTA mobile */}
       <StickyMobileCTA />

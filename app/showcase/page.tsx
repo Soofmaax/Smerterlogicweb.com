@@ -3,6 +3,7 @@
 
 import React from "react";
 import { Carousel } from "@/components/site/carousel";
+import { QuickLinks } from "@/components/site/quick-links";
 
 function Card({ img, title, desc }: { img: string; title: string; desc: string }) {
   return (
@@ -160,6 +161,8 @@ export default function ShowcasePage() {
           }}
         />
       </section>
+
+      <QuickLinks />
     </div>
   );
 }
