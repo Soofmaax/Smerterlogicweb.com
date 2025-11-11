@@ -5,6 +5,7 @@ import { BookingButton } from "@/components/site/booking-modal";
 import { Reveal } from "@/components/site/reveal";
 import { Particles } from "@/components/site/particles";
 import { Button } from "@/components/ui/button";
+import { Breadcrumbs } from "@/components/site/breadcrumbs";
 
 export const dynamic = "force-static";
 
@@ -152,6 +153,17 @@ export default function CityServicePage({ params }: Params) {
             : <>Création de Site Internet à {city.name} : l&apos;expertise digitale pour {sectorsSentence}</>}
         </h1>
       </Reveal>
+
+      {/* Visible breadcrumbs */}
+      <Breadcrumbs
+        className="mt-2"
+        items={[
+          { label: "Accueil", href: "/" },
+          { label: "Création Site Internet", href: "/villes-intervention" },
+          { label: `Création de site internet à ${city.name}` },
+        ]}
+      />
+
       <p className="mt-3 text-foreground/80 max-w-3xl">
         À {city.name} (agglo {city.populationAgglo}), nous concevons des sites rapides, sécurisés et orientés conversion.
         Idéal pour les acteurs de {sectorsSentence}. Scores Core Web Vitals excellents, sans complexité.

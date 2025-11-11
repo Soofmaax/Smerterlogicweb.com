@@ -5,6 +5,7 @@ import { BookingButton } from "@/components/site/booking-modal";
 import { Reveal } from "@/components/site/reveal";
 import { Particles } from "@/components/site/particles";
 import { Button } from "@/components/ui/button";
+import { Breadcrumbs } from "@/components/site/breadcrumbs";
 
 export const dynamic = "force-static";
 
@@ -150,6 +151,17 @@ export default function CityRefontePage({ params }: Params) {
           Refonte de Site Web à {city.name} : audit, performance et Core Web Vitals
         </h1>
       </Reveal>
+
+      {/* Visible breadcrumbs */}
+      <Breadcrumbs
+        className="mt-2"
+        items={[
+          { label: "Accueil", href: "/" },
+          { label: "Refonte Web", href: "/services" },
+          { label: `Refonte de site web à ${city.name}` },
+        ]}
+      />
+
       <p className="mt-3 text-foreground/80 max-w-3xl">
         À {city.name}, nous auditons et refondons votre site pour une vitesse supérieure (SSG), une UX claire et un SEO
         durable. Ciblé pour {sectorsSentence}. Objectif: LCP &lt; 1s, INP réactif, CLS stable.
