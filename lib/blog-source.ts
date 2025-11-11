@@ -81,6 +81,8 @@ export function loadPostsFromMarkdown(): BlogPost[] {
  */
 export function getAllPosts(): BlogPost[] {
   const mdPosts = loadPostsFromMarkdown();
-  // Simple concat; scheduling handles dates; order here doesn't affect publish order if publishAt overrides are used.
-  return [...BLOG_POSTS, ...mdPosts];
+  const mdSlugs = new Set(mdPosts.map((p) => p.slug));
+  // Prefer Markdown posts when a slug exists in both sources
+  const tsOnly = BLOG_POSTS.filter((p) => !mdSlugs.has(p.slug));
+  return [...mdPosts, ...tsOnly];
 }

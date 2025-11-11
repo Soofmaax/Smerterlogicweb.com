@@ -45,7 +45,10 @@ export default function BlogPostEN({ params }: { params: { slug: string } }) {
         </time>
       </header>
 
-      <div className="space-y-4 leading-relaxed" dangerouslySetInnerHTML={{ __html: post.contentHtml }} />
+      <div
+        className="prose prose-neutral dark:prose-invert max-w-none prose-headings:font-heading prose-a:text-primary prose-a:underline-offset-2 prose-img:rounded-lg prose-img:shadow-sm"
+        dangerouslySetInnerHTML={{ __html: post.contentHtml }}
+      />
 
       <footer className="mt-8">
         <Link href="/en/blog" className="text-primary hover:underline">
