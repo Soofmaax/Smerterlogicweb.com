@@ -1090,4 +1090,103 @@ export const BLOG_POSTS: BlogPost[] = [
       "small business website creation steps",
     ],
   },
+  {
+    slug: "grille-tarifs-2025-guide",
+    locale: "fr",
+    title: "Grille Tarifs 2025 — Sites Statiques pour Professions Libérales",
+    summary:
+      "Essentiel 1 490€ • Professionnel 2 490€ • Premium 4 990€ TTC — transparence des inclusions, performances, et 0 maintenance obligatoire.",
+    contentHtml: `
+      <p>Lorsque vous recherchez un prestataire pour créer votre site professionnel, vous êtes confronté à une opacité frustrante. Les tarifs sont flous, les inclusions mal définies, et des coûts cachés apparaissent après la signature. Cette grille tarifaire a été conçue pour éliminer cette friction.</p>
+      <p>Nous vendons des sites <strong>statiques</strong>, une technologie qui se distingue des sites WordPress classiques. Notre engagement repose sur 3 piliers : <strong>transparence totale</strong> des coûts, <strong>performances mesurables</strong> dès la livraison, et <strong>absence de maintenance technique obligatoire</strong>. Vous payez une fois pour la création, puis votre seul coût récurrent est le <strong>domaine</strong> (~15€/an).</p>
+      <p>Cette approche s’adresse aux professions libérales réglementées qui ont besoin d’un site vitrine crédible, rapide et fiable, sans passer du temps ni de l’argent à maintenir un CMS complexe. Votre métier est d’accompagner vos clients — pas de surveiller des mises à jour de plugins.</p>
+
+      <h2>Nos trois offres : Essentiel, Professionnel, Premium</h2>
+      <p>Trois offres pour trois besoins. Chaque offre inclut tout ce qui est nécessaire à un site fonctionnel et performant dès la mise en ligne. <strong>Pas de frais cachés</strong>.</p>
+
+      <h3>Offre Essentiel — 1 490€ TTC</h3>
+      <p>Présence claire et efficace pour cabinets individuels et structures récentes.</p>
+      <ul>
+        <li>4–5 pages : Accueil, Services, À propos, Contact, Mentions légales</li>
+        <li>Design responsive mobile‑first</li>
+        <li>SEO de base : balises, sémantique, vitesse, Search Console</li>
+        <li>Formulaire de contact sécurisé, RGPD</li>
+        <li>Hébergement + SSL inclus 1 an (uptime &gt; 99.9%)</li>
+        <li>Délai : 2–3 semaines après contenus et brief validés</li>
+        <li>Paiement : 50% (745€) signature + 50% (745€) livraison</li>
+      </ul>
+
+      <h3>Offre Professionnel — 2 490€ TTC</h3>
+      <p>Pour cabinets établis visant un site plus complet avec stratégie de contenu.</p>
+      <ul>
+        <li>6–8 pages + blog intégré (catégories, pagination, RSS)</li>
+        <li>SEO avancé : analyse concurrentielle, mots‑clés, schema.org, sitemap/robots, GA4 + SC</li>
+        <li>Contenus optimisés : réécriture ou rédaction, images WebP rapides</li>
+        <li>Formation 30 min pour gérer textes/images/articles</li>
+        <li>Délai : 4–6 semaines (2 itérations design, recette intermédiaire)</li>
+        <li>Paiement : 50% (1 245€) signature + 30% (747€) maquettes + 20% (498€) livraison</li>
+      </ul>
+
+      <h3>Offre Premium — 4 990€ TTC</h3>
+      <p>Site sur‑mesure et stratégie marketing complète pour cabinets ambitieux.</p>
+      <ul>
+        <li>10–15 pages, architecture informationnelle poussée (services détaillés, FAQ sectorielles, pages locales)</li>
+        <li>Stratégie éditoriale : audit concurrentiel, calendrier 3 mois, 6 articles inclus (rédaction SEO)</li>
+        <li>Accompagnement : formation 2 h, analyse mensuelle 3 mois, guide rédaction personnalisé</li>
+        <li>Formule Évolution offerte 6 mois (1h/mois, support prioritaire, monitoring, tarifs préférentiels)</li>
+        <li>Délai : 8–12 semaines — jalons sensibles et transparence</li>
+        <li>Paiement : 40% (1 996€) signature + 30% (1 497€) maquettes + 20% (998€) recette + 10% (499€) livraison</li>
+      </ul>
+
+      <h2>Tableau comparatif des trois offres</h2>
+      <ul>
+        <li><strong>Pages</strong> : Essentiel 4–5 — Pro 6–8 — Premium 10–15</li>
+        <li><strong>Responsive / formulaire</strong> : inclus</li>
+        <li><strong>Blog</strong> : Essentiel non — Pro oui — Premium oui</li>
+        <li><strong>SEO</strong> : Essentiel base — Pro avancé — Premium avancé + 6 articles</li>
+        <li><strong>Contenus optimisés</strong> : Essentiel non — Pro oui — Premium oui</li>
+        <li><strong>Formation</strong> : Essentiel non — Pro 30 min — Premium 2 h</li>
+        <li><strong>Évolution offerte</strong> : Essentiel non — Pro non — Premium 6 mois</li>
+        <li><strong>Délais</strong> : Essentiel 2–3 sem. — Pro 4–6 sem. — Premium 8–12 sem.</li>
+        <li><strong>Prix TTC</strong> : 1 490€ — 2 490€ — 4 990€</li>
+      </ul>
+
+      <h2>La Formule Évolution : maintenance optionnelle (20€/mois)</h2>
+      <p>Sites statiques : <strong>zéro maintenance technique obligatoire</strong>. La Formule Évolution est une option flexible pour faire évoluer le contenu quand vous en avez besoin :</p>
+      <ul>
+        <li>20€/mois sans engagement — activable/désactivable à volonté</li>
+        <li>1h de modifications/mois (cumulable 3 mois)</li>
+        <li>Support prioritaire (&lt; 24 h ouvrées), monitoring uptime & vitesse</li>
+        <li>Tarifs préférentiels : refontes –30%, fonctionnalités –25%, article SEO 99€</li>
+        <li>Offerte 6 mois avec l’offre Premium</li>
+      </ul>
+
+      <h2>Modalités de paiement détaillées</h2>
+      <ul>
+        <li>Essentiel : 50% signature / 50% livraison</li>
+        <li>Professionnel : 50% signature / 30% maquettes / 20% livraison</li>
+        <li>Premium : 40% signature / 30% maquettes / 20% recette / 10% livraison</li>
+      </ul>
+      <p>Pas de paiements en plus de 4 fois. Virement bancaire (et SEPA pour Évolution). Montants TTC.</p>
+
+      <h2>Pourquoi nos sites statiques ne nécessitent pas de maintenance obligatoire</h2>
+      <p>WordPress = base de données + PHP + plugins ⇒ enjeux de mises à jour, compatibilités et sécurité. Statique = HTML/CSS/JS pré‑générés ⇒ <strong>pas</strong> de mises à jour techniques imposées, stabilité, vitesse.</p>
+      <ul>
+        <li>Pas de base de données, surface d’attaque réduite</li>
+        <li>Vitesse de chargement très élevée (meilleure conversion)</li>
+        <li>Coût récurrent minimal : domaine ~15€/an</li>
+      </ul>
+
+      <h2>Conclusion</h2>
+      <p>Choisissez selon votre maturité et vos objectifs — et comparez sur le <strong>coût total</strong> sur 3 ans. Nos offres statiques livrent de la performance mesurable, de la sécurité et de la sérénité.</p>
+      <p>Voir le détail : <a href="/tarifs-2025">grille des Tarifs 2025</a>. Besoin d’un conseil ? <a href="/contact">contactez‑nous</a>.</p>
+    `,
+    tags: [
+      "grille tarifs 2025 site vitrine",
+      "offre esssentiel professionnel premium",
+      "site statique zero maintenance",
+      "tarifs site web professions libérales",
+      "comparatif offres site vitrine 2025",
+    ],
+  },
 ];
