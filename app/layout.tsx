@@ -172,6 +172,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <UrgencyBanner />
         <div aria-hidden className="h-11" />
 
+        <a href="#content" className="sr-only focus:not-sr-only fixed top-2 left-2 z-50 rounded bg-primary px-3 py-2 text-white">
+          Passer au contenu
+        </a>
         <div className="flex min-h-screen flex-col">
           <Header />
           <main id="content" className="flex-1 snap-y">{children}</main>

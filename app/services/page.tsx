@@ -33,9 +33,37 @@ export const metadata = {
   },
 };
 
+const serviceSchema = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  serviceType: "Création de site vitrine et refonte",
+  provider: {
+    "@type": "LocalBusiness",
+    name: "smarterlogicweb",
+    url: "https://smarterlogicweb.com",
+    areaServed: "France",
+  },
+  areaServed: {
+    "@type": "AdministrativeArea",
+    name: "France",
+  },
+  offers: {
+    "@type": "AggregateOffer",
+    priceCurrency: "EUR",
+    lowPrice: "1490",
+    highPrice: "2490",
+    availability: "https://schema.org/InStock",
+  },
+};
+
 export default function ServicesPage() {
   return (
     <div className="relative mx-auto w-full max-w-6xl px-6 py-16 md:py-24">
+      {/* JSON-LD Service schema for SEO */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }}
+      />
       {/* Hero background accents */}
       <div aria-hidden className="pointer-events-none absolute inset-0 -z-10">
         <div className="hero-gradient-animated absolute inset-0 rounded-[28px] opacity-60" />
