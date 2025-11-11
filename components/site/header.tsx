@@ -83,6 +83,8 @@ export function Header() {
     "merci": "thank-you",
     "securite": "security",
     "blog": "blog",
+    "cgv": "terms-of-sale",
+    "faq": "faq",
   };
   const enToFr: Record<string, string> = Object.fromEntries(Object.entries(frToEn).map(([k, v]) => [v, k]));
 
@@ -103,7 +105,7 @@ export function Header() {
 
   const langSwitchHref = switchLocalePath(pathname);
   const pricingHref = isEn
-    ? "/en#tarifs"
+    ? "/en/services"
     : (pathname === "/" ? "/#tarifs" : "/tarifs-2025#tarifs");
 
   // Phone CTA (desktop)
@@ -200,13 +202,13 @@ export function Header() {
                     role="menu"
                     className="pointer-events-none absolute left-0 top-full z-50 mt-2 w-56 rounded-lg border bg-popover p-2 opacity-0 shadow-sm transition group-hover:pointer-events-auto group-hover:opacity-100 group-focus-within:pointer-events-auto group-focus-within:opacity-100"
                   >
-                    <Link href={`${prefix}/${isEn ? "projects" : "projets"}#refonte-associatif`.replace("//", "/")} role="menuitem" className="block rounded-md px-3 py-2 text-sm text-foreground hover:bg-accent/60">
+                    <Link href={`${prefix}/${isEn ? "projects#cases" : "projets#cases"}`.replace("//", "/")} role="menuitem" className="block rounded-md px-3 py-2 text-sm text-foreground hover:bg-accent/60">
                       {t.projects.item1}
                     </Link>
-                    <Link href={`${prefix}/${isEn ? "projects" : "projets"}#site-vitrine-artisan`.replace("//", "/")} role="menuitem" className="block rounded-md px-3 py-2 text-sm text-foreground hover:bg-accent/60">
+                    <Link href={`${prefix}/${isEn ? "projects#cases" : "projets#cases"}`.replace("//", "/")} role="menuitem" className="block rounded-md px-3 py-2 text-sm text-foreground hover:bg-accent/60">
                       {t.projects.item2}
                     </Link>
-                    <Link href={`${prefix}/${isEn ? "projects" : "projets"}#optimisation-performance`.replace("//", "/")} role="menuitem" className="block rounded-md px-3 py-2 text-sm text-foreground hover:bg-accent/60">
+                    <Link href={`${prefix}/${isEn ? "projects#cases" : "projets#cases"}`.replace("//", "/")} role="menuitem" className="block rounded-md px-3 py-2 text-sm text-foreground hover:bg-accent/60">
                       {t.projects.item3}
                     </Link>
                   </div>
@@ -364,13 +366,13 @@ export function Header() {
                   </button>
                   {openProjets && (
                     <div id="submenu-projets" className="ml-4 border-l pl-3">
-                      <Link href={`${prefix}/${isEn ? "projects" : "projets"}#refonte-associatif`.replace("//", "/")} className="block py-2 text-muted-foreground hover:text-foreground" onClick={() => setOpen(false)}>
+                      <Link href={`${prefix}/${isEn ? "projects#cases" : "projets#cases"}`.replace("//", "/")} className="block py-2 text-muted-foreground hover:text-foreground" onClick={() => setOpen(false)}>
                         {t.projects.item1}
                       </Link>
-                      <Link href={`${prefix}/${isEn ? "projects" : "projets"}#site-vitrine-artisan`.replace("//", "/")} className="block py-2 text-muted-foreground hover:text-foreground" onClick={() => setOpen(false)}>
+                      <Link href={`${prefix}/${isEn ? "projects#cases" : "projets#cases"}`.replace("//", "/")} className="block py-2 text-muted-foreground hover:text-foreground" onClick={() => setOpen(false)}>
                         {t.projects.item2}
                       </Link>
-                      <Link href={`${prefix}/${isEn ? "projects" : "projets"}#optimisation-performance`.replace("//", "/")} className="block py-2 text-muted-foreground hover:text-foreground" onClick={() => setOpen(false)}>
+                      <Link href={`${prefix}/${isEn ? "projects#cases" : "projets#cases"}`.replace("//", "/")} className="block py-2 text-muted-foreground hover:text-foreground" onClick={() => setOpen(false)}>
                         {t.projects.item3}
                       </Link>
                     </div>

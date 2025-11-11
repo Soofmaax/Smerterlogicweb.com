@@ -7,39 +7,45 @@ import { Button } from "@/components/ui/button";
 import { RecommendedArticles } from "@/components/site/recommended-articles";
 import { QuickLinks } from "@/components/site/quick-links";
 
-const coverImg = "https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=1600&q=80"; // content/desk
-const imgUSP = "https://images.unsplash.com/photo-1551746908-5d2a1ff27cde?auto=format&fit=crop&w=1600&q=80"; // sticky note/usp
-const imgPricing = "https://images.unsplash.com/photo-1556740772-1a741367b93e?auto=format&fit=crop&w=1600&q=80"; // pricing/cta
-const imgSocialProof = "https://images.unsplash.com/photo-1515169067865-5387ec356754?auto=format&fit=crop&w=1600&q=80"; // testimonials
+const coverImg =
+  "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1600&q=80"; // maintenance/updates
+const imgSecurity =
+  "https://images.unsplash.com/photo-1518779578993-ec3579fee39f?auto=format&fit=crop&w=1600&q=80"; // servers/security
+const imgPerf =
+  "https://images.unsplash.com/photo-1512758017271-d7b84c7bb5a2?auto=format&fit=crop&w=1600&q=80"; // performance/seo
 
 export const metadata = {
-  title: "Quel contenu pour convertir vos visiteurs en clients ?",
+  title: "Que comprend un forfait de maintenance pour un site vitrine ?",
   description:
-    "Taux de conversion site B2B : 2-5% en moyenne. Apprenez à transformer les 95% qui partent : USP claire, tarifs transparents, preuve sociale, 4-5 pages minimum optimisées CRO.",
+    "Forfait maintenance site web : mises à jour CMS/plugins, sauvegardes testées tous les 3 mois, monitoring 24/7, support Niveau 1-2-3, optimisation SEO. Vous pouvez modifier textes/photos vous-même, pas les plugins.",
   alternates: {
-    canonical: "/contenu-site-vitrine-conversion",
+    canonical: "/contenu-forfait-maintenance-site-web",
     languages: {
-      "fr-FR": "/contenu-site-vitrine-conversion",
+      "fr-FR": "/contenu-forfait-maintenance-site-web",
     },
   },
   openGraph: {
-    title: "Quel contenu pour convertir vos visiteurs en clients ?",
+    title: "Que comprend un forfait de maintenance pour un site vitrine ?",
     description:
-      "Taux de conversion site B2B : 2-5% en moyenne. Apprenez à transformer les 95% qui partent : USP claire, tarifs transparents, preuve sociale, 4-5 pages minimum optimisées CRO.",
-    url: "https://smarterlogicweb.com/contenu-site-vitrine-conversion",
-    images: ["/contenu-site-vitrine-conversion/opengraph-image"],
+      "Mises à jour testées, sécurité & sauvegardes (restauration trimestrielle), perf & SEO, support avec SLA. Autonomie contenu sans risque.",
+    url: "https://smarterlogicweb.com/contenu-forfait-maintenance-site-web",
+    images: ["/contenu-forfait-maintenance-site-web/opengraph-image"],
   },
 };
 
-export default function ArticleContenuConversion() {
-  const post = BLOG_POSTS.find((p) => p.slug === "contenu-site-vitrine-conversion" && p.locale === "fr");
+export default function ArticleContenuForfaitMaintenanceSiteWeb() {
+  const post = BLOG_POSTS.find(
+    (p) => p.slug === "contenu-forfait-maintenance-site-web" && p.locale === "fr"
+  );
   if (!post) {
     return (
       <section className="mx-auto w-full max-w-3xl px-6 py-10">
         <h1 className="font-heading text-3xl font-bold tracking-tight">Article introuvable</h1>
         <p className="mt-2 text-foreground/80">L’article demandé n’est pas disponible.</p>
         <div className="mt-4">
-          <Link href="/blog" className="text-primary hover:underline">← Voir les articles</Link>
+          <Link href="/blog" className="text-primary hover:underline">
+            ← Voir les articles
+          </Link>
         </div>
       </section>
     );
@@ -60,7 +66,8 @@ export default function ArticleContenuConversion() {
         </h1>
       </Reveal>
       <p className="mt-3 text-foreground/80 max-w-3xl">
-        Tirez parti des 4 piliers de contenu qui convertissent vraiment : USP claire, tarifs transparents, preuve sociale, visuels optimisés.
+        Ce qui est inclus, ce qui ne l’est pas, et ce que vous pouvez modifier vous‑même sans casser
+        le site ni annuler la garantie.
       </p>
 
       {/* Cover image */}
@@ -68,7 +75,7 @@ export default function ArticleContenuConversion() {
         <div className="relative aspect-[16/9] w-full overflow-hidden rounded-[20px]">
           <Image
             src={coverImg}
-            alt="Plan de contenu convertissant pour site vitrine"
+            alt="Forfait de maintenance technique pour site vitrine — mises à jour testées et sécurisées"
             fill
             sizes="(max-width: 768px) 100vw, 100vw"
             priority={false}
@@ -93,8 +100,8 @@ export default function ArticleContenuConversion() {
           <figure className="rounded-[20px] border bg-card p-3">
             <div className="relative aspect-[4/3] w-full overflow-hidden rounded-xl">
               <Image
-                src={imgUSP}
-                alt="USP claire et différenciante — bénéfices client en H1"
+                src={imgSecurity}
+                alt="Surveillance sécurité et sauvegardes externes — règle 3-2-1 et test de restauration"
                 fill
                 sizes="(max-width: 768px) 100vw, 33vw"
                 loading="lazy"
@@ -103,15 +110,15 @@ export default function ArticleContenuConversion() {
               />
             </div>
             <figcaption className="mt-2 text-xs text-muted-foreground">
-              Pilier 1 : USP — pourquoi vous, en une phrase.
+              Sauvegardes testées tous les 3 mois ; corrections en urgence sur faille critique.
             </figcaption>
           </figure>
 
           <figure className="rounded-[20px] border bg-card p-3">
             <div className="relative aspect-[4/3] w-full overflow-hidden rounded-xl">
               <Image
-                src={imgPricing}
-                alt="Tarification par paliers et CTA clairs"
+                src={imgPerf}
+                alt="Performance & SEO technique — Core Web Vitals et Search Console"
                 fill
                 sizes="(max-width: 768px) 100vw, 33vw"
                 loading="lazy"
@@ -120,15 +127,15 @@ export default function ArticleContenuConversion() {
               />
             </div>
             <figcaption className="mt-2 text-xs text-muted-foreground">
-              Pilier 2 : tarifs transparents et CTA qui rassurent.
+              Vitesse : WebP, cache, minification, DB ; monitoring Core Web Vitals/SC.
             </figcaption>
           </figure>
 
           <figure className="rounded-[20px] border bg-card p-3">
             <div className="relative aspect-[4/3] w-full overflow-hidden rounded-xl">
               <Image
-                src={imgSocialProof}
-                alt="Témoignages et études de cas — preuve sociale forte"
+                src={coverImg}
+                alt="Support structuré avec SLA — niveaux 1/2/3"
                 fill
                 sizes="(max-width: 768px) 100vw, 33vw"
                 loading="lazy"
@@ -137,7 +144,7 @@ export default function ArticleContenuConversion() {
               />
             </div>
             <figcaption className="mt-2 text-xs text-muted-foreground">
-              Pilier 3 : témoignages spécifiques, vidéos, cas clients.
+              Niveaux 1‑2‑3 ; SLA : réponse/résolution garanties selon criticité.
             </figcaption>
           </figure>
         </div>
@@ -148,14 +155,19 @@ export default function ArticleContenuConversion() {
       {/* CTA footer */}
       <section className="mx-auto mt-10 w-full max-w-5xl px-0 py-8">
         <div className="rounded-[28px] card-elevated border bg-card p-6 text-center">
-          <h2 className="font-heading text-2xl font-semibold">Prêt à transformer le contenu de votre site ?</h2>
-          <p className="mt-2 text-foreground/80">On conçoit et rédige le contenu <em>qui vend</em> — et on le mesure.</p>
+          <h2 className="font-heading text-2xl font-semibold">
+            Envie d’éviter la maintenance technique ?
+          </h2>
+          <p className="mt-2 text-foreground/80">
+            Sites <strong>statiques</strong> : design sur‑mesure, contenu inclus (selon offre), 0 maintenance,
+            hébergement gratuit, code remis.
+          </p>
           <div className="mt-5 flex flex-col items-center justify-center gap-3 sm:flex-row">
-            <Button asChild className="rounded-full" variant="secondary">
-              <Link href="/tarifs-2025">Voir les tarifs 2025</Link>
-            </Button>
             <Button asChild className="rounded-full" size="lg">
               <Link href="/contact">Discutons de votre projet</Link>
+            </Button>
+            <Button asChild className="rounded-full" variant="secondary">
+              <Link href="/tarifs-2025">Voir les tarifs 2025</Link>
             </Button>
           </div>
         </div>
@@ -165,7 +177,9 @@ export default function ArticleContenuConversion() {
 
       {/* Back to blog */}
       <div className="mt-4 text-center">
-        <Link href="/blog" className="text-primary hover:underline">← Retour aux articles</Link>
+        <Link href="/blog" className="text-primary hover:underline">
+          ← Retour aux articles
+        </Link>
       </div>
     </section>
   );

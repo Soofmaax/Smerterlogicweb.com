@@ -1,4 +1,6 @@
 import { PDFDocument, StandardFonts, rgb, PDFPage } from "pdf-lib";
+import { promises as fs } from "node:fs";
+import path from "node:path";
 
 export type PdfFonts = { regular: any; bold: any; heading?: any; headingBold?: any };
 export type Cursor = { page: PDFPage; y: number };
@@ -13,11 +15,10 @@ export const BRAND_ACCENT = rgb(34 / 255, 211 / 255, 238 / 255);  // #22d3ee
 export const TEXT_MAIN = rgb(0.2, 0.22, 0.28);
 export const TEXT_HEAD = rgb(0.1, 0.12, 0.2);
 
-async function fetchTTF(url: string): Promise<Uint8Array> {
-  const res = await fetch(url);
-  if (!res.ok) throw new Error(`Failed to fetch font: ${url}`);
-  const ab = await res.arrayBuffer();
-  return new Uint8Array(ab);
+// Normalize text to avoid unsupported glyphs when falling back to WinAnsi fonts (e.g., Helvetica)
+// Replace narrow no-break space (U+202F) with regular space
+function normalizePdfText(text: string): string {
+  return text.replace(/\u202F/g, " ");
 }
 
 export async function createBrandDoc() {
@@ -30,32 +31,20 @@ export async function createBrandDoc() {
     bold: await doc.embedFont(StandardFonts.HelveticaBold),
   };
 
-  // Try to embed brand fonts (Inter for body, DM Sans for headings)
+  // Try to embed brand fonts from local files (public/fonts/pdf)
   try {
-    const interRegularURL =
-      process.env.PDF_FONT_INTER_REGULAR_URL ||
-      "https://github.com/google/fonts/raw/main/ofl/inter/static/Inter-Regular.ttf";
-    const interBoldURL =
-      process.env.PDF_FONT_INTER_BOLD_URL ||
-      "https://github.com/google/fonts/raw/main/ofl/inter/static/Inter-Bold.ttf";
-    const dmSansRegularURL =
-      process.env.PDF_FONT_DMSANS_REGULAR_URL ||
-      "https://github.com/google/fonts/raw/main/ofl/dmsans/static/DMSans-Regular.ttf";
-    const dmSansBoldURL =
-      process.env.PDF_FONT_DMSANS_BOLD_URL ||
-      "https://github.com/google/fonts/raw/main/ofl/dmsans/static/DMSans-Bold.ttf";
-
+    const base = path.join(process.cwd(), "public", "fonts", "pdf");
     const [interReg, interBold, dmReg, dmBold] = await Promise.all([
-      fetchTTF(interRegularURL),
-      fetchTTF(interBoldURL),
-      fetchTTF(dmSansRegularURL),
-      fetchTTF(dmSansBoldURL),
+      fs.readFile(path.join(base, "Inter-Regular.ttf")),
+      fs.readFile(path.join(base, "Inter-Bold.ttf")),
+      fs.readFile(path.join(base, "DMSans-Regular.ttf")),
+      fs.readFile(path.join(base, "DMSans-Bold.ttf")),
     ]);
 
-    const interRegular = await doc.embedFont(interReg);
-    const interBoldF = await doc.embedFont(interBold);
-    const dmRegular = await doc.embedFont(dmReg);
-    const dmBoldF = await doc.embedFont(dmBold);
+    const interRegular = await doc.embedFont(interReg as unknown as Uint8Array);
+    const interBoldF = await doc.embedFont(interBold as unknown as Uint8Array);
+    const dmRegular = await doc.embedFont(dmReg as unknown as Uint8Array);
+    const dmBoldF = await doc.embedFont(dmBold as unknown as Uint8Array);
 
     fonts = {
       regular: interRegular,
@@ -75,7 +64,7 @@ export async function createBrandDoc() {
     height: 28,
     color: BRAND_PRIMARY,
   });
-  page.drawText("smarterlogicweb", {
+  page.drawText(normalizePdfText("smarterlogicweb"), {
     x: MARGIN_X,
     y: A4[1] - 20,
     size: 10,
@@ -98,7 +87,7 @@ export function ensureSpace(doc: PDFDocument, cursor: Cursor, fonts: PdfFonts): 
     height: 28,
     color: BRAND_PRIMARY,
   });
-  page.drawText("smarterlogicweb", {
+  page.drawText(normalizePdfText("smarterlogicweb"), {
     x: MARGIN_X,
     y: A4[1] - 20,
     size: 10,
@@ -110,13 +99,15 @@ export function ensureSpace(doc: PDFDocument, cursor: Cursor, fonts: PdfFonts): 
 
 export function heading1(doc: PDFDocument, cursor: Cursor, fonts: PdfFonts, text: string, size = 18): Cursor {
   cursor = ensureSpace(doc, cursor, fonts);
-  cursor.page.drawText(text, { x: MARGIN_X, y: cursor.y, size, font: fonts.headingBold ?? fonts.bold, color: TEXT_HEAD });
+  const safe = normalizePdfText(text);
+  cursor.page.drawText(safe, { x: MARGIN_X, y: cursor.y, size, font: fonts.headingBold ?? fonts.bold, color: TEXT_HEAD });
   return { ...cursor, y: cursor.y - (size + 10) };
 }
 
 export function heading2(doc: PDFDocument, cursor: Cursor, fonts: PdfFonts, text: string, size = 13): Cursor {
   cursor = ensureSpace(doc, cursor, fonts);
-  cursor.page.drawText(text, { x: MARGIN_X, y: cursor.y, size, font: fonts.headingBold ?? fonts.bold, color: rgb(0.12, 0.14, 0.22) });
+  const safe = normalizePdfText(text);
+  cursor.page.drawText(safe, { x: MARGIN_X, y: cursor.y, size, font: fonts.headingBold ?? fonts.bold, color: rgb(0.12, 0.14, 0.22) });
   return { ...cursor, y: cursor.y - (size + 8) };
 }
 
@@ -180,14 +171,14 @@ export function addFooters(doc: PDFDocument, fonts: PdfFonts) {
       color: rgb(0.9, 0.9, 0.94),
       thickness: 1,
     });
-    p.drawText("smarterlogicweb.com — contact@smarterlogicweb.com — 2025", {
+    p.drawText(normalizePdfText("smarterlogicweb.com — contact@smarterlogicweb.com — 2025"), {
       x: MARGIN_X,
       y: 36,
       size: 9,
       font: fonts.regular,
       color: rgb(0.45, 0.48, 0.56),
     });
-    const num = `Page ${i + 1}/${total}`;
+    const num = normalizePdfText(`Page ${i + 1}/${total}`);
     const numWidth = fonts.regular.widthOfTextAtSize(num, 9);
     p.drawText(num, {
       x: A4[0] - MARGIN_X - numWidth,
@@ -200,7 +191,8 @@ export function addFooters(doc: PDFDocument, fonts: PdfFonts) {
 }
 
 export function wrapText(text: string, font: any, size: number, maxWidth: number): string[] {
-  const words = text.split(" ");
+  const safe = normalizePdfText(text);
+  const words = safe.split(" ");
   const lines: string[] = [];
   let line = "";
   for (const w of words) {

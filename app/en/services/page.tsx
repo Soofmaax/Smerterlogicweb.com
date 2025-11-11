@@ -6,6 +6,7 @@ import { BookingButton } from "@/components/site/booking-modal";
 import { FinalCTA } from "@/components/site/final-cta";
 import { Particles } from "@/components/site/particles";
 import { GoogleReviewsBadge } from "@/components/site/google-reviews";
+import { QuickLinksEN } from "@/components/site/quick-links-en";
 
 export const metadata = {
   title: "Services — smarterlogicweb.com",
@@ -86,6 +87,7 @@ export default function ServicesPage() {
         </div>
       </div>
     <FinalCTA />
+    <QuickLinksEN />
     </section>
   );
 }

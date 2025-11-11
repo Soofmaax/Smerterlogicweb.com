@@ -12,6 +12,7 @@ import {
 } from "@/lib/pdf-brand";
 
 export const runtime = "nodejs";
+export const dynamic = "force-dynamic";
 
 export async function GET() {
   const { doc, fonts, cursor: start } = await createBrandDoc();
@@ -174,7 +175,10 @@ export async function GET() {
   addFooters(doc, fonts);
 
   const bytes = await doc.save();
-  return new NextResponse(bytes, {
+  // Create a guaranteed ArrayBuffer and copy bytes into it to satisfy BodyInit
+  const arrayBuffer = new ArrayBuffer(bytes.byteLength);
+  new Uint8Array(arrayBuffer).set(bytes);
+  return new NextResponse(arrayBuffer, {
     status: 200,
     headers: {
       "Content-Type": "application/pdf",

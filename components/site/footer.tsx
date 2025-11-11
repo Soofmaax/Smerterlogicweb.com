@@ -6,11 +6,14 @@ import { track } from "@/lib/analytics";
 import { usePathname } from "next/navigation";
 import { useMemo } from "react";
 import { GoogleReviewsBadge } from "@/components/site/google-reviews";
+import { availablePathsFR, availablePathsEN } from "@/data/routes";
 
 export function Footer() {
   const pathname = usePathname() || "/";
   const isEn = pathname.startsWith("/en");
   const prefix = isEn ? "/en" : "";
+
+  const available = isEn ? availablePathsEN : availablePathsFR;
 
   const t = useMemo(
     () =>
@@ -146,14 +149,17 @@ export function Footer() {
                   {t.legal.security}
                 </Link>
               </li>
-              <li>
-                <Link
-                  href={`${prefix}/${isEn ? "terms-of-sale" : "cgv"}`.replace("//", "/")}
-                  className="text-muted-foreground transition-colors hover:text-foreground"
-                >
-                  {t.legal.cgv}
-                </Link>
-              </li>
+              {/* CGV/Terms of sale — only if the route exists */}
+              {(isEn ? available.has("terms-of-sale") : available.has("cgv")) ? (
+                <li>
+                  <Link
+                    href={`${prefix}/${isEn ? "terms-of-sale" : "cgv"}`.replace("//", "/")}
+                    className="text-muted-foreground transition-colors hover:text-foreground"
+                  >
+                    {t.legal.cgv}
+                  </Link>
+                </li>
+              ) : null}
             </ul>
           </nav>
 
@@ -235,14 +241,17 @@ export function Footer() {
                   {t.legal.security}
                 </Link>
               </li>
-              <li>
-                <Link
-                  href={`${prefix}/${isEn ? "terms-of-sale" : "cgv"}`.replace("//", "/")}
-                  className="text-muted-foreground transition-colors hover:text-foreground"
-                >
-                  {t.legal.cgv}
-                </Link>
-              </li>
+              {/* CGV/Terms of sale — only if the route exists */}
+              {(isEn ? available.has("terms-of-sale") : available.has("cgv")) ? (
+                <li>
+                  <Link
+                    href={`${prefix}/${isEn ? "terms-of-sale" : "cgv"}`.replace("//", "/")}
+                    className="text-muted-foreground transition-colors hover:text-foreground"
+                  >
+                    {t.legal.cgv}
+                  </Link>
+                </li>
+              ) : null}
             </ul>
           </nav>
         </div>

@@ -5,6 +5,7 @@ import { Particles } from "@/components/site/particles";
 import { Reveal } from "@/components/site/reveal";
 import { Button } from "@/components/ui/button";
 import { RecommendedArticles } from "@/components/site/recommended-articles";
+import { QuickLinks } from "@/components/site/quick-links";
 
 const coverImg = "https://images.unsplash.com/photo-1446329813274-7c9036bd9a1f?auto=format&fit=crop&w=1600&q=80"; // calendar/clock
 const imgPlan = "https://images.unsplash.com/photo-1522071901873-411886a10004?auto=format&fit=crop&w=1600&q=80"; // planning/meeting
@@ -12,9 +13,9 @@ const imgDesign = "https://images.unsplash.com/photo-1498050108023-c5249f4df085?
 const imgLaunch = "https://images.unsplash.com/photo-1518779578993-ec3579fee39f?auto=format&fit=crop&w=1600&q=80"; // servers/launch
 
 export const metadata = {
-  title: "Combien de temps pour avoir votre site en ligne ? (Le vrai calendrier, sans bullshit)",
+  title: "Combien de temps pour avoir votre site en ligne ? (La vérité sur les délais réels)",
   description:
-    "Délai création site web : 7 à 34 semaines selon complexité et réactivité client. Les 5 phases (brief, design, dev, contenu, go-live) et comment accélérer.",
+    "Délai création site web : 7 à 12 semaines pour un site optimisé, 14 à 34 semaines en moyenne en France. Découvrez les 5 phases, les vrais délais, et comment éviter 6 mois d’attente.",
   alternates: {
     canonical: "/delai-creation-site-web",
     languages: {
@@ -22,9 +23,9 @@ export const metadata = {
     },
   },
   openGraph: {
-    title: "Combien de temps pour avoir votre site en ligne ? (Le vrai calendrier, sans bullshit)",
+    title: "Combien de temps pour avoir votre site en ligne ? (La vérité sur les délais réels)",
     description:
-      "Délai création site web : 7–34 semaines. Les 5 phases du projet, les vrais délais et comment accélérer sans sacrifier la qualité.",
+      "Délai création site web : 7 à 12 semaines pour un site optimisé, 14 à 34 semaines en moyenne en France. Découvrez les 5 phases, les vrais délais, et comment éviter 6 mois d'attente.",
     url: "https://smarterlogicweb.com/delai-creation-site-web",
     images: ["/delai-creation-site-web/opengraph-image"],
   },
@@ -159,6 +160,8 @@ export default function ArticleDelaiSiteWeb() {
           </div>
         </div>
       </section>
+
+      <QuickLinks />
 
       {/* Back to blog */}
       <div className="mt-4 text-center">

@@ -7,39 +7,47 @@ import { Button } from "@/components/ui/button";
 import { RecommendedArticles } from "@/components/site/recommended-articles";
 import { QuickLinks } from "@/components/site/quick-links";
 
-const coverImg = "https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=1600&q=80"; // content/desk
-const imgUSP = "https://images.unsplash.com/photo-1551746908-5d2a1ff27cde?auto=format&fit=crop&w=1600&q=80"; // sticky note/usp
-const imgPricing = "https://images.unsplash.com/photo-1556740772-1a741367b93e?auto=format&fit=crop&w=1600&q=80"; // pricing/cta
-const imgSocialProof = "https://images.unsplash.com/photo-1515169067865-5387ec356754?auto=format&fit=crop&w=1600&q=80"; // testimonials
+const coverImg =
+  "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1600&q=80"; // dev/update/maintenance
+const imgRisk =
+  "https://images.unsplash.com/photo-1518779578993-ec3579fee39f?auto=format&fit=crop&w=1600&q=80"; // servers/incidents
+const imgSecurity =
+  "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1600&q=80"; // updates/security
+const imgStatic =
+  "https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=1600&q=80"; // code/static
 
 export const metadata = {
-  title: "Quel contenu pour convertir vos visiteurs en clients ?",
+  title: "Maintenance technique : qui s'en occupe et à quel prix ?",
   description:
-    "Taux de conversion site B2B : 2-5% en moyenne. Apprenez à transformer les 95% qui partent : USP claire, tarifs transparents, preuve sociale, 4-5 pages minimum optimisées CRO.",
+    "Coût maintenance site web : 30€ à 500€/mois selon prestataire. DIY risqué, freelance 50-100€, agence 150-500€. Découvrez le vrai coût de la non-maintenance (1000€ à 50 000€ par panne).",
   alternates: {
-    canonical: "/contenu-site-vitrine-conversion",
+    canonical: "/cout-maintenance-site-web",
     languages: {
-      "fr-FR": "/contenu-site-vitrine-conversion",
+      "fr-FR": "/cout-maintenance-site-web",
     },
   },
   openGraph: {
-    title: "Quel contenu pour convertir vos visiteurs en clients ?",
+    title: "Maintenance technique : qui s'en occupe et à quel prix ?",
     description:
-      "Taux de conversion site B2B : 2-5% en moyenne. Apprenez à transformer les 95% qui partent : USP claire, tarifs transparents, preuve sociale, 4-5 pages minimum optimisées CRO.",
-    url: "https://smarterlogicweb.com/contenu-site-vitrine-conversion",
-    images: ["/contenu-site-vitrine-conversion/opengraph-image"],
+      "Coût maintenance site web : 30€ à 500€/mois selon prestataire. DIY risqué, freelance 50-100€, agence 150-500€. Découvrez le vrai coût de la non-maintenance (1000€ à 50 000€ par panne).",
+    url: "https://smarterlogicweb.com/cout-maintenance-site-web",
+    images: ["/cout-maintenance-site-web/opengraph-image"],
   },
 };
 
-export default function ArticleContenuConversion() {
-  const post = BLOG_POSTS.find((p) => p.slug === "contenu-site-vitrine-conversion" && p.locale === "fr");
+export default function ArticleCoutMaintenanceSiteWeb() {
+  const post = BLOG_POSTS.find(
+    (p) => p.slug === "cout-maintenance-site-web" && p.locale === "fr"
+  );
   if (!post) {
     return (
       <section className="mx-auto w-full max-w-3xl px-6 py-10">
         <h1 className="font-heading text-3xl font-bold tracking-tight">Article introuvable</h1>
         <p className="mt-2 text-foreground/80">L’article demandé n’est pas disponible.</p>
         <div className="mt-4">
-          <Link href="/blog" className="text-primary hover:underline">← Voir les articles</Link>
+          <Link href="/blog" className="text-primary hover:underline">
+            ← Voir les articles
+          </Link>
         </div>
       </section>
     );
@@ -60,7 +68,8 @@ export default function ArticleContenuConversion() {
         </h1>
       </Reveal>
       <p className="mt-3 text-foreground/80 max-w-3xl">
-        Tirez parti des 4 piliers de contenu qui convertissent vraiment : USP claire, tarifs transparents, preuve sociale, visuels optimisés.
+        DIY, freelance ou agence ? Les vrais coûts, les risques et pourquoi le statique évite la
+        maintenance obligatoire.
       </p>
 
       {/* Cover image */}
@@ -68,7 +77,7 @@ export default function ArticleContenuConversion() {
         <div className="relative aspect-[16/9] w-full overflow-hidden rounded-[20px]">
           <Image
             src={coverImg}
-            alt="Plan de contenu convertissant pour site vitrine"
+            alt="Maintenance technique et mises à jour régulières d’un site internet"
             fill
             sizes="(max-width: 768px) 100vw, 100vw"
             priority={false}
@@ -93,8 +102,8 @@ export default function ArticleContenuConversion() {
           <figure className="rounded-[20px] border bg-card p-3">
             <div className="relative aspect-[4/3] w-full overflow-hidden rounded-xl">
               <Image
-                src={imgUSP}
-                alt="USP claire et différenciante — bénéfices client en H1"
+                src={imgRisk}
+                alt="Infrastructure et risques de panne — continuité d’activité"
                 fill
                 sizes="(max-width: 768px) 100vw, 33vw"
                 loading="lazy"
@@ -103,15 +112,15 @@ export default function ArticleContenuConversion() {
               />
             </div>
             <figcaption className="mt-2 text-xs text-muted-foreground">
-              Pilier 1 : USP — pourquoi vous, en une phrase.
+              Panne : coût direct et indirect (CA, réputation, SEO).
             </figcaption>
           </figure>
 
           <figure className="rounded-[20px] border bg-card p-3">
             <div className="relative aspect-[4/3] w-full overflow-hidden rounded-xl">
               <Image
-                src={imgPricing}
-                alt="Tarification par paliers et CTA clairs"
+                src={imgSecurity}
+                alt="Sécurité WordPress — mises à jour du cœur, plugins, thèmes"
                 fill
                 sizes="(max-width: 768px) 100vw, 33vw"
                 loading="lazy"
@@ -120,15 +129,15 @@ export default function ArticleContenuConversion() {
               />
             </div>
             <figcaption className="mt-2 text-xs text-muted-foreground">
-              Pilier 2 : tarifs transparents et CTA qui rassurent.
+              43 % des piratages via plugins/thèmes obsolètes : mises à jour vitales.
             </figcaption>
           </figure>
 
           <figure className="rounded-[20px] border bg-card p-3">
             <div className="relative aspect-[4/3] w-full overflow-hidden rounded-xl">
               <Image
-                src={imgSocialProof}
-                alt="Témoignages et études de cas — preuve sociale forte"
+                src={imgStatic}
+                alt="Site statique — code pur, hébergement gratuit, vitesse maximale"
                 fill
                 sizes="(max-width: 768px) 100vw, 33vw"
                 loading="lazy"
@@ -137,7 +146,7 @@ export default function ArticleContenuConversion() {
               />
             </div>
             <figcaption className="mt-2 text-xs text-muted-foreground">
-              Pilier 3 : témoignages spécifiques, vidéos, cas clients.
+              Statique : 0 maintenance obligatoire, Netlify/Vercel gratuits.
             </figcaption>
           </figure>
         </div>
@@ -148,14 +157,16 @@ export default function ArticleContenuConversion() {
       {/* CTA footer */}
       <section className="mx-auto mt-10 w-full max-w-5xl px-0 py-8">
         <div className="rounded-[28px] card-elevated border bg-card p-6 text-center">
-          <h2 className="font-heading text-2xl font-semibold">Prêt à transformer le contenu de votre site ?</h2>
-          <p className="mt-2 text-foreground/80">On conçoit et rédige le contenu <em>qui vend</em> — et on le mesure.</p>
+          <h2 className="font-heading text-2xl font-semibold">Besoin d’un site sans maintenance obligatoire ?</h2>
+          <p className="mt-2 text-foreground/80">
+            Sites statiques : design sur‑mesure, contenu inclus (selon offre), hébergement gratuit, 0 maintenance.
+          </p>
           <div className="mt-5 flex flex-col items-center justify-center gap-3 sm:flex-row">
-            <Button asChild className="rounded-full" variant="secondary">
-              <Link href="/tarifs-2025">Voir les tarifs 2025</Link>
-            </Button>
             <Button asChild className="rounded-full" size="lg">
               <Link href="/contact">Discutons de votre projet</Link>
+            </Button>
+            <Button asChild className="rounded-full" variant="secondary">
+              <Link href="/tarifs-2025">Voir les tarifs 2025</Link>
             </Button>
           </div>
         </div>
@@ -165,7 +176,9 @@ export default function ArticleContenuConversion() {
 
       {/* Back to blog */}
       <div className="mt-4 text-center">
-        <Link href="/blog" className="text-primary hover:underline">← Retour aux articles</Link>
+        <Link href="/blog" className="text-primary hover:underline">
+          ← Retour aux articles
+        </Link>
       </div>
     </section>
   );

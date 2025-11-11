@@ -137,8 +137,7 @@ export function TimelineProcess() {
                 className="pointer-events-none absolute left-0 top-[68px] h-1 w-0 rounded bg-primary transition-[width] duration-700 ease-out"
                 style={{ width: "0" }}
               />
-              {/* Dot */}
-              <div className="absolute left-1/2 top-[60px] h-4 w-4 -translate-x-1/2 rounded-full bg-foreground/30 transition-transform duration-500 ease-out" />
+              {/* Dot removed on desktop to avoid overlaying card content */}
 
               <header className="flex items-center gap-3">
                 <div className="flex h-10 w-10 items-center justify-center rounded-full bg-accent text-foreground">
@@ -154,10 +153,6 @@ export function TimelineProcess() {
               <style jsx>{`
                 article[data-step].in-view > div.bg-primary {
                   width: 100%;
-                }
-                article[data-step].in-view > div.rounded-full {
-                  transform: translateX(-50%) scale(1.15);
-                  background-color: hsl(var(--primary));
                 }
               `}</style>
             </article>

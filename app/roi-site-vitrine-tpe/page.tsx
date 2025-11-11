@@ -5,6 +5,7 @@ import { Particles } from "@/components/site/particles";
 import { Reveal } from "@/components/site/reveal";
 import { Button } from "@/components/ui/button";
 import { RecommendedArticles } from "@/components/site/recommended-articles";
+import { QuickLinks } from "@/components/site/quick-links";
 
 const coverImg = "https://images.unsplash.com/photo-1556157382-97eda2d62296?auto=format&fit=crop&w=1600&q=80"; // analytics dashboard
 const imgContent = "https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=1600&q=80"; // content/desk
@@ -14,7 +15,7 @@ const imgLocal = "https://images.unsplash.com/photo-1469474968028-56623f02e42e?a
 export const metadata = {
   title: "Votre site servira-t-il réellement vos objectifs business ?",
   description:
-    "ROI site vitrine TPE : 150% à 300% dès la première année si bien conçu. Transformez votre site en machine à clients — pas en décoration coûteuse.",
+    "ROI site vitrine TPE : 150% à 300% dès la première année si bien conçu. Découvrez comment transformer votre site en machine à clients, pas en simple décoration coûteuse.",
   alternates: {
     canonical: "/roi-site-vitrine-tpe",
     languages: {
@@ -24,7 +25,7 @@ export const metadata = {
   openGraph: {
     title: "Votre site servira-t-il réellement vos objectifs business ?",
     description:
-      "ROI site vitrine TPE : 150% à 300% dès la première année si bien conçu. Transformez votre site en machine à clients — pas en décoration coûteuse.",
+      "ROI site vitrine TPE : 150% à 300% dès la première année si bien conçu. Découvrez comment transformer votre site en machine à clients, pas en simple décoration coûteuse.",
     url: "https://smarterlogicweb.com/roi-site-vitrine-tpe",
     images: ["/roi-site-vitrine-tpe/opengraph-image"],
   },
@@ -159,6 +160,8 @@ export default function ArticleROI() {
           </div>
         </div>
       </section>
+
+      <QuickLinks />
 
       {/* Back to blog */}
       <div className="mt-4 text-center">

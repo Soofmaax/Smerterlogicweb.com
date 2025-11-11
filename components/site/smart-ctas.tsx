@@ -65,7 +65,7 @@ export function SmartCTAs() {
           <span className="text-sm">{msg}</span>
           <div className="flex gap-1">
             <a href="/contact" className="inline-flex items-center rounded-full border px-3 py-1 text-xs hover:bg-accent">Contact</a>
-            <a href="/#tarifs" className="inline-flex items-center rounded-full border px-3 py-1 text-xs hover:bg-accent">Tarifs</a>
+            <a href="/tarifs-2025#tarifs" className="inline-flex items-center rounded-full border px-3 py-1 text-xs hover:bg-accent">Tarifs</a>
             <button
               type="button"
               className="inline-flex items-center rounded-full border px-3 py-1 text-xs hover:bg-accent"

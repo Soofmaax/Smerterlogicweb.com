@@ -7,39 +7,47 @@ import { Button } from "@/components/ui/button";
 import { RecommendedArticles } from "@/components/site/recommended-articles";
 import { QuickLinks } from "@/components/site/quick-links";
 
-const coverImg = "https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=1600&q=80"; // content/desk
-const imgUSP = "https://images.unsplash.com/photo-1551746908-5d2a1ff27cde?auto=format&fit=crop&w=1600&q=80"; // sticky note/usp
-const imgPricing = "https://images.unsplash.com/photo-1556740772-1a741367b93e?auto=format&fit=crop&w=1600&q=80"; // pricing/cta
-const imgSocialProof = "https://images.unsplash.com/photo-1515169067865-5387ec356754?auto=format&fit=crop&w=1600&q=80"; // testimonials
+const coverImg =
+  "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&w=1600&q=80"; // meeting/roles
+const imgContent =
+  "https://images.unsplash.com/photo-1519337265831-281ec6cc8514?auto=format&fit=crop&w=1600&q=80"; // writing/content
+const imgValidate =
+  "https://images.unsplash.com/photo-1485217988980-11786ced9454?auto=format&fit=crop&w=1600&q=80"; // design/approval
+const imgBrief =
+  "https://images.unsplash.com/photo-1553877522-43269d4ea984?auto=format&fit=crop&w=1600&q=80"; // strategy/brief
 
 export const metadata = {
-  title: "Quel contenu pour convertir vos visiteurs en clients ?",
+  title: "Votre rôle dans la création du site : ce qu’on attend vraiment de vous",
   description:
-    "Taux de conversion site B2B : 2-5% en moyenne. Apprenez à transformer les 95% qui partent : USP claire, tarifs transparents, preuve sociale, 4-5 pages minimum optimisées CRO.",
+    "Rôle client création site web : contenu prêt en semaine 2, validations sous 48h, brief clair dès le départ. Découvrez la checklist pour livrer votre site 4 semaines plus tôt.",
   alternates: {
-    canonical: "/contenu-site-vitrine-conversion",
+    canonical: "/role-client-creation-site-web",
     languages: {
-      "fr-FR": "/contenu-site-vitrine-conversion",
+      "fr-FR": "/role-client-creation-site-web",
     },
   },
   openGraph: {
-    title: "Quel contenu pour convertir vos visiteurs en clients ?",
+    title: "Votre rôle dans la création du site : ce qu’on attend vraiment de vous",
     description:
-      "Taux de conversion site B2B : 2-5% en moyenne. Apprenez à transformer les 95% qui partent : USP claire, tarifs transparents, preuve sociale, 4-5 pages minimum optimisées CRO.",
-    url: "https://smarterlogicweb.com/contenu-site-vitrine-conversion",
-    images: ["/contenu-site-vitrine-conversion/opengraph-image"],
+      "Contenu semaine 2, validations 48h, brief clair. La checklist pour livrer votre site 4 semaines plus tôt.",
+    url: "https://smarterlogicweb.com/role-client-creation-site-web",
+    images: ["/role-client-creation-site-web/opengraph-image"],
   },
 };
 
-export default function ArticleContenuConversion() {
-  const post = BLOG_POSTS.find((p) => p.slug === "contenu-site-vitrine-conversion" && p.locale === "fr");
+export default function ArticleRoleClient() {
+  const post = BLOG_POSTS.find(
+    (p) => p.slug === "role-client-creation-site-web" && p.locale === "fr"
+  );
   if (!post) {
     return (
       <section className="mx-auto w-full max-w-3xl px-6 py-10">
         <h1 className="font-heading text-3xl font-bold tracking-tight">Article introuvable</h1>
         <p className="mt-2 text-foreground/80">L’article demandé n’est pas disponible.</p>
         <div className="mt-4">
-          <Link href="/blog" className="text-primary hover:underline">← Voir les articles</Link>
+          <Link href="/blog" className="text-primary hover:underline">
+            ← Voir les articles
+          </Link>
         </div>
       </section>
     );
@@ -60,7 +68,7 @@ export default function ArticleContenuConversion() {
         </h1>
       </Reveal>
       <p className="mt-3 text-foreground/80 max-w-3xl">
-        Tirez parti des 4 piliers de contenu qui convertissent vraiment : USP claire, tarifs transparents, preuve sociale, visuels optimisés.
+        Checklists, validations rapides et brief clair : votre rôle pour livrer 4 semaines plus tôt.
       </p>
 
       {/* Cover image */}
@@ -68,7 +76,7 @@ export default function ArticleContenuConversion() {
         <div className="relative aspect-[16/9] w-full overflow-hidden rounded-[20px]">
           <Image
             src={coverImg}
-            alt="Plan de contenu convertissant pour site vitrine"
+            alt="Rôles et responsabilités du client dans un projet web"
             fill
             sizes="(max-width: 768px) 100vw, 100vw"
             priority={false}
@@ -93,8 +101,8 @@ export default function ArticleContenuConversion() {
           <figure className="rounded-[20px] border bg-card p-3">
             <div className="relative aspect-[4/3] w-full overflow-hidden rounded-xl">
               <Image
-                src={imgUSP}
-                alt="USP claire et différenciante — bénéfices client en H1"
+                src={imgContent}
+                alt="Contenu prêt en semaine 2 : textes et photos structurés"
                 fill
                 sizes="(max-width: 768px) 100vw, 33vw"
                 loading="lazy"
@@ -103,15 +111,15 @@ export default function ArticleContenuConversion() {
               />
             </div>
             <figcaption className="mt-2 text-xs text-muted-foreground">
-              Pilier 1 : USP — pourquoi vous, en une phrase.
+              Contenu complet dès la semaine 2 = intégration immédiate.
             </figcaption>
           </figure>
 
           <figure className="rounded-[20px] border bg-card p-3">
             <div className="relative aspect-[4/3] w-full overflow-hidden rounded-xl">
               <Image
-                src={imgPricing}
-                alt="Tarification par paliers et CTA clairs"
+                src={imgValidate}
+                alt="Validations en moins de 48h à chaque jalon"
                 fill
                 sizes="(max-width: 768px) 100vw, 33vw"
                 loading="lazy"
@@ -120,15 +128,15 @@ export default function ArticleContenuConversion() {
               />
             </div>
             <figcaption className="mt-2 text-xs text-muted-foreground">
-              Pilier 2 : tarifs transparents et CTA qui rassurent.
+              Validations &lt; 48h = +15 jours gagnés sur le projet.
             </figcaption>
           </figure>
 
           <figure className="rounded-[20px] border bg-card p-3">
             <div className="relative aspect-[4/3] w-full overflow-hidden rounded-xl">
               <Image
-                src={imgSocialProof}
-                alt="Témoignages et études de cas — preuve sociale forte"
+                src={imgBrief}
+                alt="Brief clair et objectifs business définis"
                 fill
                 sizes="(max-width: 768px) 100vw, 33vw"
                 loading="lazy"
@@ -137,7 +145,7 @@ export default function ArticleContenuConversion() {
               />
             </div>
             <figcaption className="mt-2 text-xs text-muted-foreground">
-              Pilier 3 : témoignages spécifiques, vidéos, cas clients.
+              Brief clair = 2 semaines gagnées dès la phase de cadrage.
             </figcaption>
           </figure>
         </div>
@@ -148,11 +156,15 @@ export default function ArticleContenuConversion() {
       {/* CTA footer */}
       <section className="mx-auto mt-10 w-full max-w-5xl px-0 py-8">
         <div className="rounded-[28px] card-elevated border bg-card p-6 text-center">
-          <h2 className="font-heading text-2xl font-semibold">Prêt à transformer le contenu de votre site ?</h2>
-          <p className="mt-2 text-foreground/80">On conçoit et rédige le contenu <em>qui vend</em> — et on le mesure.</p>
+          <h2 className="font-heading text-2xl font-semibold">
+            Besoin d’un site livré vite et bien ?
+          </h2>
+          <p className="mt-2 text-foreground/80">
+            Processus clair, contenus guidés, délais respectés (7–10 semaines).
+          </p>
           <div className="mt-5 flex flex-col items-center justify-center gap-3 sm:flex-row">
             <Button asChild className="rounded-full" variant="secondary">
-              <Link href="/tarifs-2025">Voir les tarifs 2025</Link>
+              <Link href="/tarifs-2025">Voir les tarifs 2025</Link>
             </Button>
             <Button asChild className="rounded-full" size="lg">
               <Link href="/contact">Discutons de votre projet</Link>
@@ -165,7 +177,9 @@ export default function ArticleContenuConversion() {
 
       {/* Back to blog */}
       <div className="mt-4 text-center">
-        <Link href="/blog" className="text-primary hover:underline">← Retour aux articles</Link>
+        <Link href="/blog" className="text-primary hover:underline">
+          ← Retour aux articles
+        </Link>
       </div>
     </section>
   );

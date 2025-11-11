@@ -9,6 +9,7 @@ import { BookingButton } from "@/components/site/booking-modal";
 import { GoogleReviewsBadge } from "@/components/site/google-reviews";
 import { FinalCTA } from "@/components/site/final-cta";
 import { Particles } from "@/components/site/particles";
+import { QuickLinks } from "@/components/site/quick-links";
 
 export const metadata = {
   title: "Projets — smarterlogicweb.com",
@@ -50,7 +51,7 @@ export default function ProjetsPage() {
       </div>
 
       {/* Grid + filters */}
-      <div className="mt-10">
+      <section id="cases" className="mt-10 scroll-mt-28">
         {projectsFR.cases.length > 0 ? (
           <ProjectsGrid items={projectsFR.cases} />
         ) : (
@@ -58,7 +59,7 @@ export default function ProjetsPage() {
             Projets en cours de publication — revenez bientôt.
           </div>
         )}
-      </div>
+      </section>
 
       {/* Stats globales */}
       <div className="mt-8">
@@ -72,7 +73,7 @@ export default function ProjetsPage() {
           <div className="mt-5 flex flex-col items-center justify-center gap-3 sm:flex-row">
             <BookingButton className="rounded-full" size="lg" label="Réserver mon audit gratuit (15 min)" />
             <Button asChild className="rounded-full" variant="secondary">
-              <Link href="/#tarifs">Voir les tarifs</Link>
+              <Link href="/tarifs-2025#tarifs">Voir les tarifs</Link>
             </Button>
           </div>
           <div className="mt-4 flex items-center justify-center">
@@ -83,6 +84,8 @@ export default function ProjetsPage() {
 
       {/* Final CTA global */}
       <FinalCTA />
+
+      <QuickLinks />
 
       {/* Sticky CTA mobile */}
       <StickyMobileCTA />

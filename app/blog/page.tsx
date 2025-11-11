@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { BLOG_POSTS } from "@/data/blog";
 import { schedulePosts, getPublishedPostsBurst, formatDate } from "@/lib/blog";
+import { QuickLinks } from "@/components/site/quick-links";
 
 export const dynamic = "force-dynamic";
 
@@ -70,6 +71,7 @@ export default function BlogIndexFR() {
           </ul>
         </div>
       ) : null}
+    <QuickLinks />
     </div>
   );
 }
