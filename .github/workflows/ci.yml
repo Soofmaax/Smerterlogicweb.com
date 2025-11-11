@@ -169,8 +169,7 @@ jobs:
       matrix:
         language: ["javascript-typescript"]
 
-    # Run CodeQL only on schedule, or on pushes/PRs targeting main/master
-    if: github.event_name == 'schedule' || (github.event_name == 'push' && (github.ref == 'refs/heads/main' || github.ref == 'refs/heads/master')) || (github.event_name == 'pull_request' && (github.event.pull_request.base.ref == 'main' || github.event.pull_request.base.ref == 'master'))
+    # Run CodeQL on all branches and PRs (including feature branches)
 
     steps:
       - name: Checkout
