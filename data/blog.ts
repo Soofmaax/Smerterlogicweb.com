@@ -638,4 +638,143 @@ export const BLOG_POSTS: BlogPost[] = [
       "comment savoir si mon site génère des clients",
     ],
   },
+  {
+    slug: "google-my-business-ou-site-web",
+    locale: "fr",
+    title: "Site web ou fiche Google My Business : que privilégier ?",
+    summary:
+      "Fiche Google My Business ou site web en premier ? 70 % de visites en plus avec GMB complet, 50 % des recherches mobiles mènent à une visite le jour même. Stratégie séquentielle pour TPE.",
+    contentHtml: `
+      <p>Vous avez décidé de développer votre présence en ligne. Bravo. Mais voici la question qui bloque tout : <strong>par quoi commencer</strong> ? Une fiche Google My Business ou un site web complet ?</p>
+      <p>Vous avez un budget limité. Votre concurrent a un site magnifique à 5 000€ mais n’apparaît nulle part sur Google. Votre voisin a juste une fiche GMB gratuite et reçoit 3 appels par jour. <strong>Quelle option est la bonne</strong> ?</p>
+      <p>Je crée des sites pour des TPE et PME depuis 2020 (artisans, services à domicile, professions libérales). <strong>Pour 90 % des TPE locales, la fiche Google My Business doit venir en premier</strong>. La suite ? Un <a href="/tarifs-2025">site vitrine statique</a> pour consolider et amplifier — mais <em>dans le bon ordre</em>.</p>
+
+      <h2>SEO local vs SEO global : deux intentions, deux résultats</h2>
+      <h3>SEO global (site web) : visibilité large, résultats lents</h3>
+      <p>Le SEO global vise des requêtes générales (nationales) et demande du contenu + netlinking. <strong>Délais</strong> : 6–12 mois avant résultats tangibles — idéal pour la croissance, pas pour des leads immédiats.</p>
+      <h3>SEO local (GMB) : visibilité immédiate, clients “chauds”</h3>
+      <p>Le SEO local vise “métier + ville” avec intention transactionnelle. <strong>Outil central</strong> : Google Business Profile (GMB). Visibilité sur Maps et Local Pack en quelques jours → <strong>appels et itinéraires</strong>.</p>
+
+      <h2>Les chiffres qui tranchent</h2>
+      <ul>
+        <li><strong>+70 %</strong> de visites pour les fiches GMB <em>complètes</em> (infos, photos, avis, posts).</li>
+        <li><strong>50 %</strong> des recherches locales sur mobile aboutissent à une <strong>visite le jour même</strong>.</li>
+        <li>Le <strong>taux de conversion</strong> des requêtes locales est nettement supérieur aux requêtes générales.</li>
+      </ul>
+      <p>Pour une TPE, cela signifie un <strong>retour immédiat</strong> si GMB est bien optimisée.</p>
+
+      <h2>Analyse coût‑bénéfice : quand GMB d’abord, quand le site</h2>
+      <h3>Cas 1 : GMB d’abord (Minimum Viable Presence)</h3>
+      <ul>
+        <li>Clientèle locale (artisan, commerce, service à domicile, profession libérale).</li>
+        <li>Budget initial <strong>&lt; 1 500€</strong>.</li>
+        <li>Besoin de <strong>valider la demande</strong> avant d’investir dans un site.</li>
+      </ul>
+      <p><em>Avantages GMB</em> : gratuit, immédiat, avis intégrés, mise à jour simple. <em>Limites</em> : format imposé, contrôle UX limité.</p>
+
+      <h3>Cas 2 : Le site en second (contrôle, autorité, croissance)</h3>
+      <ul>
+        <li>Contrôle total UX/brand, pages par service, formulaires, contenus.</li>
+        <li>Autorité thématique (articles, guides, FAQ) et netlinking — expansion nationale.</li>
+        <li>Gestion de tunnels de conversion (newsletter, devis détaillé, prise de rendez‑vous).</li>
+      </ul>
+
+      <h3>Cas 3 : Site d’abord (exceptions)</h3>
+      <ul>
+        <li>Pas de clientèle locale (freelance 100 % en ligne, e‑learning, e‑commerce national).</li>
+        <li>Stratégie 100 % contenu/éducation (blog, webinaires).</li>
+        <li>Services complexes nécessitant <strong>réassurance</strong> approfondie.</li>
+      </ul>
+      <p>Même dans ces cas, si vous avez une adresse ou zone desservie, <strong>créez la fiche GMB</strong> (1 h, gratuit).</p>
+
+      <h2>Stratégie séquentielle gagnante : GMB → validation → site</h2>
+      <h3>Étape 1 : Créer et optimiser GMB (semaine 1)</h3>
+      <ul>
+        <li>Remplir 100 % des infos : NAP, horaires, catégories, description (mots‑clés locaux).</li>
+        <li>Photos de qualité (logo, couverture, réalisations, équipe).</li>
+        <li>Demander des <strong>avis</strong> et répondre systématiquement.</li>
+      </ul>
+      <h3>Étape 2 : Valider la demande locale (mois 1–3)</h3>
+      <p>Suivre impressions, clics, <strong>appels</strong>, itinéraires. Ajuster catégories/zone/avis si besoin.</p>
+      <h3>Étape 3 : Investir dans un site (après validation)</h3>
+      <p>Budget TPE recommandé : <strong>1 500€ – 3 000€</strong> pour un <strong>site statique</strong> (zéro maintenance, hébergement gratuit, vitesse). Lier GMB → site et site → GMB. Voir <a href="/roi-site-vitrine-tpe">ROI TPE</a>, <a href="/freelance-agence-builder-comparatif">comparatif prestataires</a> et <a href="/cout-site-vitrine-2025">coûts 2025</a>.</p>
+
+      <h2>Matrice d’investissement stratégique</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Critère</th>
+            <th>GMB</th>
+            <th>Site vitrine</th>
+            <th>Implication TPE</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Objectif prioritaire</td>
+            <td>Visibilité locale, appels/itinéraires</td>
+            <td>Autorité, branding, tunnels</td>
+            <td>GMB = cash‑flow immédiat</td>
+          </tr>
+          <tr>
+            <td>Coût initial</td>
+            <td>Gratuit</td>
+            <td>1 000€ – 15 000€+</td>
+            <td>Site = investissement secondaire</td>
+          </tr>
+          <tr>
+            <td>Taux de conversion</td>
+            <td>Très élevé (requêtes locales)</td>
+            <td>Conversion des leads complexes</td>
+            <td>Site gère le “pourquoi”</td>
+          </tr>
+          <tr>
+            <td>Contrôle & scalabilité</td>
+            <td>Limité</td>
+            <td>Total (UX/design/contenu)</td>
+            <td>Indispensable pour grandir</td>
+          </tr>
+          <tr>
+            <td>Délai de résultats</td>
+            <td>48 h – 2 semaines</td>
+            <td>3 – 12 mois</td>
+            <td>GMB valide, site amplifie</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h2>Erreurs fatales à éviter</h2>
+      <ul>
+        <li>Investir 5 000€ dans un site <em>avant</em> GMB.</li>
+        <li>Laisser une fiche GMB <strong>incomplète</strong> (–70 % de visites).</li>
+        <li>Ne jamais créer de site <em>après</em> GMB : croissance limitée.</li>
+        <li>Ne pas lier GMB ↔ site (avis, Maps, URL).</li>
+      </ul>
+
+      <h2>Verdict</h2>
+      <p><strong>GMB d’abord</strong> (validation et flux immédiat), <strong>site ensuite</strong> (contrôle, autorité, croissance), <strong>synergie toujours</strong>. <a href="/tarifs-2025">Nos offres statiques</a> (1 490€ / 2 490€ / 4 990€) : contenu optimisé local, intégration GMB, formulaires, 0 maintenance.</p>
+
+      <h2>FAQ</h2>
+      <h3>Faut‑il d’abord faire GMB ou un site ?</h3>
+      <p>Pour 90 % des TPE locales : <strong>GMB en premier</strong> (gratuit, immédiat). Puis un site pro après 3 mois si la demande est validée.</p>
+      <h3>Peut‑on se passer d’un site si GMB marche ?</h3>
+      <p>Non pour la croissance durable : le site rassure, développe l’autorité et gère des tunnels avancés.</p>
+      <h3>Comment optimiser GMB pour le Local Pack ?</h3>
+      <p>Infos complètes, 10+ photos, avis réguliers (et réponses), posts, <strong>NAP cohérent</strong> partout.</p>
+      <h3>Combien de temps pour des résultats GMB ?</h3>
+      <p>48 h – 2 semaines pour la visibilité, 1 – 4 semaines pour les premiers appels si fiche complète, top 3 local en 2–3 mois avec avis.</p>
+      <h3>Quel budget site après GMB ?</h3>
+      <p>Souvent 1 500€ – 3 000€ (5–8 pages, contenu SEO local, intégration GMB, formulaires, hébergement rapide, propriété totale). <a href="/freelance-agence-builder-comparatif">Comparer les prestataires</a>.</p>
+      <h3>Mon concurrent a un gros site mais il est invisible — pourquoi ?</h3>
+      <p>Sans GMB optimisée, il n’apparaîtra pas dans le <strong>Local Pack</strong>. Créez une fiche complète maintenant : vous pouvez le dépasser en une semaine.</p>
+    `,
+    tags: [
+      "Google My Business ou site web",
+      "fiche GMB priorité",
+      "SEO local vs SEO global",
+      "visibilité locale entreprise",
+      "faut-il d'abord faire une fiche Google My Business ou un site web",
+      "créer fiche GMB avant site internet",
+    ],
+  },
 ];
