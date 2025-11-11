@@ -14,7 +14,7 @@ const imgSocialProof = "https://images.unsplash.com/photo-1515169067865-5387ec35
 export const metadata = {
   title: "Quel contenu pour convertir vos visiteurs en clients ?",
   description:
-    "Taux de conversion site B2B : 2–5% en moyenne. Transformez les 95% qui partent : USP claire, tarifs transparents, preuve sociale, 4–5 pages minimum optimisées CRO.",
+    "Taux de conversion site B2B : 2-5% en moyenne. Apprenez à transformer les 95% qui partent : USP claire, tarifs transparents, preuve sociale, 4-5 pages minimum optimisées CRO.",
   alternates: {
     canonical: "/contenu-site-vitrine-conversion",
     languages: {
@@ -24,7 +24,7 @@ export const metadata = {
   openGraph: {
     title: "Quel contenu pour convertir vos visiteurs en clients ?",
     description:
-      "Apprenez à structurer votre contenu pour la conversion : USP, tarifs, preuve sociale, images optimisées, architecture 4–8 pages.",
+      "Taux de conversion site B2B : 2-5% en moyenne. Apprenez à transformer les 95% qui partent : USP claire, tarifs transparents, preuve sociale, 4-5 pages minimum optimisées CRO.",
     url: "https://smarterlogicweb.com/contenu-site-vitrine-conversion",
     images: ["/contenu-site-vitrine-conversion/opengraph-image"],
   },
