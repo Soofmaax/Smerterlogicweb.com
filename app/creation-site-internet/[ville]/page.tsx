@@ -106,11 +106,37 @@ export default function CityServicePage({ params }: Params) {
     })),
   };
 
+  const breadcrumbSchema = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      {
+        "@type": "ListItem",
+        position: 1,
+        name: "Accueil",
+        item: "https://smarterlogicweb.com/",
+      },
+      {
+        "@type": "ListItem",
+        position: 2,
+        name: "Création Site Internet",
+        item: "https://smarterlogicweb.com/villes-intervention",
+      },
+      {
+        "@type": "ListItem",
+        position: 3,
+        name: `Création de site internet à ${city.name}`,
+        item: `https://smarterlogicweb.com/creation-site-internet/${city.slug}`,
+      },
+    ],
+  };
+
   return (
     <section className="relative mx-auto w-full max-w-6xl px-6 py-16 md:py-24">
       {/* JSON-LD */}
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
 
       {/* Ambient background */}
       <div aria-hidden className="pointer-events-none absolute inset-0 -z-10">

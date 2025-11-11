@@ -38,7 +38,15 @@ export function RealisationsGrid() {
 
               <div className="relative aspect-[4/3] w-full overflow-hidden rounded-xl border bg-gradient-to-br from-slate-100 to-slate-200 dark:from-slate-800 dark:to-slate-700">
                 {it.img ? (
-                  <Image src={it.img} alt={it.title} fill sizes="(max-width:768px) 100vw, 33vw" style={{ objectFit: "cover" }} />
+                  <Image
+                    src={it.img}
+                    alt={it.title}
+                    fill
+                    sizes="(max-width:768px) 100vw, 33vw"
+                    style={{ objectFit: "cover" }}
+                    priority={i === 0}
+                    fetchPriority={i === 0 ? "high" : "auto"}
+                  />
                 ) : (
                   <div className="absolute inset-0 grid place-items-center text-xs text-muted-foreground">
                     {isSoon ? "Bientôt disponible" : isDemo ? "Aperçu démo" : "Aperçu"}
