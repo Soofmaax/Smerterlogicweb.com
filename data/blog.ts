@@ -768,6 +768,7 @@ export const BLOG_POSTS: BlogPost[] = [
       <p>Pour 90 % des TPE locales : <strong>GMB</strong> est la priorité (gratuit, rapide, ROI immédiat). Le <strong>site</strong> consolide/amplifie (autorité, conversion, branding). La stratégie séquentielle : semaine 1 → GMB ; mois 1–3 → valider ; ensuite → site pro 1 500–3 000€ (<a href="/tarifs-2025">statique recommandé</a> : 0 maintenance, hébergement gratuit, vitesse).</p>
       <p><strong>Rappelez‑vous</strong> : 50 % des recherches locales mobile aboutissent à une visite le jour même. Sans GMB, vous perdez la moitié des clients potentiels.</p>
       <p>Besoin d’un site après GMB ? Sites statiques qui <strong>amplifient</strong> votre visibilité locale : design sur‑mesure, contenu SEO local, intégration GMB, formulaires de conversion, 0 maintenance. Dès 1 490€.</p>
+      <p class="mt-2">Voir aussi : <a href="/contenu-site-vitrine-conversion">contenu qui convertit</a>, <a href="/role-client-creation-site-web">votre rôle dans la création</a>, <a href="/cout-site-vitrine-2025">coût d’un site vitrine</a> et <a href="/delai-creation-site-web">délais réels de création</a>.</p>
 
       <h2>FAQ</h2>
       <h3>Faut‑il d’abord faire une fiche Google My Business ou un site web ?</h3>
@@ -889,6 +890,7 @@ export const BLOG_POSTS: BlogPost[] = [
       <h2>Verdict : 4–5 pages optimisées > 15 pages moyennes</h2>
       <p>Pour convertir : <strong>USP claire</strong>, <strong>tarifs transparents</strong>, <strong>preuve sociale</strong>, <strong>visuels optimisés</strong>. Structurez 4–8 pages utiles, ciblez la longue traîne, mesurez et itérez.</p>
       <p>Besoin d’un site qui <em>convertit</em> vraiment ? Sites statiques optimisés CRO pour TPE/PME : USP travaillée, pricing par paliers, témoignages, WebP, formulaires efficaces. Dès 1 490€. <a href="/roi-site-vitrine-tpe">ROI TPE</a>.</p>
+      <p class="mt-2">Voir aussi : <a href="/google-my-business-ou-site-web">GMB ou site web ?</a>, <a href="/role-client-creation-site-web">votre rôle dans la création</a> et <a href="/tarifs-2025">Tarifs 2025</a>.</p>
 
       <h2>FAQ</h2>
       <h3>Combien de pages faut‑il prévoir pour un site vitrine ?</h3>
@@ -1225,7 +1227,8 @@ export const BLOG_POSTS: BlogPost[] = [
       <p>Brief clair, contenu semaine 2, validations 48 h → <a href="/delai-creation-site-web/">7–12 semaines</a>. Sinon → 16–24 semaines.</p>
       <p><strong>Checklist</strong> : brief avant contact, 2 jours pour tout le contenu, validations 48 h, respect du périmètre.</p>
       <p>Pas le temps ? Externalisez (rédaction 1 000–2 000 €, shooting 500–1 000 €) → <strong>−3–4 semaines</strong>.</p>
-      <p>Besoin d’un site livré en 7–10 semaines ? Sites statiques optimisés TPE/PME : contenus rédigés, design sur‑mesure (2 cycles max), réactivité &lt; 24 h, planning jalonné. Dès 1 490 €.</p>
+      <p>Besoin d’un site livré en 7–10 semaines ? Sites statiques optimisés TPE/PME : contenus rédigés pour vous, design sur‑mesure (2 cycles max), réactivité &lt; 24 h, planning jalonné. Dès 1 490 €.</p>
+      <p class="mt-2">Voir aussi : <a href="/delai-creation-site-web">délais réels de création</a>, <a href="/contenu-site-vitrine-conversion">contenu qui convertit</a> et <a href="/cout-maintenance-site-web">coût de la maintenance</a>.</p>ivré en 7–10 semaines ? Sites statiques optimisés TPE/PME : contenus rédigés, design sur‑mesure (2 cycles max), réactivité &lt; 24 h, planning jalonné. Dès 1 490 €.</p>
 
       <h2>FAQ</h2>
       <h3>Quel est mon rôle ?</h3>
