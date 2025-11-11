@@ -1145,5 +1145,175 @@ export const BLOG_POSTS: BlogPost[] = [
       "small business website creation steps",
     ],
   },
+  {
+    slug: "role-client-creation-site-web",
+    locale: "fr",
+    title: "Votre rôle dans la création du site : ce qu’on attend vraiment de vous",
+    summary:
+      "Rôle client création site web : contenu prêt en semaine 2, validations sous 48h, brief clair dès le départ. Découvrez la checklist pour livrer votre site 4 semaines plus tôt.",
+    contentHtml: `
+      <p>Votre site est en développement depuis huit semaines. Le freelance vous a envoyé trois emails pour demander vos textes. Vous n’avez toujours pas trouvé le temps de les rédiger. Il vous a envoyé la maquette du design il y a quinze jours. Vous ne l’avez pas encore regardée. Vous êtes occupé. Vous avez votre entreprise à gérer, des clients à servir, des urgences qui tombent tous les jours.</p>
+      <p>Aujourd’hui, le freelance vous appelle. Il vous dit que le projet est bloqué. Il ne peut pas avancer sans vos textes. Il ne peut pas développer sans votre validation du design. Le délai initial de huit semaines ? On est maintenant à seize semaines. Le double. Et ce n’est pas fini.</p>
+      <p>Vous êtes frustré. Vous pensiez que payer un prestataire signifiait ne plus avoir à vous en occuper. Le prestataire est frustré aussi. Il a fait son travail, il attend vos retours depuis trois semaines. Le projet est à l’arrêt à cause de vous, pas à cause de lui.</p>
+      <p>Je crée des sites pour des TPE et PME depuis 2020. Et je vais vous dire ce que personne n’ose vous dire franchement : le délai de création de votre site dépend autant de vous que du prestataire. Peut‑être même plus. Les retards que je constate sont causés à 80 % par le client. Contenu fourni en retard, validations qui traînent, brief flou qui change en cours de route.</p>
+      <p>Un site vitrine peut être livré en <a href="/delai-creation-site-web/">sept à douze semaines</a> si vous êtes réactif et bien préparé. Mais si vous fournissez vos contenus au compte‑gouttes et que vous mettez une semaine à valider chaque étape, comptez seize à vingt‑quatre semaines. Soit six mois. Le double du délai annoncé.</p>
+      <p>Dans cet article, on décortique les trois piliers de votre responsabilité en tant que client (contenu, validations, clarté de vision), on vous donne la checklist précise de ce que vous devez préparer, et on clarifie comment accélérer le délai sans sacrifier la qualité. À la fin, vous saurez exactement quoi faire pour que votre site soit livré dans les temps.</p>
+
+      <h2>Le mythe du prestataire qui fait tout (et pourquoi ça ne marche jamais)</h2>
+      <p>Beaucoup d’entrepreneurs pensent que payer un prestataire web signifie déléguer 100 % du travail. Vous signez le devis, vous payez l’acompte, et hop, le prestataire s’occupe de tout pendant que vous continuez à gérer votre entreprise. Deux mois plus tard, il vous livre un site magnifique, clé en main, prêt à générer des clients.</p>
+      <p>C’est un mythe. Ça ne fonctionne jamais comme ça.</p>
+
+      <h3>La création d’un site web est une co‑production</h3>
+      <p>Un site web n’est pas un produit standardisé qu’on achète sur étagère. C’est un projet sur‑mesure qui nécessite votre implication active à plusieurs moments clés du processus. Le prestataire apporte son expertise technique, son savoir‑faire design, et ses compétences SEO. Vous apportez la connaissance de votre métier, de votre cible, de votre positionnement, et de vos objectifs business. Sans votre input, le prestataire peut créer un site techniquement impeccable mais stratégiquement vide.</p>
+      <p>Les trois domaines où votre implication est critique et non‑négociable sont le <strong>contenu</strong> (textes, photos, vidéos, branding), les <strong>validations</strong> (brief, design, tests finaux), et la <strong>clarté de votre vision</strong> (objectifs, cible, positionnement, attentes spécifiques). Si vous êtes absent ou peu réactif sur ces trois piliers, le projet s’enlise. Le prestataire attend. Le délai double. La frustration monte des deux côtés.</p>
+      <p>Voici la vérité que personne ne vous dit au moment de signer le devis. Un client bien préparé et réactif permet de livrer un site en <strong>7 à 10 semaines</strong>. Un client mal préparé et peu disponible rallonge le délai à <strong>16 à 24 semaines</strong>. La différence ? 6 à 14 semaines. Soit <strong>3 mois et demi</strong> de retard causé uniquement par le client. Pas par le prestataire.</p>
+      <p>Mon expérience concrète sur des dizaines de projets : les projets les plus rapides (5 à 7 semaines) sont ceux où le client a fourni tout le contenu en semaine 2, a validé le design en 48 h, et a testé le site final en 3 jours. Les projets les plus longs (20 à 24 semaines) sont ceux où le client a fourni les textes en semaine 8, a mis 2 semaines à valider chaque étape, et a demandé des modifications majeures en phase de tests. Même prestataire, même process, <strong>délai multiplié par 4</strong>.</p>
+
+      <h2>Pilier 1 : Le contenu, le goulot d’étranglement numéro un</h2>
+      <p>Le contenu est identifié comme la cause numéro un des retards dans les projets web. 80 % des projets qui dépassent le délai initial sont bloqués à cause du contenu fourni en retard ou de manière incomplète par le client.</p>
+      <p>Pourquoi ? Parce que le contenu est chronophage, sous‑estimé, et souvent délégué à la dernière minute. Vous pensiez pouvoir rédiger vos 5 pages en un week‑end. 3 semaines plus tard, vous n’avez toujours pas fini. Vous êtes débordé. Vous repoussez. Le prestataire attend. Le projet s’arrête.</p>
+
+      <h3>Textes et SEO : structurés, finalisés, optimisés</h3>
+      <p>Le contenu textuel de votre site doit être <strong>structuré</strong> (titres H1, H2, H3, paragraphes courts, listes à puces), <strong>finalisé</strong> (pas de brouillon, pas de « à compléter plus tard »), et idéalement <strong>optimisé SEO</strong> (mots‑clés stratégiques intégrés naturellement dans les titres et les textes).</p>
+      <p>Voici ce que le prestataire attend concrètement. Pour chaque page du site, fournissez un document structuré (Google Docs ou Word) avec le <strong>titre principal</strong> (H1), les <strong>sous‑titres</strong> (H2 et H3), le <strong>corps de texte</strong> organisé en paragraphes courts (3 à 4 lignes max), et des <strong>CTA</strong> clairs (« Demander mon devis gratuit », « Appeler maintenant »).</p>
+      <p>Le format idéal pour livrer vos textes : Google Docs ou Word (.docx) avec une hiérarchie claire. <em>Évitez</em> PDF (copier‑coller difficile), email avec bribes de texte (désorganisé), notes scannées (illisibles). Un document structuré permet une intégration directe <strong>en 2 heures</strong> au lieu de 2 jours.</p>
+      <p>Piège classique : vous envoyez vos textes en plusieurs fois, étalés sur plusieurs semaines. Accueil en semaine 2. Services en semaine 4. À propos en semaine 6. Le prestataire ne peut pas avancer page par page. Il attend d’avoir <strong>tout le contenu</strong> pour intégrer efficacement. Résultat : projet à l’arrêt 4 semaines. Vous pensez qu’il ne fait rien ; il attend vos contenus.</p>
+      <p><strong>Solution</strong> : fournissez <strong>tout</strong> le contenu en une seule fois. Bloquez 2 jours complets pour tout écrire d’un coup. Si vous n’avez pas le temps/compétences, <strong>externalisez</strong> : 150 à 400 € par page. Investir 1 000 à 2 000 € et <strong>gagner 4 semaines</strong> de délai → site qui génère des clients plus tôt ; ROI évident.</p>
+
+      <h3>Photos, vidéos, et ressources visuelles : qualité et droits</h3>
+      <p>Les visuels sont aussi critiques que les textes. Préparez des <strong>photos pro</strong> (équipe, locaux, produits, réalisations), votre <strong>logo vectoriel</strong> (SVG/AI/EPS), et votre <strong>charte</strong> (codes hexa exacts, typographies).</p>
+      <p>Sans images de qualité : banque d’images génériques (site comme mille autres), shooting à organiser (500 à 1 500 €), ou attente de vos photos (projet à l’arrêt). Les 3 options rallongent le délai.</p>
+      <p><strong>Conseil</strong> : faites un shooting pro <em>avant</em> de contacter un prestataire. Budget : 500 à 1 000 € demi‑journée → 20 à 50 photos utilisables partout (site, réseaux, print).</p>
+      <p>Fournissez des photos HD (≥ 1500 px de large). Le prestataire compressera en WebP pour vitesse. Évitez les photos 300 px smartphone 2010 et les RAW 20 MB non traités.</p>
+      <p><strong>Formats</strong> : JPEG HQ (1–3 MB/photo) ou PNG (logos/graphismes). Le prestataire s’occupe de l’optimisation finale.</p>
+
+      <h2>Pilier 2 : Les validations rapides, le carburant du projet</h2>
+      <p>Les validations sont le 2ᵉ facteur de retard. 1 semaine de retard sur une validation peut se propager en 2–3 semaines sur développement/tests.</p>
+      <p>Pourquoi ? Les phases sont <strong>séquentielles</strong>. Pas de dev sans design validé. Pas d’intégration sans structure. Pas de mise en ligne sans tests. Chaque validation bloquée arrête le projet.</p>
+
+      <h3>Les 3 moments critiques de validation</h3>
+      <ul>
+        <li><strong>Brief & périmètre (semaine 1)</strong> : document récapitulatif. <strong>Validez sous 48 h</strong>. Si vous changez d’avis 2 semaines plus tard → périmètre/délai/budget changent.</li>
+        <li><strong>Maquette accueil & modèles (sem. 3–4)</strong> : regardez sous 48 h, retour consolidé, ajustements précis. Évitez « je n’aime pas » flou → soyez précis (couleurs, tailles, contenus).</li>
+        <li><strong>Validation finale (sem. 7–10)</strong> : testez multi‑devices/navigateurs, liens, formulaires, textes, photos. Remontez <strong>tout</strong> en une fois via un document. Corrections, re‑tests en 48 h, validation.</li>
+      </ul>
+
+      <h3>Le syndrome du client girouette (et comment l’éviter)</h3>
+      <p>Changer d’avis après chaque validation → refaire le travail → délai double, budget explose, relation se dégrade.</p>
+      <p><strong>Éviter</strong> : réfléchissez <em>avant</em> de valider. Modifs mineures gratuites/rapides ; modifs majeures coûteuses (structure complète = 2 semaines + 1 000 à 3 000 €).</p>
+      <p><em>Règle</em> : 2 cycles de révision maximum sur le design. 1 cycle unique sur les corrections de tests. Au‑delà : facturation à l’heure. Résultat : moins d’allers‑retours, délais respectés.</p>
+
+      <h2>Pilier 3 : La clarté de votre vision stratégique</h2>
+      <p>Sans objectif clair, le prestataire peut livrer un site parfait esthétiquement mais <strong>vide</strong> stratégiquement (inefficace).</p>
+
+      <h3>Définir vos objectifs business dès le départ</h3>
+      <p>Que voulez‑vous ? Leads via GMB/SEO local ? Vente en ligne ? Réassurance (réalisations) ? Devis qualifiés ? Notoriété ?</p>
+      <p>Chaque objectif impacte la structure : formulaire visible & CTA partout (devis), e‑commerce (catalogue/panier/paiement), portfolio (photos). Le prestataire ne devine pas : dites‑le <strong>clairement</strong>.</p>
+      <p><strong>Avant contact</strong> : rédigez un brief de 2 pages : objectif principal (1 phrase), cible (problèmes, requêtes), différenciation, 3 services à mettre en avant, 3 sites aimés/détestés (avec raisons). Ce brief fait <strong>gagner 2 semaines</strong> au cadrage.</p>
+
+      <h2>La checklist du client modèle (ce que vous devez préparer avant le lancement)</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Livrable Clé</th>
+            <th>Exigences Spécifiques</th>
+            <th>Format Idéal</th>
+            <th>Impact si Manquant</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Branding/Logo</strong></td>
+            <td>Haute résolution, versions couleur et N/B</td>
+            <td>Vectoriel (SVG, AI, EPS)</td>
+            <td>Bloque Design (charte impossible à établir)</td>
+          </tr>
+          <tr>
+            <td><strong>Textes de Pages</strong></td>
+            <td>H1/H2/H3, corps finalisé, mots‑clés</td>
+            <td>Google Docs ou Word structuré</td>
+            <td>Goulot majeur : Phase 4 bloquée</td>
+          </tr>
+          <tr>
+            <td><strong>Photos Pro</strong></td>
+            <td>Haute résolution, droits clairs</td>
+            <td>JPEG HQ (1–3 Mo)</td>
+            <td>Bloque Design/Intégration (ou générique)</td>
+          </tr>
+          <tr>
+            <td><strong>Charte Graphique</strong></td>
+            <td>Codes hexa exacts, typographies</td>
+            <td>Document PDF ou fichier design</td>
+            <td>Rallonge la Phase 2 (inconnu à deviner)</td>
+          </tr>
+          <tr>
+            <td><strong>Accès Techniques</strong></td>
+            <td>Hébergeur, domaine, analytics</td>
+            <td>Document sécurisé (identifiants)</td>
+            <td>Bloque Go‑Live (DNS/SSL/analytics)</td>
+          </tr>
+          <tr>
+            <td><strong>Sites de Référence</strong></td>
+            <td>Concurrents, inspirations, à éviter</td>
+            <td>Liste de liens + notes</td>
+            <td>Rallonge le Brief (univers mal compris)</td>
+          </tr>
+        </tbody>
+      </table>
+      <p>Checklist = feuille de route. Préparez tout dès la signature → livraison en 7–10 semaines. Au compte‑gouttes → 16–24 semaines.</p>
+
+      <h2>Comment accélérer le délai sans sacrifier la qualité</h2>
+      <p>Accélérer est possible, à condition de ne pas compromettre la qualité. Voici les leviers qui fonctionnent.</p>
+
+      <h3>Levier 1 : Fournir tout le contenu dès la semaine 2</h3>
+      <p>Le plus puissant. Textes + photos + branding prêts en semaine 2 → intégration immédiate après design → <strong>3–4 semaines gagnées</strong> sur la Phase 4.</p>
+      <p><strong>Comment</strong> : bloquez 2 jours avant signature. Jour 1 : écrivez tous les textes. Jour 2 : organisez photos/logo/charte. Si impossible : externalisez dès la signature (1 000–2 000 € → 3–4 semaines gagnées).</p>
+
+      <h3>Levier 2 : Valider en &lt; 48 h à chaque jalon</h3>
+      <p>Brief : +5 jours gagnés. Design : +5 jours. Tests finaux : +5 jours. <strong>Total : +15 jours</strong>. Plus de 2 semaines.</p>
+      <p><strong>Comment</strong> : traitez chaque validation en 48 h. Retour consolidé en une fois. <em>Engagement</em> : si vous validez en 48 h, démarrage de la phase suivante en 48 h.</p>
+
+      <h3>Levier 3 : Choisir des solutions éprouvées plutôt que du sur‑mesure intégral</h3>
+      <p>CMS éprouvés (WordPress, Webflow) ou site <strong>statique bien structuré</strong> → plus rapide que code 100 % sur‑mesure. 2–4 semaines de dev au lieu de 8–12.</p>
+      <p><strong>Approche statique</strong> : HTML/CSS/JS pur, pas de CMS/plugins/DB → 2–3 semaines de dev au lieu de 6–8 avec WP ; site ultra‑rapide, <strong>0 maintenance</strong> post‑livraison.</p>
+
+      <h3>Ce qu’il ne faut jamais sacrifier</h3>
+      <p>Ne <strong>bâclez</strong> pas : cadrage stratégique, tests (UX/perf), SEO technique. Un site invisible/lent/buggé ne sert à rien.</p>
+      <p>Accélérer = améliorer votre process (contenu/validations), pas supprimer les étapes vitales du prestataire.</p>
+
+      <h2>Cas réel : livraison en 5 semaines grâce à un client préparé</h2>
+      <p>Projet BMS Ventousage livré en 5 semaines (vs 8). <strong>Pourquoi</strong> : brief ultra‑clair, photos pro prêtes, design validé en une itération, tests en 3 jours. Aucun temps mort, aucune friction. <strong>+21 jours gagnés</strong>.</p>
+
+      <h2>Verdict : vous contrôlez 50 % du délai</h2>
+      <p>Le délai est une co‑responsabilité. Le prestataire : qualité technique, vitesse d’exécution, réactivité. Vous : clarté du brief, fourniture du contenu (sem. 2), validations en 48 h.</p>
+      <p>Si vous faites votre part → livraison en <a href="/delai-creation-site-web/">7 à 12 semaines</a>. Sinon → 16 à 24 semaines. Le double. Et ce n’est pas la faute du prestataire.</p>
+      <p><strong>Checklist</strong> : brief avant contact, 2 jours pour créer tout le contenu avant signature (textes/photos/logo/charte), validations 48 h max, respect du périmètre.</p>
+      <p>Pas le temps ? <strong>Externalisez</strong> : rédaction (1 000–2 000 €), shooting (500–1 000 €). <strong>Gain : 3–4 semaines</strong>. Un seul contrat signé plus tôt = ROI.</p>
+      <p><strong>Méfiez‑vous</strong> : « Je m’occupe de tout, vous n’avez rien à faire » → mensonge/incompétence. Moins vous êtes impliqué, plus le délai s’allonge. Plus vous êtes réactif, plus le site est livré rapidement. C’est mathématique.</p>
+      <p><strong>Besoin d’un site livré en 7–10 semaines ?</strong> Sites statiques optimisés TPE/PME : contenus rédigés pour vous, design sur‑mesure (2 cycles max), réactivité sous 24 h, planning détaillé. Dès 1 490 €. Code remis, domaine à votre nom, <strong>zéro maintenance</strong>.</p>
+
+      <h2>FAQ</h2>
+      <h3>Quel est vraiment mon rôle dans la création de mon site ?</h3>
+      <p>3 piliers : <strong>contenu</strong> (textes structurés, photos pro, logo vectoriel, charte), <strong>validations rapides</strong> (brief/design/tests sous 48 h), <strong>vision claire</strong> (objectifs/cible/positionnement). Défaillance → délai double. Client préparé → 7–10 semaines ; client mal préparé → 16–24 semaines.</p>
+      <h3>Comment accélérer sans sacrifier la qualité ?</h3>
+      <p>Contenu semaine 2 (+3–4 semaines), validations 48 h (+2–3 semaines), choix technique éprouvé (+2–4 semaines). <strong>Total</strong> : 7–11 semaines gagnées → site livré en 7 semaines au lieu de 18.</p>
+      <h3>Que préparer avant de contacter un prestataire ?</h3>
+      <p>Brief (objectifs, cible, services, différenciation, sites aimés/détestés). Textes (H1/H2/H3, Docs/Word). Visuels (logo vectoriel, photos HQ, charte). Références (concurrents, inspirations). <strong>Gain</strong> : 2 semaines (cadrage) + 3 semaines (intégration) = 5 semaines.</p>
+      <h3>Pourquoi le contenu est‑il le principal goulot ?</h3>
+      <p>Parce que 80 % sous‑estiment le temps de rédaction. Rédiger pour le web = structure (Hn, paragraphes courts), SEO (mots‑clés), conversion (parler des problèmes clients). <strong>Solution</strong> : externalisez (150–400 €/page) ou bloquez 2 jours avant signature.</p>
+      <h3>Combien de cycles de validation sont normaux ?</h3>
+      <p>Design : 2 cycles. Tests : 1 cycle. Au‑delà : facturation à l’heure. Limiter les cycles évite les allers‑retours infinis et tient les délais.</p>
+      <h3>Que faire si je n’ai vraiment pas le temps ?</h3>
+      <p>Externalisez dès la signature : rédaction (1 000–2 000 € pour 5–8 pages), photographe (500–1 000 €). <strong>Gain</strong> : 3–4 semaines. Un seul contrat signé plus tôt = investissement rentabilisé.</p>
+    `,
+    tags: [
+      "rôle client création site web",
+      "accélérer délai site internet",
+      "checklist contenu site web",
+      "validation client projet web",
+      "que dois-je préparer pour la création de mon site",
+      "comment accélérer la livraison de mon site web",
+    ],
+  },
   
 ];
