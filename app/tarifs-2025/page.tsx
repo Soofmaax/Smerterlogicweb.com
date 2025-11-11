@@ -11,6 +11,7 @@ import { Guarantee } from "@/components/site/guarantee";
 import { FinalCTA } from "@/components/site/final-cta";
 import { StickyMobileCTA } from "@/components/site/sticky-mobile-cta";
 import { EVOLUTION_MONTHLY_EUR } from "@/data/pricing";
+import { PdfDownloadButton } from "@/components/site/pdf-download-button";
 
 export const metadata = {
   title: "Tarifs 2025 — smarterlogicweb.com",
@@ -82,6 +83,15 @@ export default function Tarifs2025Page() {
       {/* Offres & tarifs (cartes) */}
       <section id="tarifs" className="mt-10">
         <PricingOffers />
+        <div className="mt-6 rounded-2xl border bg-card p-6 card-elevated">
+          <h3 className="font-heading text-lg font-semibold">Recevoir la grille PDF par email</h3>
+          <p className="mt-1 text-sm text-foreground/80">
+            Téléchargez la Grille Tarifs 2025 et recevez‑la par email pour la partager en interne.
+          </p>
+          <div className="mt-3">
+            <PdfDownloadButton slug="grille-tarifs-2025" label="Recevoir la Grille Tarifs 2025 (PDF)" />
+          </div>
+        </div>
       </section>
 
       {/* Option: Formule Évolution */}

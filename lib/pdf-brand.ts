@@ -1,6 +1,6 @@
 import { PDFDocument, StandardFonts, rgb, PDFPage } from "pdf-lib";
 
-export type PdfFonts = { regular: any; bold: any };
+export type PdfFonts = { regular: any; bold: any; heading?: any; headingBold?: any };
 export type Cursor = { page: PDFPage; y: number };
 
 export const A4: readonly [number, number] = [595.28, 841.89];
@@ -13,13 +13,59 @@ export const BRAND_ACCENT = rgb(34 / 255, 211 / 255, 238 / 255);  // #22d3ee
 export const TEXT_MAIN = rgb(0.2, 0.22, 0.28);
 export const TEXT_HEAD = rgb(0.1, 0.12, 0.2);
 
+async function fetchTTF(url: string): Promise<Uint8Array> {
+  const res = await fetch(url);
+  if (!res.ok) throw new Error(`Failed to fetch font: ${url}`);
+  const ab = await res.arrayBuffer();
+  return new Uint8Array(ab);
+}
+
 export async function createBrandDoc() {
   const doc = await PDFDocument.create();
   const page = doc.addPage(A4 as any);
-  const fonts: PdfFonts = {
+
+  // Defaults (fallback Helvetica)
+  let fonts: PdfFonts = {
     regular: await doc.embedFont(StandardFonts.Helvetica),
     bold: await doc.embedFont(StandardFonts.HelveticaBold),
   };
+
+  // Try to embed brand fonts (Inter for body, DM Sans for headings)
+  try {
+    const interRegularURL =
+      process.env.PDF_FONT_INTER_REGULAR_URL ||
+      "https://github.com/google/fonts/raw/main/ofl/inter/static/Inter-Regular.ttf";
+    const interBoldURL =
+      process.env.PDF_FONT_INTER_BOLD_URL ||
+      "https://github.com/google/fonts/raw/main/ofl/inter/static/Inter-Bold.ttf";
+    const dmSansRegularURL =
+      process.env.PDF_FONT_DMSANS_REGULAR_URL ||
+      "https://github.com/google/fonts/raw/main/ofl/dmsans/static/DMSans-Regular.ttf";
+    const dmSansBoldURL =
+      process.env.PDF_FONT_DMSANS_BOLD_URL ||
+      "https://github.com/google/fonts/raw/main/ofl/dmsans/static/DMSans-Bold.ttf";
+
+    const [interReg, interBold, dmReg, dmBold] = await Promise.all([
+      fetchTTF(interRegularURL),
+      fetchTTF(interBoldURL),
+      fetchTTF(dmSansRegularURL),
+      fetchTTF(dmSansBoldURL),
+    ]);
+
+    const interRegular = await doc.embedFont(interReg);
+    const interBoldF = await doc.embedFont(interBold);
+    const dmRegular = await doc.embedFont(dmReg);
+    const dmBoldF = await doc.embedFont(dmBold);
+
+    fonts = {
+      regular: interRegular,
+      bold: interBoldF,
+      heading: dmRegular,
+      headingBold: dmBoldF,
+    };
+  } catch {
+    // Keep Helvetica fallback silently
+  }
 
   // Top brand bar
   page.drawRectangle({
@@ -64,13 +110,13 @@ export function ensureSpace(doc: PDFDocument, cursor: Cursor, fonts: PdfFonts): 
 
 export function heading1(doc: PDFDocument, cursor: Cursor, fonts: PdfFonts, text: string, size = 18): Cursor {
   cursor = ensureSpace(doc, cursor, fonts);
-  cursor.page.drawText(text, { x: MARGIN_X, y: cursor.y, size, font: fonts.bold, color: TEXT_HEAD });
+  cursor.page.drawText(text, { x: MARGIN_X, y: cursor.y, size, font: fonts.headingBold ?? fonts.bold, color: TEXT_HEAD });
   return { ...cursor, y: cursor.y - (size + 10) };
 }
 
 export function heading2(doc: PDFDocument, cursor: Cursor, fonts: PdfFonts, text: string, size = 13): Cursor {
   cursor = ensureSpace(doc, cursor, fonts);
-  cursor.page.drawText(text, { x: MARGIN_X, y: cursor.y, size, font: fonts.bold, color: rgb(0.12, 0.14, 0.22) });
+  cursor.page.drawText(text, { x: MARGIN_X, y: cursor.y, size, font: fonts.headingBold ?? fonts.bold, color: rgb(0.12, 0.14, 0.22) });
   return { ...cursor, y: cursor.y - (size + 8) };
 }
 
@@ -200,7 +246,7 @@ export function calloutBox(
   const titleSize = 12;
   const bodySize = 10.5;
   const maxWidth = A4[0] - MARGIN_X * 2 - padding * 2;
-  const titleLines = wrapText(title, fonts.bold, titleSize, maxWidth);
+  const titleLines = wrapText(title, fonts.headingBold ?? fonts.bold, titleSize, maxWidth);
   height += titleLines.length * 16 + 6;
   for (const l of lines) {
     const ls = wrapText(l, fonts.regular, bodySize, maxWidth);
@@ -228,7 +274,7 @@ export function calloutBox(
   // Title
   let y = yTop - padding - titleSize;
   for (const tl of titleLines) {
-    cursor.page.drawText(tl, { x: MARGIN_X + padding, y, size: titleSize, font: fonts.bold, color: TEXT_HEAD });
+    cursor.page.drawText(tl, { x: MARGIN_X + padding, y, size: titleSize, font: fonts.headingBold ?? fonts.bold, color: TEXT_HEAD });
     y -= 16;
   }
   y -= 2;
