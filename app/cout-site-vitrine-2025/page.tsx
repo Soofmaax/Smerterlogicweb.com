@@ -155,7 +155,7 @@ export default function ArticlePrixSiteVitrine2025() {
               <Link href="/contact">Discutons de votre projet</Link>
             </Button>
             <Button asChild className="rounded-full" variant="secondary">
-              <Link href="/#tarifs">Voir les tarifs 2025</Link>
+              <Link href="/tarifs-2025#tarifs">Voir les tarifs 2025</Link>
             </Button>
           </div>
         </div>

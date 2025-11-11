@@ -352,7 +352,7 @@ export function Chatbot() {
 
   const faqAuto = (t: string): React.ReactNode => {
     const pairs: Array<[RegExp, React.ReactNode]> = [
-      [/prix|tarif|co[uû]t/, <>Entre 1 490€ et 4 990€ TTC selon vos besoins. Prix fixe annoncé dès le départ, pas de surprises. Voir <Link href="/#tarifs" className="underline">Tarifs</Link>.</>],
+      [/prix|tarif|co[uû]t/, <>Entre 1 490€ et 4 990€ TTC selon vos besoins. Prix fixe annoncé dès le départ, pas de surprises. Voir <Link href="/tarifs-2025#tarifs" className="underline">Tarifs</Link>.</>],
       [/d[ée]lai|combien de temps/, <>Essentiel: 2‑3 semaines, Professionnel: 4‑6 semaines, Premium: 8‑12 semaines (après réception contenus).</>],
       [/wordpress|wix/, <>Wix: lent/limité; WordPress: maintenance et sécurité. Mon approche: statique sur‑mesure — rapide, sécurisée et simple d’usage.</>],
       [/maintenance|bug|support/, <>Support prioritaire inclus selon offre. Option <strong>Formule Évolution</strong> à 20€/mois (1h/mois cumulable, monitoring, tweaks).</>],

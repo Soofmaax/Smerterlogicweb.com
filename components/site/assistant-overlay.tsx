@@ -33,7 +33,7 @@ export function AssistantOverlay() {
         <div className="mt-1 text-sm">“{text}”</div>
         <div className="mt-2 flex gap-2">
           <a href="/contact" className="inline-flex items-center rounded-full border px-3 py-1.5 text-xs hover:bg-accent">Contact</a>
-          <a href="/#tarifs" className="inline-flex items-center rounded-full border px-3 py-1.5 text-xs hover:bg-accent">Tarifs</a>
+          <a href="/tarifs-2025#tarifs" className="inline-flex items-center rounded-full border px-3 py-1.5 text-xs hover:bg-accent">Tarifs</a>
           <button
             type="button"
             onClick={() => setVisible(false)}

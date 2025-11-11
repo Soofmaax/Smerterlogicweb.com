@@ -83,6 +83,8 @@ export function Header() {
     "merci": "thank-you",
     "securite": "security",
     "blog": "blog",
+    "cgv": "terms-of-sale",
+    "faq": "faq",
   };
   const enToFr: Record<string, string> = Object.fromEntries(Object.entries(frToEn).map(([k, v]) => [v, k]));
 

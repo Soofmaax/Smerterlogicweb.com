@@ -16,6 +16,7 @@ export const availablePathsFR = new Set<string>([
   "mentions-legales",
   "politique-de-confidentialite",
   "securite",
+  "cgv",
   "merci",
 ]);
 
@@ -32,5 +33,7 @@ export const availablePathsEN = new Set<string>([
   "legal-notice",
   "privacy-policy",
   "security",
+  "terms-of-sale",
+  "faq",
   "thank-you",
 ]);
