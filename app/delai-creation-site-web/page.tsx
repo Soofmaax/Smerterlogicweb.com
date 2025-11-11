@@ -24,7 +24,7 @@ export const metadata = {
   openGraph: {
     title: "Combien de temps pour avoir votre site en ligne ? (La vérité sur les délais réels)",
     description:
-      "Délai création site web : 7–12 semaines optimisées, 14–34 semaines en moyenne. Les 5 phases et comment éviter des mois d’attente.",
+      "Délai création site web : 7 à 12 semaines pour un site optimisé, 14 à 34 semaines en moyenne en France. Découvrez les 5 phases, les vrais délais, et comment éviter 6 mois d'attente.",
     url: "https://smarterlogicweb.com/delai-creation-site-web",
     images: ["/delai-creation-site-web/opengraph-image"],
   },
