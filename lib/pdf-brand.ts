@@ -13,6 +13,12 @@ export const BRAND_ACCENT = rgb(34 / 255, 211 / 255, 238 / 255);  // #22d3ee
 export const TEXT_MAIN = rgb(0.2, 0.22, 0.28);
 export const TEXT_HEAD = rgb(0.1, 0.12, 0.2);
 
+// Normalize text to avoid unsupported glyphs when falling back to WinAnsi fonts (e.g., Helvetica)
+// Replace narrow no-break space (U+202F) with regular space
+function normalizePdfText(text: string): string {
+  return text.replace(/\u202F/g, " ");
+}
+
 async function fetchTTF(url: string): Promise<Uint8Array> {
   const res = await fetch(url);
   if (!res.ok) throw new Error(`Failed to fetch font: ${url}`);
@@ -75,7 +81,7 @@ export async function createBrandDoc() {
     height: 28,
     color: BRAND_PRIMARY,
   });
-  page.drawText("smarterlogicweb", {
+  page.drawText(normalizePdfText("smarterlogicweb"), {
     x: MARGIN_X,
     y: A4[1] - 20,
     size: 10,
@@ -98,7 +104,7 @@ export function ensureSpace(doc: PDFDocument, cursor: Cursor, fonts: PdfFonts): 
     height: 28,
     color: BRAND_PRIMARY,
   });
-  page.drawText("smarterlogicweb", {
+  page.drawText(normalizePdfText("smarterlogicweb"), {
     x: MARGIN_X,
     y: A4[1] - 20,
     size: 10,
@@ -110,13 +116,15 @@ export function ensureSpace(doc: PDFDocument, cursor: Cursor, fonts: PdfFonts): 
 
 export function heading1(doc: PDFDocument, cursor: Cursor, fonts: PdfFonts, text: string, size = 18): Cursor {
   cursor = ensureSpace(doc, cursor, fonts);
-  cursor.page.drawText(text, { x: MARGIN_X, y: cursor.y, size, font: fonts.headingBold ?? fonts.bold, color: TEXT_HEAD });
+  const safe = normalizePdfText(text);
+  cursor.page.drawText(safe, { x: MARGIN_X, y: cursor.y, size, font: fonts.headingBold ?? fonts.bold, color: TEXT_HEAD });
   return { ...cursor, y: cursor.y - (size + 10) };
 }
 
 export function heading2(doc: PDFDocument, cursor: Cursor, fonts: PdfFonts, text: string, size = 13): Cursor {
   cursor = ensureSpace(doc, cursor, fonts);
-  cursor.page.drawText(text, { x: MARGIN_X, y: cursor.y, size, font: fonts.headingBold ?? fonts.bold, color: rgb(0.12, 0.14, 0.22) });
+  const safe = normalizePdfText(text);
+  cursor.page.drawText(safe, { x: MARGIN_X, y: cursor.y, size, font: fonts.headingBold ?? fonts.bold, color: rgb(0.12, 0.14, 0.22) });
   return { ...cursor, y: cursor.y - (size + 8) };
 }
 
@@ -180,14 +188,14 @@ export function addFooters(doc: PDFDocument, fonts: PdfFonts) {
       color: rgb(0.9, 0.9, 0.94),
       thickness: 1,
     });
-    p.drawText("smarterlogicweb.com — contact@smarterlogicweb.com — 2025", {
+    p.drawText(normalizePdfText("smarterlogicweb.com — contact@smarterlogicweb.com — 2025"), {
       x: MARGIN_X,
       y: 36,
       size: 9,
       font: fonts.regular,
       color: rgb(0.45, 0.48, 0.56),
     });
-    const num = `Page ${i + 1}/${total}`;
+    const num = normalizePdfText(`Page ${i + 1}/${total}`);
     const numWidth = fonts.regular.widthOfTextAtSize(num, 9);
     p.drawText(num, {
       x: A4[0] - MARGIN_X - numWidth,
@@ -200,7 +208,8 @@ export function addFooters(doc: PDFDocument, fonts: PdfFonts) {
 }
 
 export function wrapText(text: string, font: any, size: number, maxWidth: number): string[] {
-  const words = text.split(" ");
+  const safe = normalizePdfText(text);
+  const words = safe.split(" ");
   const lines: string[] = [];
   let line = "";
   for (const w of words) {
