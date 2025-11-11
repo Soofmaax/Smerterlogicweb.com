@@ -1,13 +1,13 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { BLOG_POSTS } from "@/data/blog";
 import { getScheduledPostBySlugBurst, formatDate } from "@/lib/blog";
+import { getAllPosts } from "@/lib/blog-source";
 import { RecommendedArticles } from "@/components/site/recommended-articles";
 
 export const dynamic = "force-dynamic";
 
 export async function generateMetadata({ params }: { params: { slug: string } }) {
-  const result = getScheduledPostBySlugBurst(BLOG_POSTS, params.slug, "fr");
+  const result = getScheduledPostBySlugBurst(getAllPosts(), params.slug, "fr");
   if (!result || !result.isPublished) {
     return {
       title: "Article non disponible",
@@ -29,7 +29,7 @@ export async function generateMetadata({ params }: { params: { slug: string } })
 }
 
 export default function BlogPostFR({ params }: { params: { slug: string } }) {
-  const result = getScheduledPostBySlugBurst(BLOG_POSTS, params.slug, "fr");
+  const result = getScheduledPostBySlugBurst(getAllPosts(), params.slug, "fr");
   if (!result) notFound();
 
   const { post, isPublished } = result;

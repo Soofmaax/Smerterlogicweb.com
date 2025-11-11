@@ -1,12 +1,12 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { BLOG_POSTS } from "@/data/blog";
 import { getScheduledPostBySlugBurst, formatDate } from "@/lib/blog";
+import { getAllPosts } from "@/lib/blog-source";
 
 export const dynamic = "force-dynamic";
 
 export async function generateMetadata({ params }: { params: { slug: string } }) {
-  const result = getScheduledPostBySlugBurst(BLOG_POSTS, params.slug, "en");
+  const result = getScheduledPostBySlugBurst(getAllPosts(), params.slug, "en");
   if (!result || !result.isPublished) {
     return {
       title: "Article unavailable",
@@ -28,7 +28,7 @@ export async function generateMetadata({ params }: { params: { slug: string } })
 }
 
 export default function BlogPostEN({ params }: { params: { slug: string } }) {
-  const result = getScheduledPostBySlugBurst(BLOG_POSTS, params.slug, "en");
+  const result = getScheduledPostBySlugBurst(getAllPosts(), params.slug, "en");
   if (!result) notFound();
 
   const { post, isPublished } = result;

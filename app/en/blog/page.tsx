@@ -1,6 +1,6 @@
 import Link from "next/link";
-import { BLOG_POSTS } from "@/data/blog";
 import { schedulePosts, getPublishedPostsBurst, formatDate } from "@/lib/blog";
+import { getAllPosts } from "@/lib/blog-source";
 import { QuickLinksEN } from "@/components/site/quick-links-en";
 
 export const dynamic = "force-dynamic";
@@ -19,8 +19,9 @@ export const metadata = {
 };
 
 export default function BlogIndexEN() {
-  const scheduled = schedulePosts(BLOG_POSTS.filter((p) => p.locale === "en"), "en");
-  const published = getPublishedPostsBurst(BLOG_POSTS, "en");
+  const all = getAllPosts();
+  const scheduled = schedulePosts(all.filter((p) => p.locale === "en"), "en");
+  consthedPostsBurst(BLOG_POSTS, "en");
 
   return (
     <div className="mx-auto w-full max-w-5xl px-6 py-10">
