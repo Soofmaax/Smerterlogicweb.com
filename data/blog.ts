@@ -777,4 +777,93 @@ export const BLOG_POSTS: BlogPost[] = [
       "créer fiche GMB avant site internet",
     ],
   },
+  {
+    slug: "contenu-site-vitrine-conversion",
+    locale: "fr",
+    title: "Quel contenu pour convertir vos visiteurs en clients ?",
+    summary:
+      "Taux de conversion site B2B : 2–5% en moyenne. Transformez les 95% qui partent : USP claire, tarifs transparents, preuve sociale, 4–5 pages minimum optimisées CRO.",
+    contentHtml: `
+      <p>Votre site est en ligne depuis trois mois. Il reçoit du trafic. 100, 200, peut‑être 500 visiteurs par mois. Très bien. <strong>Mais combien deviennent des clients ?</strong></p>
+      <p>Si 95 % de vos visiteurs repartent sans rien faire, le problème n’est pas esthétique — il est <strong>stratégique</strong>. Votre contenu n’est pas conçu pour transformer un visiteur en prospect.</p>
+      <p>Le taux de conversion moyen d’un site B2B se situe entre <strong>2 % et 5 %</strong>. L’amélioration de ce ratio repose sur la psychologie web et une <strong>structuration intelligente du contenu</strong>.</p>
+
+      <h2>Les fondements psychologiques de la conversion</h2>
+      <p>On vend une <em>expérience désirable</em> : bénéfices, clarté, réassurance. Un visiteur se demande en 10 sec : <em>Que faites‑vous ?</em> <em>Êtes‑vous adapté à mon besoin ?</em> <em>Puis‑je vous faire confiance ?</em> <em>Combien ça coûte ?</em> <em>Que dois‑je faire ensuite ?</em></p>
+      <p>Si votre site ne répond pas clairement à ces 5 questions, il perd le visiteur.</p>
+
+      <h3>Mots‑clés de longue traîne (intention forte)</h3>
+      <p>Chaque page de service doit cibler une <strong>requête précise</strong> (ex. « cuisine sur‑mesure bordeaux », « site web pour avocat »). Les longues traînes convertissent <strong>2,5×</strong> plus que les mots génériques.</p>
+
+      <h2>Pilier 1 : USP (Proposition Unique de Vente)</h2>
+      <p>Votre H1 doit exprimer un bénéfice spécifique et différenciant, côté client.</p>
+      <ul>
+        <li>Faible : « Entreprise familiale depuis 1985 »</li>
+        <li>Fort : « Cuisine sur‑mesure en bois massif, conçue en 3 jours, livrée en 4 semaines. Garantie 10 ans. »</li>
+      </ul>
+      <p>Appuyez l’USP par <strong>preuves</strong> : chiffres, délais, témoignages.</p>
+
+      <h2>Pilier 2 : Tarifs transparents</h2>
+      <p>Cacher les prix = friction. Affichez une <strong>fourchette</strong> ou un <strong>tiered pricing</strong> (Essentiel / Pro / Premium) ; l’option intermédiaire devient l’ancre « raisonnable ».</p>
+      <p>Optimisez les CTA : « Demander mon devis gratuit », « Voir un exemple similaire ». Voir la <a href="/tarifs-2025">grille des Tarifs 2025</a>.</p>
+
+      <h2>Pilier 3 : Preuve sociale</h2>
+      <p>Humanisez : témoignages spécifiques (nom + ville), <strong>vidéos courtes</strong>, <strong>études de cas</strong> chiffrées. Intégrez vos <strong>avis Google</strong> (GMB) et liez la fiche complète.</p>
+
+      <h2>Pilier 4 : Visuels optimisés (vitesse & SEO)</h2>
+      <ul>
+        <li>Compression WebP ; poids cible : 120–200 KB/image.</li>
+        <li>Largeur utile : ≈ 1200 px (inutile d’envoyer 4000 px).</li>
+        <li>Noms de fichiers et <em>alt</em> descriptifs incluant la longue traîne.</li>
+      </ul>
+      <p>Objectif : <strong>PageSpeed ≥ 90/100</strong> — les sites lents tuent la conversion.</p>
+
+      <h2>Architecture : 4–5 pages qui convertissent</h2>
+      <table>
+        <thead>
+          <tr><th>Page</th><th>Rôle CRO</th><th>Intention</th><th>Exigences</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Accueil</td><td>Orientation, USP, CTA</td><td>Marque / service principal</td><td>Vitesse, clarté</td></tr>
+          <tr><td>Services (1 page/service)</td><td>Évaluation</td><td>Longue traîne</td><td>H2/H3, bénéfices, CTA</td></tr>
+          <tr><td>À propos</td><td>Réassurance</td><td>Crédibilité</td><td>Témoignages, photos</td></tr>
+          <tr><td>Contact / Devis</td><td>Action</td><td>Transactionnel</td><td>Formulaire court, CTA</td></tr>
+        </tbody>
+      </table>
+
+      <h2>Erreurs qui tuent le taux de conversion</h2>
+      <ul>
+        <li>Parler de vous au lieu du client (remplacez par bénéfices tangibles).</li>
+        <li>Cacher les prix (montrez une fourchette et la valeur).</li>
+        <li>Preuve sociale absente (ajoutez témoignages/études de cas).</li>
+        <li>Images lourdes (score < 90/100, visiteurs perdus).</li>
+        <li>15 pages médiocres > Non ; 5 pages optimisées > Oui.</li>
+      </ul>
+
+      <h2>Verdict</h2>
+      <p>Pour convertir : <strong>USP claire</strong>, <strong>tarifs transparents</strong>, <strong>preuve sociale</strong>, <strong>visuels optimisés</strong>. Structurez 4–8 pages utiles, ciblez la longue traîne, et mesurez.</p>
+      <p>Besoin d’un site qui <em>convertit</em> ? Sites statiques optimisés CRO pour TPE/PME : USP travaillée, pricing par paliers, preuves sociales, images WebP, formulaires efficaces. Dès 1 490€. Voir <a href="/roi-site-vitrine-tpe">ROI TPE</a>.</p>
+
+      <h2>FAQ</h2>
+      <h3>Combien de pages faut‑il prévoir ?</h3>
+      <p>Minimum 4 (Accueil, Services, À propos, Contact). Recommandé : 5–8 (ajoutez Réalisations, Témoignages, FAQ). Une page par service principal pour cibler la longue traîne.</p>
+      <h3>Faut‑il afficher ses tarifs ?</h3>
+      <p>Oui, sauf cas ultra variables. Sinon, fourchette et <em>tiered pricing</em> (Essentiel/Pro/Premium). Optimisez vos CTA.</p>
+      <h3>Quels témoignages convertissent ?</h3>
+      <p>Spécifiques (détails, délai, résultat), signés (nom + ville), idéalement en vidéo. Évitez l’anonyme générique.</p>
+      <h3>Comment optimiser les images ?</h3>
+      <p>WebP, 1200 px de large, 120–200 KB, noms de fichiers descriptifs, <em>alt</em> riche. Objectif : score ≥ 90/100.</p>
+      <h3>Quel taux de conversion viser ?</h3>
+      <p>B2B : 2–5 %. &lt; 1 % : problèmes de message/CTA/vitesse/preuves. Améliorez les 4 piliers et mesurez.</p>
+    `,
+    tags: [
+      "contenu site vitrine conversion",
+      "optimisation taux de conversion CRO",
+      "présentation tarifs site web",
+      "témoignages clients site internet",
+      "quel contenu mettre sur site vitrine pour convertir",
+      "combien de pages faut-il pour site vitrine",
+      "comment présenter ses tarifs sur un site web",
+    ],
+  },
 ];

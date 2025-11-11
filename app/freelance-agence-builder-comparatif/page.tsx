@@ -4,6 +4,7 @@ import { BLOG_POSTS } from "@/data/blog";
 import { Particles } from "@/components/site/particles";
 import { Reveal } from "@/components/site/reveal";
 import { Button } from "@/components/ui/button";
+import { RecommendedArticles } from "@/components/site/recommended-articles";
 
 const coverImg = "https://images.unsplash.com/photo-1542744173-8e7e53415bb0?auto=format&fit=crop&w=1600&q=80"; // business mtg
 const imgFreelance = "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1600&q=80"; // dev desk
@@ -140,6 +141,8 @@ export default function ArticleComparatifPrestataires() {
           </figure>
         </div>
       </section>
+
+      <RecommendedArticles currentSlug={post.slug} locale="fr" />
 
       {/* CTA footer */}
       <section className="mx-auto mt-10 w-full max-w-5xl px-0 py-8">

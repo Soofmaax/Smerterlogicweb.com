@@ -4,6 +4,7 @@ import { BLOG_POSTS } from "@/data/blog";
 import { Particles } from "@/components/site/particles";
 import { Reveal } from "@/components/site/reveal";
 import { Button } from "@/components/ui/button";
+import { RecommendedArticles } from "@/components/site/recommended-articles";
 
 const coverImg = "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=1600&q=80"; // people collaboration
 const imgLocal = "https://images.unsplash.com/photo-1523438885200-e635ba2c371e?auto=format&fit=crop&w=1600&q=80"; // map/local
@@ -87,6 +88,26 @@ export default function ArticleGMBvsSite() {
         />
       </article>
 
+      {/* Resource: Checklist GMB */}
+      <section className="mt-10">
+        <div className="rounded-[20px] border bg-card p-5 flex flex-col sm:flex-row items-start justify-between gap-4">
+          <div>
+            <h2 className="font-heading text-xl font-semibold">Ressource : Checklist Google My Business</h2>
+            <p className="mt-1 text-sm text-foreground/80">
+              La liste claire des actions prioritaires pour apparaître vite dans le Local Pack et capter des appels.
+            </p>
+          </div>
+          <div className="flex gap-2">
+            <Button asChild variant="secondary" className="rounded-full">
+              <Link href="/ressources/checklist-gmb">Voir la checklist</Link>
+            </Button>
+            <Button asChild className="rounded-full">
+              <Link href="/api/pdf/checklist-gmb">Télécharger le PDF</Link>
+            </Button>
+          </div>
+        </div>
+      </section>
+
       {/* Supporting images grid */}
       <section className="mt-10">
         <div className="grid gap-4 md:grid-cols-3">
@@ -142,6 +163,8 @@ export default function ArticleGMBvsSite() {
           </figure>
         </div>
       </section>
+
+      <RecommendedArticles currentSlug={post.slug} locale="fr" />
 
       {/* CTA footer */}
       <section className="mx-auto mt-10 w-full max-w-5xl px-0 py-8">

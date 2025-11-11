@@ -6,33 +6,32 @@ import { Reveal } from "@/components/site/reveal";
 import { Button } from "@/components/ui/button";
 import { RecommendedArticles } from "@/components/site/recommended-articles";
 
-const coverImg = "https://images.unsplash.com/photo-1605902711834-8b89f3fcb2f7?auto=format&fit=crop&w=1600&q=80"; // finance/planning
-const imgDomainHosting = "https://images.unsplash.com/photo-1518779578993-ec3579fee39f?auto=format&fit=crop&w=1600&q=80"; // server/rack
-const imgMaintenance = "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1600&q=80"; // dev/update
-const imgSEO = "https://images.unsplash.com/photo-1512758017271-d7b84c7bb5a2?auto=format&fit=crop&w=1600&q=80"; // content/seo
-const imgPayment = "https://images.unsplash.com/photo-1556740772-1a741367b93e?auto=format&fit=crop&w=1600&q=80"; // payment/contract
+const coverImg = "https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=1600&q=80"; // content/desk
+const imgUSP = "https://images.unsplash.com/photo-1551746908-5d2a1ff27cde?auto=format&fit=crop&w=1600&q=80"; // sticky note/usp
+const imgPricing = "https://images.unsplash.com/photo-1556740772-1a741367b93e?auto=format&fit=crop&w=1600&q=80"; // pricing/cta
+const imgSocialProof = "https://images.unsplash.com/photo-1515169067865-5387ec356754?auto=format&fit=crop&w=1600&q=80"; // testimonials
 
 export const metadata = {
-  title: "Frais cachés : ce qu'il faut anticiper après la livraison du site",
+  title: "Quel contenu pour convertir vos visiteurs en clients ?",
   description:
-    "Maintenance 290–1 800€/an pour WordPress, 0€ pour site statique. Découvrez le vrai coût total sur 3 ans et les modalités de paiement.",
+    "Taux de conversion site B2B : 2–5% en moyenne. Transformez les 95% qui partent : USP claire, tarifs transparents, preuve sociale, 4–5 pages minimum optimisées CRO.",
   alternates: {
-    canonical: "/frais-caches-site-internet",
+    canonical: "/contenu-site-vitrine-conversion",
     languages: {
-      "fr-FR": "/frais-caches-site-internet",
+      "fr-FR": "/contenu-site-vitrine-conversion",
     },
   },
   openGraph: {
-    title: "Frais cachés : ce qu'il faut anticiper après la livraison du site",
+    title: "Quel contenu pour convertir vos visiteurs en clients ?",
     description:
-      "Maintenance 290–1 800€/an pour WordPress, 0€ pour site statique. Découvrez le vrai coût total sur 3 ans et les modalités de paiement.",
-    url: "https://smarterlogicweb.com/frais-caches-site-internet",
-    images: ["/frais-caches-site-internet/opengraph-image"],
+      "Apprenez à structurer votre contenu pour la conversion : USP, tarifs, preuve sociale, images optimisées, architecture 4–8 pages.",
+    url: "https://smarterlogicweb.com/contenu-site-vitrine-conversion",
+    images: ["/contenu-site-vitrine-conversion/opengraph-image"],
   },
 };
 
-export default function ArticleFraisCachesSiteInternet() {
-  const post = BLOG_POSTS.find((p) => p.slug === "frais-caches-site-internet" && p.locale === "fr");
+export default function ArticleContenuConversion() {
+  const post = BLOG_POSTS.find((p) => p.slug === "contenu-site-vitrine-conversion" && p.locale === "fr");
   if (!post) {
     return (
       <section className="mx-auto w-full max-w-3xl px-6 py-10">
@@ -60,7 +59,7 @@ export default function ArticleFraisCachesSiteInternet() {
         </h1>
       </Reveal>
       <p className="mt-3 text-foreground/80 max-w-3xl">
-        Maintenance 290–1 800€/an pour WordPress, 0€ pour site statique. Le vrai coût total sur 3 ans, les frais récurrents, et des modalités de paiement claires.
+        Tirez parti des 4 piliers de contenu qui convertissent vraiment : USP claire, tarifs transparents, preuve sociale, visuels optimisés.
       </p>
 
       {/* Cover image */}
@@ -68,7 +67,7 @@ export default function ArticleFraisCachesSiteInternet() {
         <div className="relative aspect-[16/9] w-full overflow-hidden rounded-[20px]">
           <Image
             src={coverImg}
-            alt="Planification budgétaire du coût total de possession d’un site internet sur 3 ans"
+            alt="Plan de contenu convertissant pour site vitrine"
             fill
             sizes="(max-width: 768px) 100vw, 100vw"
             priority={false}
@@ -93,8 +92,8 @@ export default function ArticleFraisCachesSiteInternet() {
           <figure className="rounded-[20px] border bg-card p-3">
             <div className="relative aspect-[4/3] w-full overflow-hidden rounded-xl">
               <Image
-                src={imgDomainHosting}
-                alt="Serveurs d’hébergement et infrastructure — coûts récurrents à surveiller (mutualisé vs VPS)"
+                src={imgUSP}
+                alt="USP claire et différenciante — bénéfices client en H1"
                 fill
                 sizes="(max-width: 768px) 100vw, 33vw"
                 loading="lazy"
@@ -103,15 +102,15 @@ export default function ArticleFraisCachesSiteInternet() {
               />
             </div>
             <figcaption className="mt-2 text-xs text-muted-foreground">
-              Hébergement : mutualisé 50–120€/an ; VPS 600–4 800€/an. Inutile pour une vitrine dans la majorité des cas.
+              Pilier 1 : USP — pourquoi vous, en une phrase.
             </figcaption>
           </figure>
 
           <figure className="rounded-[20px] border bg-card p-3">
             <div className="relative aspect-[4/3] w-full overflow-hidden rounded-xl">
               <Image
-                src={imgMaintenance}
-                alt="Maintenance technique WordPress — mises à jour du cœur, plugins, thèmes et sauvegardes"
+                src={imgPricing}
+                alt="Tarification par paliers et CTA clairs"
                 fill
                 sizes="(max-width: 768px) 100vw, 33vw"
                 loading="lazy"
@@ -120,15 +119,15 @@ export default function ArticleFraisCachesSiteInternet() {
               />
             </div>
             <figcaption className="mt-2 text-xs text-muted-foreground">
-              Maintenance WordPress : 290–1 800€/an. Sans mises à jour, le site devient vulnérable (piratage, pannes).
+              Pilier 2 : tarifs transparents et CTA qui rassurent.
             </figcaption>
           </figure>
 
           <figure className="rounded-[20px] border bg-card p-3">
             <div className="relative aspect-[4/3] w-full overflow-hidden rounded-xl">
               <Image
-                src={imgSEO}
-                alt="SEO et contenu — investissement continu pour maintenir et améliorer la visibilité sur Google"
+                src={imgSocialProof}
+                alt="Témoignages et études de cas — preuve sociale forte"
                 fill
                 sizes="(max-width: 768px) 100vw, 33vw"
                 loading="lazy"
@@ -137,7 +136,7 @@ export default function ArticleFraisCachesSiteInternet() {
               />
             </div>
             <figcaption className="mt-2 text-xs text-muted-foreground">
-              SEO continu : 300–1 500€/mois selon ambition. Rédaction SEO : 150–400€/article.
+              Pilier 3 : témoignages spécifiques, vidéos, cas clients.
             </figcaption>
           </figure>
         </div>
@@ -148,14 +147,14 @@ export default function ArticleFraisCachesSiteInternet() {
       {/* CTA footer */}
       <section className="mx-auto mt-10 w-full max-w-5xl px-0 py-8">
         <div className="rounded-[28px] card-elevated border bg-card p-6 text-center">
-          <h2 className="font-heading text-2xl font-semibold">Besoin d’un site sans frais cachés ?</h2>
-          <p className="mt-2 text-foreground/80">Sites statiques : design sur‑mesure, contenu inclus (selon offre), 0 maintenance, code remis.</p>
+          <h2 className="font-heading text-2xl font-semibold">Prêt à transformer le contenu de votre site ?</h2>
+          <p className="mt-2 text-foreground/80">On conçoit et rédige le contenu <em>qui vend</em> — et on le mesure.</p>
           <div className="mt-5 flex flex-col items-center justify-center gap-3 sm:flex-row">
+            <Button asChild className="rounded-full" variant="secondary">
+              <Link href="/tarifs-2025">Voir les tarifs 2025</Link>
+            </Button>
             <Button asChild className="rounded-full" size="lg">
               <Link href="/contact">Discutons de votre projet</Link>
-            </Button>
-            <Button asChild className="rounded-full" variant="secondary">
-              <Link href="/#tarifs">Voir les tarifs 2025</Link>
             </Button>
           </div>
         </div>

@@ -4,6 +4,7 @@ import { BLOG_POSTS } from "@/data/blog";
 import { Particles } from "@/components/site/particles";
 import { Reveal } from "@/components/site/reveal";
 import { Button } from "@/components/ui/button";
+import { RecommendedArticles } from "@/components/site/recommended-articles";
 
 const coverImg = "https://images.unsplash.com/photo-1556157382-97eda2d62296?auto=format&fit=crop&w=1600&q=80"; // analytics dashboard
 const imgContent = "https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=1600&q=80"; // content/desk
@@ -140,6 +141,8 @@ export default function ArticleROI() {
           </figure>
         </div>
       </section>
+
+      <RecommendedArticles currentSlug={post.slug} locale="fr" />
 
       {/* CTA footer */}
       <section className="mx-auto mt-10 w-full max-w-5xl px-0 py-8">

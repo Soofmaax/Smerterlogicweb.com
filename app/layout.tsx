@@ -5,12 +5,10 @@ import { Header } from "@/components/site/header";
 import { Footer } from "@/components/site/footer";
 import { UXEnhancer } from "@/components/site/ux-enhancer";
 import { ScrollProgress } from "@/components/site/scroll-progress";
-import { Chatbot } from "@/components/site/chatbot";
 import { CookieConsent } from "@/components/site/cookie-consent";
 import { BackToTop } from "@/components/site/back-to-top";
 import { Cursor } from "@/components/site/cursor";
 import { EasterEggs } from "@/components/site/easter-eggs";
-import { SmartCTAs } from "@/components/site/smart-ctas";
 import { VoiceCommands } from "@/components/site/voice-commands";
 import { AssistantOverlay } from "@/components/site/assistant-overlay";
 import { GyroTilt } from "@/components/site/gyro-tilt";
@@ -185,16 +183,14 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
 
         {/* Right-hand friendly floating actions */}
         <BackToTop />
-        <SmartCTAs />
         <VoiceCommands />
         <ReduceMotionToggle />
         <WhatsAppFloat />
         <StickyMobileCTA />
 
-        {/* Easter Eggs & Chatbot */}
+        {/* Easter Eggs (fun, non-intrusive) */}
         <EasterEggs />
         <AssistantOverlay />
-        <Chatbot />
         {/* Cookie consent (shown when using GA) */}
         <CookieConsent />
       </body>
