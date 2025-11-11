@@ -318,7 +318,6 @@ export const BLOG_POSTS: BlogPost[] = [
       <p>1h de modifications/mois (cumulable 3 mois), optimisations ponctuelles, monitoring, support prioritaire, tarifs préférentiels.</p>
       <h3>Abonnement ou achat comptant ?</h3>
       <p>Achat si vous voulez posséder à vie (statique = idéal). Abonnement si vous acceptez de ne pas posséder et déléguer totalement — plus cher sur 3 ans.</p>
-      <p class="mt-2">Voir aussi : <a href="/cout-site-vitrine-2025">Guide des vrais prix 2025</a> pour comparer les budgets et scénarios.</p>
     `,
     tags: [
       "frais cachés site internet",
@@ -327,6 +326,184 @@ export const BLOG_POSTS: BlogPost[] = [
       "acompte création site internet",
       "maintenance site WordPress",
       "frais annuels site internet entreprise",
+    ],
+  },
+  {
+    slug: "freelance-agence-builder-comparatif",
+    locale: "fr",
+    title: "Freelance vs Agence vs Builder : quel choix pour votre site statique ?",
+    summary:
+      "Freelance, agence ou builder No‑Code : quel prestataire choisir pour votre site vitrine ? Comparatif budget, qualité, maintenance. Statique ou dynamique pour TPE ?",
+    contentHtml: `
+      <p>Vous avez décidé de créer votre site vitrine. Bravo, c’est déjà un premier pas. Maintenant, la vraie question : qui va le faire, et avec quelle technologie ?</p>
+      <p>Vous avez trois options devant vous. Un freelance qui vous propose 2 800€. Une agence qui annonce 7 500€. Et un builder qui vous dit qu’avec 30€/mois, vous pouvez tout faire vous‑même. Vous ne savez pas quelle différence justifie ces écarts de prix. Vous vous demandez si un site <strong>statique</strong> basique suffit, ou si vous devez investir dans un <strong>CMS dynamique</strong> pour évoluer plus tard.</p>
+      <p>Je crée des sites pour des TPE et PME depuis 2020. Transport, services, commerce, professions libérales. Et je vais vous dire ce que personne n’explique clairement : le choix du prestataire et de la technologie ne dépend pas de votre budget, mais de votre <strong>objectif</strong> et de votre <strong>capacité à gérer le site après livraison</strong>.</p>
+      <p>Dans cet article, on compare les trois options (freelance, agence, builder) sur des critères concrets : <em>budget initial</em>, <em>coûts cachés</em>, <em>qualité livrée</em>, <em>flexibilité</em>. On clarifie aussi quand un <strong>site statique</strong> suffit, et quand vous devez absolument passer au <strong>dynamique</strong>. À la fin, vous saurez exactement quel choix faire pour votre situation. Pour une analyse de prix complète, voyez aussi le <a href="/cout-site-vitrine-2025">Guide des vrais prix 2025</a> et les <a href="/frais-caches-site-internet">Frais cachés après livraison</a>.</p>
+
+      <h2>Les trois modèles face à face : budget, valeur, compromis</h2>
+      <p>Le choix du prestataire pour une TPE n’est pas une question de budget absolu, mais de rapport qualité‑prix et de rapidité d’exécution. Visez un MVP en ligne rapidement pour éviter la paralysie. Trop de dirigeants comparent des devis pendant 6 mois au lieu de lancer un site qui commence à générer des leads.</p>
+
+      <h2>Option 1 : Le freelance (le meilleur compromis pour 95 % des TPE)</h2>
+      <h3>Budget réel</h3>
+      <p>Un site vitrine professionnel réalisé par un freelance coûte en moyenne entre 2 500€ et 8 000€ pour 5–10 pages. <strong>Maintenance</strong> : 0€ si statique (recommandé) ou 50–150€/mois si vous souhaitez un suivi continu.</p>
+      <h3>Avantages concrets</h3>
+      <ul>
+        <li><strong>Flexibilité</strong> : planning et périmètre ajustables, évolutions par étapes.</li>
+        <li><strong>Accompagnement direct</strong> : pas d’intermédiaire, réponses rapides.</li>
+        <li><strong>Réactivité</strong> : petits ajustements en minutes, facturation saine.</li>
+      </ul>
+      <h3>Limites à connaître</h3>
+      <ul>
+        <li><strong>Dépendance</strong> à une personne (anticiper les délais/vacances).</li>
+        <li><strong>Expertise large</strong> : pas toujours top sur tous les sujets (design, SEO, back‑end).</li>
+      </ul>
+      <p>Pour une TPE avec vitrine classique (services, réalisations, contact), un <strong>freelance compétent</strong> est largement suffisant. Pour e‑commerce complexe ou intégrations CRM avancées : étudiez l’agence.</p>
+
+      <h2>Option 2 : L’agence web (projets complexes, budgets confortables)</h2>
+      <h3>Budget réel</h3>
+      <p>5 000€ à 25 000€ pour 5–20 pages. <strong>Maintenance</strong> : 150–500€/mois avec SLA, mises à jour, support structuré.</p>
+      <h3>Avantages concrets</h3>
+      <ul>
+        <li><strong>Expertise complète</strong> : UX/UI, front, back, SEO, rédaction.</li>
+        <li><strong>Support structuré</strong> : hotline, délais garantis, suivi.</li>
+        <li><strong>Continuité</strong> : pas de dépendance à une seule personne.</li>
+      </ul>
+      <h3>Limites</h3>
+      <ul>
+        <li><strong>Coût</strong> : forte part de gestion/coordination.</li>
+        <li><strong>Rigidité</strong> : process, tickets, validations → délai et surcoût.</li>
+      </ul>
+
+      <h2>Option 3 : Builders No‑Code (Wix, Webflow) — rapide et pas cher, mais limité</h2>
+      <h3>Budget réel</h3>
+      <p>DIY : 15–50€/mois (180–1 800€ sur 3 ans) + votre temps. Clé‑en‑main : jusqu’à 4 000€ si un pro fait le travail dans Webflow.</p>
+      <h3>Avantages</h3>
+      <ul>
+        <li><strong>Coût et vitesse</strong> : lancement en heures.</li>
+        <li><strong>Sans code</strong> : interface visuelle.</li>
+      </ul>
+      <h3>Limites</h3>
+      <ul>
+        <li><strong>Personnalisation/évolutivité</strong> limitées, courbe d’apprentissage.</li>
+        <li><strong>Dépendance plateforme</strong> : migration coûteuse.</li>
+        <li><strong>SEO</strong> souvent moyen sur du DIY, risques de lourdeur.</li>
+        <li><strong>Coût d’opportunité</strong> : 40 h passées = perte de CA > économie initiale.</li>
+      </ul>
+
+      <h2>Le tableau comparatif</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Option</th>
+            <th>Budget initial (5–10 pages)</th>
+            <th>Maintenance mensuelle</th>
+            <th>Avantage TPE</th>
+            <th>Inconvénient</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Builder DIY</td>
+            <td>50€ – 4 000€</td>
+            <td>5€ – 50€</td>
+            <td>Coût faible, vitesse</td>
+            <td>Personnalisation limitée, SEO faible</td>
+          </tr>
+          <tr>
+            <td>Freelance</td>
+            <td>2 500€ – 8 000€</td>
+            <td>0€ (statique) ou 50€ – 150€</td>
+            <td>Qualité/prix, flexibilité</td>
+            <td>Dépendance à une personne</td>
+          </tr>
+          <tr>
+            <td>Agence</td>
+            <td>5 000€ – 25 000€+</td>
+            <td>150€ – 500€</td>
+            <td>Équipe complète, SLA</td>
+            <td>Coût, rigidité</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h2>Site statique vs dynamique : quand l’un suffit‑il ?</h2>
+      <h3>Statique</h3>
+      <p>HTML/CSS/JS pré‑construits : <strong>vitesse</strong>, <strong>sécurité</strong>, <strong>0 maintenance</strong>. Idéal vitrines, portfolios, pages services. Nos offres (1 490€ / 2 490€ / 4 990€) sont statiques → hébergement gratuit, code remis, coûts sur 3 ans minimaux. Voir <a href="/tarifs-2025">Tarifs 2025</a>.</p>
+      <h3>Dynamique (CMS)</h3>
+      <p>Pages générées à la demande via base de données : <strong>blog actif</strong>, <strong>e‑commerce</strong>, <strong>interactivité</strong>. Demande maintenance et hébergement plus complexes.</p>
+
+      <h2>Le tableau statique vs dynamique (TPE)</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Critère</th>
+            <th>Statique</th>
+            <th>Dynamique (CMS)</th>
+            <th>Implication TPE</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Vitesse</td>
+            <td>Excellente</td>
+            <td>Modérée</td>
+            <td>Clé pour UX/SEO</td>
+          </tr>
+          <tr>
+            <td>Sécurité</td>
+            <td>Très élevée</td>
+            <td>Mises à jour constantes</td>
+            <td>Tranquillité</td>
+          </tr>
+          <tr>
+            <td>Mises à jour contenu</td>
+            <td>Manuelles</td>
+            <td>Interface CMS</td>
+            <td>Choix selon fréquence</td>
+          </tr>
+          <tr>
+            <td>Interactivité</td>
+            <td>Limitée</td>
+            <td>Comptes, paiements, recherche</td>
+            <td>Indispensable pour e‑commerce</td>
+          </tr>
+          <tr>
+            <td>Évolutivité</td>
+            <td>Faible</td>
+            <td>Élevée</td>
+            <td>Essentiel long terme</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h2>Notre recommandation pour 95 % des TPE</h2>
+      <p>Commencez <strong>simple</strong> : un site statique vitrine qui présente vos services, vos réalisations, et capte des leads. Faites appel à un <strong>freelance compétent</strong> ou choisissez une <a href="/tarifs-2025">offre</a> statique clé‑en‑main. Évitez le DIY si vous manquez de temps/compétences. Passez au <strong>dynamique</strong> seulement si vos besoins l’exigent (blog très actif, e‑commerce, espace client).</p>
+
+      <h2>Verdict : freelance + site statique = sweet spot TPE</h2>
+      <p>Budget maîtrisé (2 500€–8 000€), qualité pro, <strong>0 maintenance</strong> après livraison, propriété totale. Les agences : pertinentes pour projets complexes et budgets > 10 000€. Les builders DIY : piégeux sans expertise et sans temps.</p>
+      <p>Besoin d’un site statique performant sans maintenance ? On crée des sites optimisés pour TPE/PME. Design sur‑mesure, contenu inclus, ultra‑rapide, 0 maintenance. Exemple : bmsventouse.fr (positions 2–10). À partir de 1 490€. Code source remis, domaine à votre nom.</p>
+
+      <h2>FAQ</h2>
+      <h3>Freelance ou agence : quelle différence concrète pour une TPE ?</h3>
+      <p>Freelance : 2 500€–8 000€, flexibilité et meilleur rapport qualité‑prix. Agence : 5 000€–25 000€+, équipe complète et support structuré, pertinent pour intégrations complexes. Voir aussi <a href="/frais-caches-site-internet">les frais cachés sur 3 ans</a>.</p>
+      <h3>Un site statique suffit‑il vraiment pour mon activité ?</h3>
+      <p>Oui si contenu plutôt stable et peu d’interactivité. Statique = vitesse, sécurité, 0 maintenance. Passez au dynamique si blog/e‑commerce ou comptes utilisateurs. Comparez les coûts dans le <a href="/cout-site-vitrine-2025">Guide des vrais prix 2025</a>.</p>
+      <h3>Les builders No‑Code (Wix, Webflow) sont‑ils adaptés ?</h3>
+      <p>Uniquement si vous avez du temps/compétences ou pour tester une idée. Risques : SEO faible, dépendance plateforme, coût d’opportunité élevé.</p>
+      <h3>Combien coûte un site sur 3 ans ?</h3>
+      <p>DIY : 180€–1 800€ d’abonnement + votre temps. Freelance statique : 2 500€–8 000€ + 10–50€/an (domaine). Agence WP : 5 000€–25 000€ + 1 800€–6 000€/an de maintenance. Détails : <a href="/frais-caches-site-internet">frais cachés</a> et <a href="/tarifs-2025">tarifs</a>.</p>
+      <h3>Puis‑je passer d’un site statique à un dynamique plus tard ?</h3>
+      <p>Oui, via une refonte partielle/totale : migration contenu vers CMS, structure recréée, tests (1 500€–5 000€ selon complexité).</p>
+      <h3>Comment vérifier qu’un freelance est compétent ?</h3>
+      <p>Portfolio, vitesse (PageSpeed), SEO (recherche marque), références clients, clarté sur propriété du code/SEO/délais. Méfiez‑vous des promesses irréalistes.</p>
+    `,
+    tags: [
+      "freelance vs agence site statique",
+      "coût création site vitrine TPE",
+      "site statique ou dynamique",
+      "builder No-Code vs développeur",
+      "différence budget freelance agence site statique",
+      "site statique suffit-il pour mon activité",
     ],
   },
 ];
