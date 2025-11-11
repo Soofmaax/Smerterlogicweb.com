@@ -78,6 +78,14 @@ export default function Tarifs2025Page() {
         <p className="mt-3 text-sm text-muted-foreground">
           Sites statiques = pas de base de données, pas de plugins, pas de CMS à maintenir. Sécurité intrinsèque et fiabilité long terme.
         </p>
+        <p className="mt-2 text-sm text-muted-foreground">
+          Pour approfondir :{" "}
+          <Link href="/cout-maintenance-site-web" className="text-primary hover:underline">coût de la maintenance</Link>
+          {" · "}
+          <Link href="/contenu-forfait-maintenance-site-web" className="text-primary hover:underline">contenu d’un forfait</Link>
+          {" · "}
+          <Link href="/frais-caches-site-internet" className="text-primary hover:underline">frais cachés</Link>.
+        </p>
       </section>
 
       {/* Offres & tarifs (cartes) */}

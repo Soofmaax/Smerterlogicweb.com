@@ -182,6 +182,7 @@ export const BLOG_POSTS: BlogPost[] = [
       <p>Un site à 300€ coûte en réalité 3 200€ (contenu + SEO + maintenance). Un site statique à 2 490€ tout inclus est objectivement moins cher sur 3 ans.</p>
       <p>Faites le calcul. Exigez un devis détaillé. Et rappelez‑vous : votre site doit <strong>attirer des clients</strong>, pas juste exister.</p>
       <p>Besoin d’un site qui attire des clients ? Sites statiques optimisés pour TPE/PME de tous secteurs. Design sur‑mesure, contenu inclus, ultra‑rapide, 0 maintenance. Exemples : bmsventouse.fr (positions 2‑10 en 4 mois). À partir de 1 490€. Code remis, domaine à votre nom.</p>
+      <p class="mt-2">Voir aussi : <a href="/cout-maintenance-site-web">coût de la maintenance</a>, <a href="/contenu-forfait-maintenance-site-web">contenu d’un forfait de maintenance</a> et <a href="/frais-caches-site-internet">frais cachés après la livraison</a>.</p>
 
       <h2>FAQ</h2>
       <h3>Combien coûte un site vitrine pour une TPE en 2025 ?</h3>
@@ -472,8 +473,8 @@ export const BLOG_POSTS: BlogPost[] = [
 
       <h2>Verdict : le freelance avec un site statique, c’est le sweet spot pour la TPE</h2>
       <p>Pour 95 % des TPE : <strong>freelance + site statique</strong> = budget maîtrisé, qualité pro, zéro maintenance, propriété totale. Les agences : pertinentes pour projets complexes &gt; 10 000€. Les builders No‑Code : piégeux sans expertise/temps.</p>
-      <p>Besoin d’un site statique performant sans maintenance obligatoire ? On crée des sites optimisés pour TPE/PME : design sur‑mesure, contenu inclus, ultra‑rapide, zéro maintenance. Exemples : bmsventouse.fr (positions 2–10 Google en 4 mois). À partir de 1 490€. Code source remis, domaine à votre nom.</p>
-
+      <p>Besoin d’un site statique performant sans maintenance obligatoire ? On crée des sites optimisés pour TPE/PME : design sur‑mesure, contenu inclus, ultra‑rapide, zéro maintenance. Exemples : bmsventouse.fr (positions 2–10 Google en 4 mois). À partir de 1 490€. Code source remis, domaine à votre n.</</p>
+     < p class="mt-2">Voir aussi  <:a href="/cout-maintenance-site-web">coût de la maintenan</cea> <,a href="/contenu-forfait-maintenance-site-web">que comprend un forfait de maintenan</cea> e <ta href="/frais-caches-site-internet">frais cachés après la
       <h2>FAQ</h2>
       <h3>Freelance ou agence : quelle différence concrète pour une TPE ?</h3>
       <p>Freelance : 2 500€ – 8 000€, flexibilité et rapport qualité‑prix. Agence : 5 000€ – 25 000€+, équipe complète (designer, dev, SEO), support structuré. Pour vitrine classique : le freelance suffit. Agence si intégrations CRM/multilingue/espace client ou budget &gt; 10 000€.</p>
