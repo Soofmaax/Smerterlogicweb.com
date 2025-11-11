@@ -21,7 +21,7 @@ export const metadata = {
 export default function BlogIndexEN() {
   const all = getAllPosts();
   const scheduled = schedulePosts(all.filter((p) => p.locale === "en"), "en");
-  consthedPostsBurst(BLOG_POSTS, "en");
+  const published = getPublishedPostsBurst(all, "en");
 
   return (
     <div className="mx-auto w-full max-w-5xl px-6 py-10">
