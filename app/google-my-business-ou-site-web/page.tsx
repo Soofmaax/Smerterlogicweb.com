@@ -88,25 +88,7 @@ export default function ArticleGMBvsSite() {
         />
       </article>
 
-      {/* Resource: Checklist GMB */}
-      <section className="mt-10">
-        <div className="rounded-[20px] border bg-card p-5 flex flex-col sm:flex-row items-start justify-between gap-4">
-          <div>
-            <h2 className="font-heading text-xl font-semibold">Ressource : Checklist Google My Business</h2>
-            <p className="mt-1 text-sm text-foreground/80">
-              La liste claire des actions prioritaires pour apparaître vite dans le Local Pack et capter des appels.
-            </p>
-          </div>
-          <div className="flex gap-2">
-            <Button asChild variant="secondary" className="rounded-full">
-              <Link href="/ressources/checklist-gmb">Voir la checklist</Link>
-            </Button>
-            <Button asChild className="rounded-full">
-              <Link href="/api/pdf/checklist-gmb">Télécharger le PDF</Link>
-            </Button>
-          </div>
-        </div>
-      </section>
+      
 
       {/* Supporting images grid */}
       <section className="mt-10">
