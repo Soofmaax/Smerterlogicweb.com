@@ -25,6 +25,7 @@ export const LOCAL_CITIES: LocalCity[] = [
     cci: "CCI Deux-Sèvres",
     institutions: ["MAIF", "MAAF", "Groupama"],
     events: ["Rencontres Assurance & Mutuelles (locales)", "Salons CCI Deux-Sèvres"],
+    h1Suffix: "pour les Mutuelles, Assurances et PME Tertiaires",
     notes: "Capitale des mutuelles.",
   },
   {
@@ -38,6 +39,7 @@ export const LOCAL_CITIES: LocalCity[] = [
     cci: "CCI Tarn-et-Garonne",
     institutions: ["CCI Tarn-et-Garonne", "Pôles agro & logistique"],
     events: ["Forums B2B CCI", "Rencontres industrielles Tarn-et-Garonne"],
+    h1Suffix: "pour l’Agroalimentaire, l’Aéronautique et la Logistique",
   },
   {
     slug: "chateauroux",
@@ -50,6 +52,7 @@ export const LOCAL_CITIES: LocalCity[] = [
     cci: "CCI Indre",
     institutions: ["Aéroport de Châteauroux-Centre", "Zones logistiques"],
     events: ["Salons CCI Indre", "Rencontres Aerospace (locales)"],
+    h1Suffix: "pour la Défense, l’Aéronautique et la Logistique",
     notes: "Base aérienne, pôle Aerospace.",
   },
   {
@@ -63,6 +66,7 @@ export const LOCAL_CITIES: LocalCity[] = [
     cci: "CCI Allier (Délégation de Montluçon)",
     institutions: ["Technopôle et pôles numériques (locaux)"],
     events: ["Salons industriels Allier"],
+    h1Suffix: "pour l’Industrie Mécanique, la Métallurgie et le Numérique",
     notes: "Ville en reconversion, forte opportunité SEO.",
   },
   {
@@ -76,6 +80,7 @@ export const LOCAL_CITIES: LocalCity[] = [
     cci: "CCI Gard (Délégation d'Alès)",
     institutions: ["Pôle Mécanique Alès-Cévennes"],
     events: ["Événements Cévenols (tourisme & industrie)", "Salons CCI Gard"],
+    h1Suffix: "pour l’Énergie, l’Agro et le Tourisme des Cévennes",
     notes: "Pôle technologique.",
   },
   {
@@ -89,6 +94,7 @@ export const LOCAL_CITIES: LocalCity[] = [
     cci: "CCI des Vosges (Antenne de Saint-Dié)",
     institutions: ["Clusters bois & textile (locaux)"],
     events: ["Festival International de Géographie"],
+    h1Suffix: "pour les Filières Bois, Textile et Numérique",
     notes: "Festival International de Géographie.",
   },
   {
@@ -102,6 +108,7 @@ export const LOCAL_CITIES: LocalCity[] = [
     cci: "CCI Marne Ardennes (Site de Charleville-Mézières)",
     institutions: ["Zones industrielles Ardennes"],
     events: ["Festival Mondial des Marionnettes"],
+    h1Suffix: "pour la Métallurgie, l’Automobile et la Logistique",
     notes: "Festival mondial des marionnettes.",
   },
   {
@@ -115,6 +122,7 @@ export const LOCAL_CITIES: LocalCity[] = [
     cci: "CCI du Morbihan",
     institutions: ["Pôle cybersécurité (Morbihan)"],
     events: ["Semaine du Golfe (nautisme)", "Salons CCI Morbihan"],
+    h1Suffix: "pour le Nautisme, l’Agro et la Cybersécurité",
     notes: "Golfe du Morbihan, pôle cyber.",
   },
   {
@@ -128,6 +136,7 @@ export const LOCAL_CITIES: LocalCity[] = [
     cci: "CCI Maine-et-Loire",
     institutions: ["Clusters textile & mode (Anjou)"],
     events: ["Salons professionnels Choletais"],
+    h1Suffix: "pour le Textile, la Mode et l’Industrie Mécanique",
   },
   {
     slug: "thionville",
@@ -140,6 +149,7 @@ export const LOCAL_CITIES: LocalCity[] = [
     cci: "CCI Moselle Métropole Metz (Site de Thionville/Yutz)",
     institutions: ["Zones transfrontalières (Lux)", "Parcs industriels Moselle"],
     events: ["Rencontres transfrontalières PME"],
+    h1Suffix: "pour les Entreprises Transfrontalières, la Logistique et la Métallurgie",
     notes: "Ancien bassin sidérurgique.",
   },
 
@@ -238,7 +248,7 @@ export const LOCAL_CITIES: LocalCity[] = [
     cci: "CCI Aisne",
     institutions: ["Zones d'activités industrielles Aisne"],
     events: ["Forums emploi & industrie", "Salons CCI Aisne"],
-    h1Suffix: "pourn reconversion, aides PME.",
+    h1Suffix: "pour l'Agro-industrie, la Logistique et la Mécanique",
   },
   {
     slug: "agen",
