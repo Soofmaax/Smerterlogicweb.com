@@ -171,7 +171,9 @@ export async function GET() {
   addFooters(doc, fonts);
 
   const bytes = await doc.save();
-  return new NextResponse(bytes, {
+  // NextResponse expects BodyInit; convert Uint8Array to ArrayBuffer slice
+  const buffer = bytes.buffer.slice(bytes.byteOffset, bytes.byteOffset + bytes.byteLength);
+  return new NextResponse(buffer, {
     status: 200,
     headers: {
       "Content-Type": "application/pdf",
