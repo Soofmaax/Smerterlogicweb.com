@@ -866,4 +866,117 @@ export const BLOG_POSTS: BlogPost[] = [
       "comment présenter ses tarifs sur un site web",
     ],
   },
+  {
+    slug: "delai-creation-site-web",
+    locale: "fr",
+    title: "Combien de temps pour avoir votre site en ligne ? (Le vrai calendrier, sans bullshit)",
+    summary:
+      "Délai création site web : 7 à 34 semaines selon complexité et réactivité client. Découvrez les 5 phases du projet (brief, design, dev, contenu, go-live) et comment accélérer.",
+    contentHtml: `
+      <p>Vous avez décidé de créer votre site web. Première question : <strong>combien de temps avant qu’il soit en ligne ?</strong></p>
+      <p>Freelance : « 3 semaines ». Agence : « 3 mois ». Votre beau‑frère : « Un week‑end sur Wix ». Qui croire ?</p>
+      <p>Je crée des sites pour des TPE/PME depuis 2020. La vérité : <strong>ça dépend</strong>… surtout de <strong>vous</strong> (réactivité, clarté, contenus) et de la complexité.</p>
+      <p>On décortique ici les <strong>5 phases</strong>, les <strong>vrais délais</strong> et <strong>comment accélérer sans sacrifier la qualité</strong>.</p>
+
+      <h2>Pourquoi la réponse n’est jamais simple (les variables qui changent tout)</h2>
+      <ul>
+        <li><strong>Complexité technique</strong> : vitrine 5 pages vs e‑commerce / app (comptes, paiement, CRM).</li>
+        <li><strong>Volume de pages</strong> : 5 pages ≠ 20 pages (conception, rédaction, intégration, tests).</li>
+        <li><strong>Design</strong> : sur‑mesure (2–8 semaines) vs template personnalisé (≈ 1 semaine).</li>
+        <li><strong>Fonctionnalités avancées</strong> : réservation, paiement, ERP/CRM → +1 à +4 semaines chacune.</li>
+        <li><strong>Votre réactivité</strong> : validations et contenus fournis tard = semaines ajoutées.</li>
+      </ul>
+      <p>Sans planning clair : retards en cascade. Avec un <em>cadre</em> : projet fluide et prévisible.</p>
+
+      <h2>Les 5 phases d’un projet web</h2>
+      <h3>Phase 1 : Cadrage stratégique et brief</h3>
+      <p>Objectifs, audience, arborescence, cahier des charges (pages/fonctionnalités/contenus).</p>
+      <p><strong>Durée</strong> : 1–4 semaines. Facteur : clarté du brief initial.</p>
+
+      <h3>Phase 2 : Conception et design (UX / UI)</h3>
+      <p>Architecture, maquettes, prototypes. <strong>Sur‑mesure</strong> : 2–8 semaines. <strong>Template</strong> : ≈ 1 semaine.</p>
+      <p><strong>Risque</strong> : boucles de validation trop longues.</p>
+
+      <h3>Phase 3 : Développement et intégration</h3>
+      <p>Intégration des maquettes, CMS si besoin, fonctionnalités (formulaires, paiement, espace client…).</p>
+      <p><strong>Durée</strong> : 4–24 semaines selon périmètre. Respect strict du scope pour éviter les dérapages.</p>
+
+      <h3>Phase 4 : Contenus, révision et recette</h3>
+      <p>Intégration textes/photos/vidéos, QA multi‑devices/navigateurs, correctifs.</p>
+      <p><strong>Durée</strong> : 2–6 semaines. <strong>Goulot</strong> : fourniture des contenus par le client.</p>
+
+      <h3>Phase 5 : Mise en ligne (go‑live) et suivi</h3>
+      <p>Déploiement, DNS, SSL, Analytics, Search Console, vérifications finales.</p>
+      <p><strong>Durée</strong> : 1–3 semaines. Période d’accompagnement post‑lancement utile.</p>
+
+      <h2>Le tableau de la vérité : combien de temps vraiment</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Phase du Projet</th>
+            <th>Vitrine (Moyenne FR)</th>
+            <th>Vitrine (Optimisé/Agile)</th>
+            <th>Facteur principal</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>1. Cadrage & Stratégie</td><td>3–4 sem.</td><td>1–2 sem.</td><td>Clarté du brief</td></tr>
+          <tr><td>2. Design & UX/UI</td><td>3–8 sem.</td><td>2–3 sem.</td><td>Sur‑mesure vs template, validation</td></tr>
+          <tr><td>3. Développement</td><td>4–12 sem.</td><td>2–4 sem.</td><td>Complexité fonctionnalités</td></tr>
+          <tr><td>4. Contenus & Tests</td><td>2–6 sem.</td><td>1–2 sem.</td><td>Préparation client</td></tr>
+          <tr><td>5. Go‑Live</td><td>2–4 sem.</td><td>1–2 sem.</td><td>Réactivité finale</td></tr>
+          <tr><td><strong>TOTAL</strong></td><td><strong>14–34 sem.</strong></td><td><strong>7–13 sem.</strong></td><td>Complexité + réactivité</td></tr>
+        </tbody>
+      </table>
+
+      <h2>Pourquoi certains sites prennent 8 mois au lieu de 2</h2>
+      <ul>
+        <li><strong>Contenus absents</strong> : +4–12 semaines perdues.</li>
+        <li><strong>Validations lentes</strong> : &gt; 3 jours par cycle = +1–2 semaines.</li>
+        <li><strong>Scope creep</strong> : périmètre qui change en cours de route.</li>
+      </ul>
+
+      <h2>Comment accélérer (sans sacrifier la qualité)</h2>
+      <ol>
+        <li><strong>Fournir tout le contenu dès le départ</strong> : textes finalisés, photos pro, logo/charte.</li>
+        <li><strong>Valider en 48–72 h</strong> chaque étape : chaque jour gagné évite 2 jours de retard global.</li>
+        <li><strong>Limiter les itérations</strong> : 1–2 cycles max, respect du périmètre initial.</li>
+      </ol>
+      <p>Pas le temps de rédiger ? Externalisez la rédaction : vous gagnez 2–4 semaines. Voir <a href="/contenu-site-vitrine-conversion">contenu qui convertit</a>.</p>
+
+      <h2>Les risques de la précipitation</h2>
+      <p><strong>Ne pas confondre efficacité et précipitation</strong> : on supprime les attentes, pas les étapes vitales (UX, tests, SEO).</p>
+      <ul>
+        <li>UX fragile → navigation confuse, conversion en baisse.</li>
+        <li>SEO négligé → visibilité sacrifiée, trafic organique absent.</li>
+        <li>Dette technique → évolutions futures coûteuses.</li>
+      </ul>
+
+      <h2>Verdict</h2>
+      <p>Un site vitrine <strong>peut</strong> être livré en <strong>7–13 semaines</strong> si vous jouez le jeu (contenus prêts, validations rapides, périmètre stable). Sinon : <strong>14–34 semaines</strong> (moyenne FR).</p>
+      <p>Besoin d’un site livré vite et bien ? Processus clair, jalons, contenus guidés. <a href="/roi-site-vitrine-tpe">ROI</a> réel, pas de promesses vides. <a href="/tarifs-2025">À partir de 1 490€</a>.</p>
+
+      <h2>FAQ</h2>
+      <h3>Combien de temps pour un site vitrine ?</h3>
+      <p>7–13 semaines avec client réactif. 14–34 semaines si validations et contenus traînent. Délais courts = brief clair, contenus semaine 1, validations en 48–72 h, périmètre stable.</p>
+      <h3>Quelles sont les 5 phases ?</h3>
+      <p>1) Cadrage/brief ; 2) Design ; 3) Dév ; 4) Contenus/tests ; 5) Go‑Live/suivi. Goulot : contenus.</p>
+      <h3>Pourquoi certains annoncent 3 semaines et d’autres 3 mois ?</h3>
+      <p>3 semaines = site ultra simple (5 pages, template, contenus fournis, aucune fonctionnalité complexe). 3 mois = site pro (10 pages, sur‑mesure, SEO, intégrations). Méfiez‑vous des promesses irréalistes.</p>
+      <h3>Peut‑on accélérer sans nuire à la qualité ?</h3>
+      <p>Oui : supprimer les attentes (contenus prêts, validations rapides), pas les étapes (UX, QA, SEO). Externaliser la rédaction si besoin.</p>
+      <h3>Qu’est‑ce qui retarde le plus ?</h3>
+      <p>Contenus manquants, validations lentes, changements de périmètre. Préparez avant de signer ; respectez le scope.</p>
+      <h3>Un site en 1 semaine, c’est sérieux ?</h3>
+      <p>Possible si 3–5 pages, template personnalisé, contenus prêts, zéro fonctionnalité avancée. Sinon, ça dérive vite vers 3–4 semaines.</p>
+    `,
+    tags: [
+      "délai création site web",
+      "combien de temps site en ligne",
+      "étapes projet web",
+      "durée site vitrine",
+      "combien de temps faut-il pour que mon site soit en ligne",
+      "étapes création site internet TPE",
+    ],
+  },
 ];
