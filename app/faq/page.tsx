@@ -106,6 +106,33 @@ export default function FAQ() {
       </div>
 
       <FinalCTA />
+
+      {/* Quick links — bottom of page */}
+      <section className="mx-auto w-full max-w-3xl px-6 py-8">
+        <div className="rounded-[28px] card-elevated border bg-card p-6 text-center">
+          <h3 className="font-heading text-xl font-semibold">Pour approfondir</h3>
+          <p className="mt-2 text-sm text-foreground/80">
+            Maintenance, coûts et garanties — liens rapides :
+          </p>
+          <div className="mt-3 flex flex-wrap items-center justify-center gap-x-4 gap-y-2 text-sm">
+            <a href="/cout-maintenance-site-web" className="text-primary hover:underline">
+              Coût de la maintenance
+            </a>
+            <span className="text-muted-foreground">•</span>
+            <a href="/contenu-forfait-maintenance-site-web" className="text-primary hover:underline">
+              Contenu d’un forfait
+            </a>
+            <span className="text-muted-foreground">•</span>
+            <a href="/frais-caches-site-internet" className="text-primary hover:underline">
+              Frais cachés après la livraison
+            </a>
+            <span className="text-muted-foreground">•</span>
+            <a href="/tarifs-2025" className="text-primary hover:underline">
+              Tarifs 2025
+            </a>
+          </div>
+        </div>
+      </section>
     </section>
   );
 }
