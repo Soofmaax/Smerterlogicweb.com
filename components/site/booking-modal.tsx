@@ -22,16 +22,16 @@ function getBookingUrl(override?: string) {
 function buildEmbedUrl(raw: string): string | null {
   try {
     const u = new URL(raw);
-    const host = u.host.toLowerCase();
+    const hostname = u.hostname.toLowerCase();
 
-    // Cal.com inline: add ?embed=true
-    if (host.endsWith("cal.com")) {
+    // Cal.com inline: add ?embed=true — only allow cal.com or its subdomains
+    if (hostname === "cal.com" || hostname.endsWith(".cal.com")) {
       if (!u.searchParams.has("embed")) u.searchParams.set("embed", "true");
       return u.toString();
     }
 
-    // Calendly inline: add ?embed_domain=<host>&embed_type=Inline
-    if (host.includes("calendly.com")) {
+    // Calendly inline: add ?embed_domain=<host>&embed_type=Inline — only allow calendly.com or its subdomains
+    if (hostname === "calendly.com" || hostname.endsWith(".calendly.com")) {
       if (!u.searchParams.has("embed_domain")) {
         const domain = typeof window !== "undefined" ? window.location.hostname : "localhost";
         u.searchParams.set("embed_domain", domain);
@@ -40,8 +40,9 @@ function buildEmbedUrl(raw: string): string | null {
       return u.toString();
     }
 
-    // Google Forms share links are embeddable as-is (often already have embedded=true)
-    if (host.includes("docs.google.com") && u.pathname.includes("/forms/")) {
+  >
+// Google Forms: only forms hosted on docs.google.com are embeddable
+if (hostname === "docs.google.com" && uocs.google.com" || hostname.endsWith(".docs.google.com")) && u.pathname.includes("/forms/")) {
       if (!u.searchParams.has("embedded")) u.searchParams.set("embedded", "true");
       return u.toString();
     }

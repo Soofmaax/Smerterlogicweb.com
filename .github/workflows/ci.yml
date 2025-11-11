@@ -1,11 +1,9 @@
 name: CI
 
 on:
-  # Run on pushes to all branches so you can fix issues while working
   push:
     branches:
       - "**"
-  # Run on PRs only for initial events to avoid duplicate runs on each push
   pull_request:
     branches:
       - main
@@ -14,7 +12,9 @@ on:
       - opened
       - reopened
       - ready_for_review
-  # Allow manual runs
+  schedule:
+    - cron: "21 3 * * 3"   # CodeQL weekly
+    - cron: "0 2 * * 1"    # Security weekly
   workflow_dispatch:
 
 concurrency:
@@ -103,3 +103,88 @@ jobs:
           path: |
             .next
           if-no-files-found: ignore
+
+  security_audit:
+    name: npm audit (production)
+    runs-on: ubuntu-latest
+    needs: [build]
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-node@v6
+        with:
+          node-version: 18
+
+      - name: Generate package-lock.json if missing
+        run: |
+          if [ ! -f package-lock.json ]; then
+            echo "package-lock.json missing. Generating one for this audit run."
+            npm i --package-lock-only
+          fi
+
+      - run: npm ci --omit=dev
+      - run: npm audit --audit-level=high || true
+
+  sbom:
+    name: Generate SBOM
+    runs-on: ubuntu-latest
+    needs: [build]
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-node@v6
+        with:
+          node-version: 18
+
+      - name: Generate package-lock.json if missing
+        run: |
+          if [ ! -f package-lock.json ]; then
+            echo "package-lock.json missing. Generating one for this SBOM run."
+            npm i --package-lock-only
+          fi
+
+      - run: npm ci
+
+      - name: CycloneDX SBOM
+        uses: CycloneDX/gh-node-module-generatebom@v1
+        with:
+          output: ./bom.xml
+
+      - name: Upload SBOM
+        uses: actions/upload-artifact@v5
+        with:
+          name: sbom
+          path: bom.xml
+
+  codeql:
+    name: Analyze (CodeQL)
+    runs-on: ubuntu-latest
+    needs: [build]
+
+    permissions:
+      actions: read
+      contents: read
+      security-events: write
+
+    strategy:
+      fail-fast: false
+      matrix:
+        language: ["javascript-typescript"]
+
+    # Run CodeQL only on schedule, or on pushes/PRs targeting main/master
+    if: github.event_name == 'schedule' || (github.event_name == 'push' && (github.ref == 'refs/heads/main' || github.ref == 'refs/heads/master')) || (github.event_name == 'pull_request' && (github.event.pull_request.base.ref == 'main' || github.event.pull_request.base.ref == 'master'))
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v5
+
+      - name: Initialize CodeQL
+        uses: github/codeql-action/init@v4
+        with:
+          languages: ${{ matrix.language }}
+
+      - name: Autobuild
+        uses: github/codeql-action/autobuild@v4
+
+      - name: Perform CodeQL Analysis
+        uses: github/codeql-action/analyze@v4
+        with:
+          category: "/language:${{matrix.language}}"
