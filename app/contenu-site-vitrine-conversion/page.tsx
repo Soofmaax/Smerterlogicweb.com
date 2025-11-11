@@ -5,6 +5,7 @@ import { Particles } from "@/components/site/particles";
 import { Reveal } from "@/components/site/reveal";
 import { Button } from "@/components/ui/button";
 import { RecommendedArticles } from "@/components/site/recommended-articles";
+import { QuickLinks } from "@/components/site/quick-links";
 
 const coverImg = "https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=1600&q=80"; // content/desk
 const imgUSP = "https://images.unsplash.com/photo-1551746908-5d2a1ff27cde?auto=format&fit=crop&w=1600&q=80"; // sticky note/usp
@@ -159,6 +160,8 @@ export default function ArticleContenuConversion() {
           </div>
         </div>
       </section>
+
+      <QuickLinks />
 
       {/* Back to blog */}
       <div className="mt-4 text-center">

@@ -5,6 +5,7 @@ import { Particles } from "@/components/site/particles";
 import { Reveal } from "@/components/site/reveal";
 import { Button } from "@/components/ui/button";
 import { RecommendedArticles } from "@/components/site/recommended-articles";
+import { QuickLinks } from "@/components/site/quick-links";
 
 const coverImg = "https://images.unsplash.com/photo-1556157382-97eda2d62296?auto=format&fit=crop&w=1600&q=80"; // analytics dashboard
 const imgContent = "https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=1600&q=80"; // content/desk
@@ -159,6 +160,8 @@ export default function ArticleROI() {
           </div>
         </div>
       </section>
+
+      <QuickLinks />
 
       {/* Back to blog */}
       <div className="mt-4 text-center">

@@ -5,6 +5,7 @@ import { Particles } from "@/components/site/particles";
 import { Reveal } from "@/components/site/reveal";
 import { Button } from "@/components/ui/button";
 import { RecommendedArticles } from "@/components/site/recommended-articles";
+import { QuickLinks } from "@/components/site/quick-links";
 
 const coverImg = "https://images.unsplash.com/photo-1605902711834-8b89f3fcb2f7?auto=format&fit=crop&w=1600&q=80"; // finance/planning
 const imgDomainHosting = "https://images.unsplash.com/photo-1518779578993-ec3579fee39f?auto=format&fit=crop&w=1600&q=80"; // server/rack
@@ -161,9 +162,11 @@ export default function ArticleFraisCachesSiteInternet() {
         </div>
       </section>
 
+      {QuickLinks />
+
       {/* Back to blog */}
-      <div className="mt-4 text-center">
-        <Link href="/blog" className="text-primary hover:underline">← Retour aux articles</Link>
+     <ediv className="mt-4 text-center">
+       <sLink href="/primary hover:underline">← Retour aux articles</Link>
       </div>
     </section>
   );

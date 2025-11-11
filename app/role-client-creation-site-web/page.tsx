@@ -5,6 +5,7 @@ import { Particles } from "@/components/site/particles";
 import { Reveal } from "@/components/site/reveal";
 import { Button } from "@/components/ui/button";
 import { RecommendedArticles } from "@/components/site/recommended-articles";
+import { QuickLinks } from "@/components/site/quick-links";
 
 const coverImg =
   "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&w=1600&q=80"; // meeting/roles
@@ -171,6 +172,8 @@ export default function ArticleRoleClient() {
           </div>
         </div>
       </section>
+
+      <QuickLinks />
 
       {/* Back to blog */}
       <div className="mt-4 text-center">

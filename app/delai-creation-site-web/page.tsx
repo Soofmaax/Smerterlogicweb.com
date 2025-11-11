@@ -5,6 +5,7 @@ import { Particles } from "@/components/site/particles";
 import { Reveal } from "@/components/site/reveal";
 import { Button } from "@/components/ui/button";
 import { RecommendedArticles } from "@/components/site/recommended-articles";
+import { QuickLinks } from "@/components/site/quick-links";
 
 const coverImg = "https://images.unsplash.com/photo-1446329813274-7c9036bd9a1f?auto=format&fit=crop&w=1600&q=80"; // calendar/clock
 const imgPlan = "https://images.unsplash.com/photo-1522071901873-411886a10004?auto=format&fit=crop&w=1600&q=80"; // planning/meeting
@@ -159,6 +160,8 @@ export default function ArticleDelaiSiteWeb() {
           </div>
         </div>
       </section>
+
+      <QuickLinks />
 
       {/* Back to blog */}
       <div className="mt-4 text-center">
