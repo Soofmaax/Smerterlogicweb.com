@@ -171,9 +171,9 @@ export async function GET() {
   addFooters(doc, fonts);
 
   const bytes = await doc.save();
-  // NextResponse expects BodyInit; convert Uint8Array to ArrayBuffer slice
-  const buffer = bytes.buffer.slice(bytes.byteOffset, bytes.byteOffset + bytes.byteLength);
-  return new NextResponse(buffer, {
+  // Use Blob to satisfy NextResponse BodyInit types and avoid SharedArrayBuffer union
+  const blob = new Blob([bytes], { type: "application/pdf" });
+  return new NextResponse(blob, {
     status: 200,
     headers: {
       "Content-Type": "application/pdf",
