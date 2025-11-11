@@ -2,6 +2,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { getScheduledPostBySlugBurst, formatDate } from "@/lib/blog";
 import { getAllPosts } from "@/lib/blog-source";
+import { Breadcrumbs } from "@/components/site/breadcrumbs";
 
 export const dynamic = "force-dynamic";
 
@@ -42,13 +43,36 @@ export default function BlogPostEN({ params }: { params: { slug: string } }) {
     notFound();
   }
 
+  const breadcrumbSchema = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Home", item: "https://smarterlogicweb.com/en" },
+      { "@type": "ListItem", position: 2, name: "Blog", item: "https://smarterlogicweb.com/en/blog" },
+      { "@type": "ListItem", position: 3, name: post.title, item: `https://smarterlogicweb.com/en/blog/${post.slug}` },
+    ],
+  };
+
   return (
     <article className="mx-auto w-full max-w-3xl px-6 py-10">
+      {/* JSON-LD BreadcrumbList */}
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
+
       <header className="mb-6">
         <h1 className="font-heading text-3xl font-bold tracking-tight">{post.title}</h1>
         <time className="mt-1 block text-sm text-muted-foreground" dateTime={post.publishAt.toISOString()}>
           Published on {formatDate(post.publishAt, "en")}
         </time>
+
+        {/* Visible breadcrumbs */}
+        <Breadcrumbs
+          className="mt-2"
+          items={[
+            { label: "Home", href: "/en" },
+            { label: "Blog", href: "/en/blog" },
+            { label: post.title },
+          ]}
+        />
       </header>
 
       <div
