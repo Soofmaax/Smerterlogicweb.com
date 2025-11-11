@@ -23,6 +23,7 @@ function buildEmbedUrl(raw: string): string | null {
   try {
     const u = new URL(raw);
     const host = u.host.toLowerCase();
+    const hostname = u.hostname.toLowerCase();
 
     // Cal.com inline: add ?embed=true
     if (host.endsWith("cal.com")) {
@@ -41,7 +42,7 @@ function buildEmbedUrl(raw: string): string | null {
     }
 
     // Google Forms share links are embeddable as-is (often already have embedded=true)
-    if (host.includes("docs.google.com") && u.pathname.includes("/forms/")) {
+    if (hostname === "docs.google.com" && u.pathname.includes("/forms/")) {
       if (!u.searchParams.has("embedded")) u.searchParams.set("embedded", "true");
       return u.toString();
     }
