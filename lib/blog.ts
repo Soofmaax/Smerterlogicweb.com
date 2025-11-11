@@ -26,7 +26,7 @@ export type BlogPost = {
   draft?: boolean;
 };
 
-export type ScheduledPost = BlogPost & {
+export type ScheduledPost = Omit<BlogPost, "publishAt"> & {
   publishAt: Date;
 };
 
