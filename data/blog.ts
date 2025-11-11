@@ -506,4 +506,136 @@ export const BLOG_POSTS: BlogPost[] = [
       "site statique suffit-il pour mon activité",
     ],
   },
+  {
+    slug: "roi-site-vitrine-tpe",
+    locale: "fr",
+    title: "Votre site servira-t-il réellement vos objectifs business ?",
+    summary:
+      "ROI site vitrine TPE : 150 % à 300 % dès la première année si bien conçu. Comment transformer votre site en machine à clients, pas en simple décoration coûteuse.",
+    contentHtml: `
+      <p>Vous avez payé 2 500€ pour créer votre site vitrine. Il est en ligne depuis trois mois. Il est joli. Le design est propre, les photos sont belles, les textes sont bien écrits. Vous êtes content du résultat esthétique.</p>
+      <p><strong>Mais voici la vraie question : est‑ce que ce site vous rapporte de l’argent ?</strong></p>
+      <p>Combien de clients vous a‑t‑il apportés ? Combien de demandes de devis via le formulaire ? Combien d’appels générés grâce à Google ? Si vous ne savez pas répondre, votre site est une décoration coûteuse, pas un investissement rentable.</p>
+      <p>Je crée des sites pour des TPE depuis 2020. Et voici ce que personne ne dit clairement : l’efficacité d’un site ne dépend pas de son esthétique, mais de sa capacité à <strong>transformer un visiteur en prospect</strong>. Un site qui génère des clients est visible et utile.</p>
+
+      <h2>Du joli au stratégique : transformer le site en machine à clients</h2>
+      <h3>Le piège de l’esthétique (et pourquoi 90 % des TPE tombent dedans)</h3>
+      <p>Se focaliser sur la “beauté” au détriment du SEO est l’erreur N°1. <em>Visibilité</em> (référencement local inclus) → <em>Clarté du message</em> → <em>Conversion</em> (CTA) : c’est l’ordre.</p>
+      <ul>
+        <li><strong>Visibilité (SEO)</strong> : apparaître sur les requêtes locales clés.</li>
+        <li><strong>Clarté (UX)</strong> : 5 secondes pour comprendre votre proposition de valeur.</li>
+        <li><strong>Conversion (CTA)</strong> : guider vers une action concrète (devis, appel, rdv).</li>
+      </ul>
+      <p>Il faut les <strong>trois</strong>. Un site visible mais confus ne convertit pas ; clair mais invisible ne reçoit aucun trafic ; visible et clair sans CTA ne transforme pas.</p>
+
+      <h2>Les stratégies d’activation de la conversion</h2>
+      <h3>1) Contenu orienté client</h3>
+      <p>Parlez des <strong>problèmes</strong> du client et des <strong>résultats</strong> obtenus. Créez une FAQ qui répond aux objections. Voir <a href="/tarifs-2025">Tarifs 2025</a> pour des inclusions concrètes.</p>
+      <h3>2) CTA pertinents et visibles</h3>
+      <p>Un CTA “au dessus de la ligne de flottaison”, un au milieu, un en fin de page. Variez selon le stade : <em>Découverte</em> (voir réalisations/guide), <em>Comparaison</em> (devis), <em>Décision</em> (appel).</p>
+      <h3>3) UX impérative</h3>
+      <p>Vitesse ≥ 90/100 (PageSpeed), lisible mobile, formulaires courts. Le design sert la conversion.</p>
+
+      <h2>Quantifier le ROI (chiffres réalistes pour TPE)</h2>
+      <p>ROI moyen observé : <strong>150 % à 300 %</strong> la 1ʳᵉ année si la stratégie est soignée (SEO local + UX + CTA). Délai : 6–12 mois.</p>
+      <p>Traduction : 2 500€ investis → 3 750€ à 7 500€ de CA supplémentaire sur 12 mois via devis/appels issus du site. Le ROI positif est corrélé à une <strong>prestation pro</strong> (freelance/équipe) plus qu’à un DIY builder non optimisé. Voir aussi <a href="/frais-caches-site-internet">frais cachés</a> et <a href="/freelance-agence-builder-comparatif">comparatif prestataires</a>.</p>
+
+      <h2>Les 4 KPIs qui comptent (au‑delà du trafic)</h2>
+      <h3>KPI 1 : Taux de conversion (TOC)</h3>
+      <p>(Objectifs / Visiteurs) × 100. Objectifs : devis, appels suivis, téléchargements. Cible vitrine TPE : 1 % – 3 %.</p>
+      <h3>KPI 2 : Coût par acquisition (CPA)</h3>
+      <p>Coût digital total / nouveaux clients. CPA &lt; marge brute/client = investissez.</p>
+      <h3>KPI 3 : Taux de rebond</h3>
+      <p>% qui quittent après 1 page. Vitrine : 40 % – 60 % ok ; &gt; 70 % → message/UX/vitesse à corriger.</p>
+      <h3>KPI 4 : Positionnement local (GMB)</h3>
+      <p>Top 3 sur “métier + ville”. Optimisez votre fiche Google Business Profile.</p>
+
+      <h2>Le tableau des KPIs (TPE)</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>KPI</th>
+            <th>Définition / Calcul</th>
+            <th>Pourquoi</th>
+            <th>Outils</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Taux de conversion</td>
+            <td>(Objectifs / Visiteurs) × 100</td>
+            <td>Efficacité du site à générer des leads</td>
+            <td>Google Analytics, Plausible</td>
+          </tr>
+          <tr>
+            <td>CPA</td>
+            <td>Coût digital / nouveaux clients</td>
+            <td>Rentabilité de l’investissement web</td>
+            <td>CRM, suivi manuel</td>
+          </tr>
+          <tr>
+            <td>Taux de rebond</td>
+            <td>% 1 page vue puis sortie</td>
+            <td>Pertinence du message et UX</td>
+            <td>Analytics</td>
+          </tr>
+          <tr>
+            <td>Positionnement local</td>
+            <td>Classement sur requêtes locales</td>
+            <td>Visibilité zone de chalandise</td>
+            <td>Google Business Profile, recherche</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h2>Cas concret : Marie, menuisière à Toulouse</h2>
+      <h3>Point de départ</h3>
+      <p>Sans présence web. 2 800€ investis dans un site simple (freelance), 6 pages, mobile‑first, rapide.</p>
+      <h3>Actions</h3>
+      <ul>
+        <li>Site vitrine + galerie (réalisations prouvantes).</li>
+        <li>Fiche Google Business optimisée + avis.</li>
+        <li>Formulaire de <strong>devis simplifié</strong> comme CTA principal (nom, contact, besoin).</li>
+      </ul>
+      <h3>Résultats à 8 mois</h3>
+      <ul>
+        <li>+300 % de demandes de devis.</li>
+        <li>+180 % de CA ; embauche d’un apprenti.</li>
+        <li>#1 sur “menuisier Toulouse” (pack local).</li>
+      </ul>
+      <p><em>Le levier</em> : synergie GMB → site (conversion). Priorité à la conversion (formulaire simplifié).</p>
+
+      <h2>Deux erreurs fatales</h2>
+      <ul>
+        <li>Tout mettre dans le design et négliger le SEO : au moins 30 % du budget sur le référencement local/contenu.</li>
+        <li>Lancer puis ne rien mesurer : configurez Analytics/Plausible dès J1, suivez chaque semaine.</li>
+      </ul>
+
+      <h2>Verdict : prioriser la conversion pour atteindre 150–300 % de ROI</h2>
+      <p>L’atteinte du ROI dépend de votre capacité à <strong>rendre visible</strong> (SEO local), <strong>clair</strong> (message), et <strong>actionnable</strong> (CTA). Le site est un <em>point de ralliement</em> d’un écosystème digital (GMB, SEO, parfois réseaux sociaux). Voir aussi le <a href="/cout-site-vitrine-2025">Guide des vrais prix 2025</a> et <a href="/tarifs-2025">Tarifs 2025</a>.</p>
+      <p>Besoin d’un site optimisé pour la conversion ? Sites statiques pour TPE/PME : contenu optimisé SEO, formulaires intégrés, <strong>0 maintenance</strong>. Exemples : bmsventouse.fr. À partir de 1 490€.</p>
+
+      <h2>FAQ</h2>
+      <h3>Comment savoir si mon site génère des clients ?</h3>
+      <p>Suivez 4 KPIs : TOC (1–3 %), CPA, rebond (40–60 %), top 3 local. Configurez des événements (devis, click‑to‑call). Si besoin, demandez la config à votre prestataire.</p>
+      <h3>Quel ROI puis‑je espérer ?</h3>
+      <p>150–300 % la 1ʳᵉ année pour 1 500–5 000€ investis (site pro + SEO de base). Délai : 6–12 mois.</p>
+      <h3>Pourquoi un site joli ne suffit pas ?</h3>
+      <p>Sans <strong>visibilité</strong> et <strong>CTA</strong>, un beau site ne sert à rien. Optimisez GMB, clarifiez le message, placez vos CTA.</p>
+      <h3>Comment mesurer sans compétences techniques ?</h3>
+      <p>Google Analytics (gratuit) ou Plausible (simple). Créez des objectifs, suivez hebdo, ajustez.</p>
+      <h3>Combien de temps pour la rentabilité ?</h3>
+      <p>Souvent 6–12 mois. Zéro lead à 6 mois ? Problème de trafic ou de conversion : auditez et corrigez.</p>
+      <h3>GMB est‑il indispensable ?</h3>
+      <p>Oui pour TPE locales : 46 % des recherches ont une intention locale. Sans GMB optimisée, vous n’êtes pas visibles dans le pack local.</p>
+    `,
+    tags: [
+      "ROI site vitrine TPE",
+      "site web attire clients comment",
+      "mesurer efficacité site internet",
+      "conversion site vitrine",
+      "retour sur investissement site vitrine petite entreprise",
+      "comment savoir si mon site génère des clients",
+    ],
+  },
 ];
