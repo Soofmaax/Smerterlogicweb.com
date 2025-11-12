@@ -3,7 +3,7 @@ slug: freelance-agence-builder-comparatif
 locale: fr
 title: "Freelance vs Agence vs Builder : quel choix pour votre site statique ?"
 summary:
-  "Freelance, agence ou builder No‑Code : quel prestataire choisir pour votre site vitrine ? Comparatif budget, qualité, maintenance. Site statique ou dynamique pour TPE ?"
+  "Freelance, agence ou builder No-Code : quel prestataire choisir pour votre site vitrine ? Comparatif budget, qualité, maintenance. Site statique ou dynamique pour TPE ?"
 publishAt: 2025-10-24T09:00:00Z
 authorName: "Sonia"
 authorUrl: "https://smarterlogicweb.com/a-propos"
@@ -180,7 +180,7 @@ tags:
 
 <h2>Verdict : le freelance avec un site statique, c’est le sweet spot pour la TPE</h2>
 <p>Pour 95 % des TPE : <strong>freelance + site statique</strong> = budget maîtrisé, qualité pro, zéro maintenance, propriété totale. Les agences : pertinentes pour projets complexes &gt; 10 000€. Les builders No‑Code : piégeux sans expertise/temps.</p>
-<p>Besoin d’un site statique performant sans maintenance obligatoire ? On crée des sites optimisés pour TPE/PME : design sur‑mesure, contenu inclus, ultra‑rapide, zéro maintenance. Exemples : bmsventouse.fr (positions 2–10 Google en 4 mois). À partir de 1 490€. Code source remis, domaine à votre n.</p>
+<p>Besoin d’un site statique performant sans maintenance obligatoire ? On crée des sites optimisés pour TPE/PME : design sur‑mesure, contenu inclus, ultra‑rapide, zéro maintenance. Exemples : bmsventouse.fr (positions 2–10 Google en 4 mois). À partir de 1 490€. Code source remis, domaine à votre nom.</p>
 
 <h2>FAQ</h2>
 <h3>Freelance ou agence : quelle différence concrète pour une TPE ?</h3>
