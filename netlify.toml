@@ -166,3 +166,8 @@
   from = "/bases-techniques-seo-site-vitrine"
   to = "/blog/bases-techniques-seo-site-vitrine"
   status = 301
+
+[[redirects]]
+  from = "/hebergement-infrastructure-garanties-prestataire"
+  to = "/blog/hebergement-infrastructure-garanties-prestataire"
+  status = 301
