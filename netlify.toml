@@ -151,3 +151,28 @@
   from = "/contenu-forfait-maintenance-site-web"
   to = "/blog/contenu-forfait-maintenance-site-web"
   status = 301
+
+[[redirects]]
+  from = "/site-statique-vs-cms-autonomie"
+  to = "/blog/site-statique-vs-cms-autonomie"
+  status = 301
+
+[[redirects]]
+  from = "/referencement-seo-site-statique"
+  to = "/blog/referencement-seo-site-statique"
+  status = 301
+
+[[redirects]]
+  from = "/bases-techniques-seo-site-vitrine"
+  to = "/blog/bases-techniques-seo-site-vitrine"
+  status = 301
+
+[[redirects]]
+  from = "/hebergement-infrastructure-garanties-prestataire"
+  to = "/blog/hebergement-infrastructure-garanties-prestataire"
+  status = 301
+
+[[redirects]]
+  from = "/temps-chargement-site-rapide-mobile"
+  to = "/blog/temps-chargement-site-rapide-mobile"
+  status = 301

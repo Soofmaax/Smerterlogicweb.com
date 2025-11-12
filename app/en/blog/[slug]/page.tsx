@@ -8,7 +8,8 @@ import { CitationBox } from "@/components/site/citation-box";
 export const dynamic = "force-dynamic";
 
 export async function generateMetadata({ params }: { params: { slug: string } }) {
-  const result = getScheduledPostBySlugBurst(getAllPosts(), params.slug, "en");
+  const all = getAllPosts();
+  const result = getScheduledPostBySlugBurst(all, params.slug, "en");
   if (!result || !result.isPublished) {
     return {
       title: "Article unavailable",
@@ -16,15 +17,27 @@ export async function generateMetadata({ params }: { params: { slug: string } })
     };
   }
   const { post } = result;
+
+  // Compute proper FR alternate slug and include only if counterpart exists:
+  // 1) FR post with same slug
+  // 2) FR post declaring altLocales.en === current EN slug
+  const frSameSlug = all.find((p) => p.locale === "fr" && p.slug === post.slug);
+  const frByMapping = all.find(
+    (p) => p.locale === "fr" && typeof (p as any).altLocales === "object" && (p as any).altLocales?.en === post.slug
+  );
+  const frAlt = frSameSlug || frByMapping;
+
+  const languages: Record<string, string> = { "en-US": `/en/blog/${post.slug}` };
+  if (frAlt) {
+    languages["fr-FR"] = `/blog/${frAlt.slug}`;
+  }
+
   return {
     title: post.title,
     description: post.summary ?? post.title,
     alternates: {
       canonical: `/en/blog/${post.slug}`,
-      languages: {
-        "fr-FR": `/blog/${post.slug}`,
-        "en-US": `/en/blog/${post.slug}`,
-      },
+      languages,
     },
     openGraph: {
       type: "article",
@@ -80,44 +93,49 @@ export default function BlogPostEN({ params }: { params: { slug: string } }) {
   };
 
   return (
-    <article className="mx-auto w-full max-w-3xl px-6 py-10">
-      {/* JSON-LD BreadcrumbList */}
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
-      {/* JSON-LD BlogPosting */}
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(blogPostingSchema) }} />
+    <section className="relative">
+      {/* Ambient brand gradient background, subtle and non-intrusive */}
+      <div aria-hidden className="hero-gradient-animated absolute inset-0 -z-10" />
 
-      <header className="mb-6">
-        <h1 className="font-heading text-3xl font-bold tracking-tight">{post.title}</h1>
-        <p className="mt-1 text-sm text-muted-foreground">
-          By {authorUrl ? <Link href={authorUrl} className="hover:underline">{authorName}</Link> : authorName}
-        </p>
-        <time className="mt-0.5 block text-sm text-muted-foreground" dateTime={post.publishAt.toISOString()}>
-          Published on {formatDate(post.publishAt, "en")}
-        </time>
+      <article className="mx-auto w-full max-w-3xl px-6 py-10">
+        {/* JSON-LD BreadcrumbList */}
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
+        {/* JSON-LD BlogPosting */}
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(blogPostingSchema) }} />
 
-        {/* Visible breadcrumbs */}
-        <Breadcrumbs
-          className="mt-2"
-          items={[
-            { label: "Home", href: "/en" },
-            { label: "Blog", href: "/en/blog" },
-            { label: post.title },
-          ]}
+        <header className="mb-6">
+          <h1 className="font-heading text-3xl font-bold tracking-tight">{post.title}</h1>
+          <p className="mt-1 text-sm text-muted-foreground">
+            By {authorUrl ? <Link href={authorUrl} className="hover:underline">{authorName}</Link> : authorName}
+          </p>
+          <time className="mt-0.5 block text-sm text-muted-foreground" dateTime={post.publishAt.toISOString()}>
+            Published on {formatDate(post.publishAt, "en")}
+          </time>
+
+          {/* Visible breadcrumbs */}
+          <Breadcrumbs
+            className="mt-2"
+            items={[
+              { label: "Home", href: "/en" },
+              { label: "Blog", href: "/en/blog" },
+              { label: post.title },
+            ]}
+          />
+        </header>
+
+        <div
+          className="prose prose-neutral dark:prose-invert max-w-none prose-headings:font-heading prose-a:text-primary prose-a:underline-offset-2 prose-img:rounded-lg prose-img:shadow-sm"
+          dangerouslySetInnerHTML={{ __html: post.contentHtml }}
         />
-      </header>
 
-      <div
-        className="prose prose-neutral dark:prose-invert max-w-none prose-headings:font-heading prose-a:text-primary prose-a:underline-offset-2 prose-img:rounded-lg prose-img:shadow-sm"
-        dangerouslySetInnerHTML={{ __html: post.contentHtml }}
-      />
+        <CitationBox articleSlug={post.slug} locale="en" />
 
-      <CitationBox articleSlug={post.slug} locale="en" />
-
-      <footer className="mt-8">
-        <Link href="/en/blog" className="text-primary hover:underline">
-          ← Back to articles
-        </Link>
-      </footer>
-    </article>
+        <footer className="mt-8">
+          <Link href="/en/blog" className="text-primary hover:underline">
+            ← Back to articles
+          </Link>
+        </footer>
+      </article>
+    </section>
   );
 }

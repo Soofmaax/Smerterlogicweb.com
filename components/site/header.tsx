@@ -22,7 +22,7 @@ export function Header() {
     () =>
       isEn
         ? {
-            skip: "Skip to content",
+            
             nav: {
               projects: "Projects",
               services: "Services",
@@ -45,7 +45,7 @@ export function Header() {
             lang: "FR",
           }
         : {
-            skip: "Passer au contenu",
+            
             nav: {
               projects: "Projets",
               services: "Services",
@@ -144,12 +144,7 @@ export function Header() {
 
   return (
     <header className="sticky top-11 z-40 w-full border-b bg-background/80 backdrop-blur supports-[backdrop-filter]:bg-background/60">
-      <a
-        href="#content"
-        className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-50 focus:rounded-md focus:bg-primary focus:px-3 focus:py-2 focus:text-primary-foreground"
-      >
-        {t.skip}
-      </a>
+      
       <div className="mx-auto flex w-full max-w-5xl items-center justify-between px-6 py-3">
         <div className="flex items-center gap-3">
           <Link href={isEn ? "/en" : "/"} className="flex items-center gap-3 text-sm font-semibold tracking-tight rounded-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/60 focus-visible:ring-offset-2 focus-visible:ring-offset-background" aria-label={isEn ? "Home — smarterlogicweb" : "Accueil — smarterlogicweb"} title={isEn ? "Home — smarterlogicweb" : "Accueil — smarterlogicweb"}>

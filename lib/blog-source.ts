@@ -2,7 +2,10 @@ import fs from "node:fs";
 import path from "node:path";
 import matter from "gray-matter";
 import { remark } from "remark";
-import remarkHtml from "remark-html";
+import remarkParse from "remark-parse";
+import remarkRehype from "remark-rehype";
+import rehypeRaw from "rehype-raw";
+import rehypeStringify from "rehype-stringify";
 
 import type { BlogPost, BlogLocale } from "./blog";
 
@@ -19,6 +22,7 @@ import type { BlogPost, BlogLocale } from "./blog";
  * - published: boolean (optional; publish immediately)
  * - draft: boolean (optional; hide from publication)
  * - tags: string[] (optional)
+ * - altLocales: { fr?: string; en?: string } (optional cross-locale slug mapping)
  *
  * Filename shortcut:
  * - If file name starts with YYYY-MM-DD-..., use that date as publishAt automatically.
@@ -59,8 +63,19 @@ export function loadPostsFromMarkdown(): BlogPost[] {
     const draft = parsed.data.draft === true || false;
     const tags = Array.isArray(parsed.data.tags) ? (parsed.data.tags as string[]) : undefined;
 
-    // Convert markdown body to HTML
-    const html = remark().use(remarkHtml).processSync(parsed.content).toString();
+    // Optional cross-locale slug mapping
+    const altLocalesRaw = parsed.data.altLocales as Partial<Record<BlogLocale, string>> | undefined;
+    const altLocales =
+      altLocalesRaw && typeof altLocalesRaw === "object" ? (altLocalesRaw as Partial<Record<BlogLocale, string>>) : undefined;
+
+    // Convert markdown body to HTML with raw HTML support (trusted content)
+    const html = remark()
+      .use(remarkParse)
+      .use(remarkRehype, { allowDangerousHtml: true })
+      .use(rehypeRaw)
+      .use(rehypeStringify)
+      .processSync(parsed.content)
+      .toString();
 
     posts.push({
       slug,
@@ -74,6 +89,7 @@ export function loadPostsFromMarkdown(): BlogPost[] {
       draft,
       tags,
       contentHtml: html,
+      altLocales,
     });
   }
 

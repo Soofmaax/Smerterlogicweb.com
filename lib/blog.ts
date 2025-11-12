@@ -30,6 +30,11 @@ export type BlogPost = {
    */
   published?: boolean;
   draft?: boolean;
+  /**
+   * Optional cross-locale slug mapping, e.g. { en: "website-launch-timeline" }
+   * Used to generate correct hreflang alternates when slugs differ between locales.
+   */
+  altLocales?: Partial<Record<BlogLocale, string>>;
 };
 
 export type ScheduledPost = Omit<BlogPost, "publishAt"> & {

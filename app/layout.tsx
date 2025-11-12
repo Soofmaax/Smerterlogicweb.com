@@ -6,7 +6,7 @@ import { Footer } from "@/components/site/footer";
 import { UXEnhancer } from "@/components/site/ux-enhancer";
 import { ScrollProgress } from "@/components/site/scroll-progress";
 import { CookieConsent } from "@/components/site/cookie-consent";
-import { Cursor } from "@/components/site/cursor";
+
 import { EasterEggs } from "@/components/site/easter-eggs";
 import { VoiceCommands } from "@/components/site/voice-commands";
 import { AssistantOverlay } from "@/components/site/assistant-overlay";
@@ -165,7 +165,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
 
         <UXEnhancer />
         <ScrollProgress />
-        <Cursor />
+        
         <GyroTilt />
 
         {/* Urgency fixed banner at top + spacer to avoid overlap */}

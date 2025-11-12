@@ -34,9 +34,12 @@ export default function BlogIndexEN() {
   };
 
   return (
-    <div className="mx-auto w-full max-w-5xl px-6 py-10">
-      {/* JSON-LD BreadcrumbList */}
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
+    <section className="relative">
+      {/* Ambient brand gradient background, subtle and non-intrusive */}
+      <div aria-hidden className="hero-gradient-animated absolute inset-0 -z-10" />
+      <div className="mx-auto w-full max-w-5xl px-6 py-10">
+        {/* JSON-LD BreadcrumbList */}
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
 
       <header className="mb-8">
         <h1 className="font-heading text-3xl font-bold tracking-tight">Articles &amp; insights</h1>
@@ -94,7 +97,8 @@ export default function BlogIndexEN() {
           </ul>
         </div>
       ) : null}
-    <QuickLinksEN />
-    </div>
+      <QuickLinksEN />
+      </div>
+    </section>
   );
 }
