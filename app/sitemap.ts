@@ -76,6 +76,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${baseUrl}/en`, lastModified: now, changeFrequency: "monthly", priority: 1 },
     { url: `${baseUrl}/en/projects`, lastModified: now, changeFrequency: "monthly", priority: 0.8 },
     { url: `${baseUrl}/en/services`, lastModified: now, changeFrequency: "monthly", priority: 0.8 },
+    { url: `${baseUrl}/en/pricing-2025`, lastModified: now, changeFrequency: "yearly", priority: 0.7 },
     { url: `${baseUrl}/en/about`, lastModified: now, changeFrequency: "yearly", priority: 0.6 },
     { url: `${baseUrl}/en/contact`, lastModified: now, changeFrequency: "monthly", priority: 0.8 },
     { url: `${baseUrl}/en/nonprofit-commitment`, lastModified: now, changeFrequency: "yearly", priority: 0.5 },
