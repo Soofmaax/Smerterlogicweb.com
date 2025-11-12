@@ -82,6 +82,21 @@ export function CookieConsent() {
     }
   }, [shouldShow, isGA]);
 
+  // Allow reopening banner from footer or /cookies page
+  React.useEffect(() => {
+    function openBanner() {
+      setVisible(true);
+    }
+    (window as any).cookieConsentOpen = openBanner;
+    window.addEventListener("cookie-consent:open", openBanner);
+    return () => {
+      try {
+        delete (window as any).cookieConsentOpen;
+      } catch {}
+      window.removeEventListener("cookie-consent:open", openBanner);
+    };
+  }, []);
+
   if (!shouldShow || !visible) return null;
 
   return (
@@ -225,14 +240,7 @@ export function CookieConsent() {
       </div>
     </div>
   );
-}
-            >
-              Personnaliser
-            </button>
-            <button
-              className="inline-flex items-center justify-center rounded-full bg-primary px-3 py-1.5 text-sm text-primary-foreground shadow-sm transition hover:opacity-90"
-              onClick={() => {
-                const c: ConsentSettings = { analytics: true, marketing: true };
+};
                 writeConsent(c);
                 setSettings(c);
                 if (isGA && c.analytics) loadGAOnce();

@@ -10,8 +10,8 @@ import { GyroTilt } from "@/components/site/gyro-tilt";
 import { ReduceMotionToggle } from "@/components/site/reduce-motion-toggle";
 import { SmartCTAs } from "@/components/site/smart-ctas";
 import { WhatsAppFloat } from "@/components/site/whatsapp-float";
-import Script from "next/script";
 import { CookieConsent } from "@/components/site/cookie-consent";
+import { AnalyticsLoader } from "@/components/site/analytics-loader";
 
 const inter = Inter({
   subsets: ["latin"],
