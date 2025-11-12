@@ -35,6 +35,7 @@ export function Footer() {
               privacy: "Privacy policy",
               security: "Security",
               cgv: "Terms of sale",
+              cookies: "Manage cookies",
             },
             copyright: "All rights reserved.",
           }
@@ -55,6 +56,7 @@ export function Footer() {
               privacy: "Politique de confidentialité",
               security: "Sécurité",
               cgv: "Conditions générales de vente",
+              cookies: "Gérer les cookies",
             },
             copyright: "Tous droits réservés.",
           },
@@ -160,6 +162,22 @@ export function Footer() {
                   </Link>
                 </li>
               ) : null}
+              <li>
+                {/* Open cookie preferences banner */}
+                <button
+                  type="button"
+                  className="text-muted-foreground transition-colors hover:text-foreground"
+                  onClick={() => {
+                    try {
+                      window.dispatchEvent(new Event("cookie-consent:open"));
+                    } catch {
+                      // ignore
+                    }
+                  }}
+                >
+                  {t.legal.cookies}
+                </button>
+              </li>
             </ul>
           </nav>
 
@@ -252,6 +270,22 @@ export function Footer() {
                   </Link>
                 </li>
               ) : null}
+              {/* Cookie preferences: allow user to reopen consent banner */}
+              <li>
+                <button
+                  type="button"
+                  className="text-muted-foreground transition-colors hover:text-foreground underline underline-offset-2"
+                  onClick={() => {
+                    try {
+                      // Clear consent cookie and refresh to trigger banner
+                      document.cookie = "cookie_consent=; expires=Thu, 01 Jan 1970 00:00:00 GMT; path=/; SameSite=Lax";
+                    } catch {}
+                    window.location.reload();
+                  }}
+                >
+                  {isEn ? "Cookie preferences" : "Préférences cookies"}
+                </button>
+              </li>
             </ul>
           </nav>
         </div>

@@ -11,6 +11,7 @@ import { ReduceMotionToggle } from "@/components/site/reduce-motion-toggle";
 import { SmartCTAs } from "@/components/site/smart-ctas";
 import { WhatsAppFloat } from "@/components/site/whatsapp-float";
 import Script from "next/script";
+import { CookieConsent } from "@/components/site/cookie-consent";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -156,6 +157,8 @@ export default function EnLayout({ children }: { children: React.ReactNode }) {
         <ReduceMotionToggle />
         <WhatsAppFloat />
         <SmartCTAs />
+        {/* Cookie consent (shown when using GA) */}
+        <CookieConsent />
       </body>
     </html>
   );
