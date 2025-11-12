@@ -39,10 +39,22 @@ export default function PolitiqueConfidentialitePage() {
             légitime à répondre aux sollicitations.
           </p>
 
+          <h2>Cookies et traceurs</h2>
+          <p>
+            Nous utilisons des traceurs de mesure d’audience pour améliorer le site. Selon l’outil choisi (Plausible/Umami, ou Google Analytics),
+            les cookies peuvent nécessiter votre consentement préalable. Vous pouvez <strong>tout accepter</strong>, <strong>tout refuser</strong>
+            ou <strong>paramétrer</strong> vos choix depuis la bannière. En l’absence d’acceptation, aucun cookie Analytics n’est déposé.
+            Votre choix est conservé 6&nbsp;mois et peut être modifié à tout moment.
+          </p>
+          <ul>
+            <li><strong>Mesure d’audience</strong> (Analytics): statistiques d’usage anonymisées/pseudonymisées.</li>
+            <li><strong>Marketing/retargeting</strong> (pixels publicitaires): non activés sans votre consentement explicite.</li>
+          </ul>
+
           <h2>Durée de conservation</h2>
           <p>
             Les messages sont conservés le temps nécessaire au traitement de votre demande et jusqu’à 24 mois pour le
-            suivi commercial.
+            suivi commercial. Les préférences de cookies sont conservées 6&nbsp;mois.
           </p>
 
           <h2>Partage des données</h2>
