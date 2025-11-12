@@ -95,50 +95,55 @@ export default function BlogPostFR({ params }: { params: { slug: string } }) {
   const hasH1 = /<h1(\s|>)/i.test(post.contentHtml);
 
   return (
-    <article className="mx-auto w-full max-w-3xl px-6 py-10">
-      {/* JSON-LD BreadcrumbList */}
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
-      {/* JSON-LD BlogPosting */}
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(blogPostingSchema) }} />
+    <section className="relative">
+      {/* Ambient brand gradient background, subtle and non-intrusive */}
+      <div aria-hidden className="hero-gradient-animated absolute inset-0 -z-10" />
 
-      <header className="mb-6">
-        {!hasH1 ? (
-          <h1 className="font-heading text-3xl font-bold tracking-tight">{post.title}</h1>
-        ) : null}
-        <p className="mt-1 text-sm text-muted-foreground">
-          Par {authorUrl ? <Link href={authorUrl} className="hover:underline">{authorName}</Link> : authorName}
-        </p>
-        <time className="mt-0.5 block text-sm text-muted-foreground" dateTime={post.publishAt.toISOString()}>
-          Publié le {formatDate(post.publishAt, "fr")}
-        </time>
+      <article className="mx-auto w-full max-w-3xl px-6 py-10">
+        {/* JSON-LD BreadcrumbList */}
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
+        {/* JSON-LD BlogPosting */}
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(blogPostingSchema) }} />
 
-        {/* Visible breadcrumbs */}
-        <Breadcrumbs
-          className="mt-2"
-          items={[
-            { label: "Accueil", href: "/" },
-            { label: "Blog", href: "/blog" },
-            { label: post.title },
-          ]}
+        <header className="mb-6">
+          {!hasH1 ? (
+            <h1 className="font-heading text-3xl font-bold tracking-tight">{post.title}</h1>
+          ) : null}
+          <p className="mt-1 text-sm text-muted-foreground">
+            Par {authorUrl ? <Link href={authorUrl} className="hover:underline">{authorName}</Link> : authorName}
+          </p>
+          <time className="mt-0.5 block text-sm text-muted-foreground" dateTime={post.publishAt.toISOString()}>
+            Publié le {formatDate(post.publishAt, "fr")}
+          </time>
+
+          {/* Visible breadcrumbs */}
+          <Breadcrumbs
+            className="mt-2"
+            items={[
+              { label: "Accueil", href: "/" },
+              { label: "Blog", href: "/blog" },
+              { label: post.title },
+            ]}
+          />
+        </header>
+
+        <div
+          className="prose prose-neutral dark:prose-invert max-w-none prose-headings:font-heading prose-a:text-primary prose-a:underline-offset-2 prose-img:rounded-lg prose-img:shadow-sm"
+          dangerouslySetInnerHTML={{ __html: post.contentHtml }}
         />
-      </header>
 
-      <div
-        className="prose prose-neutral dark:prose-invert max-w-none prose-headings:font-heading prose-a:text-primary prose-a:underline-offset-2 prose-img:rounded-lg prose-img:shadow-sm"
-        dangerouslySetInnerHTML={{ __html: post.contentHtml }}
-      />
+        <RelatedCities contentHtml={post.contentHtml} locale="fr" />
 
-      <RelatedCities contentHtml={post.contentHtml} locale="fr" />
+        <RecommendedArticles currentSlug={post.slug} locale="fr" />
 
-      <RecommendedArticles currentSlug={post.slug} locale="fr" />
+        <CitationBox articleSlug={post.slug} locale="fr" />
 
-      <CitationBox articleSlug={post.slug} locale="fr" />
-
-      <footer className="mt-8">
-        <Link href="/blog" className="text-primary hover:underline">
-          ← Retour aux articles
-        </Link>
-      </footer>
-    </article>
+        <footer className="mt-8">
+          <Link href="/blog" className="text-primary hover:underline">
+            ← Retour aux articles
+          </Link>
+        </footer>
+      </article>
+    </section>
   );
 }
