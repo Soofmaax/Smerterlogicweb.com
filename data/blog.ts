@@ -4,7 +4,7 @@ import type { BlogPost } from "@/lib/blog";
 // To schedule automatically, just append new posts here (order matters).
 // Each post will be assigned the next available Mon/Wed/Fri date at runtime.
 
-export const BLOG_POSTS: BlogPost[] = [
+export const BLOG_POSTS: BlogPost[] = [];rt const BLOG_POSTS: BlogPost[] = [
   {
     slug: "pourquoi-un-site-vitrine-sur-mesure",
     locale: "fr",
