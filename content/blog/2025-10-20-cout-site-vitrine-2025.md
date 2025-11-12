@@ -3,7 +3,7 @@ slug: cout-site-vitrine-2025
 locale: fr
 title: "Combien coûte un site vitrine en France en 2025 ? (Guide des vrais prix)"
 summary:
-  "Prix site vitrine 2025 : de 300€ à 30 000€. Découvrez les vrais tarifs, ce qui est inclus, et comment éviter de payer deux fois pour le même site."
+  "Prix site vitrine 2025 : de 300€ à 30 000€. Découvrez les vrais tarifs, ce qui est inclus dans les devis, et comment éviter de payer deux fois pour le même site."
 publishAt: 2025-10-20T09:00:00Z
 authorName: "Sonia"
 authorUrl: "https://smarterlogicweb.com/a-propos"
@@ -152,5 +152,4 @@ tags:
 <p>SaaS (Wix, Squarespace) : non, vous louez. Si vous arrêtez l’abonnement, tout disparaît. Freelance ou agence : normalement oui, mais vérifiez dans le devis que le code source vous est remis et que le domaine est à votre nom. Nos sites : oui, propriété totale. Code source remis sur GitHub, domaine à votre nom.</p>
 <h3>WordPress ou site statique : lequel choisir ?</h3>
 <p>Statique si vous voulez 0 maintenance, vitesse et sécurité. WordPress si blog très actif/e‑commerce complexe et si vous acceptez la maintenance. Pour 95 % des TPE (vitrine), statique est plus rentable sur 3 ans.</p>
-<p class="mt-2">Voir aussi  <<a href="/blog/frais-caches-site-internet">Frais cachés — ce qu’il faut anticiper après la livrais</<>.</p>new
-</
+<p class="mt-2">Voir aussi : <a href="/blog/frais-caches-site-internet">Frais cachés — ce qu’il faut anticiper après la livraison</a>.</p>
