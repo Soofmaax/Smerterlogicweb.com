@@ -71,11 +71,11 @@ export default function TermsOfSalePage() {
           <p className="mt-2 text-foreground/80">
             For WordPress sites, regular technical maintenance is recommended (updates, backups, security).
             See{" "}
-            <Link href="/contenu-forfait-maintenance-site-web" className="underline">
+            <Link href="/blog/contenu-forfait-maintenance-site-web" className="underline">
               maintenance package contents
             </Link>{" "}
             and{" "}
-            <Link href="/cout-maintenance-site-web" className="underline">
+            <Link href="/blog/cout-maintenance-site-web" className="underline">
               maintenance costs
             </Link>
             .

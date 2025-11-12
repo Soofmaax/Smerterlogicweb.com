@@ -1,7 +1,8 @@
 import Link from "next/link";
-import { BLOG_POSTS } from "@/data/blog";
 import { schedulePosts, getPublishedPostsBurst, formatDate } from "@/lib/blog";
+import { getAllPosts } from "@/lib/blog-source";
 import { QuickLinksEN } from "@/components/site/quick-links-en";
+import { Breadcrumbs } from "@/components/site/breadcrumbs";
 
 export const dynamic = "force-dynamic";
 
@@ -19,13 +20,35 @@ export const metadata = {
 };
 
 export default function BlogIndexEN() {
-  const scheduled = schedulePosts(BLOG_POSTS.filter((p) => p.locale === "en"), "en");
-  const published = getPublishedPostsBurst(BLOG_POSTS, "en");
+  const all = getAllPosts();
+  const scheduled = schedulePosts(all.filter((p) => p.locale === "en"), "en");
+  const published = getPublishedPostsBurst(all, "en");
+
+  const breadcrumbSchema = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Home", item: "https://smarterlogicweb.com/en" },
+      { "@type": "ListItem", position: 2, name: "Blog", item: "https://smarterlogicweb.com/en/blog" },
+    ],
+  };
 
   return (
     <div className="mx-auto w-full max-w-5xl px-6 py-10">
+      {/* JSON-LD BreadcrumbList */}
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
+
       <header className="mb-8">
         <h1 className="font-heading text-3xl font-bold tracking-tight">Articles &amp; insights</h1>
+
+        {/* Visible breadcrumbs */}
+        <Breadcrumbs
+          className="mt-2"
+          items={[
+            { label: "Home", href: "/en" },
+            { label: "Blog" },
+          ]}
+        />
       </header>
 
       {published.length === 0 ? (

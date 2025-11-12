@@ -12,9 +12,27 @@ export type BlogPost = {
   contentHtml: string;
   tags?: string[];
   coverImage?: string;
+  /**
+   * Author metadata (optional).
+   * If not provided, default display uses "Sonia".
+   */
+  authorName?: string;
+  authorUrl?: string;
+  /**
+   * Optional explicit publish date (ISO string).
+   * If provided, scheduling will respect this date instead of the automatic Mon/Wed/Fri cadence.
+   */
+  publishAt?: string;
+  /**
+   * Optional flags:
+   * - published: force immediate publication (uses "now" as publishAt if not set)
+   * - draft: hide from publication regardless of schedule
+   */
+  published?: boolean;
+  draft?: boolean;
 };
 
-export type ScheduledPost = BlogPost & {
+export type ScheduledPost = Omit<BlogPost, "publishAt"> & {
   publishAt: Date;
 };
 
@@ -29,6 +47,13 @@ function parseDateEnv(key: string): Date | null {
 function withHour(date: Date, hour: number): Date {
   const d = new Date(date);
   d.setHours(hour, 0, 0, 0);
+  return d;
+}
+
+function parseDateISO(value?: string | null): Date | null {
+  if (!value) return null;
+  const d = new Date(value);
+  if (Number.isNaN(d.getTime())) return null;
   return d;
 }
 
@@ -82,11 +107,11 @@ export function scheduleDates(count: number, start: Date): Date[] {
 export function schedulePosts(posts: BlogPost[], locale: BlogLocale): ScheduledPost[] {
   const start = getScheduleStart(locale);
   const dates = scheduleDates(posts.length, start);
-  return posts.map((p, i) => ({ ...p, publishAt: dates[i] }));
-}
-
-export function getPublishedPosts(posts: ScheduledPost[], now = new Date()): ScheduledPost[] {
-  return posts.filter((p) => p.publishAt.getTime() <= now.getTime());
+  return posts.map((p, i) => {
+    const explicit = parseDateISO(p.publishAt);
+    const publishNow = p.published === true && !explicit ? new Date() : null;
+    return { ...p, publishAt: explicit ?? publishNow ?? dates[i] };
+  });
 }
 
 export function getScheduledPostBySlug(posts: BlogPost[], slug: string, locale: BlogLocale, now = new Date()):
@@ -108,7 +133,7 @@ export function formatDate(d: Date, locale: BlogLocale): string {
   });
 }
 
-// Initial burst: publish the first N posts immediately, then follow M/W/F schedule for the rest.
+// Initial burst: publish the first N non-draft posts immediately, then follow M/W/F schedule for the rest.
 function getInitialPublishCount(locale: BlogLocale): number {
   const key = locale === "fr" ? "BLOG_INITIAL_PUBLISH_COUNT_FR" : "BLOG_INITIAL_PUBLISH_COUNT_EN";
   const raw = process.env[key];
@@ -116,10 +141,41 @@ function getInitialPublishCount(locale: BlogLocale): number {
   return Number.isFinite(n) && n >= 0 ? n : 10;
 }
 
+function getOverrideSlugs(locale: BlogLocale): string[] {
+  const key = locale === "fr" ? "BLOG_PUBLISH_OVERRIDE_FR" : "BLOG_PUBLISH_OVERRIDE_EN";
+  const raw = process.env[key] || "";
+  return raw
+    .split(",")
+    .map((s) => s.trim())
+    .filter(Boolean);
+}
+
 export function getPublishedPostsBurst(allPosts: BlogPost[], locale: BlogLocale, now = new Date()): ScheduledPost[] {
   const ordered = schedulePosts(allPosts.filter((p) => p.locale === locale), locale);
   const initialCount = getInitialPublishCount(locale);
-  return ordered.filter((p, idx) => idx < initialCount || p.publishAt.getTime() <= now.getTime());
+  const overrides = new Set(getOverrideSlugs(locale));
+
+  const result: ScheduledPost[] = [];
+  let nonDraftIndex = 0;
+
+  for (const p of ordered) {
+    const isDraft = p.draft === true;
+    if (isDraft) {
+      continue;
+    }
+    const include =
+      p.published === true ||
+      nonDraftIndex < initialCount ||
+      p.publishAt.getTime() <= now.getTime() ||
+      overrides.has(p.slug);
+
+    if (include) {
+      result.push(p);
+    }
+    nonDraftIndex += 1;
+  }
+
+  return result;
 }
 
 export function getScheduledPostBySlugBurst(
@@ -131,10 +187,29 @@ export function getScheduledPostBySlugBurst(
   | { post: ScheduledPost; isPublished: boolean }
   | null {
   const ordered = schedulePosts(posts.filter((p) => p.locale === locale), locale);
-  const matchIdx = ordered.findIndex((p) => p.slug === slug);
-  if (matchIdx === -1) return null;
-  const post = ordered[matchIdx];
   const initialCount = getInitialPublishCount(locale);
-  const isPublished = matchIdx < initialCount || post.publishAt.getTime() <= now.getTime();
-  return { post, isPublished };
+  const overrides = new Set(getOverrideSlugs(locale));
+
+  // Find the post and compute its index among non-draft posts
+  let match: ScheduledPost | null = null;
+  let nonDraftIndex = -1;
+  let cursor = 0;
+  for (const p of ordered) {
+    if (p.draft === true) continue;
+    if (p.slug === slug) {
+      match = p;
+      nonDraftIndex = cursor;
+      break;
+    }
+    cursor += 1;
+  }
+  if (!match) return null;
+
+  const isPublished =
+    match.published === true ||
+    nonDraftIndex < initialCount ||
+    match.publishAt.getTime() <= now.getTime() ||
+    overrides.has(slug);
+
+  return { post: match, isPublished };
 }

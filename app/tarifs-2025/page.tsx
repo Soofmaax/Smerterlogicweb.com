@@ -79,12 +79,12 @@ export default function Tarifs2025Page() {
           Sites statiques = pas de base de données, pas de plugins, pas de CMS à maintenir. Sécurité intrinsèque et fiabilité long terme.
         </p>
         <p className="mt-2 text-sm text-muted-foreground">
-          Pour approfondir :{" "}
-          <Link href="/cout-maintenance-site-web" className="text-primary hover:underline">coût de la maintenance</Link>
+          Pour approfondir :{" "}
+          <Link href="/blog/cout-maintenance-site-web" className="text-primary hover:underline">coût de la maintenance</Link>
           {" · "}
-          <Link href="/contenu-forfait-maintenance-site-web" className="text-primary hover:underline">contenu d’un forfait</Link>
+          <Link href="/blog/contenu-forfait-maintenance-site-web" className="text-primary hover:underline">contenu d’un forfait</Link>
           {" · "}
-          <Link href="/frais-caches-site-internet" className="text-primary hover:underline">frais cachés</Link>.
+          <Link href="/blog/frais-caches-site-internet" className="text-primary hover:underline">frais cachés</Link>.
         </p>
       </section>
 
@@ -213,15 +213,15 @@ export default function Tarifs2025Page() {
             Maintenance, coûts et garanties — liens rapides :
           </p>
           <div className="mt-3 flex flex-wrap items-center justify-center gap-x-4 gap-y-2 text-sm">
-            <Link href="/cout-maintenance-site-web" className="text-primary hover:underline">
+            <Link href="/blog/cout-maintenance-site-web" className="text-primary hover:underline">
               Coût de la maintenance
             </Link>
             <span className="text-muted-foreground">•</span>
-            <Link href="/contenu-forfait-maintenance-site-web" className="text-primary hover:underline">
+            <Link href="/blog/contenu-forfait-maintenance-site-web" className="text-primary hover:underline">
               Contenu d’un forfait
             </Link>
             <span className="text-muted-foreground">•</span>
-            <Link href="/frais-caches-site-internet" className="text-primary hover:underline">
+            <Link href="/blog/frais-caches-site-internet" className="text-primary hover:underline">
               Frais cachés après la livraison
             </Link>
             <span className="text-muted-foreground">•</span>

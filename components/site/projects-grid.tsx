@@ -96,7 +96,14 @@ export function ProjectsGrid({ items }: { items: CaseItem[] }) {
       {/* Grid */}
       <div className={cn("grid-filter-anim mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-3 items-stretch", animState !== "idle" && animState)}>
         {filtered.map((p, i) => (
-          <ProjectCard key={p.id} p={p} liked={!!liked[p.id]} onLike={() => toggleLike(p.id)} onOpen={() => setOpenIndex(i)} />
+          <ProjectCard
+            key={p.id}
+            p={p}
+            liked={!!liked[p.id]}
+            onLike={() => toggleLike(p.id)}
+            onOpen={() => setOpenIndex(i)}
+            isFirst={i === 0}
+          />
         ))}
       </div>
 
@@ -122,7 +129,7 @@ function FilterButton({ active, onClick, children }: { active: boolean; onClick:
   );
 }
 
-function ProjectCard({ p, liked, onLike, onOpen }: { p: CaseItem; liked: boolean; onLike: () => void; onOpen: () => void }) {
+function ProjectCard({ p, liked, onLike, onOpen, isFirst }: { p: CaseItem; liked: boolean; onLike: () => void; onOpen: () => void; isFirst?: boolean }) {
   const desktop = p.images?.[0] || "";
   const mobile = p.images?.[1] || "";
   const sectorBadge =
@@ -178,6 +185,8 @@ function ProjectCard({ p, liked, onLike, onOpen }: { p: CaseItem; liked: boolean
               className="img-blur"
               onLoadingComplete={(img) => img.classList.add("loaded")}
               style={{ objectFit: "cover" }}
+              priority={!!isFirst}
+              fetchPriority={isFirst ? "high" : "auto"}
             />
           ) : (
             <div className="h-full w-full bg-gradient-to-br from-slate-100 to-slate-200 dark:from-slate-800 dark:to-slate-700" />

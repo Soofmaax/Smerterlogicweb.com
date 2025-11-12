@@ -75,11 +75,11 @@ export default function CGVPage() {
           <p className="mt-2 text-foreground/80">
             Pour les sites WordPress, une maintenance technique régulière est recommandée (mises à jour, sauvegardes,
             sécurité). Détails et coûts&nbsp;:{" "}
-            <Link href="/contenu-forfait-maintenance-site-web" className="underline">
+            <Link href="/blog/contenu-forfait-maintenance-site-web" className="underline">
               contenu forfait maintenance
             </Link>{" "}
             et{" "}
-            <Link href="/cout-maintenance-site-web" className="underline">
+            <Link href="/blog/cout-maintenance-site-web" className="underline">
               coût maintenance
             </Link>
             .

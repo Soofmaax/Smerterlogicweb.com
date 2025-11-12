@@ -13,6 +13,7 @@ import { Guarantee } from "@/components/site/guarantee";
 import { FinalCTA } from "@/components/site/final-cta";
 import { Particles } from "@/components/site/particles";
 import { RightDotsNav } from "@/components/site/right-dots-nav";
+import { Breadcrumbs } from "@/components/site/breadcrumbs";
 
 export const metadata = {
   title: "Services — smarterlogicweb.com",
@@ -33,9 +34,37 @@ export const metadata = {
   },
 };
 
+const serviceSchema = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  serviceType: "Création de site vitrine et refonte",
+  provider: {
+    "@type": "LocalBusiness",
+    name: "smarterlogicweb",
+    url: "https://smarterlogicweb.com",
+    areaServed: "France",
+  },
+  areaServed: {
+    "@type": "AdministrativeArea",
+    name: "France",
+  },
+  offers: {
+    "@type": "AggregateOffer",
+    priceCurrency: "EUR",
+    lowPrice: "1490",
+    highPrice: "2490",
+    availability: "https://schema.org/InStock",
+  },
+};
+
 export default function ServicesPage() {
   return (
     <div className="relative mx-auto w-full max-w-6xl px-6 py-16 md:py-24">
+      {/* JSON-LD Service schema for SEO */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }}
+      />
       {/* Hero background accents */}
       <div aria-hidden className="pointer-events-none absolute inset-0 -z-10">
         <div className="hero-gradient-animated absolute inset-0 rounded-[28px] opacity-60" />
@@ -50,6 +79,7 @@ export default function ServicesPage() {
           { id: "avis", label: "Avis" },
           { id: "processus", label: "Processus" },
           { id: "faq", label: "FAQ" },
+          { id: "zones", label: "Zones" },
         ]}
         offset={80}
       />
@@ -64,6 +94,15 @@ export default function ServicesPage() {
           Du site vitrine simple au site business complet. Choisissez la formule adaptée à vos besoins.
         </p>
       </section>
+
+      {/* Visible breadcrumbs */}
+      <Breadcrumbs
+        className="mt-2"
+        items={[
+          { label: "Accueil", href: "/" },
+          { label: "Services" },
+        ]}
+      />
 
       {/* Offres principales */}
       <section id="offres" className="scroll-mt-24">
@@ -95,6 +134,21 @@ export default function ServicesPage() {
         <FAQServices />
       </section>
 
+      {/* Zones desservies (silo national) */}
+      <section id="zones" className="mx-auto mt-6 w-full max-w-5xl px-0 py-8 scroll-mt-24">
+        <div className="rounded-[28px] card-elevated border bg-card p-6 text-center">
+          <h2 className="font-heading text-2xl font-semibold">Zones d’intervention (France)</h2>
+          <p className="mt-2 text-foreground/80">
+            Nous intervenons partout en France. Consultez la liste des villes et secteurs couverts.
+          </p>
+          <div className="mt-5">
+            <Button asChild className="rounded-full" variant="secondary">
+              <Link href="/villes-intervention">Voir toutes nos villes d’intervention</Link>
+            </Button>
+          </div>
+        </div>
+      </section>
+
       {/* CTA final */}
       <section className="mx-auto mt-2 w-full max-w-5xl px-0 py-12">
         <div className="rounded-[28px] card-elevated border bg-card p-6 text-center">
@@ -124,15 +178,15 @@ export default function ServicesPage() {
             Maintenance, coûts et garanties — liens rapides :
           </p>
           <div className="mt-3 flex flex-wrap items-center justify-center gap-x-4 gap-y-2 text-sm">
-            <Link href="/cout-maintenance-site-web" className="text-primary hover:underline">
+            <Link href="/blog/cout-maintenance-site-web" className="text-primary hover:underline">
               Coût de la maintenance
             </Link>
             <span className="text-muted-foreground">•</span>
-            <Link href="/contenu-forfait-maintenance-site-web" className="text-primary hover:underline">
+            <Link href="/blog/contenu-forfait-maintenance-site-web" className="text-primary hover:underline">
               Contenu d’un forfait
             </Link>
             <span className="text-muted-foreground">•</span>
-            <Link href="/frais-caches-site-internet" className="text-primary hover:underline">
+            <Link href="/blog/frais-caches-site-internet" className="text-primary hover:underline">
               Frais cachés après la livraison
             </Link>
             <span className="text-muted-foreground">•</span>

@@ -94,3 +94,60 @@
   from = "/robots.txt"
   to = "/robots"
   status = 200
+
+# Redirect old national page to the new canonical
+[[redirects]]
+  from = "/creation-site-internet-france"
+  to = "/villes-intervention"
+  status = 301
+
+# Redirect canonical articles to /blog/{slug} to avoid duplicate content
+[[redirects]]
+  from = "/cout-site-vitrine-2025"
+  to = "/blog/cout-site-vitrine-2025"
+  status = 301
+
+[[redirects]]
+  from = "/frais-caches-site-internet"
+  to = "/blog/frais-caches-site-internet"
+  status = 301
+
+[[redirects]]
+  from = "/freelance-agence-builder-comparatif"
+  to = "/blog/freelance-agence-builder-comparatif"
+  status = 301
+
+[[redirects]]
+  from = "/roi-site-vitrine-tpe"
+  to = "/blog/roi-site-vitrine-tpe"
+  status = 301
+
+[[redirects]]
+  from = "/google-my-business-ou-site-web"
+  to = "/blog/google-my-business-ou-site-web"
+  status = 301
+
+[[redirects]]
+  from = "/contenu-site-vitrine-conversion"
+  to = "/blog/contenu-site-vitrine-conversion"
+  status = 301
+
+[[redirects]]
+  from = "/delai-creation-site-web"
+  to = "/blog/delai-creation-site-web"
+  status = 301
+
+[[redirects]]
+  from = "/role-client-creation-site-web"
+  to = "/blog/role-client-creation-site-web"
+  status = 301
+
+[[redirects]]
+  from = "/cout-maintenance-site-web"
+  to = "/blog/cout-maintenance-site-web"
+  status = 301
+
+[[redirects]]
+  from = "/contenu-forfait-maintenance-site-web"
+  to = "/blog/contenu-forfait-maintenance-site-web"
+  status = 301
