@@ -80,18 +80,5 @@ export function loadPostsFromMarkdown(): BlogPost[] {
  * TS seeds from data/blog.ts are disabled to avoid duplication and ensure a single source of truth.
  */
 export function getAllPosts(): BlogPost[] {
-  const mdPosts = loadPostsFromMarkdown();
-  return mdPosts;
-}
-
-/**
- * Merge TS-defined posts (data/blog.ts) with Markdown posts (content/blog/*.md).
- * Order is: TS posts first (backward compatibility), then MD posts sorted by publishAt/date or filename.
- */
-export function getAllPosts(): BlogPost[] {
-  const mdPosts = loadPostsFromMarkdown();
-  const mdSlugs = new Set(mdPosts.map((p) => p.slug));
-  // Prefer Markdown posts when a slug exists in both sources
-  const tsOnly = BLOG_POSTS.filter((p) => !mdSlugs.has(p.slug));
-  return [...mdPosts, ...tsOnly];
+  return loadPostsFromMarkdown();
 }

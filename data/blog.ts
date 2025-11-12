@@ -1,5 +1,9 @@
 import type { BlogPost } from "@/lib/blog";
 
+// Politique “Markdown only” : aucune seed TS ici.
+// Source unique des articles : content/blog/*.md
+export const BLOG_POSTS: BlogPost[] = [];type { BlogPost } from "@/lib/blog";
+
 // Markdown-only policy: no TS seeds.
 // Keep this file minimal to avoid duplication with content/blog/*.md.
 export const BLOG_POSTS: BlogPost[] = [];type { BlogPost } from "@/lib/blog";
