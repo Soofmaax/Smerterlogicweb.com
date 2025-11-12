@@ -171,3 +171,8 @@
   from = "/hebergement-infrastructure-garanties-prestataire"
   to = "/blog/hebergement-infrastructure-garanties-prestataire"
   status = 301
+
+[[redirects]]
+  from = "/temps-chargement-site-rapide-mobile"
+  to = "/blog/temps-chargement-site-rapide-mobile"
+  status = 301
