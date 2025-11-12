@@ -22,7 +22,7 @@ export function Header() {
     () =>
       isEn
         ? {
-            skip: "Skip to content",
+            
             nav: {
               projects: "Projects",
               services: "Services",
@@ -45,7 +45,7 @@ export function Header() {
             lang: "FR",
           }
         : {
-            skip: "Passer au contenu",
+            
             nav: {
               projects: "Projets",
               services: "Services",

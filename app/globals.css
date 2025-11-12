@@ -771,26 +771,7 @@ html.retro * {
   color: transparent;
 }
 
-/* Custom emoji cursor */
-.custom-cursor {
-  position: fixed;
-  z-index: 10000;
-  top: 0;
-  left: 0;
-  width: 24px;
-  height: 24px;
-  transform: translate3d(-100px, -100px, 0);
-  pointer-events: none;
-  font-size: 18px;
-  line-height: 1;
-  filter: drop-shadow(0 2px 2px rgba(0,0,0,0.15));
-}
-@media (pointer: coarse) {
-  .custom-cursor { display: none; }
-}
-@media (prefers-reduced-motion: reduce) {
-  .custom-cursor { display: none; }
-}
+
 
 /* Optional vertical scroll snapping for immersive sections (desktop only) */
 .snap-y {
