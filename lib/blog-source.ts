@@ -65,8 +65,8 @@ export function loadPostsFromMarkdown(): BlogPost[] {
     const altLocales =
       altLocalesRaw && typeof altLocalesRaw === "object" ? (altLocalesRaw as Partial<Record<BlogLocale, string>>) : undefined;
 
-    // Convert markdown body to HTML
-    const html = remark().use(remarkHtml).processSync(parsed.content).toString();
+    // Convert markdown body to HTML (allow raw HTML from our trusted markdown files)
+    const html = remark().use(remarkHtml, { sanitize: false }).processSync(parsed.content).toString();
 
     posts.push({
       slug,
