@@ -79,11 +79,11 @@ export default function Pricing2025ENPage() {
         </p>
         <p className="mt-2 text-sm text-muted-foreground">
           Learn more:{" "}
-          <Link href="/blog/cost-maintenance-website" className="text-primary hover:underline">maintenance cost</Link>
+          <Link href="/en/blog/cout-maintenance-site-web" className="text-primary hover:underline">maintenance cost</Link>
           {" · "}
-          <Link href="/blog/maintenance-plan-contents" className="text-primary hover:underline">maintenance plan contents</Link>
+          <Link href="/en/blog/contenu-forfait-maintenance-site-web" className="text-primary hover:underline">maintenance plan contents</Link>
           {" · "}
-          <Link href="/blog/hidden-costs-website" className="text-primary hover:underline">hidden costs after delivery</Link>.
+          <Link href="/en/blog/frais-caches-site-internet" className="text-primary hover:underline">hidden costs after delivery</Link>.
         </p>
       </section>
 
@@ -210,15 +210,15 @@ export default function Pricing2025ENPage() {
           <h3 className="font-heading text-xl font-semibold">Further reading</h3>
           <p className="mt-2 text-sm text-foreground/80">Maintenance, costs and guarantees — quick links:</p>
           <div className="mt-3 flex flex-wrap items-center justify-center gap-x-4 gap-y-2 text-sm">
-            <Link href="/en/blog/cost-maintenance-website" className="text-primary hover:underline">
+            <Link href="/en/blog/cout-maintenance-site-web" className="text-primary hover:underline">
               Website maintenance cost
             </Link>
             <span className="text-muted-foreground">•</span>
-            <Link href="/en/blog/maintenance-plan-contents" className="text-primary hover:underline">
+            <Link href="/en/blog/contenu-forfait-maintenance-site-web" className="text-primary hover:underline">
               Maintenance plan contents
             </Link>
             <span className="text-muted-foreground">•</span>
-            <Link href="/en/blog/hidden-costs-website" className="text-primary hover:underline">
+            <Link href="/en/blog/frais-caches-site-internet" className="text-primary hover:underline">
               Hidden costs after delivery
             </Link>
             <span className="text-muted-foreground">•</span>
