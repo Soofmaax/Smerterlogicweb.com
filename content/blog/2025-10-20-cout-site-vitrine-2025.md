@@ -2,7 +2,7 @@
 slug: "cout-site-vitrine-2025"
 locale: "fr"
 title: "Combien coûte un site vitrine en France en 2025 ? (Guide des vrais prix)"
-summary: "Prix site vitrine 2025 : de 300€ à 30 000€. Découvrez les vrais tarifs, ce qui est inclus dans les devis, et comment éviter de payer deux fois pour le même site."
+summary: "Prix 2025 d’un site vitrine en France : 300€ à 30 000€. Ce qui est vraiment inclus et comment éviter de payer deux fois."
 tags:
   - "coût site vitrine 2025"
   - "prix création site internet France"
@@ -10,6 +10,8 @@ tags:
   - "tarif site web professionnel"
   - "combien coûte un site vitrine pour TPE"
   - "prix site internet entreprise France"
+altLocales:
+  en: "business-website-cost-france-2025"
 published: false
 draft: false
 ---
