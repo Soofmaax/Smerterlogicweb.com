@@ -156,3 +156,8 @@
   from = "/site-statique-vs-cms-autonomie"
   to = "/blog/site-statique-vs-cms-autonomie"
   status = 301
+
+[[redirects]]
+  from = "/referencement-seo-site-statique"
+  to = "/blog/referencement-seo-site-statique"
+  status = 301
