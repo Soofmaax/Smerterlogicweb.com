@@ -5,6 +5,8 @@ title: "Quel contenu pour convertir vos visiteurs en clients ?"
 summary:
   "Taux de conversion site B2B : 2-5% en moyenne. Apprenez à transformer les 95% qui partent : USP claire, tarifs transparents, preuve sociale, 4-5 pages minimum optimisées CRO."
 publishAt: 2025-11-05T09:00:00Z
+authorName: "Sonia"
+authorUrl: "https://smarterlogicweb.com/a-propos"
 tags:
   - "contenu site vitrine conversion"
   - "optimisation taux de conversion CRO"

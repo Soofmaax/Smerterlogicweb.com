@@ -3,6 +3,8 @@ slug: hebergement-infrastructure-garanties-prestataire
 locale: fr
 title: "Hébergement & infrastructure : ce que votre prestataire doit absolument vous garantir"
 summary: "CDN, SLA, disponibilité, pics de trafic : découvrez les garanties techniques essentielles pour un site fiable et performant. Guide concret pour TPE/PME."
+authorName: "Sonia"
+authorUrl: "https://smarterlogicweb.com/a-propos"
 tags:
   - "hébergement web"
   - "CDN"

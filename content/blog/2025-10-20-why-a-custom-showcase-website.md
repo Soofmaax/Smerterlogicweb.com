@@ -4,6 +4,8 @@ locale: en
 title: "Why a custom showcase website can transform your business"
 summary: "Generic sites don’t persuade. A tailored site aligns content, speed and trust with your goals."
 publishAt: 2025-10-20T09:00:00Z
+authorName: "Sonia"
+authorUrl: "https://smarterlogicweb.com/en/about"
 tags:
   - "showcase"
   - "conversion"

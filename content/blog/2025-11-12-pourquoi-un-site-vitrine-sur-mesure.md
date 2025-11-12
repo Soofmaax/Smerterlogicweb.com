@@ -4,6 +4,8 @@ locale: fr
 title: "Pourquoi un site vitrine sur‑mesure peut changer votre activité"
 summary: "Comprenez la différence entre un site générique et un site pensé pour vos objectifs — visibilité, confiance, conversions."
 publishAt: 2025-11-12T09:00:00Z
+authorName: "Sonia"
+authorUrl: "https://smarterlogicweb.com/a-propos"
 tags:
   - "site vitrine"
   - "conversion"

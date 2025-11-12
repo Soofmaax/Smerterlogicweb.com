@@ -5,6 +5,8 @@ title: "Maintenance technique : qui s'en occupe et à quel prix ?"
 summary:
   "Coût maintenance site web : 30€ à 500€/mois selon prestataire. DIY risqué, freelance 50-100€, agence 150-500€. Découvrez le vrai coût de la non-maintenance (1000€ à 50 000€ par panne)."
 publishAt: 2025-11-07T09:00:00Z
+authorName: "Sonia"
+authorUrl: "https://smarterlogicweb.com/a-propos"
 tags:
   - "coût maintenance site web"
   - "prix maintenance WordPress"

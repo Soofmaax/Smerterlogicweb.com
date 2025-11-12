@@ -4,6 +4,8 @@ locale: fr
 title: "Site web ou fiche Google My Business : que privilégier ?"
 summary:
   "Fiche Google My Business ou site web en premier ? 70 % de visites en plus avec GMB complet, 50 % des recherches mobiles = visite le jour même. Stratégie séquentielle pour TPE."
+authorName: "Sonia"
+authorUrl: "https://smarterlogicweb.com/a-propos"
 tags:
   - "Google My Business ou site web"
   - "fiche GMB priorité"

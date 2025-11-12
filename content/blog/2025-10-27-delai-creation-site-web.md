@@ -4,6 +4,8 @@ locale: fr
 title: "Combien de temps pour avoir votre site en ligne ? (La vérité sur les délais réels)"
 summary: "Délai création site web : 7 à 12 semaines pour un site optimisé, 14 à 34 semaines en moyenne en France. Découvrez les 5 phases, les vrais délais, et comment éviter 6 mois d'attente."
 publishAt: 2025-10-27T09:00:00Z
+authorName: "Sonia"
+authorUrl: "https://smarterlogicweb.com/a-propos"
 tags:
   - "délai création site web PME"
   - "étapes projet web"

@@ -4,6 +4,8 @@ locale: fr
 title: "7 moyens d’augmenter la confiance sur votre site"
 summary: "Des preuves simples et concrètes : avis, réalisations, processus clair, accessibilité, et plus."
 publishAt: 2025-11-14T09:00:00Z
+authorName: "Sonia"
+authorUrl: "https://smarterlogicweb.com/a-propos"
 tags:
   - "confiance"
   - "réalisations"

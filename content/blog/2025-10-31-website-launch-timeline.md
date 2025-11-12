@@ -4,6 +4,8 @@ locale: en
 title: "How long to get your website live? (The real timeline — no BS)"
 summary: "Website build timeline: 7–34 weeks depending on complexity and client responsiveness. Learn the 5 phases (brief, design, dev, content, go‑live) and how to accelerate."
 publishAt: 2025-10-31T09:00:00Z
+authorName: "Sonia"
+authorUrl: "https://smarterlogicweb.com/en/about"
 tags:
   - "website build timeline"
   - "how long to get website live"

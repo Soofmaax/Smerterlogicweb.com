@@ -4,6 +4,8 @@ locale: fr
 title: "Votre site servira-t-il réellement vos objectifs business ?"
 summary: "ROI site vitrine TPE : 150 % à 300 % dès la première année si bien conçu. Découvrez comment transformer votre site en machine à clients, pas en simple décoration coûteuse."
 publishAt: 2025-10-31T09:00:00Z
+authorName: "Sonia"
+authorUrl: "https://smarterlogicweb.com/a-propos"
 tags:
   - "ROI site vitrine TPE"
   - "site web attire clients comment"

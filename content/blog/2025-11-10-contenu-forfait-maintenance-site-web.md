@@ -4,6 +4,8 @@ locale: fr
 title: "Que comprend un forfait de maintenance pour un site vitrine ?"
 summary: "Forfait maintenance site web : mises à jour CMS/plugins, sauvegardes testées tous les 3 mois, monitoring 24/7, support Niveau 1-2-3, optimisation SEO. Vous pouvez modifier textes/photos vous-même, pas les plugins."
 publishAt: 2025-11-10T09:00:00Z
+authorName: "Sonia"
+authorUrl: "https://smarterlogicweb.com/a-propos"
 tags:
   - "forfait maintenance site web"
   - "que comprend maintenance WordPress"

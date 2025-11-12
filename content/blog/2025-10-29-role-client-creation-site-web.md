@@ -5,6 +5,8 @@ title: "Votre rôle dans la création du site : ce qu’on attend vraiment de vo
 summary:
   "Rôle client création site web : contenu prêt en semaine 2, validations sous 48h, brief clair dès le départ. Découvrez la checklist pour livrer votre site 4 semaines plus tôt."
 publishAt: 2025-10-29T09:00:00Z
+authorName: "Sonia"
+authorUrl: "https://smarterlogicweb.com/a-propos"
 tags:
   - "rôle client création site web"
   - "accélérer délai site internet"

@@ -5,6 +5,8 @@ title: "Freelance vs Agence vs Builder : quel choix pour votre site statique ?"
 summary:
   "Freelance, agence ou builder No‑Code : quel prestataire choisir pour votre site vitrine ? Comparatif budget, qualité, maintenance. Site statique ou dynamique pour TPE ?"
 publishAt: 2025-10-24T09:00:00Z
+authorName: "Sonia"
+authorUrl: "https://smarterlogicweb.com/a-propos"
 tags:
   - "freelance vs agence site statique"
   - "coût création site vitrine TPE"
