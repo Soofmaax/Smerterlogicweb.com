@@ -5,7 +5,6 @@ import { remark } from "remark";
 import remarkHtml from "remark-html";
 
 import type { BlogPost, BlogLocale } from "./blog";
-import { BLOG_POSTS } from "@/data/blog";
 
 /**
  * Load Markdown blog posts from content/blog/*.md with YAML frontmatter.
@@ -73,6 +72,16 @@ export function loadPostsFromMarkdown(): BlogPost[] {
   }
 
   return posts;
+}
+
+/**
+ * Markdown-only policy:
+ * Return posts loaded from content/blog/*.md exclusively.
+ * TS seeds from data/blog.ts are disabled to avoid duplication and ensure a single source of truth.
+ */
+export function getAllPosts(): BlogPost[] {
+  const mdPosts = loadPostsFromMarkdown();
+  return mdPosts;
 }
 
 /**
