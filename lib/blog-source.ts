@@ -13,6 +13,8 @@ import type { BlogPost, BlogLocale } from "./blog";
  * - locale: "fr" | "en" (default: "fr")
  * - title: string (required)
  * - summary: string (optional)
+ * - authorName: string (optional; defaults to "Sonia" if omitted)
+ * - authorUrl: string (optional; personal or profile URL)
  * - publishAt: ISO date string (optional)
  * - published: boolean (optional; publish immediately)
  * - draft: boolean (optional; hide from publication)
@@ -50,6 +52,8 @@ export function loadPostsFromMarkdown(): BlogPost[] {
     const locale = (parsed.data.locale as BlogLocale) || "fr";
     const title = (parsed.data.title as string) || slug;
     const summary = (parsed.data.summary as string) || undefined;
+    const authorName = (parsed.data.authorName as string) || undefined;
+    const authorUrl = (parsed.data.authorUrl as string) || undefined;
     const publishAt = (parsed.data.publishAt as string) || publishAtFromName || undefined;
     const published = parsed.data.published === true || false;
     const draft = parsed.data.draft === true || false;
@@ -63,6 +67,8 @@ export function loadPostsFromMarkdown(): BlogPost[] {
       locale,
       title,
       summary,
+      authorName,
+      authorUrl,
       publishAt,
       published,
       draft,

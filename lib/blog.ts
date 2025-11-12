@@ -13,6 +13,12 @@ export type BlogPost = {
   tags?: string[];
   coverImage?: string;
   /**
+   * Author metadata (optional).
+   * If not provided, default display uses "Sonia".
+   */
+  authorName?: string;
+  authorUrl?: string;
+  /**
    * Optional explicit publish date (ISO string).
    * If provided, scheduling will respect this date instead of the automatic Mon/Wed/Fri cadence.
    */

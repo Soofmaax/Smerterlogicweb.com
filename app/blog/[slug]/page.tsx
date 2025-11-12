@@ -47,6 +47,9 @@ export default function BlogPostFR({ params }: { params: { slug: string } }) {
     notFound();
   }
 
+  const authorName = post.authorName || "Sonia";
+  const authorUrl = post.authorUrl || undefined;
+
   const breadcrumbSchema = {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
@@ -67,16 +70,16 @@ export default function BlogPostFR({ params }: { params: { slug: string } }) {
     mainEntityOfPage: `https://smarterlogicweb.com/blog/${post.slug}`,
     isAccessibleForFree: true,
     author: {
-      "@type": "Organization",
-      name: "smarterlogicweb",
-      url: "https://smarterlogicweb.com",
+      "@type": "Person",
+      name: authorName,
+      ...(authorUrl ? { url: authorUrl } : {}),
     },
     publisher: {
       "@type": "Organization",
       name: "smarterlogicweb",
       url: "https://smarterlogicweb.com",
     },
-    license: "https://smarterlogicweb.com/politique-usage-contenu",
+    license: "https://creativecommons.org/licenses/by/4.0/",
   };
 
   const hasH1 = /<h1(\s|>)/i.test(post.contentHtml);
@@ -92,7 +95,9 @@ export default function BlogPostFR({ params }: { params: { slug: string } }) {
         {!hasH1 ? (
           <h1 className="font-heading text-3xl font-bold tracking-tight">{post.title}</h1>
         ) : null}
-        <p className="mt-1 text-sm text-muted-foreground">Par smarterlogicweb</p>
+        <p className="mt-1 text-sm text-muted-foreground">
+          Par {authorUrl ? <Link href={authorUrl} className="hover:underline">{authorName}</Link> : authorName}
+        </p>
         <time className="mt-0.5 block text-sm text-muted-foreground" dateTime={post.publishAt.toISOString()}>
           Publié le {formatDate(post.publishAt, "fr")}
         </time>

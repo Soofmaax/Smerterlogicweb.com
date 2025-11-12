@@ -12,6 +12,7 @@ export function CitationBox({ className, locale = "fr", articleSlug }: Props) {
   const isFr = locale === "fr";
   const policyHref = isFr ? "/politique-usage-contenu" : "/en/content-usage-policy";
   const articleHref = `/blog/${articleSlug}`;
+  const ccByHref = "https://creativecommons.org/licenses/by/4.0/";
 
   return (
     <section className={["mx-auto w-full max-w-3xl px-6 py-6", className].filter(Boolean).join(" ")}>
@@ -21,13 +22,8 @@ export function CitationBox({ className, locale = "fr", articleSlug }: Props) {
         </h3>
         <p className="mt-2 text-sm text-foreground/80">
           {isFr
-            ? "Vous pouvez citer un extrait court de cet article en mentionnant « smarterlogicweb » et en ajoutant un lien vers la source."
-            : "You may quote a short excerpt from this article by mentioning “smarterlogicweb” and linking back to the source."}
-        </p>
-        <p className="mt-1 text-sm text-foreground/80">
-          {isFr
-            ? "Toute reproduction substantielle (chapeau, section entière, tableau/visuel) ou usage commercial nécessite une autorisation écrite préalable."
-            : "Any substantial reproduction (lede, full section, table/visual) or commercial use requires prior written permission."}
+            ? "Licence CC BY 4.0 : réutilisation, adaptation et usage commercial autorisés avec attribution (auteur + lien source + lien licence)."
+            : "CC BY 4.0 license: reuse, adaptation and commercial use permitted with attribution (author + source link + license link)."}
         </p>
         <div className="mt-3 text-sm">
           <span className="text-muted-foreground">{isFr ? "Source :" : "Source:"} </span>
@@ -37,6 +33,10 @@ export function CitationBox({ className, locale = "fr", articleSlug }: Props) {
           <span className="text-muted-foreground"> · </span>
           <Link href={policyHref} className="text-primary hover:underline">
             {isFr ? "Politique détaillée" : "Detailed policy"}
+          </Link>
+          <span className="text-muted-foreground"> · </span>
+          <Link href={ccByHref} className="text-primary hover:underline" target="_blank" rel="noopener">
+            CC BY 4.0
           </Link>
         </div>
       </div>

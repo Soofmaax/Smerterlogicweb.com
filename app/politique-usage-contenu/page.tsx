@@ -3,7 +3,7 @@ import Link from "next/link";
 export const metadata = {
   title: "Politique de citation & réutilisation du contenu — smarterlogicweb.com",
   description:
-    "Conditions de citation, attribution et reproduction des articles du blog. Extraits courts avec lien autorisés; reproduction substantielle sur autorisation.",
+    "Licence Creative Commons Attribution 4.0 (CC BY 4.0) : réutilisation, adaptation et usage commercial autorisés avec attribution et lien vers la source.",
   alternates: {
     canonical: "/politique-usage-contenu",
     languages: {
@@ -15,7 +15,7 @@ export const metadata = {
     url: "https://smarterlogicweb.com/politique-usage-contenu",
     title: "Politique de citation & réutilisation du contenu — smarterlogicweb.com",
     description:
-      "Conditions de citation, attribution et reproduction des articles du blog. Extraits courts avec lien autorisés; reproduction substantielle sur autorisation.",
+      "Licence Creative Commons Attribution 4.0 (CC BY 4.0) : réutilisation, adaptation et usage commercial autorisés avec attribution et lien vers la source.",
   },
 };
 
@@ -26,72 +26,60 @@ export default function ContentUsagePolicyFR() {
         Politique de citation & réutilisation du contenu
       </h1>
       <p className="mt-4 text-lg leading-relaxed text-foreground/80">
-        Les articles publiés sur smarterlogicweb sont protégés par le droit d’auteur. Nous encourageons la citation avec
-        attribution et lien, mais encadrons la reproduction pour préserver la qualité éditoriale et le référencement.
+        Sauf mention contraire, les articles du blog sont publiés sous licence{" "}
+        <Link href="https://creativecommons.org/licenses/by/4.0/" className="underline" target="_blank" rel="noopener">
+          Creative Commons Attribution 4.0 International (CC BY 4.0)
+        </Link>
+        . Cela signifie que vous pouvez <strong>réutiliser</strong>, <strong>adapter</strong> et <strong>partager</strong> le contenu, y compris à des fins
+        commerciales, à condition de respecter l’<strong>attribution</strong>.
       </p>
 
       <div className="mt-8 space-y-6">
         <div className="rounded-lg border bg-card p-6">
-          <h2 className="font-heading text-xl font-semibold">1. Courte citation (autorisée)</h2>
+          <h2 className="font-heading text-xl font-semibold">1. Attribution (obligatoire)</h2>
           <p className="mt-2 text-foreground/80">
-            Vous pouvez citer un <strong>extrait court</strong> (quelques phrases, ≤ 300 mots) d’un article, à condition de&nbsp;:
+            Lors de toute réutilisation, vous devez :
           </p>
           <ul className="mt-2 list-disc pl-5 text-foreground/80">
-            <li>mentionner <strong>smarterlogicweb</strong> comme source;</li>
-            <li>inclure un <strong>lien</strong> vers l’article d’origine (URL canonique);</li>
-            <li>ne pas modifier le sens de l’extrait ni le présenter hors contexte.</li>
+            <li>mentionner <strong>l’auteur</strong> (ex. « Sonia ») et <strong>smarterlogicweb</strong> ;</li>
+            <li>inclure un <strong>lien</strong> vers l’article d’origine (URL canonique) et vers la <strong>licence CC BY 4.0</strong> ;</li>
+            <li>indiquer si des <strong>modifications</strong> ont été apportées.</li>
           </ul>
-        </div>
-
-        <div className="rounded-lg border bg-card p-6">
-          <h2 className="font-heading text-xl font-semibold">2. Reproduction substantielle (sur autorisation)</h2>
-          <p className="mt-2 text-foreground/80">
-            Toute <strong>reproduction substantielle</strong> (section entière, chapeau complet, tableaux/visuels, ou
-            agrégation systématique) ainsi que tout <strong>usage commercial</strong> nécessitent une{" "}
-            <strong>autorisation écrite préalable</strong>.
-          </p>
-          <p className="mt-2 text-foreground/80">
-            Contactez-nous à{" "}
-            <Link href="mailto:contact@smarterlogicweb.com" className="underline">
-              contact@smarterlogicweb.com
-            </Link>{" "}
-            avec le lien de l’article, l’usage envisagé, et l’emplacement de publication.
+          <p className="mt-2 text-sm text-muted-foreground">
+            Exemple : « Extrait adapté de [Titre] — Sonia, smarterlogicweb (URL de l’article), sous CC BY 4.0 ».
           </p>
         </div>
 
         <div className="rounded-lg border bg-card p-6">
-          <h2 className="font-heading text-xl font-semibold">3. Modifications et dérivés</h2>
+          <h2 className="font-heading text-xl font-semibold">2. Réutilisation et adaptations</h2>
           <p className="mt-2 text-foreground/80">
-            La modification du texte, la création d’œuvres dérivées ou la redistribution sans lien vers la source ne
-            sont <strong>pas autorisées</strong> sans accord explicite.
+            La licence CC BY 4.0 autorise la création d’œuvres dérivées et l’usage commercial, sous réserve d’attribution
+            conforme. Merci d’éviter les réutilisations susceptibles de créer une confusion (plagiat, faux originaux).
           </p>
         </div>
 
         <div className="rounded-lg border bg-card p-6">
-          <h2 className="font-heading text-xl font-semibold">4. Attribution recommandée</h2>
+          <h2 className="font-heading text-xl font-semibold">3. Citation courte (bonnes pratiques)</h2>
           <p className="mt-2 text-foreground/80">
-            Exemple d’attribution conforme pour une courte citation&nbsp;:
+            Pour des citations courtes (≤ 300 mots), nous recommandons de conserver le contexte et de pointer vers la
+            source. L’attribution reste requise.
           </p>
-          <blockquote className="mt-2 rounded-lg border bg-muted/40 p-4 text-sm text-foreground/80">
-            « Extrait… » — smarterlogicweb,{" "}
-            <Link href="/blog/roi-site-vitrine-tpe" className="underline">
-              Votre site servira‑t‑il réellement vos objectifs business ?
-            </Link>{" "}
-            (consulté le JJ/MM/AAAA).
-          </blockquote>
         </div>
 
         <div className="rounded-lg border bg-card p-6">
-          <h2 className="font-heading text-xl font-semibold">5. Juridique</h2>
+          <h2 className="font-heading text-xl font-semibold">4. Mentions légales</h2>
           <p className="mt-2 text-foreground/80">
-            Cette politique respecte le Code de la propriété intellectuelle (France). Les exceptions de courte citation
-            s’appliquent sous réserve d’attribution et de proportionnalité.
+            Cette politique s’aligne sur la licence CC BY 4.0 (voir les{" "}
+            <Link href="https://creativecommons.org/licenses/by/4.0/legalcode" className="underline" target="_blank" rel="noopener">
+              termes légaux complets
+            </Link>
+            ). Pour toute réutilisation sensible (ex. anthologies, manuels), contactez-nous pour valider l’attribution.
           </p>
         </div>
       </div>
 
       <p className="mt-8 text-sm text-muted-foreground">
-        Dernière mise à jour : 2025. Pour toute demande, écrivez à{" "}
+        Dernière mise à jour : 2025. Contact :{" "}
         <Link href="mailto:contact@smarterlogicweb.com" className="underline">
           contact@smarterlogicweb.com
         </Link>
