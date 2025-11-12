@@ -3,15 +3,19 @@
 import * as React from "react";
 
 /**
- * Loads marketing pixels (Meta, LinkedIn, Hotjar) ONLY when user consented to "marketing".
- * IDs are read from NEXT_PUBLIC_* environment variables.
+ * Loads marketing scripts ONLY when user consented to "marketing".
+ * Prefers Google Tag Manager (GTM) if NEXT_PUBLIC_GTM_ID is set,
+ * otherwise loads individual pixels (Meta, LinkedIn, Hotjar).
  *
  * Env vars (set on Netlify):
- * - NEXT_PUBLIC_META_PIXEL_ID=xxxxxxxxxxxxxxx
- * - NEXT_PUBLIC_LINKEDIN_PARTNER_ID=XXXXXX
- * - NEXT_PUBLIC_HOTJAR_ID=XXXXX
+ * - NEXT_PUBLIC_GTM_ID=GTM-XXXXXXX (optional; centralizes tags in GTM)
+ * - NEXT_PUBLIC_META_PIXEL_ID=xxxxxxxxxxxxxxx (optional if not using GTM)
+ * - NEXT_PUBLIC_LINKEDIN_PARTNER_ID=XXXXXX (optional if not using GTM)
+ * - NEXT_PUBLIC_HOTJAR_ID=XXXXX (optional if not using GTM)
  * - NEXT_PUBLIC_HOTJAR_SV=6
  */
+const GTM_ID = process.env.NEXT_PUBLIC_GTM_ID || "";
+
 const META_PIXEL_ID = process.env.NEXT_PUBLIC_META_PIXEL_ID || "";
 const LINKEDIN_PARTNER_ID = process.env.NEXT_PUBLIC_LINKEDIN_PARTNER_ID || "";
 const HOTJAR_ID = process.env.NEXT_PUBLIC_HOTJAR_ID || "";
@@ -28,6 +32,23 @@ function readConsent(): ConsentPrefs | null {
   } catch {
     return null;
   }
+}
+
+function loadGTM() {
+  if (typeof window === "undefined" || !GTM_ID) return;
+  if ((window as any).__gtm_loaded) return;
+  (window as any).__gtm_loaded = true;
+
+  (function (w: any, d: any, s: any, l: any, i: string) {
+    w[l] = w[l] || [];
+    w[l].push({ "gtm.start": new Date().getTime(), event: "gtm.js" });
+    const f = d.getElementsByTagName(s)[0];
+    const j = d.createElement(s);
+    const dl = l !== "dataLayer" ? "&l=" + l : "";
+    j.async = true;
+    j.src = "https://www.googletagmanager.com/gtm.js?id=" + i + dl;
+    f.parentNode!.insertBefore(j, f);
+  })(window, document, "script", "dataLayer", GTM_ID);
 }
 
 function loadMetaPixel() {
@@ -130,7 +151,12 @@ export function MarketingLoader() {
 
   React.useEffect(() => {
     if (!allowed) return;
-    // Load pixels guarded by consent
+    if (GTM_ID) {
+      // Prefer GTM: centralize tags and let GTM manage pixels
+      loadGTM();
+      return;
+    }
+    // Fallback: load individual pixels guarded by consent
     loadMetaPixel();
     loadLinkedInInsight();
     loadHotjar();
