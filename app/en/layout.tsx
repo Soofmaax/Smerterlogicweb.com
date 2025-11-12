@@ -12,6 +12,7 @@ import { SmartCTAs } from "@/components/site/smart-ctas";
 import { WhatsAppFloat } from "@/components/site/whatsapp-float";
 import { CookieConsent } from "@/components/site/cookie-consent";
 import { AnalyticsLoader } from "@/components/site/analytics-loader";
+import { MarketingLoader } from "@/components/site/marketing-loader";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -134,7 +135,9 @@ export default function EnLayout({ children }: { children: React.ReactNode }) {
         />
 
         {/* Analytics (loaded client-side only after consent) */}
-        <AnalyticsLoader />
+       <<AnalyticsLoader />
+        {/* Marketing pixels (Meta/LinkedIn/Hotjar) loaded only after marketing consent */}
+       < MarketingLoade_coder new/</>
 
         {/* UX extras */}
         <UXEnhancer />
