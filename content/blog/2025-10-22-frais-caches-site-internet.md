@@ -78,8 +78,8 @@ tags:
 <h2>Verdict : le vrai coût, c’est le TCO sur 3 ans</h2>
 <p>Un site à 800€ avec 2 195€ de coûts récurrents sur 3 ans peut être <em>plus cher</em> qu’un site à 2 490€ sans maintenance. Avant de signer : exigez le TCO et un récap des coûts annuels (domaine, hébergement, maintenance, licences, SEO).</p>
 <p>Vérifiez la <strong>propriété</strong> (domaine + code). Refusez les engagements longs. Calculez le TCO avant de choisir. Le moins cher à l’achat n’est pas le moins cher sur 3 ans.</p>
-<p>Besoin d’un site sans frais cachés ? Sites statiques optimisés TPE/PME : design sur‑mesure, contenu inclus, ultra‑rapide, 0 maintenance. Exemples : bmsventouse.fr (en ligne depuis 07/2025, 0€ de frais après livraison). <a href="/tarifs-2025">Essentiel/Pro/Premium</a> et <a href="/roi-site-vitrine-tpe">ROI TPE</a>.</p>
-<p class="mt-2">Voir aussi : <a href="/cout-maintenance-site-web">coût de la maintenance</a> et <a href="/contenu-forfait-maintenance-site-web">ce que couvre un forfait de maintenance</a>.</p>
+<p>Besoin d’un site sans frais cachés ? Sites statiques optimisés TPE/PME : design sur‑mesure, contenu inclus, ultra‑rapide, 0 maintenance. Exemples : bmsventouse.fr (en ligne depuis 07/2025, 0€ de frais après livraison). <a href="/tarifs-2025">Essentiel/Pro/Premium</a> et <a href="/blog/roi-site-vitrine-tpe">ROI TPE</a>.</p>
+<p class="mt-2">Voir aussi : <a href="/blog/cout-maintenance-site-web">coût de la maintenance</a> et <a href="/blog/contenu-forfait-maintenance-site-web">ce que couvre un forfait de maintenance</a>.</p>
 
 <h2>FAQ</h2>
 <h3>Quels sont les frais annuels minimum pour un site vitrine ?</h3>

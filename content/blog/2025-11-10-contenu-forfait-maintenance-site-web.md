@@ -101,7 +101,7 @@ tags:
 </table>
 
 <h2>Notre approche : sites statiques = autonomie sans risque</h2>
-<p><strong>Statique</strong> : pas de CMS/plugins/DB → <strong>0 maintenance obligatoire</strong>, hébergement <strong>gratuit</strong>, vitesse/SEO au top. Vous voulez modifier ? <em>Formule Évolution</em> : 20€/mois (1h/mois) pour changements de textes/photos, sans risque. Voir <a href="/cout-maintenance-site-web">coût de la maintenance</a> et <a href="/frais-caches-site-internet">frais cachés</a>.</p>
+<p><strong>Statique</strong> : pas de CMS/plugins/DB → <strong>0 maintenance obligatoire</strong>, hébergement <strong>gratuit</strong>, vitesse/SEO au top. Vous voulez modifier ? <em>Formule Évolution</em> : 20€/mois (1h/mois) pour changements de textes/photos, sans risque. Voir <a href="/blog/cout-maintenance-site-web">coût de la maintenance</a> et <a href="/blog/frais-caches-site-internet">frais cachés</a>.</p>
 
 <h2>Verdict : un bon forfait se juge aux garanties</h2>
 <p>Incluez les 4 piliers : préventif/correctif, sécurité/sauvegardes (<strong>test trimestriel</strong>), performance/SEO (Core Web Vitals), support <strong>avec SLA</strong>. Un 30€/mois sans SLA ni tests de sauvegarde ne protège de rien. Un 150€/mois avec SLA + niveau 3 = <strong>assurance</strong> contre pannes coûteuses. Ou simplifiez : <strong>site statique</strong> → 0 maintenance.</p>

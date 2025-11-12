@@ -65,7 +65,7 @@ tags:
 <h3>Étape 2 : Valider la demande locale (mois 1–3)</h3>
 <p>Suivre impressions, clics, <strong>appels</strong>, itinéraires. Si 0 appel → fiche incomplète/catégories/avis/zone ; ajuster avant de dépenser dans un site.</p>
 <h3>Étape 3 : Investir dans un site (après validation)</h3>
-<p><strong>Budget TPE recommandé</strong> : 1 500€ – 3 000€ pour un <strong>site vitrine statique</strong> (zéro maintenance, hébergement gratuit, vitesse). Liez GMB ↔ site. Voir <a href="/roi-site-vitrine-tpe">ROI TPE</a>, <a href="/freelance-agence-builder-comparatif">comparatif prestataires</a> et <a href="/cout-site-vitrine-2025">coûts 2025</a>.</p>
+<p><strong>Budget TPE recommandé</strong> : 1 500€ – 3 000€ pour un <strong>site vitrine statique</strong> (zéro maintenance, hébergement gratuit, vitesse). Liez GMB ↔ site. Voir <a href="/blog/roi-site-vitrine-tpe">ROI TPE</a>, <a href="/blog/freelance-agence-builder-comparatif">comparatif prestataires</a> et <a href="/blog/cout-site-vitrine-2025">coûts 2025</a>.</p>
 <p><em>Exemple</em> : Marie (menuisière, Toulouse) → GMB optimisée (3–4 devis/semaine) → site vitrine (6 pages, CTA devis) → <strong>+300 %</strong> de devis, <strong>#1</strong> sur « menuisier Toulouse », <strong>+180 %</strong> CA en 8 mois.</p>
 
 <h2>Le tableau de la matrice d’investissement stratégique</h2>
@@ -124,7 +124,7 @@ tags:
 <p>Pour 90 % des TPE locales : <strong>GMB</strong> est la priorité (gratuit, rapide, ROI immédiat). Le <strong>site</strong> consolide/amplifie (autorité, conversion, branding). La stratégie séquentielle : semaine 1 → GMB ; mois 1–3 → valider ; ensuite → site pro 1 500–3 000€ (<a href="/tarifs-2025">statique recommandé</a> : 0 maintenance, hébergement gratuit, vitesse).</p>
 <p><strong>Rappelez‑vous</strong> : 50 % des recherches locales mobile aboutissent à une visite le jour même. Sans GMB, vous perdez la moitié des clients potentiels.</p>
 <p>Besoin d’un site après GMB ? Sites statiques qui <strong>amplifient</strong> votre visibilité locale : design sur‑mesure, contenu SEO local, intégration GMB, formulaires de conversion, 0 maintenance. Dès 1 490€.</p>
-<p class="mt-2">Voir aussi : <a href="/contenu-site-vitrine-conversion">contenu qui convertit</a>, <a href="/role-client-creation-site-web">votre rôle dans la création</a>, <a href="/cout-site-vitrine-2025">coût d’un site vitrine</a> et <a href="/delai-creation-site-web">délais réels de création</a>.</p>
+<p class="mt-2">Voir aussi : <a href="/blog/contenu-site-vitrine-conversion">contenu qui convertit</a>, <a href="/blog/role-client-creation-site-web">votre rôle dans la création</a>, <a href="/blog/cout-site-vitrine-2025">coût d’un site vitrine</a> et <a href="/blog/delai-creation-site-web">délais réels de création</a>.</p>
 
 <h2>FAQ</h2>
 <h3>Faut‑il d’abord faire une fiche Google My Business ou un site web ?</h3>

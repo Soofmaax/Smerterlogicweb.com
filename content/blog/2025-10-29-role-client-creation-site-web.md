@@ -19,7 +19,7 @@ tags:
 <p>Votre site est en développement depuis huit semaines. Le freelance vous a envoyé trois emails pour demander vos textes. Vous n'avez toujours pas trouvé le temps de les rédiger. Il vous a envoyé la maquette du design il y a quinze jours. Vous ne l'avez pas encore regardée.</p>
 <p>Aujourd'hui, le freelance vous appelle. Il vous dit que le projet est bloqué. Il ne peut pas avancer sans vos textes. Il ne peut pas développer sans votre validation du design. Le délai initial de huit semaines ? On est maintenant à seize semaines. Le double.</p>
 <p>Je crée des sites pour des TPE et PME depuis 2020. Et je vais vous dire ce que personne n'ose vous dire franchement : <strong>le délai dépend autant de vous que du prestataire</strong>. 80 % des retards viennent du client : contenus en retard, validations qui traînent, brief flou.</p>
-<p>Un site vitrine peut être livré en <a href="/delai-creation-site-web/">7 à 12 semaines</a> si vous êtes réactif et préparé. Sinon, comptez 16 à 24 semaines. Cet article détaille vos <strong>3 piliers</strong> de responsabilité (contenu, validations, clarté), la <strong>checklist</strong> à préparer, et <strong>comment accélérer</strong> sans sacrifier la qualité.</p>
+<p>Un site vitrine peut être livré en <a href="/blog/delai-creation-site-web">7 à 12 semaines</a> si vous êtes réactif et préparé. Sinon, comptez 16 à 24 semaines. Cet article détaille vos <strong>3 piliers</strong> de responsabilité (contenu, validations, clarté), la <strong>checklist</strong> à préparer, et <strong>comment accélérer</strong> sans sacrifier la qualité.</p>
 
 <h2>Le mythe du prestataire qui fait tout</h2>
 <p>Payer un prestataire ne délègue pas 100 % du travail. Le web est une <strong>co‑production</strong> : le prestataire apporte technique, design, SEO ; vous apportez métier, cible, positionnement et objectifs.</p>
@@ -90,11 +90,11 @@ tags:
 <p>BMS Ventousage : brief clair, photos prêtes, 1 itération design, tests en 3 jours → <strong>+21 jours gagnés</strong>.</p>
 
 <h2>Verdict : vous contrôlez 50 % du délai</h2>
-<p>Brief clair, contenu semaine 2, validations 48 h → <a href="/delai-creation-site-web/">7–12 semaines</a>. Sinon → 16–24 semaines.</p>
+<p>Brief clair, contenu semaine 2, validations 48 h → <a href="/blog/delai-creation-site-web">7–12 semaines</a>. Sinon → 16–24 semaines.</p>
 <p><strong>Checklist</strong> : brief avant contact, 2 jours pour tout le contenu, validations 48 h, respect du périmètre.</p>
 <p>Pas le temps ? Externalisez (rédaction 1 000–2 000 €, shooting 500–1 000 €) → <strong>−3–4 semaines</strong>.</p>
 <p>Besoin d’un site livré en 7–10 semaines ? Sites statiques optimisés TPE/PME : contenus rédigés pour vous, design sur‑mesure (2 cycles max), réactivité &lt; 24 h, planning jalonné. Dès 1 490 €.</p>
-<p class="mt-2">Voir aussi : <a href="/delai-creation-site-web">délais réels de création</a>, <a href="/contenu-site-vitrine-conversion">contenu qui convertit</a> et <a href="/cout-maintenance-site-web">coût de la maintenance</a>.</p>
+<p class="mt-2">Voir aussi : <a href="/blog/delai-creation-site-web">délais réels de création</a>, <a href="/blog/contenu-site-vitrine-conversion">contenu qui convertit</a> et <a href="/blog/cout-maintenance-site-web">coût de la maintenance</a>.</p>
 
 <h2>FAQ</h2>
 <h3>Quel est mon rôle ?</h3>

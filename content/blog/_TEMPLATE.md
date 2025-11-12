@@ -75,8 +75,8 @@ Guide de rédaction
 <h2>CTA / Prochaines étapes</h2>
 <p>Prendre contact, demander un devis, lire un article complémentaire :
   <a href="/tarifs-2025">Tarifs 2025</a> ·
-  <a href="/roi-site-vitrine-tpe">ROI TPE</a> ·
-  <a href="/cout-site-vitrine-2025">Coût d’un site vitrine</a>
+  <a href="/blog/roi-site-vitrine-tpe">ROI TPE</a> ·
+  <a href="/blog/cout-site-vitrine-2025">Coût d’un site vitrine</a>
 </p>
 
 <h2>FAQ (optionnel)</h2>

@@ -101,7 +101,7 @@ tags:
 <h2>Verdict : sept à treize semaines suffisent si tout est carré</h2>
 <p>Brief clair, contenus rapides ou rédigés, validations 48 h → 7–13 semaines. Sinon 14–34. Ne cédez pas aux promesses « 3 semaines » pour un site vide.</p>
 <p>Besoin d'un site livré en 7–10 semaines maximum ? Sites statiques optimisés TPE/PME : design sur-mesure, contenus rédigés, SEO avancé, zéro maintenance. Planning jalonné, réactivité &lt; 24 h. Dès 1 490 €. Code remis, domaine à votre nom.</p>
-<p class="mt-2">Voir aussi : <a href="/cout-maintenance-site-web">coût de la maintenance</a>, <a href="/contenu-forfait-maintenance-site-web">contenu d’un forfait de maintenance</a> et <a href="/frais-caches-site-internet">frais cachés après la livraison</a>.</p>
+<p class="mt-2">Voir aussi : <a href="/blog/cout-maintenance-site-web">coût de la maintenance</a>, <a href="/blog/contenu-forfait-maintenance-site-web">contenu d’un forfait de maintenance</a> et <a href="/blog/frais-caches-site-internet">frais cachés après la livraison</a>.</p>
 
 <h2>FAQ</h2>
 <h3>Combien de temps faut-il réellement pour créer un site vitrine professionnel ?</h3>

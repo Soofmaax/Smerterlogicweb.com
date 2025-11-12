@@ -116,7 +116,7 @@ tags:
 <h2>Site statique vs site dynamique : quand l’un suffit‑il ?</h2>
 <h3>Qu’est‑ce qu’un site statique ?</h3>
 <p>Serveur → fichiers HTML/CSS/JS <em>préconstruits</em>. Pas de base de données, pas de génération à la volée. Avantages : <strong>vitesse</strong>, <strong>sécurité</strong>, <strong>maintenance simplifiée</strong>. Idéal vitrines (services, réalisations, contact).</p>
-<p>Nos sites (1 490€ / 2 490€ / 4 990€) sont <strong>statiques</strong> → zéro maintenance, hébergement gratuit, vitesse maximale. <a href="/cout-site-vitrine-2025">Comparez les coûts</a>.</p>
+<p>Nos sites (1 490€ / 2 490€ / 4 990€) sont <strong>statiques</strong> → zéro maintenance, hébergement gratuit, vitesse maximale. <a href="/blog/cout-site-vitrine-2025">Comparez les coûts</a>.</p>
 <h3>Qu’est‑ce qu’un site dynamique ?</h3>
 <p>CMS + base de données → page construite <em>à la demande</em>. Permet personnalisation, comptes, recherche, mises à jour via interface.</p>
 <p>Indispensable si : <strong>e‑commerce</strong>, <strong>blog très actif</strong>, <strong>espace client</strong>, interactivité.</p>

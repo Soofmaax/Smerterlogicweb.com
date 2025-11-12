@@ -115,15 +115,15 @@ export default function FAQ() {
             Maintenance, coûts et garanties — liens rapides :
           </p>
           <div className="mt-3 flex flex-wrap items-center justify-center gap-x-4 gap-y-2 text-sm">
-            <a href="/cout-maintenance-site-web" className="text-primary hover:underline">
+            <a href="/blog/cout-maintenance-site-web" className="text-primary hover:underline">
               Coût de la maintenance
             </a>
             <span className="text-muted-foreground">•</span>
-            <a href="/contenu-forfait-maintenance-site-web" className="text-primary hover:underline">
+            <a href="/blog/contenu-forfait-maintenance-site-web" className="text-primary hover:underline">
               Contenu d’un forfait
             </a>
             <span className="text-muted-foreground">•</span>
-            <a href="/frais-caches-site-internet" className="text-primary hover:underline">
+            <a href="/blog/frais-caches-site-internet" className="text-primary hover:underline">
               Frais cachés après la livraison
             </a>
             <span className="text-muted-foreground">•</span>

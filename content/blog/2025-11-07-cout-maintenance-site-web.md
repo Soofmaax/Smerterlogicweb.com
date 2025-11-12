@@ -136,12 +136,12 @@ tags:
 <h2>Ma recommandation : sites statiques = 0 maintenance obligatoire</h2>
 <p><strong>Statique</strong> : HTML/CSS/JS, sans CMS ni DB, <strong>pas de mises à jour</strong>, <strong>hébergement gratuit</strong>, <strong>vitesse maximale</strong>, <strong>sécurité</strong>.</p>
 <p>TCO 3 ans : 2 490€ (création) + 10€/an (domaine). WordPress : création + hébergement + licences + maintenance → 4 000–8 000€.</p>
-<p>Évolutions ? <em>Formule Évolution</em> : 20€/mois (1h/mois, cumulable). Optionnel. Voir <a href="/frais-caches-site-internet">frais cachés</a> et <a href="/cout-site-vitrine-2025">coûts 2025</a>.</p>
+<p>Évolutions ? <em>Formule Évolution</em> : 20€/mois (1h/mois, cumulable). Optionnel. Voir <a href="/blog/frais-caches-site-internet">frais cachés</a> et <a href="/blog/cout-site-vitrine-2025">coûts 2025</a>.</p>
 
 <h2>Verdict : la maintenance est une assurance</h2>
 <p>Ne choisissez pas sur le <em>prix mensuel</em>, mais sur votre <strong>tolérance au risque</strong>. Site non‑critique → freelance 50–100€/mois. Site critique → agence avec SLA 150–300€/mois.</p>
 <p>Budget serré ? <strong>Statique</strong> : 0 maintenance obligatoire, hébergement gratuit, vitesse/SEO au top. Économies : 700–2 500€/an. Sur 3 ans : 2 100–7 500€.</p>
-<p class="mt-2">Voir aussi : <a href="/contenu-forfait-maintenance-site-web">que comprend un forfait de maintenance</a> et <a href="/frais-caches-site-internet">les frais cachés après la livraison</a>.</p>
+<p class="mt-2">Voir aussi : <a href="/blog/contenu-forfait-maintenance-site-web">que comprend un forfait de maintenance</a> et <a href="/blog/frais-caches-site-internet">les frais cachés après la livraison</a>.</p>
 
 <h2>FAQ</h2>
 <h3>Combien coûte la maintenance sur 1 an ?</h3>

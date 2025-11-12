@@ -27,7 +27,7 @@ tags:
 <p>Un site qui attire des clients est celui qui apparaît lorsque les prospects recherchent activement une solution. Si personne ne trouve votre site sur Google, peu importe qu’il soit magnifique : <strong>zéro visiteur = zéro client</strong>.</p>
 <p>L’efficacité d’un site repose sur <strong>trois piliers indissociables, dans cet ordre de priorité</strong> :</p>
 <ul>
-  <li><strong>Visibilité (SEO)</strong> : classement sur les requêtes clés, notamment via le <a href="/google-my-business-ou-site-web">référencement local</a> pour la majorité des TPE.</li>
+  <li><strong>Visibilité (SEO)</strong> : classement sur les requêtes clés, notamment via le <a href="/blog/google-my-business-ou-site-web">référencement local</a> pour la majorité des TPE.</li>
   <li><strong>Clarté du message (UX)</strong> : en 5 secondes, l’utilisateur comprend votre proposition de valeur.</li>
   <li><strong>Conversion (CTA)</strong> : guider clairement vers une action concrète (appel, devis, RDV).</li>
 </ul>
@@ -69,7 +69,7 @@ tags:
 <h3>KPI 3 : Taux de rebond</h3>
 <p>% de visiteurs quittant après 1 page. <strong>Objectif</strong> : 40 %–60 %. &gt; 70 % → problème (message/UX/vitesse).</p>
 <h3>KPI 4 : Positionnement local (Google My Business)</h3>
-<p>Classement sur « métier + ville ». <strong>Objectif</strong> : top 3 du pack local. Optimisez votre <a href="/google-my-business-ou-site-web">fiche GMB</a>.</p>
+<p>Classement sur « métier + ville » <<strong>Object</</strong> : top 3 du pack local. Optimisez votre <a href="/google-my-business-ou-site-web">fiche GMB</a>.</p>
 
 <h2>Le tableau des KPIs pour TPE</h2>
 <table>
@@ -125,7 +125,7 @@ tags:
   <li><strong>#1</strong> sur « menuisier Toulouse » (pack local).</li>
 </ul>
 <h3>Facteurs clés de succès</h3>
-<p><strong>Synergie du local</strong> : la <a href="/google-my-business-ou-site-web">fiche GMB</a> génère le flux ; le site capte et convertit.</p>
+<><<strong>Synergie du loc</</strong> : l <<a href="/blog/google-my-business-ou-site-web">fiche G</géa> génère le flux ; le site cap convertit.</p>
 <p><strong>Priorité à la conversion</strong> : le formulaire de devis simplifié comme CTA majeur.</p>
 
 <h2>Deux erreurs fatales à éviter</h2>

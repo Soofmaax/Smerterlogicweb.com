@@ -1,5 +1,9 @@
 import type { BlogPost } from "@/lib/blog";
 
+// Markdown-only policy: no TS seeds.
+// Keep this file minimal to avoid duplication with content/blog/*.md.
+export const BLOG_POSTS: BlogPost[] = [];type { BlogPost } from "@/lib/blog";
+
 // Seed content — replace with your own articles.
 // To schedule automatically, just append new posts here (order matters).
 // Each post will be assigned the next available Mon/Wed/Fri date at runtime.

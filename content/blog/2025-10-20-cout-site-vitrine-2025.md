@@ -135,7 +135,7 @@ tags:
 <p>Un site à 300€ coûte en réalité 3 200€ (contenu + SEO + maintenance). Un site statique à 2 490€ tout inclus est objectivement moins cher sur 3 ans.</p>
 <p>Faites le calcul. Exigez un devis détaillé. Et rappelez‑vous : votre site doit <strong>attirer des clients</strong>, pas juste exister.</p>
 <p>Besoin d’un site qui attire des clients ? Sites statiques optimisés pour TPE/PME de tous secteurs. Design sur‑mesure, contenu inclus, ultra‑rapide, 0 maintenance. Exemples : bmsventouse.fr (positions 2–10 en 4 mois). À partir de 1 490€. Code remis, domaine à votre nom.</p>
-<p class="mt-2">Voir aussi : <a href="/cout-maintenance-site-web">coût de la maintenance</a>, <a href="/contenu-forfait-maintenance-site-web">contenu d’un forfait de maintenance</a> et <a href="/frais-caches-site-internet">frais cachés après la livraison</a>.</p>
+<p class="mt-2">Voir aussi : <a href="/blog/cout-maintenance-site-web">coût de la maintenance</a>, <a href="/blog/contenu-forfait-maintenance-site-web">contenu d’un forfait de maintenance</a> et <a href="/blog/frais-caches-site-internet">frais cachés après la livraison</a>.</p>
 
 <h2>FAQ</h2>
 <h3>Combien coûte un site vitrine pour une TPE en 2025 ?</h3>
@@ -150,4 +150,5 @@ tags:
 <p>SaaS (Wix, Squarespace) : non, vous louez. Si vous arrêtez l’abonnement, tout disparaît. Freelance ou agence : normalement oui, mais vérifiez dans le devis que le code source vous est remis et que le domaine est à votre nom. Nos sites : oui, propriété totale. Code source remis sur GitHub, domaine à votre nom.</p>
 <h3>WordPress ou site statique : lequel choisir ?</h3>
 <p>Statique si vous voulez 0 maintenance, vitesse et sécurité. WordPress si blog très actif/e‑commerce complexe et si vous acceptez la maintenance. Pour 95 % des TPE (vitrine), statique est plus rentable sur 3 ans.</p>
-<p class="mt-2">Voir aussi : <a href="/frais-caches-site-internet">Frais cachés — ce qu’il faut anticiper après la livraison</a>.</p>
+<p class="mt-2">Voir aussi  <<a href="/blog/frais-caches-site-internet">Frais cachés — ce qu’il faut anticiper après la livrais</<>.</p>new
+</

@@ -209,9 +209,9 @@ Si votre prestataire est incapable de vous répondre précisément sur ces point
 
 Maintenant que vous comprenez les enjeux de l'infrastructure, votre prochaine action est de vérifier l'état actuel de votre hébergement si vous avez déjà un site, ou de poser les bonnes questions à votre prestataire si vous êtes en phase de projet.
 
-Pour aller plus loin sur les aspects financiers, consultez notre analyse détaillée des [frais cachés d'un site internet](/frais-caches-site-internet) qui inclut les coûts d'infrastructure et de maintenance sur plusieurs années. Nous détaillons également le [contenu exact d'un forfait de maintenance web](/contenu-forfait-maintenance-site-web) pour que vous sachiez précisément ce qui doit être inclus ou non.
+Pour aller plus loin sur les aspects financiers, consultez notre analyse détaillée des [frais cachés d'un site internet](/blog/frais-caches-site-internet) qui inclut les coûts d'infrastructure et de maintenance sur plusieurs années. Nous détaillons également le [contenu exact d'un forfait de maintenance web](/blog/contenu-forfait-maintenance-site-web) pour que vous sachiez précisément ce qui doit être inclus ou non.
 
-Si vous vous interrogez sur le retour sur investissement de toutes ces dépenses techniques, notre article sur le [ROI d'un site vitrine pour TPE](/roi-site-vitrine-tpe) vous montre avec des chiffres réels comment un site bien conçu et bien hébergé peut générer un multiple de son coût initial en quelques années. L'infrastructure n'est pas une dépense, c'est un investissement dans la fiabilité et la performance de votre outil commercial le plus important.
+Si vous vous interrogez sur le retour sur investissement de toutes ces dépenses techniques, notre article sur le [ROI d'un site vitrine pour TPE](/blog/roi-site-vitrine-tpe) vous montre avec des chiffres réels comment un site bien conçu et bien hébergé peut générer un multiple de son coût initial en quelques années. L'infrastructure n'est pas une dépense, c'est un investissement dans la fiabilité et la performance de votre outil commercial le plus important.
 
 ## FAQ : vos questions sur l'hébergement et l'infrastructure
 

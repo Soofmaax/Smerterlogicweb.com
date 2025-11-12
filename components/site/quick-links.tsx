@@ -13,18 +13,18 @@ export function QuickLinks({ className, title = "Pour approfondir" }: Props) {
       <div className="rounded-[28px] card-elevated border bg-card p-6 text-center">
         <h3 className="font-heading text-xl font-semibold">{title}</h3>
         <p className="mt-2 text-sm text-foreground/80">
-          Maintenance, coûts et garanties — liens rapides :
+          Maintenance, coûts et garanties — liens rapides :
         </p>
         <div className="mt-3 flex flex-wrap items-center justify-center gap-x-4 gap-y-2 text-sm">
-          <Link href="/cout-maintenance-site-web" className="text-primary hover:underline">
+          <Link href="/blog/cout-maintenance-site-web" className="text-primary hover:underline">
             Coût de la maintenance
           </Link>
           <span className="text-muted-foreground">•</span>
-          <Link href="/contenu-forfait-maintenance-site-web" className="text-primary hover:underline">
+          <Link href="/blog/contenu-forfait-maintenance-site-web" className="text-primary hover:underline">
             Contenu d’un forfait
           </Link>
           <span className="text-muted-foreground">•</span>
-          <Link href="/frais-caches-site-internet" className="text-primary hover:underline">
+          <Link href="/blog/frais-caches-site-internet" className="text-primary hover:underline">
             Frais cachés après la livraison
           </Link>
           <span className="text-muted-foreground">•</span>

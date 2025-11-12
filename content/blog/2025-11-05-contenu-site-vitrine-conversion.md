@@ -106,8 +106,8 @@ tags:
 
 <h2>Verdict : 4–5 pages optimisées > 15 pages moyennes</h2>
 <p>Pour convertir : <strong>USP claire</strong>, <strong>tarifs transparents</strong>, <strong>preuve sociale</strong>, <strong>visuels optimisés</strong>. Structurez 4–8 pages utiles, ciblez la longue traîne, mesurez et itérez.</p>
-<p>Besoin d’un site qui <em>convertit</em> vraiment ? Sites statiques optimisés CRO pour TPE/PME : USP travaillée, pricing par paliers, témoignages, WebP, formulaires efficaces. Dès 1 490€. <a href="/roi-site-vitrine-tpe">ROI TPE</a>.</p>
-<p class="mt-2">Voir aussi : <a href="/google-my-business-ou-site-web">GMB ou site web ?</a>, <a href="/role-client-creation-site-web">votre rôle dans la création</a> et <a href="/tarifs-2025">Tarifs 2025</a>.</p>
+<p>Besoin d’un site qui <em>convertit</em> vraiment ? Sites statiques optimisés CRO pour TPE/PME : USP travaillée, pricing par paliers, témoignages, WebP, formulaires efficaces. Dès 1 490€. <a href="/blog/roi-site-vitrine-tpe">ROI TPE</a>.</p>
+<p class="mt-2">Voir aussi : <a href="/blog/google-my-business-ou-site-web">GMB ou site web ?</a>, <a href="/blog/role-client-creation-site-web">votre rôle dans la création</a> et <a href="/tarifs-2025">Tarifs 2025</a>.</p>
 
 <h2>FAQ</h2>
 <h3>Combien de pages faut‑il prévoir pour un site vitrine ?</h3>

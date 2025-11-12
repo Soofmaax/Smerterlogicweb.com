@@ -144,7 +144,7 @@ Ne tombez pas dans le piège de vouloir des résultats immédiats en brûlant vo
 
 Maintenant que vous comprenez les bases techniques du SEO et les délais réalistes, votre prochaine action doit être de faire auditer votre site pour identifier les points de blocage. Vous avez peut-être des problèmes techniques que vous ignorez et qui freinent votre progression.
 
-Si vous voulez aller plus loin, je vous recommande de consulter nos [tarifs détaillés pour 2025](/tarifs-2025) qui incluent un audit technique complet et la mise en place des fondations SEO. Nous détaillons également le [retour sur investissement concret d'un site vitrine pour TPE](/roi-site-vitrine-tpe) avec des chiffres réels de nos clients.
+Si vous voulez aller plus loin, je vous recommande de consulter nos [tarifs détaillés pour 2025](/tarifs-2025) qui incluent un audit technique complet et la mise en place des fondations SEO. Nous détaillons également le [retour sur investissement concret d'un site vitrine pour TPE](/blog/roi-site-vitrine-tpe) avec des chiffres réels de nos clients.
 
 Gardez également en tête que le SEO ne s'arrête pas aux critères techniques. L'infrastructure sur laquelle repose votre site joue un rôle majeur dans vos performances. Un hébergement de mauvaise qualité peut ruiner tous vos efforts SEO. Pour comprendre ce que votre prestataire doit garantir en matière d'hébergement et de fiabilité, lisez notre prochain article sur les garanties d'infrastructure essentielles.
 
