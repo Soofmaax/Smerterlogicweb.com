@@ -2,7 +2,7 @@
 slug: frais-caches-site-internet
 locale: fr
 title: "Frais cachés : ce qu'il faut anticiper après la livraison du site"
-summary: "Frais cachés site internet : maintenance 290–1 800€/an pour WordPress, 0€ pour site statique. Découvrez le vrai coût total sur 3 ans et les modalités de paiement."
+summary: "Frais cachés site internet : maintenance 290-1 800€/an pour WordPress, 0€ pour site statique. Découvrez le vrai coût total sur 3 ans et les modalités de paiement."
 publishAt: 2025-10-22T09:00:00Z
 authorName: "Sonia"
 authorUrl: "https://smarterlogicweb.com/a-propos"
