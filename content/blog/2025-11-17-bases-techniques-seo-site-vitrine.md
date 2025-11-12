@@ -3,6 +3,7 @@ slug: bases-techniques-seo-site-vitrine
 locale: fr
 title: "Les bases techniques du SEO pour votre site vitrine : ce qu'il faut vraiment savoir"
 summary: "Critères SEO techniques essentiels et délais réalistes pour voir vos premiers résultats. Guide honnête pour TPE/PME sans langue de bois."
+publishAt: 2025-11-17T09:00:00Z
 authorName: "Sonia"
 authorUrl: "https://smarterlogicweb.com/a-propos"
 tags:
