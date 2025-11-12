@@ -69,7 +69,7 @@ tags:
 <h3>KPI 3 : Taux de rebond</h3>
 <p>% de visiteurs quittant après 1 page. <strong>Objectif</strong> : 40 %–60 %. &gt; 70 % → problème (message/UX/vitesse).</p>
 <h3>KPI 4 : Positionnement local (Google My Business)</h3>
-<p>Classement sur « métier + ville » <<strong>Object</</strong> : top 3 du pack local. Optimisez votre <a href="/google-my-business-ou-site-web">fiche GMB</a>.</p>
+<p>Classement sur « métier + ville » <<strong>Object</</strong> : top 3 du pack local. Optimisez votre <a href="/blog/google-my-business-ou-site-web">fiche GMB</a>.</p>
 
 <h2>Le tableau des KPIs pour TPE</h2>
 <table>

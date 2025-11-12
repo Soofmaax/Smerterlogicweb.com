@@ -14,7 +14,7 @@ Tu es un rédacteur senior web/SEO. Ta mission est de rédiger un article de blo
 - Structure souhaitée: [si spécifique]
 - Données chiffrées/sources: [si disponibles; sinon fournir des estimations réalistes]
 - Liens internes cibles (choisir 2–4):  
-  /tarifs-2025, /roi-site-vitrine-tpe, /frais-caches-site-internet, /contenu-site-vitrine-conversion, /google-my-business-ou-site-web, /cout-maintenance-site-web, /contenu-forfait-maintenance-site-web
+  /tarifs-2025, /blog/roi-site-vitrine-tpe, /blog/frais-caches-site-internet, /blog/contenu-site-vitrine-conversion, /blog/google-my-business-ou-site-web, /blog/cout-maintenance-site-web, /blog/contenu-forfait-maintenance-site-web
 - Slug attendu: [ex. mon-article]
 - Meta description (150–160 caractères max): [ta phrase]
 - Tags (5–8): [liste de mots-clés]
