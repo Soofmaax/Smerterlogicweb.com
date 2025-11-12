@@ -10,7 +10,8 @@ import { CitationBox } from "@/components/site/citation-box";
 export const dynamic = "force-dynamic";
 
 export async function generateMetadata({ params }: { params: { slug: string } }) {
-  const result = getScheduledPostBySlugBurst(getAllPosts(), params.slug, "fr");
+  const all = getAllPosts();
+  const result = getScheduledPostBySlugBurst(all, params.slug, "fr");
   if (!result || !result.isPublished) {
     return {
       title: "Article non disponible",
@@ -18,6 +19,15 @@ export async function generateMetadata({ params }: { params: { slug: string } })
     };
   }
   const { post } = result;
+
+  // Compute proper EN alternate slug:
+  // 1) prefer explicit mapping from frontmatter (altLocales.en)
+  // 2) else, use same slug if an EN post exists with the same slug
+  // 3) else, fallback to the FR slug (may 404 if EN not available)
+  const explicitEn = post.altLocales?.en;
+  const enSameSlug = all.find((p) => p.locale === "en" && p.slug === post.slug);
+  const enAltSlug = explicitEn || enSameSlug?.slug || post.slug;
+
   return {
     title: post.title,
     description: post.summary ?? post.title,
@@ -25,7 +35,7 @@ export async function generateMetadata({ params }: { params: { slug: string } })
       canonical: `/blog/${post.slug}`,
       languages: {
         "fr-FR": `/blog/${post.slug}`,
-        "en-US": `/en/blog/${post.slug}`,
+        "en-US": `/en/blog/${enAltSlug}`,
       },
     },
     openGraph: {

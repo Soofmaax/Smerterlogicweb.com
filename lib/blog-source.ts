@@ -19,6 +19,7 @@ import type { BlogPost, BlogLocale } from "./blog";
  * - published: boolean (optional; publish immediately)
  * - draft: boolean (optional; hide from publication)
  * - tags: string[] (optional)
+ * - altLocales: { fr?: string; en?: string } (optional cross-locale slug mapping)
  *
  * Filename shortcut:
  * - If file name starts with YYYY-MM-DD-..., use that date as publishAt automatically.
@@ -59,6 +60,11 @@ export function loadPostsFromMarkdown(): BlogPost[] {
     const draft = parsed.data.draft === true || false;
     const tags = Array.isArray(parsed.data.tags) ? (parsed.data.tags as string[]) : undefined;
 
+    // Optional cross-locale slug mapping
+    const altLocalesRaw = parsed.data.altLocales as Partial<Record<BlogLocale, string>> | undefined;
+    const altLocales =
+      altLocalesRaw && typeof altLocalesRaw === "object" ? (altLocalesRaw as Partial<Record<BlogLocale, string>>) : undefined;
+
     // Convert markdown body to HTML
     const html = remark().use(remarkHtml).processSync(parsed.content).toString();
 
@@ -74,6 +80,7 @@ export function loadPostsFromMarkdown(): BlogPost[] {
       draft,
       tags,
       contentHtml: html,
+      altLocales,
     });
   }
 

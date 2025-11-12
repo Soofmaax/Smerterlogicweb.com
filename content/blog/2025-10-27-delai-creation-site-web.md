@@ -13,6 +13,8 @@ tags:
   - "combien de temps site en ligne"
   - "combien de temps pour créer un site vitrine professionnel"
   - "délai moyen création site internet France"
+altLocales:
+  en: "website-launch-timeline"
 ---
 
 # Combien de temps pour avoir votre site en ligne ? (La vérité sur les délais réels)

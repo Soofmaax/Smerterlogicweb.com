@@ -8,7 +8,8 @@ import { CitationBox } from "@/components/site/citation-box";
 export const dynamic = "force-dynamic";
 
 export async function generateMetadata({ params }: { params: { slug: string } }) {
-  const result = getScheduledPostBySlugBurst(getAllPosts(), params.slug, "en");
+  const all = getAllPosts();
+  const result = getScheduledPostBySlugBurst(all, params.slug, "en");
   if (!result || !result.isPublished) {
     return {
       title: "Article unavailable",
@@ -16,13 +17,24 @@ export async function generateMetadata({ params }: { params: { slug: string } })
     };
   }
   const { post } = result;
+
+  // Compute proper FR alternate slug:
+  // 1) find FR post with same slug
+  // 2) else, find FR post that declares altLocales.en === current EN slug
+  // 3) else, fallback to EN slug
+  const frSameSlug = all.find((p) => p.locale === "fr" && p.slug === post.slug);
+  const frByMapping = all.find(
+    (p) => p.locale === "fr" && typeof (p as any).altLocales === "object" && (p as any).altLocales?.en === post.slug
+  );
+  const frAltSlug = frSameSlug?.slug || frByMapping?.slug || post.slug;
+
   return {
     title: post.title,
     description: post.summary ?? post.title,
     alternates: {
       canonical: `/en/blog/${post.slug}`,
       languages: {
-        "fr-FR": `/blog/${post.slug}`,
+        "fr-FR": `/blog/${frAltSlug}`,
         "en-US": `/en/blog/${post.slug}`,
       },
     },
