@@ -5,6 +5,7 @@ import { getAllPosts } from "@/lib/blog-source";
 import { RecommendedArticles } from "@/components/site/recommended-articles";
 import { RelatedCities } from "@/components/site/related-cities";
 import { Breadcrumbs } from "@/components/site/breadcrumbs";
+import { CitationBox } from "@/components/site/citation-box";
 
 export const dynamic = "force-dynamic";
 
@@ -56,18 +57,43 @@ export default function BlogPostFR({ params }: { params: { slug: string } }) {
     ],
   };
 
+  const blogPostingSchema = {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    headline: post.title,
+    description: post.summary ?? post.title,
+    datePublished: post.publishAt.toISOString(),
+    dateModified: post.publishAt.toISOString(),
+    mainEntityOfPage: `https://smarterlogicweb.com/blog/${post.slug}`,
+    isAccessibleForFree: true,
+    author: {
+      "@type": "Organization",
+      name: "smarterlogicweb",
+      url: "https://smarterlogicweb.com",
+    },
+    publisher: {
+      "@type": "Organization",
+      name: "smarterlogicweb",
+      url: "https://smarterlogicweb.com",
+    },
+    license: "https://smarterlogicweb.com/politique-usage-contenu",
+  };
+
   const hasH1 = /<h1(\s|>)/i.test(post.contentHtml);
 
   return (
     <article className="mx-auto w-full max-w-3xl px-6 py-10">
       {/* JSON-LD BreadcrumbList */}
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
+      {/* JSON-LD BlogPosting */}
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(blogPostingSchema) }} />
 
       <header className="mb-6">
         {!hasH1 ? (
           <h1 className="font-heading text-3xl font-bold tracking-tight">{post.title}</h1>
         ) : null}
-        <time className="mt-1 block text-sm text-muted-foreground" dateTime={post.publishAt.toISOString()}>
+        <p className="mt-1 text-sm text-muted-foreground">Par smarterlogicweb</p>
+        <time className="mt-0.5 block text-sm text-muted-foreground" dateTime={post.publishAt.toISOString()}>
           Publié le {formatDate(post.publishAt, "fr")}
         </time>
 
@@ -90,6 +116,8 @@ export default function BlogPostFR({ params }: { params: { slug: string } }) {
       <RelatedCities contentHtml={post.contentHtml} locale="fr" />
 
       <RecommendedArticles currentSlug={post.slug} locale="fr" />
+
+      <CitationBox articleSlug={post.slug} locale="fr" />
 
       <footer className="mt-8">
         <Link href="/blog" className="text-primary hover:underline">

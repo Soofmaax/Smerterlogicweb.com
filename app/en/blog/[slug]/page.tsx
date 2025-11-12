@@ -3,6 +3,7 @@ import { notFound } from "next/navigation";
 import { getScheduledPostBySlugBurst, formatDate } from "@/lib/blog";
 import { getAllPosts } from "@/lib/blog-source";
 import { Breadcrumbs } from "@/components/site/breadcrumbs";
+import { CitationBox } from "@/components/site/citation-box";
 
 export const dynamic = "force-dynamic";
 
@@ -53,14 +54,39 @@ export default function BlogPostEN({ params }: { params: { slug: string } }) {
     ],
   };
 
+  const blogPostingSchema = {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    headline: post.title,
+    description: post.summary ?? post.title,
+    datePublished: post.publishAt.toISOString(),
+    dateModified: post.publishAt.toISOString(),
+    mainEntityOfPage: `https://smarterlogicweb.com/en/blog/${post.slug}`,
+    isAccessibleForFree: true,
+    author: {
+      "@type": "Organization",
+      name: "smarterlogicweb",
+      url: "https://smarterlogicweb.com",
+    },
+    publisher: {
+      "@type": "Organization",
+      name: "smarterlogicweb",
+      url: "https://smarterlogicweb.com",
+    },
+    license: "https://smarterlogicweb.com/en/content-usage-policy",
+  };
+
   return (
     <article className="mx-auto w-full max-w-3xl px-6 py-10">
       {/* JSON-LD BreadcrumbList */}
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
+      {/* JSON-LD BlogPosting */}
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(blogPostingSchema) }} />
 
       <header className="mb-6">
         <h1 className="font-heading text-3xl font-bold tracking-tight">{post.title}</h1>
-        <time className="mt-1 block text-sm text-muted-foreground" dateTime={post.publishAt.toISOString()}>
+        <p className="mt-1 text-sm text-muted-foreground">By smarterlogicweb</p>
+        <time className="mt-0.5 block text-sm text-muted-foreground" dateTime={post.publishAt.toISOString()}>
           Published on {formatDate(post.publishAt, "en")}
         </time>
 
@@ -79,6 +105,8 @@ export default function BlogPostEN({ params }: { params: { slug: string } }) {
         className="prose prose-neutral dark:prose-invert max-w-none prose-headings:font-heading prose-a:text-primary prose-a:underline-offset-2 prose-img:rounded-lg prose-img:shadow-sm"
         dangerouslySetInnerHTML={{ __html: post.contentHtml }}
       />
+
+      <CitationBox articleSlug={post.slug} locale="en" />
 
       <footer className="mt-8">
         <Link href="/en/blog" className="text-primary hover:underline">
