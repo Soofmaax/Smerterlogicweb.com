@@ -151,3 +151,8 @@
   from = "/contenu-forfait-maintenance-site-web"
   to = "/blog/contenu-forfait-maintenance-site-web"
   status = 301
+
+[[redirects]]
+  from = "/site-statique-vs-cms-autonomie"
+  to = "/blog/site-statique-vs-cms-autonomie"
+  status = 301
