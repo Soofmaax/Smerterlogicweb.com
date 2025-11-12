@@ -2,7 +2,10 @@ import fs from "node:fs";
 import path from "node:path";
 import matter from "gray-matter";
 import { remark } from "remark";
-import remarkHtml from "remark-html";
+import remarkParse from "remark-parse";
+import remarkRehype from "remark-rehype";
+import rehypeRaw from "rehype-raw";
+import rehypeStringify from "rehype-stringify";
 
 import type { BlogPost, BlogLocale } from "./blog";
 
@@ -65,8 +68,14 @@ export function loadPostsFromMarkdown(): BlogPost[] {
     const altLocales =
       altLocalesRaw && typeof altLocalesRaw === "object" ? (altLocalesRaw as Partial<Record<BlogLocale, string>>) : undefined;
 
-    // Convert markdown body to HTML (allow raw HTML from our trusted markdown files)
-    const html = remark().use(remarkHtml, { sanitize: false }).processSync(parsed.content).toString();
+    // Convert markdown body to HTML with raw HTML support (trusted content)
+    const html = remark()
+      .use(remarkParse)
+      .use(remarkRehype, { allowDangerousHtml: true })
+      .use(rehypeRaw)
+      .use(rehypeStringify)
+      .processSync(parsed.content)
+      .toString();
 
     posts.push({
       slug,
