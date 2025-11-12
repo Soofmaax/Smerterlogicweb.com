@@ -133,13 +133,8 @@ export default function EnLayout({ children }: { children: React.ReactNode }) {
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLdSite) }}
         />
 
-        {/* Analytics */}
-        {provider === "plausible" && (
-          <Script strategy="lazyOnload" data-domain={plausibleDomain} src="https://plausible.io/js/script.js" />
-        )}
-        {provider === "umami" && umamiWebsiteId && (
-          <Script strategy="lazyOnload" src={umamiSrc} data-website-id={umamiWebsiteId} />
-        )}
+        {/* Analytics (loaded client-side only after consent) */}
+        <AnalyticsLoader />
 
         {/* UX extras */}
         <UXEnhancer />

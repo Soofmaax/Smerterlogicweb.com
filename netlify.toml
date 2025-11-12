@@ -20,7 +20,7 @@
     X-Frame-Options = "SAMEORIGIN"
     Permissions-Policy = "camera=(), microphone=(), geolocation=()"
     Report-To = '{"group":"csp-endpoint","max_age":10886400,"endpoints":[{"url":"https://smarterlogicweb.com/api/csp-report"}],"include_subdomains":true}'
-    Content-Security-Policy = "default-src 'self'; script-src 'self' https://plausible.io https://analytics.umami.is https://www.google.com https://www.gstatic.com https://www.googletagmanager.com https://www.google-analytics.com; connect-src 'self' https://plausible.io https://analytics.umami.is https://www.google.com https://www.gstatic.com https://www.googletagmanager.com https://www.google-analytics.com; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob: https://www.gstatic.com; font-src 'self'; frame-src 'self' https://www.google.com; frame-ancestors 'self'; base-uri 'self'; form-action 'self'; upgrade-insecure-requests; report-to csp-endpoint; report-uri /api/csp-report"
+    Content-Security-Policy = "default-src 'self'; script-src 'self' https://plausible.io https://analytics.umami.is https://www.google.com https://www.gstatic.com https://www.googletagmanager.com https://www.google-analytics.com; connect-src 'self' https://plausible.io https://analytics.umami.is https://www.google.com https://www.gstatic.com https://www.googletagmanager.com https://www.google-analytics.com; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob: https://www.gstatic.com https://www.google-analytics.com; font-src 'self'; frame-src 'self' https://www.google.com; frame-ancestors 'self'; base-uri 'self'; form-action 'self'; upgrade-insecure-requests; report-to csp-endpoint; report-uri /api/csp-report"
 
 # Aggressive caching for static assets (immutable)
 [[headers]]
@@ -95,6 +95,12 @@
   from = "/robots.txt"
   to = "/robots"
   status = 200
+
+# Redirect old national page to the new canonical
+[[redirects]]
+  from = "/creation-site-internet-france"
+  to = "/villes-intervention"
+  status = 301
 
 # Redirect canonical articles to /blog/{slug} to avoid duplicate content
 [[redirects]]
