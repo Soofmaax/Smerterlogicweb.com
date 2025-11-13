@@ -18,6 +18,7 @@
   "scripts": {
     "dev": "next dev -p 3000",
     "build": "next build",
+    "postbuild": "node scripts/indexnow-ping.mjs",
     "start": "next start",
     "lint": "next lint",
     "postinstall": "node scripts/fetch-pdf-fonts.mjs",
