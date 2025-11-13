@@ -308,5 +308,5 @@ export function ContactForm({ locale, action }: Props) {
       </div>
     </form>
   );
-}>{t.reassurance}</p>
+}
      
