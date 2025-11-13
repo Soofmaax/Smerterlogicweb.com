@@ -273,18 +273,18 @@ export function ContactForm({ locale, action }: Props) {
       </div>
 
       {/* Consentement RGPD */}
-     <idiv className="mt-2">
-       <rlabel htmlFor="consent" className="flex items-start gap-2 text-sm">
-         < input
+      <div className="mt-2">
+        <label htmlFor="consent" className="flex items-start gap-2 text-sm">
+          <input
             id="consent"
             type="checkbox"
             className="mt-1 h-4 w-4 rounded border-foreground/30"
             {...register("consent", { required: true })}
           />
-         < span>{t.consentLab}</n>span>
-      </aslabel>
+          <span>{t.consentLabel}</span>
+        </label>
         {errors.consent && (
-         <rdiv className="mt-1 text-sm text-red-500">{t.mustAcce}</div>
+          <div className="mt-1 text-sm text-red-500">{t.mustAccept}</div>
         )}
       </div>
 
@@ -305,4 +305,8 @@ export function ContactForm({ locale, action }: Props) {
           )}
         </Button>
         <p className="mt-2 text-xs text-muted-foreground">{t.reassurance}</p>
+      </div>
+    </form>
+  );
+}>{t.reassurance}</p>
      
