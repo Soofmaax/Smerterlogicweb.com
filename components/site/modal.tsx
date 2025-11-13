@@ -38,12 +38,12 @@ export function Modal({
       role="dialog"
       aria-modal="true"
       aria-label={ariaLabel}
-      className="modal-overlay fixed inset-0 z-[90] flex items-center justify-center bg-black/70 p-4"
+      className="modal-overlay fixed inset-0 z-[90] flex items-center justify-center bg-black/70 p-0 md:p-4"
       onClick={(e) => {
         if (e.target === overlayRef.current) onClose();
       }}
     >
-      <div className="modal-content relative w-full max-w-3xl rounded-2xl border bg-card p-4 shadow-xl ring-1 ring-black/10">
+      <div className="modal-content relative h-[100dvh] w-full overflow-y-auto rounded-none border bg-card p-4 shadow-xl ring-1 ring-black/10 md:h-auto md:max-w-3xl md:rounded-2xl">
         {/* Attach pinch-zoom within modal scope */}
         <PinchZoom root={overlayRef} />
         {children}
