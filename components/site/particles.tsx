@@ -36,7 +36,6 @@ export function Particles() {
 
     const dpr = Math.min(2, window.devicePixelRatio || 1);
 
-    const isMobile = window.matchMedia?.("(max-width: 768px)")?.matches ?? false;
     const count = isMobile ? 60 : 100;
     const linkDist = isMobile ? 100 * dpr : 140 * dpr;
 
