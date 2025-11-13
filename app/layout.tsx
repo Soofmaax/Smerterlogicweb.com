@@ -108,17 +108,31 @@ const jsonLdSite = {
 };
 
 const phonePublic = process.env.NEXT_PUBLIC_PHONE || "";
+const COMPANY_NAME = process.env.NEXT_PUBLIC_COMPANY_NAME || "smarterlogicweb";
+const ADDRESS_STREET = process.env.NEXT_PUBLIC_COMPANY_STREET || "";
+const ADDRESS_POSTAL_CODE = process.env.NEXT_PUBLIC_COMPANY_ZIP || "";
+const ADDRESS_LOCALITY = process.env.NEXT_PUBLIC_COMPANY_CITY || "";
+const ADDRESS_REGION = process.env.NEXT_PUBLIC_COMPANY_REGION || "";
+const CONTACT_EMAIL = process.env.NEXT_PUBLIC_CONTACT_EMAIL || "contact@smarterlogicweb.com";
+const OPENING_HOURS = process.env.NEXT_PUBLIC_OPENING_HOURS || "";
+
 const jsonLdLocalBusiness = {
   "@context": "https://schema.org",
   "@type": "LocalBusiness",
-  name: "smarterlogicweb",
+  name: COMPANY_NAME,
   url: "https://smarterlogicweb.com",
   areaServed: "France",
   address: {
     "@type": "PostalAddress",
     addressCountry: "FR",
+    ...(ADDRESS_STREET ? { streetAddress: ADDRESS_STREET } : {}),
+    ...(ADDRESS_LOCALITY ? { addressLocality: ADDRESS_LOCALITY } : {}),
+    ...(ADDRESS_REGION ? { addressRegion: ADDRESS_REGION } : {}),
+    ...(ADDRESS_POSTAL_CODE ? { postalCode: ADDRESS_POSTAL_CODE } : {}),
   },
   ...(phonePublic ? { telephone: phonePublic } : {}),
+  ...(CONTACT_EMAIL ? { email: CONTACT_EMAIL } : {}),
+  ...(OPENING_HOURS ? { openingHours: OPENING_HOURS } : {}),
 };
 
 export const viewport = {

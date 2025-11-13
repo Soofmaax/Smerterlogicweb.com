@@ -16,6 +16,7 @@ type Fields = {
   phone: string;
   metier: string;
   city?: string;
+  consent: boolean;
   "bot-field"?: string;
 };
 
@@ -51,6 +52,15 @@ export function ContactForm({ locale, action }: Props) {
     placeholderFirst: locale === "fr" ? "Votre prénom" : "Your first name",
     placeholderPhone: locale === "fr" ? "06 12 34 56 78" : "+33 6 12 34 56 78",
     placeholderCity: locale === "fr" ? "Votre ville" : "Your city",
+    consentLabel:
+      locale === "fr"
+        ? <>En soumettant ce formulaire, vous acceptez le traitement de vos données conformément à notre{" "}
+            <a href="/politique-de-confidentialite" className="underline">politique de confidentialité</a>.
+          </>
+        : <>By submitting this form, you agree to the processing of your data in accordance with our{" "}
+            <a href="/en/privacy-policy" className="underline">privacy policy</a>.
+          </>,
+    mustAccept: locale === "fr" ? "Veuillez accepter la politique de confidentialité." : "Please accept the privacy policy.",
   };
 
   // Prefill from localStorage, URL params, and referrer
@@ -262,8 +272,29 @@ export function ContactForm({ locale, action }: Props) {
         </div>
       </div>
 
+      {/* Consentement RGPD */}
+     <idiv className="mt-2">
+       <rlabel htmlFor="consent" className="flex items-start gap-2 text-sm">
+         < input
+            id="consent"
+            type="checkbox"
+            className="mt-1 h-4 w-4 rounded border-foreground/30"
+            {...register("consent", { required: true })}
+          />
+         < span>{t.consentLab}</n>span>
+      </aslabel>
+        {errors.consent && (
+         <rdiv className="mt-1 text-sm text-red-500">{t.mustAcce}</div>
+        )}
+      </div>
+
       <div>
-        <Button type="submit" className="rounded-full" variant="cta" disabled={!isValid || isSubmitting}>
+        <Button
+          type="submit"
+          className="rounded-full"
+          variant="cta"
+          disabled={!isValid || isSubmitting}
+        >
           {isSubmitting ? (
             <span className="inline-flex items-center gap-2">
               <Loader2 className="h-4 w-4 animate-spin" />
@@ -274,7 +305,4 @@ export function ContactForm({ locale, action }: Props) {
           )}
         </Button>
         <p className="mt-2 text-xs text-muted-foreground">{t.reassurance}</p>
-      </div>
-    </form>
-  );
-}
+     
