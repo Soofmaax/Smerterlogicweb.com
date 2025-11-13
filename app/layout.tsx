@@ -10,10 +10,8 @@ import { AnalyticsLoader } from "@/components/site/analytics-loader";
 import { MarketingLoader } from "@/components/site/marketing-loader";
 
 import { EasterEggs } from "@/components/site/easter-eggs";
-import { VoiceCommands } from "@/components/site/voice-commands";
 import { AssistantOverlay } from "@/components/site/assistant-overlay";
 import { GyroTilt } from "@/components/site/gyro-tilt";
-import { ReduceMotionToggle } from "@/components/site/reduce-motion-toggle";
 import { UrgencyBanner } from "@/components/site/urgency-banner";
 
 import Script from "next/script";
@@ -76,6 +74,9 @@ export const metadata: Metadata = {
       "La qualité qui se mesure : vitesse, sécurité, résultats. Sites web sur-mesure pour entrepreneurs et associations. Simple, performant, sans complexité — je m’occupe du reste.",
     images: ["/opengraph-image"],
   },
+  verification: {
+    google: "icboO_CSLrw9wrG8c_4iRbw6jy6W1WItmeJOM-e3npg",
+  },
   robots: {
     index: true,
     follow: true,
@@ -110,17 +111,31 @@ const jsonLdSite = {
 };
 
 const phonePublic = process.env.NEXT_PUBLIC_PHONE || "";
+const COMPANY_NAME = process.env.NEXT_PUBLIC_COMPANY_NAME || "smarterlogicweb";
+const ADDRESS_STREET = process.env.NEXT_PUBLIC_COMPANY_STREET || "";
+const ADDRESS_POSTAL_CODE = process.env.NEXT_PUBLIC_COMPANY_ZIP || "";
+const ADDRESS_LOCALITY = process.env.NEXT_PUBLIC_COMPANY_CITY || "";
+const ADDRESS_REGION = process.env.NEXT_PUBLIC_COMPANY_REGION || "";
+const CONTACT_EMAIL = process.env.NEXT_PUBLIC_CONTACT_EMAIL || "contact@smarterlogicweb.com";
+const OPENING_HOURS = process.env.NEXT_PUBLIC_OPENING_HOURS || "";
+
 const jsonLdLocalBusiness = {
   "@context": "https://schema.org",
   "@type": "LocalBusiness",
-  name: "smarterlogicweb",
+  name: COMPANY_NAME,
   url: "https://smarterlogicweb.com",
   areaServed: "France",
   address: {
     "@type": "PostalAddress",
     addressCountry: "FR",
+    ...(ADDRESS_STREET ? { streetAddress: ADDRESS_STREET } : {}),
+    ...(ADDRESS_LOCALITY ? { addressLocality: ADDRESS_LOCALITY } : {}),
+    ...(ADDRESS_REGION ? { addressRegion: ADDRESS_REGION } : {}),
+    ...(ADDRESS_POSTAL_CODE ? { postalCode: ADDRESS_POSTAL_CODE } : {}),
   },
   ...(phonePublic ? { telephone: phonePublic } : {}),
+  ...(CONTACT_EMAIL ? { email: CONTACT_EMAIL } : {}),
+  ...(OPENING_HOURS ? { openingHours: OPENING_HOURS } : {}),
 };
 
 export const viewport = {
@@ -180,9 +195,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           <Footer />
         </div>
 
-        {/* Right-hand friendly floating actions (minimized: no floating widgets) */}
-        <VoiceCommands />
-        <ReduceMotionToggle />
+        {/* Right-hand friendly floating actions removed on request (mobile clutter) */}
 
         {/* Easter Eggs (fun, non-intrusive) */}
         <EasterEggs />

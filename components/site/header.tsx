@@ -313,7 +313,7 @@ export function Header() {
 
         {/* Mobile menu button */}
         <button
-          className="inline-flex items-center gap-2 rounded-md p-2 text-muted-foreground hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring md:hidden"
+          className="inline-flex items-center gap-2 rounded-md p-3 text-muted-foreground hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring md:hidden"
           aria-label={open ? (isEn ? "Close menu" : "Fermer le menu") : (isEn ? "Open menu" : "Ouvrir le menu")}
           aria-controls="mobile-menu"
           aria-expanded={open}
@@ -329,7 +329,7 @@ export function Header() {
           id="mobile-menu"
           role="dialog"
           aria-modal="true"
-          className="fixed inset-0 z-50 block bg-background/95 backdrop-blur md:hidden"
+          className="fixed inset-0 z-50 block bg-background supports-[backdrop-filter]:bg-background/90 backdrop-blur md:hidden"
         >
           <div className="mx-auto flex w-full max-w-5xl flex-col px-6 py-6">
             <div className="flex items-center justify-between">
@@ -338,7 +338,7 @@ export function Header() {
                 <span className="sr-only">{isEn ? "Home" : "Accueil"}</span>
               </Link>
               <button
-                className="inline-flex items-center gap-2 rounded-md p-2 text-muted-foreground hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+                className="inline-flex items-center gap-2 rounded-md p-3 text-muted-foreground hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
                 aria-label={isEn ? "Close menu" : "Fermer le menu"}
                 onClick={() => setOpen(false)}
               >

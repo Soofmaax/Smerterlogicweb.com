@@ -123,7 +123,7 @@ export function BookingModal({
           <iframe
             src={embedUrl}
             title="Prise de rendez‑vous"
-            className="h-[70vh] w-full rounded-xl"
+            className="w-full rounded-xl h-[calc(100dvh-140px)] md:h-[70vh]"
             loading="lazy"
           />
         ) : (

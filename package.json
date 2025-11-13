@@ -20,7 +20,8 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "postinstall": "node scripts/fetch-pdf-fonts.mjs"
+    "postinstall": "node scripts/fetch-pdf-fonts.mjs",
+    "check:images": "node scripts/check-images.mjs"
   },
   "dependencies": {
     "next": "14.2.33",

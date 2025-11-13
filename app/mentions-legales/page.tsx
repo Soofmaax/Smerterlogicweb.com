@@ -17,6 +17,15 @@ export const metadata = {
   },
 };
 
+const COMPANY_NAME = process.env.NEXT_PUBLIC_COMPANY_NAME || "smarterlogicweb.com";
+const COMPANY_SIRET = process.env.NEXT_PUBLIC_COMPANY_SIRET || "";
+const COMPANY_ADDRESS = process.env.NEXT_PUBLIC_COMPANY_ADDRESS || "";
+const PUBLISHER_NAME = process.env.NEXT_PUBLIC_PUBLISHER_NAME || "";
+const HOST_NAME = process.env.NEXT_PUBLIC_HOST_NAME || "";
+const HOST_ADDRESS = process.env.NEXT_PUBLIC_HOST_ADDRESS || "";
+const HOST_PHONE = process.env.NEXT_PUBLIC_HOST_PHONE || "";
+const CONTACT_EMAIL = process.env.NEXT_PUBLIC_CONTACT_EMAIL || "contact@smarterlogicweb.com";
+
 export default function MentionsLegalesPage() {
   return (
     <section className="mx-auto w-full max-w-3xl px-6 py-16 md:py-24">
@@ -26,12 +35,25 @@ export default function MentionsLegalesPage() {
         <div className="prose prose-neutral mt-6 max-w-none dark:prose-invert">
           <h2>Éditeur du site</h2>
           <p>
-            smarterlogicweb.com — Contact{" "}
-            <a href="mailto:contact@smarterlogicweb.com">contact@smarterlogicweb.com</a>
+            {COMPANY_NAME}
+            {COMPANY_SIRET ? <> — SIRET : {COMPANY_SIRET}</> : null}
+            {COMPANY_ADDRESS ? <> — Adresse : {COMPANY_ADDRESS}</> : null}
+            {" — "}Contact{" "}
+            <a href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a>
+          </p>
+
+          <h2>Directeur de la publication</h2>
+          <p>
+            {PUBLISHER_NAME || "—"} — Contact{" "}
+            <a href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a>
           </p>
 
           <h2>Hébergement</h2>
-          <p>Le site est hébergé par un fournisseur de cloud européen conforme RGPD.</p>
+          <p>
+            {HOST_NAME || "Fournisseur cloud européen conforme RGPD"}
+            {HOST_ADDRESS ? <> — Adresse : {HOST_ADDRESS}</> : null}
+            {HOST_PHONE ? <> — Téléphone : {HOST_PHONE}</> : null}
+          </p>
 
           <h2>Propriété intellectuelle</h2>
           <p>
@@ -49,7 +71,7 @@ export default function MentionsLegalesPage() {
           <h2>Contact</h2>
           <p>
             Pour toute question, vous pouvez écrire à{" "}
-            <a href="mailto:contact@smarterlogicweb.com">contact@smarterlogicweb.com</a>.
+            <a href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a>.
           </p>
         </div>
 

@@ -734,7 +734,38 @@ html.retro * {
   }
 }
 
-/* Hero animated ambient gradient */
+/* Mobile: disable most animations for better UX (keep subtle background only) */
+@media (max-width: 768px) {
+  .animate-pulse,
+  .btn-pulse,
+  .btn-gradient-shift,
+  .pricing-animated::before,
+  .pricing-spin .spin-inner,
+  .button-glitch:hover::before,
+  .typing .dot,
+  .modal-overlay,
+  .modal-content,
+  .badge-free::after,
+  .animate-chat-up,
+  .bounce-in {
+    animation: none !important;
+    transition: none !important;
+  }
+  .reveal-clip,
+  .reveal-fade-up > *,
+  [data-reveal] {
+    opacity: 1 !important;
+    transform: none !important;
+    clip-path: none !important;
+  }
+  .btn-rippling::after {
+    animation: none !important;
+  }
+  .btn-lift:hover,
+  .project-card:hover {
+    transform: none !important;
+    box-shadow: none !important;
+ */
 .hero-gradient-animated {
   background:
     radial-gradient(1200px 600px at 20% 10%, hsl(var(--primary) / 0.12), transparent 60%),
