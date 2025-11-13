@@ -29,12 +29,18 @@ export function HeroTyped() {
   const p2Ref = React.useRef<HTMLDivElement | null>(null);
   const mockRef = React.useRef<HTMLDivElement | null>(null);
 
+  // Helper: treat mobile as reduced motion
+  const isMobile = () =>
+    typeof window !== "undefined" &&
+    window.matchMedia &&
+    window.matchMedia("(max-width: 768px)").matches;
+
   // Typewriter for H1
   React.useEffect(() => {
     const prefersReduced =
       typeof window !== "undefined" &&
       window.matchMedia &&
-      window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+      (window.matchMedia("(prefers-reduced-motion: reduce)").matches || isMobile());
 
     if (prefersReduced) {
       setTitleTyped(title);
@@ -61,7 +67,7 @@ export function HeroTyped() {
     const prefersReduced =
       typeof window !== "undefined" &&
       window.matchMedia &&
-      window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+      (window.matchMedia("(prefers-reduced-motion: reduce)").matches || isMobile());
 
     if (prefersReduced) {
       setTypedWord(current);
@@ -93,7 +99,7 @@ export function HeroTyped() {
     const prefersReduced =
       typeof window !== "undefined" &&
       window.matchMedia &&
-      window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+      (window.matchMedia("(prefers-reduced-motion: reduce)").matches || isMobile());
     if (prefersReduced) return;
 
     let raf = 0;

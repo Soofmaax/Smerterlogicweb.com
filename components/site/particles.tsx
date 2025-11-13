@@ -21,7 +21,8 @@ export function Particles() {
     const manualReduced = (() => {
       try { return localStorage.getItem("reduce_motion") === "1"; } catch { return false; }
     })();
-    if (prefersReduced || manualReduced) return;
+    const isMobile = window.matchMedia?.("(max-width: 768px)")?.matches ?? false;
+    if (prefersReduced || manualReduced || isMobile) return;
 
     const target = hostRef.current || document.body;
 

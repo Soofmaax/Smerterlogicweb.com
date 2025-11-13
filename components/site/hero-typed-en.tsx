@@ -7,8 +7,12 @@ import { Button } from "@/components/ui/button";
 
 export function HeroTypedEN() {
   const title = "Your current website is costing you 15 clients every month.";
-  const [mounted, setMounted] = React.useState(false);
-  React.useEffect(() => setMounted(true), []);
+  const [shouldAnimate, setShouldAnimate] = React.useState(false);
+  React.useEffect(() => {
+    const prefersReduced = window.matchMedia?.("(prefers-reduced-motion: reduce)")?.matches ?? false;
+    const isMobile = window.matchMedia?.("(max-width: 768px)")?.matches ?? false;
+    setShouldAnimate(!(prefersReduced || isMobile));
+  }, []);
 
   const charTyping = (delayPerChar = 0.05) => ({
     hidden: { opacity: 0 },
@@ -17,8 +21,6 @@ export function HeroTypedEN() {
       transition: { delay: i * delayPerChar, duration: 0.001 },
     }),
   });
-
-  const shouldAnimate = mounted;
 
   return (
     <section className="relative mx-auto w-full max-w-3xl px-6 py-16 md:py-24">

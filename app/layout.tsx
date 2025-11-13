@@ -8,10 +8,8 @@ import { ScrollProgress } from "@/components/site/scroll-progress";
 import { CookieConsent } from "@/components/site/cookie-consent";
 
 import { EasterEggs } from "@/components/site/easter-eggs";
-import { VoiceCommands } from "@/components/site/voice-commands";
 import { AssistantOverlay } from "@/components/site/assistant-overlay";
 import { GyroTilt } from "@/components/site/gyro-tilt";
-import { ReduceMotionToggle } from "@/components/site/reduce-motion-toggle";
 import { UrgencyBanner } from "@/components/site/urgency-banner";
 
 import Script from "next/script";
@@ -198,9 +196,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           <Footer />
         </div>
 
-        {/* Right-hand friendly floating actions (minimized: no floating widgets) */}
-        <VoiceCommands />
-        <ReduceMotionToggle />
+        {/* Right-hand friendly floating actions removed on request (mobile clutter) */}
 
         {/* Easter Eggs (fun, non-intrusive) */}
         <EasterEggs />

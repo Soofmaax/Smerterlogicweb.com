@@ -8,7 +8,9 @@ export function UXEnhancer() {
     const manualReduced = (() => {
       try { return localStorage.getItem("reduce_motion") === "1"; } catch { return false; }
     })();
-    if (reduceMotion || manualReduced) return;
+    const isMobile = window.matchMedia?.("(max-width: 768px)")?.matches ?? false;
+    const coarsePointer = window.matchMedia?.("(pointer: coarse)")?.matches ?? false;
+    if (reduceMotion || manualReduced || isMobile || coarsePointer) return;
 
     let active: HTMLElement | null = null;
 

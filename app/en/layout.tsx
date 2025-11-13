@@ -7,7 +7,6 @@ import { UXEnhancer } from "@/components/site/ux-enhancer";
 import { ScrollProgress } from "@/components/site/scroll-progress";
 import { Cursor } from "@/components/site/cursor";
 import { GyroTilt } from "@/components/site/gyro-tilt";
-import { ReduceMotionToggle } from "@/components/site/reduce-motion-toggle";
 import { SmartCTAs } from "@/components/site/smart-ctas";
 import { WhatsAppFloat } from "@/components/site/whatsapp-float";
 import Script from "next/script";
@@ -157,7 +156,6 @@ export default function EnLayout({ children }: { children: React.ReactNode }) {
         </div>
 
         {/* Right-hand friendly floating actions */}
-        <ReduceMotionToggle />
         <WhatsAppFloat />
         <SmartCTAs />
         {/* Cookie consent (shown when using GA) */}
