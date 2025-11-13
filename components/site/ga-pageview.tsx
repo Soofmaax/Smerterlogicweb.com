@@ -18,18 +18,27 @@ function getConsent(): { analytics?: boolean } | null {
 
 /**
  * GA4 page_view tracker for App Router
- * - Relies on CookieConsent to have loaded gtag.js after consent
- * - Emits page_view on route changes when provider === "ga" and analytics consent granted
+ * - Relies on CookieConsent to have loaded gtag.js after consent (GA) or GTM to be present (GTM)
+ * - Emits page_view on route changes when provider === "ga" or "gtm" and analytics consent granted
+ * - Skips initial mount to avoid double page_view (GTM often fires one on load)
  */
 export function GA4PageviewTracker() {
   const pathname = usePathname();
   const searchParams = useSearchParams();
+  const didInitRef = React.useRef(false);
 
   React.useEffect(() => {
-    if (PROVIDER !== "ga") return;
+    const provider = (process.env.NEXT_PUBLIC_ANALYTICS_PROVIDER || "").toLowerCase();
+    if (provider !== "ga" && provider !== "gtm") return;
     const c = getConsent();
     if (!(c && c.analytics === true)) return;
     if (typeof window === "undefined") return;
+
+    // Skip first render to avoid duplicate initial page_view
+    if (!didInitRef.current) {
+      didInitRef.current = true;
+      return;
+    }
 
     const page_path = pathname + (searchParams?.toString() ? `?${searchParams.toString()}` : "");
     const page_location = window.location.href;
