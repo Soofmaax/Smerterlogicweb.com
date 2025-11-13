@@ -8,6 +8,7 @@ import { ScrollProgress } from "@/components/site/scroll-progress";
 import { CookieConsent } from "@/components/site/cookie-consent";
 import { AnalyticsLoader } from "@/components/site/analytics-loader";
 import { MarketingLoader } from "@/components/site/marketing-loader";
+import { GA4PageviewTracker } from "@/components/site/ga-pageview";
 
 import { EasterEggs } from "@/components/site/easter-eggs";
 import { AssistantOverlay } from "@/components/site/assistant-overlay";
@@ -174,6 +175,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
 
         {/* Analytics (loaded client-side only after consent) */}
         <AnalyticsLoader />
+        {/* GA4 page_view tracker (after consent) */}
+        <GA4PageviewTracker />
         {/* Marketing pixels (Meta/LinkedIn/Hotjar) loaded only after marketing consent */}
         <MarketingLoader />
 

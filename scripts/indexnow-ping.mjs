@@ -186,6 +186,9 @@ async function pingIndexNow(urls) {
   }
 }
 
+const TRADES_FR = ["plombier", "electricien", "boulanger", "coiffeur", "artisan-batiment"];
+const TRADES_EN = ["plumber", "electrician", "baker", "hairdresser", "general-contractor"];
+
 (async () => {
   // Core pages (FR + EN)
   const core = [...CORE_FR, ...CORE_EN];
@@ -198,19 +201,25 @@ async function pingIndexNow(urls) {
     localSeo.push(`/refonte-web/${s}`);
   }
 
+  // Trades pages (FR/EN)
+  const trades = [
+    ...TRADES_FR.map((m) => `/site-web/${m}`),
+    ...TRADES_EN.map((t) => `/en/website/${t}`),
+  ];
+
   // Blog posts (FR/EN)
   const posts = loadBlogPosts();
   const blogFr = getPublishedBlogSlugs(posts, "fr").map((slug) => `/blog/${slug}`);
   const blogEn = getPublishedBlogSlugs(posts, "en").map((slug) => `/en/blog/${slug}`);
 
   // Merge and deduplicate
-  const all = Array.from(new Set([...core, ...localSeo, ...blogFr, ...blogEn]));
+  const all = Array.from(new Set([...core, ...localSeo, ...trades, ...blogFr, ...blogEn]));
 
   // Optional: limit payload if environment-specific
   const MAX = Number(process.env.INDEXNOW_MAX || 200);
   const batch = all.slice(0, MAX);
 
-  console.log(`[indexnow] Preparing to submit ${batch.length} URLs (core=${core.length}, local=${localSeo.length}, blogFr=${blogFr.length}, blogEn=${blogEn.length})`);
+  console.log(`[indexnow] Preparing to submit ${batch.length} URLs (core=${core.length}, local=${localSeo.length}, trades=${trades.length}, blogFr=${blogFr.length}, blogEn=${blogEn.length})`);
 
   const ok = await pingIndexNow(batch);
   process.exit(ok ? 0 : 0); // Do not fail the build on ping errors
