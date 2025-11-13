@@ -71,6 +71,9 @@ export const metadata: Metadata = {
       "Quality you can measure: speed, security, results. Custom websites for entrepreneurs and nonprofits. Simple, fast, no complexity — I handle the rest.",
     images: ["/opengraph-image"],
   },
+  verification: {
+    google: "icboO_CSLrw9wrG8c_4iRbw6jy6W1WItmeJOM-e3npg",
+  },
   robots: {
     index: true,
     follow: true,

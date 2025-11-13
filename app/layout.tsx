@@ -74,6 +74,9 @@ export const metadata: Metadata = {
       "La qualité qui se mesure : vitesse, sécurité, résultats. Sites web sur-mesure pour entrepreneurs et associations. Simple, performant, sans complexité — je m’occupe du reste.",
     images: ["/opengraph-image"],
   },
+  verification: {
+    google: "icboO_CSLrw9wrG8c_4iRbw6jy6W1WItmeJOM-e3npg",
+  },
   robots: {
     index: true,
     follow: true,
