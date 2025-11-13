@@ -10,7 +10,9 @@ import { GyroTilt } from "@/components/site/gyro-tilt";
 import { ReduceMotionToggle } from "@/components/site/reduce-motion-toggle";
 import { SmartCTAs } from "@/components/site/smart-ctas";
 import { WhatsAppFloat } from "@/components/site/whatsapp-float";
-import Script from "next/script";
+import { CookieConsent } from "@/components/site/cookie-consent";
+import { AnalyticsLoader } from "@/components/site/analytics-loader";
+import { MarketingLoader } from "@/components/site/marketing-loader";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -132,13 +134,10 @@ export default function EnLayout({ children }: { children: React.ReactNode }) {
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLdSite) }}
         />
 
-        {/* Analytics */}
-        {provider === "plausible" && (
-          <Script strategy="lazyOnload" data-domain={plausibleDomain} src="https://plausible.io/js/script.js" />
-        )}
-        {provider === "umami" && umamiWebsiteId && (
-          <Script strategy="lazyOnload" src={umamiSrc} data-website-id={umamiWebsiteId} />
-        )}
+        {/* Analytics (loaded client-side only after consent) */}
+       <<AnalyticsLoader />
+        {/* Marketing pixels (Meta/LinkedIn/Hotjar) loaded only after marketing consent */}
+       < MarketingLoade_coder new/</>
 
         {/* UX extras */}
         <UXEnhancer />
@@ -156,6 +155,8 @@ export default function EnLayout({ children }: { children: React.ReactNode }) {
         <ReduceMotionToggle />
         <WhatsAppFloat />
         <SmartCTAs />
+        {/* Cookie consent (shown when using GA) */}
+        <CookieConsent />
       </body>
     </html>
   );

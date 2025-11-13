@@ -6,6 +6,8 @@ import { Footer } from "@/components/site/footer";
 import { UXEnhancer } from "@/components/site/ux-enhancer";
 import { ScrollProgress } from "@/components/site/scroll-progress";
 import { CookieConsent } from "@/components/site/cookie-consent";
+import { AnalyticsLoader } from "@/components/site/analytics-loader";
+import { MarketingLoader } from "@/components/site/marketing-loader";
 
 import { EasterEggs } from "@/components/site/easter-eggs";
 import { VoiceCommands } from "@/components/site/voice-commands";
@@ -155,13 +157,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLdLocalBusiness) }}
         />
 
-        {/* Analytics */}
-        {provider === "plausible" && (
-          <Script strategy="lazyOnload" data-domain={plausibleDomain} src="https://plausible.io/js/script.js" />
-        )}
-        {provider === "umami" && umamiWebsiteId && (
-          <Script strategy="lazyOnload" src={umamiSrc} data-website-id={umamiWebsiteId} />
-        )}
+        {/* Analytics (loaded client-side only after consent) */}
+        <AnalyticsLoader />
+        {/* Marketing pixels (Meta/LinkedIn/Hotjar) loaded only after marketing consent */}
+        <MarketingLoader />
 
         <UXEnhancer />
         <ScrollProgress />
