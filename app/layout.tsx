@@ -9,6 +9,7 @@ import { CookieConsent } from "@/components/site/cookie-consent";
 import { AnalyticsLoader } from "@/components/site/analytics-loader";
 import { MarketingLoader } from "@/components/site/marketing-loader";
 import { GA4PageviewTracker } from "@/components/site/ga-pageview";
+import { AutoEvents } from "@/components/site/auto-events";
 
 import { EasterEggs } from "@/components/site/easter-eggs";
 import { AssistantOverlay } from "@/components/site/assistant-overlay";
@@ -210,6 +211,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         <AnalyticsLoader />
         {/* GA4 page_view tracker (after consent) */}
         <GA4PageviewTracker />
+        {/* Auto events: CTA, outbound links, file downloads (after consent) */}
+        <AutoEvents />
         {/* Marketing pixels (Meta/LinkedIn/Hotjar) loaded only after marketing consent */}
         <MarketingLoader />
 

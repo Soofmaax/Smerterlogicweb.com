@@ -45,11 +45,20 @@ export function GA4PageviewTracker() {
     const page_title = document.title || page_path;
 
     try {
-      (window as any).gtag?.("event", "page_view", {
-        page_title,
-        page_location,
-        page_path,
-      });
+      if (provider === "gtm" && Array.isArray((window as any).dataLayer)) {
+        (window as any).dataLayer.push({
+          event: "page_view",
+          page_title,
+          page_location,
+          page_path,
+        });
+      } else {
+        (window as any).gtag?.("event", "page_view", {
+          page_title,
+          page_location,
+          page_path,
+        });
+      }
     } catch {
       // no-op
     }
