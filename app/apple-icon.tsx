@@ -4,7 +4,7 @@ export const runtime = "edge";
 export const size = { width: 180, height: 180 };
 export const contentType = "image/png";
 
-export default function AppleTouchIcon() {
+export default function AppleIcon() {
   return new ImageResponse(
     (
       <div
@@ -12,7 +12,7 @@ export default function AppleTouchIcon() {
           width: "100%",
           height: "100%",
           display: "flex",
-          // Brand blue gradient background to replace old pink/green
+          // Brand blue gradient background
           background: "linear-gradient(135deg, #22d3ee 0%, #6366f1 100%)",
           alignItems: "center",
           justifyContent: "center",
