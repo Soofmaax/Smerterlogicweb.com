@@ -17,6 +17,7 @@ import { GyroTilt } from "@/components/site/gyro-tilt";
 import { UrgencyBanner } from "@/components/site/urgency-banner";
 
 import Script from "next/script";
+import { Suspense } from "react";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -210,7 +211,9 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         {/* Analytics (loaded client-side only after consent) */}
         <AnalyticsLoader />
         {/* GA4 page_view tracker (after consent) */}
-        <GA4PageviewTracker />
+        <Suspense fallback={null}>
+          <GA4PageviewTracker />
+        </Suspense>
         {/* Auto events: CTA, outbound links, file downloads (after consent) */}
         <AutoEvents />
         {/* Marketing pixels (Meta/LinkedIn/Hotjar) loaded only after marketing consent */}
