@@ -6,7 +6,7 @@ import imageUrlBuilder from "@sanity/image-url";
 
 const projectId = process.env.SANITY_PROJECT_ID;
 const dataset = process.env.SANITY_DATASET || "production";
-const apiVersion = process.env.SANITY_API_VERSION || "2023-10-19";
+const apiVersion = process.env.SANITY_API_VERSION || "2025-11-14";
 const token = process.env.SANITY_READ_TOKEN || ""; // optional (public dataset)
 
 if (!projectId) {

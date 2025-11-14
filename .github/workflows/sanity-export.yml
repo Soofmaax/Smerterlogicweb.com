@@ -28,7 +28,7 @@ jobs:
         env:
           SANITY_PROJECT_ID: ${{ secrets.SANITY_PROJECT_ID }}
           SANITY_DATASET: production
-          SANITY_API_VERSION: "2023-10-19"
+          SANITY_API_VERSION: "2025-11-14"
           SANITY_READ_TOKEN: ${{ secrets.SANITY_READ_TOKEN }}
 
       - name: Commit and push if changed
