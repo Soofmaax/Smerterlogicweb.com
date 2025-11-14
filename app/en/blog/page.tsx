@@ -4,7 +4,7 @@ import { getAllPosts } from "@/lib/blog-source";
 import { QuickLinksEN } from "@/components/site/quick-links-en";
 import { Breadcrumbs } from "@/components/site/breadcrumbs";
 
-export const dynamic = "force-dynamic";
+export const revalidate = 60;
 
 export const metadata = {
   title: "Articles & blog",

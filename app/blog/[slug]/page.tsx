@@ -7,7 +7,7 @@ import { RelatedCities } from "@/components/site/related-cities";
 import { Breadcrumbs } from "@/components/site/breadcrumbs";
 import { CitationBox } from "@/components/site/citation-box";
 
-export const dynamic = "force-dynamic";
+export const revalidate = 60;
 
 export async function generateMetadata({ params }: { params: { slug: string } }) {
   const all = getAllPosts();
