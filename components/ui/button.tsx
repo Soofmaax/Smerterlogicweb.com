@@ -109,6 +109,8 @@ export function Button({
     };
     if (variant === "cta") {
       extraProps.onMouseDown = attachRippleHandler(child.props);
+      // Mark CTA for auto-event tracking
+      extraProps["data-cta"] = "1";
     }
     return React.cloneElement(child, extraProps);
   }
@@ -116,6 +118,8 @@ export function Button({
   const rest = { ...props } as React.ButtonHTMLAttributes<HTMLButtonElement>;
   if (variant === "cta") {
     rest.onMouseDown = attachRippleHandler(props);
+    // Mark CTA for auto-event tracking
+    (rest as any)["data-cta"] = "1";
   }
 
   return (

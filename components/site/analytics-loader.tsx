@@ -29,8 +29,8 @@ export function AnalyticsLoader() {
 
   if (!allowed) return null;
 
-  // GA is loaded via CookieConsent upon user acceptance
-  if (PROVIDER === "ga") return null;
+  // GA/GTM are handled via CookieConsent + GTM integration
+  if (PROVIDER === "ga" || PROVIDER === "gtm") return null;
 
   return (
     <>

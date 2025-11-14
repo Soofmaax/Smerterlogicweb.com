@@ -8,6 +8,8 @@ import { ScrollProgress } from "@/components/site/scroll-progress";
 import { CookieConsent } from "@/components/site/cookie-consent";
 import { AnalyticsLoader } from "@/components/site/analytics-loader";
 import { MarketingLoader } from "@/components/site/marketing-loader";
+import { GA4PageviewTracker } from "@/components/site/ga-pageview";
+import { AutoEvents } from "@/components/site/auto-events";
 
 import { EasterEggs } from "@/components/site/easter-eggs";
 import { AssistantOverlay } from "@/components/site/assistant-overlay";
@@ -15,6 +17,7 @@ import { GyroTilt } from "@/components/site/gyro-tilt";
 import { UrgencyBanner } from "@/components/site/urgency-banner";
 
 import Script from "next/script";
+import { Suspense } from "react";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -148,14 +151,47 @@ export const viewport = {
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
-  const provider = process.env.NEXT_PUBLIC_ANALYTICS_PROVIDER || "plausible";
+  const provider = (process.env.NEXT_PUBLIC_ANALYTICS_PROVIDER || "plausible").toLowerCase();
   const plausibleDomain = process.env.NEXT_PUBLIC_PLAUSIBLE_DOMAIN || "smarterlogicweb.com";
   const umamiSrc = process.env.NEXT_PUBLIC_UMAMI_SRC || "https://analytics.umami.is/script.js";
   const umamiWebsiteId = process.env.NEXT_PUBLIC_UMAMI_WEBSITE_ID;
+  const gtmId = process.env.NEXT_PUBLIC_GTM_ID || "GTM-5X2V579H";
 
   return (
     <html lang="fr">
       <body className={`${inter.variable} ${dmSans.variable} bg-background text-foreground antialiased font-sans`}>
+        {/* Google Tag Manager (consent default denied) */}
+        {provider === "gtm" ? (
+          <>
+            <Script id="gtm-consent-default" strategy="beforeInteractive">
+              {`window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}
+gtag('consent','default',{
+  ad_storage:'denied',
+  analytics_storage:'denied',
+  functionality_storage:'denied',
+  personalization_storage:'denied',
+  security_storage:'granted',
+  ad_user_data:'denied',
+  ad_personalization:'denied'
+});`}
+            </Script>
+            {/* Google Tag Manager */}
+            <Script id="gtm-init" strategy="beforeInteractive">
+              {`(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','${gtmId}');`}
+            </Script>
+            {/* Google Tag Manager (noscript) */}
+            <noscript
+              dangerouslySetInnerHTML={{
+                __html: `<iframe src="https://www.googletagmanager.com/ns.html?id=${gtmId}" height="0" width="0" style="display:none;visibility:hidden"></iframe>`,
+              }}
+            />
+          </>
+        ) : null}
+
         <script
           type="application/ld+json"
           suppressHydrationWarning
@@ -174,6 +210,12 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
 
         {/* Analytics (loaded client-side only after consent) */}
         <AnalyticsLoader />
+        {/* GA4 page_view tracker (after consent) */}
+        <Suspense fallback={null}>
+          <GA4PageviewTracker />
+        </Suspense>
+        {/* Auto events: CTA, outbound links, file downloads (after consent) */}
+        <AutoEvents />
         {/* Marketing pixels (Meta/LinkedIn/Hotjar) loaded only after marketing consent */}
         <MarketingLoader />
 
@@ -200,7 +242,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         {/* Easter Eggs (fun, non-intrusive) */}
         <EasterEggs />
         <AssistantOverlay />
-        {/* Cookie consent (shown when using GA) */}
+        {/* Cookie consent (shown when using GA/GTM or others) */}
         <CookieConsent />
       </body>
     </html>

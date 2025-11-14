@@ -28,6 +28,24 @@ function setConsent(v: ConsentPrefs) {
   document.cookie = `cookie_consent=${val}; expires=${exp}; path=/; SameSite=Lax`;
 }
 
+function updateGtagConsent(v: ConsentPrefs) {
+  try {
+    const analytics = v.analytics === true ? "granted" : "denied";
+    const marketing = v.marketing === true ? "granted" : "denied";
+    (window as any).gtag?.("consent", "update", {
+      ad_storage: marketing,
+      analytics_storage: analytics,
+      functionality_storage: "denied",
+      personalization_storage: "denied",
+      security_storage: "granted",
+      ad_user_data: marketing,
+      ad_personalization: marketing,
+    });
+  } catch {
+    // no-op
+  }
+}
+
 function loadGAOnce() {
   if (typeof window === "undefined" || !GA_ID) return;
   if ((window as any).__ga_loaded) return;
@@ -49,9 +67,11 @@ function loadGAOnce() {
 }
 
 export function CookieConsent() {
-  // GA (consent required) vs Plausible/Umami (info-only)
+  // GA/GTM (consent required) vs Plausible/Umami (info-only)
   const isGA = PROVIDER === "ga";
-  const shouldShow = ["ga", "plausible", "umami"].includes(PROVIDER);
+  const isGTM = PROVIDER === "gtm";
+  const needsConsent = isGA || isGTM;
+  const shouldShow = ["ga", "gtm", "plausible", "umami"].includes(PROVIDER);
 
   const [visible, setVisible] = React.useState(false);
   const [prefs, setPrefs] = React.useState<ConsentPrefs>({ analytics: false, marketing: false });
@@ -60,13 +80,12 @@ export function CookieConsent() {
   React.useEffect(() => {
     if (!shouldShow) return;
     const c = getConsent();
-    if (isGA) {
-      if (c && c.analytics === true) {
-        loadGAOnce();
-        setVisible(false);
-        return;
-      }
-      if (c && c.analytics === false) {
+    if (needsConsent) {
+      if (c && (c.analytics === true || c.analytics === false)) {
+        updateGtagConsent(c);
+        if (isGA && c.analytics === true) {
+          loadGAOnce();
+        }
         setVisible(false);
         return;
       }
@@ -80,7 +99,7 @@ export function CookieConsent() {
     } else {
       setVisible(true);
     }
-  }, [shouldShow, isGA]);
+  }, [shouldShow, needsConsent, isGA]);
 
   // Allow reopening banner from footer or /cookies page
   React.useEffect(() => {
@@ -106,10 +125,10 @@ export function CookieConsent() {
           <div className="flex-1">
             <div className="font-semibold">Cookies et consentement</div>
             <p className="mt-1 text-sm text-foreground/80">
-              {isGA ? (
+              {needsConsent ? (
                 <>
-                  Nous souhaitons utiliser Google Analytics pour mesurer l’audience et améliorer le site. Vous pouvez
-                  accepter, refuser ou paramétrer vos choix. Sans acceptation, aucun cookie Analytics ne sera déposé.
+                  Nous souhaitons utiliser une mesure d’audience (Google Analytics via GA4/GTM) et éventuellement des pixels marketing.
+                  Vous pouvez accepter, refuser ou paramétrer vos choix. Sans acceptation, aucun cookie Analytics/marketing ne sera déposé.
                   Voir{" "}
                   <Link href="/politique-de-confidentialite" className="underline">
                     la politique de confidentialité
@@ -132,7 +151,9 @@ export function CookieConsent() {
             className="rounded p-1 text-muted-foreground hover:bg-accent"
             aria-label="Fermer"
             onClick={() => {
-              setConsent({ analytics: false, marketing: false });
+              const denied = { analytics: false, marketing: false };
+              setConsent(denied);
+              if (needsConsent) updateGtagConsent(denied);
               setVisible(false);
             }}
           >
@@ -140,7 +161,7 @@ export function CookieConsent() {
           </button>
         </div>
 
-        {isGA ? (
+        {needsConsent ? (
           <>
             {settingsOpen ? (
               <div className="mt-3 rounded-xl border bg-accent/30 p-3">
@@ -170,8 +191,10 @@ export function CookieConsent() {
                   <button
                     className="inline-flex items-center justify-center rounded-full border px-3 py-1.5 text-sm transition hover:bg-accent"
                     onClick={() => {
-                      setPrefs({ analytics: false, marketing: false });
-                      setConsent({ analytics: false, marketing: false });
+                      const denied = { analytics: false, marketing: false };
+                      setPrefs(denied);
+                      setConsent(denied);
+                      updateGtagConsent(denied);
                       setSettingsOpen(false);
                       setVisible(false);
                     }}
@@ -182,7 +205,8 @@ export function CookieConsent() {
                     className="inline-flex items-center justify-center rounded-full bg-primary px-3 py-1.5 text-sm text-primary-foreground shadow-sm transition hover:opacity-90"
                     onClick={() => {
                       setConsent(prefs);
-                      if (prefs.analytics) loadGAOnce();
+                      updateGtagConsent(prefs);
+                      if (isGA && prefs.analytics) loadGAOnce();
                       setSettingsOpen(false);
                       setVisible(false);
                     }}
@@ -197,8 +221,10 @@ export function CookieConsent() {
               <button
                 className="inline-flex items-center justify-center rounded-full border px-3 py-1.5 text-sm transition hover:bg-accent"
                 onClick={() => {
-                  setPrefs({ analytics: false, marketing: false });
-                  setConsent({ analytics: false, marketing: false });
+                  const denied = { analytics: false, marketing: false };
+                  setPrefs(denied);
+                  setConsent(denied);
+                  updateGtagConsent(denied);
                   setVisible(false);
                 }}
               >
@@ -216,7 +242,8 @@ export function CookieConsent() {
                   const all = { analytics: true, marketing: true };
                   setPrefs(all);
                   setConsent(all);
-                  loadGAOnce();
+                  updateGtagConsent(all);
+                  if (isGA) loadGAOnce();
                   setVisible(false);
                 }}
               >

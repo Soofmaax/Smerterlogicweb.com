@@ -38,4 +38,26 @@ export function track(event: string, props?: Record<string, unknown>) {
     }
     return;
   }
+
+  // Google Tag Manager: push dataLayer event object
+  if (provider === "gtm") {
+    const dl = (window as any).dataLayer;
+    if (Array.isArray(dl)) {
+      const payload: Record<string, unknown> = { event };
+      if (props && typeof props === "object") {
+        Object.assign(payload, props);
+      }
+      dl.push(payload);
+    } else {
+      // Fallback to gtag stub if present
+      const gtag = (window as any).gtag;
+      if (typeof gtag === "function") {
+        try {
+          gtag("event", event, props || {});
+        } catch {
+          // no-op
+        }
+      }
+    }
+  }
 }
