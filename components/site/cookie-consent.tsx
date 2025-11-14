@@ -6,7 +6,6 @@ import { X } from "lucide-react";
 
 const PROVIDER = (process.env.NEXT_PUBLIC_ANALYTICS_PROVIDER || "").toLowerCase();
 const GA_ID = process.env.NEXT_PUBLIC_GA_ID || "";
-const GA_FALLBACK = (process.env.NEXT_PUBLIC_GA_FALLBACK || "0").trim();
 
 type ConsentPrefs = { analytics?: boolean; marketing?: boolean };
 
@@ -84,7 +83,7 @@ export function CookieConsent() {
     if (needsConsent) {
       if (c && (c.analytics === true || c.analytics === false)) {
         updateGtagConsent(c);
-        if ((isGA || (isGTM && GA_FALLBACK === "1")) && c.analytics === true) {
+        if (isGA && c.analytics === true) {
           loadGAOnce();
         }
         setVisible(false);
@@ -207,7 +206,7 @@ export function CookieConsent() {
                     onClick={() => {
                       setConsent(prefs);
                       updateGtagConsent(prefs);
-                      if ((isGA || (isGTM && GA_FALLBACK === "1")) && prefs.analytics) loadGAOnce();
+                      if (isGA && prefs.analytics) loadGAOnce();
                       setSettingsOpen(false);
                       setVisible(false);
                     }}
@@ -244,7 +243,7 @@ export function CookieConsent() {
                   setPrefs(all);
                   setConsent(all);
                   updateGtagConsent(all);
-                  if (isGA || (isGTM && GA_FALLBACK === "1")) loadGAOnce();
+                  if (isGA) loadGAOnce();
                   setVisible(false);
                 }}
               >
