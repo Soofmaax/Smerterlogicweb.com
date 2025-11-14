@@ -2,6 +2,15 @@ export function track(event: string, props?: Record<string, unknown>) {
   if (typeof window === "undefined") return;
 
   const provider = (process.env.NEXT_PUBLIC_ANALYTICS_PROVIDER || "").toLowerCase();
+  const DEBUG = (process.env.NEXT_PUBLIC_ANALYTICS_DEBUG || "0").trim() === "1";
+
+  if (DEBUG) {
+    try {
+      // Minimal debug to help validate wiring without noisy logs in production
+      // eslint-disable-next-line no-console
+      console.debug("[analytics]", { provider, event, props });
+    } catch {}
+  }
 
   // Plausible
   if (provider === "plausible") {
@@ -48,12 +57,22 @@ export function track(event: string, props?: Record<string, unknown>) {
         Object.assign(payload, props);
       }
       dl.push(payload);
+      if (DEBUG) {
+        try {
+          // eslint-disable-next-line no-console
+          console.debug("[analytics] dataLayer.push", payload);
+        } catch {}
+      }
     } else {
       // Fallback to gtag stub if present
       const gtag = (window as any).gtag;
       if (typeof gtag === "function") {
         try {
           gtag("event", event, props || {});
+          if (DEBUG) {
+            // eslint-disable-next-line no-console
+            console.debug("[analytics] gtag(event)", { event, props });
+          }
         } catch {
           // no-op
         }
