@@ -2,8 +2,6 @@ name: Sync blog from Sanity
 
 on:
   workflow_dispatch:
-  schedule:
-    - cron: "0 * * * *" # hourly; adjust as needed
   repository_dispatch:
     types: [sanity-publish]
 
