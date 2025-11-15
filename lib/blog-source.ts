@@ -3,6 +3,8 @@ import path from "node:path";
 import matter from "gray-matter";
 import { remark } from "remark";
 import remarkParse from "remark-parse";
+import remarkSlug from "remark-slug";
+import remarkAutolinkHeadings from "remark-autolink-headings";
 import remarkRehype from "remark-rehype";
 import rehypeRaw from "rehype-raw";
 import rehypeStringify from "rehype-stringify";
@@ -68,6 +70,18 @@ function computePublishAtISO(dateStr: string): string | undefined {
   return d.toISOString();
 }
 
+function enhanceContentHtml(html: string): string {
+  // Add lazy loading / decoding to images
+  return html.replace(/<img\b([^>]*?)>/gi, (m, attrs) => {
+    const hasLoading = /\bloading=/.test(attrs);
+    const hasDecoding = /\bdecoding=/.test(attrs);
+    const hasReferrer = /\breferrerpolicy=/.test(attrs);
+    return `<img${attrs}${hasLoading ? "" : " loading=\"lazy\""}${hasDecoding ? "" : " decoding=\"async\""}${
+      hasReferrer ? "" : " referrerpolicy=\"no-referrer\""
+    }>`;
+  });
+}
+
 /**
  * Load Markdown blog posts from content/blog/*.md with YAML frontmatter.
  */
@@ -108,11 +122,15 @@ export function loadPostsFromMarkdown(): BlogPost[] {
 
     const html = remark()
       .use(remarkParse)
+      .use(remarkSlug)
+      .use(remarkAutolinkHeadings, { behavior: "wrap" })
       .use(remarkRehype, { allowDangerousHtml: true })
       .use(rehypeRaw)
       .use(rehypeStringify)
       .processSync(parsed.content)
       .toString();
+
+    const enhanced = enhanceContentHtml(html);
 
     posts.push({
       slug,
@@ -125,7 +143,7 @@ export function loadPostsFromMarkdown(): BlogPost[] {
       published,
       draft,
       tags,
-      contentHtml: html,
+      contentHtml: enhanced,
       altLocales,
     });
   }
