@@ -21,6 +21,8 @@ export function Lightbox({
   ariaLabel = "Lightbox",
 }: LightboxProps) {
   const overlayRef = React.useRef<HTMLDivElement>(null);
+  const closeBtnRef = React.useRef<HTMLButtonElement>(null);
+  const previouslyFocused = React.useRef<HTMLElement | null>(null);
 
   const setIndex = React.useCallback(
     (i: number) => {
@@ -35,8 +37,17 @@ export function Lightbox({
     if (!open) return;
     const prevOverflow = document.body.style.overflow;
     document.body.style.overflow = "hidden";
+    previouslyFocused.current = (document.activeElement as HTMLElement) || null;
+    // Focus close button on open
+    setTimeout(() => {
+      closeBtnRef.current?.focus();
+    }, 0);
     return () => {
       document.body.style.overflow = prevOverflow;
+      // restore focus
+      try {
+        previouslyFocused.current?.focus();
+      } catch {}
     };
   }, [open]);
 
@@ -46,6 +57,31 @@ export function Lightbox({
       if (e.key === "Escape") onClose();
       if (e.key === "ArrowRight") setIndex(index + 1);
       if (e.key === "ArrowLeft") setIndex(index - 1);
+      if (e.key === "Tab") {
+        // focus trap
+        const root = overlayRef.current;
+        if (!root) return;
+        const focusables = Array.from(
+          root.querySelectorAll<HTMLElement>(
+            'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])'
+          )
+        ).filter((el) => !el.hasAttribute("disabled") && el.tabIndex !== -1);
+        if (focusables.length === 0) return;
+        const first = focusables[0];
+        const last = focusables[focusables.length - 1];
+        const active = document.activeElement as HTMLElement | null;
+        if (e.shiftKey) {
+          if (active === first || !root.contains(active)) {
+            e.preventDefault();
+            last.focus();
+          }
+        } else {
+          if (active === last || !root.contains(active)) {
+            e.preventDefault();
+            first.focus();
+          }
+        }
+      }
     };
     window.addEventListener("keydown", onKey);
     return () => window.removeEventListener("keydown", onKey);
@@ -102,6 +138,8 @@ export function Lightbox({
             </button>
             <button
               type="button"
+              ref={closeBtnRef}
+              aria-label="Close lightbox"
               className="inline-flex items-center rounded-full border border-foreground/15 bg-card px-3 py-1.5 text-sm shadow-sm transition hover:bg-accent focus:outline-none focus-visible:ring-2 focus-visible:ring-primary/60"
               onClick={onClose}
             >
