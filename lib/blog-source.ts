@@ -72,14 +72,39 @@ function computePublishAtISO(dateStr: string): string | undefined {
 
 function enhanceContentHtml(html: string): string {
   // Add lazy loading / decoding to images
-  return html.replace(/<img\b([^>]*?)>/gi, (m, attrs) => {
+  const withPerf = html.replace(/<img\b([^>]*?)>/gi, (m, attrs) => {
     const hasLoading = /\bloading=/.test(attrs);
     const hasDecoding = /\bdecoding=/.test(attrs);
     const hasReferrer = /\breferrerpolicy=/.test(attrs);
+    const hasStyle = /\bstyle=/.test(attrs);
+    const style = hasStyle ? "" : ' style="max-width:100%;height:auto"';
     return `<img${attrs}${hasLoading ? "" : " loading=\"lazy\""}${hasDecoding ? "" : " decoding=\"async\""}${
       hasReferrer ? "" : " referrerpolicy=\"no-referrer\""
-    }>`;
+    }${style}>`;
   });
+
+  // Wrap standalone images in <figure><img/><figcaption/></figure>
+  function extractAttr(attrs: string, name: string): string | undefined {
+    const m =
+      attrs.match(new RegExp(`\\b${name}\\s*=\\s*("([^"]*)"|'([^']*)'|([^\\s>]+))`, "i"));
+    return m ? (m[2] || m[3] || m[4]) : undefined;
+  }
+  function wrapImg(attrs: string): string {
+    const alt = extractAttr(attrs, "alt") || "";
+    const title = extractAttr(attrs, "title") || "";
+    const caption = (title || alt).trim();
+    const imgTag = `<img${attrs} data-lightbox="1">`;
+    const figcaption = caption ? `<figcaption class="mt-2 text-center text-sm text-muted-foreground">${caption}</figcaption>` : "";
+    return `<figure class="my-6">${imgTag}${figcaption}</figure>`;
+  }
+
+  let out = withPerf;
+  // <p><img ...></p>
+  out = out.replace(/<p>\s*<img\b([^>]*?)>\s*<\/p>/gi, (_m, attrs) => wrapImg(attrs));
+  // <p><a ...><img ...></a></p> -> drop anchor and wrap
+  out = out.replace(/<p>\s*<a\b[^>]*>\s*<img\b([^>]*?)>\s*<\/a>\s*<\/p>/gi, (_m, attrs) => wrapImg(attrs));
+
+  return out;
 }
 
 /**

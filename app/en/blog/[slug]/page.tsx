@@ -5,6 +5,7 @@ import { getAllPosts } from "@/lib/blog-source";
 import { Breadcrumbs } from "@/components/site/breadcrumbs";
 import { CitationBox } from "@/components/site/citation-box";
 import { TableOfContents } from "@/components/site/table-of-contents";
+import { BlogLightboxBinder } from "@/components/site/blog-lightbox-binder";
 
 export const revalidate = 60;
 
@@ -125,6 +126,7 @@ export default function BlogPostEN({ params }: { params: { slug: string } }) {
         </header>
 
         <TableOfContents contentHtml={post.contentHtml} rootId="article-content" locale="en" />
+        <BlogLightboxBinder rootId="article-content" ariaLabel="Article images lightbox" />
 
         <div
           id="article-content"

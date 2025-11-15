@@ -7,6 +7,7 @@ import { RelatedCities } from "@/components/site/related-cities";
 import { Breadcrumbs } from "@/components/site/breadcrumbs";
 import { CitationBox } from "@/components/site/citation-box";
 import { TableOfContents } from "@/components/site/table-of-contents";
+import { BlogLightboxBinder } from "@/components/site/blog-lightbox-binder";
 
 export const revalidate = 60;
 
@@ -131,6 +132,7 @@ export default function BlogPostFR({ params }: { params: { slug: string } }) {
         </header>
 
         <TableOfContents contentHtml={post.contentHtml} rootId="article-content" locale="fr" />
+        <BlogLightboxBinder rootId="article-content" ariaLabel="Lightbox images d'article" />
 
         <div
           id="article-content"
