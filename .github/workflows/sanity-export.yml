@@ -33,11 +33,12 @@ jobs:
 
       - name: Commit and push if changed
         run: |
-          if [[ -n "$(git status --porcelain content/blog)" ]]; then
+          CHANGED=$(git status --porcelain content/blog content/newsletter)
+          if [[ -n "$CHANGED" ]]; then
             git config user.name "sanity-export-bot"
             git config user.email "actions@github.com"
-            git add content/blog
-            git commit -m "chore(blog): sync from Sanity"
+            git add content/blog content/newsletter
+            git commit -m "chore(content): sync from Sanity (blog/newsletter)"
             git push
           else
             echo "No changes to commit."

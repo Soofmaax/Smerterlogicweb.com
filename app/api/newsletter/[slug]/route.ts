@@ -44,24 +44,46 @@ function renderIntro(introHtml: string) {
 function renderPosts(locale: string, featuredSlugs: string[] | undefined) {
   const posts = getAllPosts();
   const slugs = Array.isArray(featuredSlugs) ? featuredSlugs : [];
-  const selected = posts.filter((p) => p.locale === (locale || "fr") && slugs.includes(p.slug));
-  if (!selected.length) return "";
 
-  const locPrefix = locale === "en" ? "/en" : "";
-  const items = selected
-    .map((p) => {
-      const url = `${baseUrl()}${locPrefix}/blog/${p.slug}`;
-      const sum = p.summary ? `<p>${htmlEscape(p.summary)}</p>` : "";
-      return `
+  const items = slugs.map((slug) => {
+    // Try matching in requested locale first
+    const pLocale = posts.find((p) => p.locale === (locale || "fr") && p.slug === slug);
+
+    // Fallback: cross-locale mapping via altLocales
+    let pFallback: typeof pLocale | undefined;
+    if (!pLocale) {
+      if (locale === "en") {
+        // find FR post whose altLocales.en === slug OR same slug in FR
+        pFallback =
+          posts.find((p) => p.locale === "fr" && (p as any).altLocales?.en === slug) ||
+          posts.find((p) => p.locale === "fr" && p.slug === slug);
+      } else {
+        // find EN post whose altLocales.fr === slug OR same slug in EN
+        pFallback =
+          posts.find((p) => p.locale === "en" && (p as any).altLocales?.fr === slug) ||
+          posts.find((p) => p.locale === "en" && p.slug === slug);
+      }
+    }
+
+    const p = pLocale || pFallback;
+    if (!p) return "";
+
+    const isEN = p.locale === "en";
+    const locPrefix = isEN ? "/en" : "";
+    const url = `${baseUrl()}${locPrefix}/blog/${p.slug}`;
+    const sum = p.summary ? `<p>${htmlEscape(p.summary)}</p>` : "";
+    const btn = locale === "en" ? "Read article" : "Lire l’article";
+
+    return `
       <div class="post">
         <h2>${htmlEscape(p.title)}</h2>
         ${sum}
-        <p><a class="btn" href="${url}" target="_blank" rel="noopener noreferrer">Lire l’article</a></p>
+        <p><a class="btn" href="${url}" target="_blank" rel="noopener noreferrer">${btn}</a></p>
       </div>`;
-    })
-    .join("");
+  });
 
-  return `<div class="posts">${items}</div>`;
+  const content = items.filter(Boolean).join("");
+  return content ? `<div class="posts">${content}</div>` : "";
 }
 
 function renderLinks(links: Array<{ label: string; url: string }> | undefined) {

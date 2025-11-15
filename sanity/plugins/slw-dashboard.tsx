@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from "react";
+import React, {useEffect, useMemo, useState} from "react";
 import {definePlugin, useClient} from "sanity";
 
 type PostItem = {
@@ -8,6 +8,7 @@ type PostItem = {
   publishAt?: string;
   published?: boolean;
   draft?: boolean;
+  tags?: string[];
 };
 
 type NewsletterItem = {
@@ -19,6 +20,16 @@ type NewsletterItem = {
   ready?: boolean;
 };
 
+type ScheduledItem = {
+  id: string;
+  title: string;
+  meta: string;
+  onOpen: () => void;
+  extra?: React.ReactNode;
+  _l?: string; // locale
+  _tags?: string[]; // for posts only
+};
+
 const DEPLOY_HOOK = (process.env.NEXT_PUBLIC_VERCEL_DEPLOY_HOOK_URL || process.env.VERCEL_DEPLOY_HOOK_URL || "") as string;
 
 function Dashboard() {
@@ -28,8 +39,13 @@ function Dashboard() {
   const [latestPosts, setLatestPosts] = useState<PostItem[]>([]);
   const [newsletters, setNewsletters] = useState<NewsletterItem[]>([]);
   const [draftPosts, setDraftPosts] = useState<PostItem[]>([]);
-  const [scheduledWeek, setScheduledWeek] = useState<Array<{id: string; title: string; meta: string; onOpen: () => void; extra?: React.ReactNode}>>([]);
+  const [scheduledWeek, setScheduledWeek] = useState<ScheduledItem[]>([]);
   const [deployStatus, setDeployStatus] = useState<"idle" | "loading" | "ok" | "err">("idle");
+
+  // Filters
+  const [filterLocale, setFilterLocale] = useState<"all" | "fr" | "en">("all");
+  const [filterTag, setFilterTag] = useState<string>("");
+  const [tagList, setTagList] = useState<string[]>([]);
 
   useEffect(() => {
     async function load() {
@@ -47,25 +63,28 @@ function Dashboard() {
       }`);
 
       const lp: PostItem[] = await client.fetch(`*[_type == "post"] | order(coalesce(publishAt, _updatedAt) desc)[0...6]{
-        _id, title, locale, publishAt, published, draft
+        _id, title, locale, publishAt, published, draft, tags
       }`);
 
       const nl: NewsletterItem[] = await client.fetch(`*[_type == "newsletter"] | order(coalesce(sendAt, _updatedAt) desc)[0...6]{
         _id, title, slug, locale, sendAt, ready
       }`);
 
-      const drafts: PostItem[] = await client.fetch(`*[_type == "post" && (draft == true || published != true)] | order(_updatedAt desc)[0...10]{
-        _id, title, locale, publishAt, published, draft
+      const drafts: PostItem[] = await client.fetch(`*[_type == "post" && (draft == true || published != true)] | order(_updatedAt desc)[0...50]{
+        _id, title, locale, publishAt, published, draft, tags
       }`);
 
       // Scheduled in next 7 days (posts + newsletters)
-      const schedPosts: PostItem[] = await client.fetch(`*[_type == "post" && defined(publishAt) && publishAt > now()] | order(publishAt asc)[0...50]{ _id, title, locale, publishAt, published, draft }`);
-      const schedNl: NewsletterItem[] = await client.fetch(`*[_type == "newsletter" && defined(sendAt) && sendAt > now()] | order(sendAt asc)[0...50]{ _id, title, slug, locale, sendAt, ready }`);
+      const schedPosts: PostItem[] = await client.fetch(`*[_type == "post" && defined(publishAt) && publishAt > now()] | order(publishAt asc)[0...100]{ _id, title, locale, publishAt, published, draft, tags }`);
+      const schedNl: NewsletterItem[] = await client.fetch(`*[_type == "newsletter" && defined(sendAt) && sendAt > now()] | order(sendAt asc)[0...100]{ _id, title, slug, locale, sendAt, ready }`);
+
+      // Distinct tags
+      const tags: string[] = await client.fetch(`array::unique(*[_type == "post" && defined(tags)].tags[])`);
 
       const now = Date.now();
       const weekMs = 7 * 24 * 60 * 60 * 1000;
 
-      const items: Array<{id: string; title: string; meta: string; onOpen: () => void; extra?: React.ReactNode}> = [];
+      const items: ScheduledItem[] = [];
 
       for (const p of schedPosts) {
         if (!p.publishAt) continue;
@@ -76,6 +95,8 @@ function Dashboard() {
             title: p.title,
             meta: [`POST`, p.locale ? p.locale.toUpperCase() : "—", new Date(p.publishAt).toLocaleString()].filter(Boolean).join(" • "),
             onOpen: () => window.location.assign(`/studio/intent/edit?type=post&id=${encodeURIComponent(p._id)}`),
+            _l: p.locale,
+            _tags: p.tags || [],
           });
         }
       }
@@ -91,6 +112,7 @@ function Dashboard() {
             meta: [`NL`, n.locale ? n.locale.toUpperCase() : "—", new Date(n.sendAt).toLocaleString()].filter(Boolean).join(" • "),
             onOpen: () => window.location.assign(`/studio/intent/edit?type=newsletter&id=${encodeURIComponent(n._id)}`),
             extra: slug ? <a href={`/api/newsletter/${slug}`} target="_blank" rel="noopener noreferrer">Preview HTML</a> : null,
+            _l: n.locale,
           });
         }
       }
@@ -100,10 +122,32 @@ function Dashboard() {
       setNewsletters(nl);
       setDraftPosts(drafts);
       setScheduledWeek(items);
+      setTagList(tags.filter(Boolean).sort((a, b) => a.localeCompare(b)));
       setLoading(false);
     }
     load().catch(() => setLoading(false));
   }, [client]);
+
+  // Derived filters
+  const filteredDrafts = useMemo(() => {
+    return draftPosts.filter((p) => {
+      if (filterLocale !== "all" && p.locale !== filterLocale) return false;
+      if (filterTag && !(p.tags || []).includes(filterTag)) return false;
+      return true;
+    });
+  }, [draftPosts, filterLocale, filterTag]);
+
+  const filteredScheduled = useMemo(() => {
+    return scheduledWeek.filter((it) => {
+      if (filterLocale !== "all" && it._l && it._l !== filterLocale) return false;
+      if (filterTag) {
+        // Only posts have _tags; newsletters (no _tags) are hidden when a tag filter is active
+        if (!it._tags) return false;
+        if (!it._tags.includes(filterTag)) return false;
+      }
+      return true;
+    });
+  }, [scheduledWeek, filterLocale, filterTag]);
 
   async function triggerDeploy() {
     if (!DEPLOY_HOOK) {
@@ -147,6 +191,21 @@ function Dashboard() {
         <Card title="Scheduled NL" value={counts?.newslettersScheduled} />
       </div>
 
+      <div style={{display: "flex", gap: 8, marginBottom: 12, flexWrap: "wrap"}}>
+        {/* Filters */}
+        <select value={filterLocale} onChange={(e) => setFilterLocale(e.target.value as any)} style={{padding: 8, borderRadius: 6, border: "1px solid #e5e7eb"}}>
+          <option value="all">All locales</option>
+          <option value="fr">FR</option>
+          <option value="en">EN</option>
+        </select>
+        <select value={filterTag} onChange={(e) => setFilterTag(e.target.value)} style={{padding: 8, borderRadius: 6, border: "1px solid #e5e7eb", minWidth: 200}}>
+          <option value="">All tags</option>
+          {tagList.map((t) => (
+            <option key={t} value={t}>{t}</option>
+          ))}
+        </select>
+      </div>
+
       <div style={{display: "flex", gap: 8, marginBottom: 20, flexWrap: "wrap"}}>
         <button className="slw-btn" onClick={() => gotoCreate("post")}>+ New Post</button>
         <button className="slw-btn" onClick={() => gotoCreate("newsletter")}>+ New Newsletter</button>
@@ -186,7 +245,7 @@ function Dashboard() {
       </Section>
 
       <Section title="Drafts à relire">
-        <List items={draftPosts.map((p) => ({
+        <List items={filteredDrafts.map((p) => ({
           id: p._id,
           title: p.title,
           meta: [
@@ -199,7 +258,7 @@ function Dashboard() {
       </Section>
 
       <Section title="Programmés (7 jours)">
-        <List items={scheduledWeek} />
+        <List items={filteredScheduled} />
       </Section>
 
       <Section title="Newsletters">
