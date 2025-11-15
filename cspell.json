@@ -5,12 +5,14 @@
   "dictionaryDefinitions": [
     { "name": "en_us", "path": "node_modules/@cspell/dict-en_us/cspell-ext.json" },
     { "name": "fr-fr", "path": "node_modules/@cspell/dict-fr-fr/cspell-ext.json" },
-    { "name": "software-terms", "path": "node_modules/@cspell/dict-software-terms/cspell-ext.json" }
+    { "name": "software-terms", "path": "node_modules/@cspell/dict-software-terms/cspell-ext.json" },
+    { "name": "project-words", "path": "./cspell-words.txt" }
   ],
   "dictionaries": [
     "en_us",
     "fr-fr",
-    "software-terms"
+    "software-terms",
+    "project-words"
   ],
   "languageSettings": [
     {
@@ -31,7 +33,8 @@
   "ignoreRegExpList": [
     "/https?:[^\\s)]+/g",
     "/[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}/g",
-    "/class(Name)?=\\\"[^\\\"]+\\\"/g"
+    "/class(Name)?=\\\"[^\\\"]+\\\"/g",
+    "/\\b[cdjlmnstquCDJLMNSTQU]['’][A-Za-zÀ-ÿ-]+/g"
   ],
   "words": [
     "Next.js",
@@ -143,24 +146,6 @@
     "disponible",
     "reste",
     "contenus",
-    "gestion",
-    "accessibilité",
-    "sérieux",
-    "l’essentiel",
-    "simplifie",
-    "clair",
-    "parle",
-    "choisir",
-    "Pourquoi",
-    "Mérite",
-    "elle",
-    "Entreprise",
-    "Donner",
-    "Prêt",
-    "temps",
-    "gagner",
-    "faire",
-    "générer",
-    "pensé"
+    "gestion"
   ]
 }
