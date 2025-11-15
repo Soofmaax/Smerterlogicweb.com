@@ -1,8 +1,6 @@
 name: BODACC lead pipeline (segment)
 
 on:
-  schedule:
-    - cron: "15 7 * * 1-5" # weekdays at 07:15
   workflow_dispatch:
 
 concurrency:
@@ -46,9 +44,9 @@ jobs:
           # Segment-specific filters (set these repository variables):
           BODACC_CITY_ALLOW: ${{ vars.BODACC_SEGMENT_CITY_ALLOW }}
           BODACC_NAF_PREFIX_ALLOW: ${{ vars.BODACC_SEGMENT_NAF_PREFIX_ALLOW }}
-          # Manual review defaults:
-          BODACC_AUTO_SEND: ${{ vars.BODACC_SEGMENT_AUTO_SEND }} # default 0
-          BODACC_ALLOW_HUNTER: ${{ vars.BODACC_SEGMENT_ALLOW_HUNTER }} # default 1
+          # Manual review defaults (forced off)
+          BODACC_AUTO_SEND: "0"
+          BODACC_ALLOW_HUNTER: "0"
           BODACC_HUNTER_ONLY_NOMANUAL: ${{ vars.BODACC_SEGMENT_HUNTER_ONLY_NOMANUAL }} # default 1
           BODACC_HUNTER_LIMIT: ${{ vars.BODACC_SEGMENT_HUNTER_LIMIT }}
           BODACC_SAVE_ARTIFACT: "1"

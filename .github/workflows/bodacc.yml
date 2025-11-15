@@ -1,8 +1,6 @@
 name: BODACC lead pipeline
 
 on:
-  schedule:
-    - cron: "0 7 * * 1-5" # weekdays at 07:00
   workflow_dispatch:
 
 concurrency:
@@ -45,8 +43,9 @@ jobs:
           BODACC_MAX_ITEMS: ${{ vars.BODACC_MAX_ITEMS }}
           BODACC_CITY_ALLOW: ${{ vars.BODACC_CITY_ALLOW }}
           BODACC_NAF_PREFIX_ALLOW: ${{ vars.BODACC_NAF_PREFIX_ALLOW }}
-          BODACC_AUTO_SEND: ${{ vars.BODACC_AUTO_SEND }} # default off (0)
-          BODACC_ALLOW_HUNTER: ${{ vars.BODACC_ALLOW_HUNTER }} # default off (0)
+          # Force manual review and disable enrichment
+          BODACC_AUTO_SEND: "0"
+          BODACC_ALLOW_HUNTER: "0"
           BODACC_HUNTER_LIMIT: ${{ vars.BODACC_HUNTER_LIMIT }}
           BODACC_HUNTER_ONLY_NOMANUAL: ${{ vars.BODACC_HUNTER_ONLY_NOMANUAL }} # default on (1)
           BODACC_SAVE_ARTIFACT: "1"
