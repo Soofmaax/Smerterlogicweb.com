@@ -36,7 +36,7 @@ jobs:
           python -m pip install --upgrade pip
           pip install -r scripts/bodacc/requirements.txt
 
-      - name: Run BODACC pipeline
+      - name: Run BODACC pipeline (manual review mode)
         env:
           BODACC_FEED_URL: ${{ secrets.BODACC_FEED_URL }}
           ZOHO_FLOW_WEBHOOK: ${{ secrets.ZOHO_FLOW_WEBHOOK }}
@@ -45,5 +45,19 @@ jobs:
           BODACC_MAX_ITEMS: ${{ vars.BODACC_MAX_ITEMS }}
           BODACC_CITY_ALLOW: ${{ vars.BODACC_CITY_ALLOW }}
           BODACC_NAF_PREFIX_ALLOW: ${{ vars.BODACC_NAF_PREFIX_ALLOW }}
+          BODACC_AUTO_SEND: ${{ vars.BODACC_AUTO_SEND }} # default off (0)
+          BODACC_ALLOW_HUNTER: ${{ vars.BODACC_ALLOW_HUNTER }} # default off (0)
+          BODACC_SAVE_ARTIFACT: "1"
+          BODACC_ARTIFACT_PATH: "scripts/bodacc/bodacc-output.json"
+          ZOHO_BOOKINGS_LINK: ${{ vars.ZOHO_BOOKINGS_LINK }}
+          BODACC_EMAIL_SIGNATURE: ${{ vars.BODACC_EMAIL_SIGNATURE }}
         run: |
           python scripts/bodacc/bodacc.py
+
+      - name: Upload leads artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: bodacc-leads
+          path: scripts/bodacc/bodacc-output.json
+          if-no-files-found: warn
+          retention-days: 14

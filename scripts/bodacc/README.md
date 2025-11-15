@@ -27,6 +27,23 @@ This job fetches recent company creations from a BODACC RSS/Atom feed, enriches 
 - `BODACC_EMAIL_TEMPLATE_PATH` — path to editable template file (default: `scripts/bodacc/templates/email-default.md`)
 - `ZOHO_BOOKINGS_LINK` — booking link used in email template
 - `BODACC_EMAIL_SIGNATURE` — signature text used in email template
+- `BODACC_AUTO_SEND` — set `"1"` to let Flow send email immediately; default `"0"` for manual review first
+- `BODACC_ALLOW_HUNTER` — set `"1"` to enable Hunter contact discovery; default `"0"` to keep only company-level info
+- `BODACC_HUNTER_LIMIT` — how many Hunter emails to include (default `3`)
+- `BODACC_SAVE_ARTIFACT` — `"1"` to save a JSON artifact for manual review (default on)
+- `BODACC_ARTIFACT_PATH` — path to JSON artifact (default `scripts/bodacc/bodacc-output.json`)
+
+## Manual review mode (recommandé)
+
+By default, the pipeline does not auto-send any email. It posts leads to your webhook with:
+- `auto_send: false`
+- optional pre-rendered `email_subject` / `email_body` (from the template) for convenience
+
+You can:
+- Review the artifact JSON from each run (Actions → Artifacts → `bodacc-leads`), or
+- Review/qualify inside Zoho CRM, then trigger a second Flow (record update/tag) to send the email.
+
+To enable auto-send later, set `BODACC_AUTO_SEND=1`.
 
 ## Email template format
 
@@ -50,11 +67,14 @@ Supported tokens are replaced before posting to Zoho Flow:
 - `{{my_signature}}` (from `BODACC_EMAIL_SIGNATURE`)
 
 The pipeline includes fields in the webhook payload:
-- `to_email` (best candidate from Hunter, if any)
+- `to_email` (best candidate from Hunter, if any and allowed)
 - `email_candidates` (list of discovered emails)
 - `email_subject`, `email_body` (rendered from template)
+- `auto_send` (boolean)
 
-Your Zoho Flow can use these fields to send the outreach email, or ignore them if you prefer a Flow-side template.
+Your Zoho Flow can:
+- Upsert Lead/Contact, tag `bodacc`, create a follow-up Task,
+- Send the email only if `auto_send == true` or when you change a field (status/tag) after review.
 
 ## Payload example (POSTed to webhook)
 
@@ -77,6 +97,7 @@ Your Zoho Flow can use these fields to send the outreach email, or ignore them i
   "email_body": "Bonjour, ...",
   "link": "https://bodacc.example/item/abc",
   "published_at": "2025-11-14T08:00:00Z",
+  "auto_send": false,
   "ts": "2025-11-14T09:00:00Z"
 }
 ```
@@ -85,5 +106,5 @@ Your Zoho Flow can use these fields to send the outreach email, or ignore them i
 
 - The script is idempotent per run and uses simple in-memory de-duplication. Your CRM/Flow should deduplicate by SIREN/email.
 - If `PAPPERS_API_KEY` is not set, enrichment is skipped.
-- If `HUNTER_API_KEY` is not set or no domain is known, contact discovery is skipped.
+- If `HUNTER_API_KEY` is not set or `BODACC_ALLOW_HUNTER` is not enabled, contact discovery is skipped.
 - Set cron in `.github/workflows/bodacc.yml` to match your timezone/schedule.

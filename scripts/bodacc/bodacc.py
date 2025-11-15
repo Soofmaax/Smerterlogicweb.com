@@ -28,10 +28,19 @@ USER_AGENT = os.getenv("BODACC_UA", "SLW-BODACC/1.0 (+https://smarterlogicweb.co
 CITY_ALLOWLIST = [c.strip().lower() for c in os.getenv("BODACC_CITY_ALLOW", "").split(",") if c.strip()]
 NAF_PREFIX_ALLOW = [n.strip() for n in os.getenv("BODACC_NAF_PREFIX_ALLOW", "").split(",") if n.strip()]
 
+# Manual review mode and contact discovery
+AUTO_SEND = (os.getenv("BODACC_AUTO_SEND", "0").strip().lower() in {"1", "true", "yes"})
+ALLOW_HUNTER = (os.getenv("BODACC_ALLOW_HUNTER", "0").strip().lower() in {"1", "true", "yes"})
+HUNTER_LIMIT = int(os.getenv("BODACC_HUNTER_LIMIT", "3"))
+
 # Email template config
 EMAIL_TEMPLATE_PATH = os.getenv("BODACC_EMAIL_TEMPLATE_PATH", "scripts/bodacc/templates/email-default.md")
 BOOKINGS_LINK = os.getenv("ZOHO_BOOKINGS_LINK", "").strip()
 EMAIL_SIGNATURE = os.getenv("BODACC_EMAIL_SIGNATURE", "Sonia\nSmarterLogicWeb\ncontact@smarterlogicweb.com")
+
+# Artifact output for manual review
+SAVE_ARTIFACT = (os.getenv("BODACC_SAVE_ARTIFACT", "1").strip().lower() in {"1", "true", "yes"})
+ARTIFACT_PATH = os.getenv("BODACC_ARTIFACT_PATH", "scripts/bodacc/bodacc-output.json")
 
 def http_get_json(url: str, params: Optional[Dict[str, Any]] = None, headers: Optional[Dict[str, str]] = None) -> Optional[Dict[str, Any]]:
     h = {"User-Agent": USER_AGENT}
@@ -116,12 +125,13 @@ def pappers_fetch(siren: Optional[str], company_name: Optional[str]) -> Dict[str
 
 def hunter_domain_search(domain: str) -> Dict[str, Any]:
     out: Dict[str, Any] = {}
-    if not HUNTER_API_KEY or not domain:
+    if not HUNTER_API_KEY or not domain or not ALLOW_HUNTER:
         return out
     data = http_get_json("https://api.hunter.io/v2/domain-search", {"domain": domain, "api_key": HUNTER_API_KEY})
     if data and isinstance(data, dict) and data.get("data"):
         d = data["data"]
-        out["emails"] = d.get("emails", [])[:3]
+        emails = d.get("emails", [])
+        out["emails"] = emails[:HUNTER_LIMIT] if isinstance(emails, list) else []
         out["pattern"] = d.get("pattern")
         out["webmail"] = d.get("webmail")
         out["organization"] = d.get("organization")
@@ -154,6 +164,7 @@ def process_feed() -> List[Dict[str, Any]]:
         title = normalize_text(getattr(e, "title", ""))
         summary = normalize_text(getattr(e, "summary", getattr(e, "description", "")))
         link = getattr(e, "link", "")
+        # published_at in ISO UTC
         published_at = parse_published(e).isoformat()
 
         name = title
@@ -181,11 +192,10 @@ def process_feed() -> List[Dict[str, Any]]:
             "site": pappers.get("site"),
         })
 
-        # Optional Hunter enrichment
+        # Optional Hunter enrichment (disabled by default for compliance)
         domain = None
         site = (info.get("site") or "").strip()
         if site:
-            # crude domain parse
             m = re.search(r"https?://([^/]+)/?", site)
             if m:
                 domain = m.group(1)
@@ -248,6 +258,15 @@ def render_email_template(template_path: str, info: Dict[str, Any]) -> Optional[
 
     return subject, body
 
+def save_artifact(items: List[Dict[str, Any]], path: str) -> None:
+    try:
+        os.makedirs(os.path.dirname(path), exist_ok=True)
+        with open(path, "w", encoding="utf-8") as f:
+            json.dump(items, f, ensure_ascii=False, indent=2)
+        log.info(f"Saved artifact: {path}")
+    except Exception as e:
+        log.info(f"Artifact save failed: {e}")
+
 def push_to_zoho(items: List[Dict[str, Any]]) -> int:
     if not ZOHO_FLOW_WEBHOOK:
         log.error("ZOHO_FLOW_WEBHOOK is not set")
@@ -270,11 +289,12 @@ def push_to_zoho(items: List[Dict[str, Any]]) -> int:
             "link": it.get("link"),
             "published_at": it.get("published_at"),
             "ts": datetime.now(timezone.utc).isoformat(),
+            "auto_send": AUTO_SEND,
         }
-        # Best candidate email (first from Hunter list)
-        emails = it.get("emails") or []
+        # Best candidate email (first from Hunter list, if allowed)
         to_email = None
-        if isinstance(emails, list) and emails:
+        emails = it.get("emails") or []
+        if ALLOW_HUNTER and isinstance(emails, list) and emails:
             v = emails[0]
             if isinstance(v, dict) and v.get("value"):
                 to_email = v["value"]
@@ -299,6 +319,8 @@ def push_to_zoho(items: List[Dict[str, Any]]) -> int:
 def main():
     items = process_feed()
     log.info(f"Candidates: {len(items)}")
+    if SAVE_ARTIFACT:
+        save_artifact(items, ARTIFACT_PATH)
     if not items:
         return 0
     pushed = push_to_zoho(items)
