@@ -53,7 +53,7 @@ const nextConfig = {
         ],
       },
       {
-        source: "/**/*.{js,css,woff,woff2,ttf,eot,svg,png,jpg,jpeg,gif,webp,ico}",
+        source: "/:all*.(js|css|woff|woff2|ttf|eot|svg|png|jpg|jpeg|gif|webp|ico)",
         headers: [{ key: "Cache-Control", value: "public, max-age=31536000, immutable" }],
       },
       { source: "/favicon.ico", headers: [{ key: "Cache-Control", value: "no-store, must-revalidate" }] },
