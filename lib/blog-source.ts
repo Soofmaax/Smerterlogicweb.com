@@ -17,7 +17,7 @@ function getLocalHour(): number {
   return Number.isFinite(h) && h >= 0 && h <= 23 ? h : 9;
 }
 
-function useEuropeParis(): boolean {
+function isEuropeParisTz(): boolean {
   const tz = (process.env.BLOG_PUBLISH_TZ || "").trim();
   return tz.toLowerCase() === "europe/paris";
 }
@@ -47,7 +47,7 @@ function computePublishAtISO(dateStr: string): string | undefined {
   const mm = Number(m[2]) - 1;
   const dd = Number(m[3]);
   const localHour = getLocalHour();
-  if (useEuropeParis()) {
+  if (isEuropeParisTz()) {
     const base = new Date(Date.UTC(y, mm, dd, 0, 0, 0));
     const summer = isDstEuropeParis(base);
     const offset = summer ? 2 : 1;
