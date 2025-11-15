@@ -1,0 +1,14 @@
+[
+  {
+    "siren": "123456789",
+    "email": "contact@exemple.fr"
+  },
+  {
+    "domain": "entreprise.fr",
+    "email": "info@entreprise.fr"
+  },
+  {
+    "company_name": "ACME SARL",
+    "email": "contact@acme.fr"
+  }
+]

@@ -47,8 +47,11 @@ jobs:
           BODACC_NAF_PREFIX_ALLOW: ${{ vars.BODACC_NAF_PREFIX_ALLOW }}
           BODACC_AUTO_SEND: ${{ vars.BODACC_AUTO_SEND }} # default off (0)
           BODACC_ALLOW_HUNTER: ${{ vars.BODACC_ALLOW_HUNTER }} # default off (0)
+          BODACC_HUNTER_LIMIT: ${{ vars.BODACC_HUNTER_LIMIT }}
+          BODACC_HUNTER_ONLY_NOMANUAL: ${{ vars.BODACC_HUNTER_ONLY_NOMANUAL }} # default on (1)
           BODACC_SAVE_ARTIFACT: "1"
           BODACC_ARTIFACT_PATH: "scripts/bodacc/bodacc-output.json"
+          BODACC_MANUAL_FILE: "scripts/bodacc/manual-overrides.json"
           ZOHO_BOOKINGS_LINK: ${{ vars.ZOHO_BOOKINGS_LINK }}
           BODACC_EMAIL_SIGNATURE: ${{ vars.BODACC_EMAIL_SIGNATURE }}
         run: |

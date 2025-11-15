@@ -32,11 +32,15 @@ NAF_PREFIX_ALLOW = [n.strip() for n in os.getenv("BODACC_NAF_PREFIX_ALLOW", "").
 AUTO_SEND = (os.getenv("BODACC_AUTO_SEND", "0").strip().lower() in {"1", "true", "yes"})
 ALLOW_HUNTER = (os.getenv("BODACC_ALLOW_HUNTER", "0").strip().lower() in {"1", "true", "yes"})
 HUNTER_LIMIT = int(os.getenv("BODACC_HUNTER_LIMIT", "3"))
+HUNTER_ONLY_NOMANUAL = (os.getenv("BODACC_HUNTER_ONLY_NOMANUAL", "1").strip().lower() in {"1", "true", "yes"})
 
 # Email template config
 EMAIL_TEMPLATE_PATH = os.getenv("BODACC_EMAIL_TEMPLATE_PATH", "scripts/bodacc/templates/email-default.md")
 BOOKINGS_LINK = os.getenv("ZOHO_BOOKINGS_LINK", "").strip()
 EMAIL_SIGNATURE = os.getenv("BODACC_EMAIL_SIGNATURE", "Sonia\nSmarterLogicWeb\ncontact@smarterlogicweb.com")
+
+# Manual overrides (to avoid hunter when you've found an email yourself)
+MANUAL_FILE = os.getenv("BODACC_MANUAL_FILE", "scripts/bodacc/manual-overrides.json")
 
 # Artifact output for manual review
 SAVE_ARTIFACT = (os.getenv("BODACC_SAVE_ARTIFACT", "1").strip().lower() in {"1", "true", "yes"})
@@ -83,6 +87,32 @@ def parse_published(entry: Dict[str, Any]) -> datetime:
 
 def normalize_text(s: str) -> str:
     return html.unescape(s).strip()
+
+def load_manual_overrides() -> List[Dict[str, Any]]:
+    try:
+        with open(MANUAL_FILE, "r", encoding="utf-8") as f:
+            data = json.load(f)
+        if isinstance(data, list):
+            return data
+    except Exception:
+        pass
+    return []
+
+def match_manual_email(overrides: List[Dict[str, Any]], info: Dict[str, Any], domain: Optional[str]) -> Optional[str]:
+    siren = (info.get("siren") or "").strip()
+    company = (info.get("denomination") or info.get("company_name") or "").strip().lower()
+    for o in overrides:
+        email = str(o.get("email") or "").strip()
+        if not email:
+            continue
+        if siren and str(o.get("siren") or "").strip() == siren:
+            return email
+        if domain and str(o.get("domain") or "").strip().lower() == domain.lower():
+            return email
+        name = str(o.get("company_name") or "").strip().lower()
+        if name and company and name == company:
+            return email
+    return None
 
 def pappers_fetch(siren: Optional[str], company_name: Optional[str]) -> Dict[str, Any]:
     out: Dict[str, Any] = {}
@@ -160,6 +190,8 @@ def process_feed() -> List[Dict[str, Any]]:
     items: List[Dict[str, Any]] = []
     seen_keys: set[str] = set()
 
+    overrides = load_manual_overrides()
+
     for e in entries:
         title = normalize_text(getattr(e, "title", ""))
         summary = normalize_text(getattr(e, "summary", getattr(e, "description", "")))
@@ -192,17 +224,30 @@ def process_feed() -> List[Dict[str, Any]]:
             "site": pappers.get("site"),
         })
 
-        # Optional Hunter enrichment (disabled by default for compliance)
+        # Domain from site (for matching and hunter)
         domain = None
         site = (info.get("site") or "").strip()
         if site:
             m = re.search(r"https?://([^/]+)/?", site)
             if m:
                 domain = m.group(1)
-        hunter = hunter_domain_search(domain) if domain else {}
-        if hunter:
-            info["emails"] = hunter.get("emails")
-            info["email_pattern"] = hunter.get("pattern")
+        info["domain"] = domain
+
+        # Manual override email
+        manual_email = match_manual_email(overrides, info, domain)
+        if manual_email:
+            info["manual_email"] = manual_email
+
+        # Optional Hunter enrichment (only if allowed and no manual email or policy permits)
+        hunter = {}
+        if domain and ALLOW_HUNTER and (not manual_email or not HUNTER_ONLY_NOMANUAL):
+            hunter = hunter_domain_search(domain)
+            if hunter:
+                info["emails"] = hunter.get("emails")
+                info["email_pattern"] = hunter.get("pattern")
+                info["hunter_used"] = True
+        else:
+            info["hunter_used"] = False
 
         # Filters
         if not passes_filters(info):
@@ -284,25 +329,33 @@ def push_to_zoho(items: List[Dict[str, Any]]) -> int:
             "ville": it.get("ville"),
             "adresse": it.get("adresse"),
             "site": it.get("site"),
+            "domain": it.get("domain"),
             "emails": it.get("emails"),
             "email_pattern": it.get("email_pattern"),
+            "manual_email": it.get("manual_email"),
+            "hunter_used": it.get("hunter_used"),
             "link": it.get("link"),
             "published_at": it.get("published_at"),
             "ts": datetime.now(timezone.utc).isoformat(),
             "auto_send": AUTO_SEND,
         }
-        # Best candidate email (first from Hunter list, if allowed)
+        # Choose to_email: prefer manual override, else first Hunter email if allowed
         to_email = None
-        emails = it.get("emails") or []
-        if ALLOW_HUNTER and isinstance(emails, list) and emails:
-            v = emails[0]
-            if isinstance(v, dict) and v.get("value"):
-                to_email = v["value"]
-            elif isinstance(v, str):
-                to_email = v
+        manual_email = it.get("manual_email")
+        if manual_email:
+            to_email = manual_email
+            payload["manual_email_used"] = True
+        else:
+            emails = it.get("emails") or []
+            if ALLOW_HUNTER and isinstance(emails, list) and emails:
+                v = emails[0]
+                if isinstance(v, dict) and v.get("value"):
+                    to_email = v["value"]
+                elif isinstance(v, str):
+                    to_email = v
         if to_email:
             payload["to_email"] = to_email
-            payload["email_candidates"] = emails
+            payload["email_candidates"] = it.get("emails")
 
         tpl = render_email_template(EMAIL_TEMPLATE_PATH, it)
         if tpl:
