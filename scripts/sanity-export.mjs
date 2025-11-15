@@ -127,6 +127,7 @@ function portableTextToHtml(body) {
 }
 
 async function run() {
+  // Export posts to content/blog
   const posts = await client.fetch(
     `*[_type == "post" && defined(slug.current) && !(_id in path("drafts.**"))]{
       "slug": slug.current,
@@ -138,7 +139,6 @@ async function run() {
       draft,
       tags,
       altLocales,
-      // portable text body
       body
     } | order(publishAt desc, title asc)`
   );
@@ -162,6 +162,53 @@ async function run() {
     });
 
     const html = portableTextToHtml(p.body);
+    const md = `${fm}\n\n${html}\n`;
+
+    const existing = fs.existsSync(fp) ? fs.readFileSync(fp, "utf8") : "";
+    if (existing !== md) {
+      fs.writeFileSync(fp, md, "utf8");
+      changed += 1;
+      console.log("Updated:", filename);
+    } else {
+      console.log("No change:", filename);
+    }
+  }
+
+  // Export newsletters to content/newsletter
+  const newsletterDir = path.join(process.cwd(), "content", "newsletter");
+  fs.mkdirSync(newsletterDir, { recursive: true });
+
+  const newsletters = await client.fetch(
+    `*[_type == "newsletter" && defined(slug.current) && !(_id in path("drafts.**"))]{
+      "slug": slug.current,
+      title,
+      locale,
+      sendAt,
+      ready,
+      // featured slugs for later resolution
+      "featuredSlugs": featured[]->slug.current,
+      links,
+      cta,
+      intro
+    } | order(coalesce(sendAt, now()) desc, title asc)`
+  );
+
+  for (const n of newsletters) {
+    const filename = `${n.slug}.md`;
+    const fp = path.join(newsletterDir, filename);
+
+    const fm = frontmatter({
+      slug: n.slug,
+      locale: n.locale || "fr",
+      title: n.title || n.slug,
+      sendAt: n.sendAt,
+      ready: Boolean(n.ready),
+      featuredSlugs: Array.isArray(n.featuredSlugs) ? n.featuredSlugs : undefined,
+      links: Array.isArray(n.links) ? n.links : undefined,
+      cta: typeof n.cta === "object" ? n.cta : undefined,
+    });
+
+    const html = portableTextToHtml(n.intro);
     const md = `${fm}\n\n${html}\n`;
 
     const existing = fs.existsSync(fp) ? fs.readFileSync(fp, "utf8") : "";
