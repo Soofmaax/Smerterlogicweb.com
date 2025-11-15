@@ -1,5 +1,7 @@
 import type { MetadataRoute } from "next";
 import { getAllLocalCitySlugs } from "@/data/local-cities";
+import { getAllPosts } from "@/lib/blog-source";
+import { getPublishedPostsBurst } from "@/lib/blog";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = "https://smarterlogicweb.com";
@@ -42,6 +44,25 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.9,
   };
 
+  // Blog posts (FR/EN) — include only those considered published by scheduling rules
+  const allPosts = getAllPosts();
+  const publishedFr = getPublishedPostsBurst(allPosts, "fr", now);
+  const publishedEn = getPublishedPostsBurst(allPosts, "en", now);
+
+  const blogFr = publishedFr.map((p) => ({
+    url: `${baseUrl}/blog/${p.slug}`,
+    lastModified: p.publishAt,
+    changeFrequency: "monthly" as const,
+    priority: 0.7,
+  }));
+
+  const blogEn = publishedEn.map((p) => ({
+    url: `${baseUrl}/en/blog/${p.slug}`,
+    lastModified: p.publishAt,
+    changeFrequency: "monthly" as const,
+    priority: 0.7,
+  }));
+
   return [
     // FR
     { url: `${baseUrl}/`, lastModified: now, changeFrequency: "monthly", priority: 1 },
@@ -59,6 +80,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${baseUrl}/faq`, lastModified: now, changeFrequency: "yearly", priority: 0.3 },
     { url: `${baseUrl}/merci`, lastModified: now, changeFrequency: "yearly", priority: 0.2 },
     { url: `${baseUrl}/blog`, lastModified: now, changeFrequency: "daily", priority: 0.7 },
+    // Blog articles (FR)
+    ...blogFr,
 
     // Local SEO pages by métier
     ...localSeoPages,
@@ -88,6 +111,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${baseUrl}/en/faq`, lastModified: now, changeFrequency: "yearly", priority: 0.3 },
     { url: `${baseUrl}/en/thank-you`, lastModified: now, changeFrequency: "yearly", priority: 0.2 },
     { url: `${baseUrl}/en/blog`, lastModified: now, changeFrequency: "daily", priority: 0.7 },
+    // Blog articles (EN)
+    ...blogEn,
 
     // Local SEO pages (EN)
     ...localSeoPagesEN,

@@ -3,30 +3,112 @@ import path from "node:path";
 import matter from "gray-matter";
 import { remark } from "remark";
 import remarkParse from "remark-parse";
+import remarkSlug from "remark-slug";
+import remarkAutolinkHeadings from "remark-autolink-headings";
 import remarkRehype from "remark-rehype";
 import rehypeRaw from "rehype-raw";
 import rehypeStringify from "rehype-stringify";
 
 import type { BlogPost, BlogLocale } from "./blog";
 
+function getLocalHour(): number {
+  const rawLocal = process.env.BLOG_PUBLISH_LOCAL_HOUR;
+  const rawUtc = process.env.BLOG_PUBLISH_HOUR;
+  const base = rawLocal ?? rawUtc;
+  const h = base ? Number(base) : 9;
+  return Number.isFinite(h) && h >= 0 && h <= 23 ? h : 9;
+}
+
+function isEuropeParisTz(): boolean {
+  const tz = (process.env.BLOG_PUBLISH_TZ || "").trim();
+  return tz.toLowerCase() === "europe/paris";
+}
+
+function lastSunday(year: number, monthIndex: number): Date {
+  const last = new Date(Date.UTC(year, monthIndex + 1, 0, 0, 0, 0));
+  const day = last.getUTCDay();
+  const diff = day === 0 ? 0 : day;
+  last.setUTCDate(last.getUTCDate() - diff);
+  return last;
+}
+
+function isDstEuropeParis(d: Date): boolean {
+  const y = d.getUTCFullYear();
+  const start = lastSunday(y, 2);
+  const dstStart = new Date(Date.UTC(y, start.getUTCMonth(), start.getUTCDate(), 1, 0, 0));
+  const end = lastSunday(y, 9);
+  const dstEnd = new Date(Date.UTC(y, end.getUTCMonth(), end.getUTCDate(), 1, 0, 0));
+  return d.getTime() >= dstStart.getTime() && d.getTime() < dstEnd.getTime();
+}
+
+function computePublishAtISO(dateStr: string): string | undefined {
+  // dateStr: YYYY-MM-DD
+  const m = dateStr.match(/^(\d{4})-(\d{2})-(\d{2})$/);
+  if (!m) return undefined;
+  const y = Number(m[1]);
+  const mm = Number(m[2]) - 1;
+  const dd = Number(m[3]);
+  const localHour = getLocalHour();
+  if (isEuropeParisTz()) {
+    const base = new Date(Date.UTC(y, mm, dd, 0, 0, 0));
+    const summer = isDstEuropeParis(base);
+    const offset = summer ? 2 : 1;
+    let utcHour = localHour - offset;
+    let dayShift = 0;
+    while (utcHour < 0) {
+      utcHour += 24;
+      dayShift -= 1;
+    }
+    while (utcHour >= 24) {
+      utcHour -= 24;
+      dayShift += 1;
+    }
+    const d = new Date(Date.UTC(y, mm, dd + dayShift, utcHour, 0, 0));
+    return d.toISOString();
+  }
+  const d = new Date(Date.UTC(y, mm, dd, localHour, 0, 0));
+  return d.toISOString();
+}
+
+function enhanceContentHtml(html: string): string {
+  // Add lazy loading / decoding to images
+  const withPerf = html.replace(/<img\b([^>]*?)>/gi, (m, attrs) => {
+    const hasLoading = /\bloading=/.test(attrs);
+    const hasDecoding = /\bdecoding=/.test(attrs);
+    const hasReferrer = /\breferrerpolicy=/.test(attrs);
+    const hasStyle = /\bstyle=/.test(attrs);
+    const style = hasStyle ? "" : ' style="max-width:100%;height:auto"';
+    return `<img${attrs}${hasLoading ? "" : " loading=\"lazy\""}${hasDecoding ? "" : " decoding=\"async\""}${
+      hasReferrer ? "" : " referrerpolicy=\"no-referrer\""
+    }${style}>`;
+  });
+
+  // Wrap standalone images in <figure><img/><figcaption/></figure>
+  function extractAttr(attrs: string, name: string): string | undefined {
+    const m =
+      attrs.match(new RegExp(`\\b${name}\\s*=\\s*("([^"]*)"|'([^']*)'|([^\\s>]+))`, "i"));
+    return m ? (m[2] || m[3] || m[4]) : undefined;
+  }
+  function wrapImg(attrs: string): string {
+    const alt = extractAttr(attrs, "alt") || "";
+    const title = extractAttr(attrs, "title") || "";
+    const caption = (title || alt).trim();
+    const imgTag = `<img${attrs} data-lightbox="1">`;
+    const figcaption = caption ? `<figcaption class="mt-2 text-center text-sm text-muted-foreground">${caption}</figcaption>` : "";
+    return `<figure class="my-6">${imgTag}${figcaption}</figure>`;
+  }
+
+  let out = withPerf;
+  // <p><img ...></p>
+  out = out.replace(/<p>\s*<img\b([^>]*?)>\s*<\/p>/gi, (_m, attrs) => wrapImg(attrs));
+  // <p><a ...><img ...></a></p> -> drop anchor and wrap
+  out = out.replace(/<p>\s*<a\b[^>]*>\s*<img\b([^>]*?)>\s*<\/a>\s*<\/p>/gi, (_m, attrs) => wrapImg(attrs));
+
+  return out;
+}
+
 /**
  * Load Markdown blog posts from content/blog/*.md with YAML frontmatter.
- * Frontmatter fields:
- * - slug: string (required if file name not suitable)
- * - locale: "fr" | "en" (default: "fr")
- * - title: string (required)
- * - summary: string (optional)
- * - authorName: string (optional; defaults to "Sonia" if omitted)
- * - authorUrl: string (optional; personal or profile URL)
- * - publishAt: ISO date string (optional)
- * - published: boolean (optional; publish immediately)
- * - draft: boolean (optional; hide from publication)
- * - tags: string[] (optional)
- * - altLocales: { fr?: string; en?: string } (optional cross-locale slug mapping)
- *
- * Filename shortcut:
- * - If file name starts with YYYY-MM-DD-..., use that date as publishAt automatically.
- *   Example: 2025-01-05-mon-super-article.md
  */
 export function loadPostsFromMarkdown(): BlogPost[] {
   const contentDir = path.join(process.cwd(), "content", "blog");
@@ -45,11 +127,7 @@ export function loadPostsFromMarkdown(): BlogPost[] {
 
     const slugFromFile = file.replace(/\.md$/i, "");
     const dateMatch = slugFromFile.match(/^(\d{4}-\d{2}-\d{2})-(.+)$/);
-    const hour = (() => {
-      const h = Number(process.env.BLOG_PUBLISH_HOUR || "9");
-      return Number.isFinite(h) && h >= 0 && h <= 23 ? h : 9;
-    })();
-    const publishAtFromName = dateMatch ? `${dateMatch[1]}T${String(hour).padStart(2, "0")}:00:00Z` : undefined;
+    const publishAtFromName = dateMatch ? computePublishAtISO(dateMatch[1]) : undefined;
 
     const slug: string = (parsed.data.slug as string) || (dateMatch ? dateMatch[2] : slugFromFile);
 
@@ -63,19 +141,21 @@ export function loadPostsFromMarkdown(): BlogPost[] {
     const draft = parsed.data.draft === true || false;
     const tags = Array.isArray(parsed.data.tags) ? (parsed.data.tags as string[]) : undefined;
 
-    // Optional cross-locale slug mapping
     const altLocalesRaw = parsed.data.altLocales as Partial<Record<BlogLocale, string>> | undefined;
     const altLocales =
       altLocalesRaw && typeof altLocalesRaw === "object" ? (altLocalesRaw as Partial<Record<BlogLocale, string>>) : undefined;
 
-    // Convert markdown body to HTML with raw HTML support (trusted content)
     const html = remark()
       .use(remarkParse)
+      .use(remarkSlug)
+      .use(remarkAutolinkHeadings, { behavior: "wrap" })
       .use(remarkRehype, { allowDangerousHtml: true })
       .use(rehypeRaw)
       .use(rehypeStringify)
       .processSync(parsed.content)
       .toString();
+
+    const enhanced = enhanceContentHtml(html);
 
     posts.push({
       slug,
@@ -88,7 +168,7 @@ export function loadPostsFromMarkdown(): BlogPost[] {
       published,
       draft,
       tags,
-      contentHtml: html,
+      contentHtml: enhanced,
       altLocales,
     });
   }
@@ -96,11 +176,6 @@ export function loadPostsFromMarkdown(): BlogPost[] {
   return posts;
 }
 
-/**
- * Markdown-only policy:
- * Return posts loaded from content/blog/*.md exclusively.
- * TS seeds from data/blog.ts are disabled to avoid duplication and ensure a single source of truth.
- */
 export function getAllPosts(): BlogPost[] {
   return loadPostsFromMarkdown();
 }

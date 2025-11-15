@@ -1,0 +1,65 @@
+name: BODACC lead pipeline
+
+on:
+  workflow_dispatch:
+
+concurrency:
+  group: bodacc-pipeline
+  cancel-in-progress: false
+
+jobs:
+  bodacc:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Cache pip
+        uses: actions/cache@v4
+        with:
+          path: ~/.cache/pip
+          key: bodacc-pip-${{ runner.os }}-${{ hashFiles('scripts/bodacc/requirements.txt') }}
+          restore-keys: |
+            bodacc-pip-${{ runner.os }}-
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r scripts/bodacc/requirements.txt
+
+      - name: Run BODACC pipeline (manual review mode)
+        env:
+          BODACC_FEED_URL: ${{ secrets.BODACC_FEED_URL }}
+          ZOHO_FLOW_WEBHOOK: ${{ secrets.ZOHO_FLOW_WEBHOOK }}
+          PAPPERS_API_KEY: ${{ secrets.PAPPERS_API_KEY }}
+          HUNTER_API_KEY: ${{ secrets.HUNTER_API_KEY }}
+          BODACC_MAX_ITEMS: ${{ vars.BODACC_MAX_ITEMS }}
+          BODACC_CITY_ALLOW: ${{ vars.BODACC_CITY_ALLOW }}
+          BODACC_NAF_PREFIX_ALLOW: ${{ vars.BODACC_NAF_PREFIX_ALLOW }}
+          # Force manual review and disable enrichment
+          BODACC_AUTO_SEND: "0"
+          BODACC_ALLOW_HUNTER: "0"
+          BODACC_HUNTER_LIMIT: ${{ vars.BODACC_HUNTER_LIMIT }}
+          BODACC_HUNTER_ONLY_NOMANUAL: ${{ vars.BODACC_HUNTER_ONLY_NOMANUAL }} # default on (1)
+          BODACC_SAVE_ARTIFACT: "1"
+          BODACC_ARTIFACT_PATH: "scripts/bodacc/bodacc-output.json"
+          BODACC_MANUAL_FILE: "scripts/bodacc/manual-overrides.json"
+          ZOHO_BOOKINGS_LINK: ${{ vars.ZOHO_BOOKINGS_LINK }}
+          BODACC_EMAIL_SIGNATURE: ${{ vars.BODACC_EMAIL_SIGNATURE }}
+        run: |
+          python scripts/bodacc/bodacc.py
+
+      - name: Upload leads artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: bodacc-leads
+          path: scripts/bodacc/bodacc-output.json
+          if-no-files-found: warn
+          retention-days: 14

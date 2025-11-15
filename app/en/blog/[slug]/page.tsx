@@ -4,8 +4,10 @@ import { getScheduledPostBySlugBurst, formatDate } from "@/lib/blog";
 import { getAllPosts } from "@/lib/blog-source";
 import { Breadcrumbs } from "@/components/site/breadcrumbs";
 import { CitationBox } from "@/components/site/citation-box";
+import { TableOfContents } from "@/components/site/table-of-contents";
+import { BlogLightboxBinder } from "@/components/site/blog-lightbox-binder";
 
-export const dynamic = "force-dynamic";
+export const revalidate = 60;
 
 export async function generateMetadata({ params }: { params: { slug: string } }) {
   const all = getAllPosts();
@@ -123,7 +125,11 @@ export default function BlogPostEN({ params }: { params: { slug: string } }) {
           />
         </header>
 
+        <TableOfContents contentHtml={post.contentHtml} rootId="article-content" locale="en" />
+        <BlogLightboxBinder rootId="article-content" ariaLabel="Article images lightbox" />
+
         <div
+          id="article-content"
           className="prose prose-neutral dark:prose-invert max-w-none prose-headings:font-heading prose-a:text-primary prose-a:underline-offset-2 prose-img:rounded-lg prose-img:shadow-sm"
           dangerouslySetInnerHTML={{ __html: post.contentHtml }}
         />

@@ -1,0 +1,45 @@
+name: Sync blog from Sanity
+
+on:
+  workflow_dispatch:
+  repository_dispatch:
+    types: [sanity-publish]
+
+permissions:
+  contents: write
+
+jobs:
+  export:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Install deps
+        run: npm install
+
+      - name: Run Sanity export
+        run: node scripts/sanity-export.mjs
+        env:
+          SANITY_PROJECT_ID: ${{ secrets.SANITY_PROJECT_ID }}
+          SANITY_DATASET: production
+          SANITY_API_VERSION: "2025-11-14"
+          SANITY_READ_TOKEN: ${{ secrets.SANITY_READ_TOKEN }}
+
+      - name: Commit and push if changed
+        run: |
+          CHANGED=$(git status --porcelain content/blog content/newsletter)
+          if [[ -n "$CHANGED" ]]; then
+            git config user.name "sanity-export-bot"
+            git config user.email "actions@github.com"
+            git add content/blog content/newsletter
+            git commit -m "chore(content): sync from Sanity (blog/newsletter)"
+            git push
+          else
+            echo "No changes to commit."
+          fi
