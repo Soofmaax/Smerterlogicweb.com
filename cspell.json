@@ -17,7 +17,7 @@
   "languageSettings": [
     {
       "languageId": "typescript,typescriptreact,javascript,javascriptreact,markdown",
-      "dictionaries": ["en_us", "fr-fr", "software-terms"]
+      "dictionaries": ["en_us", "fr-fr", "software-terms", "project-words"]
     }
   ],
   "ignorePaths": [
