@@ -60,10 +60,10 @@ export function BlogLightboxBinder({ rootId, ariaLabel = "Lightbox" }: BinderPro
 
   if (!slides.length) return null;
 
-  const items = slides.map((s) => {
+  const items = slides.map((s, i) => {
     const caption = s.title || s.alt || "";
     return (
-      <figure className="relative h-full w-full flex items-center justify-center">
+      <figure key={`${i}-${s.src}`} className="relative h-full w-full flex items-center justify-center">
         <img
           src={s.src}
           alt={s.alt || ""}
