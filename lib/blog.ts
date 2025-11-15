@@ -67,7 +67,7 @@ function getLocalHour(): number {
   return 9;
 }
 
-function useEuropeParis(): boolean {
+function isEuropeParisTz(): boolean {
   const tz = (process.env.BLOG_PUBLISH_TZ || "").trim();
   return tz.toLowerCase() === "europe/paris";
 }
@@ -121,7 +121,7 @@ function withLocalHourEuropeParis(date: Date, localHour: number): Date {
 
 function applyPublishTime(date: Date): Date {
   const localHour = getLocalHour();
-  if (useEuropeParis()) {
+  if (isEuropeParisTz()) {
     return withLocalHourEuropeParis(date, localHour);
     }
   return withHourUTC(date, localHour);
