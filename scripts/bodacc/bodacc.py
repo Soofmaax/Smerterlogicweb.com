@@ -6,9 +6,8 @@ import json
 import time
 import html
 import logging
-from typing import Any, Dict, List, Optional
+from typing import Any, Dict, List, Optional, Tuple
 from datetime import datetime, timezone
-from urllib.parse import quote_plus
 
 import requests
 import feedparser
@@ -28,6 +27,11 @@ USER_AGENT = os.getenv("BODACC_UA", "SLW-BODACC/1.0 (+https://smarterlogicweb.co
 # Optional simple filters (comma-separated)
 CITY_ALLOWLIST = [c.strip().lower() for c in os.getenv("BODACC_CITY_ALLOW", "").split(",") if c.strip()]
 NAF_PREFIX_ALLOW = [n.strip() for n in os.getenv("BODACC_NAF_PREFIX_ALLOW", "").split(",") if n.strip()]
+
+# Email template config
+EMAIL_TEMPLATE_PATH = os.getenv("BODACC_EMAIL_TEMPLATE_PATH", "scripts/bodacc/templates/email-default.md")
+BOOKINGS_LINK = os.getenv("ZOHO_BOOKINGS_LINK", "").strip()
+EMAIL_SIGNATURE = os.getenv("BODACC_EMAIL_SIGNATURE", "Sonia\nSmarterLogicWeb\ncontact@smarterlogicweb.com")
 
 def http_get_json(url: str, params: Optional[Dict[str, Any]] = None, headers: Optional[Dict[str, str]] = None) -> Optional[Dict[str, Any]]:
     h = {"User-Agent": USER_AGENT}
@@ -204,6 +208,46 @@ def process_feed() -> List[Dict[str, Any]]:
 
     return items
 
+def render_email_template(template_path: str, info: Dict[str, Any]) -> Optional[Tuple[str, str]]:
+    try:
+        with open(template_path, "r", encoding="utf-8") as f:
+            content = f.read()
+    except Exception:
+        return None
+    # First line must start with "Subject:" then a blank line then body
+    lines = content.splitlines()
+    if not lines or not lines[0].lower().startswith("subject:"):
+        return None
+    subject = lines[0].split(":", 1)[1].strip()
+    # Body after first blank line
+    body_lines: List[str] = []
+    # Find first blank line
+    i = 1
+    while i < len(lines) and lines[i].strip() != "":
+        i += 1
+    i += 1  # skip the blank line
+    while i < len(lines):
+        body_lines.append(lines[i])
+        i += 1
+    body = "\n".join(body_lines)
+
+    # Simple token replacement
+    tokens = {
+        "{{company_name}}": info.get("denomination") or info.get("company_name") or "",
+        "{{denomination}}": info.get("denomination") or "",
+        "{{city}}": info.get("ville") or "",
+        "{{website}}": info.get("site") or "",
+        "{{link}}": info.get("link") or "",
+        "{{published_at}}": info.get("published_at") or "",
+        "{{bookings_link}}": BOOKINGS_LINK,
+        "{{my_signature}}": EMAIL_SIGNATURE,
+    }
+    for k, v in tokens.items():
+        subject = subject.replace(k, v or "")
+        body = body.replace(k, v or "")
+
+    return subject, body
+
 def push_to_zoho(items: List[Dict[str, Any]]) -> int:
     if not ZOHO_FLOW_WEBHOOK:
         log.error("ZOHO_FLOW_WEBHOOK is not set")
@@ -227,6 +271,25 @@ def push_to_zoho(items: List[Dict[str, Any]]) -> int:
             "published_at": it.get("published_at"),
             "ts": datetime.now(timezone.utc).isoformat(),
         }
+        # Best candidate email (first from Hunter list)
+        emails = it.get("emails") or []
+        to_email = None
+        if isinstance(emails, list) and emails:
+            v = emails[0]
+            if isinstance(v, dict) and v.get("value"):
+                to_email = v["value"]
+            elif isinstance(v, str):
+                to_email = v
+        if to_email:
+            payload["to_email"] = to_email
+            payload["email_candidates"] = emails
+
+        tpl = render_email_template(EMAIL_TEMPLATE_PATH, it)
+        if tpl:
+            subject, body = tpl
+            payload["email_subject"] = subject
+            payload["email_body"] = body
+
         ok = http_post_json(ZOHO_FLOW_WEBHOOK, payload)
         if ok:
             pushed += 1
