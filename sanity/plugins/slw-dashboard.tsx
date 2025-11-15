@@ -19,12 +19,17 @@ type NewsletterItem = {
   ready?: boolean;
 };
 
+const DEPLOY_HOOK = (process.env.NEXT_PUBLIC_VERCEL_DEPLOY_HOOK_URL || process.env.VERCEL_DEPLOY_HOOK_URL || "") as string;
+
 function Dashboard() {
   const client = useClient({apiVersion: process.env.SANITY_API_VERSION || "2025-11-14"});
   const [loading, setLoading] = useState(true);
   const [counts, setCounts] = useState<any>(null);
   const [latestPosts, setLatestPosts] = useState<PostItem[]>([]);
   const [newsletters, setNewsletters] = useState<NewsletterItem[]>([]);
+  const [draftPosts, setDraftPosts] = useState<PostItem[]>([]);
+  const [scheduledWeek, setScheduledWeek] = useState<Array<{id: string; title: string; meta: string; onOpen: () => void; extra?: React.ReactNode}>>([]);
+  const [deployStatus, setDeployStatus] = useState<"idle" | "loading" | "ok" | "err">("idle");
 
   useEffect(() => {
     async function load() {
@@ -49,13 +54,73 @@ function Dashboard() {
         _id, title, slug, locale, sendAt, ready
       }`);
 
+      const drafts: PostItem[] = await client.fetch(`*[_type == "post" && (draft == true || published != true)] | order(_updatedAt desc)[0...10]{
+        _id, title, locale, publishAt, published, draft
+      }`);
+
+      // Scheduled in next 7 days (posts + newsletters)
+      const schedPosts: PostItem[] = await client.fetch(`*[_type == "post" && defined(publishAt) && publishAt > now()] | order(publishAt asc)[0...50]{ _id, title, locale, publishAt, published, draft }`);
+      const schedNl: NewsletterItem[] = await client.fetch(`*[_type == "newsletter" && defined(sendAt) && sendAt > now()] | order(sendAt asc)[0...50]{ _id, title, slug, locale, sendAt, ready }`);
+
+      const now = Date.now();
+      const weekMs = 7 * 24 * 60 * 60 * 1000;
+
+      const items: Array<{id: string; title: string; meta: string; onOpen: () => void; extra?: React.ReactNode}> = [];
+
+      for (const p of schedPosts) {
+        if (!p.publishAt) continue;
+        const ts = new Date(p.publishAt).getTime();
+        if (Number.isFinite(ts) && ts - now <= weekMs) {
+          items.push({
+            id: p._id,
+            title: p.title,
+            meta: [`POST`, p.locale ? p.locale.toUpperCase() : "—", new Date(p.publishAt).toLocaleString()].filter(Boolean).join(" • "),
+            onOpen: () => window.location.assign(`/studio/intent/edit?type=post&id=${encodeURIComponent(p._id)}`),
+          });
+        }
+      }
+
+      for (const n of schedNl) {
+        if (!n.sendAt) continue;
+        const ts = new Date(n.sendAt).getTime();
+        if (Number.isFinite(ts) && ts - now <= weekMs) {
+          const slug = typeof n.slug === "string" ? n.slug : (n.slug?.current || "");
+          items.push({
+            id: n._id,
+            title: n.title,
+            meta: [`NL`, n.locale ? n.locale.toUpperCase() : "—", new Date(n.sendAt).toLocaleString()].filter(Boolean).join(" • "),
+            onOpen: () => window.location.assign(`/studio/intent/edit?type=newsletter&id=${encodeURIComponent(n._id)}`),
+            extra: slug ? <a href={`/api/newsletter/${slug}`} target="_blank" rel="noopener noreferrer">Preview HTML</a> : null,
+          });
+        }
+      }
+
       setCounts(c);
       setLatestPosts(lp);
       setNewsletters(nl);
+      setDraftPosts(drafts);
+      setScheduledWeek(items);
       setLoading(false);
     }
     load().catch(() => setLoading(false));
   }, [client]);
+
+  async function triggerDeploy() {
+    if (!DEPLOY_HOOK) {
+      alert("DEPLOY HOOK manquant. Définis NEXT_PUBLIC_VERCEL_DEPLOY_HOOK_URL.");
+      return;
+    }
+    try {
+      setDeployStatus("loading");
+      const res = await fetch(DEPLOY_HOOK, {method: "POST"});
+      if (res.ok) setDeployStatus("ok");
+      else setDeployStatus("err");
+    } catch {
+      setDeployStatus("err");
+    } finally {
+      setTimeout(() => setDeployStatus("idle"), 4000);
+    }
+  }
 
   function gotoCreate(type: string) {
     const url = `/studio/intent/create?type=${encodeURIComponent(type)}`;
@@ -87,6 +152,11 @@ function Dashboard() {
         <button className="slw-btn" onClick={() => gotoCreate("newsletter")}>+ New Newsletter</button>
         <button className="slw-btn" onClick={() => gotoDesk("post")}>Open Posts</button>
         <button className="slw-btn" onClick={() => gotoDesk("newsletter")}>Open Newsletters</button>
+        <button className="slw-btn" onClick={triggerDeploy} disabled={deployStatus === "loading" || !DEPLOY_HOOK}>
+          {deployStatus === "loading" ? "Deploying…" : "Trigger Vercel Deploy"}
+        </button>
+        {deployStatus === "ok" && <span style={{color:"#16a34a", fontWeight:600}}>OK</span>}
+        {deployStatus === "err" && <span style={{color:"#dc2626", fontWeight:600}}>Erreur</span>}
         <style>{`
           .slw-btn {
             background: #0ea5e9;
@@ -97,6 +167,7 @@ function Dashboard() {
             font-weight: 600;
             cursor: pointer;
           }
+          .slw-btn:disabled { opacity: 0.6; cursor: not-allowed; }
           .slw-btn:hover { background: #0284c7; }
         `}</style>
       </div>
@@ -112,6 +183,23 @@ function Dashboard() {
           ].filter(Boolean).join(" • "),
           onOpen: () => window.location.assign(`/studio/intent/edit?type=post&id=${encodeURIComponent(p._id)}`)
         }))} />
+      </Section>
+
+      <Section title="Drafts à relire">
+        <List items={draftPosts.map((p) => ({
+          id: p._id,
+          title: p.title,
+          meta: [
+            p.locale ? p.locale.toUpperCase() : "—",
+            p.draft ? "draft" : (p.published ? "published" : "—"),
+            p.publishAt ? new Date(p.publishAt).toLocaleDateString() : ""
+          ].filter(Boolean).join(" • "),
+          onOpen: () => window.location.assign(`/studio/intent/edit?type=post&id=${encodeURIComponent(p._id)}`)
+        }))} />
+      </Section>
+
+      <Section title="Programmés (7 jours)">
+        <List items={scheduledWeek} />
       </Section>
 
       <Section title="Newsletters">
