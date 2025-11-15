@@ -1,6 +1,4 @@
 // Simple blog scheduling helpers: publish posts automatically on Mon/Wed/Fri.
-// No CMS required — posts live in the repo, scheduled at runtime via SSR.
-// This works on Netlify with Next.js functions because pages are server-rendered.
 
 export type BlogLocale = "fr" | "en";
 
@@ -12,28 +10,11 @@ export type BlogPost = {
   contentHtml: string;
   tags?: string[];
   coverImage?: string;
-  /**
-   * Author metadata (optional).
-   * If not provided, default display uses "Sonia".
-   */
   authorName?: string;
   authorUrl?: string;
-  /**
-   * Optional explicit publish date (ISO string).
-   * If provided, scheduling will respect this date instead of the automatic Mon/Wed/Fri cadence.
-   */
   publishAt?: string;
-  /**
-   * Optional flags:
-   * - published: force immediate publication (uses "now" as publishAt if not set)
-   * - draft: hide from publication regardless of schedule
-   */
   published?: boolean;
   draft?: boolean;
-  /**
-   * Optional cross-locale slug mapping, e.g. { en: "website-launch-timeline" }
-   * Used to generate correct hreflang alternates when slugs differ between locales.
-   */
   altLocales?: Partial<Record<BlogLocale, string>>;
 };
 
@@ -49,12 +30,6 @@ function parseDateEnv(key: string): Date | null {
   return d;
 }
 
-function withHour(date: Date, hour: number): Date {
-  const d = new Date(date);
-  d.setHours(hour, 0, 0, 0);
-  return d;
-}
-
 function parseDateISO(value?: string | null): Date | null {
   if (!value) return null;
   const d = new Date(value);
@@ -63,7 +38,6 @@ function parseDateISO(value?: string | null): Date | null {
 }
 
 function isMWF(day: number) {
-  // JS: 0=Sun, 1=Mon, 2=Tue, 3=Wed, 4=Thu, 5=Fri, 6=Sat
   return day === 1 || day === 3 || day === 5;
 }
 
@@ -77,34 +51,96 @@ function nextScheduledDay(from: Date): Date {
 }
 
 function addToNextSlot(date: Date): Date {
-  const dow = date.getDay(); // 1,3,5
-  const inc = dow === 1 ? 2 : dow === 3 ? 2 : 3; // Mon->Wed(+2), Wed->Fri(+2), Fri->Mon(+3)
+  const dow = date.getDay();
+  const inc = dow === 1 ? 2 : dow === 3 ? 2 : 3;
   const d = new Date(date);
   d.setDate(d.getDate() + inc);
   return d;
 }
 
-function getPublishHour(): number {
-  const raw = process.env.BLOG_PUBLISH_HOUR;
-  const h = raw ? Number(raw) : 9;
+function getLocalHour(): number {
+  const rawLocal = process.env.BLOG_PUBLISH_LOCAL_HOUR;
+  const rawUtc = process.env.BLOG_PUBLISH_HOUR;
+  const base = rawLocal ?? rawUtc;
+  const h = base ? Number(base) : 9;
   if (Number.isFinite(h) && h >= 0 && h <= 23) return h;
   return 9;
+}
+
+function useEuropeParis(): boolean {
+  const tz = (process.env.BLOG_PUBLISH_TZ || "").trim();
+  return tz.toLowerCase() === "europe/paris";
+}
+
+function lastSunday(year: number, monthIndex: number): Date {
+  // monthIndex: 0..11 UTC
+  const last = new Date(Date.UTC(year, monthIndex + 1, 0, 0, 0, 0));
+  const day = last.getUTCDay(); // 0..6
+  const diff = day === 0 ? 0 : day; // how many days since Sunday
+  last.setUTCDate(last.getUTCDate() - diff);
+  return last;
+}
+
+function isDstEuropeParis(d: Date): boolean {
+  const y = d.getUTCFullYear();
+  const start = lastSunday(y, 2); // March
+  // DST starts at 01:00 UTC on last Sunday of March
+  const dstStart = new Date(Date.UTC(y, start.getUTCMonth(), start.getUTCDate(), 1, 0, 0));
+  const end = lastSunday(y, 9); // October
+  // DST ends at 01:00 UTC on last Sunday of October
+  const dstEnd = new Date(Date.UTC(y, end.getUTCMonth(), end.getUTCDate(), 1, 0, 0));
+  return d.getTime() >= dstStart.getTime() && d.getTime() < dstEnd.getTime();
+}
+
+function withHourUTC(date: Date, hour: number): Date {
+  const d = new Date(date);
+  d.setHours(hour, 0, 0, 0);
+  return d;
+}
+
+function withLocalHourEuropeParis(date: Date, localHour: number): Date {
+  const base = new Date(date);
+  base.setUTCHours(0, 0, 0, 0);
+  const summer = isDstEuropeParis(base);
+  const offset = summer ? 2 : 1; // hours ahead of UTC
+  let utcHour = localHour - offset;
+  let dayShift = 0;
+  while (utcHour < 0) {
+    utcHour += 24;
+    dayShift -= 1;
+  }
+  while (utcHour >= 24) {
+    utcHour -= 24;
+    dayShift += 1;
+  }
+  const y = base.getUTCFullYear();
+  const m = base.getUTCMonth();
+  const d = base.getUTCDate() + dayShift;
+  return new Date(Date.UTC(y, m, d, utcHour, 0, 0, 0));
+}
+
+function applyPublishTime(date: Date): Date {
+  const localHour = getLocalHour();
+  if (useEuropeParis()) {
+    return withLocalHourEuropeParis(date, localHour);
+    }
+  return withHourUTC(date, localHour);
 }
 
 export function getScheduleStart(locale: BlogLocale): Date {
   const key = locale === "fr" ? "BLOG_SCHEDULE_START_FR" : "BLOG_SCHEDULE_START_EN";
   const envDate = parseDateEnv(key);
   const base = envDate ?? nextScheduledDay(new Date());
-  return withHour(base, getPublishHour());
+  return applyPublishTime(base);
 }
 
 export function scheduleDates(count: number, start: Date): Date[] {
   const dates: Date[] = [];
   let cursor = nextScheduledDay(start);
-  cursor = withHour(cursor, getPublishHour());
+  cursor = applyPublishTime(cursor);
   for (let i = 0; i < count; i += 1) {
     dates.push(new Date(cursor));
-    cursor = withHour(addToNextSlot(cursor), getPublishHour());
+    cursor = applyPublishTime(addToNextSlot(cursor));
   }
   return dates;
 }
@@ -138,7 +174,6 @@ export function formatDate(d: Date, locale: BlogLocale): string {
   });
 }
 
-// Initial burst: publish the first N non-draft posts immediately, then follow M/W/F schedule for the rest.
 function getInitialPublishCount(locale: BlogLocale): number {
   const key = locale === "fr" ? "BLOG_INITIAL_PUBLISH_COUNT_FR" : "BLOG_INITIAL_PUBLISH_COUNT_EN";
   const raw = process.env[key];
@@ -195,7 +230,6 @@ export function getScheduledPostBySlugBurst(
   const initialCount = getInitialPublishCount(locale);
   const overrides = new Set(getOverrideSlugs(locale));
 
-  // Find the post and compute its index among non-draft posts
   let match: ScheduledPost | null = null;
   let nonDraftIndex = -1;
   let cursor = 0;
