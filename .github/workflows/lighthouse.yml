@@ -1,0 +1,27 @@
+name: Lighthouse CI
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "15 4 * * 1" # Weekly Mondays 04:15 UTC
+
+jobs:
+  lighthouse:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Run Lighthouse on production URLs
+        uses: treosh/lighthouse-ci-action@v11
+        with:
+          urls: |
+            https://smarterlogicweb.com/
+            https://smarterlogicweb.com/blog
+            https://smarterlogicweb.com/contact
+            https://smarterlogicweb.com/services
+            https://smarterlogicweb.com/projets
+            https://smarterlogicweb.com/en
+            https://smarterlogicweb.com/en/blog
+            https://smarterlogicweb.com/en/contact
+          uploadArtifacts: true
+          configPath: .lighthouserc.json
+          # Do not fail the workflow; only report
+          temporaryPublicStorage: true

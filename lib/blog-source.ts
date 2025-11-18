@@ -7,6 +7,7 @@ import remarkSlug from "remark-slug";
 import remarkAutolinkHeadings from "remark-autolink-headings";
 import remarkRehype from "remark-rehype";
 import rehypeRaw from "rehype-raw";
+import rehypeSanitize from "rehype-sanitize";
 import rehypeStringify from "rehype-stringify";
 
 import type { BlogPost, BlogLocale } from "./blog";
@@ -145,12 +146,34 @@ export function loadPostsFromMarkdown(): BlogPost[] {
     const altLocales =
       altLocalesRaw && typeof altLocalesRaw === "object" ? (altLocalesRaw as Partial<Record<BlogLocale, string>>) : undefined;
 
+    // Basic sanitize schema: allow common tags/attributes used in blog content
+    const sanitizeSchema = {
+      tagNames: [
+        "h1","h2","h3","h4","h5","h6",
+        "p","br","hr","blockquote","strong","em","code","pre","ul","ol","li",
+        "a","img","figure","figcaption","table","thead","tbody","tr","th","td",
+        "span","div"
+      ],
+      attributes: {
+        a: ["href","title","target","rel","id"],
+        img: ["src","alt","title","loading","decoding","referrerpolicy","style"],
+        code: ["className"],
+        "*": ["id"]
+      },
+      protocols: {
+        href: ["http","https","mailto","tel"],
+        src: ["http","https","data"]
+      },
+      clobberPrefix: "user-",
+    };
+
     const html = remark()
       .use(remarkParse)
       .use(remarkSlug)
       .use(remarkAutolinkHeadings, { behavior: "wrap" })
       .use(remarkRehype, { allowDangerousHtml: true })
       .use(rehypeRaw)
+      .use(rehypeSanitize, sanitizeSchema as any)
       .use(rehypeStringify)
       .processSync(parsed.content)
       .toString();

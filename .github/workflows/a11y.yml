@@ -1,0 +1,33 @@
+name: Accessibility (pa11y-ci)
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "30 4 * * 1" # Weekly Mondays 04:30 UTC
+
+jobs:
+  pa11y:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Run Pa11y CI
+        uses: jackdomleo7/pa11y-ci-action@v2.0.0
+        with:
+          # Test a small set of key pages; extend as needed
+          urls: |
+            https://smarterlogicweb.com/
+            https://smarterlogicweb.com/blog
+            https://smarterlogicweb.com/contact
+            https://smarterlogicweb.com/en
+            https://smarterlogicweb.com/en/blog
+            https://smarterlogicweb.com/en/contact
+          config: |
+            {
+              "defaults": {
+                "standard": "WCAG2AA",
+                "timeout": 60000,
+                "wait": 1000,
+                "ignore": [
+                  "notice"
+                ]
+              }
+            }
