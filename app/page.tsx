@@ -21,9 +21,9 @@ import { BookingButton } from "@/components/site/booking-modal";
 import { Guarantee } from "@/components/site/guarantee";
 
 export const metadata = {
-  title: "Votre site web, enfin simple et performant.",
+  title: "Sites vitrines statiques dès 1490€ TTC | TPE & Professions libérales",
   description:
-    "La qualité qui se mesure : vitesse, sécurité, résultats. Je conçois et développe des sites web sur-mesure pour entrepreneurs et associations. Présence en ligne professionnelle, sans complexité.",
+    "Sites web ultra-rapides pour TPE et professions libérales. Core Web Vitals 90+, zéro maintenance technique obligatoire, SEO garanti. Tarifs 2025 dès 1490€ TTC.",
   alternates: {
     canonical: "/",
     languages: {
@@ -33,9 +33,9 @@ export const metadata = {
   },
   openGraph: {
     url: "https://smarterlogicweb.com/",
-    title: "Votre site web, enfin simple et performant. — smarterlogicweb.com",
+    title: "Sites vitrines statiques dès 1490€ TTC | TPE & Professions libérales — smarterlogicweb.com",
     description:
-      "La qualité qui se mesure : vitesse, sécurité, résultats. Sites web sur-mesure pour entrepreneurs et associations. Simple, performant, sans complexité — je m’occupe du reste.",
+      "Sites web ultra-rapides pour TPE et professions libérales. Core Web Vitals 90+, zéro maintenance technique obligatoire, SEO garanti. Tarifs 2025 dès 1490€ TTC.",
   },
 };
 

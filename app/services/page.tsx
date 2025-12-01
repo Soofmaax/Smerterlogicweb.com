@@ -16,9 +16,9 @@ import { RightDotsNav } from "@/components/site/right-dots-nav";
 import { Breadcrumbs } from "@/components/site/breadcrumbs";
 
 export const metadata = {
-  title: "Services — smarterlogicweb.com",
+  title: "Services | Sites statiques professionnels pour TPE & Professions libérales",
   description:
-    "Sites vitrines, refontes, optimisation, accompagnement continu: des services web simples, performants et orientés résultats.",
+    "Création de sites vitrines statiques ultra-rapides pour TPE et professions libérales. Sites stables, sécurisés, sans maintenance technique obligatoire. Accompagnement sur-mesure, contenu, SEO et suivi.",
   alternates: {
     canonical: "/services",
     languages: {
@@ -28,9 +28,9 @@ export const metadata = {
   },
   openGraph: {
     url: "https://smarterlogicweb.com/services",
-    title: "Services — smarterlogicweb.com",
+    title: "Services | Sites statiques professionnels pour TPE & Professions libérales — smarterlogicweb.com",
     description:
-      "Sites vitrines, refontes, optimisation, accompagnement continu: des services web simples, performants et orientés résultats.",
+      "Création de sites vitrines statiques ultra-rapides pour TPE et professions libérales. Sites stables, sécurisés, sans maintenance technique obligatoire. Accompagnement sur-mesure, contenu, SEO et suivi.",
   },
 };
 
