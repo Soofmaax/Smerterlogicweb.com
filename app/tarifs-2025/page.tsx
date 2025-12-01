@@ -82,7 +82,7 @@ export default function Tarifs2025Page() {
           Pour approfondir :{" "}
           <Link href="/blog/cout-maintenance-site-web" className="text-primary hover:underline">coût de la maintenance</Link>
           {" · "}
-          <Link href="/blog/contenu-forfait-maintenance-site-web" className="text-primary hover:underline">contenu d’un forfait</Link>
+          <Link href="/blog/forfait-maintenance-site-vitrine" className="text-primary hover:underline">contenu d’un forfait</Link>
           {" · "}
           <Link href="/blog/frais-caches-site-internet" className="text-primary hover:underline">frais cachés</Link>.
         </p>
@@ -217,7 +217,7 @@ export default function Tarifs2025Page() {
               Coût de la maintenance
             </Link>
             <span className="text-muted-foreground">•</span>
-            <Link href="/blog/contenu-forfait-maintenance-site-web" className="text-primary hover:underline">
+            <Link href="/blog/forfait-maintenance-site-vitrine" className="text-primary hover:underline">
               Contenu d’un forfait
             </Link>
             <span className="text-muted-foreground">•</span>

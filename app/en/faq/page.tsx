@@ -58,7 +58,7 @@ export default function FAQENPage() {
           <ul className="mt-2 list-disc pl-5 text-foreground/80">
             <li>Static sites: no CMS upkeep required; professional hosting (Netlify/Vercel).</li>
             <li>WordPress: regular maintenance recommended (updates, backups, security). See{" "}
-              <Link href="/blog/contenu-forfait-maintenance-site-web" className="underline">maintenance contents</Link>{" "}
+              <Link href="/blog/forfait-maintenance-site-vitrine" className="underline">maintenance contents</Link>{" "}
               and{" "}
               <Link href="/blog/cout-maintenance-site-web" className="underline">maintenance costs</Link>.
             </li>

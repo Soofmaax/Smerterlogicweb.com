@@ -20,7 +20,7 @@ export function QuickLinks({ className, title = "Pour approfondir" }: Props) {
             Coût de la maintenance
           </Link>
           <span className="text-muted-foreground">•</span>
-          <Link href="/blog/contenu-forfait-maintenance-site-web" className="text-primary hover:underline">
+          <Link href="/blog/forfait-maintenance-site-vitrine" className="text-primary hover:underline">
             Contenu d’un forfait
           </Link>
           <span className="text-muted-foreground">•</span>

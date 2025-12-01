@@ -88,6 +88,7 @@ const nextConfig = {
       { source: "/role-client-creation-site-web", destination: "/blog/role-client-creation-site-web", permanent: true },
       { source: "/cout-maintenance-site-web", destination: "/blog/cout-maintenance-site-web", permanent: true },
       { source: "/contenu-forfait-maintenance-site-web", destination: "/blog/contenu-forfait-maintenance-site-web", permanent: true },
+      { source: "/blog/contenu-forfait-maintenance-site-web", destination: "/blog/forfait-maintenance-site-vitrine", permanent: true },
       { source: "/site-statique-vs-cms-autonomie", destination: "/blog/site-statique-vs-cms-autonomie", permanent: true },
       { source: "/referencement-seo-site-statique", destination: "/blog/referencement-seo-site-statique", permanent: true },
       { source: "/bases-techniques-seo-site-vitrine", destination: "/blog/bases-techniques-seo-site-vitrine", permanent: true },

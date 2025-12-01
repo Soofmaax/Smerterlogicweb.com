@@ -150,15 +150,22 @@ export const viewport = {
   ],
 };
 
-export default function RootLayout({ children }: { children: React.ReactNode }) {
+export default function RootLayout({
+  children,
+  params,
+}: {
+  children: React.ReactNode;
+  params?: { locale?: string };
+}) {
   const provider = (process.env.NEXT_PUBLIC_ANALYTICS_PROVIDER || "plausible").toLowerCase();
   const plausibleDomain = process.env.NEXT_PUBLIC_PLAUSIBLE_DOMAIN || "smarterlogicweb.com";
   const umamiSrc = process.env.NEXT_PUBLIC_UMAMI_SRC || "https://analytics.umami.is/script.js";
   const umamiWebsiteId = process.env.NEXT_PUBLIC_UMAMI_WEBSITE_ID;
   const gtmId = process.env.NEXT_PUBLIC_GTM_ID || "GTM-5X2V579H";
+  const locale = params?.locale || "fr";
 
   return (
-    <html lang="fr">
+    <html lang={locale === "en" ? "en" : "fr"}>
       <body className={`${inter.variable} ${dmSans.variable} bg-background text-foreground antialiased font-sans`}>
         {/* Google Tag Manager (consent default denied) */}
         {provider === "gtm" ? (
