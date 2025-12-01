@@ -2,7 +2,7 @@
 slug: bases-techniques-seo-site-vitrine
 locale: fr
 title: "Les bases techniques du SEO pour votre site vitrine : ce qu'il faut vraiment savoir"
-summary: "Critères SEO techniques essentiels et délais réalistes pour voir vos premiers résultats. Guide honnête pour TPE/PME sans langue de bois."
+summary: "SEO technique 2025 : 4–6 mois pour vos premiers résultats | Core Web Vitals, crawl, longue traîne — guide honnête pour sites vitrines TPE/PME."
 tags:
   - "SEO technique"
   - "référencement naturel"

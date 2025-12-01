@@ -2,7 +2,7 @@
 slug: "cout-maintenance-site-web"
 locale: "fr"
 title: "Maintenance technique : qui s'en occupe et à quel prix ?"
-summary: "Maintenance TPE : 30–500€/mois. DIY vs freelance vs agence, tarifs 2025, et pourquoi ne rien payer coûte 10× plus cher."
+summary: "Maintenance site web : 30–500€/mois en 2025 | DIY vs freelance vs agence, comparatif complet et vrai coût si vous ne payez rien."
 tags:
   - "coût maintenance site web TPE"
   - "prix maintenance WordPress"
