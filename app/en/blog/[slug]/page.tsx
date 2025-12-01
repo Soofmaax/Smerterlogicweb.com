@@ -15,7 +15,14 @@ export async function generateMetadata({ params }: { params: { slug: string } })
   if (!result || !result.isPublished) {
     return {
       title: "Article unavailable",
-      robots: { index: false, follow: false },
+      robots: {
+        index: true,
+        follow: true,
+        googleBot: {
+          index: true,
+          follow: true,
+        },
+      },
     };
   }
   const { post } = result;

@@ -20,7 +20,14 @@ export async function generateMetadata({ params }: Params) {
   if (!city) {
     return {
       title: "Ville non trouvée",
-      robots: { index: false, follow: false },
+      robots: {
+        index: true,
+        follow: true,
+        googleBot: {
+          index: true,
+          follow: true,
+        },
+      },
     };
   }
   const sectors = city.sectors.join(", ").toLowerCase();
