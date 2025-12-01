@@ -24,6 +24,8 @@ Vous vous dites : "Pourquoi quelqu'un choisirait un site statique si c'est aussi
 
 Je crée des sites statiques pour des TPE et PME depuis 2020. Et je vais vous dire ce que personne n'explique clairement : l'autonomie et la performance sont inversement proportionnelles. Plus vous voulez d'autonomie (pouvoir tout modifier vous-même), plus vous sacrifiez de la performance (vitesse, sécurité). Plus vous voulez de performance, plus vous dépendez d'un développeur.
 
+Si vous ne codez pas, la bonne nouvelle est que votre rôle n’est pas de choisir entre WordPress, site statique ou Headless en regardant du code ou des architectures. Votre rôle est de **prendre une décision stratégique** (quel niveau d’autonomie vs performance vous voulez) et de la confier à un prestataire (freelance, développeur, agence) qui mettra en œuvre la solution choisie. Le reste de l’article détaille les options et leurs conséquences en termes de coûts et de dépendance au prestataire, pour que vous puissiez piloter la décision — même si vous ne touchez jamais une ligne de code.
+
 Il existe trois architectures web. Le site statique pur (HTML CSS JavaScript, zéro autonomie, performance maximale). Le CMS classique comme WordPress (autonomie totale, performance moyenne). Le Headless CMS ou Jamstack (autonomie préservée, performance excellente, mais coût initial élevé : dix mille euros et plus).
 
 Dans cet article, on décortique ces trois options, on compare l'autonomie réelle que chacune vous donne, et on clarifie quand le site statique vaut le coup malgré la perte d'autonomie. À la fin, vous saurez exactement quel choix faire selon votre situation.

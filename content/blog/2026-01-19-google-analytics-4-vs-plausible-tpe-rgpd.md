@@ -37,6 +37,11 @@ En 2026, deux options reviennent souvent pour les TPE / professions libérales :
 - **Google Analytics 4** (GA4), gratuit, puissant, mais complexe et juridiquement sensible.
 - **Plausible Analytics**, payant mais simple, sobres en cookies, pensé pour la confidentialité.
 
+Si vous ne codez pas et n’avez pas d’équipe marketing dédiée, votre rôle n’est pas de configurer GA4 ou Plausible vous-même. Votre rôle est de **choisir l’outil** (et la philosophie : complexité gratuite ou simplicité payante) et de demander à votre prestataire (développeur, intégrateur, agence) de le mettre en place proprement. La plupart du temps :
+
+- la configuration de GA4 ou de Plausible représente **une à quelques heures** de travail technique,
+- la vraie décision à long terme est **quel outil vous simplifie la vie** et limite les risques RGPD.
+
 Dans cet article, on va comparer les deux **avec vos contraintes réelles** :
 
 - peu de temps,

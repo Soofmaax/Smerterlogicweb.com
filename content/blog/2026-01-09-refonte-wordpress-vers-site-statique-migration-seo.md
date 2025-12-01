@@ -36,6 +36,16 @@ Mais une question vous bloque :
 La réponse courte : **non, si la migration est bien faite**.  
 La réponse longue : ce guide détaille **comment** faire.
 
+Si vous êtes dirigeant(e) de TPE et que vous ne codez pas, votre rôle n’est pas de gérer seul(e) un plan de migration technique. Votre rôle est de :
+
+- décider, avec des chiffres, si le passage à un site statique a du sens (performance, coûts de maintenance, SEO),
+- vous entourer d’un **prestataire** (freelance, développeur, agence) capable de suivre un vrai plan de migration (audit, mapping, redirections, tests).
+
+Tout ce qui suit peut être lu comme :
+
+- une **checklist de travail** pour votre prestataire,
+- et un **cadre de contrôle** pour vous (afin de vérifier qu’il ne se contente pas de “copier-coller” sans penser au SEO et à vos leads).
+
 ---
 
 ## 1. Quand une migration WordPress → site statique a vraiment du sens

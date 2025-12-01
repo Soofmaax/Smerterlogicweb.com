@@ -29,6 +29,14 @@ Ce guide n’a pas pour but de faire de vous un spécialiste GA4. L’objectif e
 > Configurer GA4 **au minimum** pour une TPE,  
 > et lister 10 rapports vraiment utiles pour un site vitrine.
 
+Si vous ne codez pas, retenez surtout ceci :
+
+- la création de la propriété GA4, l’installation du tag et la configuration technique des événements sont des tâches de **prestataire** (développeur, intégrateur, agence) ;
+- votre rôle est de vous assurer que GA4 est bien en place, que quelques conversions clés sont remontées (formulaires, clics téléphone/email),  
+  puis de venir **regarder régulièrement les bons rapports** pour piloter.
+
+Le reste de l’article peut servir de checklist pour votre prestataire et de guide de lecture pour vous.
+
 On laisse de côté le reste.
 
 ---
