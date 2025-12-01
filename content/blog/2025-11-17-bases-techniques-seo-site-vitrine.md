@@ -177,3 +177,17 @@ Indirectement, oui, mais pas directement. Google ne prend pas en compte vos like
 ### Combien de temps faut-il maintenir l'effort SEO ?
 
 Le SEO n'est pas un projet avec une date de fin, c'est un effort continu. Une fois que vous avez atteint de bonnes positions, vous devez maintenir ces positions contre vos concurrents qui eux aussi travaillent leur référencement. Cela dit, l'effort diminue avec le temps. Les six premiers mois sont intenses avec beaucoup de corrections et de création de contenu. Ensuite, vous passez en mode maintenance avec des mises à jour régulières, de nouveaux contenus de temps en temps, et un suivi des performances. Comptez environ 300 à 600 euros par mois pour une maintenance SEO sérieuse après la phase de lancement.
+
+## Et si vous préférez confier tout cela à un prestataire qui maîtrise le SEO technique et le site statique ?
+
+Si vous voulez :
+
+- un site vitrine statique rapide et propre techniquement,
+- construit dès le départ pour respecter les bases SEO que vous venez de lire (structure, Core Web Vitals, balisage, infra),
+- sans empilement de plugins et de maintenance lourde tous les mois,
+
+c’est exactement le type de projets que je réalise pour des TPE, professions libérales et petites PME.
+
+- Découvrir la façon dont je travaille : [/services](/services)
+- Voir les forfaits et prix 2025 : [/tarifs-2025](/tarifs-2025)
+- Me parler de votre projet : [/contact](/contact)

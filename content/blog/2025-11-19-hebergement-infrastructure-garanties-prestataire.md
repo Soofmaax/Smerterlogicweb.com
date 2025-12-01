@@ -242,3 +242,17 @@ C'est un risque réel, surtout avec les petits hébergeurs ou les revendeurs. C'
 ### Est-ce que je peux gérer moi-même l'hébergement pour économiser de l'argent ?
 
 Techniquement oui, mais je vous le déconseille fortement si vous n'avez pas de compétences techniques solides. Gérer un hébergement ne se limite pas à payer la facture chaque mois. Il faut surveiller la disponibilité, appliquer les mises à jour de sécurité du serveur, gérer les sauvegardes, optimiser les performances, réagir rapidement en cas de panne ou d'attaque. Si vous êtes chef d'entreprise, votre temps est précieux. Passer plusieurs heures par mois à gérer des aspects techniques que vous ne maîtrisez pas vraiment n'est pas une économie, c'est une perte. Déléguez cette responsabilité à un professionnel et concentrez-vous sur votre cœur de métier. Le surcoût de trente à cinquante euros par mois pour une maintenance technique professionnelle est négligeable comparé à la tranquillité d'esprit et au temps que vous gagnez.
+
+## Envie d’une infrastructure solide sans gérer les serveurs vous‑même ?
+
+Si vous voulez :
+
+- un site vitrine statique hébergé sur une infrastructure propre (VPS, CDN, SSL) adaptée à votre trafic,
+- des garanties écrites sur la disponibilité, les sauvegardes et la sécurité,
+- sans devoir vous-même parler à l’hébergeur ou configurer des serveurs,
+
+c’est exactement ce que je mets en place pour des TPE, professions libérales et petites PME.
+
+- Découvrir la façon dont je travaille : [/services](/services)
+- Voir les forfaits et prix 2025 : [/tarifs-2025](/tarifs-2025)
+- Me parler de votre projet : [/contact](/contact)

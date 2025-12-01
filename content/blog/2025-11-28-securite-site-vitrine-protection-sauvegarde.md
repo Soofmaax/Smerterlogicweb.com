@@ -219,3 +219,17 @@ Le coût varie énormément selon la gravité du piratage et la complexité de v
 ### À quelle fréquence dois-je changer mes mots de passe administrateur ?
 
 La recommandation classique de changer ses mots de passe tous les trois mois est en réalité obsolète et contre-productive. Les experts en sécurité actuels recommandent de ne changer vos mots de passe que dans deux situations. Première situation : vous avez des raisons de penser que votre mot de passe a été compromis, par exemple suite au piratage d'un autre service où vous utilisiez le même mot de passe, ou suite à un piratage de votre site. Deuxième situation : vous partagez un compte avec plusieurs personnes et qu'une de ces personnes quitte l'entreprise ou n'a plus besoin d'accès. L'important n'est pas de changer souvent vos mots de passe, c'est d'utiliser des mots de passe vraiment forts et uniques dès le départ. Un mot de passe de seize caractères mélangeant majuscules, minuscules, chiffres et caractères spéciaux, généré aléatoirement par un gestionnaire de mots de passe, et qui n'est utilisé nulle part ailleurs, peut rester le même pendant des années sans problème. Ce qui compte, c'est d'activer l'authentification à deux facteurs pour que même si quelqu'un vole votre mot de passe, il ne puisse pas se connecter. Et surtout, ne réutilisez jamais le même mot de passe sur plusieurs sites.
+
+## Vous voulez un site vitrine statique sécurisé sans devenir admin système ?
+
+Si vous souhaitez :
+
+- un site vitrine statique pensé dès le départ pour limiter la surface d’attaque (moins de plugins, moins de mises à jour critiques),
+- une stratégie de sauvegarde et de restauration gérée par un prestataire qui sait quoi faire le jour où il y a un incident,
+- et un plan de sécurité simple, documenté, que vous comprenez sans rentrer dans les détails techniques,
+
+c’est exactement ce que je conçois et opère pour des TPE, professions libérales et petites PME.
+
+- Découvrir la façon dont je travaille : [/services](/services)
+- Voir les forfaits et prix 2025 : [/tarifs-2025](/tarifs-2025)
+- Me parler de votre projet : [/contact](/contact)

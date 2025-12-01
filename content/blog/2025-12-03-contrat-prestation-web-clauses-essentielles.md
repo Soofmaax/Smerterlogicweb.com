@@ -262,3 +262,17 @@ Vous pouvez vous en inspirer, mais ne l'utilisez jamais tel quel sans l'adapter 
 ### Mon prestataire veut me facturer très cher la réversibilité, est-ce légal ?
 
 C'est légal si c'est prévu dans le contrat que vous avez signé, mais c'est une pratique abusive que vous devez refuser. La réversibilité ne devrait pas coûter plus cher que le temps réel nécessaire pour extraire et formater vos données, généralement entre une demi-journée et deux jours de travail selon la complexité. Si un prestataire essaie de vous facturer plusieurs milliers d'euros pour la réversibilité, c'est qu'il utilise cette clause comme un moyen de dissuasion pour vous empêcher de partir. C'est exactement le vendor lock-in contre lequel la clause de réversibilité est censée vous protéger. Négociez dès le début du projet, dans le contrat initial, que la réversibilité sera soit incluse sans surcoût, soit facturée sur une base forfaitaire raisonnable plafonnée. Une fois que le projet est terminé et que vous voulez partir, vous avez beaucoup moins de pouvoir de négociation. Anticipez ce point dès la signature du contrat.
+
+## Vous voulez un site vitrine statique avec un contrat clair et sans dépendance cachée ?
+
+Si vous souhaitez :
+
+- un site vitrine statique où la cession de droits, la recette, la réversibilité et les sauvegardes sont cadrées dès le départ,
+- un prestataire qui vous explique clairement ce que vous possédez (code, contenus, accès) et comment changer de prestataire le jour où vous le voulez,
+- et un devis compréhensible qui inclut ces éléments sans clauses pièges,
+
+c’est exactement le cadre dans lequel je travaille avec des TPE, professions libérales et petites PME.
+
+- Découvrir la façon dont je travaille : [/services](/services)
+- Voir les forfaits et prix 2025 : [/tarifs-2025](/tarifs-2025)
+- Me parler de votre projet : [/contact](/contact)

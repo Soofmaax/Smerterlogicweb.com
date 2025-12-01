@@ -153,3 +153,17 @@ Comprenez bien la distinction entre la garantie légale obligatoire de deux ans 
 Enfin, n'oubliez pas que le meilleur SLA du monde ne vous dispensera jamais de choisir le bon partenaire technique. Les métriques et les clauses contractuelles ne remplacent pas la compétence, la réactivité et l'intégrité humaine. Prenez le temps de vérifier les références de votre prestataire, de discuter avec d'autres clients, et d'évaluer sa capacité réelle à tenir ses engagements. Un excellent SLA avec un prestataire défaillant ne vaut rien. Un prestataire exceptionnel avec un SLA imparfait reste une meilleure option, même si l'idéal est évidemment de combiner les deux.
 
 Votre site web représente souvent la première impression que vos clients potentiels ont de votre entreprise. Sa disponibilité, sa performance et sa fiabilité sont des enjeux business critiques qui méritent des engagements à la hauteur. Négociez avec soin, exigez la transparence, et assurez-vous que les promesses commerciales se transforment en obligations contractuelles mesurables. C'est le meilleur investissement que vous puissiez faire pour la pérennité de votre présence en ligne.
+
+## Vous cherchez un prestataire qui pose des engagements clairs sur un site statique ?
+
+Si vous souhaitez :
+
+- un site vitrine statique avec des engagements écrits sur la disponibilité, les délais d’intervention et la maintenance,
+- un contrat simple où le périmètre de support, les exclusions et les conditions de résiliation sont clairs,
+- et un interlocuteur unique pour la technique, l’infra et le suivi dans le temps,
+
+c’est exactement la façon dont je travaille avec des TPE, professions libérales et petites PME.
+
+- Découvrir la façon dont je travaille : [/services](/services)
+- Voir les forfaits et prix 2025 : [/tarifs-2025](/tarifs-2025)
+- Me parler de votre projet : [/contact](/contact)
