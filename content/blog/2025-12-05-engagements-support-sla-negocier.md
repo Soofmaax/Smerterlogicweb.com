@@ -26,6 +26,8 @@ draft: false
 
 Lorsque vous investissez dans un site web professionnel, la question du support technique et de la maintenance ne se pose pas après la mise en ligne, mais bien avant la signature du contrat. Les engagements de support, matérialisés par un Service Level Agreement (SLA), définissent précisément ce que votre prestataire s'engage à faire, dans quels délais, et avec quelles conséquences en cas de non-respect. Pourtant, de nombreux porteurs de projets découvrent trop tard que leur contrat ne couvre pas ce qu'ils pensaient, ou que la "garantie" promise ne correspond pas à leurs attentes réelles.
 
+Si vous ne codez pas, votre rôle n’est pas de surveiller des logs serveurs ou de paramétrer des outils de monitoring. Votre rôle est de faire préciser noir sur blanc à quoi votre prestataire s’engage : temps de disponibilité, délais de réponse, délais de résolution, horaires de support, priorisation des incidents. Tout ce qui suit peut être lu comme une grille de négociation : vous ne gérez pas le support vous‑même, mais vous savez exactement quoi demander et comment mesurer si l’agence ou le développeur tient réellement ses promesses.
+
 Dans cet article, nous allons démystifier les engagements de support technique pour un site web. Nous examinerons les métriques concrètes qui doivent figurer dans un SLA professionnel, la différence fondamentale entre garantie légale et garantie commerciale, et les points de négociation essentiels pour protéger votre investissement. Que vous soyez en phase de consultation d'agences ou de négociation contractuelle, ce guide vous permettra de poser les bonnes questions et d'obtenir des engagements clairs et mesurables.
 
 ## Comprendre les Fondamentaux : SLA, SLO et SLI

@@ -26,6 +26,8 @@ La réalité est brutale et mérite d'être clarifiée immédiatement : vous, en
 
 Dans cet article, je vous explique précisément ce qu'est votre responsabilité légale en tant qu'éditeur de site, quels sont les trois documents obligatoires que vous devez absolument avoir, qui doit les fournir et comment, et surtout comment mettre en place un bandeau cookies qui soit vraiment conforme aux exigences strictes de la CNIL. Pas de langue de bois, juste les faits et les obligations concrètes pour que vous sachiez exactement où vous mettez les pieds.
 
+Si vous ne codez pas, vous n’êtes pas censé écrire vous‑même une politique de confidentialité ou intégrer une CMP dans le code du site. En revanche, personne ne pourra prendre à votre place la responsabilité d’éditeur devant la CNIL. Votre rôle est donc double : 1) décider de ce qui doit être en place (mentions, politique, bandeau cookies conforme) et valider les textes, 2) demander à votre prestataire technique d’implémenter correctement ces décisions (affichage, blocage des scripts, journalisation du consentement). Ce guide vous aide à cadrer ce que vous demandez et à contrôler le travail livré, sans avoir à devenir juriste ou développeur.
+
 ## Votre responsabilité légale : le principe d'accountability que personne ne vous explique
 
 ### Vous êtes le responsable du traitement, même si vous n'y comprenez rien

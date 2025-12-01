@@ -28,6 +28,8 @@ Et les conséquences d'un site piraté vont bien au-delà de l'image dégradée.
 
 Dans cet article, je vous explique quelles sont les menaces concrètes qui visent votre site vitrine au quotidien, comment mettre en place les protections de base indispensables, et surtout comment construire votre stratégie de sauvegarde et de restauration en suivant la règle professionnelle 3-2-1. Pas de jargon technique inutile, juste les informations essentielles pour que vous sachiez exactement ce qui est en jeu et comment vous protéger efficacement.
 
+Si vous ne codez pas, la bonne approche n’est pas d’essayer de devenir administrateur système du jour au lendemain. Votre rôle est de comprendre les grands principes (mises à jour, accès, sauvegardes, plan B), d’exiger qu’ils soient appliqués par votre prestataire, et de vérifier qu’ils le sont réellement (preuves de sauvegardes, tests de restauration, procédure en cas de piratage). L’article peut donc servir à la fois de check-list pour votre développeur / agence, et de feuille de route pour vous en tant que dirigeant qui doit sécuriser son actif numérique sans gérer les détails techniques.
+
 ## Les menaces réelles pour un site non commercial : le mythe de l'immunité
 
 ### Pourquoi les petits sites sont des cibles privilégiées

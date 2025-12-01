@@ -28,6 +28,8 @@ Cette situation, je la vois régulièrement. Des entrepreneurs qui découvrent d
 
 Dans cet article, je vous explique en langage clair pourquoi un simple devis signé ne suffit jamais à protéger vos intérêts, quelles sont les clauses contractuelles absolument essentielles que vous devez exiger avant de signer quoi que ce soit, et comment vous assurer que vous serez vraiment propriétaire de votre code source et de vos données. Je détaille la clause de cession des droits d'auteur qui est la plus critique, la clause de recette qui vous permet de valider la conformité du livrable, et la clause de réversibilité qui vous protège contre le vendor lock-in. Pas de jargon juridique inutile, juste ce que vous devez absolument comprendre pour protéger votre investissement.
 
+Si vous ne codez pas, c’est précisément le contrat qui devient votre principal outil de contrôle. Vous ne relirez jamais chaque ligne de code, mais vous pouvez très bien exiger une cession de droits complète, une procédure de recette claire, une réversibilité encadrée et des sauvegardes régulières. Pensez ce texte comme un mode d’emploi pour discuter d’égal à égal avec une agence ou un développeur : vous leur laissez la liberté technique, mais dans un cadre juridique précis qui vous garantit que, quoi qu’il arrive, le site et les données restent votre actif, pas le leur.
+
 ## Pourquoi un devis ne suffit jamais
 
 ### La différence entre un devis et un contrat

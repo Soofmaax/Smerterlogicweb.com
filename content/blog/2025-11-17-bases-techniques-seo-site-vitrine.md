@@ -25,6 +25,8 @@ La réalité, c'est que le SEO technique n'est pas de la magie. C'est un ensembl
 
 Dans cet article, je vous explique en langage clair les critères techniques qui comptent vraiment pour un site professionnel, et surtout, je vous donne une chronologie réaliste des résultats que vous pouvez attendre. Pas de promesses en l'air, juste la vérité sur ce que vous devez mettre en place pour que votre investissement porte ses fruits.
 
+Si vous ne codez pas, la bonne nouvelle est que vous n'avez pas besoin de devenir expert en crawl, Core Web Vitals ou balisage structuré. Votre rôle est de savoir quels points techniques doivent absolument être couverts, d'en faire un cahier des charges clair, puis de demander à votre prestataire de les mettre en œuvre et de vous prouver que c'est fait (captures d'écran, rapports Search Console, tests de vitesse, etc.). Pensez cet article comme une carte : il vous aide à piloter la stratégie et à challenger votre développeur ou votre agence, pas à tout faire vous‑même.
+
 ## Ce que Google attend vraiment de votre site : les fondations techniques
 
 ### Le crawl et l'indexation : comment Google découvre votre contenu

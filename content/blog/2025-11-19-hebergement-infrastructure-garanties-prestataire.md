@@ -25,6 +25,8 @@ La réalité, c'est que l'infrastructure sur laquelle repose votre site détermi
 
 Dans cet article, je vous explique en langage clair ce qu'est vraiment un CDN et pourquoi c'est indispensable, quelles garanties contractuelles vous devez exiger de votre hébergeur, et comment vous assurer que votre site tiendra le coup en cas de pic de trafic. Mon objectif est double : vous donner les bonnes questions à poser à n'importe quel prestataire, et vous fournir les réponses que vous devriez entendre.
 
+Si vous ne venez pas du monde technique, votre rôle n'est pas de choisir seul un VPS, un CDN ou un plan Cloud dans un catalogue d'options incompréhensibles. Votre rôle est de décider du niveau de fiabilité que vous voulez (temps de disponibilité, capacité à encaisser les pics, localisation des données), puis de demander à votre prestataire de proposer une architecture qui respecte ces exigences, avec un SLA écrit à la clé. Tout ce qui suit peut servir de grille d'évaluation pour juger une proposition d'agence ou challenger un hébergeur, sans que vous ayez à administrer les serveurs vous‑même.
+
 ## Le CDN : la technologie qui change tout pour votre site
 
 ### Qu'est-ce qu'un CDN et pourquoi c'est indispensable

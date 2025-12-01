@@ -26,6 +26,8 @@ La réponse est souvent brutale et mesurable : votre site est trop lent. Chaque 
 
 Dans cet article, je vous explique concrètement ce qu'est un site rapide en deux mille vingt-cinq, quels sont les seuils de performance que vous devez absolument viser, et surtout pourquoi l'optimisation mobile n'est plus une option mais une question de survie pour votre business. Pas de jargon technique incompréhensible, juste la vérité sur ce qui compte vraiment pour garder vos visiteurs et les transformer en clients.
 
+Si vous ne codez pas, votre rôle n'est pas de régler vous‑même les Core Web Vitals, de toucher au serveur ou au code JavaScript. Votre rôle est de comprendre les ordres de grandeur (quand un site est « acceptable » ou « catastrophique »), puis d'exiger de votre prestataire (freelance, développeur, agence) qu'il atteigne ces seuils et de vérifier qu'il y parvient. Tout ce qui suit peut servir de grille de lecture pour vos décisions (site actuel vs refonte, changement d'hébergement, reprise par un nouveau prestataire) et de checklist pour cadrer le travail technique, sans que vous ayez à mettre les mains dans le code.
+
 ## Les Core Web Vitals : les trois chiffres qui déterminent si votre site est assez rapide
 
 ### Ce que Google mesure vraiment depuis 2021
