@@ -33,18 +33,19 @@ const dmSans = DM_Sans({
 export const metadata: Metadata = {
   metadataBase: new URL("https://smarterlogicweb.com"),
   title: {
-    default: "smarterlogicweb.com — Développeuse front-end",
+    default: "Sites vitrines statiques pour TPE & professions libérales — smarterlogicweb.com",
     template: "%s — smarterlogicweb.com",
   },
   description:
-    "La qualité qui se mesure : vitesse, sécurité, résultats. Sites web sur-mesure pour entrepreneurs et associations. Simple, performant, sans complexité — je m’occupe du reste.",
+    "Sites vitrines statiques ultra-rapides pour TPE, PME et professions libérales. Core Web Vitals 90+, zéro maintenance technique obligatoire, SEO et sécurité intégrés.",
   keywords: [
-    "développeuse front-end",
-    "site vitrine",
+    "site vitrine statique",
+    "sites vitrines TPE",
+    "professions libérales",
+    "création site web",
+    "refonte site vitrine",
     "Next.js",
     "Tailwind CSS",
-    "création site web",
-    "refonte",
     "SEO",
     "performance web",
   ],
@@ -65,16 +66,16 @@ export const metadata: Metadata = {
     locale: "fr_FR",
     siteName: "smarterlogicweb.com",
     url: "https://smarterlogicweb.com",
-    title: "smarterlogicweb.com — Développeuse front-end",
+    title: "Sites vitrines statiques pour TPE & professions libérales — smarterlogicweb.com",
     description:
-      "La qualité qui se mesure : vitesse, sécurité, résultats. Sites web sur-mesure pour entrepreneurs et associations. Simple, performant, sans complexité — je m’occupe du reste.",
+      "Sites vitrines statiques ultra-rapides pour TPE, PME et professions libérales. Core Web Vitals 90+, zéro maintenance technique obligatoire, SEO et sécurité intégrés.",
     images: ["/opengraph-image"],
   },
   twitter: {
     card: "summary_large_image",
-    title: "smarterlogicweb.com — Développeuse front-end",
+    title: "Sites vitrines statiques pour TPE & professions libérales — smarterlogicweb.com",
     description:
-      "La qualité qui se mesure : vitesse, sécurité, résultats. Sites web sur-mesure pour entrepreneurs et associations. Simple, performant, sans complexité — je m’occupe du reste.",
+      "Sites vitrines statiques ultra-rapides pour TPE, PME et professions libérales. Core Web Vitals 90+, zéro maintenance technique obligatoire, SEO et sécurité intégrés.",
     images: ["/opengraph-image"],
   },
   verification: {
