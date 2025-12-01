@@ -7,6 +7,7 @@ const PROVIDER = (process.env.NEXT_PUBLIC_ANALYTICS_PROVIDER || "").toLowerCase(
 const PLAUSIBLE_DOMAIN = process.env.NEXT_PUBLIC_PLAUSIBLE_DOMAIN || "smarterlogicweb.com";
 const UMAMI_SRC = process.env.NEXT_PUBLIC_UMAMI_SRC || "https://analytics.umami.is/script.js";
 const UMAMI_WEBSITE_ID = process.env.NEXT_PUBLIC_UMAMI_WEBSITE_ID || "";
+const AHREFS_KEY = process.env.NEXT_PUBLIC_AHREFS_ANALYTICS_KEY || "";
 
 function getConsent(): { analytics?: boolean } | null {
   if (typeof document === "undefined") return null;
@@ -39,6 +40,9 @@ export function AnalyticsLoader() {
       )}
       {PROVIDER === "umami" && UMAMI_WEBSITE_ID && (
         <Script strategy="lazyOnload" src={UMAMI_SRC} data-website-id={UMAMI_WEBSITE_ID} />
+      )}
+      {PROVIDER === "ahrefs" && AHREFS_KEY && (
+        <Script strategy="lazyOnload" src="https://analytics.ahrefs.com/analytics.js" data-key={AHREFS_KEY} />
       )}
     </>
   );

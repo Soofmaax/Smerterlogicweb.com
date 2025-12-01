@@ -25,8 +25,8 @@ const nextConfig = {
   async headers() {
     const csp = [
       "default-src 'self'",
-      "script-src 'self' https://plausible.io https://analytics.umami.is https://www.google.com https://www.gstatic.com https://www.googletagmanager.com https://www.google-analytics.com https://connect.facebook.net https://snap.licdn.com https://static.hotjar.com https://script.hotjar.com",
-      "connect-src 'self' https://plausible.io https://analytics.umami.is https://www.google.com https://www.gstatic.com https://www.googletagmanager.com https://www.google-analytics.com https://px.ads.linkedin.com https://www.facebook.com https://connect.facebook.net https://graph.facebook.com https://region1.hotjar.com https://api.sanity.io https://apicdn.sanity.io https://cdn.sanity.io https://afuqy886.api.sanity.io wss:",
+      "script-src 'self' https://plausible.io https://analytics.umami.is https://analytics.ahrefs.com https://www.google.com https://www.gstatic.com https://www.googletagmanager.com https://www.google-analytics.com https://connect.facebook.net https://snap.licdn.com https://static.hotjar.com https://script.hotjar.com",
+      "connect-src 'self' https://plausible.io https://analytics.umami.is https://analytics.ahrefs.com https://www.google.com https://www.gstatic.com https://www.googletagmanager.com https://www.google-analytics.com https://px.ads.linkedin.com https://www.facebook.com https://connect.facebook.net https://graph.facebook.com https://region1.hotjar.com https://api.sanity.io https://apicdn.sanity.io https://cdn.sanity.io https://afuqy886.api.sanity.io wss:",
       "style-src 'self' 'unsafe-inline'",
       "img-src 'self' data: blob: https://www.gstatic.com https://www.google-analytics.com https://px.ads.linkedin.com https://www.facebook.com https://cdn.sanity.io",
       "font-src 'self'",
