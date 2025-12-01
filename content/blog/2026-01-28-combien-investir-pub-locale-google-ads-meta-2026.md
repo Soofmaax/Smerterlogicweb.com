@@ -300,3 +300,17 @@ Si vous voulez, on peut partir de **votre panier moyen**, de **votre zone**, et 
 - s’il est pertinent de lancer Google Ads ou Meta Ads (ou les deux),
 - un budget test sur 3–6 mois,
 - et les **mots-clés / ciblages prioritaires** pour éviter de brûler du budget.
+
+## Un site vitrine statique solide avant (ou en parallèle) de lancer vos Ads
+
+Si vous voulez que vos budgets Google Ads / Meta Ads ne partent pas dans le vide, il vous faut :
+
+- un site vitrine statique clair et rapide qui convertit correctement les clics en contacts,
+- des pages d’atterrissage simples, lisibles sur mobile, avec des formulaires efficaces,
+- une base technique propre (tracking, performance) pour piloter vos campagnes.
+
+C’est exactement ce que je conçois pour des TPE, professions libérales et petites PME qui veulent que leurs dépenses Ads s’appuient sur un **site fiable** plutôt que sur un WordPress lent et fragile.
+
+- Découvrir la façon dont je travaille : [/services](/services)
+- Voir les forfaits et prix 2025 : [/tarifs-2025](/tarifs-2025)
+- Me parler de votre projet : [/contact](/contact)

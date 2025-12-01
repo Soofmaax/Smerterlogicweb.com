@@ -362,3 +362,17 @@ Si vous voulez, je peux partir de **vos chiffres 2024–2025** pour :
 - cartographier vos dépenses marketing,
 - identifier ce qui est **rentable** et ce qui ne l’est pas,
 - construire un budget 2026 **réaliste** où chaque euro a une raison d’être.
+
+## Garder un site vitrine statique propre au cœur de votre budget marketing
+
+Si vous devez couper dans votre marketing, il est généralement plus sage de :
+
+- garder un site vitrine statique rapide, fiable et clair,
+- conserver un minimum de contenus “piliers” bien positionnés,
+- maintenir un peu de tracking pour voir ce qui fonctionne encore.
+
+C’est exactement ce que je propose : des sites vitrines statiques pour TPE, professions libérales et petites PME, qui restent efficaces même quand le budget marketing se contracte.
+
+- Découvrir la façon dont je travaille : [/services](/services)
+- Voir les forfaits et prix 2025 : [/tarifs-2025](/tarifs-2025)
+- Me parler de votre projet : [/contact](/contact)

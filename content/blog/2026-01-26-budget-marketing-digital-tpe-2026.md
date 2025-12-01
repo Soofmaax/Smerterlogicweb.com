@@ -345,7 +345,20 @@ Pas forcément. Vous pouvez :
 ---
 
 Si vous voulez, je peux :
-
 - analyser votre situation (CA, secteur, site actuel),
 - proposer un **plan de budget marketing digital 2026 sur 12 mois**,
 - et vous aider à prioriser quelles actions faire en premier, sans exploser votre trésorerie.
+
+## Envie d’un site vitrine statique qui s’intègre bien dans votre budget marketing ?
+
+Si vous voulez :
+
+- un site vitrine statique rapide, pensé pour le SEO de base et les conversions,
+- des coûts de maintenance réduits (pas de WordPress à patcher tous les mois),
+- et un cadrage clair entre ce que fait le site, ce que font les contenus et ce que font les Ads,
+
+c’est exactement le type de projets que je réalise pour des TPE, professions libérales et petites PME.
+
+- Découvrir la façon dont je travaille : [/services](/services)
+- Voir les forfaits et prix 2025 : [/tarifs-2025](/tarifs-2025)
+- Me parler de votre projet : [/contact](/contact)
