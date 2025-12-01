@@ -101,6 +101,96 @@ export default function BlogPostEN({ params }: { params: { slug: string } }) {
     license: "https://creativecommons.org/licenses/by/4.0/",
   };
 
+  const faqBySlugEn: Record<string, { q: string; a: string }[]> = {
+    "business-website-cost-france-2025": [
+      {
+        q: "How much does a professional brochure website cost in France in 2025?",
+        a: "For an SME in France, a serious brochure website in 2025 typically ranges between \u20ac1,500 and \u20ac5,000 depending on whether copywriting, SEO and project management are included. Offers below \u20ac1,000 are often bare-bones installs without content or real optimisation."
+      },
+      {
+        q: "Why do quotes for the same website go from \u20ac800 to \u20ac8,000?",
+        a: "Because the label \u201cbrochure website\u201d covers very different deliverables: at \u20ac800 you usually get a WordPress install with a generic theme and empty pages; at \u20ac2,000\u2013\u20ac5,000 you get tailored design, content and SEO; above \u20ac8,000 you are paying for full agency process, workshops and multi-person teams."
+      },
+      {
+        q: "What is the real 3-year cost of a brochure website?",
+        a: "The real 3-year cost combines build, hosting, domain, maintenance, licences and possibly ongoing SEO. A \u20ac1,500 WordPress site often ends up costing \u20ac3,000\u2013\u20ac5,000 over 3 years, while a well-built static site can stay around \u20ac2,490 on the same horizon."
+      }
+    ],
+    "hidden-costs-website-ownership": [
+      {
+        q: "What are the main hidden costs of owning a website?",
+        a: "Beyond the initial build you must account for yearly domain renewal, hosting, plugin licences, WordPress maintenance and sometimes copywriting/SEO. Over 3 years these hidden costs can add \u20ac2,000\u2013\u20ac15,000 to the sticker price."
+      },
+      {
+        q: "How much does WordPress maintenance cost per year?",
+        a: "In 2025, realistic WordPress maintenance for a small business in Europe is around \u20ac290\u2013\u20ac1,800 per year depending on service level. Anything much cheaper usually means very limited or purely reactive work."
+      },
+      {
+        q: "Why do static sites have virtually no mandatory maintenance costs?",
+        a: "Static sites are pure HTML/CSS/JS without a database or plugins to update, so there is no CMS layer to maintain. In practice you only pay for the domain and optional content evolution, not for technical upkeep."
+      }
+    ],
+    "website-maintenance-cost-small-business": [
+      {
+        q: "How much does website maintenance cost per month for a small business?",
+        a: "For a brochure WordPress site, realistic maintenance ranges from \u20ac30 to \u20ac150 per month with a freelancer, and up to \u20ac500 per month with an agency for higher-risk sites."
+      },
+      {
+        q: "What are the cost differences between DIY, freelancer and agency maintenance?",
+        a: "DIY has no external fee but requires 10\u201320 hours/month and carries high risk. Freelancers typically bill \u20ac30\u2013\u20ac150/month. Agencies charge \u20ac75\u2013\u20ac500/month but provide SLAs, backup teams and level-3 support."
+      },
+      {
+        q: "What happens if you never pay for maintenance on a WordPress site?",
+        a: "Without maintenance a WordPress site becomes increasingly vulnerable: outdated plugins and core lead to hacks, unexplained downtime and performance decay. A single major incident can easily cost \u20ac1,000\u2013\u20ac50,000 in lost revenue and recovery fees."
+      }
+    ],
+    "brochure-website-maintenance-plan": [
+      {
+        q: "What should a solid maintenance plan for a brochure website include?",
+        a: "A serious plan covers four pillars: tested updates, security and off-site backups, performance optimisation and structured support with response-time SLAs. Without these you essentially have no real maintenance."
+      },
+      {
+        q: "What can I safely change myself on my brochure site?",
+        a: "You can safely edit copy, links, replace optimised images and publish blog posts. Anything touching code, plugins, core updates or security settings should be left to your provider."
+      },
+      {
+        q: "Which actions routinely break WordPress sites and should be avoided?",
+        a: "The main culprits are: installing random plugins, editing PHP/CSS directly on production, running major core updates without testing and changing security/permissions blindly. These four cause most serious outages."
+      }
+    ],
+    "technical-seo-basics-brochure-website": [
+      {
+        q: "What are the key technical SEO foundations for a brochure site?",
+        a: "You need a crawlable structure, fast performance with Core Web Vitals in the green, clean HTML semantics and appropriate structured data such as LocalBusiness, Article and FAQ where relevant."
+      },
+      {
+        q: "How long does it take to see SEO results for a new site?",
+        a: "For a typical SME brochure site, expect 4\u20136 months for visible movement in impressions and rankings, and 6\u201312 months for meaningful lead impact, especially on a brand-new domain."
+      },
+      {
+        q: "Why is long-tail keyword strategy so important for small businesses?",
+        a: "Long-tail queries like \u201cemployment lawyer Paris 11th free consultation\u201d are less competitive, carry clearer intent and convert better. They are the most realistic SEO lever for small businesses."
+      }
+    ]
+  };
+
+  const faqsEn = faqBySlugEn[post.slug];
+
+  const faqSchemaEn = faqsEn
+    ? {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        mainEntity: faqsEn.map((f) => ({
+          "@type": "Question",
+          name: f.q,
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: f.a,
+          },
+        })),
+      }
+    : null;
+
   return (
     <section className="relative">
       {/* Ambient brand gradient background, subtle and non-intrusive */}
@@ -111,6 +201,10 @@ export default function BlogPostEN({ params }: { params: { slug: string } }) {
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
         {/* JSON-LD BlogPosting */}
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(blogPostingSchema) }} />
+        {/* JSON-LD FAQPage (when available for the article) */}
+        {faqSchemaEn && (
+          <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchemaEn) }} />
+        )}
 
         <header className="mb-6">
           <h1 className="font-heading text-3xl font-bold tracking-tight">{post.title}</h1>
