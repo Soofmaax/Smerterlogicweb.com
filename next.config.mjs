@@ -10,7 +10,6 @@ const nextConfig = {
     formats: ["image/avif", "image/webp"],
     remotePatterns: [
       { protocol: "https", hostname: "bmsventouse.fr" },
-      { protocol: "https", hostname: "image.thum.io" },
       { protocol: "https", hostname: "images.unsplash.com" },
     ],
   },

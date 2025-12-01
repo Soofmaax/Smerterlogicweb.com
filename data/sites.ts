@@ -15,7 +15,7 @@ export const sitesFR: SiteEntry[] = [
     title: "BMS Ventousage",
     subtitle: "Logistique cinéma & événementiel",
     href: "https://bmsventouse.fr",
-    img: "https://image.thum.io/get/width/800/crop/600/https://bmsventouse.fr",
+    img: "/images/projects/bmsventouse-hero-800.webp",
     status: "live",
     domain: "bmsventouse.fr",
     sector: "Logistique / Événementiel",

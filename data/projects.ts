@@ -69,9 +69,9 @@ export const projectsFR: ProjectsData = {
       city: "Île‑de‑France",
       duration: "3–4 semaines",
       images: [
-        "https://image.thum.io/get/width/1200/crop/720/https://bmsventouse.fr",
-        "https://image.thum.io/get/width/375/crop/667/https://bmsventouse.fr",
-        "https://image.thum.io/get/width/1200/crop/720/https://bmsventouse.fr/#section",
+        "/images/projects/bmsventouse-hero-800.webp",
+        "/images/projects/bmsventouse-mobile-375.webp",
+        "/images/projects/bmsventouse-section-800.webp",
       ],
     },
   ],
