@@ -214,7 +214,7 @@ export default function Pricing2025ENPage() {
               Website maintenance cost
             </Link>
             <span className="text-muted-foreground">•</span>
-            <Link href="/en/blog/forfait-maintenance-site-vitrine" className="text-primary hover:underline">
+            <Link href="/en/blog/contenu-forfait-maintenance-site-web" className="text-primary hover:underline">
               Maintenance plan contents
             </Link>
             <span className="text-muted-foreground">•</span>
