@@ -27,6 +27,13 @@ Plausible est une excellente alternative :
 - légère (script très petit),
 - pensée pour la confidentialité (pas de cookies par défaut, serveurs en Europe).
 
+Pour une TPE qui ne code pas, la bonne nouvelle est la suivante :
+
+- votre **décision stratégique**, c’est de choisir un outil comme Plausible plutôt que GA4 ;
+- la **mise en place technique** (coller le script sur le site, configurer quelques événements) est un travail de **prestataire** (développeur, intégrateur, agence) qui prend en général 30 à 60 minutes.
+
+Autrement dit : vous n’avez pas besoin de mettre les mains dans le code. Votre rôle est de demander à votre prestataire d’installer Plausible (et non GA4) pour mesurer l’audience de votre site.
+
 Dans cet article, on va voir **pas à pas** comment :
 
 - installer Plausible sur un **site statique** (Next.js, HTML simple…),
@@ -61,6 +68,12 @@ Plausible va vous donner un **code de tracking** à intégrer sur votre site.
 ---
 
 ## 2. Intégrer Plausible sur un site statique (HTML / Next.js)
+
+Si vous travaillez déjà avec un développeur ou une agence, c’est généralement lui/elle qui se chargera de cette étape. Pour vous, l’essentiel est de savoir **quoi lui demander** :
+
+- “Pouvez-vous installer Plausible sur toutes les pages du site (à la place ou en complément de GA4), en suivant les bonnes pratiques RGPD ?”
+
+Vous pouvez néanmoins garder les indications ci-dessous comme base pour votre prestataire ou pour vous si vous gérez vous-même le site.
 
 ### 2.1. Version HTML statique simple
 
@@ -265,14 +278,37 @@ plutôt que de “payer en complexité” avec un outil gratuit mais plus lourd.
 
 ---
 
+**Je ne code pas, dois-je comprendre les exemples ci-dessus ?**
+
+Non. Si vous êtes dirigeant(e) de TPE, votre rôle n’est pas d’écrire du code, mais de **prendre la bonne décision** :
+
+- choisir un outil de mesure d’audience comme Plausible (plutôt que GA4 par défaut),
+- demander à votre développeur ou agence de l’installer correctement sur votre site.
+
+Les extraits de code dans cet article servent de référence pour :
+
+- votre prestataire,
+- ou les lecteurs plus techniques.
+
+Vous pouvez les ignorer en toute sécurité et simplement transmettre l’article à la personne qui gère votre site.
+
+---
+
 **Faut-il un développeur pour installer Plausible ?**
 
-Pas forcément :
+Dans la plupart des cas, oui :
 
-- sur un site HTML, ajouter un script est assez simple,
-- sur un site Next.js ou autre framework, c’est un peu plus technique.
+- sur un site HTML ou Next.js, un développeur ou intégrateur le fera en 30–60 minutes,
+- sur des CMS comme WordPress, Wix, Webflow, la plupart du temps il suffit :
+  - d’utiliser un module/extension qui permet d’ajouter un script dans le &lt;head&gt; (ex. “Header/Footer Script”),
+  - ou d’utiliser la zone prévue pour les scripts analytics.
 
-En cas de doute, mieux vaut confier l’installation à votre prestataire : cela lui prendra souvent 30 à 60 minutes.
+En pratique, vous pouvez simplement dire à votre prestataire :
+
+> “Nous utilisons Plausible pour la mesure d’audience.  
+> Merci de coller le script global sur toutes les pages (via le CMS ou le code), et de configurer un événement pour le formulaire de contact et les clics téléphone/email.”
+
+L’essentiel pour vous : **ne pas choisir GA4 par défaut**, mais un outil comme Plausible, puis laisser votre prestataire gérer la partie technique.
 
 ---
 
