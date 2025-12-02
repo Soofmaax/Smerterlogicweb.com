@@ -31,8 +31,8 @@ export async function generateMetadata({ params }: Params) {
     };
   }
   const sectors = city.sectors.join(", ").toLowerCase();
-  const title = `Refonte de Site Web à ${city.name} — Audit & Performance (CWV)`;
-  const description = `Audit et refonte de sites à ${city.name}. Améliorez LCP, INP, CLS. Ciblé pour ${sectors}. Devis gratuit.`;
+  const title = `Refonte de site internet à ${city.name} pour TPE et artisans — Audit & site vitrine statique`;
+  const description = `Audit et refonte de sites internet à ${city.name} pour artisans, TPE et PME des secteurs ${sectors}. Passage vers un site vitrine statique plus rapide et plus simple à maintenir. Devis gratuit.`;
 
   return {
     title,
@@ -60,19 +60,19 @@ function toSentence(list: string[]): string {
 const faqForCityRefonte = (cityName: string) => [
   {
     q: `Pourquoi refondre mon site à ${cityName} ?`,
-    a: `Pour améliorer la vitesse, l’UX et le SEO. Une refonte corrige les lenteurs (JS/CSS), simplifie la structure et augmente la conversion.`,
+    a: `Si votre site actuel est lent, peu clair ou ne reflète plus votre activité, une refonte permet d'améliorer la vitesse, l’UX et la conversion. Nous en profitons pour simplifier la structure et mettre en avant vos offres principales.`,
   },
   {
-    q: `Quels indicateurs de performance sont visés ?`,
-    a: `Core Web Vitals: LCP (rendu principal), INP (réactivité) et CLS (stabilité). Objectif: valeurs dans le vert.`,
+    q: `Est‑ce que vous transformez mon site en site vitrine statique ?`,
+    a: `Dans la plupart des cas, oui. Nous basculons vers un site vitrine statique plus rapide, plus stable et plus simple à maintenir, tout en conservant vos contenus utiles et votre nom de domaine.`,
   },
   {
-    q: `Combien de temps dure une refonte ?`,
-    a: `En moyenne 3–6 semaines selon l’ampleur. Audit initial, plan d’actions, refonte, tests, déploiement.`,
+    q: `Combien de temps dure une refonte à ${cityName} ?`,
+    a: `Pour une TPE ou un artisan, comptez en moyenne 3–6 semaines selon l’ampleur du site et la rapidité des validations. L’enchaînement classique: audit initial, plan d’actions, refonte, tests et déploiement.`,
   },
   {
     q: `Puis‑je conserver mon contenu ?`,
-    a: `Oui. Nous réorganisons votre contenu pour l’UX/SEO, améliorons les images et les assets pour la vitesse.`,
+    a: `Oui. Nous réorganisons vos contenus (textes, photos, cas clients) pour qu’ils soient plus lisibles, mieux structurés pour l’UX/SEO et plus rapides à charger.`,
   },
 ];
 
@@ -155,7 +155,7 @@ export default function CityRefontePage({ params }: Params) {
       {/* Hero */}
       <Reveal className="reveal-clip inline-block">
         <h1 className="font-heading text-4xl font-bold tracking-tight md:text-5xl text-balance">
-          Refonte de Site Web à {city.name} : audit, performance et Core Web Vitals
+          Refonte de site internet à {city.name} pour TPE et artisans : vers un site vitrine statique plus rapide
         </h1>
       </Reveal>
 
@@ -170,8 +170,9 @@ export default function CityRefontePage({ params }: Params) {
       />
 
       <p className="mt-3 text-foreground/80 max-w-3xl">
-        À {city.name}, nous auditons et refondons votre site pour une vitesse supérieure (SSG), une UX claire et un SEO
-        durable. Ciblé pour {sectorsSentence}. Objectif: LCP &lt; 1s, INP réactif, CLS stable.
+        À {city.name}, nous auditons et refondons des sites internet d&apos;artisans, TPE et petites entreprises pour les
+        rendre plus rapides, plus clairs et plus simples à gérer. Notre approche: transformer un site lourd (souvent
+        WordPress) en site vitrine statique performant, sans perdre vos contenus ni votre référencement local.
       </p>
 
       {/* Intro CTA */}
@@ -187,16 +188,19 @@ export default function CityRefontePage({ params }: Params) {
         <section>
           <h2 className="font-heading text-2xl font-semibold">Pourquoi refondre votre site à {city.name} ?</h2>
           <p className="mt-2 text-foreground/80">
-            Une refonte corrige les problèmes fréquents (site lent, scripts lourds, structure confuse) et améliore la
-            conversion. Nous basculons vers une architecture SSG avec hydratation ciblée, pour des pages rapides et stables.
+            Si votre site actuel est lent, compliqué à mettre à jour ou n&apos;explique plus clairement votre activité, une
+            refonte permet de repartir sur un site vitrine statique plus rapide, plus clair et plus adapté aux attentes de
+            vos clients. Nous gardons ce qui fonctionne, simplifions le reste, et améliorons la conversion.
           </p>
         </section>
 
         <section>
-          <h2 className="font-heading text-2xl font-semibold">Audit performance & SEO (CWV)</h2>
+          <h2 className="font-heading text-2xl font-semibold">Audit performance, UX et SEO</h2>
           <p className="mt-2 text-foreground/80">
-            Audit initial: LCP, INP, CLS, tailles d’assets, scripts et images. Plan d’actions pour réduire le TBT, optimiser
-            l’affichage critique, et réorganiser le contenu (maillage interne, navigation, FAQ).
+            Avant toute refonte, nous auditons votre site : vitesse, expérience utilisateur, structure, contenus, SEO local.
+            Sur cette base, nous construisons un plan d&apos;actions réaliste pour une TPE ou un artisan : quelles pages
+            garder, quelles pages fusionner, quelles pages créer, comment organiser vos services, vos preuves et vos appels à
+            l&apos;action.
           </p>
         </section>
 
@@ -205,22 +209,16 @@ export default function CityRefontePage({ params }: Params) {
             Intervention sur {city.name} et ses villes satellites ({satellitesSentence})
           </h2>
           <p className="mt-2 text-foreground/80">
-            Nous intervenons à {city.name} et ses communes proches ({satellitesSentence}). Coordination avec la {cciLabel}
-            et les partenaires locaux pour ancrer votre visibilité.
-          </p>
-        </section>
-
-        <section>
-          <h2 className="font-heading text-2xl font-semibold">Institutions locales et événements</h2>
-          <p className="mt-2 text-foreground/80">
-            Nous intégrons des éléments de crédibilité (institutions/évènements) dans vos pages pour une pertinence locale
-            accrue et une meilleure conversion.
+            Nous travaillons avec des entreprises basées à {city.name} et dans ses communes proches ({satellitesSentence}).
+            Tous les échanges peuvent se faire en visio ou par téléphone : pas besoin de vous déplacer, même pour une refonte
+            complète. Nous intégrons si besoin des éléments locaux (CCI, événements, partenaires) pour renforcer votre
+            crédibilité.
           </p>
           {Array.isArray(city.institutions) && city.institutions.length > 0 ? (
-            <p className="mt-2 text-foreground/80">Institutions: {city.institutions.join(", ")}.</p>
+            <p className="mt-2 text-foreground/80">Institutions locales : {city.institutions.join(", ")}.</p>
           ) : null}
           {Array.isArray(city.events) && city.events.length > 0 ? (
-            <p className="mt-2 text-foreground/80">Événements: {city.events.join(", ")}.</p>
+            <p className="mt-2 text-foreground/80">Événements économiques : {city.events.join(", ")}.</p>
           ) : null}
         </section>
 
