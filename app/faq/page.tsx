@@ -119,7 +119,7 @@ export default function FAQ() {
               Coût de la maintenance
             </a>
             <span className="text-muted-foreground">•</span>
-            <a href="/blog/contenu-forfait-maintenance-site-web" className="text-primary hover:underline">
+            <a href="/blog/forfait-maintenance-site-vitrine" className="text-primary hover:underline">
               Contenu d’un forfait
             </a>
             <span className="text-muted-foreground">•</span>

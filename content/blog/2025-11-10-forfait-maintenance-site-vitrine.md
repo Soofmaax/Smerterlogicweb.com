@@ -2,7 +2,7 @@
 slug: "forfait-maintenance-site-vitrine"
 locale: "fr"
 title: "Que comprend un forfait de maintenance pour un site vitrine ?"
-summary: "Mises à jour, sauvegardes, monitoring, support: ce qui est inclus, ce que vous pouvez faire vous‑même, et 4 actions interdites."
+summary: "Forfait maintenance site vitrine : ce qui est vraiment inclus (mises à jour, sauvegardes, monitoring, support) + 4 actions interdites qui cassent tout."
 tags:
   - "forfait maintenance site vitrine"
   - "que comprend maintenance site web"

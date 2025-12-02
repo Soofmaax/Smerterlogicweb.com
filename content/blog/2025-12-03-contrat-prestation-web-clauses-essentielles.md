@@ -28,6 +28,8 @@ Cette situation, je la vois régulièrement. Des entrepreneurs qui découvrent d
 
 Dans cet article, je vous explique en langage clair pourquoi un simple devis signé ne suffit jamais à protéger vos intérêts, quelles sont les clauses contractuelles absolument essentielles que vous devez exiger avant de signer quoi que ce soit, et comment vous assurer que vous serez vraiment propriétaire de votre code source et de vos données. Je détaille la clause de cession des droits d'auteur qui est la plus critique, la clause de recette qui vous permet de valider la conformité du livrable, et la clause de réversibilité qui vous protège contre le vendor lock-in. Pas de jargon juridique inutile, juste ce que vous devez absolument comprendre pour protéger votre investissement.
 
+Si vous ne codez pas, c’est précisément le contrat qui devient votre principal outil de contrôle. Vous ne relirez jamais chaque ligne de code, mais vous pouvez très bien exiger une cession de droits complète, une procédure de recette claire, une réversibilité encadrée et des sauvegardes régulières. Pensez ce texte comme un mode d’emploi pour discuter d’égal à égal avec une agence ou un développeur : vous leur laissez la liberté technique, mais dans un cadre juridique précis qui vous garantit que, quoi qu’il arrive, le site et les données restent votre actif, pas le leur.
+
 ## Pourquoi un devis ne suffit jamais
 
 ### La différence entre un devis et un contrat
@@ -260,3 +262,17 @@ Vous pouvez vous en inspirer, mais ne l'utilisez jamais tel quel sans l'adapter 
 ### Mon prestataire veut me facturer très cher la réversibilité, est-ce légal ?
 
 C'est légal si c'est prévu dans le contrat que vous avez signé, mais c'est une pratique abusive que vous devez refuser. La réversibilité ne devrait pas coûter plus cher que le temps réel nécessaire pour extraire et formater vos données, généralement entre une demi-journée et deux jours de travail selon la complexité. Si un prestataire essaie de vous facturer plusieurs milliers d'euros pour la réversibilité, c'est qu'il utilise cette clause comme un moyen de dissuasion pour vous empêcher de partir. C'est exactement le vendor lock-in contre lequel la clause de réversibilité est censée vous protéger. Négociez dès le début du projet, dans le contrat initial, que la réversibilité sera soit incluse sans surcoût, soit facturée sur une base forfaitaire raisonnable plafonnée. Une fois que le projet est terminé et que vous voulez partir, vous avez beaucoup moins de pouvoir de négociation. Anticipez ce point dès la signature du contrat.
+
+## Vous voulez un site vitrine statique avec un contrat clair et sans dépendance cachée ?
+
+Si vous souhaitez :
+
+- un site vitrine statique où la cession de droits, la recette, la réversibilité et les sauvegardes sont cadrées dès le départ,
+- un prestataire qui vous explique clairement ce que vous possédez (code, contenus, accès) et comment changer de prestataire le jour où vous le voulez,
+- et un devis compréhensible qui inclut ces éléments sans clauses pièges,
+
+c’est exactement le cadre dans lequel je travaille avec des TPE, professions libérales et petites PME.
+
+- Découvrir la façon dont je travaille : [/services](/services)
+- Voir les forfaits et prix 2025 : [/tarifs-2025](/tarifs-2025)
+- Me parler de votre projet : [/contact](/contact)

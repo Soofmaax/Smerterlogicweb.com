@@ -26,6 +26,8 @@ draft: false
 
 Lorsque vous investissez dans un site web professionnel, la question du support technique et de la maintenance ne se pose pas après la mise en ligne, mais bien avant la signature du contrat. Les engagements de support, matérialisés par un Service Level Agreement (SLA), définissent précisément ce que votre prestataire s'engage à faire, dans quels délais, et avec quelles conséquences en cas de non-respect. Pourtant, de nombreux porteurs de projets découvrent trop tard que leur contrat ne couvre pas ce qu'ils pensaient, ou que la "garantie" promise ne correspond pas à leurs attentes réelles.
 
+Si vous ne codez pas, votre rôle n’est pas de surveiller des logs serveurs ou de paramétrer des outils de monitoring. Votre rôle est de faire préciser noir sur blanc à quoi votre prestataire s’engage : temps de disponibilité, délais de réponse, délais de résolution, horaires de support, priorisation des incidents. Tout ce qui suit peut être lu comme une grille de négociation : vous ne gérez pas le support vous‑même, mais vous savez exactement quoi demander et comment mesurer si l’agence ou le développeur tient réellement ses promesses.
+
 Dans cet article, nous allons démystifier les engagements de support technique pour un site web. Nous examinerons les métriques concrètes qui doivent figurer dans un SLA professionnel, la différence fondamentale entre garantie légale et garantie commerciale, et les points de négociation essentiels pour protéger votre investissement. Que vous soyez en phase de consultation d'agences ou de négociation contractuelle, ce guide vous permettra de poser les bonnes questions et d'obtenir des engagements clairs et mesurables.
 
 ## Comprendre les Fondamentaux : SLA, SLO et SLI
@@ -151,3 +153,17 @@ Comprenez bien la distinction entre la garantie légale obligatoire de deux ans 
 Enfin, n'oubliez pas que le meilleur SLA du monde ne vous dispensera jamais de choisir le bon partenaire technique. Les métriques et les clauses contractuelles ne remplacent pas la compétence, la réactivité et l'intégrité humaine. Prenez le temps de vérifier les références de votre prestataire, de discuter avec d'autres clients, et d'évaluer sa capacité réelle à tenir ses engagements. Un excellent SLA avec un prestataire défaillant ne vaut rien. Un prestataire exceptionnel avec un SLA imparfait reste une meilleure option, même si l'idéal est évidemment de combiner les deux.
 
 Votre site web représente souvent la première impression que vos clients potentiels ont de votre entreprise. Sa disponibilité, sa performance et sa fiabilité sont des enjeux business critiques qui méritent des engagements à la hauteur. Négociez avec soin, exigez la transparence, et assurez-vous que les promesses commerciales se transforment en obligations contractuelles mesurables. C'est le meilleur investissement que vous puissiez faire pour la pérennité de votre présence en ligne.
+
+## Vous cherchez un prestataire qui pose des engagements clairs sur un site statique ?
+
+Si vous souhaitez :
+
+- un site vitrine statique avec des engagements écrits sur la disponibilité, les délais d’intervention et la maintenance,
+- un contrat simple où le périmètre de support, les exclusions et les conditions de résiliation sont clairs,
+- et un interlocuteur unique pour la technique, l’infra et le suivi dans le temps,
+
+c’est exactement la façon dont je travaille avec des TPE, professions libérales et petites PME.
+
+- Découvrir la façon dont je travaille : [/services](/services)
+- Voir les forfaits et prix 2025 : [/tarifs-2025](/tarifs-2025)
+- Me parler de votre projet : [/contact](/contact)

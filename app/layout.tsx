@@ -33,18 +33,19 @@ const dmSans = DM_Sans({
 export const metadata: Metadata = {
   metadataBase: new URL("https://smarterlogicweb.com"),
   title: {
-    default: "smarterlogicweb.com — Développeuse front-end",
+    default: "Sites vitrines statiques pour TPE & professions libérales — smarterlogicweb.com",
     template: "%s — smarterlogicweb.com",
   },
   description:
-    "La qualité qui se mesure : vitesse, sécurité, résultats. Sites web sur-mesure pour entrepreneurs et associations. Simple, performant, sans complexité — je m’occupe du reste.",
+    "Sites vitrines statiques ultra-rapides pour TPE, PME et professions libérales. Core Web Vitals 90+, zéro maintenance technique obligatoire, SEO et sécurité intégrés.",
   keywords: [
-    "développeuse front-end",
-    "site vitrine",
+    "site vitrine statique",
+    "sites vitrines TPE",
+    "professions libérales",
+    "création site web",
+    "refonte site vitrine",
     "Next.js",
     "Tailwind CSS",
-    "création site web",
-    "refonte",
     "SEO",
     "performance web",
   ],
@@ -65,16 +66,16 @@ export const metadata: Metadata = {
     locale: "fr_FR",
     siteName: "smarterlogicweb.com",
     url: "https://smarterlogicweb.com",
-    title: "smarterlogicweb.com — Développeuse front-end",
+    title: "Sites vitrines statiques pour TPE & professions libérales — smarterlogicweb.com",
     description:
-      "La qualité qui se mesure : vitesse, sécurité, résultats. Sites web sur-mesure pour entrepreneurs et associations. Simple, performant, sans complexité — je m’occupe du reste.",
+      "Sites vitrines statiques ultra-rapides pour TPE, PME et professions libérales. Core Web Vitals 90+, zéro maintenance technique obligatoire, SEO et sécurité intégrés.",
     images: ["/opengraph-image"],
   },
   twitter: {
     card: "summary_large_image",
-    title: "smarterlogicweb.com — Développeuse front-end",
+    title: "Sites vitrines statiques pour TPE & professions libérales — smarterlogicweb.com",
     description:
-      "La qualité qui se mesure : vitesse, sécurité, résultats. Sites web sur-mesure pour entrepreneurs et associations. Simple, performant, sans complexité — je m’occupe du reste.",
+      "Sites vitrines statiques ultra-rapides pour TPE, PME et professions libérales. Core Web Vitals 90+, zéro maintenance technique obligatoire, SEO et sécurité intégrés.",
     images: ["/opengraph-image"],
   },
   verification: {
@@ -150,15 +151,22 @@ export const viewport = {
   ],
 };
 
-export default function RootLayout({ children }: { children: React.ReactNode }) {
+export default function RootLayout({
+  children,
+  params,
+}: {
+  children: React.ReactNode;
+  params?: { locale?: string };
+}) {
   const provider = (process.env.NEXT_PUBLIC_ANALYTICS_PROVIDER || "plausible").toLowerCase();
   const plausibleDomain = process.env.NEXT_PUBLIC_PLAUSIBLE_DOMAIN || "smarterlogicweb.com";
   const umamiSrc = process.env.NEXT_PUBLIC_UMAMI_SRC || "https://analytics.umami.is/script.js";
   const umamiWebsiteId = process.env.NEXT_PUBLIC_UMAMI_WEBSITE_ID;
   const gtmId = process.env.NEXT_PUBLIC_GTM_ID || "GTM-5X2V579H";
+  const locale = params?.locale || "fr";
 
   return (
-    <html lang="fr">
+    <html lang={locale === "en" ? "en" : "fr"}>
       <body className={`${inter.variable} ${dmSans.variable} bg-background text-foreground antialiased font-sans`}>
         {/* Google Tag Manager (consent default denied) */}
         {provider === "gtm" ? (

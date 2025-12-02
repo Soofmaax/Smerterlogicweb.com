@@ -26,6 +26,8 @@ La réalité, c'est que l'infrastructure technique de votre site, ce n'est pas j
 
 Dans cet article, je vous explique en langage simple quelle infrastructure technique minimale vous devez exiger pour un site professionnel fiable, pourquoi l'HTTPS et le CDN ne sont plus des options mais des obligations, et surtout, je vous détaille précisément vos responsabilités légales en matière de protection des données personnelles et de gestion des cookies. Mon objectif est de vous donner les informations nécessaires pour prendre des décisions éclairées et éviter les mauvaises surprises.
 
+Si vous ne codez pas, vous n'êtes pas censé configurer un serveur, installer un certificat SSL ou brancher une CMP vous‑même. En revanche, c'est bien vous qui signez les contrats, qui êtes responsable devant la CNIL, et qui devez arbitrer entre plusieurs options techniques. Pensez donc ce texte comme un cahier des charges côté dirigeant : il vous aide à décider “ce qu’il faut exiger” de votre développeur ou de votre agence (hébergement, HTTPS, CDN, bandeau cookies), et à vérifier qu’ils l’ont effectivement mis en place, sans avoir à rentrer dans les fichiers de configuration.
+
 ## L'hébergement : la fondation sur laquelle tout repose
 
 ### Pourquoi l'hébergement détermine tout le reste
@@ -248,3 +250,17 @@ Commencez par identifier précisément où se situe le problème. Utilisez PageS
 ### Combien de temps mon hébergeur doit-il conserver les sauvegardes de mon site ?
 
 Il n'y a pas d'obligation légale spécifique, mais les bonnes pratiques recommandent au minimum trente jours de sauvegardes quotidiennes. Ça vous permet de revenir en arrière si un problème est découvert plusieurs semaines après son apparition. Les hébergeurs professionnels proposent généralement entre quatorze et soixante jours de rétention des sauvegardes. Vérifiez aussi où sont stockées ces sauvegardes. Si elles sont sur le même serveur que votre site de production, elles ne servent à rien en cas de défaillance matérielle du serveur. Les sauvegardes doivent être stockées sur un système séparé, idéalement dans un datacenter différent. Demandez explicitement à votre hébergeur quelle est sa politique de sauvegarde et testez une restauration au moins une fois par an pour vérifier que ça fonctionne vraiment. Une sauvegarde qu'on n'a jamais testée est une sauvegarde qui ne marche peut-être pas.
+
+## Vous voulez un site statique où toute cette infra est gérée pour vous ?
+
+Si vous souhaitez :
+
+- un site vitrine statique rapide, sécurisé et conforme (HTTPS, CDN, cookies, sauvegardes),
+- avec une infrastructure dimensionnée correctement (VPS, CDN, CMP) sans devoir arbitrer seul entre toutes les options,
+- et un seul interlocuteur pour l’hébergement, la technique et la conformité minimum,
+
+c’est exactement ce que je propose aux TPE, professions libérales et petites PME.
+
+- Découvrir la façon dont je travaille : [/services](/services)
+- Voir les forfaits et prix 2025 : [/tarifs-2025](/tarifs-2025)
+- Me parler de votre projet : [/contact](/contact)

@@ -2,7 +2,7 @@
 slug: "frais-caches-site-internet"
 locale: "fr"
 title: "Frais cachés : ce qu'il faut anticiper après la livraison du site"
-summary: "Maintenance WordPress 290–1 800€/an vs 0€ pour site statique. Le coût total sur 3 ans et les modalités de paiement."
+summary: "Coût réel d’un site vitrine sur 3 ans : 2 000–15 000€ (frais cachés inclus) | Maintenance WordPress 290–1 800€/an vs 0€ pour un site statique."
 tags:
   - "frais cachés site internet"
   - "coût maintenance site vitrine"

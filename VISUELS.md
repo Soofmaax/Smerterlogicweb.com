@@ -50,3 +50,83 @@ N’hésitez pas à fournir des hex / HSL exacts pour caler 1:1 avec votre chart
 - Attribuez des `alt` descriptifs aux logos (ex: “Logo Partenaire X”).
 - Conservez un contraste suffisant sur les combos pastel + texte.
 - Évitez les motion agressifs: nos animations sont discrètes et respectent le confort de lecture.
+
+## Templates Canva pour les réseaux sociaux
+
+Pour faciliter la création de visuels cohérents sur LinkedIn, Google Business et Instagram, on utilise des templates Canva basés sur le brand kit.
+
+### Brand kit à configurer dans Canva
+
+- Logo: utiliser le logo principal du site (version SVG/PNG sur fond transparent, depuis `public/`).
+- Couleurs principales (hex) : reprendre la palette déjà définie dans `app/globals.css` (Sauge, Rose, Plum, etc.).
+- Polices:
+  - Titre: police utilisée pour les headings sur le site.
+  - Texte: police utilisée pour les paragraphes.
+
+Style souhaité:
+
+- sobre, pro, moderne, pas surchargé ;
+- texte lisible sur mobile (éviter les blocs trop longs).
+
+### Template 1 — Carrousel “Extrait d’article” (5 slides)
+
+Objectif: résumer un article de blog ou un guide.
+
+- Slide 1:
+  - Titre de l’article (2 lignes max)
+  - Sous-titre court
+  - Logo discret
+- Slides 2–4:
+  - 1 idée clé par slide
+  - zone titre + zone texte court (2–3 phrases max)
+  - petite icône ou élément graphique répétable
+- Slide 5:
+  - CTA: “Article complet sur smarterlogicweb.fr”
+  - mention “Lien en bio” ou “Lien en commentaire”
+  - logo
+
+Formats à prévoir:
+
+- LinkedIn: 1080×1080 px
+- Instagram: 1080×1350 px (portrait)
+- Google Business: 1200×900 px (prévoir une zone centrale “safe” pour le texte)
+
+### Template 2 — Carrousel “Erreur fréquente” (4 slides)
+
+Objectif: expliquer une erreur typique des TPE (refonte, budget, CM…) et proposer une solution.
+
+- Slide 1:
+  - Titre: “Erreur #X des TPE sur [thème]” + emoji ⚠️
+- Slide 2:
+  - description de l’erreur + mini-exemple
+- Slide 3:
+  - solution en 2–3 bullet points
+- Slide 4:
+  - CTA: “Audit express site + communication”
+  - zone pour lien / mention “Me contacter”
+  - logo
+
+Formats:
+
+- mêmes que Template 1 (LinkedIn 1080×1080, Instagram 1080×1350, Google Business 1200×900)
+
+### Template 3 — Post simple “Conseil rapide” (1 slide)
+
+Objectif: partager un conseil actionnable sur 1 slide.
+
+- zone titre (1 phrase d’accroche)
+- zone texte (3–4 lignes max)
+- icône ou illustration simple
+- logo discret
+
+Format:
+
+- 1080×1080 px (utilisable sur tous les réseaux)
+
+### Livrables attendus (interne)
+
+- 3 templates Canva modifiables basés sur ce brand kit.
+- Un petit README interne (ou section Notion) rappelant:
+  - les formats par plateforme,
+  - la longueur de texte recommandée par slide,
+  - où placer titres, textes, CTA et logo.

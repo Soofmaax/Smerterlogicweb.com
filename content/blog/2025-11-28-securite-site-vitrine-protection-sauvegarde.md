@@ -28,6 +28,8 @@ Et les conséquences d'un site piraté vont bien au-delà de l'image dégradée.
 
 Dans cet article, je vous explique quelles sont les menaces concrètes qui visent votre site vitrine au quotidien, comment mettre en place les protections de base indispensables, et surtout comment construire votre stratégie de sauvegarde et de restauration en suivant la règle professionnelle 3-2-1. Pas de jargon technique inutile, juste les informations essentielles pour que vous sachiez exactement ce qui est en jeu et comment vous protéger efficacement.
 
+Si vous ne codez pas, la bonne approche n’est pas d’essayer de devenir administrateur système du jour au lendemain. Votre rôle est de comprendre les grands principes (mises à jour, accès, sauvegardes, plan B), d’exiger qu’ils soient appliqués par votre prestataire, et de vérifier qu’ils le sont réellement (preuves de sauvegardes, tests de restauration, procédure en cas de piratage). L’article peut donc servir à la fois de check-list pour votre développeur / agence, et de feuille de route pour vous en tant que dirigeant qui doit sécuriser son actif numérique sans gérer les détails techniques.
+
 ## Les menaces réelles pour un site non commercial : le mythe de l'immunité
 
 ### Pourquoi les petits sites sont des cibles privilégiées
@@ -217,3 +219,17 @@ Le coût varie énormément selon la gravité du piratage et la complexité de v
 ### À quelle fréquence dois-je changer mes mots de passe administrateur ?
 
 La recommandation classique de changer ses mots de passe tous les trois mois est en réalité obsolète et contre-productive. Les experts en sécurité actuels recommandent de ne changer vos mots de passe que dans deux situations. Première situation : vous avez des raisons de penser que votre mot de passe a été compromis, par exemple suite au piratage d'un autre service où vous utilisiez le même mot de passe, ou suite à un piratage de votre site. Deuxième situation : vous partagez un compte avec plusieurs personnes et qu'une de ces personnes quitte l'entreprise ou n'a plus besoin d'accès. L'important n'est pas de changer souvent vos mots de passe, c'est d'utiliser des mots de passe vraiment forts et uniques dès le départ. Un mot de passe de seize caractères mélangeant majuscules, minuscules, chiffres et caractères spéciaux, généré aléatoirement par un gestionnaire de mots de passe, et qui n'est utilisé nulle part ailleurs, peut rester le même pendant des années sans problème. Ce qui compte, c'est d'activer l'authentification à deux facteurs pour que même si quelqu'un vole votre mot de passe, il ne puisse pas se connecter. Et surtout, ne réutilisez jamais le même mot de passe sur plusieurs sites.
+
+## Vous voulez un site vitrine statique sécurisé sans devenir admin système ?
+
+Si vous souhaitez :
+
+- un site vitrine statique pensé dès le départ pour limiter la surface d’attaque (moins de plugins, moins de mises à jour critiques),
+- une stratégie de sauvegarde et de restauration gérée par un prestataire qui sait quoi faire le jour où il y a un incident,
+- et un plan de sécurité simple, documenté, que vous comprenez sans rentrer dans les détails techniques,
+
+c’est exactement ce que je conçois et opère pour des TPE, professions libérales et petites PME.
+
+- Découvrir la façon dont je travaille : [/services](/services)
+- Voir les forfaits et prix 2025 : [/tarifs-2025](/tarifs-2025)
+- Me parler de votre projet : [/contact](/contact)

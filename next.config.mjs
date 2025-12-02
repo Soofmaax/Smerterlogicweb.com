@@ -10,7 +10,6 @@ const nextConfig = {
     formats: ["image/avif", "image/webp"],
     remotePatterns: [
       { protocol: "https", hostname: "bmsventouse.fr" },
-      { protocol: "https", hostname: "image.thum.io" },
       { protocol: "https", hostname: "images.unsplash.com" },
     ],
   },
@@ -25,8 +24,8 @@ const nextConfig = {
   async headers() {
     const csp = [
       "default-src 'self'",
-      "script-src 'self' https://plausible.io https://analytics.umami.is https://www.google.com https://www.gstatic.com https://www.googletagmanager.com https://www.google-analytics.com https://connect.facebook.net https://snap.licdn.com https://static.hotjar.com https://script.hotjar.com",
-      "connect-src 'self' https://plausible.io https://analytics.umami.is https://www.google.com https://www.gstatic.com https://www.googletagmanager.com https://www.google-analytics.com https://px.ads.linkedin.com https://www.facebook.com https://connect.facebook.net https://graph.facebook.com https://region1.hotjar.com https://api.sanity.io https://apicdn.sanity.io https://cdn.sanity.io https://afuqy886.api.sanity.io wss:",
+      "script-src 'self' https://plausible.io https://analytics.umami.is https://analytics.ahrefs.com https://www.google.com https://www.gstatic.com https://www.googletagmanager.com https://www.google-analytics.com https://connect.facebook.net https://snap.licdn.com https://static.hotjar.com https://script.hotjar.com",
+      "connect-src 'self' https://plausible.io https://analytics.umami.is https://analytics.ahrefs.com https://www.google.com https://www.gstatic.com https://www.googletagmanager.com https://www.google-analytics.com https://px.ads.linkedin.com https://www.facebook.com https://connect.facebook.net https://graph.facebook.com https://region1.hotjar.com https://api.sanity.io https://apicdn.sanity.io https://cdn.sanity.io https://afuqy886.api.sanity.io wss:",
       "style-src 'self' 'unsafe-inline'",
       "img-src 'self' data: blob: https://www.gstatic.com https://www.google-analytics.com https://px.ads.linkedin.com https://www.facebook.com https://cdn.sanity.io",
       "font-src 'self'",
@@ -88,6 +87,7 @@ const nextConfig = {
       { source: "/role-client-creation-site-web", destination: "/blog/role-client-creation-site-web", permanent: true },
       { source: "/cout-maintenance-site-web", destination: "/blog/cout-maintenance-site-web", permanent: true },
       { source: "/contenu-forfait-maintenance-site-web", destination: "/blog/contenu-forfait-maintenance-site-web", permanent: true },
+      { source: "/blog/contenu-forfait-maintenance-site-web", destination: "/blog/forfait-maintenance-site-vitrine", permanent: true },
       { source: "/site-statique-vs-cms-autonomie", destination: "/blog/site-statique-vs-cms-autonomie", permanent: true },
       { source: "/referencement-seo-site-statique", destination: "/blog/referencement-seo-site-statique", permanent: true },
       { source: "/bases-techniques-seo-site-vitrine", destination: "/blog/bases-techniques-seo-site-vitrine", permanent: true },

@@ -26,6 +26,8 @@ La réponse est souvent brutale et mesurable : votre site est trop lent. Chaque 
 
 Dans cet article, je vous explique concrètement ce qu'est un site rapide en deux mille vingt-cinq, quels sont les seuils de performance que vous devez absolument viser, et surtout pourquoi l'optimisation mobile n'est plus une option mais une question de survie pour votre business. Pas de jargon technique incompréhensible, juste la vérité sur ce qui compte vraiment pour garder vos visiteurs et les transformer en clients.
 
+Si vous ne codez pas, votre rôle n'est pas de régler vous‑même les Core Web Vitals, de toucher au serveur ou au code JavaScript. Votre rôle est de comprendre les ordres de grandeur (quand un site est « acceptable » ou « catastrophique »), puis d'exiger de votre prestataire (freelance, développeur, agence) qu'il atteigne ces seuils et de vérifier qu'il y parvient. Tout ce qui suit peut servir de grille de lecture pour vos décisions (site actuel vs refonte, changement d'hébergement, reprise par un nouveau prestataire) et de checklist pour cadrer le travail technique, sans que vous ayez à mettre les mains dans le code.
+
 ## Les Core Web Vitals : les trois chiffres qui déterminent si votre site est assez rapide
 
 ### Ce que Google mesure vraiment depuis 2021
@@ -235,3 +237,17 @@ Google fait évoluer ces métriques régulièrement, mais les principes fondamen
 ### Mon site est sur WordPress avec beaucoup de plugins, est-ce que ça explique mes mauvaises performances ?
 
 Probablement oui. WordPress est une plateforme solide, mais les plugins de mauvaise qualité ou mal configurés sont la cause numéro un des problèmes de performance sur WordPress. Chaque plugin ajoute du code, des requêtes à la base de données, et souvent du JavaScript et du CSS. J'ai vu des sites WordPress avec trente plugins installés dont la moitié n'étaient même pas utilisés. Faites l'inventaire de vos plugins, désactivez et supprimez tout ce qui n'est pas essentiel. Pour les plugins que vous gardez, vérifiez qu'ils sont bien maintenus et optimisés. Des plugins comme WP Rocket ou Autoptimize peuvent aider à optimiser la performance, mais ils ne font pas de miracles si la base est pourrie. Parfois, il vaut mieux partir sur un thème WordPress plus léger et mieux codé que d'essayer d'optimiser un thème mal fichu.
+
+## Et si vous préférez ne pas gérer la technique vous-même ?
+
+Si vous voulez un site vitrine statique :
+
+- très rapide sur mobile et desktop,
+- plus simple à sécuriser et à maintenir qu’un WordPress plein de plugins,
+- déjà optimisé pour les Core Web Vitals, l’hébergement et le mobile,
+
+c’est exactement ce que je conçois pour des TPE, professions libérales et petites PME.
+
+- Découvrir la façon dont je travaille : [/services](/services)
+- Voir les forfaits et prix 2025 : [/tarifs-2025](/tarifs-2025)
+- Me parler de votre projet : [/contact](/contact)

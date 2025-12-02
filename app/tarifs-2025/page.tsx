@@ -14,9 +14,9 @@ import { EVOLUTION_MONTHLY_EUR } from "@/data/pricing";
 import { PdfDownloadButton } from "@/components/site/pdf-download-button";
 
 export const metadata = {
-  title: "Tarifs 2025 — smarterlogicweb.com",
+  title: "Tarifs 2025 | Sites vitrines statiques dès 1490€ TTC",
   description:
-    "Sites statiques pour professions libérales (avocats, experts‑comptables, architectes). Zéro maintenance technique obligatoire, performances, SEO et délais garantis.",
+    "Grille de tarifs 2025 pour sites vitrines statiques professionnels. Offres Essentiel, Professionnel et Premium dès 1490€ TTC. Zéro maintenance technique obligatoire, performances, SEO et délais garantis.",
   alternates: {
     canonical: "/tarifs-2025",
     languages: {
@@ -26,9 +26,9 @@ export const metadata = {
   },
   openGraph: {
     url: "https://smarterlogicweb.com/tarifs-2025",
-    title: "Tarifs 2025 — smarterlogicweb.com",
+    title: "Tarifs 2025 | Sites vitrines statiques dès 1490€ TTC — smarterlogicweb.com",
     description:
-      "Sites statiques pour professions libérales (avocats, experts‑comptables, architectes). Zéro maintenance obligatoire, performances et SEO au cœur.",
+      "Grille de tarifs 2025 pour sites vitrines statiques professionnels. Offres Essentiel, Professionnel et Premium dès 1490€ TTC. Zéro maintenance technique obligatoire, performances, SEO et délais garantis.",
   },
 };
 
@@ -82,7 +82,7 @@ export default function Tarifs2025Page() {
           Pour approfondir :{" "}
           <Link href="/blog/cout-maintenance-site-web" className="text-primary hover:underline">coût de la maintenance</Link>
           {" · "}
-          <Link href="/blog/contenu-forfait-maintenance-site-web" className="text-primary hover:underline">contenu d’un forfait</Link>
+          <Link href="/blog/forfait-maintenance-site-vitrine" className="text-primary hover:underline">contenu d’un forfait</Link>
           {" · "}
           <Link href="/blog/frais-caches-site-internet" className="text-primary hover:underline">frais cachés</Link>.
         </p>
@@ -217,7 +217,7 @@ export default function Tarifs2025Page() {
               Coût de la maintenance
             </Link>
             <span className="text-muted-foreground">•</span>
-            <Link href="/blog/contenu-forfait-maintenance-site-web" className="text-primary hover:underline">
+            <Link href="/blog/forfait-maintenance-site-vitrine" className="text-primary hover:underline">
               Contenu d’un forfait
             </Link>
             <span className="text-muted-foreground">•</span>

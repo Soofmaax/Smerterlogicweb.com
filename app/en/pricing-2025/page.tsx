@@ -81,7 +81,7 @@ export default function Pricing2025ENPage() {
           Learn more:{" "}
           <Link href="/en/blog/cout-maintenance-site-web" className="text-primary hover:underline">maintenance cost</Link>
           {" · "}
-          <Link href="/en/blog/contenu-forfait-maintenance-site-web" className="text-primary hover:underline">maintenance plan contents</Link>
+          <Link href="/en/blog/forfait-maintenance-site-vitrine" className="text-primary hover:underline">maintenance plan contents</Link>
           {" · "}
           <Link href="/en/blog/frais-caches-site-internet" className="text-primary hover:underline">hidden costs after delivery</Link>.
         </p>

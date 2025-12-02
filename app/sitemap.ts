@@ -3,6 +3,8 @@ import { getAllLocalCitySlugs } from "@/data/local-cities";
 import { getAllPosts } from "@/lib/blog-source";
 import { getPublishedPostsBurst } from "@/lib/blog";
 
+export const revalidate = 3600;
+
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = "https://smarterlogicweb.com";
   const now = new Date();

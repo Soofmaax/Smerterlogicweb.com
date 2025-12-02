@@ -2,7 +2,7 @@
 slug: bases-techniques-seo-site-vitrine
 locale: fr
 title: "Les bases techniques du SEO pour votre site vitrine : ce qu'il faut vraiment savoir"
-summary: "Critères SEO techniques essentiels et délais réalistes pour voir vos premiers résultats. Guide honnête pour TPE/PME sans langue de bois."
+summary: "SEO technique 2025 : 4–6 mois pour vos premiers résultats | Core Web Vitals, crawl, longue traîne — guide honnête pour sites vitrines TPE/PME."
 tags:
   - "SEO technique"
   - "référencement naturel"
@@ -24,6 +24,8 @@ Vous venez de lancer votre site vitrine et vous vous demandez quand Google va en
 La réalité, c'est que le SEO technique n'est pas de la magie. C'est un ensemble de fondations solides qui permettent à Google de comprendre, d'explorer et de valoriser votre site. Sans ces bases, même le meilleur contenu du monde restera invisible. Et contrairement à ce que certaines agences vous promettent, les résultats prennent du temps : entre quatre et six mois minimum pour commencer à voir un impact mesurable.
 
 Dans cet article, je vous explique en langage clair les critères techniques qui comptent vraiment pour un site professionnel, et surtout, je vous donne une chronologie réaliste des résultats que vous pouvez attendre. Pas de promesses en l'air, juste la vérité sur ce que vous devez mettre en place pour que votre investissement porte ses fruits.
+
+Si vous ne codez pas, la bonne nouvelle est que vous n'avez pas besoin de devenir expert en crawl, Core Web Vitals ou balisage structuré. Votre rôle est de savoir quels points techniques doivent absolument être couverts, d'en faire un cahier des charges clair, puis de demander à votre prestataire de les mettre en œuvre et de vous prouver que c'est fait (captures d'écran, rapports Search Console, tests de vitesse, etc.). Pensez cet article comme une carte : il vous aide à piloter la stratégie et à challenger votre développeur ou votre agence, pas à tout faire vous‑même.
 
 ## Ce que Google attend vraiment de votre site : les fondations techniques
 
@@ -175,3 +177,17 @@ Indirectement, oui, mais pas directement. Google ne prend pas en compte vos like
 ### Combien de temps faut-il maintenir l'effort SEO ?
 
 Le SEO n'est pas un projet avec une date de fin, c'est un effort continu. Une fois que vous avez atteint de bonnes positions, vous devez maintenir ces positions contre vos concurrents qui eux aussi travaillent leur référencement. Cela dit, l'effort diminue avec le temps. Les six premiers mois sont intenses avec beaucoup de corrections et de création de contenu. Ensuite, vous passez en mode maintenance avec des mises à jour régulières, de nouveaux contenus de temps en temps, et un suivi des performances. Comptez environ 300 à 600 euros par mois pour une maintenance SEO sérieuse après la phase de lancement.
+
+## Et si vous préférez confier tout cela à un prestataire qui maîtrise le SEO technique et le site statique ?
+
+Si vous voulez :
+
+- un site vitrine statique rapide et propre techniquement,
+- construit dès le départ pour respecter les bases SEO que vous venez de lire (structure, Core Web Vitals, balisage, infra),
+- sans empilement de plugins et de maintenance lourde tous les mois,
+
+c’est exactement le type de projets que je réalise pour des TPE, professions libérales et petites PME.
+
+- Découvrir la façon dont je travaille : [/services](/services)
+- Voir les forfaits et prix 2025 : [/tarifs-2025](/tarifs-2025)
+- Me parler de votre projet : [/contact](/contact)

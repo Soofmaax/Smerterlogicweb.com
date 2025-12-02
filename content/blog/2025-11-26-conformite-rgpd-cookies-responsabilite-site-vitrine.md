@@ -26,6 +26,8 @@ La réalité est brutale et mérite d'être clarifiée immédiatement : vous, en
 
 Dans cet article, je vous explique précisément ce qu'est votre responsabilité légale en tant qu'éditeur de site, quels sont les trois documents obligatoires que vous devez absolument avoir, qui doit les fournir et comment, et surtout comment mettre en place un bandeau cookies qui soit vraiment conforme aux exigences strictes de la CNIL. Pas de langue de bois, juste les faits et les obligations concrètes pour que vous sachiez exactement où vous mettez les pieds.
 
+Si vous ne codez pas, vous n’êtes pas censé écrire vous‑même une politique de confidentialité ou intégrer une CMP dans le code du site. En revanche, personne ne pourra prendre à votre place la responsabilité d’éditeur devant la CNIL. Votre rôle est donc double : 1) décider de ce qui doit être en place (mentions, politique, bandeau cookies conforme) et valider les textes, 2) demander à votre prestataire technique d’implémenter correctement ces décisions (affichage, blocage des scripts, journalisation du consentement). Ce guide vous aide à cadrer ce que vous demandez et à contrôler le travail livré, sans avoir à devenir juriste ou développeur.
+
 ## Votre responsabilité légale : le principe d'accountability que personne ne vous explique
 
 ### Vous êtes le responsable du traitement, même si vous n'y comprenez rien
@@ -182,3 +184,17 @@ Oui, même si la probabilité d'un contrôle individuel ciblé reste faible pour
 ### Mon agence web me propose un forfait RGPD à 2000 euros, est-ce justifié ?
 
 Ça dépend de ce qu'inclut ce forfait. Si c'est uniquement pour rédiger des mentions légales, une politique de confidentialité et installer un bandeau cookies sur un site vitrine basique, deux mille euros est clairement excessif. Ces prestations devraient coûter entre trois cents et huit cents euros maximum pour un site standard. Par contre, si le forfait RGPD inclut un audit complet de conformité de toute votre entreprise, la rédaction d'un registre des activités de traitement, la mise en place de procédures internes pour gérer les droits des personnes, la formation de votre équipe, et un accompagnement juridique personnalisé par un avocat spécialisé, alors deux mille euros peut être justifié. Demandez un devis détaillé qui liste précisément chaque prestation incluse et le temps estimé pour chacune. Si l'agence ne peut pas vous fournir ce détail, ou si elle justifie les deux mille euros juste par "c'est complexe et ça prend du temps", méfiez-vous. Demandez des devis à d'autres prestataires pour comparer.
+
+## Vous voulez un site vitrine statique déjà propre côté RGPD et cookies ?
+
+Si vous souhaitez :
+
+- un site vitrine statique livré avec mentions légales, politique de confidentialité et bandeau cookies conformes,
+- une implémentation technique des cookies (CMP, blocage des scripts, preuves de consentement) gérée par votre prestataire,
+- et un minimum de complexité juridique côté vous (validation des textes, décisions structurantes),
+
+c’est exactement ce que je propose aux TPE, professions libérales et petites PME.
+
+- Découvrir la façon dont je travaille : [/services](/services)
+- Voir les forfaits et prix 2025 : [/tarifs-2025](/tarifs-2025)
+- Me parler de votre projet : [/contact](/contact)

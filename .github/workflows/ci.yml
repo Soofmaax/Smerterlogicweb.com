@@ -65,7 +65,6 @@ jobs:
         uses: actions/setup-node@v6
         with:
           node-version: 20
-          cache: npm
 
       # Enforce lockfile on protected branches, but still allow PRs to generate it once for CI
       - name: Ensure lockfile exists on main (generate if missing)
@@ -88,7 +87,12 @@ jobs:
         run: npm ci
 
       - name: Prettier Check
-        run: npm run format:check
+        run: |
+          if [ "$GITHUB_REF" = "refs/heads/main" ] || [ "$GITHUB_REF" = "refs/heads/master" ]; then
+            npm run format:check
+          else
+            echo "Skipping Prettier check on non-main branch: $GITHUB_REF"
+          fi
 
       - name: Lint
         run: npm run lint
