@@ -31,8 +31,8 @@ export async function generateMetadata({ params }: Params) {
     };
   }
   const sectors = city.sectors.join(", ").toLowerCase();
-  const title = `Création de Site Internet à ${city.name} — Expertise locale ${city.departmentCode}`;
-  const description = `Agence web à ${city.name}. Sites vitrine & e‑commerce rapides et sécurisés pour ${sectors}. Devis gratuit.`;
+  const title = `Création de site internet à ${city.name} pour artisans et TPE — Expertise locale ${city.departmentCode}`;
+  const description = `Création de sites vitrines statiques à ${city.name} pour artisans, TPE et PME des secteurs ${sectors}. Audit et devis gratuits.`;
 
   return {
     title,
@@ -60,19 +60,19 @@ function toSentence(list: string[]): string {
 const faqForCity = (cityName: string, firstSector: string | undefined) => [
   {
     q: `Quel est le coût d'un site vitrine à ${cityName} ?`,
-    a: `Entre 1 490€ et 2 490€ selon la complexité, le contenu et les fonctionnalités (formulaires, galeries, SEO). Prix fixe, annoncé dès le départ.`,
+    a: `Pour un site vitrine statique, comptez généralement entre 1 490€ et 2 490€ selon le nombre de pages, la quantité de contenu et les fonctionnalités (formulaire, galeries, prise de rendez-vous). Prix fixe, annoncé dès le départ.`,
   },
   {
     q: `Combien de temps pour créer un site professionnel à ${cityName} ?`,
-    a: `Vitrine: 2–3 semaines. Business: 3–4 semaines. Premium: 4–6 semaines. Après validation du devis et réception des contenus.`,
+    a: `Pour une TPE ou un artisan, un site vitrine statique se réalise en 2–4 semaines en moyenne, après validation du devis et réception des contenus. Les projets plus complets (cas clients, FAQ, bilingue) peuvent s'étaler sur 4–6 semaines.`,
   },
   {
     q: `Votre approche convient‑elle aux secteurs ${firstSector ? firstSector.toLowerCase() : "locaux"} ?`,
-    a: `Oui. Nous adaptons le contenu et la structure aux spécificités locales. Objectif: performance (Core Web Vitals), clarté, conversion.`,
+    a: `Oui. Nous construisons des sites vitrines statiques pensés pour les artisans, TPE et PME locales, en adaptant le contenu et la structure aux spécificités de votre secteur (${firstSector ? firstSector.toLowerCase() : "activité locale"}). Objectif: performance (Core Web Vitals), clarté, conversion.`,
   },
   {
     q: `Pouvez‑vous intervenir autour de ${cityName} ?`,
-    a: `Oui, nous intervenons sur ${cityName} et ses villes satellites proches. Rendez‑vous en visio partout en France.`,
+    a: `Oui, nous intervenons sur ${cityName} et ses villes satellites proches. Les rendez‑vous se font en visio ou par téléphone, ce qui permet d'accompagner sereinement des artisans et TPE de toute la région.`,
   },
 ];
 
@@ -154,11 +154,18 @@ export default function CityServicePage({ params }: Params) {
 
       {/* Hero */}
       <Reveal className="reveal-clip inline-block">
-        <h1 className="font-heading text-4xl font-bold tracking-tight md:text-5xl text-balance">
-          {city.h1Suffix
-            ? <>Création de Site Internet à {city.name} : {city.h1Suffix}</>
-            : <>Création de Site Internet à {city.name} : l&apos;expertise digitale pour {sectorsSentence}</>}
-        </h1>
+        <h1 className="text-3xl sm:text-4xl font-heading font-semibold tracking-tight">
+            {city.h1Suffix ? (
+              <>
+                Création de sites vitrines statiques à {city.name} : {city.h1Suffix}
+              </>
+            ) : (
+              <>
+                Création de site internet à {city.name} pour artisans et TPE : sites vitrines statiques pour{" "}
+                {sectorsSentence}
+              </>
+            )}
+          </h1>
       </Reveal>
 
       {/* Visible breadcrumbs */}
@@ -172,8 +179,10 @@ export default function CityServicePage({ params }: Params) {
       />
 
       <p className="mt-3 text-foreground/80 max-w-3xl">
-        À {city.name} (agglo {city.populationAgglo}), nous concevons des sites rapides, sécurisés et orientés conversion.
-        Idéal pour les acteurs de {sectorsSentence}. Scores Core Web Vitals excellents, sans complexité.
+        À {city.name} (agglo {city.populationAgglo}), nous concevons des sites vitrines statiques rapides, stables et
+        simples à maintenir pour les artisans, indépendants et TPE des secteurs {sectorsSentence}. L&apos;objectif:
+        expliquer clairement vos services locaux, rassurer vos prospects et générer des demandes, sans usine à gaz
+        technique ni maintenance lourde.
       </p>
 
       {/* Intro CTA */}
@@ -188,6 +197,17 @@ export default function CityServicePage({ params }: Params) {
       <article className="mt-10 rounded-[28px] border bg-card p-6 card-elevated space-y-8">
         <section>
           <h2 className="font-heading text-2xl font-semibold">
+            Pour quels types d&apos;entreprises à {city.name} ?
+          </h2>
+          <p className="mt-2 text-foreground/80">
+            Notre offre de création de site internet à {city.name} est pensée pour les artisans, professions libérales et TPE
+            locales qui veulent un site vitrine clair, rapide et simple à maintenir&nbsp;: plomberie, électricité, textile,
+            industrie mécanique, agroalimentaire, conseil, coaching, etc. Nous adaptons le ton et les exemples à votre
+            réalité de terrain.
+          </p>
+        </section>
+        <section>
+          <h2 className="font-heading text-2xl font-semibold">
             Notre expertise pour les secteurs clés de {city.name}
           </h2>
           <div className="mt-2 space-y-3">
@@ -196,8 +216,8 @@ export default function CityServicePage({ params }: Params) {
                 <h3 className="text-lg font-semibold">{s}</h3>
                 <p className="text-foreground/80">
                   Nous adaptons le contenu, la structure et les preuves de confiance au secteur {s.toLowerCase()}. Objectif:
-                  vitesse native (SSG), SEO solide, et conversion. Audit, design, intégration, optimisation des Core Web Vitals
-                  et maillage interne — livrés clés en main.
+                  vitesse native (SSG) avec des sites vitrines statiques, SEO solide et conversion locale. Audit, design,
+                  intégration, optimisation des Core Web Vitals et maillage interne — livrés clés en main.
                 </p>
               </div>
             ))}
