@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { SITE_URL } from "@/config/site";
+import { SITE_URL, CONTACT_EMAIL } from "@/config/site";
 
 export const metadata = {
   title: "Citation & content reuse policy — smarterlogicweb.com",
@@ -77,8 +77,8 @@ export default function ContentUsagePolicyEN() {
 
       <p className="mt-8 text-sm text-muted-foreground">
         Last update: 2025. Contact:{" "}
-        <Link href="mailto:contact@smarterlogicweb.com" className="underline">
-          contact@smarterlogicweb.com
+        <Link href={`mailto:${CONTACT_EMAIL}`} className="underline">
+          {CONTACT_EMAIL}
         </Link>
         .
       </p>

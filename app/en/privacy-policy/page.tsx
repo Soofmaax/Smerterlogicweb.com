@@ -1,7 +1,7 @@
-import { SITE_URL } from "@/config/site";
+import { SITE_URL, CONTACT_EMAIL, BRAND_DOMAIN } from "@/config/site";
 
 export const metadata = {
-  title: "Privacy policy — smarterlogicweb.com",
+  title: `Privacy policy — ${BRAND_DOMAIN}`,
   description:
     "Privacy policy: data collected, purposes, legal basis, retention, user rights.",
   alternates: {
@@ -13,7 +13,7 @@ export const metadata = {
   },
   openGraph: {
     url: `${SITE_URL}/en/privacy-policy`,
-    title: "Privacy policy — smarterlogicweb.com",
+    title: `Privacy policy — ${BRAND_DOMAIN}`,
     description:
       "Privacy policy: data collected, purposes, legal basis, retention, user rights.",
   },
@@ -54,8 +54,8 @@ export default function PrivacyPolicyPage() {
           <h2>Your rights</h2>
           <p>
             You have the right of access, rectification, objection, erasure, restriction and portability.
-            To exercise these rights, contact:{" "}
-            <a href="mailto:contact@smarterlogicweb.com">contact@smarterlogicweb.com</a>.
+            To exercise these rights, contact:{' '}
+            <a href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a>.
           </p>
         </div>
       </div>

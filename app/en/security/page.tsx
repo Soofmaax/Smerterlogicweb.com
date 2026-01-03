@@ -1,8 +1,8 @@
 import Link from "next/link";
-import { SITE_URL } from "@/config/site";
+import { SITE_URL, CONTACT_EMAIL, BRAND_DOMAIN } from "@/config/site";
 
 export const metadata = {
-  title: "Security — smarterlogicweb.com",
+  title: `Security — ${BRAND_DOMAIN}`,
   description:
     "Responsible vulnerability disclosure policy. Thank you for helping keep smarterlogicweb.com secure.",
   alternates: {
@@ -14,7 +14,7 @@ export const metadata = {
   },
   openGraph: {
     url: `${SITE_URL}/en/security`,
-    title: "Security — smarterlogicweb.com",
+    title: `Security — ${BRAND_DOMAIN}`,
     description:
       "Responsible vulnerability disclosure policy.",
   },
@@ -29,16 +29,16 @@ export default function SecurityPage() {
       </p>
 
       <div className="mt-8 space-y-6">
-        <div className="rounded-lg border bg-card p-6">
-          <h2 className="font-heading text-xl font-semibold">How to report a vulnerability</h2>
-          <p className="mt-2 text-foreground/80">
-            Please email{" "}
-            <Link href="mailto:contact@smarterlogicweb.com" className="underline">
-              contact@smarterlogicweb.com
-            </Link>{" "}
-            with a clear description, a proof‑of‑concept if possible, and the potential impact.
-          </p>
-        </div>
+          <div className="rounded-lg border bg-card p-6">
+            <h2 className="font-heading text-xl font-semibold">How to report a vulnerability</h2>
+            <p className="mt-2 text-foreground/80">
+              Please email{" "}
+              <Link href={`mailto:${CONTACT_EMAIL}`} className="underline">
+                {CONTACT_EMAIL}
+              </Link>{" "}
+              with a clear description, a proof‑of‑concept if possible, and the potential impact.
+            </p>
+          </div>
 
         <div className="rounded-lg border bg-card p-6">
           <h2 className="font-heading text-xl font-semibold">Good practices</h2>

@@ -1,8 +1,8 @@
 import Link from "next/link";
-import { SITE_URL } from "@/config/site";
+import { SITE_URL, CONTACT_EMAIL, BRAND_DOMAIN } from "@/config/site";
 
 export const metadata = {
-  title: "FAQ — smarterlogicweb.com",
+  title: `FAQ — ${BRAND_DOMAIN}`,
   description:
     "Answers to common questions: pricing, timelines, maintenance, SEO and results.",
   alternates: {
@@ -14,7 +14,7 @@ export const metadata = {
   },
   openGraph: {
     url: `${SITE_URL}/en/faq`,
-    title: "FAQ — smarterlogicweb.com",
+    title: `FAQ — ${BRAND_DOMAIN}`,
     description:
       "Answers to common questions: pricing, timelines, maintenance, SEO and results.",
   },
@@ -88,10 +88,11 @@ export default function FAQENPage() {
             Ask a question
           </Link>
           <a
-            href="mailto:contact@smarterlogicweb.com?subject=Question%20about%20web%20services"
+            href={`mailto:${CONTACT_EMAIL}?subject=Question%20about%20web%20services`}
             className="inline-flex items-center justify-center rounded-full border px-4 py-2 text-sm transition hover:bg-accent"
           >
             Email me
+Email me
           </a>
         </div>
       </div>

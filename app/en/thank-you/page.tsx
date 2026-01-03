@@ -1,7 +1,7 @@
-import { SITE_URL } from "@/config/site";
+import { SITE_URL, CONTACT_EMAIL, BRAND_DOMAIN } from "@/config/site";
 
 export const metadata = {
-  title: "Thank you — smarterlogicweb.com",
+  title: `Thank you — ${BRAND_DOMAIN}`,
   description: "Your message has been sent. I’ll get back to you within 24 hours.",
   alternates: {
     canonical: "/en/thank-you",
@@ -12,7 +12,7 @@ export const metadata = {
   },
   openGraph: {
     url: `${SITE_URL}/en/thank-you`,
-    title: "Thank you — smarterlogicweb.com",
+    title: `Thank you — ${BRAND_DOMAIN}`,
     description: "Your message has been sent. I’ll get back to you within 24 hours.",
   },
 };
@@ -32,7 +32,9 @@ export default function ThankYouPage() {
       <h1 className="font-heading text-4xl font-bold tracking-tight">Thanks for your message</h1>
       <p className="mt-4 text-foreground/80">
         I’ll reply within 24 hours. If your request is urgent, email directly at{" "}
-        <a href="mailto:contact@smarterlogicweb.com" className="underline">contact@smarterlogicweb.com</a>.
+        <a href={`mailto:${CONTACT_EMAIL}`} className="underline">
+          {CONTACT_EMAIL}
+        </a>.
       </p>
 
       <div className="mt-8 flex justify-center">

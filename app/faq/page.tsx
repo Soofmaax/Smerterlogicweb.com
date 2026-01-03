@@ -3,9 +3,10 @@ import { FAQPage } from "@/components/site/faq-page";
 import { BookingButton } from "@/components/site/booking-modal";
 import { FinalCTA } from "@/components/site/final-cta";
 import { Particles } from "@/components/site/particles";
+import { SITE_URL, BRAND_DOMAIN } from "@/config/site";
 
 export const metadata = {
-  title: "FAQ — smarterlogicweb.com",
+  title: `FAQ — ${BRAND_DOMAIN}`,
   description: "Vos Questions, Mes Réponses. Tout ce que vous devez savoir avant de vous lancer.",
   alternates: {
     canonical: "/faq",
@@ -15,8 +16,8 @@ export const metadata = {
     },
   },
   openGraph: {
-    url: "https://smarterlogicweb.com/faq",
-    title: "FAQ — smarterlogicweb.com",
+    url: `${SITE_URL}/faq`,
+    title: `FAQ — ${BRAND_DOMAIN}`,
     description: "Vos Questions, Mes Réponses. Tout ce que vous devez savoir avant de vous lancer.",
   },
 };

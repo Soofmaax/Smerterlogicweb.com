@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { Particles } from "@/components/site/particles";
 import { TestimonialsSimpleEN } from "@/components/site/testimonials-simple-en";
+import { SITE_URL, BRAND_DOMAIN } from "@/config/site";
 
 export const dynamic = "force-dynamic";
 
@@ -30,15 +31,16 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const label = LABELS[params.trade] || params.trade;
   const title = `Website for ${label}: Get More Qualified Leads`;
   const desc = `Fast ${label.toLowerCase()} websites with local SEO and conversion in mind. Get more qualified inquiries in 90 days.`;
+  const url = `${SITE_URL}/en/website/${params.trade}`;
   return {
-    title: `${title} — smarterlogicweb.com`,
+    title: `${title} — ${BRAND_DOMAIN}`,
     description: desc,
     alternates: {
       canonical: `/en/website/${params.trade}`,
     },
     openGraph: {
-      url: `https://smarterlogicweb.com/en/website/${params.trade}`,
-      title: `${title} — smarterlogicweb.com`,
+      url,
+      title: `${title} — ${BRAND_DOMAIN}`,
       description: desc,
     },
   };

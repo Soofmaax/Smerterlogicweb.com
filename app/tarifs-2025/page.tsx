@@ -12,7 +12,7 @@ import { FinalCTA } from "@/components/site/final-cta";
 import { StickyMobileCTA } from "@/components/site/sticky-mobile-cta";
 import { EVOLUTION_MONTHLY_EUR } from "@/data/pricing";
 import { PdfDownloadButton } from "@/components/site/pdf-download-button";
-import { SITE_URL } from "@/config/site";
+import { SITE_URL, CONTACT_EMAIL, BRAND_DOMAIN } from "@/config/site";
 
 export const metadata = {
   title: "Tarifs 2025 | Sites vitrines statiques dès 1490€ TTC",
@@ -27,7 +27,7 @@ export const metadata = {
   },
   openGraph: {
     url: `${SITE_URL}/tarifs-2025`,
-    title: "Tarifs 2025 | Sites vitrines statiques dès 1490€ TTC — smarterlogicweb.com",
+    title: `Tarifs 2025 | Sites vitrines statiques dès 1490€ TTC — ${BRAND_DOMAIN}`,
     description:
       "Grille de tarifs 2025 pour sites vitrines statiques professionnels. Offres Essentiel, Professionnel et Premium dès 1490€ TTC. Zéro maintenance technique obligatoire, performances, SEO et délais garantis.",
   },
@@ -170,17 +170,20 @@ export default function Tarifs2025Page() {
       <section className="mt-10">
         <h2 className="font-heading text-2xl font-semibold">Comment commander</h2>
         <ol className="mt-3 list-decimal pl-5 text-sm text-foreground/80 space-y-1.5">
-          <li>Choisissez votre offre (Essentiel, Professionnel ou Premium)</li>
-          <li>Contactez‑nous: <Link href="/contact" className="link-underline link-underline-strong">smarterlogicweb.com/contact</Link></li>
-          <li>Cadrage du projet (30–45 min — appel/visio)</li>
-          <li>Devis détaillé ligne par ligne + planning de livraison</li>
-          <li>Signature électronique + versement de l’acompte</li>
+          <li>Choisir votre formule (Essentiel, Professionnel ou Premium)</li>
+          <li>Prendre rendez-vous pour un échange (visio ou téléphone)</li>
+          <li>Rédaction du devis détaillé + rétroplanning</li>
+          <li>E‑signature + acompte</li>
           <li>Démarrage sous 7 jours (2 semaines pour Premium)</li>
         </ol>
         <div className="mt-5 flex flex-col items-center justify-center gap-3 sm:flex-row">
           <BookingButton className="rounded-full btn-pulse" size="lg" label="Réserver mon audit gratuit (15 min)" />
           <Button asChild className="rounded-full" variant="secondary">
-            <a href="mailto:contact@smarterlogicweb.com?subject=Devis%20site%20statique%20—%20Tarifs%202025">Demander un devis par email</a>
+            <a
+              href={`mailto:${CONTACT_EMAIL}?subject=Devis%20site%20statique%20—%20Tarifs%202025`}
+            >
+              Demander un devis par email
+            </a>
           </Button>
         </div>
         <div className="mt-3 flex items-center justify-center">

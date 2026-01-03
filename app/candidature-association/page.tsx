@@ -3,6 +3,7 @@ import { AssociationApplicationForm } from "@/components/site/association-applic
 import { BookingButton } from "@/components/site/booking-modal";
 import { FinalCTA } from "@/components/site/final-cta";
 import { Particles } from "@/components/site/particles";
+import { SITE_URL } from "@/config/site";
 
 export const metadata = {
   title: "Candidature — Association du Mois",
@@ -15,7 +16,7 @@ export const metadata = {
     },
   },
   openGraph: {
-    url: "https://smarterlogicweb.com/candidature-association",
+    url: `${SITE_URL}/candidature-association`,
     title: "Candidature — Association du Mois",
     description: "Candidatez gratuitement pour que votre association bénéficie d’un site offert.",
   },

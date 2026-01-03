@@ -1,8 +1,8 @@
 import Link from "next/link";
-import { SITE_URL } from "@/config/site";
+import { SITE_URL, CONTACT_EMAIL, BRAND_DOMAIN } from "@/config/site";
 
 export const metadata = {
-  title: "Sécurité — smarterlogicweb.com",
+  title: `Sécurité — ${BRAND_DOMAIN}`,
   description:
     "Politique de divulgation responsable des vulnérabilités. Merci de nous aider à sécuriser smarterlogicweb.com.",
   alternates: {
@@ -14,7 +14,7 @@ export const metadata = {
   },
   openGraph: {
     url: `${SITE_URL}/securite`,
-    title: "Sécurité — smarterlogicweb.com",
+    title: `Sécurité — ${BRAND_DOMAIN}`,
     description:
       "Politique de divulgation responsable des vulnérabilités. Merci de nous aider à sécuriser smarterlogicweb.com.",
   },
@@ -29,16 +29,16 @@ export default function SecuritePage() {
       </p>
 
       <div className="mt-8 space-y-6">
-        <div className="rounded-lg border bg-card p-6">
-          <h2 className="font-heading text-xl font-semibold">Comment signaler une vulnérabilité</h2>
-          <p className="mt-2 text-foreground/80">
-            Merci de nous écrire à{" "}
-            <Link href="mailto:contact@smarterlogicweb.com" className="underline">
-              contact@smarterlogicweb.com
-            </Link>{" "}
-            avec une description claire, un proof-of-concept si possible, et l’impact potentiel.
-          </p>
-        </div>
+          <div className="rounded-lg border bg-card p-6">
+            <h2 className="font-heading text-xl font-semibold">Comment signaler une vulnérabilité</h2>
+            <p className="mt-2 text-foreground/80">
+              Merci de nous écrire à{" "}
+              <Link href={`mailto:${CONTACT_EMAIL}`} className="underline">
+                {CONTACT_EMAIL}
+              </Link>{" "}
+              avec une description claire, un proof-of-concept si possible, et l’impact potentiel.
+            </p>
+          </div>
 
         <div className="rounded-lg border bg-card p-6">
           <h2 className="font-heading text-xl font-semibold">Bonnes pratiques</h2>

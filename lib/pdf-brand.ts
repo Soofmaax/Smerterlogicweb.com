@@ -1,6 +1,7 @@
 import { PDFDocument, StandardFonts, rgb, PDFPage } from "pdf-lib";
 import { promises as fs } from "node:fs";
 import path from "node:path";
+import { BRAND_NAME, BRAND_DOMAIN, CONTACT_EMAIL } from "@/config/site";
 
 export type PdfFonts = { regular: any; bold: any; heading?: any; headingBold?: any };
 export type Cursor = { page: PDFPage; y: number };
@@ -64,7 +65,7 @@ export async function createBrandDoc() {
     height: 28,
     color: BRAND_PRIMARY,
   });
-  page.drawText(normalizePdfText("smarterlogicweb"), {
+  page.drawText(normalizePdfText(BRAND_NAME), {
     x: MARGIN_X,
     y: A4[1] - 20,
     size: 10,
@@ -87,7 +88,7 @@ export function ensureSpace(doc: PDFDocument, cursor: Cursor, fonts: PdfFonts): 
     height: 28,
     color: BRAND_PRIMARY,
   });
-  page.drawText(normalizePdfText("smarterlogicweb"), {
+  page.drawText(normalizePdfText(BRAND_NAME), {
     x: MARGIN_X,
     y: A4[1] - 20,
     size: 10,
@@ -162,6 +163,8 @@ export function hr(doc: PDFDocument, cursor: Cursor, fonts?: PdfFonts): Cursor {
 export function addFooters(doc: PDFDocument, fonts: PdfFonts) {
   const pages = doc.getPages();
   const total = pages.length;
+  const year = new Date().getFullYear();
+  const footerText = `${BRAND_DOMAIN} — ${CONTACT_EMAIL} — ${year}`;
   for (let i = 0; i < pages.length; i++) {
     const p = pages[i];
     // separator
@@ -171,7 +174,7 @@ export function addFooters(doc: PDFDocument, fonts: PdfFonts) {
       color: rgb(0.9, 0.9, 0.94),
       thickness: 1,
     });
-    p.drawText(normalizePdfText("smarterlogicweb.com — contact@smarterlogicweb.com — 2025"), {
+    p.drawText(normalizePdfText(footerText), {
       x: MARGIN_X,
       y: 36,
       size: 9,

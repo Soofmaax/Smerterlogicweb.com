@@ -14,6 +14,7 @@ import { FinalCTA } from "@/components/site/final-cta";
 import { Particles } from "@/components/site/particles";
 import { RightDotsNav } from "@/components/site/right-dots-nav";
 import { Breadcrumbs } from "@/components/site/breadcrumbs";
+import { SITE_URL, CONTACT_EMAIL, BRAND_DOMAIN } from "@/config/site";
 
 export const metadata = {
   title: "Services | Sites statiques professionnels pour TPE & Professions libérales",
@@ -27,8 +28,8 @@ export const metadata = {
     },
   },
   openGraph: {
-    url: "https://smarterlogicweb.com/services",
-    title: "Services | Sites statiques professionnels pour TPE & Professions libérales — smarterlogicweb.com",
+    url: `${SITE_URL}/services`,
+    title: `Services | Sites statiques professionnels pour TPE & Professions libérales — ${BRAND_DOMAIN}`,
     description:
       "Création de sites vitrines statiques ultra-rapides pour TPE et professions libérales. Sites stables, sécurisés, sans maintenance technique obligatoire. Accompagnement sur-mesure, contenu, SEO et suivi.",
   },
@@ -157,7 +158,11 @@ export default function ServicesPage() {
           <div className="mt-5 flex flex-col items-center justify-center gap-3 sm:flex-row">
             <BookingButton className="rounded-full btn-pulse" size="lg" label="Réserver mon audit gratuit (15 min)" />
             <Button asChild className="rounded-full" variant="secondary">
-              <a href="mailto:contact@smarterlogicweb.com?subject=Prendre%20rendez-vous%20t%C3%A9l%C3%A9phonique">Prendre rendez-vous téléphonique</a>
+              <a
+                href={`mailto:${CONTACT_EMAIL}?subject=Prendre%20rendez-vous%20t%C3%A9l%C3%A9phonique`}
+              >
+                Prendre rendez-vous téléphonique
+              </a>
             </Button>
           </div>
           {/* Badge note Google près du CTA */}

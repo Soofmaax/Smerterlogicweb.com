@@ -1,5 +1,7 @@
+import { SITE_URL, BRAND_DOMAIN } from "@/config/site";
+
 export const metadata = {
-  title: "Paramètres cookies — smarterlogicweb.com",
+  title: `Paramètres cookies — ${BRAND_DOMAIN}`,
   description: "Gérez vos préférences de cookies: mesure d’audience et traceurs marketing, en conformité avec le RGPD/CNIL.",
   alternates: {
     canonical: "/cookies",
@@ -9,8 +11,8 @@ export const metadata = {
     },
   },
   openGraph: {
-    url: "https://smarterlogicweb.com/cookies",
-    title: "Paramètres cookies — smarterlogicweb.com",
+    url: `${SITE_URL}/cookies`,
+    title: `Paramètres cookies — ${BRAND_DOMAIN}`,
     description: "Gérez vos préférences de cookies: mesure d’audience et traceurs marketing, en conformité avec le RGPD/CNIL.",
   },
 };

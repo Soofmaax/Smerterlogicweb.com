@@ -8,7 +8,7 @@ import { Particles } from "@/components/site/particles";
 import { Guarantee } from "@/components/site/guarantee";
 import { GoogleReviewsBadge } from "@/components/site/google-reviews";
 import { Suspense } from "react";
-import { SITE_URL } from "@/config/site";
+import { SITE_URL, CONTACT_EMAIL } from "@/config/site";
 
 export const metadata = {
   title: "Contact — smarterlogicweb.com",
@@ -49,8 +49,13 @@ export default function ContactPage() {
             </Button>
           ) : null}
           <Button asChild size="lg" className="rounded-full">
-            <TrackedLink href="mailto:contact@smarterlogicweb.com?subject=Free%20quote" eventName="cta_devis_mailto_contact">
-              <span className="inline-flex items-center gap-2"><Mail className="h-4 w-4" /> contact@smarterlogicweb.com</span>
+            <TrackedLink
+              href={`mailto:${CONTACT_EMAIL}?subject=Free%20quote`}
+              eventName="cta_devis_mailto_contact"
+            >
+              <span className="inline-flex items-center gap-2">
+                <Mail className="h-4 w-4" /> {CONTACT_EMAIL}
+              </span>
             </TrackedLink>
           </Button>
           <Link href="/en" className="text-sm text-muted-foreground hover:text-foreground">Back to home</Link>

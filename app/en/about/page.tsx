@@ -7,9 +7,10 @@ import { FinalCTA } from "@/components/site/final-cta";
 import { Particles } from "@/components/site/particles";
 import { Guarantee } from "@/components/site/guarantee";
 import { GoogleReviewsBadge } from "@/components/site/google-reviews";
+import { SITE_URL, CONTACT_EMAIL, BRAND_DOMAIN } from "@/config/site";
 
 export const metadata = {
-  title: "About — smarterlogicweb.com",
+  title: `About — ${BRAND_DOMAIN}`,
   description: "Front‑end developer — simplicity, performance and high standards for your online presence.",
   alternates: {
     canonical: "/en/about",
@@ -19,8 +20,8 @@ export const metadata = {
     },
   },
   openGraph: {
-    url: "https://smarterlogicweb.com/en/about",
-    title: "About — smarterlogicweb.com",
+    url: `${SITE_URL}/en/about`,
+    title: `About — ${BRAND_DOMAIN}`,
     description:
       "Front‑end developer — simplicity, performance and high standards for your online presence.",
   },
@@ -51,7 +52,12 @@ export default function AboutPage() {
         <div className="mt-8 flex items-center gap-4">
           <BookingButton className="rounded-full" size="lg" label="Book my free audit (15 min)" />
           <Button asChild className="rounded-full">
-            <TrackedLink href="mailto:contact@smarterlogicweb.com?subject=Web%20project" eventName="cta_devis_mailto_apropos">Get my free quote</TrackedLink>
+            <TrackedLink
+              href={`mailto:${CONTACT_EMAIL}?subject=Web%20project`}
+              eventName="cta_devis_mailto_apropos"
+            >
+              Get my free quote
+            </TrackedLink>
           </Button>
           <Link href="/en/projects" className="text-sm text-muted-foreground hover:text-foreground">
             See projects

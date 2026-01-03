@@ -3,7 +3,7 @@ import fs from "node:fs";
 import path from "node:path";
 import matter from "gray-matter";
 import { getAllPosts } from "@/lib/blog-source";
-import { SITE_URL } from "@/config/site";
+import { SITE_URL, BRAND_DOMAIN } from "@/config/site";
 
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
@@ -145,7 +145,7 @@ export async function GET(_: Request, { params }: { params: { slug: string } }) 
         </p>
       </div>
       <div class="footer">
-        © ${new Date().getFullYear()} smarterlogicweb.com — Tous droits réservés.
+        © ${new Date().getFullYear()} ${BRAND_DOMAIN} — Tous droits réservés.
       </div>
     </div>
   </div>

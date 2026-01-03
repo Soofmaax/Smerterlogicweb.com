@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { getPublishedPostsBurst } from "@/lib/blog";
+import { getPublishedPostsBurst, formatDate, schedulePosts, getAllPosts } from "@/lib/blog";
 import { PostCard } from "@/components/site/post-card";
 import { NewsletterSection } from "@/components/site/newsletter-section";
 import { Suspense } from "react";
@@ -33,7 +33,7 @@ export default function BlogIndexFR() {
     "@type": "BreadcrumbList",
     itemListElement: [
       { "@type": "ListItem", position: 1, name: "Accueil", item: absoluteUrl("/") },
-      { "@type": "ListItem", position: 2, name:tion: 2, name: "Blog", item: "https://smarterlogicweb.com/blog" },
+      { "@type": "ListItem", position: 2, name: "Blog", item: absoluteUrl("/blog") },
     ],
   };
 

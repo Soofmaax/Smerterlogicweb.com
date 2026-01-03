@@ -7,6 +7,7 @@ import { usePathname } from "next/navigation";
 import { useMemo } from "react";
 import { GoogleReviewsBadge } from "@/components/site/google-reviews";
 import { availablePathsFR, availablePathsEN } from "@/data/routes";
+import { CONTACT_EMAIL, BRAND_DOMAIN } from "@/config/site";
 
 export function Footer() {
   const pathname = usePathname() || "/";
@@ -187,11 +188,11 @@ export function Footer() {
             <ul className="mt-3 space-y-2 text-sm">
               <li>
                 <Link
-                  href="mailto:contact@smarterlogicweb.com"
+                  href={`mailto:${CONTACT_EMAIL}`}
                   className="text-muted-foreground transition-colors hover:text-primary"
                   onClick={() => track("cta_devis_mailto_footer_text")}
                 >
-                  contact@smarterlogicweb.com
+                  {CONTACT_EMAIL}
                 </Link>
               </li>
             </ul>
@@ -219,7 +220,7 @@ export function Footer() {
                 <span className="sr-only">GitHub</span>
               </Link>
               <Link
-                href="mailto:contact@smarterlogicweb.com"
+                href={`mailto:${CONTACT_EMAIL}`}
                 aria-label="Envoyer un email"
                 className="text-muted-foreground transition-colors hover:text-primary"
                 onClick={() => track("cta_devis_mailto_footer_icon")}
@@ -234,7 +235,7 @@ export function Footer() {
         {/* Bottom row */}
         <div className="mt-10 flex flex-col items-start justify-between gap-4 border-t pt-6 sm:flex-row sm:items-center">
           <p className="text-xs text-muted-foreground">
-            © 2025 smarterlogicweb.com — {t.copyright}
+            © {new Date().getFullYear()} {BRAND_DOMAIN} — {t.copyright}
           </p>
           <nav aria-label="Liens légaux secondaires" className="text-xs">
             <ul className="flex flex-wrap items-center gap-x-4 gap-y-2">

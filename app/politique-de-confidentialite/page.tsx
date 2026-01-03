@@ -1,3 +1,5 @@
+import { CONTACT_EMAIL } from "@/config/site";
+
 export const metadata = {
   title: "Politique de confidentialité — smarterlogicweb.com",
   description:
@@ -66,8 +68,8 @@ export default function PolitiqueConfidentialitePage() {
           <h2>Vos droits</h2>
           <p>
             Vous disposez d’un droit d’accès, de rectification, d’opposition, d’effacement, à la limitation et à la
-            portabilité. Pour l’exercer, contactez:{" "}
-            <a href="mailto:contact@smarterlogicweb.com">contact@smarterlogicweb.com</a>.
+            portabilité. Pour l’exercer, contactez:{\" "}
+            <a href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a>.
           </p>
         </div>
 

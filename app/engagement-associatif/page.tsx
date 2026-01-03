@@ -10,10 +10,10 @@ import { GoogleReviewsBadge } from "@/components/site/google-reviews";
 import { Guarantee } from "@/components/site/guarantee";
 import { FinalCTA } from "@/components/site/final-cta";
 import { Particles } from "@/components/site/particles";
-import { SITE_URL } from "@/config/site";
+import { SITE_URL, CONTACT_EMAIL, BRAND_DOMAIN } from "@/config/site";
 
 export const metadata = {
-  title: "Engagement — smarterlogicweb.com",
+  title: `Engagement — ${BRAND_DOMAIN}`,
   description:
     "Le web au service de tous : 1 association / mois avec site offert, tarifs solidaires pour les autres. Tarifs justes, transmission et proximité.",
   alternates: {
@@ -25,7 +25,7 @@ export const metadata = {
   },
   openGraph: {
     url: `${SITE_URL}/engagement-associatif`,
-    title: "Engagement — smarterlogicweb.com",
+    title: `Engagement — ${BRAND_DOMAIN}`,
     description:
       "Le web au service de tous : 1 association / mois avec site offert, tarifs solidaires pour les autres. Tarifs justes, transmission et proximité.",
   },
@@ -101,7 +101,11 @@ export default function EngagementAssociatifPage() {
             </p>
             <div className="mt-4">
               <Button asChild className="rounded-full btn-lift" variant="secondary">
-                <Link href="mailto:contact@smarterlogicweb.com?subject=Tarif%20solidaire%20-%20Association">Demander un tarif solidaire</Link>
+                <Link
+                  href={`mailto:${CONTACT_EMAIL}?subject=Tarif%20solidaire%20-%20Association`}
+                >
+                  Demander un tarif solidaire
+                </Link>
               </Button>
             </div>
           </article>
@@ -184,7 +188,11 @@ export default function EngagementAssociatifPage() {
                 <Link href="/candidature-association">Candidater au site gratuit</Link>
               </Button>
               <Button asChild className="rounded-full btn-lift" variant="secondary" data-magnetic="true">
-                <Link href="mailto:contact@smarterlogicweb.com?subject=Tarif%20solidaire%20-%20Association">Demander un tarif solidaire</Link>
+                <Link
+                  href={`mailto:${CONTACT_EMAIL}?subject=Tarif%20solidaire%20-%20Association`}
+                >
+                  Demander un tarif solidaire
+                </Link>
               </Button>
               <Button asChild className="rounded-full btn-lift" variant="outline" data-magnetic="true">
                 <Link href="/services">Retour aux services classiques</Link>

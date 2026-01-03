@@ -10,6 +10,7 @@ import {
   calloutBox,
   ctaBanner,
 } from "@/lib/pdf-brand";
+import { SITE_URL, CONTACT_EMAIL } from "@/config/site";
 
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
@@ -168,8 +169,8 @@ export async function GET() {
   );
 
   cursor = ctaBanner(doc, cursor, fonts, [
-    "Voir la grille complète : smarterlogicweb.com/tarifs-2025",
-    "Discutons de votre projet : contact@smarterlogicweb.com (audit 15 min offert)",
+    `Voir la grille complète : ${SITE_URL}/tarifs-2025`,
+    `Discutons de votre projet : ${CONTACT_EMAIL} (audit 15 min offert)`,
   ]);
 
   addFooters(doc, fonts);

@@ -1,9 +1,9 @@
-import { SITE_URL, COMPANY_NAME, CONTACT_EMAIL } from "@/config/site";
+import { SITE_URL, COMPANY_NAME, CONTACT_EMAIL, BRAND_DOMAIN } from "@/config/site";
 
 export const metadata = {
-  title: "Legal notice — smarterlogicweb.com",
+  title: `Legal notice — ${BRAND_DOMAIN}`,
   description:
-    "Legal notice of smarterlogicweb.com: publisher, hosting, intellectual property, contact.",
+    `Legal notice of ${BRAND_DOMAIN}: publisher, hosting, intellectual property, contact.`,
   alternates: {
     canonical: "/en/legal-notice",
     languages: {
@@ -13,9 +13,9 @@ export const metadata = {
   },
   openGraph: {
     url: `${SITE_URL}/en/legal-notice`,
-    title: "Legal notice — smarterlogicweb.com",
+    title: `Legal notice — ${BRAND_DOMAIN}`,
     description:
-      "Legal notice of smarterlogicweb.com: publisher, hosting, intellectual property, contact.",
+      `Legal notice of ${BRAND_DOMAIN}: publisher, hosting, intellectual property, contact.`,
   },
 };
 

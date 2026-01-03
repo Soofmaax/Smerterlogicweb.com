@@ -5,6 +5,7 @@ import Link from "next/link";
 import { MagneticZone } from "@/components/site/magnetic";
 import { Reveal } from "@/components/site/reveal";
 import { cn } from "@/lib/utils";
+import { CONTACT_EMAIL } from "@/config/site";
 import {
   CircleDollarSign,
   Clock,
@@ -401,7 +402,7 @@ export function FAQPage() {
                 Poser ma question
               </Link>
               <a
-                href="mailto:contact@smarterlogicweb.com?subject=Prendre%20RDV%20t%C3%A9l%C3%A9phonique"
+                href={`mailto:${CONTACT_EMAIL}?subject=Prendre%20RDV%20t%C3%A9l%C3%A9phonique`}
                 data-magnetic="true"
                 className="inline-flex items-center justify-center rounded-full border px-4 py-2 text-sm transition hover:bg-accent"
               >

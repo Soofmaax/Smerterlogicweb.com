@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server";
-import { SITE_URL } from "@/config/site";
+import { SITE_URL, BRAND_NAME, CONTACT_EMAIL } from "@/config/site";
 
 export const runtime = "nodejs";
 
@@ -43,7 +43,7 @@ export async function POST(req: Request) {
   let emailed = false;
 
   const apiKey = process.env.RESEND_API_KEY || "";
-  const from = process.env.RESEND_FROM || "SmarterLogicWeb <contact@smarterlogicweb.com>";
+  const from = process.env.RESEND_FROM || `${BRAND_NAME} <${CONTACT_EMAIL}>`;
 
   if (apiKey) {
     try {
@@ -52,23 +52,24 @@ export async function POST(req: Request) {
       await resend.emails.send({
         from,
         to: email,
-        subject: "Votre guide — SmarterLogicWeb",
+        subject: `Votre guide — ${BRAND_NAME}`,
         html: `
           <div style="font-family: Inter, Arial, sans-serif; color:#111827">
             <p>Bonjour,</p>
-            <p>Voici le lien pour télécharger votre guide :</p>
+            <p>Voici le lien pour télécharger votre guide&nbsp;:</p>
             <p><a href="${downloadUrl}" target="_blank" rel="noopener">Télécharger le PDF</a></p>
             <p>Si vous avez des questions, répondez simplement à cet email.</p>
-            <p>— SmarterLogicWeb</p>
+            <p>— ${BRAND_NAME}</p>
           </div>
         `,
-        text: `Bonjour,\n\nVoici le lien pour télécharger votre guide:\n${downloadUrl}\n\n— SmarterLogicWeb`,
+        text: `Bonjour,\n\nVoici le lien pour télécharger votre guide:\n${downloadUrl}\n\n— ${BRAND_NAME}`,
       });
       emailed = true;
-    } catch (err) {
+    } catch {
       emailed = false;
     }
   }
 
   return NextResponse.json({ ok: true, emailed, downloadUrl });
+}
 }

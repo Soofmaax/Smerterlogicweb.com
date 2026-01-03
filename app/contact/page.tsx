@@ -9,9 +9,10 @@ import { BookingButton } from "@/components/site/booking-modal";
 import { Guarantee } from "@/components/site/guarantee";
 import { Particles } from "@/components/site/particles";
 import { Suspense } from "react";
+import { SITE_URL, CONTACT_EMAIL, BRAND_DOMAIN } from "@/config/site";
 
 export const metadata = {
-  title: "Contact — smarterlogicweb.com",
+  title: `Contact — ${BRAND_DOMAIN}`,
   description: "Contactez-moi pour un devis gratuit ou pour discuter de votre projet.",
   alternates: {
     canonical: "/contact",
@@ -21,8 +22,8 @@ export const metadata = {
     },
   },
   openGraph: {
-    url: "https://smarterlogicweb.com/contact",
-    title: "Contact — smarterlogicweb.com",
+    url: `${SITE_URL}/contact`,
+    title: `Contact — ${BRAND_DOMAIN}`,
     description: "Contactez-moi pour un devis gratuit ou pour discuter de votre projet.",
   },
 };
@@ -45,8 +46,13 @@ export default function ContactPage() {
 
         <div className="mt-6 flex flex-wrap items-center gap-4">
           <Button asChild size="lg" className="rounded-full" variant="cta">
-            <TrackedLink href="mailto:contact@smarterlogicweb.com?subject=Devis%20gratuit" eventName="cta_devis_mailto_contact">
-              <span className="inline-flex items-center gap-2"><Mail className="h-4 w-4" /> contact@smarterlogicweb.com</span>
+            <TrackedLink
+              href={`mailto:${CONTACT_EMAIL}?subject=Devis%20gratuit`}
+              eventName="cta_devis_mailto_contact"
+            >
+              <span className="inline-flex items-center gap-2">
+                <Mail className="h-4 w-4" /> {CONTACT_EMAIL}
+              </span>
             </TrackedLink>
           </Button>
           <BookingButton size="lg" className="rounded-full" label="Réserver mon audit gratuit (15 min)" />

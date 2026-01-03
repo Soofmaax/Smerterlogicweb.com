@@ -10,7 +10,7 @@ import { Particles } from "@/components/site/particles";
 import { FinalCTA } from "@/components/site/final-cta";
 import { GoogleReviewsBadge } from "@/components/site/google-reviews";
 import { QuickLinksEN } from "@/components/site/quick-links-en";
-import { SITE_URL } from "@/config/site";
+import { SITE_URL, CONTACT_EMAIL } from "@/config/site";
 
 export const metadata = {
   title: "Projects — smarterlogicweb.com",
@@ -87,7 +87,10 @@ export default function ProjectsPage() {
         <div className="flex flex-col items-center gap-3 justify-center">
           <BookingButton className="rounded-full" size="lg" label="Book my free audit (15 min)" />
           <Button asChild size="lg" className="rounded-full">
-            <TrackedLink href="mailto:contact@smarterlogicweb.com?subject=Web%20project%20-%20Brief" eventName="cta_devis_mailto_projets">
+            <TrackedLink
+              href={`mailto:${CONTACT_EMAIL}?subject=Web%20project%20-%20Brief`}
+              eventName="cta_devis_mailto_projets"
+            >
               Start a project
             </TrackedLink>
           </Button>
