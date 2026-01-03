@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import { Inter, DM_Sans } from "next/font/google";
+import { Anonymous_Pro, DM_Sans } from "next/font/google";
 import { Header } from "@/components/site/header";
 import { Footer } from "@/components/site/footer";
 import { UXEnhancer } from "@/components/site/ux-enhancer";
@@ -26,16 +26,16 @@ import {
 import Script from "next/script";
 import { Suspense } from "react";
 
-const inter = Inter({
+const anonymousPro = Anonymous_Pro({
   subsets: ["latin"],
+  weight: ["400", "700"],
   display: "swap",
-  variable: "--font-inter",
+  variable: "--font-anonymous-pro",
 });
 const dmSans = DM_Sans({
   subsets: ["latin"],
   display: "swap",
-  variable: "--font-dm-sans",
-});
+ );
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
@@ -172,7 +172,7 @@ export default function RootLayout({
 
   return (
     <html lang={locale === "en" ? "en" : "fr"}>
-      <body className={`${inter.variable} ${dmSans.variable} bg-background text-foreground antialiased font-sans`}>
+      <body className={`${anonymousPro.variable} ${dmSans.variable} bg-background text-foreground antialiased font-sans`}>
         {/* Google Tag Manager (consent default denied) */}
         {provider === "gtm" ? (
           <>
