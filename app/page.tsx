@@ -119,7 +119,7 @@ export default function Page() {
           </p>
           <div className="mt-5 flex flex-col gap-3 sm:flex-row">
             <Button asChild className="rounded-full">
-              <Link href="/contact">Discutons de votre projet</Link>
+              <Link href="/contact">Parler de votre projet</Link>
             </Button>
             <Link href="/engagement-associatif" className="group inline-flex items-center justify-center gap-2 rounded-full px-4 py-3 text-sm text-muted-foreground hover:text-foreground">
               <Heart size={16} className="transition-transform group-hover:scale-110" />
