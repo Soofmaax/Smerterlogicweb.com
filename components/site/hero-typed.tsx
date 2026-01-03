@@ -3,8 +3,6 @@
 import * as React from "react";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
-import { CheckCircle2 } from "lucide-react";
-import { Particles } from "@/components/site/particles";
 import { LiveCode } from "@/components/site/live-code";
 
 
@@ -20,22 +18,17 @@ export function HeroTyped() {
   const [titleTyped, setTitleTyped] = React.useState("");
   const [showCaretTitle, setShowCaretTitle] = React.useState(true);
 
-  // Primary CTA destination: phone > calendly > /contact
+  // Primary CTA destination: phone &gt; calendly &gt; /contact
   const rawPhone = process.env.NEXT_PUBLIC_PHONE || "";
   const rawBooking = process.env.NEXT_PUBLIC_BOOKING_URL || "";
-  const sanitizePhone = (p: string) => p.replace(/[^+\d]/g, "");
+  const sanitizePhone = (p: string) =&gt; p.replace(/[^+\d]/g, "");
   const primaryHref = rawPhone ? `tel:${sanitizePhone(rawPhone)}` : (rawBooking ? rawBooking : "/contact");
   const isInternal = primaryHref.startsWith("/");
 
-  // parallax refs
-  const p1Ref = React.useRef<HTMLDivElement | null>(null);
-  const p2Ref = React.useRef<HTMLDivElement | null>(null);
-  const mockRef = React.useRef<HTMLDivElement | null>(null);
-
   // Helper: treat mobile as reduced motion
-  const isMobile = () =>
-    typeof window !== "undefined" &&
-    window.matchMedia &&
+  const isMobile = () =&gt;
+    typeof window !== "undefined" &amp;&amp;
+    window.matchMedia &amp;&amp;
     window.matchMedia("(max-width: 768px)").matches;
 
   // Typewriter for main punchline
@@ -65,42 +58,13 @@ export function HeroTyped() {
     return () => window.clearInterval(id);
   }, [punchline]);
 
-  // Parallax on scroll (very subtle)
-  React.useEffect(() => {
-    const prefersReduced =
-      typeof window !== "undefined" &&
-      window.matchMedia &&
-      (window.matchMedia("(prefers-reduced-motion: reduce)").matches || isMobile());
-    if (prefersReduced) return;
-
-    let raf = 0;
-    const onScroll = () => {
-      if (raf) return;
-      raf = requestAnimationFrame(() => {
-        const y = window.scrollY || 0;
-        const t1 = `translate3d(0, ${Math.min(60, y * 0.06)}px, 0)`;
-        const t2 = `translate3d(0, ${Math.min(80, y * 0.1)}px, 0)`;
-        const tm = `translate3d(0, ${Math.min(120, y * 0.6)}px, 0)`; // mockup at 60% scroll speed
-        if (p1Ref.current) p1Ref.current.style.transform = t1;
-        if (p2Ref.current) p2Ref.current.style.transform = t2;
-        if (mockRef.current) mockRef.current.style.transform = tm;
-        raf = 0;
-      });
-    };
-    onScroll();
-    window.addEventListener("scroll", onScroll, { passive: true });
-    return () => {
-      window.removeEventListener("scroll", onScroll);
-      if (raf) cancelAnimationFrame(raf);
-    };
-  }, []);
+  
 
   return (
     <section className="relative mx-auto w-full max-w-5xl px-6 py-16 md:py-24 snap-start">
-      {/* Subtle animated background + parallax shapes */}
+      {/* Subtle background */}
       <div aria-hidden className="pointer-events-none absolute inset-0 z-0">
         <div className="hero-gradient-animated absolute inset-0 rounded-[28px] opacity-70" />
-        <Particles />
       </div>
 
       <div className="relative z-10">

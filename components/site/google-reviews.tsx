@@ -169,8 +169,6 @@ export function GoogleReviews({ max = 6, title = "Ce Que Disent Mes Clients" }: 
 
       <Carousel
         items={slides}
-        autoplay
-        intervalMs={5000}
         className="mt-6"
         ariaLabel="Avis clients"
       />
