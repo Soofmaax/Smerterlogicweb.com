@@ -39,7 +39,6 @@ export default function Tarifs2025Page() {
       {/* Hero background accents */}
       <div aria-hidden className="pointer-events-none absolute inset-0 -z-10">
         <div className="hero-gradient-animated absolute inset-0 rounded-[28px] opacity-60" />
-        <Particles />
       </div>
 
       {/* Hero */}
@@ -177,7 +176,7 @@ export default function Tarifs2025Page() {
           <li>Démarrage sous 7 jours (2 semaines pour Premium)</li>
         </ol>
         <div className="mt-5 flex flex-col items-center justify-center gap-3 sm:flex-row">
-          <BookingButton className="rounded-full btn-pulse" size="lg" label="Réserver mon audit gratuit (15 min)" />
+          <BookingButton className="rounded-full" size="lg" label="Réserver un audit gratuit" />
           <Button asChild className="rounded-full" variant="secondary">
             <a
               href={`mailto:${CONTACT_EMAIL}?subject=Devis%20site%20statique%20—%20Tarifs%202025`}

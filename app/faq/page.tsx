@@ -82,15 +82,14 @@ export default function FAQ() {
     <section className="mx-auto w-full max-w-6xl px-6 py-16 md:py-24">
       <div aria-hidden className="pointer-events-none absolute inset-0 -z-10">
         <div className="hero-gradient-animated absolute inset-0 rounded-[28px] opacity-60" />
-        <Particles />
       </div>
 
       <div className="mx-auto max-w-3xl text-center">
         <Reveal className="reveal-fade-up">
-          <h1 className="font-heading text-4xl font-bold tracking-tight md:text-5xl">Vos Questions, Mes Réponses</h1>
+          <h1 className="font-heading text-4xl font-bold tracking-tight md:text-5xl">Vos questions, mes réponses</h1>
         </Reveal>
         <Reveal className="reveal-fade-up">
-          <p className="mt-4 text-foreground/80">Tout ce que vous devez savoir avant de vous lancer.</p>
+          <p className="mt-4 text-foreground/80">Les points clés avant de vous lancer.</p>
         </Reveal>
       </div>
 

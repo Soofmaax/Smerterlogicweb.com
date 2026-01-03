@@ -36,7 +36,7 @@ export function UrgencyBanner({
   }, [variant]);
 
   const base =
-    "fixed inset-x-0 top-0 z-50 border-b transition-colors duration-700";
+    "fixed inset-x-0 top-0 z-50 border-b";
   const palette =
     variant === "alternate"
       ? invert

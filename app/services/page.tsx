@@ -69,7 +69,6 @@ export default function ServicesPage() {
       {/* Hero background accents */}
       <div aria-hidden className="pointer-events-none absolute inset-0 -z-10">
         <div className="hero-gradient-animated absolute inset-0 rounded-[28px] opacity-60" />
-        <Particles />
       </div>
 
       {/* Right-hand dots navigation for quick section jumps */}
@@ -153,10 +152,10 @@ export default function ServicesPage() {
       {/* CTA final */}
       <section className="mx-auto mt-2 w-full max-w-5xl px-0 py-12">
         <div className="rounded-[28px] card-elevated border bg-card p-6 text-center">
-          <h2 className="font-heading text-2xl font-semibold">Pas Sûr de la Formule qui Vous Convient ?</h2>
-          <p className="mt-2 text-foreground/80">Appelons-nous 15 minutes. Je vous aide à choisir gratuitement.</p>
+          <h2 className="font-heading text-2xl font-semibold">Pas sûr de la formule adaptée&nbsp;?</h2>
+          <p className="mt-2 text-foreground/80">Parlons 15 minutes. Je vous aide à choisir, gratuitement.</p>
           <div className="mt-5 flex flex-col items-center justify-center gap-3 sm:flex-row">
-            <BookingButton className="rounded-full btn-pulse" size="lg" label="Réserver mon audit gratuit (15 min)" />
+            <BookingButton className="rounded-full" size="lg" label="Réserver un audit gratuit" />
             <Button asChild className="rounded-full" variant="secondary">
               <a
                 href={`mailto:${CONTACT_EMAIL}?subject=Prendre%20rendez-vous%20t%C3%A9l%C3%A9phonique`}

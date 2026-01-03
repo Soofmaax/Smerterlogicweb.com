@@ -34,7 +34,6 @@ export default function ContactPage() {
       {/* Hero background accents */}
       <div aria-hidden className="pointer-events-none absolute inset-0 -z-10">
         <div className="hero-gradient-animated absolute inset-0 rounded-[28px] opacity-60" />
-        <Particles />
       </div>
 
       {/* Hero card */}
@@ -45,7 +44,11 @@ export default function ContactPage() {
         </p>
 
         <div className="mt-6 flex flex-wrap items-center gap-4">
-          <Button asChild size="lg" className="rounded-full" variant="cta">
+          <Button
+            asChild
+            size="lg"
+            className="rounded-full border border-foreground bg-foreground px-6 py-3 text-base font-semibold text-background hover:bg-foreground/90"
+          >
             <TrackedLink
               href={`mailto:${CONTACT_EMAIL}?subject=Devis%20gratuit`}
               eventName="cta_devis_mailto_contact"
@@ -55,7 +58,7 @@ export default function ContactPage() {
               </span>
             </TrackedLink>
           </Button>
-          <BookingButton size="lg" className="rounded-full" label="Réserver mon audit gratuit (15 min)" />
+          <BookingButton size="lg" className="rounded-full" label="Réserver un audit gratuit" />
           {process.env.NEXT_PUBLIC_PHONE ? (
             <Button asChild size="lg" className="rounded-full">
               <a href={`tel:${(process.env.NEXT_PUBLIC_PHONE as string).replace(/[^+\d]/g, "")}`}>📞 Appeler</a>
