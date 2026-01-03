@@ -9,11 +9,14 @@ import { LiveCode } from "@/components/site/live-code";
 
 
 export function HeroTyped() {
-  const title = "Votre site web actuel vous fait perdre 15 clients par mois.";
-  const words = React.useMemo(() => ["Rapides", "Modernes", "Efficaces", "Professionnels"], []);
-  const [typedWord, setTypedWord] = React.useState("");
-  const [wordIndex, setWordIndex] = React.useState(0);
-  const [phase, setPhase] = React.useState<"typing" | "pausing" | "deleting">("typing");
+  // Business-card style hero lines
+  const line1 = "SITE WEB";
+  const line2 = "APPLICATIONS";
+  const line3 = "DU PIXEL AU PAPIER";
+  const tagline1 = "VOS RÊVES,";
+  const tagline2 = "NOS ASTUCES !";
+  const punchline = "Votre concurrent a déjà son site. Et vous ?";
+
   const [titleTyped, setTitleTyped] = React.useState("");
   const [showCaretTitle, setShowCaretTitle] = React.useState(true);
 
@@ -35,64 +38,32 @@ export function HeroTyped() {
     window.matchMedia &&
     window.matchMedia("(max-width: 768px)").matches;
 
-  // Typewriter for H1
+  // Typewriter for main punchline
   React.useEffect(() => {
+    const full = punchline;
     const prefersReduced =
       typeof window !== "undefined" &&
       window.matchMedia &&
       (window.matchMedia("(prefers-reduced-motion: reduce)").matches || isMobile());
 
     if (prefersReduced) {
-      setTitleTyped(title);
+      setTitleTyped(full);
       setShowCaretTitle(false);
       return;
     }
 
     let i = 0;
-    const step = 50; // 50ms / letter
+    const step = 45;
     const id = window.setInterval(() => {
       i += 1;
-      setTitleTyped(title.slice(0, i));
-      if (i >= title.length) {
+      setTitleTyped(full.slice(0, i));
+      if (i >= full.length) {
         window.clearInterval(id);
-        window.setTimeout(() => setShowCaretTitle(false), 1000);
+        window.setTimeout(() => setShowCaretTitle(false), 800);
       }
     }, step);
     return () => window.clearInterval(id);
-  }, [title]);
-
-  // Typing cycle for rotating words
-  React.useEffect(() => {
-    const current = words[wordIndex];
-    const prefersReduced =
-      typeof window !== "undefined" &&
-      window.matchMedia &&
-      (window.matchMedia("(prefers-reduced-motion: reduce)").matches || isMobile());
-
-    if (prefersReduced) {
-      setTypedWord(current);
-      return;
-    }
-
-    let timeout: number;
-    if (phase === "typing") {
-      if (typedWord.length < current.length) {
-        timeout = window.setTimeout(() => setTypedWord(current.slice(0, typedWord.length + 1)), 60);
-      } else {
-        timeout = window.setTimeout(() => setPhase("pausing"), 1400);
-      }
-    } else if (phase === "pausing") {
-      timeout = window.setTimeout(() => setPhase("deleting"), 700);
-    } else if (phase === "deleting") {
-      if (typedWord.length > 0) {
-        timeout = window.setTimeout(() => setTypedWord(current.slice(0, typedWord.length - 1)), 35);
-      } else {
-        setPhase("typing");
-        setWordIndex((i) => (i + 1) % words.length);
-      }
-    }
-    return () => window.clearTimeout(timeout);
-  }, [typedWord, phase, wordIndex, words]);
+  }, [punchline]);
 
   // Parallax on scroll (very subtle)
   React.useEffect(() => {
@@ -128,125 +99,86 @@ export function HeroTyped() {
     <section className="relative mx-auto w-full max-w-5xl px-6 py-16 md:py-24 snap-start">
       {/* Subtle animated background + parallax shapes */}
       <div aria-hidden className="pointer-events-none absolute inset-0 z-0">
-        <div className="hero-gradient-animated absolute inset-0 rounded-[28px] opacity-60" />
-        <div ref={p1Ref} className="absolute -left-16 top-8 h-40 w-40 rounded-full bg-primary/10 blur-2xl" />
-        <div ref={p2Ref} className="absolute -right-20 top-28 h-56 w-56 rounded-full bg-amber-300/10 blur-3xl" />
+        <div className="hero-gradient-animated absolute inset-0 rounded-[28px] opacity-70" />
         <Particles />
       </div>
 
       <div className="relative z-10">
-      {/* Urgency badge */}
-      <div className="mb-6">
-        <span className="inline-flex items-center gap-1 rounded-full border border-amber-300 bg-amber-50 px-3 py-1 text-sm font-semibold text-amber-700 dark:bg-amber-400/10 dark:text-amber-300">
-          <span aria-hidden>🔥</span> 2 places disponibles en novembre 2025
-        </span>
-      </div>
-
-      {/* Title with typewriter */}
-      <h1 className="font-heading text-4xl font-bold tracking-tight text-slate-800 md:text-6xl text-balance">
-        {titleTyped || title}
-        {showCaretTitle && <span className="ml-1 inline-block w-[2px] animate-pulse bg-slate-800 align-middle" style={{ height: "1em" }} />}
-      </h1>
-
-      {/* Animated word: amber for "Professionnels", gradient for others */}
-      <div
-        aria-live="polite"
-        className={`mt-2 text-2xl font-semibold md:text-3xl ${typedWord === "Professionnels" ? "text-amber-600" : "hero-title"}`}
-      >
-        {typedWord}
-      </div>
-
-      {/* Subheading */}
-      <p className="mt-6 text-lg leading-relaxed text-foreground/80 md:text-xl">
-        Nous créons des sites qui génèrent des devis qualifiés 24/7. Nos clients obtiennent +127% de demandes en 90 jours.
-      </p>
-
-      <div className="mt-6 flex flex-col gap-3 sm:flex-row">
-        {isInternal ? (
-          <Button
-            asChild
-            size="lg"
-            variant="default"
-            className="rounded-full h-16 px-8 text-xl bg-green-500 text-white hover:bg-green-600 shadow-lg btn-pulse"
-          >
-            <Link href={primaryHref}>📞 Audit GRATUIT - Je veux plus de clients</Link>
-          </Button>
-        ) : (
-          <Button
-            asChild
-            size="lg"
-            variant="default"
-            className="rounded-full h-16 px-8 text-xl bg-green-500 text-white hover:bg-green-600 shadow-lg btn-pulse"
-          >
-            <a href={primaryHref} target="_blank" rel="noopener noreferrer">
-              📞 Audit GRATUIT - Je veux plus de clients
-            </a>
-          </Button>
-        )}
-        
-      </div>
-
-      {/* Urgency subtext */}
-      <div className="mt-2 text-sm text-muted-foreground">
-        Prochain démarrage : semaine du 18 novembre
-      </div>
-
-      {/* Reassurance badges */}
-      <div className="mt-4 flex flex-wrap items-center gap-2 text-sm text-foreground/80">
-        <span className="badge-premium inline-flex items-center gap-1 rounded-full border border-foreground/15 bg-card px-2.5 py-1 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/40">
-          <CheckCircle2 className="h-4 w-4 text-primary" /> Réponse sous 24h
-        </span>
-        <span className="badge-premium inline-flex items-center gap-1 rounded-full border border-foreground/15 bg-card px-2.5 py-1 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/40">
-          <CheckCircle2 className="h-4 w-4 text-primary" /> Tarifs transparents
-        </span>
-        <span className="badge-premium inline-flex items-center gap-1 rounded-full border border-foreground/15 bg-card px-2.5 py-1 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/40">
-          <CheckCircle2 className="h-4 w-4 text-primary" /> Sans engagement
-        </span>
-      </div>
-
-      {/* Compact device mockup with metrics */}
-      <div className="mt-8">
-        <div ref={mockRef} className="rounded-[20px] border bg-card p-4 shadow-sm">
-          {/* Browser frame */}
-          <div className="flex items-center gap-1 pb-3">
-            <span className="h-2.5 w-2.5 rounded-full bg-sky-400/60" />
-            <span className="h-2.5 w-2.5 rounded-full bg-amber-400/70" />
-            <span className="h-2.5 w-2.5 rounded-full bg-green-400/70" />
-            <div className="ml-3 h-5 flex-1 rounded bg-muted/60" />
+        {/* Top stacked lines, business-card style */}
+        <div className="space-y-1">
+          <div className="hero-title text-sm font-semibold tracking-[0.4em]">
+            {line1}
           </div>
-          <div className="grid gap-3 md:grid-cols-3">
-            {/* Left: site preview skeleton */}
-            <div className="rounded-lg border bg-muted/40 p-3 md:col-span-2">
-              <div className="h-6 w-2/3 rounded bg-white/70 dark:bg-white/10" />
-              <div className="mt-2 h-3 w-4/5 rounded bg-white/60 dark:bg-white/10" />
-              <div className="mt-4 h-24 rounded bg-gradient-to-br from-slate-100 to-slate-200 dark:from-slate-800 dark:to-slate-700" />
-              <div className="mt-3 grid grid-cols-3 gap-2">
-                <div className="h-10 rounded bg-white/70 dark:bg-white/10" />
-                <div className="h-10 rounded bg-white/70 dark:bg-white/10" />
-                <div className="h-10 rounded bg-white/70 dark:bg-white/10" />
-              </div>
-            </div>
-            {/* Right: metrics badges */}
-            <div className="flex flex-col gap-3">
-              <div className="rounded-lg border bg-white/80 p-3 text-sm shadow-sm dark:bg-white/5">
-                <div className="text-xs text-muted-foreground">Score de performance</div>
-                <div className="mt-1 text-2xl font-bold text-amber-500">95/100</div>
-              </div>
-              <div className="rounded-lg border bg-white/80 p-3 text-sm shadow-sm dark:bg-white/5">
-                <div className="text-xs text-muted-foreground">Temps de chargement</div>
-                <div className="mt-1 text-2xl font-bold">0,9s</div>
-              </div>
-              <div className="rounded-lg border bg-white/80 p-3 text-sm shadow-sm dark:bg-white/5">
-                <div className="text-xs text-muted-foreground">Compatible mobile</div>
-                <div className="mt-1 text-2xl font-bold">100%</div>
-              </div>
-            </div>
+          <div className="hero-title text-sm font-semibold tracking-[0.4em]">
+            {line2}
+          </div>
+          <div className="hero-title text-sm font-semibold tracking-[0.4em]">
+            {line3}
           </div>
         </div>
-      </div>
 
-      {/* Live code preview (real file) */}
-      <LiveCode path="components/site/hero-typed.tsx" title="Code du Hero" />
+        {/* Main punchline with typewriter */}
+        <h1 className="mt-6 font-heading text-3xl font-bold tracking-tight text-foreground md:text-4xl text-balance">
+          {titleTyped || punchline}
+          {showCaretTitle && (
+            <span
+              className="ml-1 inline-block w-[2px] animate-pulse bg-foreground align-middle"
+              style={{ height: "1em" }}
+            />
+          )}
+        </h1>
+
+        {/* Tagline */}
+        <p className="mt-4 text-lg leading-relaxed text-foreground md:text-xl">
+          {tagline1}
+          <br />
+          {tagline2}
+        </p>
+
+        {/* Contact line from card */}
+        <p className="mt-4 text-sm text-foreground/80">
+          +33 7 44 40 79 73 ·{" "}
+          <a href="mailto:sonia@smarterlogicweb.com" className="underline hover:no-underline">
+            sonia@smarterlogicweb.com
+          </a>{" "}
+          ·{" "}
+          <a href="https://smarterlogicweb.com" className="underline hover:no-underline">
+            smarterlogicweb.com
+          </a>
+        </p>
+
+        {/* Primary CTA — simplifié, noir & blanc */}
+        <div className="mt-6 flex flex-col gap-3 sm:flex-row">
+          {isInternal ? (
+            <Button
+              asChild
+              size="lg"
+              variant="default"
+              className="btn-lift rounded-full border border-foreground bg-foreground px-8 py-4 text-base font-semibold text-background hover:bg-foreground/90"
+            >
+              <Link href={primaryHref}>Parler de votre projet</Link>
+            </Button>
+          ) : (
+            <Button
+              asChild
+              size="lg"
+              variant="default"
+              className="btn-lift rounded-full border border-foreground bg-foreground px-8 py-4 text-base font-semibold text-background hover:bg-foreground/90"
+            >
+              <a href={primaryHref} target="_blank" rel="noopener noreferrer">
+                Parler de votre projet
+              </a>
+            </Button>
+          )}
+        </div>
+
+        {/* Small note under CTA */}
+        <div className="mt-2 text-xs text-muted-foreground">
+          Votre concurrent a déjà son site. Et vous ?
+        </div>
+
+        {/* Live code preview (real file) */}
+        <LiveCode path="components/site/hero-typed.tsx" title="Code du Hero" />
       </div>
     </section>
   );
