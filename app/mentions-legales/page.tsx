@@ -1,3 +1,5 @@
+import { SITE_URL } from "@/config/site";
+
 export const metadata = {
   title: "Mentions légales — smarterlogicweb.com",
   description:
@@ -10,7 +12,7 @@ export const metadata = {
     },
   },
   openGraph: {
-    url: "https://smarterlogicweb.com/mentions-legales",
+    url: `${SITE_URL}/mentions-legales`,
     title: "Mentions légales — smarterlogicweb.com",
     description:
       "Mentions légales du site smarterlogicweb.com : éditeur, hébergeur, propriété intellectuelle, contact.",

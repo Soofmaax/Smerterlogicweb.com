@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { SITE_URL } from "@/config/site";
 
 export const metadata = {
   title: "Citation & content reuse policy — smarterlogicweb.com",
@@ -12,7 +13,7 @@ export const metadata = {
     },
   },
   openGraph: {
-    url: "https://smarterlogicweb.com/en/content-usage-policy",
+    url: `${SITE_URL}/en/content-usage-policy`,
     title: "Citation & content reuse policy — smarterlogicweb.com",
     description:
       "Creative Commons Attribution 4.0 (CC BY 4.0): reuse, adapt and commercial use permitted with attribution and a link to the source.",

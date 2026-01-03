@@ -3,6 +3,7 @@ import { LOCAL_CITIES } from "@/data/local-cities";
 import { Particles } from "@/components/site/particles";
 import { Reveal } from "@/components/site/reveal";
 import { Breadcrumbs } from "@/components/site/breadcrumbs";
+import { SITE_URL, COMPANY_NAME, absoluteUrl } from "@/config/site";
 
 export const metadata = {
   title: "Villes d’intervention — smarterlogicweb.com",
@@ -16,7 +17,7 @@ export const metadata = {
     },
   },
   openGraph: {
-    url: "https://smarterlogicweb.com/villes-intervention",
+    url: `${SITE_URL}/villes-intervention`,
     title: "Villes d’intervention",
     description:
       "Création et refonte de sites internet partout en France. Pages locales par ville, secteurs et satellites.",
@@ -38,8 +39,8 @@ export default function CitiesInterventionPage() {
     serviceType: "Création de site internet (France)",
     provider: {
       "@type": "LocalBusiness",
-      name: "smarterlogicweb",
-      url: "https://smarterlogicweb.com",
+      name: COMPANY_NAME,
+      url: SITE_URL,
       areaServed: "France",
     },
     areaServed: {
@@ -54,7 +55,7 @@ export default function CitiesInterventionPage() {
     itemListElement: LOCAL_CITIES.map((c, i) => ({
       "@type": "ListItem",
       position: i + 1,
-      url: `https://smarterlogicweb.com/creation-site-internet/${c.slug}`,
+      url: absoluteUrl(`/creation-site-internet/${c.slug}`),
     })),
   };
 

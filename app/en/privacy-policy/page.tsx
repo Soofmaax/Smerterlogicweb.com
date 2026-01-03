@@ -1,3 +1,5 @@
+import { SITE_URL } from "@/config/site";
+
 export const metadata = {
   title: "Privacy policy — smarterlogicweb.com",
   description:
@@ -10,7 +12,7 @@ export const metadata = {
     },
   },
   openGraph: {
-    url: "https://smarterlogicweb.com/en/privacy-policy",
+    url: `${SITE_URL}/en/privacy-policy`,
     title: "Privacy policy — smarterlogicweb.com",
     description:
       "Privacy policy: data collected, purposes, legal basis, retention, user rights.",

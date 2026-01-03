@@ -1,8 +1,12 @@
 import Link from "next/link";
-import { schedulePosts, getPublishedPostsBurst, formatDate } from "@/lib/blog";
-import { QuickLinks } from "@/components/site/quick-links";
-import { getAllPosts } from "@/lib/blog-source";
+import { getPublishedPostsBurst } from "@/lib/blog";
+import { PostCard } from "@/components/site/post-card";
+import { NewsletterSection } from "@/components/site/newsletter-section";
+import { Suspense } from "react";
+import { Particles } from "@/components/site/particles";
 import { Breadcrumbs } from "@/components/site/breadcrumbs";
+import { CategoriesFilter } from "@/components/site/categories-filter";
+import { absoluteUrl } from "@/config/site";
 
 export const revalidate = 60;
 
@@ -28,8 +32,8 @@ export default function BlogIndexFR() {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
     itemListElement: [
-      { "@type": "ListItem", position: 1, name: "Accueil", item: "https://smarterlogicweb.com/" },
-      { "@type": "ListItem", position: 2, name: "Blog", item: "https://smarterlogicweb.com/blog" },
+      { "@type": "ListItem", position: 1, name: "Accueil", item: absoluteUrl("/") },
+      { "@type": "ListItem", position: 2, name:tion: 2, name: "Blog", item: "https://smarterlogicweb.com/blog" },
     ],
   };
 

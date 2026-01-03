@@ -1,3 +1,5 @@
+import { SITE_URL } from "@/config/site";
+
 export const metadata = {
   title: "Thank you — smarterlogicweb.com",
   description: "Your message has been sent. I’ll get back to you within 24 hours.",
@@ -9,7 +11,7 @@ export const metadata = {
     },
   },
   openGraph: {
-    url: "https://smarterlogicweb.com/en/thank-you",
+    url: `${SITE_URL}/en/thank-you`,
     title: "Thank you — smarterlogicweb.com",
     description: "Your message has been sent. I’ll get back to you within 24 hours.",
   },

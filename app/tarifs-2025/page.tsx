@@ -12,6 +12,7 @@ import { FinalCTA } from "@/components/site/final-cta";
 import { StickyMobileCTA } from "@/components/site/sticky-mobile-cta";
 import { EVOLUTION_MONTHLY_EUR } from "@/data/pricing";
 import { PdfDownloadButton } from "@/components/site/pdf-download-button";
+import { SITE_URL } from "@/config/site";
 
 export const metadata = {
   title: "Tarifs 2025 | Sites vitrines statiques dès 1490€ TTC",
@@ -25,7 +26,7 @@ export const metadata = {
     },
   },
   openGraph: {
-    url: "https://smarterlogicweb.com/tarifs-2025",
+    url: `${SITE_URL}/tarifs-2025`,
     title: "Tarifs 2025 | Sites vitrines statiques dès 1490€ TTC — smarterlogicweb.com",
     description:
       "Grille de tarifs 2025 pour sites vitrines statiques professionnels. Offres Essentiel, Professionnel et Premium dès 1490€ TTC. Zéro maintenance technique obligatoire, performances, SEO et délais garantis.",

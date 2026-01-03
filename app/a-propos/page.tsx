@@ -11,6 +11,7 @@ import { GoogleReviewsBadge } from "@/components/site/google-reviews";
 import { Guarantee } from "@/components/site/guarantee";
 import { FinalCTA } from "@/components/site/final-cta";
 import { Particles } from "@/components/site/particles";
+import { SITE_URL } from "@/config/site";
 
 export const metadata = {
   title: "À propos — smarterlogicweb.com",
@@ -23,7 +24,7 @@ export const metadata = {
     },
   },
   openGraph: {
-    url: "https://smarterlogicweb.com/a-propos",
+    url: `${SITE_URL}/a-propos`,
     title: "À propos — smarterlogicweb.com",
     description:
       "Développeuse front-end — simplicité, performance et exigence au service de votre présence en ligne.",

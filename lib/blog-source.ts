@@ -11,65 +11,7 @@ import rehypeSanitize from "rehype-sanitize";
 import rehypeStringify from "rehype-stringify";
 
 import type { BlogPost, BlogLocale } from "./blog";
-
-function getLocalHour(): number {
-  const rawLocal = process.env.BLOG_PUBLISH_LOCAL_HOUR;
-  const rawUtc = process.env.BLOG_PUBLISH_HOUR;
-  const base = rawLocal ?? rawUtc;
-  const h = base ? Number(base) : 9;
-  return Number.isFinite(h) && h >= 0 && h <= 23 ? h : 9;
-}
-
-function isEuropeParisTz(): boolean {
-  const tz = (process.env.BLOG_PUBLISH_TZ || "").trim();
-  return tz.toLowerCase() === "europe/paris";
-}
-
-function lastSunday(year: number, monthIndex: number): Date {
-  const last = new Date(Date.UTC(year, monthIndex + 1, 0, 0, 0, 0));
-  const day = last.getUTCDay();
-  const diff = day === 0 ? 0 : day;
-  last.setUTCDate(last.getUTCDate() - diff);
-  return last;
-}
-
-function isDstEuropeParis(d: Date): boolean {
-  const y = d.getUTCFullYear();
-  const start = lastSunday(y, 2);
-  const dstStart = new Date(Date.UTC(y, start.getUTCMonth(), start.getUTCDate(), 1, 0, 0));
-  const end = lastSunday(y, 9);
-  const dstEnd = new Date(Date.UTC(y, end.getUTCMonth(), end.getUTCDate(), 1, 0, 0));
-  return d.getTime() >= dstStart.getTime() && d.getTime() < dstEnd.getTime();
-}
-
-function computePublishAtISO(dateStr: string): string | undefined {
-  // dateStr: YYYY-MM-DD
-  const m = dateStr.match(/^(\d{4})-(\d{2})-(\d{2})$/);
-  if (!m) return undefined;
-  const y = Number(m[1]);
-  const mm = Number(m[2]) - 1;
-  const dd = Number(m[3]);
-  const localHour = getLocalHour();
-  if (isEuropeParisTz()) {
-    const base = new Date(Date.UTC(y, mm, dd, 0, 0, 0));
-    const summer = isDstEuropeParis(base);
-    const offset = summer ? 2 : 1;
-    let utcHour = localHour - offset;
-    let dayShift = 0;
-    while (utcHour < 0) {
-      utcHour += 24;
-      dayShift -= 1;
-    }
-    while (utcHour >= 24) {
-      utcHour -= 24;
-      dayShift += 1;
-    }
-    const d = new Date(Date.UTC(y, mm, dd + dayShift, utcHour, 0, 0));
-    return d.toISOString();
-  }
-  const d = new Date(Date.UTC(y, mm, dd, localHour, 0, 0));
-  return d.toISOString();
-}
+import { computePublishAtISO } from "./blog-time";
 
 function enhanceContentHtml(html: string): string {
   // Add lazy loading / decoding to images

@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { SITE_URL } from "@/config/site";
 
 export const metadata = {
   title: "Security — smarterlogicweb.com",
@@ -12,7 +13,7 @@ export const metadata = {
     },
   },
   openGraph: {
-    url: "https://smarterlogicweb.com/en/security",
+    url: `${SITE_URL}/en/security`,
     title: "Security — smarterlogicweb.com",
     description:
       "Responsible vulnerability disclosure policy.",

@@ -7,6 +7,7 @@ import { FinalCTA } from "@/components/site/final-cta";
 import { Particles } from "@/components/site/particles";
 import { GoogleReviewsBadge } from "@/components/site/google-reviews";
 import { QuickLinksEN } from "@/components/site/quick-links-en";
+import { SITE_URL } from "@/config/site";
 
 export const metadata = {
   title: "Services — smarterlogicweb.com",
@@ -20,7 +21,7 @@ export const metadata = {
     },
   },
   openGraph: {
-    url: "https://smarterlogicweb.com/en/services",
+    url: `${SITE_URL}/en/services`,
     title: "Services — smarterlogicweb.com",
     description:
       "Showcase sites, redesigns, optimisation, ongoing support: simple, fast, results‑oriented.",

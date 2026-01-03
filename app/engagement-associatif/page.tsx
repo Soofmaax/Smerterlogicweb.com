@@ -10,6 +10,7 @@ import { GoogleReviewsBadge } from "@/components/site/google-reviews";
 import { Guarantee } from "@/components/site/guarantee";
 import { FinalCTA } from "@/components/site/final-cta";
 import { Particles } from "@/components/site/particles";
+import { SITE_URL } from "@/config/site";
 
 export const metadata = {
   title: "Engagement — smarterlogicweb.com",
@@ -23,7 +24,7 @@ export const metadata = {
     },
   },
   openGraph: {
-    url: "https://smarterlogicweb.com/engagement-associatif",
+    url: `${SITE_URL}/engagement-associatif`,
     title: "Engagement — smarterlogicweb.com",
     description:
       "Le web au service de tous : 1 association / mois avec site offert, tarifs solidaires pour les autres. Tarifs justes, transmission et proximité.",

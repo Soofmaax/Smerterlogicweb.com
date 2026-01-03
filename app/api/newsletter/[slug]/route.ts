@@ -3,12 +3,13 @@ import fs from "node:fs";
 import path from "node:path";
 import matter from "gray-matter";
 import { getAllPosts } from "@/lib/blog-source";
+import { SITE_URL } from "@/config/site";
 
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
 
 function baseUrl() {
-  return process.env.NEWSLETTER_BASE_URL || "https://smarterlogicweb.com";
+  return process.env.NEWSLETTER_BASE_URL || SITE_URL;
 }
 
 function htmlEscape(s: string) {

@@ -12,6 +12,7 @@ import { FinalCTA } from "@/components/site/final-cta";
 import { StickyMobileCTA } from "@/components/site/sticky-mobile-cta";
 import { EVOLUTION_MONTHLY_EUR } from "@/data/pricing";
 import { PdfDownloadButton } from "@/components/site/pdf-download-button";
+import { SITE_URL } from "@/config/site";
 
 export const metadata = {
   title: "Pricing 2025 — smarterlogicweb.com",
@@ -25,7 +26,7 @@ export const metadata = {
     },
   },
   openGraph: {
-    url: "https://smarterlogicweb.com/en/pricing-2025",
+    url: `${SITE_URL}/en/pricing-2025`,
     title: "Pricing 2025 — smarterlogicweb.com",
     description:
       "Static websites for professional services (lawyers, accountants, architects). No mandatory maintenance, performance and SEO at the core.",

@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { SITE_URL } from "@/config/site";
 
 export const metadata = {
   title: "Conditions générales de vente — smarterlogicweb.com",
@@ -12,7 +13,7 @@ export const metadata = {
     },
   },
   openGraph: {
-    url: "https://smarterlogicweb.com/cgv",
+    url: `${SITE_URL}/cgv`,
     title: "Conditions générales de vente — smarterlogicweb.com",
     description:
       "Conditions générales de vente (CGV) applicables aux prestations de création et refonte de site, accompagnement et support.",

@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { SITE_URL } from "@/config/site";
 
 export const metadata = {
   title: "FAQ — smarterlogicweb.com",
@@ -12,7 +13,7 @@ export const metadata = {
     },
   },
   openGraph: {
-    url: "https://smarterlogicweb.com/en/faq",
+    url: `${SITE_URL}/en/faq`,
     title: "FAQ — smarterlogicweb.com",
     description:
       "Answers to common questions: pricing, timelines, maintenance, SEO and results.",

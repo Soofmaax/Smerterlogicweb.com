@@ -10,6 +10,7 @@ import { Particles } from "@/components/site/particles";
 import { FinalCTA } from "@/components/site/final-cta";
 import { GoogleReviewsBadge } from "@/components/site/google-reviews";
 import { QuickLinksEN } from "@/components/site/quick-links-en";
+import { SITE_URL } from "@/config/site";
 
 export const metadata = {
   title: "Projects — smarterlogicweb.com",
@@ -22,7 +23,7 @@ export const metadata = {
     },
   },
   openGraph: {
-    url: "https://smarterlogicweb.com/en/projects",
+    url: `${SITE_URL}/en/projects`,
     title: "Projects — smarterlogicweb.com",
     description:
       "Case studies: simplicity, performance, conversion.",

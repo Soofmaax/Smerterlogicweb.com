@@ -14,6 +14,8 @@ import { PerformanceVisibleEN } from "@/components/site/performance-visible-en";
 import { ExpertiseWhyEN } from "@/components/site/expertise-why-en";
 import { TechnologiesGridEN } from "@/components/site/technologies-grid-en";
 
+import { SITE_URL } from "@/config/site";
+
 export const metadata = {
   title: "Your website, finally simple and fast.",
   description:
@@ -26,7 +28,7 @@ export const metadata = {
     },
   },
   openGraph: {
-    url: "https://smarterlogicweb.com/en",
+    url: `${SITE_URL}/en`,
     title: "Your website, finally simple and fast. — smarterlogicweb.com",
     description:
       "Quality you can measure: speed, security, results. Custom websites for entrepreneurs and nonprofits. Simple, fast, no complexity — I handle the rest.",

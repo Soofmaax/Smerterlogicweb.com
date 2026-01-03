@@ -8,6 +8,7 @@ import { Particles } from "@/components/site/particles";
 import { Guarantee } from "@/components/site/guarantee";
 import { GoogleReviewsBadge } from "@/components/site/google-reviews";
 import { Suspense } from "react";
+import { SITE_URL } from "@/config/site";
 
 export const metadata = {
   title: "Contact — smarterlogicweb.com",
@@ -20,7 +21,7 @@ export const metadata = {
     },
   },
   openGraph: {
-    url: "https://smarterlogicweb.com/en/contact",
+    url: `${SITE_URL}/en/contact`,
     title: "Contact — smarterlogicweb.com",
     description: "Contact me for a free quote or to discuss your project.",
   },

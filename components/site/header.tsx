@@ -7,7 +7,7 @@ import { usePathname } from "next/navigation";
 import { Button } from "@/components/ui/button";
 import { Menu, X, ChevronDown } from "lucide-react";
 import { track } from "@/lib/analytics";
-import { availablePathsFR, availablePathsEN } from "@/data/routes";
+import { availablePathsFR, availablePathsEN, switchLocalePath } from "@/data/routes";
 
 export function Header() {
   const [open, setOpen] = useState(false);
@@ -69,39 +69,6 @@ export function Header() {
           },
     [isEn]
   );
-
-  // slug mapping for language switch
-  const frToEn: Record<string, string> = {
-    "": "",
-    "projets": "projects",
-    "services": "services",
-    "a-propos": "about",
-    "engagement-associatif": "nonprofit-commitment",
-    "contact": "contact",
-    "mentions-legales": "legal-notice",
-    "politique-de-confidentialite": "privacy-policy",
-    "merci": "thank-you",
-    "securite": "security",
-    "blog": "blog",
-    "cgv": "terms-of-sale",
-    "faq": "faq",
-  };
-  const enToFr: Record<string, string> = Object.fromEntries(Object.entries(frToEn).map(([k, v]) => [v, k]));
-
-  function switchLocalePath(path: string) {
-    const p = path.startsWith("/en") ? path.slice(3) || "/" : path;
-    const parts = p.split("/").filter(Boolean);
-    const first = parts[0] || "";
-    if (path.startsWith("/en")) {
-      // EN -> FR
-      const mapped = enToFr[first] ?? first;
-      return mapped ? `/${mapped}${parts.slice(1).length ? `/${parts.slice(1).join("/")}` : ""}` : "/";
-    } else {
-      // FR -> EN
-      const mapped = frToEn[first] ?? first;
-      return `/en${mapped ? `/${mapped}${parts.slice(1).length ? `/${parts.slice(1).join("/")}` : ""}` : ""}`;
-    }
-  }
 
   const langSwitchHref = switchLocalePath(pathname);
   const pricingHref = isEn
