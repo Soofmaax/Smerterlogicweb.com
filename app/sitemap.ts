@@ -2,11 +2,12 @@ import type { MetadataRoute } from "next";
 import { getAllLocalCitySlugs } from "@/data/local-cities";
 import { getAllPosts } from "@/lib/blog-source";
 import { getPublishedPostsBurst } from "@/lib/blog";
+import { SITE_URL } from "@/config/site";
 
 export const revalidate = 3600;
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = "https://smarterlogicweb.com";
+  const baseUrl = SITE_URL;
   const now = new Date();
   const metiers = ["plombier", "electricien", "boulanger", "coiffeur", "artisan-batiment"];
 

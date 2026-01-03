@@ -15,6 +15,13 @@ import { EasterEggs } from "@/components/site/easter-eggs";
 import { AssistantOverlay } from "@/components/site/assistant-overlay";
 import { GyroTilt } from "@/components/site/gyro-tilt";
 import { UrgencyBanner } from "@/components/site/urgency-banner";
+import {
+  SITE_URL,
+  BRAND_DOMAIN,
+  COMPANY_NAME,
+  CONTACT_EMAIL,
+  PHONE_NUMBER_PUBLIC,
+} from "@/config/site";
 
 import Script from "next/script";
 import { Suspense } from "react";
@@ -31,7 +38,7 @@ const dmSans = DM_Sans({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://smarterlogicweb.com"),
+  metadataBase: new URL(SITE_URL),
   title: {
     default: "Sites vitrines statiques pour TPE & professions libérales — smarterlogicweb.com",
     template: "%s — smarterlogicweb.com",
@@ -64,8 +71,8 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "fr_FR",
-    siteName: "smarterlogicweb.com",
-    url: "https://smarterlogicweb.com",
+    siteName: BRAND_DOMAIN,
+    url: SITE_URL,
     title: "Sites vitrines statiques pour TPE & professions libérales — smarterlogicweb.com",
     description:
       "Sites vitrines statiques ultra-rapides pour TPE, PME et professions libérales. Core Web Vitals 90+, zéro maintenance technique obligatoire, SEO et sécurité intégrés.",
@@ -90,44 +97,42 @@ export const metadata: Metadata = {
 const jsonLdOrg = {
   "@context": "https://schema.org",
   "@type": "Organization",
-  name: "smarterlogicweb",
-  url: "https://smarterlogicweb.com",
+  name: COMPANY_NAME,
+  url: SITE_URL,
   sameAs: [
     "https://www.linkedin.com/in/salwaessafi?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
-    "https://github.com/Soofmaax"
+    "https://github.com/Soofmaax",
   ],
   contactPoint: [
     {
       "@type": "ContactPoint",
-      email: "contact@smarterlogicweb.com",
+      email: CONTACT_EMAIL,
       contactType: "customer support",
       availableLanguage: ["fr", "en"],
-      areaServed: "FR"
-    }
-  ]
+      areaServed: "FR",
+    },
+  ],
 };
 
 const jsonLdSite = {
   "@context": "https://schema.org",
   "@type": "WebSite",
-  url: "https://smarterlogicweb.com",
-  name: "smarterlogicweb.com",
+  url: SITE_URL,
+  name: BRAND_DOMAIN,
 };
 
-const phonePublic = process.env.NEXT_PUBLIC_PHONE || "";
-const COMPANY_NAME = process.env.NEXT_PUBLIC_COMPANY_NAME || "smarterlogicweb";
+const phonePublic = PHONE_NUMBER_PUBLIC;
 const ADDRESS_STREET = process.env.NEXT_PUBLIC_COMPANY_STREET || "";
 const ADDRESS_POSTAL_CODE = process.env.NEXT_PUBLIC_COMPANY_ZIP || "";
 const ADDRESS_LOCALITY = process.env.NEXT_PUBLIC_COMPANY_CITY || "";
 const ADDRESS_REGION = process.env.NEXT_PUBLIC_COMPANY_REGION || "";
-const CONTACT_EMAIL = process.env.NEXT_PUBLIC_CONTACT_EMAIL || "contact@smarterlogicweb.com";
 const OPENING_HOURS = process.env.NEXT_PUBLIC_OPENING_HOURS || "";
 
 const jsonLdLocalBusiness = {
   "@context": "https://schema.org",
   "@type": "LocalBusiness",
   name: COMPANY_NAME,
-  url: "https://smarterlogicweb.com",
+  url: SITE_URL,
   areaServed: "France",
   address: {
     "@type": "PostalAddress",

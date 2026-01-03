@@ -6,6 +6,7 @@ import { Reveal } from "@/components/site/reveal";
 import { Particles } from "@/components/site/particles";
 import { Button } from "@/components/ui/button";
 import { Breadcrumbs } from "@/components/site/breadcrumbs";
+import { SITE_URL, absoluteUrl, COMPANY_NAME } from "@/config/site";
 
 export const dynamic = "force-static";
 
@@ -45,7 +46,7 @@ export async function generateMetadata({ params }: Params) {
       type: "website",
       title,
       description,
-      url: `https://smarterlogicweb.com/creation-site-internet/${city.slug}`,
+      url: absoluteUrl(`/creation-site-internet/${city.slug}`),
     },
   };
 }
@@ -90,8 +91,8 @@ export default function CityServicePage({ params }: Params) {
     serviceType: "Création de site internet (vitrine & e‑commerce)",
     provider: {
       "@type": "LocalBusiness",
-      name: "smarterlogicweb",
-      url: "https://smarterlogicweb.com",
+      name: COMPANY_NAME,
+      url: SITE_URL,
       areaServed: [city.name, ...city.satellites],
     },
     areaServed: [city.name, ...city.satellites],
@@ -122,19 +123,19 @@ export default function CityServicePage({ params }: Params) {
         "@type": "ListItem",
         position: 1,
         name: "Accueil",
-        item: "https://smarterlogicweb.com/",
+        item: absoluteUrl("/"),
       },
       {
         "@type": "ListItem",
         position: 2,
         name: "Création Site Internet",
-        item: "https://smarterlogicweb.com/villes-intervention",
+        item: absoluteUrl("/villes-intervention"),
       },
       {
         "@type": "ListItem",
         position: 3,
         name: `Création de site internet à ${city.name}`,
-        item: `https://smarterlogicweb.com/creation-site-internet/${city.slug}`,
+        item: absoluteUrl(`/creation-site-internet/${city.slug}`),
       },
     ],
   };
