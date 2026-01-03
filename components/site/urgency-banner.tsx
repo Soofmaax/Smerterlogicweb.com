@@ -40,8 +40,8 @@ export function UrgencyBanner({
   const palette =
     variant === "alternate"
       ? invert
-        ? "bg-white text-primary"
-        : "bg-primary text-white"
+        ? "bg-background text-foreground"
+        : "bg-foreground text-background"
       : "banner-stripes text-foreground";
 
   return (

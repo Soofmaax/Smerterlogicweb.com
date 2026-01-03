@@ -42,10 +42,10 @@ export const metadata = {
 export default function Page() {
   return (
     <div className="relative overflow-hidden bg-background">
-      {/* Subtle background accents */}
+      {/* Subtle background accents — neutral, black & white */}
       <div aria-hidden className="pointer-events-none absolute inset-0 -z-10">
-        <div className="absolute left-1/2 top-[-20%] h-[40rem] w-[40rem] -translate-x-1/2 rounded-full bg-emerald-300/10 blur-3xl" />
-        <div className="absolute bottom-[-30%] right-[-10%] h-[35rem] w-[35rem] rounded-full bg-rose-300/10 blur-3xl" />
+        <div className="absolute left-1/2 top-[-20%] h-[40rem] w-[40rem] -translate-x-1/2 rounded-full bg-foreground/5 blur-3xl" />
+        <div className="absolute bottom-[-30%] right-[-10%] h-[35rem] w-[35rem] rounded-full bg-foreground/5 blur-3xl" />
       </div>
 
       {/* New Hero with typing effect */}

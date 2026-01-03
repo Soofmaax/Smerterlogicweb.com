@@ -9,7 +9,7 @@ export function Guarantee() {
     <section className="mx-auto w-full max-w-5xl px-6 pb-6">
       <div className="rounded-[24px] border bg-card p-6 card-elevated">
         <div className="flex items-start gap-3">
-          <span className="inline-flex h-10 w-10 flex-none items-center justify-center rounded-full bg-emerald-500/15 text-emerald-600 dark:text-emerald-400">
+          <span className="inline-flex h-10 w-10 flex-none items-center justify-center rounded-full bg-muted text-foreground">
             <ShieldCheck className="h-5 w-5" />
           </span>
           <div>

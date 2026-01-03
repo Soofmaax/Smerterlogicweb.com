@@ -134,8 +134,8 @@ function ReviewCard({ r }: { r: Review }) {
               {r.relative ? <span className="truncate">{r.relative}</span> : null}
             </div>
           </div>
-          <span className="ml-auto inline-flex items-center gap-1 rounded-full bg-emerald-50 px-2 py-0.5 text-[10px] font-semibold text-emerald-700 ring-1 ring-emerald-200 dark:bg-emerald-400/10 dark:text-emerald-300">
-            <span className="inline-block h-2 w-2 animate-pulse rounded-full bg-emerald-500" />
+          <span className="ml-auto inline-flex items-center gap-1 rounded-full bg-muted px-2 py-0.5 text-[10px] font-semibold text-foreground ring-1 ring-border">
+            <span className="inline-block h-2 w-2 rounded-full bg-foreground/80" />
             Avis vérifié Google
           </span>
         </div>
@@ -180,7 +180,7 @@ export function GoogleReviews({ max = 6, title = "Ce Que Disent Mes Clients" }: 
           href={data?.mapsUrl || "#"}
           target="_blank"
           rel="noreferrer"
-          className={cn("link-underline inline-flex items-center gap-2 text-sm text-primary", !data?.mapsUrl && "pointer-events-none opacity-60")}
+          className={cn("link-underline inline-flex items-center gap-2 text-sm text-foreground", !data?.mapsUrl && "pointer-events-none opacity-60")}
         >
           Voir tous les avis sur Google <ExternalLink className="h-4 w-4" />
         </Link>
@@ -205,7 +205,7 @@ export function GoogleReviewsBadge({ className }: { className?: string }) {
         <span className="font-semibold">{data.rating?.toFixed(1)}</span>
       </span>
       <span className="text-muted-foreground">({data.total} avis)</span>
-      <CheckCircle2 className="h-3.5 w-3.5 text-emerald-500" />
+      <CheckCircle2 className="h-3.5 w-3.5 text-foreground" />
     </Link>
   );
 }
