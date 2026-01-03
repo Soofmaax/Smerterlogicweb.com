@@ -17,10 +17,15 @@ export function FinalCTA() {
         </p>
 
         <div className="mt-6 flex flex-col items-center justify-center gap-3 sm:flex-row">
-          <Button asChild size="lg" variant="cta" className="rounded-full animate-[pulse_3s_ease-in-out_infinite]">
-            <Link href="#tarifs">Voir les tarifs et exemples</Link>
+          <Button
+            asChild
+            size="lg"
+            variant="default"
+            className="rounded-full border border-foreground bg-foreground px-6 py-3 text-base font-semibold text-background hover:bg-foreground/90"
+          >
+            <Link href="#tarifs">Voir les tarifs</Link>
           </Button>
-          <BookingButton className="h-11 px-6" label="Réserver mon audit gratuit (15 min)" />
+          <BookingButton className="px-6" label="Réserver un audit gratuit" />
         </div>
 
         <div className="mt-6 grid gap-4 sm:grid-cols-3">

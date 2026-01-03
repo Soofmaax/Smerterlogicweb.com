@@ -253,7 +253,6 @@ a.link-underline:focus-visible::after {
 
 /* Subtle pulse for CTA */
 .btn-pulse {
-  animation: pulseSubtle 2200ms ease-in-out infinite;
   transform-origin: center;
 }
 @keyframes pulseSubtle {
@@ -408,19 +407,13 @@ a.link-underline:focus-visible::after {
   content: "";
 }
 
-/* Glitch effect for buttons */
+/* Glitch effect for buttons — neutralised for a calmer UI */
 .button-glitch {
   position: relative;
   overflow: visible;
 }
 .button-glitch:hover::before {
-  content: attr(data-text);
-  position: absolute;
-  top: 0; left: -2px;
-  color: #ff00ff;
-  clip: rect(0, 900px, 0, 0);
-  animation: glitch-anim 0.3s infinite;
-  text-shadow: 1px 0 #00FFFF;
+  content: "";
 }
 @keyframes glitch-anim {
   0% { clip: rect(42px, 9999px, 44px, 0); }
@@ -483,7 +476,7 @@ html.retro * {
   box-shadow: 0 12px 30px rgba(37, 99, 235, 0.12);
 }
 
-/* FREE badge pulse */
+/* FREE badge border — static halo */
 .badge-free {
   position: relative;
   overflow: visible;
@@ -493,8 +486,7 @@ html.retro * {
   position: absolute;
   inset: -4px;
   border-radius: 999px;
-  box-shadow: 0 0 0 0 hsl(var(--primary) / 0.35);
-  animation: freePulse 1600ms ease-in-out infinite;
+  box-shadow: 0 0 0 0 hsl(var(--primary) / 0.12);
 }
 @keyframes freePulse {
   0% { box-shadow: 0 0 0 0 hsl(var(--primary) / 0.35); }
@@ -530,10 +522,9 @@ html.retro * {
   box-shadow: 0 10px 24px rgba(0,0,0,0.12);
 }
 
-/* Chat bubble pulse */
+/* Chat bubble — static shadow */
 .bubble-pulse {
-  animation: bubblePulse 1600ms ease-in-out infinite;
-  box-shadow: 0 0 0 0 rgba(37, 99, 235, 0.35);
+  box-shadow: 0 0 0 0 rgba(0,0,0,0.15);
 }
 @keyframes bubblePulse {
   0% { box-shadow: 0 0 0 0 rgba(37, 99, 235, 0.35); }
@@ -685,10 +676,9 @@ html.retro * {
   }
 }
 
-/* CTA gradient shift animation */
+/* CTA gradient shift animation — simplified (no continuous movement) */
 .btn-gradient-shift {
-  background-size: 200% 200%;
-  animation: btnGradientShift 6s ease-in-out infinite;
+  background-size: 100% 100%;
 }
 @keyframes btnGradientShift {
   0% { background-position: 0% 50%; }

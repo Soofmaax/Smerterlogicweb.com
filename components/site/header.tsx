@@ -63,7 +63,7 @@ export function Header() {
               item2: "Refonte & optimisation",
               item3: "Accompagnement continu",
             },
-            cta: "Voir les tarifs et exemples",
+            cta: "Voir les tarifs",
             baseline: "La qualité qui se mesure : vitesse, sécurité, résultats.",
             lang: "EN",
           },
@@ -267,7 +267,7 @@ export function Header() {
             asChild
             size="sm"
             className="rounded-full px-4 py-2 text-sm font-medium"
-            aria-label={isEn ? "View pricing and examples" : "Voir les tarifs et exemples"}
+            aria-label={isEn ? "View pricing and examples" : "Voir les tarifs"}
           >
             <Link
               href={pricingHref}
@@ -401,7 +401,7 @@ export function Header() {
               <Button
                 asChild
                 className="w-full rounded-full"
-                aria-label={isEn ? "View pricing and examples" : "Voir les tarifs et exemples"}
+                aria-label={isEn ? "View pricing and examples" : "Voir les tarifs"}
                 onClick={() => setOpen(false)}
               >
                 <Link href={pricingHref} onClick={() => track("cta_view_pricing_header_mobile")}>

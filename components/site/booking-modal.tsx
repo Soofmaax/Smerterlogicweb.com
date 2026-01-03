@@ -54,7 +54,7 @@ function buildEmbedUrl(raw: string): string | null {
 }
 
 export function BookingButton({
-  label = "Réserver mon audit gratuit (15 min)",
+  label = "Réserver un audit gratuit",
   bookingUrl,
   size = "lg",
   className,
