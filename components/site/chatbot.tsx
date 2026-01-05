@@ -140,32 +140,20 @@ export function Chatbot() {
   const goRDV = React.useCallback(() => {
     setBranch("rdv");
     track("chat_branch_rdv");
-    push("bot", <>D’accord. Laissez vos coordonnées et un créneau souhaité — je vous confirme sous 24h.</>);
     push(
       "bot",
-      <form
-        name="chat-lead"
-        method="POST"
-        data-netlify="true"
-        action="/merci"
-        className="mt-2 grid gap-2 rounded-md border bg-muted/30 p-3"
-        onSubmit={() => track("chat_lead_submitted")}
-      >
-        <input type="hidden" name="form-name" value="chat-lead" />
-        <input type="hidden" name="leadType" value="rdv" />
-        <input type="hidden" name="origin" value={typeof window !== "undefined" ? window.location.href : ""} />
-        <label className="text-xs">Nom</label>
-        <input name="name" required className="h-9 rounded-md border px-2 text-sm" placeholder="Votre nom" />
-        <label className="text-xs">Email</label>
-        <input name="email" type="email" required className="h-9 rounded-md border px-2 text-sm" placeholder="vous@email.com" />
-        <label className="text-xs">Téléphone (optionnel)</label>
-        <input name="phone" className="h-9 rounded-md border px-2 text-sm" placeholder="+33 ..." />
-        <label className="text-xs">Créneau souhaité</label>
-        <input name="slot" type="datetime-local" className="h-9 rounded-md border px-2 text-sm" />
-        <button className="mt-2 inline-flex items-center justify-center rounded-full bg-primary px-3 py-1.5 text-sm text-primary-foreground shadow-sm hover:opacity-90">
-          Envoyer <Calendar className="ml-2 h-4 w-4" />
-        </button>
-      </form>
+      <>D’accord. Le plus simple est de passer par la page contact ou de réserver un audit gratuit.</>
+    );
+    push(
+      "bot",
+      <div className="mt-2 flex flex-wrap gap-2">
+        <QuickButton>
+          <Link href="/contact">Aller à la page contact</Link>
+        </QuickButton>
+        <QuickButton>
+          <Link href="/tarifs-2025#tarifs">Voir les tarifs</Link>
+        </QuickButton>
+      </div>
     );
   }, [push, setBranch]);
 
@@ -176,47 +164,33 @@ export function Chatbot() {
     askGallery();
   }, [push, setBranch, askGallery]);
 
-  const goQuestion = React.useCallback(() => {
-    setBranch("question");
-    track("chat_branch_question");
+  const goQuestion = React.useCallback(() =&gt; {
+    setBranch(&quot;question&quot;);
+    track(&quot;chat_branch_question&quot;);
     push(
-      "bot",
-      <>
-        D’accord, écrivez votre question ci‑dessous. Si vous laissez votre email, je vous réponds sous 24h.
-        <form
-          name="chat-question"
-          method="POST"
-          data-netlify="true"
-          action="/merci"
-          className="mt-2 grid gap-2 rounded-md border bg-muted/30 p-3"
-          onSubmit={() => track("chat_question_submitted")}
-        >
-          <input type="hidden" name="form-name" value="chat-question" />
-          <input type="hidden" name="origin" value={typeof window !== "undefined" ? window.location.href : ""} />
-          <label className="text-xs">Email</label>
-          <input name="email" type="email" required className="h-9 rounded-md border px-2 text-sm" placeholder="vous@email.com" />
-          <label className="text-xs">Message</label>
-          <textarea name="message" rows={4} className="rounded-md border px-2 py-1 text-sm" placeholder="Votre question..." />
-          <button className="mt-2 inline-flex items-center justify-center rounded-full bg-primary px-3 py-1.5 text-sm text-primary-foreground shadow-sm hover:opacity-90">
-            Envoyer <Mail className="ml-2 h-4 w-4" />
-          </button>
-        </form>
-      </>
+      &quot;bot&quot;,
+      &lt;&gt;
+        D’accord. Pour une réponse précise, le mieux est de passer par le formulaire de contact.
+        &lt;div className=&quot;mt-2 flex flex-wrap gap-2&quot;&gt;
+          &lt;QuickButton&gt;
+            &lt;Link href=&quot;/contact&quot;&gt;Ouvrir le formulaire de contact&lt;/Link&gt;
+          &lt;/QuickButton&gt;
+        &lt;/div&gt;
+      &lt;/&gt;
     );
   }, [push, setBranch]);
 
   const greet = React.useCallback(() => {
-    push("bot", <>👋 Bonjour ! Comment puis‑je vous aider ?</>);
+    push("bot", <>Bonjour, je peux vous orienter en quelques clics.</>);
     push(
       "bot",
       <div className="mt-2 flex flex-wrap gap-2">
-        <QuickButton onClick={goTarifs}>💰 Connaître les tarifs</QuickButton>
-        <QuickButton onClick={goRDV}>📅 Prendre rendez‑vous</QuickButton>
-        <QuickButton onClick={goFormule}>🤔 Choisir ma formule</QuickButton>
-        <QuickButton onClick={goQuestion}>📧 Poser une question</QuickButton>
+        <QuickButton onClick={goTarifs}>Voir les tarifs</QuickButton>
+        <QuickButton onClick={goRDV}>Parler de votre projet</QuickButton>
+        <QuickButton onClick={goQuestion}>Poser une question</QuickButton>
       </div>
     );
-  }, [push, goTarifs, goRDV, goFormule, goQuestion]);
+  }, [push, goTarifs, goRDV, goQuestion]);
 
   // keep greetRef in sync
   React.useEffect(() => {
