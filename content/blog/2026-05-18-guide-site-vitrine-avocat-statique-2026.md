@@ -314,5 +314,5 @@ Si vous voulez :
 c’est exactement le type de sites que je conçois pour des professions libérales et des petites structures juridiques.
 
 - Découvrir la façon dont je travaille : [/services](/services)
-- Voir les forfaits et prix 2025 : [/tarifs-2025](/tarifs-2025)
+- Voir les forfaits et prix 2026 : [/tarifs-2025](/tarifs-2025)
 - Me parler de votre projet : [/contact](/contact)

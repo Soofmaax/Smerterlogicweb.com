@@ -365,5 +365,5 @@ Si vous souhaitez :
 c’est exactement ce que je conçois pour des TPE, professions libérales et petites PME.
 
 - Découvrir la façon dont je travaille : [/services](/services)
-- Voir les forfaits et prix 2025 : [/tarifs-2025](/tarifs-2025)
+- Voir les forfaits et prix 2026 : [/tarifs-2025](/tarifs-2025)
 - Me parler de votre projet : [/contact](/contact)
