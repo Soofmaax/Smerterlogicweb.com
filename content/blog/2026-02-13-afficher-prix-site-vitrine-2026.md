@@ -354,6 +354,12 @@ Il vaut mieux un repère approximatif mais honnête que rien du tout.
 
 ---
 
+## Pour aller plus loin
+
+- [Refonte site web 2026 : 7 erreurs qui coûtent 10 000€](/blog/refonte-site-web-2026-erreurs-cout)
+- [Page Tarifs avancée en 2026 : présenter vos prix sans perdre vos prospects](/blog/page-tarifs-avancee-site-vitrine-2026)
+- [Tarifs 2026 pour sites vitrines statiques](/tarifs-2025#tarifs)
+
 ## Vous voulez une page Tarifs claire dans un site vitrine statique déjà pensé pour TPE ?
 
 Si vous souhaitez :
