@@ -47,6 +47,9 @@ export async function generateMetadata({ params }: Params) {
   } else if (city.slug === "vannes") {
     description =
       "Création de sites vitrines statiques à Vannes pour artisans, prestataires du nautisme, du tourisme et de l’agroalimentaire, ainsi que petites structures orientées numérique/cyber. Sites rapides, sobres et simples à maintenir, pensés pour le référencement local autour du Golfe du Morbihan (Vannes, Auray, Sarzeau). Tarifs 2026 à partir de 1 490€ TTC.";
+  } else if (city.slug === "paris") {
+    description =
+      "Création de sites vitrines statiques à Paris pour avocats, experts-comptables, consultants et petites structures B2B. Sites sobres, rapides et simples à maintenir, pensés pour les recherches locales et sectorielles à Paris et en Île-de-France. Tarifs 2026 à partir de 1 490€ TTC.";
   } else if (city.slug === "montauban") {
     description =
       "Création de sites vitrines statiques à Montauban pour artisans, TPE et PME de l’agroalimentaire, de l’aéronautique et de la logistique en Tarn-et-Garonne. Sites rapides, clairs et simples à maintenir, pensés pour être trouvés sur les recherches locales autour de Montauban et du bassin toulousain. Tarifs 2026 à partir de 1 490€ TTC.";
@@ -163,6 +166,23 @@ const faqForCity = (cityName: string, firstSector: string | undefined) => {
     );
   }
 
+  if (cityName === "Paris") {
+    items.push(
+      {
+        q: "Travaillez-vous uniquement avec des clients situés à Paris ?",
+        a: "Non. Je peux vous accompagner si vous êtes basé à Paris, en petite couronne ou ailleurs en Île-de-France. Les échanges se font essentiellement en visio ou par téléphone, ce qui évite de perdre du temps dans les déplacements.",
+      },
+      {
+        q: "Votre approche convient-elle aux professions libérales et cabinets à Paris ?",
+        a: "Oui. Les sites vitrines statiques sont particulièrement adaptés aux avocats, experts-comptables, consultants et petites structures B2B : pages claires, mise en avant des expertises, temps de chargement rapides et structure pensée pour le référencement local et sectoriel.",
+      },
+      {
+        q: "Combien de temps dure un projet de création de site à Paris ?",
+        a: "Pour un site vitrine simple, comptez en général 3 à 5 semaines, selon la rapidité avec laquelle vous validez les textes, les visuels et les maquettes. L’objectif est de garder un rythme raisonnable malgré la charge de vos dossiers.",
+      }
+    );
+  }
+
   if (cityName === "Montauban") {
     items.push(
       {
@@ -175,7 +195,7 @@ const faqForCity = (cityName: string, firstSector: string | undefined) => {
       },
       {
         q: "Combien de temps dure un projet de création de site à Montauban ?",
-        a: "Pour un site vitrine simple, comptez en général 3 à 5 semaines, selon la rapidité avec laquelle vous validez les textes, les visuels et les maquettes. Les projets plus complets avec plus de contenus peuvent s’étaler sur 6 à 8 semaines.",
+        a: "Pour un site vitrine simple, comptez en général 3 à 5 semaines, selon la rapidité avec laquelle vous validez les textes, les visuels et les maquettes. Les projets plus complets avec plus de contenus ou de preuves peuvent s’étaler sur 6 à 8 semaines.",
       }
     );
   }
@@ -315,6 +335,12 @@ export default function CityServicePage({ params }: Params) {
           l&apos;agroalimentaire, de l&apos;aéronautique et de la logistique en Tarn-et-Garonne. L&apos;objectif : être visible lorsqu&apos;on cherche votre
           métier + Montauban ou Tarn-et-Garonne, avec un site clair, rassurant et sans usine à gaz technique.
         </p>
+      ) : city.name === "Paris" ? (
+        <p className="mt-3 text-foreground/80 max-w-3xl">
+          À Paris (agglo {city.populationAgglo}), nous concevons des sites vitrines statiques sobres et rapides pour les avocats, experts-comptables,
+          cabinets de conseil et petites structures B2B. L&apos;objectif : clarifier votre offre, rassurer vos prospects et limiter la complexité technique
+          dans un environnement très concurrentiel.
+        </p>
       ) : (
         <p className="mt-3 text-foreground/80 max-w-3xl">
           À {city.name} (agglo {city.populationAgglo}), nous concevons ou refondons des sites vitrines statiques rapides, stables et
@@ -411,6 +437,22 @@ export default function CityServicePage({ params }: Params) {
             </p>
           </section>
         )}
+        {city.name === "Paris" && (
+          <section>
+            <h2 className="font-heading text-2xl font-semibold">
+              Pourquoi un site vitrine statique à Paris plutôt qu’une usine à gaz ?
+            </h2>
+            <p className="mt-2 text-foreground/80">
+              À Paris, la plupart des sites de cabinets et de petites structures B2B sont construits sur des CMS lourds, avec de
+              nombreuses pages peu utiles et une maintenance permanente. Un site vitrine statique vous permet de concentrer l&apos;effort
+              sur le contenu et la clarté, sans accumuler les plugins ni les dépendances techniques.
+            </p>
+            <p className="mt-2 text-foreground/80">
+              L&apos;objectif : une présence en ligne nette et professionnelle, qui parle à vos clients (avocats, conseils, professions
+              libérales) et reste simple à faire évoluer au fil de vos offres, sans budget technique disproportionné.
+            </p>
+          </section>
+        )}
         {city.name === "Montauban" && (
           <section>
             <h2 className="font-heading text-2xl font-semibold">
@@ -440,6 +482,13 @@ export default function CityServicePage({ params }: Params) {
             Détails des offres et exemples concrets sur la page{" "}
             <Link href="/tarifs-2025#tarifs" className="text-primary hover:underline">
               Tarifs&nbsp;2026
+            </Link>
+            .
+          </p>
+          <p className="mt-1 text-xs text-muted-foreground">
+            Pour aller plus loin sur l’affichage de vos prix, vous pouvez aussi lire{" "}
+            <Link href="/blog/afficher-prix-site-vitrine-2026" className="text-primary hover:underline">
+              l’article sur la page Tarifs en 2026
             </Link>
             .
           </p>

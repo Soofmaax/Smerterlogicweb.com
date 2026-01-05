@@ -46,6 +46,9 @@ export async function generateMetadata({ params }: Params) {
   } else if (city.slug === "vannes") {
     description =
       "Refonte de sites internet à Vannes pour artisans, prestataires du nautisme, du tourisme, de l’agroalimentaire et acteurs du numérique/cyber. Passage d’un WordPress lent ou d’un ancien site vers une vitrine statique rapide, claire et plus simple à gérer, avec un soin particulier apporté au référencement local autour du Golfe du Morbihan (Vannes, Auray, Sarzeau). Forfaits 2026 entre 2 490€ et 4 990€ TTC.";
+  } else if (city.slug === "paris") {
+    description =
+      "Refonte de sites internet à Paris pour avocats, experts-comptables, consultants et petites entreprises B2B. Passage d’un WordPress lent ou trop chargé vers une vitrine statique rapide, sobre et plus simple à gérer, avec un soin particulier apporté au référencement local et sectoriel. Forfaits 2026 entre 2 490€ et 4 990€ TTC.";
   } else if (city.slug === "montauban") {
     description =
       "Refonte de sites internet à Montauban pour artisans, TPE et PME de l’agroalimentaire, de l’aéronautique et de la logistique en Tarn-et-Garonne. Passage d’un WordPress lent ou d’un ancien site vers une vitrine statique rapide, claire et plus simple à gérer, avec un soin particulier apporté au référencement local autour de Montauban et du bassin toulousain. Forfaits 2026 entre 2 490€ et 4 990€ TTC.";
@@ -158,6 +161,23 @@ const faqForCityRefonte = (cityName: string) => {
       {
         q: "La refonte peut-elle faire baisser mon référencement local à Vannes ?",
         a: "L’objectif est au contraire de le stabiliser ou de l’améliorer : nous conservons les contenus qui fonctionnent, simplifions la structure et mettons en place des redirections propres. Cela limite les risques de perte de trafic local.",
+      }
+    );
+  }
+
+  if (cityName === "Paris") {
+    items.push(
+      {
+        q: "Intervenez-vous uniquement à Paris pour les refontes ?",
+        a: "Non. Je peux vous accompagner si votre cabinet est basé à Paris, en petite couronne ou ailleurs en Île-de-France. Les échanges se font principalement en visio ou par téléphone, ce qui s’intègre plus facilement dans un agenda chargé.",
+      },
+      {
+        q: "Que se passe-t-il pour mon ancien site pendant la refonte à Paris ?",
+        a: "Votre ancien site reste en ligne le temps de préparer la nouvelle version. Au moment du basculement, nous mettons en place les redirections nécessaires pour que vos anciennes URL utiles pointent vers les nouvelles pages, afin de préserver votre référencement local et sectoriel.",
+      },
+      {
+        q: "La refonte peut-elle faire baisser mon référencement local à Paris ?",
+        a: "L’objectif est au contraire de le stabiliser ou de l’améliorer : nous conservons les contenus qui fonctionnent, simplifions la structure et mettons en place des redirections propres. Cela limite les risques de perte de trafic organique, même sur un marché concurrentiel comme Paris.",
       }
     );
   }
@@ -307,6 +327,12 @@ export default function CityRefontePage({ params }: Params) {
           vitrine statique rapide, lisible et plus simple à gérer, sans perdre votre référencement local autour de Montauban et
           du bassin toulousain.
         </p>
+      ) : city.name === "Paris" ? (
+        <p className="mt-3 text-foreground/80 max-w-3xl">
+          À Paris, nous auditons et refondons des sites internet d&apos;avocats, de cabinets d&apos;experts-comptables, de consultants et de
+          petites structures B2B. L&apos;idée : remplacer un WordPress lent, surchargé ou vieillissant par une vitrine statique rapide,
+          lisible et plus simple à gérer, sans perdre votre référencement local ni vos contenus utiles.
+        </p>
       ) : (
         <p className="mt-3 text-foreground/80 max-w-3xl">
           À {city.name}, nous auditons et refondons des sites internet d&apos;artisans, TPE et petites entreprises pour les
@@ -387,6 +413,23 @@ export default function CityRefontePage({ params }: Params) {
           </section>
         )}
 
+        {city.name === "Paris" && (
+          <section>
+            <h2 className="font-heading text-2xl font-semibold">
+              À Paris, certains signes montrent que votre site ne reflète plus votre positionnement
+            </h2>
+            <p className="mt-2 text-foreground/80">
+              Quelques signaux fréquents : un site lent sur mobile, une navigation confuse, un design qui date ou des contenus qui
+              ne correspondent plus à vos offres actuelles. En parallèle, vos confrères et concurrents soignent davantage leur présence en ligne.
+            </p>
+            <p className="mt-2 text-foreground/80">
+              Une refonte vers un site vitrine statique rapide et sobre permet de retrouver un site aligné avec votre niveau
+              d&apos;exigence, tout en gardant l&apos;essentiel (nom de domaine, contenus utiles, référencement local et sectoriel) et en
+              simplifiant la couche technique.
+            </p>
+          </section>
+        )}
+
         <section>
           <h2 className="font-heading text-2xl font-semibold">Audit performance, UX et SEO</h2>
           <p className="mt-2 text-foreground/80">
@@ -410,6 +453,20 @@ export default function CityRefontePage({ params }: Params) {
             Détails des offres et exemples concrets sur la page{" "}
             <Link href="/tarifs-2025#tarifs" className="text-primary hover:underline">
               Tarifs&nbsp;2026
+            </Link>
+            .
+          </p>
+          <p className="mt-1 text-xs text-muted-foreground">
+            Pour préparer votre projet, vous pouvez aussi lire{" "}
+            <Link
+              href="/blog/refonte-wordpress-vers-site-statique-migration-seo"
+              className="text-primary hover:underline"
+            >
+              comment migrer d’un WordPress lent vers un site statique
+            </Link>{" "}
+            et{" "}
+            <Link href="/blog/audit-refonte-site-vitrine-25-points" className="text-primary hover:underline">
+              l’audit refonte en 25 points
             </Link>
             .
           </p>
