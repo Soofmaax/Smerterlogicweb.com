@@ -123,19 +123,24 @@ export function Chatbot() {
     track("chat_branch_tarifs");
     push(
       "bot",
-      <>Trois formules : Essentiel (1 490€ TTC), Professionnel (2 490€ TTC), Premium (4 990€ TTC). Quelle activité exercez‑vous ?</>
+      <>
+        Trois formules&nbsp;:
+        <ul className="mt-1 list-disc pl-4 text-sm">
+          <li><strong>Essentiel</strong> — 1 490&nbsp;€ TTC : présence claire, idéal pour démarrer.</li>
+          <li><strong>Professionnel</strong> — 2 490&nbsp;€ TTC : plus de contenu, blog/actus, FAQ, témoignages.</li>
+          <li><strong>Premium</strong> — 4 990&nbsp;€ TTC : projet sur‑mesure plus complexe, stratégie complète.</li>
+        </ul>
+      </>
     );
     push(
       "bot",
       <div className="mt-2 flex flex-wrap gap-2">
-        {["Artisan", "Commerce", "TPE", "Association"].map((a) => (
-          <QuickButton key={a} onClick={() => recommend(a)}>
-            {a}
-          </QuickButton>
-        ))}
+        <QuickButton>
+          <Link href="/tarifs-2025#tarifs">Voir la page Tarifs 2025</Link>
+        </QuickButton>
       </div>
     );
-  }, [push, setBranch, recommend]);
+  }, [push, setBranch]);
 
   const goRDV = React.useCallback(() => {
     setBranch("rdv");
