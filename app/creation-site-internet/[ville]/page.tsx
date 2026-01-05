@@ -44,6 +44,9 @@ export async function generateMetadata({ params }: Params) {
   } else if (city.slug === "cholet") {
     description =
       "Création de sites vitrines statiques à Cholet pour artisans, commerçants et PME du textile, de la mode, de la mécanique et de l’agroalimentaire. Sites rapides, sobres et simples à maintenir, pensés pour le référencement local dans le Choletais. Tarifs 2026 à partir de 1 490€ TTC.";
+  } else if (city.slug === "vannes") {
+    description =
+      "Création de sites vitrines statiques à Vannes pour artisans, prestataires du nautisme, du tourisme et de l’agroalimentaire, ainsi que petites structures orientées numérique/cyber. Sites rapides, sobres et simples à maintenir, pensés pour le référencement local autour du Golfe du Morbihan (Vannes, Auray, Sarzeau). Tarifs 2026 à partir de 1 490€ TTC.";
   }
 
   return {
@@ -136,6 +139,23 @@ const faqForCity = (cityName: string, firstSector: string | undefined) => {
       {
         q: "Combien de temps dure un projet de création de site à Cholet ?",
         a: "Pour un site vitrine simple, comptez en général 3 à 5 semaines, selon la rapidité avec laquelle vous validez les textes, les visuels et les maquettes. Les projets plus complets avec plus de contenus ou de preuves peuvent s’étaler sur 6 à 8 semaines.",
+      }
+    );
+  }
+
+  if (cityName === "Vannes") {
+    items.push(
+      {
+        q: "Travaillez-vous uniquement avec des entreprises de Vannes ?",
+        a: "Non. Je peux vous accompagner si vous êtes basé à Vannes, mais aussi autour du Golfe du Morbihan (Auray, Sarzeau, etc.). Les échanges se font en visio ou par téléphone, ce qui laisse de la flexibilité même en pleine saison.",
+      },
+      {
+        q: "Votre approche convient-elle aux activités nautiques et touristiques à Vannes ?",
+        a: "Oui. Les sites vitrines statiques conviennent très bien aux activités de nautisme, de tourisme, d’hôtellerie ou d’agroalimentaire : pages claires, visuels mis en avant, temps de chargement rapides sur mobile et structure pensée pour le référencement local.",
+      },
+      {
+        q: "Combien de temps dure un projet de création de site à Vannes ?",
+        a: "Pour un site vitrine simple, comptez en général 3 à 5 semaines, selon la rapidité avec laquelle vous validez les textes, les visuels et les maquettes. En période de haute saison touristique, on peut adapter le planning pour limiter l’impact sur votre activité.",
       }
     );
   }
@@ -263,6 +283,12 @@ export default function CityServicePage({ params }: Params) {
           PME du textile, de la mode, de la mécanique et de l&apos;agroalimentaire. L&apos;objectif : une présence claire qui parle à vos clients
           du Choletais, sans usine à gaz ni back‑office que personne n&apos;ose utiliser.
         </p>
+      ) : city.name === "Vannes" ? (
+        <p className="mt-3 text-foreground/80 max-w-3xl">
+          À Vannes (agglo {city.populationAgglo}), nous concevons des sites vitrines statiques rapides et sobres pour les artisans, prestataires du
+          nautisme, du tourisme, de l&apos;agroalimentaire et les petites structures orientées numérique/cyber. L&apos;objectif : une présence claire
+          qui rassure vos clients autour du Golfe du Morbihan (Vannes, Auray, Sarzeau), sans usine à gaz ni back‑office lourd.
+        </p>
       ) : (
         <p className="mt-3 text-foreground/80 max-w-3xl">
           À {city.name} (agglo {city.populationAgglo}), nous concevons ou refondons des sites vitrines statiques rapides, stables et
@@ -340,6 +366,22 @@ export default function CityServicePage({ params }: Params) {
             <p className="mt-2 text-foreground/80">
               L&apos;objectif : une présence en ligne sobre et efficace qui rassure vos clients B2B ou B2C, optimisée pour les recherches
               locales autour de Cholet, Maulévrier, Mortagne-sur-Sèvre et le bassin choletais.
+            </p>
+          </section>
+        )}
+        {city.name === "Vannes" && (
+          <section>
+            <h2 className="font-heading text-2xl font-semibold">
+              Pourquoi un site vitrine statique pour Vannes et le Golfe du Morbihan ?
+            </h2>
+            <p className="mt-2 text-foreground/80">
+              À Vannes et autour du Golfe du Morbihan, beaucoup d&apos;activités reposent sur le nautisme, le tourisme, l&apos;agroalimentaire
+              et les services numériques. Un site vitrine statique permet de présenter clairement vos prestations, vos photos et vos
+              avis sans vous enfermer dans une usine à gaz technique.
+            </p>
+            <p className="mt-2 text-foreground/80">
+              L&apos;objectif : une présence en ligne rapide et lisible, qui répond aux recherches locales autour de Vannes, Auray, Sarzeau
+              et du Morbihan, tout en restant simple à maintenir au quotidien.
             </p>
           </section>
         )}

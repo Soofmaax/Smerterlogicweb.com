@@ -43,6 +43,9 @@ export async function generateMetadata({ params }: Params) {
   } else if (city.slug === "cholet") {
     description =
       "Refonte de sites internet à Cholet pour artisans, commerçants et PME du textile, de la mode, de la mécanique et de l’agroalimentaire. Passage d’un WordPress lent ou d’un ancien site vers une vitrine statique rapide, claire et plus simple à gérer, avec un soin particulier apporté au référencement local dans le bassin choletais. Forfaits 2026 entre 2 490€ et 4 990€ TTC.";
+  } else if (city.slug === "vannes") {
+    description =
+      "Refonte de sites internet à Vannes pour artisans, prestataires du nautisme, du tourisme, de l’agroalimentaire et acteurs du numérique/cyber. Passage d’un WordPress lent ou d’un ancien site vers une vitrine statique rapide, claire et plus simple à gérer, avec un soin particulier apporté au référencement local autour du Golfe du Morbihan (Vannes, Auray, Sarzeau). Forfaits 2026 entre 2 490€ et 4 990€ TTC.";
   }
 
   return {
@@ -135,6 +138,23 @@ const faqForCityRefonte = (cityName: string) => {
       {
         q: "La refonte peut-elle faire baisser mon référencement local à Cholet ?",
         a: "L’objectif est plutôt de le renforcer : nous conservons les contenus qui fonctionnent, simplifions la structure et ajoutons des redirections propres. Cela limite fortement les risques de baisse liés aux refontes mal préparées.",
+      }
+    );
+  }
+
+  if (cityName === "Vannes") {
+    items.push(
+      {
+        q: "Intervenez-vous uniquement à Vannes pour les refontes ?",
+        a: "Non. Je peux vous accompagner si votre entreprise est basée à Vannes, Auray, Sarzeau ou plus largement autour du Golfe du Morbihan. Les échanges se font principalement en visio ou par téléphone.",
+      },
+      {
+        q: "Quand est-il préférable de lancer une refonte de site à Vannes ?",
+        a: "Pour les activités liées au tourisme ou au nautisme, l’idéal est souvent de préparer la refonte en dehors du pic de saison, afin de limiter les risques de coupure ou de stress inutile. On peut définir ensemble un calendrier réaliste.",
+      },
+      {
+        q: "La refonte peut-elle faire baisser mon référencement local à Vannes ?",
+        a: "L’objectif est au contraire de le stabiliser ou de l’améliorer : nous conservons les contenus qui fonctionnent, simplifions la structure et mettons en place des redirections propres. Cela limite les risques de perte de trafic local.",
       }
     );
   }
@@ -253,6 +273,13 @@ export default function CityRefontePage({ params }: Params) {
           de la mécanique et de l&apos;agroalimentaire. L&apos;idée : transformer un WordPress lent ou une ancienne vitrine en site statique
           rapide, lisible et plus simple à gérer, sans perdre votre référencement local autour du bassin choletais.
         </p>
+      ) : city.name === "Vannes" ? (
+        <p className="mt-3 text-foreground/80 max-w-3xl">
+          À Vannes, nous auditons et refondons des sites internet d&apos;artisans, de prestataires du nautisme, du tourisme, de
+          l&apos;agroalimentaire et de petites structures numériques ou cyber. L&apos;idée : remplacer un WordPress lent ou un ancien site
+          par une vitrine statique rapide, lisible et plus simple à gérer, sans perdre votre référencement local autour du Golfe
+          du Morbihan.
+        </p>
       ) : (
         <p className="mt-3 text-foreground/80 max-w-3xl">
           À {city.name}, nous auditons et refondons des sites internet d&apos;artisans, TPE et petites entreprises pour les
@@ -311,6 +338,24 @@ export default function CityRefontePage({ params }: Params) {
               Une refonte vers un site vitrine statique rapide et sobre remet votre présence en ligne au niveau des attentes de vos
               clients, sans couche technique inutile. L&apos;objectif : garder l&apos;essentiel (nom de domaine, contenus utiles,
               référencement local) et enlever le reste.
+            </p>
+          </section>
+        )}
+
+        {city.name === "Vannes" && (
+          <section>
+            <h2 className="font-heading text-2xl font-semibold">
+              À Vannes, certains signes montrent que votre site ne suit plus vos saisons
+            </h2>
+            <p className="mt-2 text-foreground/80">
+              Quelques signaux fréquents : un site lent en pleine saison touristique, des pages peu claires sur mobile, des offres
+              ou des tarifs plus à jour, ou une agence qui n&apos;a plus vraiment le temps de suivre votre projet. Résultat : vos
+              prospects passent à côté, alors qu&apos;ils cherchent des prestations autour du Golfe du Morbihan.
+            </p>
+            <p className="mt-2 text-foreground/80">
+              Une refonte vers un site vitrine statique rapide et lisible permet de remettre votre présence en ligne au niveau des
+              attentes de vos clients, tout en gardant l&apos;essentiel (nom de domaine, contenus utiles, référencement local) et en
+              simplifiant le reste.
             </p>
           </section>
         )}
