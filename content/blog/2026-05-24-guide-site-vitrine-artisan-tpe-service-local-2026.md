@@ -289,6 +289,13 @@ Vous n’avez pas besoin de toucher à la partie technique.
 
 ---
 
+## Pour aller plus loin
+
+- [SEO local avancé pour TPE en 2026](/blog/seo-local-avance-tpe-2026)
+- [Google Business Profile : optimiser votre fiche pour un site vitrine](/blog/google-business-profile-site-vitrine-2026)
+- [Création de site internet à Niort pour artisans et TPE locales](/creation-site-internet/niort)
+- [Tarifs 2026 pour sites vitrines statiques](/tarifs-2025#tarifs)
+
 ## Vous êtes artisan ou TPE de services locaux et vous voulez un site vitrine statique simple, clair, relié à Google et facile à vivre ?
 
 Si vous voulez :

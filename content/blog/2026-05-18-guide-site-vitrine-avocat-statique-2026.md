@@ -303,6 +303,12 @@ Un blog peut venir ensuite si vous avez la capacité de l’alimenter.
 
 ---
 
+## Pour aller plus loin
+
+- [Création de site internet à Paris pour professions libérales et cabinets](/creation-site-internet/paris)
+- [Refonte WordPress vers site statique : plan de migration sans perte SEO](/blog/refonte-wordpress-vers-site-statique-migration-seo)
+- [Tarifs 2026 pour sites vitrines statiques](/tarifs-2025#tarifs)
+
 ## Vous êtes avocat ou cabinet et vous voulez un site vitrine statique clair, conforme, facile à maintenir (avec des contenus qui vous ressemblent) ?
 
 Si vous voulez :
