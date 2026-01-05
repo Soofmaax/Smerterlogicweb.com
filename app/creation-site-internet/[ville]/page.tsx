@@ -179,6 +179,10 @@ const faqForCity = (cityName: string, firstSector: string | undefined) => {
       {
         q: "Combien de temps dure un projet de création de site à Paris ?",
         a: "Pour un site vitrine simple, comptez en général 3 à 5 semaines, selon la rapidité avec laquelle vous validez les textes, les visuels et les maquettes. L’objectif est de garder un rythme raisonnable malgré la charge de vos dossiers.",
+      },
+      {
+        q: "En quoi êtes-vous différent d’une agence web à Paris ?",
+        a: "Je ne suis pas une grosse agence web avec des équipes et des process lourds, mais un studio spécialisé en sites vitrines statiques sobres pour professions libérales et TPE B2B. Vous échangez directement avec la personne qui conçoit et réalise le site, le périmètre est clair, et on évite les fonctionnalités inutiles qui complexifient la maintenance.",
       }
     );
   }
@@ -440,16 +444,18 @@ export default function CityServicePage({ params }: Params) {
         {city.name === "Paris" && (
           <section>
             <h2 className="font-heading text-2xl font-semibold">
-              Pourquoi un site vitrine statique à Paris plutôt qu’une usine à gaz ?
+              Pourquoi un site vitrine statique à Paris plutôt qu’une grosse agence web ?
             </h2>
             <p className="mt-2 text-foreground/80">
-              À Paris, la plupart des sites de cabinets et de petites structures B2B sont construits sur des CMS lourds, avec de
-              nombreuses pages peu utiles et une maintenance permanente. Un site vitrine statique vous permet de concentrer l&apos;effort
-              sur le contenu et la clarté, sans accumuler les plugins ni les dépendances techniques.
+              À Paris, beaucoup de sites de cabinets et de petites structures B2B sont réalisés par des agences web sur des CMS lourds
+              (WordPress, Prestashop, usines à plugins), avec de nombreuses pages peu utiles et une maintenance permanente. Si vous ne
+              faites ni e‑commerce ni campagne marketing à grande échelle, cette complexité n&apos;est pas toujours nécessaire.
             </p>
             <p className="mt-2 text-foreground/80">
-              L&apos;objectif : une présence en ligne nette et professionnelle, qui parle à vos clients (avocats, conseils, professions
-              libérales) et reste simple à faire évoluer au fil de vos offres, sans budget technique disproportionné.
+              Un site vitrine statique vous permet de concentrer l&apos;effort sur le contenu, la clarté de vos offres et la prise de
+              contact (rendez‑vous, formulaires), sans accumuler les dépendances techniques. L&apos;objectif : une présence en ligne nette
+              et professionnelle, qui parle à vos clients (avocats, conseils, professions libérales) et reste simple à faire évoluer
+              au fil de vos dossiers, sans budget technique disproportionné.
             </p>
           </section>
         )}
