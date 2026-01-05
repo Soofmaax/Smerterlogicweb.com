@@ -14,7 +14,7 @@ import { FinalCTA } from "@/components/site/final-cta";
 import { Particles } from "@/components/site/particles";
 import { RightDotsNav } from "@/components/site/right-dots-nav";
 import { Breadcrumbs } from "@/components/site/breadcrumbs";
-import { SITE_URL, CONTACT_EMAIL, BRAND_DOMAIN } from "@/config/site";
+import { SITE_URL, CONTACT_EMAIL, BRAND_DOMAIN, COMPANY_NAME } from "@/config/site";
 
 export const metadata = {
   title: "Services | Sites statiques professionnels pour TPE & Professions libérales",
@@ -41,8 +41,8 @@ const serviceSchema = {
   serviceType: "Création de site vitrine et refonte",
   provider: {
     "@type": "LocalBusiness",
-    name: "smarterlogicweb",
-    url: "https://smarterlogicweb.com",
+    name: COMPANY_NAME,
+    url: SITE_URL,
     areaServed: "France",
   },
   areaServed: {
@@ -53,7 +53,7 @@ const serviceSchema = {
     "@type": "AggregateOffer",
     priceCurrency: "EUR",
     lowPrice: "1490",
-    highPrice: "2490",
+    highPrice: "4990",
     availability: "https://schema.org/InStock",
   },
 };
@@ -195,7 +195,7 @@ export default function ServicesPage() {
             </Link>
             <span className="text-muted-foreground">•</span>
             <Link href="/tarifs-2025" className="text-primary hover:underline">
-              Tarifs 2025
+              Tarifs 2026
             </Link>
           </div>
         </div>
