@@ -32,7 +32,12 @@ export async function generateMetadata({ params }: Params) {
   }
   const sectors = city.sectors.join(", ").toLowerCase();
   const title = `Refonte de site internet à ${city.name} — WordPress lent → site vitrine statique rapide (2026)`;
-  const description = `Refonte de sites internet à ${city.name} pour artisans, TPE et PME des secteurs ${sectors}. Passage d'un site lourd (souvent WordPress) vers un site vitrine statique plus rapide, plus clair et plus simple à maintenir. Devis gratuit. Forfaits refonte 2026 entre 2 490€ et 4 990€ TTC.`;
+  let description = `Refonte de sites internet à ${city.name} pour artisans, TPE et PME des secteurs ${sectors}. Passage d'un site lourd (souvent WordPress) vers un site vitrine statique plus rapide, plus clair et plus simple à maintenir. Devis gratuit. Forfaits refonte 2026 entre 2 490€ et 4 990€ TTC.`;
+
+  if (city.slug === "niort") {
+    description =
+      "Refonte de sites internet à Niort pour artisans, TPE et acteurs des mutuelles et services B2B. Passage d'un WordPress lent à un site vitrine statique rapide, stable et plus simple à maintenir, sans perdre votre référencement local. Forfaits 2026 entre 2 490€ et 4 990€ TTC.";
+  }
 
   return {
     title,
@@ -57,24 +62,45 @@ function toSentence(list: string[]): string {
   return `${head} et ${tail}`;
 }
 
-const faqForCityRefonte = (cityName: string) => [
-  {
-    q: `Pourquoi refondre mon site à ${cityName} ?`,
-    a: `Si votre site actuel est lent, peu clair ou ne reflète plus votre activité, une refonte permet d'améliorer la vitesse, l’UX et la conversion. Nous en profitons pour simplifier la structure et mettre en avant vos offres principales.`,
-  },
-  {
-    q: `Est‑ce que vous transformez mon site en site vitrine statique ?`,
-    a: `Dans la plupart des cas, oui. Nous basculons vers un site vitrine statique plus rapide, plus stable et plus simple à maintenir, tout en conservant vos contenus utiles et votre nom de domaine.`,
-  },
-  {
-    q: `Combien de temps dure une refonte à ${cityName} ?`,
-    a: `Pour une TPE ou un artisan, comptez en moyenne 3–6 semaines selon l’ampleur du site et la rapidité des validations. L’enchaînement classique: audit initial, plan d’actions, refonte, tests et déploiement.`,
-  },
-  {
-    q: `Puis‑je conserver mon contenu ?`,
-    a: `Oui. Nous réorganisons vos contenus (textes, photos, cas clients) pour qu’ils soient plus lisibles, mieux structurés pour l’UX/SEO et plus rapides à charger.`,
-  },
-];
+const faqForCityRefonte = (cityName: string) => {
+  const items = [
+    {
+      q: `Pourquoi refondre mon site à ${cityName} ?`,
+      a: `Si votre site actuel est lent, peu clair ou ne reflète plus votre activité, une refonte permet d'améliorer la vitesse, l’UX et la conversion. Nous en profitons pour simplifier la structure et mettre en avant vos offres principales.`,
+    },
+    {
+      q: `Est‑ce que vous transformez mon site en site vitrine statique ?`,
+      a: `Dans la plupart des cas, oui. Nous basculons vers un site vitrine statique plus rapide, plus stable et plus simple à maintenir, tout en conservant vos contenus utiles et votre nom de domaine.`,
+    },
+    {
+      q: `Combien de temps dure une refonte à ${cityName} ?`,
+      a: `Pour une TPE ou un artisan, comptez en moyenne 3–6 semaines selon l’ampleur du site et la rapidité des validations. L’enchaînement classique: audit initial, plan d’actions, refonte, tests et déploiement.`,
+    },
+    {
+      q: `Puis‑je conserver mon contenu ?`,
+      a: `Oui. Nous réorganisons vos contenus (textes, photos, cas clients) pour qu’ils soient plus lisibles, mieux structurés pour l’UX/SEO et plus rapides à charger.`,
+    },
+  ];
+
+  if (cityName === "Niort") {
+    items.push(
+      {
+        q: "Travaillez-vous uniquement avec des clients situés à Niort ?",
+        a: "Non. Je travaille avec des artisans, indépendants et petites structures partout en France. Mais je connais bien les enjeux des villes comme Niort : marché local, bouche-à-oreille, besoin d’être trouvé sur quelques requêtes clés comme votre métier + Niort, sans exploser le budget.",
+      },
+      {
+        q: "Combien de temps dure un projet de création ou de refonte de site à Niort ?",
+        a: "Pour un site vitrine simple, comptez en général 3 à 5 semaines, selon la rapidité avec laquelle vous validez les textes et les maquettes. Pour une refonte avec beaucoup de contenus à reprendre, on est plutôt sur 6 à 8 semaines.",
+      },
+      {
+        q: "Puis-je modifier moi-même mon site après la refonte ?",
+        a: "Oui. Même si le site est statique, je peux vous proposer une manière simple de mettre à jour certains contenus (textes clés, tarifs, FAQ) sans toucher au code. Et si vous préférez déléguer, je peux aussi m’en charger ponctuellement.",
+      }
+    );
+  }
+
+  return items;
+};
 
 export default function CityRefontePage({ params }: Params) {
   const city = getLocalCityBySlug(params.ville);
@@ -168,11 +194,19 @@ export default function CityRefontePage({ params }: Params) {
         ]}
       />
 
-      <p className="mt-3 text-foreground/80 max-w-3xl">
-        À {city.name}, nous auditons et refondons des sites internet d&apos;artisans, TPE et petites entreprises pour les
-        rendre plus rapides, plus clairs et plus simples à gérer. Notre approche: transformer un site lourd (souvent
-        WordPress) en site vitrine statique performant, sans perdre vos contenus ni votre référencement local.
-      </p>
+      {city.name === "Niort" ? (
+        <p className="mt-3 text-foreground/80 max-w-3xl">
+          À Niort, nous auditons et refondons des sites internet d&apos;artisans, de TPE et de petites entreprises, mais aussi d&apos;acteurs
+          des mutuelles et des services B2B. L&apos;idée : transformer un WordPress ou un ancien site lourd en vitrine statique rapide,
+          lisible et plus simple à gérer, sans perdre votre référencement local.
+        </p>
+      ) : (
+        <p className="mt-3 text-foreground/80 max-w-3xl">
+          À {city.name}, nous auditons et refondons des sites internet d&apos;artisans, TPE et petites entreprises pour les
+          rendre plus rapides, plus clairs et plus simples à gérer. Notre approche: transformer un site lourd (souvent
+          WordPress) en site vitrine statique performant, sans perdre vos contenus ni votre référencement local.
+        </p>
+      )}
 
       {/* Intro CTA */}
       <div className="mt-6 flex flex-col gap-3 sm:flex-row">
@@ -192,6 +226,23 @@ export default function CityRefontePage({ params }: Params) {
             vos clients. Nous gardons ce qui fonctionne, simplifions le reste, et améliorons la conversion.
           </p>
         </section>
+
+        {city.name === "Niort" && (
+          <section>
+            <h2 className="font-heading text-2xl font-semibold">
+              À Niort aussi, certains signes montrent que votre site vous fait perdre des clients
+            </h2>
+            <p className="mt-2 text-foreground/80">
+              Quelques signaux fréquents : la page d&apos;accueil met plus de 3 secondes à charger sur mobile, vous hésitez à
+              toucher au contenu de peur de tout casser, l&apos;agence ou la personne qui a fait le site n&apos;est plus disponible,
+              ou vous payez une maintenance WordPress sans vraiment savoir ce qui est fait.
+            </p>
+            <p className="mt-2 text-foreground/80">
+              Dans ces cas-là, une refonte vers un site vitrine statique rapide, simple et lisible remet votre présence en ligne
+              au niveau de la qualité de votre travail, sans usine à gaz technique.
+            </p>
+          </section>
+        )}
 
         <section>
           <h2 className="font-heading text-2xl font-semibold">Audit performance, UX et SEO</h2>

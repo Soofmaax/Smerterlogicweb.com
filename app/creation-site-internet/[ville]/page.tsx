@@ -33,7 +33,12 @@ export async function generateMetadata({ params }: Params) {
   }
   const sectors = city.sectors.join(", ").toLowerCase();
   const title = `Création de site internet à ${city.name} — sites vitrines statiques pour artisans et TPE (2026)`;
-  const description = `Création de sites vitrines statiques à ${city.name} pour artisans, TPE et PME des secteurs ${sectors}. Audit et devis gratuits. Forfaits 2026 à partir de 1 490€ TTC.`;
+  let description = `Création de sites vitrines statiques à ${city.name} pour artisans, TPE et PME des secteurs ${sectors}. Audit et devis gratuits. Forfaits 2026 à partir de 1 490€ TTC.`;
+
+  if (city.slug === "niort") {
+    description =
+      "Création de sites vitrines statiques à Niort pour artisans, indépendants et PME des mutuelles, assurances, fintech et tertiaire. Sites rapides, clairs et simples à maintenir. Tarifs 2026 à partir de 1 490€ TTC.";
+  }
 
   return {
     title,
@@ -58,24 +63,45 @@ function toSentence(list: string[]): string {
   return `${head} et ${tail}`;
 }
 
-const faqForCity = (cityName: string, firstSector: string | undefined) => [
-  {
-    q: `Quel est le coût d'un site vitrine à ${cityName} ?`,
-    a: `Pour un site vitrine statique, comptez généralement entre 1 490€ et 2 490€ selon le nombre de pages, la quantité de contenu et les fonctionnalités (formulaire, galeries, prise de rendez-vous). Prix fixe, annoncé dès le départ.`,
-  },
-  {
-    q: `Combien de temps pour créer un site professionnel à ${cityName} ?`,
-    a: `Pour une TPE ou un artisan, un site vitrine statique se réalise en 2–4 semaines en moyenne, après validation du devis et réception des contenus. Les projets plus complets (cas clients, FAQ, bilingue) peuvent s'étaler sur 4–6 semaines.`,
-  },
-  {
-    q: `Votre approche convient‑elle aux secteurs ${firstSector ? firstSector.toLowerCase() : "locaux"} ?`,
-    a: `Oui. Nous construisons des sites vitrines statiques pensés pour les artisans, TPE et PME locales, en adaptant le contenu et la structure aux spécificités de votre secteur (${firstSector ? firstSector.toLowerCase() : "activité locale"}). Objectif: performance (Core Web Vitals), clarté, conversion.`,
-  },
-  {
-    q: `Pouvez‑vous intervenir autour de ${cityName} ?`,
-    a: `Oui, nous intervenons sur ${cityName} et ses villes satellites proches. Les rendez‑vous se font en visio ou par téléphone, ce qui permet d'accompagner sereinement des artisans et TPE de toute la région.`,
-  },
-];
+const faqForCity = (cityName: string, firstSector: string | undefined) => {
+  const items = [
+    {
+      q: `Quel est le coût d'un site vitrine à ${cityName} ?`,
+      a: `Pour un site vitrine statique, comptez généralement entre 1 490€ et 2 490€ selon le nombre de pages, la quantité de contenu et les fonctionnalités (formulaire, galeries, prise de rendez-vous). Prix fixe, annoncé dès le départ.`,
+    },
+    {
+      q: `Combien de temps pour créer un site professionnel à ${cityName} ?`,
+      a: `Pour une TPE ou un artisan, un site vitrine statique se réalise en 2–4 semaines en moyenne, après validation du devis et réception des contenus. Les projets plus complets (cas clients, FAQ, bilingue) peuvent s'étaler sur 4–6 semaines.`,
+    },
+    {
+      q: `Votre approche convient‑elle aux secteurs ${firstSector ? firstSector.toLowerCase() : "locaux"} ?`,
+      a: `Oui. Nous construisons des sites vitrines statiques pensés pour les artisans, TPE et PME locales, en adaptant le contenu et la structure aux spécificités de votre secteur (${firstSector ? firstSector.toLowerCase() : "activité locale"}). Objectif: performance (Core Web Vitals), clarté, conversion.`,
+    },
+    {
+      q: `Pouvez‑vous intervenir autour de ${cityName} ?`,
+      a: `Oui, nous intervenons sur ${cityName} et ses villes satellites proches. Les rendez‑vous se font en visio ou par téléphone, ce qui permet d'accompagner sereinement des artisans et TPE de toute la région.`,
+    },
+  ];
+
+  if (cityName === "Niort") {
+    items.push(
+      {
+        q: "Travaillez-vous uniquement avec des clients situés à Niort ?",
+        a: "Non. Je travaille avec des artisans, indépendants et petites structures partout en France. Mais je connais bien les enjeux des villes comme Niort : marché local, bouche-à-oreille, besoin d’être trouvé sur quelques requêtes clés comme votre métier + Niort, sans exploser le budget.",
+      },
+      {
+        q: "Combien de temps dure un projet de création de site à Niort ?",
+        a: "Pour un site vitrine simple, comptez en général 3 à 5 semaines, selon la rapidité avec laquelle vous validez les textes et les maquettes. Pour une refonte avec beaucoup de contenus à reprendre, on est plutôt sur 6 à 8 semaines.",
+      },
+      {
+        q: "Puis-je modifier moi-même mon site après la mise en ligne ?",
+        a: "Oui. Même si le site est statique, je peux vous proposer une manière simple de mettre à jour certains contenus (textes clés, tarifs, FAQ) sans toucher au code. Et si vous préférez déléguer, je peux aussi m’en charger ponctuellement.",
+      }
+    );
+  }
+
+  return items;
+};
 
 export default function CityServicePage({ params }: Params) {
   const city = getLocalCityBySlug(params.ville);
@@ -178,12 +204,21 @@ export default function CityServicePage({ params }: Params) {
         ]}
       />
 
-      <p className="mt-3 text-foreground/80 max-w-3xl">
-        À {city.name} (agglo {city.populationAgglo}), nous concevons ou refondons des sites vitrines statiques rapides, stables et
-        simples à maintenir pour les artisans, indépendants et TPE des secteurs {sectorsSentence}. L&apos;objectif:
-        expliquer clairement vos services locaux, rassurer vos prospects et générer des demandes, sans usine à gaz
-        technique ni maintenance lourde.
-      </p>
+      {city.name === "Niort" ? (
+        <p className="mt-3 text-foreground/80 max-w-3xl">
+          À Niort (agglo {city.populationAgglo}), nous concevons des sites vitrines statiques rapides, stables et simples à maintenir
+          pour les artisans, indépendants et petites structures des mutuelles, assurances, fintech et tertiaire. L&apos;objectif :
+          expliquer clairement vos services, rassurer vos prospects et générer des demandes sans usine à gaz technique ni
+          maintenance lourde.
+        </p>
+      ) : (
+        <p className="mt-3 text-foreground/80 max-w-3xl">
+          À {city.name} (agglo {city.populationAgglo}), nous concevons ou refondons des sites vitrines statiques rapides, stables et
+          simples à maintenir pour les artisans, indépendants et TPE des secteurs {sectorsSentence}. L&apos;objectif:
+          expliquer clairement vos services locaux, rassurer vos prospects et générer des demandes, sans usine à gaz
+          technique ni maintenance lourde.
+        </p>
+      )}
 
       {/* Intro CTA */}
       <div className="mt-6 flex flex-col gap-3 sm:flex-row">
@@ -206,6 +241,23 @@ export default function CityServicePage({ params }: Params) {
             réalité de terrain.
           </p>
         </section>
+        {city.name === "Niort" && (
+          <section>
+            <h2 className="font-heading text-2xl font-semibold">
+              Pourquoi me choisir plutôt qu&apos;une agence web à Niort ?
+            </h2>
+            <p className="mt-2 text-foreground/80">
+              À Niort, beaucoup de sites sont gérés par de grosses structures ou des solutions toutes faites. Je prends le temps de
+              comprendre votre activité (mutuelles, assurances, services B2B ou artisanat) et de la traduire en pages simples, sobres
+              et efficaces.
+            </p>
+            <p className="mt-2 text-foreground/80">
+              Vous parlez à une seule personne du premier échange à la mise en ligne. Le périmètre est clair, le planning aussi, et le
+              site reste léger : pas de plugins exotiques, pas de back-office compliqué, mais un site vitrine statique taillé pour le
+              local.
+            </p>
+          </section>
+        )}
         <section>
           <h2 className="font-heading text-2xl font-semibold">
             Combien investir dans un site vitrine à {city.name} en 2026&nbsp;?
