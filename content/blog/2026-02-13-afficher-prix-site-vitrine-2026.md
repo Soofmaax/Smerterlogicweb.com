@@ -222,7 +222,7 @@ Voici une structure simple pour une TPE.
 
 Exemple :
 
-- “Tarifs 2025 pour vos sites vitrines statiques”
+- “Tarifs 2026 pour vos sites vitrines statiques”
 - “Combien investir dans un site vitrine statique en 2026 ?”
 
 + 2–3 phrases :
@@ -289,7 +289,7 @@ Sur vos pages services, ajoutez :
 Exemple :
 
 > “Nos sites vitrines statiques pour TPE commencent à 1 490 € TTC.  
-> Détails et exemples sur la page Tarifs 2025.”
+> Détails et exemples sur la page Tarifs 2026.”
 
 ### 5.2. Lier les articles du blog vers la page Tarifs
 

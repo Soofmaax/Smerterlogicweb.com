@@ -15,9 +15,9 @@ import { PdfDownloadButton } from "@/components/site/pdf-download-button";
 import { SITE_URL, CONTACT_EMAIL, BRAND_DOMAIN } from "@/config/site";
 
 export const metadata = {
-  title: "Tarifs 2025 | Sites vitrines statiques dès 1490€ TTC",
+  title: "Tarifs 2026 | Sites vitrines statiques dès 1490€ TTC",
   description:
-    "Grille de tarifs 2025 pour sites vitrines statiques professionnels. Offres Essentiel, Professionnel et Premium dès 1490€ TTC. Zéro maintenance technique obligatoire, performances, SEO et délais garantis.",
+    "Grille de tarifs 2026 pour sites vitrines statiques professionnels. Offres Essentiel, Professionnel et Premium dès 1490€ TTC. Zéro maintenance technique obligatoire, performances, SEO et délais garantis.",
   alternates: {
     canonical: "/tarifs-2025",
     languages: {
@@ -27,9 +27,9 @@ export const metadata = {
   },
   openGraph: {
     url: `${SITE_URL}/tarifs-2025`,
-    title: `Tarifs 2025 | Sites vitrines statiques dès 1490€ TTC — ${BRAND_DOMAIN}`,
+    title: `Tarifs 2026 | Sites vitrines statiques dès 1490€ TTC — ${BRAND_DOMAIN}`,
     description:
-      "Grille de tarifs 2025 pour sites vitrines statiques professionnels. Offres Essentiel, Professionnel et Premium dès 1490€ TTC. Zéro maintenance technique obligatoire, performances, SEO et délais garantis.",
+      "Grille de tarifs 2026 pour sites vitrines statiques professionnels. Offres Essentiel, Professionnel et Premium dès 1490€ TTC. Zéro maintenance technique obligatoire, performances, SEO et délais garantis.",
   },
 };
 
@@ -43,7 +43,7 @@ export default function Tarifs2025Page() {
 
       {/* Hero */}
       <section className="mx-auto max-w-3xl text-center">
-        <Badge variant="secondary" className="px-3 py-1">Tarifs 2025</Badge>
+        <Badge variant="secondary" className="px-3 py-1">Tarifs 2026</Badge>
         <h1 className="mt-4 font-heading text-4xl font-bold tracking-tight md:text-5xl text-balance">
           Sites statiques pour Professions Libérales
         </h1>
@@ -94,10 +94,10 @@ export default function Tarifs2025Page() {
         <div className="mt-6 rounded-2xl border bg-card p-6 card-elevated">
           <h3 className="font-heading text-lg font-semibold">Recevoir la grille PDF par email</h3>
           <p className="mt-1 text-sm text-foreground/80">
-            Téléchargez la Grille Tarifs 2025 et recevez‑la par email pour la partager en interne.
+            Téléchargez la Grille Tarifs 2026 et recevez‑la par email pour la partager en interne.
           </p>
           <div className="mt-3">
-            <PdfDownloadButton slug="grille-tarifs-2025" label="Recevoir la Grille Tarifs 2025 (PDF)" />
+            <PdfDownloadButton slug="grille-tarifs-2025" label="Recevoir la Grille Tarifs 2026 (PDF)" />
           </div>
         </div>
       </section>
@@ -179,7 +179,7 @@ export default function Tarifs2025Page() {
           <BookingButton className="rounded-full" size="lg" label="Réserver un audit gratuit" />
           <Button asChild className="rounded-full" variant="secondary">
             <a
-              href={`mailto:${CONTACT_EMAIL}?subject=Devis%20site%20statique%20—%20Tarifs%202025`}
+              href={`mailto:${CONTACT_EMAIL}?subject=Devis%20site%20statique%20—%20Tarifs%202026`}
             >
               Demander un devis par email
             </a>
@@ -229,7 +229,7 @@ export default function Tarifs2025Page() {
             </Link>
             <span className="text-muted-foreground">•</span>
             <Link href="/tarifs-2025" className="text-primary hover:underline">
-              Tarifs 2025
+              Tarifs 2026
             </Link>
           </div>
         </div>

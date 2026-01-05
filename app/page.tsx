@@ -23,7 +23,7 @@ import { Guarantee } from "@/components/site/guarantee";
 export const metadata = {
   title: "Sites vitrines statiques dès 1490€ TTC | TPE & Professions libérales",
   description:
-    "Sites web ultra-rapides pour TPE et professions libérales. Core Web Vitals 90+, zéro maintenance technique obligatoire, SEO garanti. Tarifs 2025 dès 1490€ TTC.",
+    "Sites web ultra-rapides pour TPE et professions libérales. Core Web Vitals 90+, zéro maintenance technique obligatoire, SEO garanti. Tarifs 2026 dès 1490€ TTC.",
   alternates: {
     canonical: "/",
     languages: {
@@ -35,7 +35,7 @@ export const metadata = {
     url: "https://smarterlogicweb.com/",
     title: "Sites vitrines statiques dès 1490€ TTC | TPE & Professions libérales — smarterlogicweb.com",
     description:
-      "Sites web ultra-rapides pour TPE et professions libérales. Core Web Vitals 90+, zéro maintenance technique obligatoire, SEO garanti. Tarifs 2025 dès 1490€ TTC.",
+      "Sites web ultra-rapides pour TPE et professions libérales. Core Web Vitals 90+, zéro maintenance technique obligatoire, SEO garanti. Tarifs 2026 dès 1490€ TTC.",
   },
 };
 
