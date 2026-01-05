@@ -98,8 +98,8 @@ export default function CityRefontePage({ params }: Params) {
     offers: {
       "@type": "AggregateOffer",
       priceCurrency: "EUR",
-      lowPrice: "1490",
-      highPrice: "2490",
+      lowPrice: "2490",
+      highPrice: "4990",
       availability: "https://schema.org/InStock",
     },
   };
@@ -177,7 +177,7 @@ export default function CityRefontePage({ params }: Params) {
 
       {/* Intro CTA */}
       <div className="mt-6 flex flex-col gap-3 sm:flex-row">
-        <BookingButton className="rounded-full btn-pulse" size="lg" label={`Audit refonte — ${city.name}`} />
+        <BookingButton className="rounded-full" size="lg" label={`Audit refonte — ${city.name}`} />
         <Button asChild className="rounded-full" variant="secondary">
           <Link href={`/creation-site-internet/${city.slug}`}>Besoin d’un site neuf ? Voir la création</Link>
         </Button>
