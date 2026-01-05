@@ -189,6 +189,10 @@ const faqForCity = (cityName: string, firstSector: string | undefined) => {
         a: "Pour un site vitrine simple, comptez en général 3 à 5 semaines, selon la rapidité avec laquelle vous validez les textes, les visuels et les maquettes. L’objectif est de garder un rythme raisonnable malgré la charge de vos dossiers.",
       },
       {
+        q: "Un site vitrine à Paris doit-il forcément coûter 15 000€ ou plus ?",
+        a: "Non. Les budgets à 15 000€ ou 20 000€ que l’on voit sur les sites d’agence à Paris correspondent souvent à des projets très complets (équipe pluridisciplinaire, ateliers longs, e‑commerce, intégrations complexes, etc.). Pour un site vitrine statique ciblé professions libérales ou TPE B2B, un budget compris entre 1 490€ et 4 990€ suffit généralement. L’essentiel se joue sur le contenu, la clarté de l’offre et la vitesse du site, pas sur la complexité technique.",
+      },
+      {
         q: "En quoi êtes-vous différent d’une agence web à Paris ?",
         a: "Je ne suis pas une grosse agence web avec des équipes et des process lourds, mais un studio spécialisé en sites vitrines statiques sobres pour professions libérales et TPE B2B. Vous échangez directement avec la personne qui conçoit et réalise le site, le périmètre est clair, et on évite les fonctionnalités inutiles qui complexifient la maintenance.",
       }
