@@ -32,7 +32,7 @@ export async function generateMetadata({ params }: Params) {
   }
   const sectors = city.sectors.join(", ").toLowerCase();
   const title = `Refonte de site internet à ${city.name} pour TPE et artisans — Audit & site vitrine statique`;
-  const description = `Audit et refonte de sites internet à ${city.name} pour artisans, TPE et PME des secteurs ${sectors}. Passage vers un site vitrine statique plus rapide et plus simple à maintenir. Devis gratuit.`;
+  const description = `Audit et refonte de sites internet à ${city.name} pour artisans, TPE et PME des secteurs ${sectors}. Passage vers un site vitrine statique plus rapide et plus simple à maintenir. Devis gratuit. Forfaits refonte 2026 à partir de 2 490€ TTC.`;
 
   return {
     title,
@@ -147,8 +147,8 @@ export default function CityRefontePage({ params }: Params) {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
 
       {/* Ambient background */}
-      <div aria-hidden className="pointer-events-none absolute inset-0 -z-10">
-        <div className="hero-gradient-animated absolute inset-0 rounded-[28px] opacity-60" />
+     <<div aria-hidden className="pointer-events-none absolute inset-0 -z-10">
+       <<div className="hero-gradient-animated absolute inset-0 rounded-[28px] opacity-60" />
         <Particles />
       </div>
 
@@ -201,6 +201,24 @@ export default function CityRefontePage({ params }: Params) {
             Sur cette base, nous construisons un plan d&apos;actions réaliste pour une TPE ou un artisan : quelles pages
             garder, quelles pages fusionner, quelles pages créer, comment organiser vos services, vos preuves et vos appels à
             l&apos;action.
+          </p>
+        </section>
+
+        <section>
+          <h2 className="font-heading text-2xl font-semibold">
+            Combien investir dans une refonte à {city.name} en 2026&nbsp;?
+          </h2>
+          <p className="mt-2 text-foreground/80">
+            En 2026, la majorité des refontes de sites pour artisans et TPE à {city.name} se situent entre 2 490€ et 4 990€ TTC,
+            selon la taille du site, la complexité du SEO à reprendre et la quantité de contenu à retravailler. Les projets plus
+            simples (peu de pages, peu d&apos;historique) peuvent être plus proches de 2 490€ TTC.
+          </p>
+          <p className="mt-2 text-sm text-muted-foreground">
+            Détails des offres et exemples concrets sur la page{" "}
+            <Link href="/tarifs-2025#tarifs" className="text-primary hover:underline">
+              Tarifs&nbsp;2026
+            </Link>
+            .
           </p>
         </section>
 

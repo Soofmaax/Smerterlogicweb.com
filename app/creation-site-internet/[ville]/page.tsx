@@ -33,7 +33,7 @@ export async function generateMetadata({ params }: Params) {
   }
   const sectors = city.sectors.join(", ").toLowerCase();
   const title = `Création de site internet à ${city.name} pour artisans et TPE — Expertise locale ${city.departmentCode}`;
-  const description = `Création de sites vitrines statiques à ${city.name} pour artisans, TPE et PME des secteurs ${sectors}. Audit et devis gratuits.`;
+  const description = `Création de sites vitrines statiques à ${city.name} pour artisans, TPE et PME des secteurs ${sectors}. Audit et devis gratuits. Forfaits 2026 à partir de 1 490€ TTC.`;
 
   return {
     title,
@@ -148,9 +148,9 @@ export default function CityServicePage({ params }: Params) {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
 
       {/* Ambient background */}
-      <div aria-hidden className="pointer-events-none absolute inset-0 -z-10">
-        <div className="hero-gradient-animated absolute inset-0 rounded-[28px] opacity-60" />
-        <Particles />
+     <<div aria-hidden className="pointer-events-none absolute inset-0 -z-10">
+       <<div className="hero-gradient-animated absolute inset-0 rounded-[28px] opacity-60" />
+    </  <Particles />
       </div>
 
       {/* Hero */}
@@ -180,7 +180,7 @@ export default function CityServicePage({ params }: Params) {
       />
 
       <p className="mt-3 text-foreground/80 max-w-3xl">
-        À {city.name} (agglo {city.populationAgglo}), nous concevons des sites vitrines statiques rapides, stables et
+        À {city.name} (agglo {city.populationAgglo}), nous concevons ou refondons des sites vitrines statiques rapides, stables et
         simples à maintenir pour les artisans, indépendants et TPE des secteurs {sectorsSentence}. L&apos;objectif:
         expliquer clairement vos services locaux, rassurer vos prospects et générer des demandes, sans usine à gaz
         technique ni maintenance lourde.
@@ -205,6 +205,23 @@ export default function CityServicePage({ params }: Params) {
             locales qui veulent un site vitrine clair, rapide et simple à maintenir&nbsp;: plomberie, électricité, textile,
             industrie mécanique, agroalimentaire, conseil, coaching, etc. Nous adaptons le ton et les exemples à votre
             réalité de terrain.
+          </p>
+        </section>
+        <section>
+          <h2 className="font-heading text-2xl font-semibold">
+            Combien investir dans un site vitrine à {city.name} en 2026&nbsp;?
+          </h2>
+          <p className="mt-2 text-foreground/80">
+            En 2026, la plupart des sites vitrines statiques pour artisans et TPE à {city.name} se situent entre 1 490€ et 2 490€ TTC,
+            selon le nombre de pages, la quantité de contenu à intégrer et les fonctionnalités (formulaire, prises de rendez-vous, cas clients…).
+            Les projets plus complets avec plus de contenu et de cas clients peuvent monter à 4 990€ TTC.
+          </p>
+          <p className="mt-2 text-sm text-muted-foreground">
+            Détails des offres et exemples concrets sur la page{" "}
+            <Link href="/tarifs-2025#tarifs" className="text-primary hover:underline">
+              Tarifs&nbsp;2026
+            </Link>
+            .
           </p>
         </section>
         <section>
