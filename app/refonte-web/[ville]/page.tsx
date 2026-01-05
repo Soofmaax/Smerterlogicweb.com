@@ -37,6 +37,9 @@ export async function generateMetadata({ params }: Params) {
   if (city.slug === "niort") {
     description =
       "Refonte de sites internet à Niort pour artisans, TPE et acteurs des mutuelles et services B2B. Passage d'un WordPress lent à un site vitrine statique rapide, stable et plus simple à maintenir, sans perdre votre référencement local. Forfaits 2026 entre 2 490€ et 4 990€ TTC.";
+  } else if (city.slug === "brive-la-gaillarde") {
+    description =
+      "Refonte de sites internet à Brive-la-Gaillarde pour artisans, TPE et petites entreprises de l’agroalimentaire, de la logistique et du tourisme vert en Corrèze. Passage d'un WordPress lent ou d'un ancien site vers un site vitrine statique rapide, stable et plus simple à maintenir, sans perdre votre référencement local. Forfaits 2026 entre 2 490€ et 4 990€ TTC.";
   }
 
   return {
@@ -95,6 +98,23 @@ const faqForCityRefonte = (cityName: string) => {
       {
         q: "Puis-je modifier moi-même mon site après la refonte ?",
         a: "Oui. Même si le site est statique, je peux vous proposer une manière simple de mettre à jour certains contenus (textes clés, tarifs, FAQ) sans toucher au code. Et si vous préférez déléguer, je peux aussi m’en charger ponctuellement.",
+      }
+    );
+  }
+
+  if (cityName === "Brive-la-Gaillarde") {
+    items.push(
+      {
+        q: "Intervenez-vous uniquement à Brive-la-Gaillarde pour les refontes ?",
+        a: "Non. Je peux vous accompagner si votre entreprise est basée à Brive-la-Gaillarde, Tulle, Ussel ou dans les environs, ainsi que sur certaines communes de Dordogne. Les échanges se font principalement en visio ou par téléphone.",
+      },
+      {
+        q: "Que se passe-t-il pour mon ancien site pendant la refonte ?",
+        a: "Nous gardons votre ancien site en ligne le temps de préparer le nouveau. Au moment du basculement, nous mettons en place les redirections nécessaires pour que vos anciennes URL utiles pointent vers les nouvelles pages, sans casser votre référencement local.",
+      },
+      {
+        q: "La refonte peut-elle faire baisser mon référencement local ?",
+        a: "L’objectif est inverse : stabiliser et améliorer votre présence locale. Nous conservons les contenus qui fonctionnent, simplifions l’architecture et ajoutons des redirections propres. Cela évite les pertes de trafic liées aux refontes mal maîtrisées.",
       }
     );
   }
@@ -200,6 +220,13 @@ export default function CityRefontePage({ params }: Params) {
           des mutuelles et des services B2B. L&apos;idée : transformer un WordPress ou un ancien site lourd en vitrine statique rapide,
           lisible et plus simple à gérer, sans perdre votre référencement local.
         </p>
+      ) : city.name === "Brive-la-Gaillarde" ? (
+        <p className="mt-3 text-foreground/80 max-w-3xl">
+          À Brive-la-Gaillarde, nous auditons et refondons des sites internet d&apos;artisans, de TPE et de petites entreprises de
+          l&apos;agroalimentaire, de la logistique et du tourisme vert en Corrèze. L&apos;idée : remplacer un WordPress lent ou un ancien
+          site par une vitrine statique rapide, claire et plus simple à gérer, sans perdre votre référencement local autour de
+          Brive et de l&apos;axe A20.
+        </p>
       ) : (
         <p className="mt-3 text-foreground/80 max-w-3xl">
           À {city.name}, nous auditons et refondons des sites internet d&apos;artisans, TPE et petites entreprises pour les
@@ -240,6 +267,24 @@ export default function CityRefontePage({ params }: Params) {
             <p className="mt-2 text-foreground/80">
               Dans ces cas-là, une refonte vers un site vitrine statique rapide, simple et lisible remet votre présence en ligne
               au niveau de la qualité de votre travail, sans usine à gaz technique.
+            </p>
+          </section>
+        )}
+
+        {city.name === "Brive-la-Gaillarde" && (
+          <section>
+            <h2 className="font-heading text-2xl font-semibold">
+              À Brive-la-Gaillarde, quelques signes montrent que votre site mérite une refonte
+            </h2>
+            <p className="mt-2 text-foreground/80">
+              Quelques signaux fréquents : votre site met longtemps à charger sur mobile, la navigation n&apos;est pas claire, vous
+              n&apos;osez plus toucher au contenu, ou l&apos;agence qui l&apos;a réalisé n&apos;assure plus vraiment de suivi. Pendant ce temps,
+              vos prospects vous cherchent sur Google autour de Brive et de la Corrèze.
+            </p>
+            <p className="mt-2 text-foreground/80">
+              Une refonte vers un site vitrine statique rapide et sobre remet votre présence en ligne au niveau des attentes de vos
+              clients, sans couche technique inutile. L&apos;objectif : garder l&apos;essentiel (nom de domaine, contenus utiles,
+              référencement local) et enlever le reste.
             </p>
           </section>
         )}

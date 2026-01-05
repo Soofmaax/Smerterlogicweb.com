@@ -38,6 +38,9 @@ export async function generateMetadata({ params }: Params) {
   if (city.slug === "niort") {
     description =
       "Création de sites vitrines statiques à Niort pour artisans, indépendants et PME des mutuelles, assurances, fintech et tertiaire. Sites rapides, clairs et simples à maintenir. Tarifs 2026 à partir de 1 490€ TTC.";
+  } else if (city.slug === "brive-la-gaillarde") {
+    description =
+      "Création de sites vitrines statiques à Brive-la-Gaillarde pour artisans, TPE et petites entreprises de l’agroalimentaire, de la logistique et du tourisme vert en Corrèze. Sites rapides, clairs et simples à maintenir, pensés pour être trouvés sur les recherches locales. Tarifs 2026 à partir de 1 490€ TTC.";
   }
 
   return {
@@ -96,6 +99,23 @@ const faqForCity = (cityName: string, firstSector: string | undefined) => {
       {
         q: "Puis-je modifier moi-même mon site après la mise en ligne ?",
         a: "Oui. Même si le site est statique, je peux vous proposer une manière simple de mettre à jour certains contenus (textes clés, tarifs, FAQ) sans toucher au code. Et si vous préférez déléguer, je peux aussi m’en charger ponctuellement.",
+      }
+    );
+  }
+
+  if (cityName === "Brive-la-Gaillarde") {
+    items.push(
+      {
+        q: "Travaillez-vous uniquement avec des clients basés à Brive-la-Gaillarde ?",
+        a: "Non. Je travaille avec des artisans, indépendants et petites structures partout en France. Brive-la-Gaillarde et la Corrèze restent cependant un focus : entreprises le long de l’A20, agroalimentaire, logistique, tourisme vert…",
+      },
+      {
+        q: "Intervenez-vous aussi en dehors de Brive (Corrèze, Dordogne) ?",
+        a: "Oui. Je peux vous accompagner si vous êtes basé à Brive-la-Gaillarde, Tulle, Ussel ou dans les environs, ainsi que sur certaines communes de Dordogne. Les échanges se font principalement en visio ou par téléphone.",
+      },
+      {
+        q: "Combien de temps dure un projet de création de site à Brive-la-Gaillarde ?",
+        a: "Pour un site vitrine simple, comptez en général 3 à 5 semaines, selon la rapidité avec laquelle vous validez les textes et les maquettes. Les projets plus riches en contenus (cas clients, blog) peuvent s’étaler sur 6 à 8 semaines.",
       }
     );
   }
@@ -211,6 +231,12 @@ export default function CityServicePage({ params }: Params) {
           expliquer clairement vos services, rassurer vos prospects et générer des demandes sans usine à gaz technique ni
           maintenance lourde.
         </p>
+      ) : city.name === "Brive-la-Gaillarde" ? (
+        <p className="mt-3 text-foreground/80 max-w-3xl">
+          À Brive-la-Gaillarde (agglo {city.populationAgglo}), nous concevons des sites vitrines statiques rapides, stables et simples à maintenir
+          pour les artisans, indépendants et TPE de l&apos;agroalimentaire, de la logistique et du tourisme vert en Corrèze. L&apos;objectif :
+          être visible lorsqu&apos;on cherche votre métier + Brive ou Corrèze, avec un site clair, rassurant et sans usine à gaz technique.
+        </p>
       ) : (
         <p className="mt-3 text-foreground/80 max-w-3xl">
           À {city.name} (agglo {city.populationAgglo}), nous concevons ou refondons des sites vitrines statiques rapides, stables et
@@ -255,6 +281,23 @@ export default function CityServicePage({ params }: Params) {
               Vous parlez à une seule personne du premier échange à la mise en ligne. Le périmètre est clair, le planning aussi, et le
               site reste léger : pas de plugins exotiques, pas de back-office compliqué, mais un site vitrine statique taillé pour le
               local.
+            </p>
+          </section>
+        )}
+        {city.name === "Brive-la-Gaillarde" && (
+          <section>
+            <h2 className="font-heading text-2xl font-semibold">
+              Pourquoi travailler avec un studio plutôt qu&apos;une grosse agence à Brive ?
+            </h2>
+            <p className="mt-2 text-foreground/80">
+              À Brive-la-Gaillarde et en Corrèze, beaucoup de sites ont été faits il y a plusieurs années, parfois par des agences
+              qui ne suivent plus vraiment le projet. Ici, on reste sur un périmètre clair : un site vitrine statique rapide, centré
+              sur vos services et vos preuves, sans couche technique superflue.
+            </p>
+            <p className="mt-2 text-foreground/80">
+              Vous avez un interlocuteur unique, du premier échange au lancement. On parle délais, budget et contenu de manière
+              concrète, puis on avance sans surprise, avec un site pensé pour les recherches locales autour de Brive, Tulle, Ussel et
+              la vallée de la Corrèze.
             </p>
           </section>
         )}
