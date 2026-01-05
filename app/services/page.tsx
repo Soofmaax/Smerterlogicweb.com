@@ -194,6 +194,10 @@ export default function ServicesPage() {
               Frais cachés après la livraison
             </Link>
             <span className="text-muted-foreground">•</span>
+            <Link href="/creation-site-internet/paris" className="text-primary hover:underline">
+              Création de site internet à Paris
+            </Link>
+            <span className="text-muted-foreground">•</span>
             <Link href="/tarifs-2025" className="text-primary hover:underline">
               Tarifs 2026
             </Link>
