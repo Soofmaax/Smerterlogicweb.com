@@ -20,10 +20,12 @@ import { Reveal } from "@/components/site/reveal";
 import { BookingButton } from "@/components/site/booking-modal";
 import { Guarantee } from "@/components/site/guarantee";
 
+import { SITE_URL, BRAND_DOMAIN } from "@/config/site";
+
 export const metadata = {
-  title: "Sites vitrines statiques dès 1490€ TTC | TPE & Professions libérales",
+  title: "Sites vitrines statiques dès 1490€ TTC | TPE & professions libérales",
   description:
-    "Sites web ultra-rapides pour TPE et professions libérales. Core Web Vitals 90+, zéro maintenance technique obligatoire, SEO garanti. Tarifs 2026 dès 1490€ TTC.",
+    "Création de sites vitrines statiques ultra-rapides pour TPE et professions libérales. Core Web Vitals 90+, zéro maintenance technique obligatoire, SEO local soigné. Tarifs 2026 dès 1 490€ TTC.",
   alternates: {
     canonical: "/",
     languages: {
@@ -32,10 +34,10 @@ export const metadata = {
     },
   },
   openGraph: {
-    url: "https://smarterlogicweb.com/",
-    title: "Sites vitrines statiques dès 1490€ TTC | TPE & Professions libérales — smarterlogicweb.com",
+    url: SITE_URL,
+    title: `Sites vitrines statiques dès 1490€ TTC | TPE & professions libérales — ${BRAND_DOMAIN}`,
     description:
-      "Sites web ultra-rapides pour TPE et professions libérales. Core Web Vitals 90+, zéro maintenance technique obligatoire, SEO garanti. Tarifs 2026 dès 1490€ TTC.",
+      "Création de sites vitrines statiques ultra-rapides pour TPE et professions libérales. Core Web Vitals 90+, zéro maintenance technique obligatoire, SEO local soigné. Tarifs 2026 dès 1 490€ TTC.",
   },
 };
 
@@ -153,7 +155,7 @@ export default function Page() {
             </Link>
             <span className="text-muted-foreground">•</span>
             <Link href="/tarifs-2025" className="text-primary hover:underline">
-              Tarifs 2025
+              Tarifs 2026
             </Link>
           </div>
         </div>

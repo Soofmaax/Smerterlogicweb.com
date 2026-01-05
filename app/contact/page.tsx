@@ -13,7 +13,8 @@ import { SITE_URL, CONTACT_EMAIL, BRAND_DOMAIN } from "@/config/site";
 
 export const metadata = {
   title: `Contact — ${BRAND_DOMAIN}`,
-  description: "Contactez-moi pour un devis gratuit ou pour discuter de votre projet.",
+  description:
+    "Contactez-moi pour un site vitrine statique ou une refonte. Devis gratuit, audit rapide et retour sous 24h.",
   alternates: {
     canonical: "/contact",
     languages: {
@@ -24,7 +25,8 @@ export const metadata = {
   openGraph: {
     url: `${SITE_URL}/contact`,
     title: `Contact — ${BRAND_DOMAIN}`,
-    description: "Contactez-moi pour un devis gratuit ou pour discuter de votre projet.",
+    description:
+      "Contactez-moi pour un site vitrine statique ou une refonte. Devis gratuit, audit rapide et retour sous 24h.",
   },
 };
 
@@ -138,7 +140,7 @@ export default function ContactPage() {
             </Link>
             <span className="text-muted-foreground">•</span>
             <Link href="/tarifs-2025" className="text-primary hover:underline">
-              Tarifs 2025
+              Tarifs 2026
             </Link>
           </div>
         </div>

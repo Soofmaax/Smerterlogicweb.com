@@ -6,20 +6,26 @@ import { Suspense } from "react";
 import { Particles } from "@/components/site/particles";
 import { Breadcrumbs } from "@/components/site/breadcrumbs";
 import { CategoriesFilter } from "@/components/site/categories-filter";
-import { absoluteUrl } from "@/config/site";
+import { absoluteUrl, SITE_URL, BRAND_DOMAIN } from "@/config/site";
 
 export const revalidate = 60;
 
 export const metadata = {
-  title: "Articles & blog",
+  title: "Blog — visibilité locale, refonte et tarifs 2026",
   description:
-    "Conseils pratiques sur la visibilité, la confiance et la performance web.",
+    "Articles et conseils pratiques sur la visibilité locale, la refonte de sites WordPress en sites statiques et les tarifs 2026 pour TPE et professions libérales.",
   alternates: {
     canonical: "/blog",
     languages: {
       "fr-FR": "/blog",
       "en-US": "/en/blog",
     },
+  },
+  openGraph: {
+    url: `${SITE_URL}/blog`,
+    title: `Blog — visibilité locale, refonte et tarifs 2026 — ${BRAND_DOMAIN}`,
+    description:
+      "Articles et conseils pratiques sur la visibilité locale, la refonte de sites WordPress en sites statiques et les tarifs 2026 pour TPE et professions libérales.",
   },
 };
 
