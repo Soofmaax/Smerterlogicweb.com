@@ -32,7 +32,7 @@ export async function generateMetadata({ params }: Params) {
     };
   }
   const sectors = city.sectors.join(", ").toLowerCase();
-  const title = `Création de site internet à ${city.name} — sites vitrines statiques pour artisans et TPE (2026)`;
+  let title = `Création de site internet à ${city.name} — sites vitrines statiques pour artisans et TPE (2026)`;
   let description = `Création de sites vitrines statiques à ${city.name} pour artisans, TPE et PME des secteurs ${sectors}. Audit et devis gratuits. Forfaits 2026 à partir de 1 490€ TTC.`;
 
   if (city.slug === "niort") {
@@ -48,8 +48,10 @@ export async function generateMetadata({ params }: Params) {
     description =
       "Création de sites vitrines statiques à Vannes pour artisans, prestataires du nautisme, du tourisme et de l’agroalimentaire, ainsi que petites structures orientées numérique/cyber. Sites rapides, sobres et simples à maintenir, pensés pour le référencement local autour du Golfe du Morbihan (Vannes, Auray, Sarzeau). Tarifs 2026 à partir de 1 490€ TTC.";
   } else if (city.slug === "paris") {
+    title =
+      "Création de site internet à Paris — sites vitrines statiques pour avocats, experts-comptables et cabinets (2026)";
     description =
-      "Création de sites vitrines statiques à Paris pour avocats, experts-comptables, consultants et petites structures B2B. Sites sobres, rapides et simples à maintenir, pensés pour les recherches locales et sectorielles à Paris et en Île-de-France. Tarifs 2026 à partir de 1 490€ TTC.";
+      "Création de sites vitrines statiques à Paris pour avocats, experts-comptables, cabinets de conseil et petites structures B2B. Sites sobres, rapides et simples à maintenir, pensés pour les recherches locales et sectorielles à Paris et en Île-de-France. Tarifs 2026 à partir de 1 490€ TTC.";
   } else if (city.slug === "montauban") {
     description =
       "Création de sites vitrines statiques à Montauban pour artisans, TPE et PME de l’agroalimentaire, de l’aéronautique et de la logistique en Tarn-et-Garonne. Sites rapides, clairs et simples à maintenir, pensés pour être trouvés sur les recherches locales autour de Montauban et du bassin toulousain. Tarifs 2026 à partir de 1 490€ TTC.";
@@ -446,22 +448,42 @@ export default function CityServicePage({ params }: Params) {
           </section>
         )}
         {city.name === "Paris" && (
-          <section>
-            <h2 className="font-heading text-2xl font-semibold">
-              Pourquoi un site vitrine statique à Paris plutôt qu’une grosse agence web ?
-            </h2>
-            <p className="mt-2 text-foreground/80">
-              À Paris, beaucoup de sites de cabinets et de petites structures B2B sont réalisés par des agences web sur des CMS lourds
-              (WordPress, Prestashop, usines à plugins), avec de nombreuses pages peu utiles et une maintenance permanente. Si vous ne
-              faites ni e‑commerce ni campagne marketing à grande échelle, cette complexité n&apos;est pas toujours nécessaire.
-            </p>
-            <p className="mt-2 text-foreground/80">
-              Un site vitrine statique vous permet de concentrer l&apos;effort sur le contenu, la clarté de vos offres et la prise de
-              contact (rendez‑vous, formulaires), sans accumuler les dépendances techniques. L&apos;objectif : une présence en ligne nette
-              et professionnelle, qui parle à vos clients (avocats, conseils, professions libérales) et reste simple à faire évoluer
-              au fil de vos dossiers, sans budget technique disproportionné.
-            </p>
-          </section>
+          <>
+            <section>
+              <h2 className="font-heading text-2xl font-semibold">
+                Pourquoi un site vitrine statique à Paris plutôt qu’une grosse agence web ?
+              </h2>
+              <p className="mt-2 text-foreground/80">
+                À Paris, beaucoup de sites de cabinets et de petites structures B2B sont réalisés par des agences web sur des CMS lourds
+                (WordPress, Prestashop, usines à plugins), avec de nombreuses pages peu utiles et une maintenance permanente. Si vous ne
+                faites ni e‑commerce ni campagne marketing à grande échelle, cette complexité n&apos;est pas toujours nécessaire.
+              </p>
+              <p className="mt-2 text-foreground/80">
+                Un site vitrine statique vous permet de concentrer l&apos;effort sur le contenu, la clarté de vos offres et la prise de
+                contact (rendez‑vous, formulaires), sans accumuler les dépendances techniques. L&apos;objectif : une présence en ligne nette
+                et professionnelle, qui parle à vos clients (avocats, conseils, professions libérales) et reste simple à faire évoluer
+                au fil de vos dossiers, sans budget technique disproportionné.
+              </p>
+            </section>
+            <section>
+              <h2 className="font-heading text-2xl font-semibold">
+                Cas concret : BMS Ventousage, niche B2B visible sur « ventousage Paris »
+              </h2>
+              <p className="mt-2 text-foreground/80">
+                Exemple réel : BMS Ventousage, entreprise de ventousage pour tournages cinéma. Secteur ultra‑niche, concurrence forte sur Paris.
+                Budget : 2 490€ (Offre Professionnelle). Six pages (Accueil, Services, Secteurs, Projets, À propos, Contact), design sur‑mesure,
+                contenus rédigés et optimisés pour les expressions clés (« ventousage cinéma Paris », « ventouseur Paris », etc.).
+              </p>
+              <p className="mt-2 text-foreground/80">
+                Résultat en quatre mois selon Google Search Console : positions 2 à 10 sur des requêtes comme « ventousage Paris » et « ventouseur Paris »,
+                avec un site vitrine statique ultra‑rapide (LCP &lt; 1s). Deux demandes de devis qualifiées dès les premiers mois dans un marché très ciblé.
+              </p>
+              <p className="mt-2 text-sm text-muted-foreground">
+                C&apos;est ce type de stratégie que nous mettons en place pour vos propres requêtes professionnelles à Paris et en Île‑de‑France
+                (avocat, expert‑comptable, consultant, cabinet spécialisé, etc.).
+              </p>
+            </section>
+          </>
         )}
         {city.name === "Montauban" && (
           <section>
