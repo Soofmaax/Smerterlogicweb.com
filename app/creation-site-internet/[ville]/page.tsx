@@ -188,7 +188,7 @@ export default function CityServicePage({ params }: Params) {
 
       {/* Intro CTA */}
       <div className="mt-6 flex flex-col gap-3 sm:flex-row">
-        <BookingButton className="rounded-full btn-pulse" size="lg" label={`Audit gratuit — ${city.name} et alentours`} />
+        <BookingButton className="rounded-full" size="lg" label={`Audit gratuit — ${city.name} et alentours`} />
         <Button asChild className="rounded-full" variant="secondary">
           <Link href="/tarifs-2025">Voir les tarifs 2026</Link>
         </Button>
