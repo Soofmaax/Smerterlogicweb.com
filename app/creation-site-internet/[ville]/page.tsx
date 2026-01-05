@@ -47,6 +47,9 @@ export async function generateMetadata({ params }: Params) {
   } else if (city.slug === "vannes") {
     description =
       "Création de sites vitrines statiques à Vannes pour artisans, prestataires du nautisme, du tourisme et de l’agroalimentaire, ainsi que petites structures orientées numérique/cyber. Sites rapides, sobres et simples à maintenir, pensés pour le référencement local autour du Golfe du Morbihan (Vannes, Auray, Sarzeau). Tarifs 2026 à partir de 1 490€ TTC.";
+  } else if (city.slug === "montauban") {
+    description =
+      "Création de sites vitrines statiques à Montauban pour artisans, TPE et PME de l’agroalimentaire, de l’aéronautique et de la logistique en Tarn-et-Garonne. Sites rapides, clairs et simples à maintenir, pensés pour être trouvés sur les recherches locales autour de Montauban et du bassin toulousain. Tarifs 2026 à partir de 1 490€ TTC.";
   }
 
   return {
@@ -156,6 +159,23 @@ const faqForCity = (cityName: string, firstSector: string | undefined) => {
       {
         q: "Combien de temps dure un projet de création de site à Vannes ?",
         a: "Pour un site vitrine simple, comptez en général 3 à 5 semaines, selon la rapidité avec laquelle vous validez les textes, les visuels et les maquettes. En période de haute saison touristique, on peut adapter le planning pour limiter l’impact sur votre activité.",
+      }
+    );
+  }
+
+  if (cityName === "Montauban") {
+    items.push(
+      {
+        q: "Travaillez-vous uniquement avec des entreprises de Montauban ?",
+        a: "Non. Je peux vous accompagner si vous êtes basé à Montauban, mais aussi dans le Tarn-et-Garonne (Moissac, Castelsarrasin, etc.). Les échanges se font en visio ou par téléphone, ce qui laisse de la flexibilité même avec des plannings industriels chargés.",
+      },
+      {
+        q: "Votre approche convient-elle aux secteurs agro, logistique et aéronautique à Montauban ?",
+        a: "Oui. Les sites vitrines statiques conviennent très bien aux entreprises de l’agroalimentaire, de la logistique ou de l’aéronautique : pages claires, mise en avant des prestations et des références, temps de chargement rapides et structure pensée pour le référencement local.",
+      },
+      {
+        q: "Combien de temps dure un projet de création de site à Montauban ?",
+        a: "Pour un site vitrine simple, comptez en général 3 à 5 semaines, selon la rapidité avec laquelle vous validez les textes, les visuels et les maquettes. Les projets plus complets avec plus de contenus peuvent s’étaler sur 6 à 8 semaines.",
       }
     );
   }
@@ -289,6 +309,12 @@ export default function CityServicePage({ params }: Params) {
           nautisme, du tourisme, de l&apos;agroalimentaire et les petites structures orientées numérique/cyber. L&apos;objectif : une présence claire
           qui rassure vos clients autour du Golfe du Morbihan (Vannes, Auray, Sarzeau), sans usine à gaz ni back‑office lourd.
         </p>
+      ) : city.name === "Montauban" ? (
+        <p className="mt-3 text-foreground/80 max-w-3xl">
+          À Montauban (agglo {city.populationAgglo}), nous concevons des sites vitrines statiques rapides et sobres pour les artisans, TPE et PME de
+          l&apos;agroalimentaire, de l&apos;aéronautique et de la logistique en Tarn-et-Garonne. L&apos;objectif : être visible lorsqu&apos;on cherche votre
+          métier + Montauban ou Tarn-et-Garonne, avec un site clair, rassurant et sans usine à gaz technique.
+        </p>
       ) : (
         <p className="mt-3 text-foreground/80 max-w-3xl">
           À {city.name} (agglo {city.populationAgglo}), nous concevons ou refondons des sites vitrines statiques rapides, stables et
@@ -382,6 +408,22 @@ export default function CityServicePage({ params }: Params) {
             <p className="mt-2 text-foreground/80">
               L&apos;objectif : une présence en ligne rapide et lisible, qui répond aux recherches locales autour de Vannes, Auray, Sarzeau
               et du Morbihan, tout en restant simple à maintenir au quotidien.
+            </p>
+          </section>
+        )}
+        {city.name === "Montauban" && (
+          <section>
+            <h2 className="font-heading text-2xl font-semibold">
+              Pourquoi un site vitrine statique à Montauban (Tarn-et-Garonne) ?
+            </h2>
+            <p className="mt-2 text-foreground/80">
+              À Montauban, entre Toulouse et le reste de l&apos;Occitanie, beaucoup d&apos;entreprises évoluent dans l&apos;agroalimentaire,
+              l&apos;aéronautique et la logistique. Un site vitrine statique permet de présenter clairement vos prestations, vos références
+              et vos services B2B, sans multiplier les couches techniques difficiles à maintenir.
+            </p>
+            <p className="mt-2 text-foreground/80">
+              L&apos;objectif : une présence en ligne sobre et efficace qui rassure vos clients et partenaires, optimisée pour les recherches
+              locales autour de Montauban, du Tarn-et-Garonne et du bassin toulousain.
             </p>
           </section>
         )}

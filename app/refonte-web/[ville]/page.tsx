@@ -46,6 +46,9 @@ export async function generateMetadata({ params }: Params) {
   } else if (city.slug === "vannes") {
     description =
       "Refonte de sites internet à Vannes pour artisans, prestataires du nautisme, du tourisme, de l’agroalimentaire et acteurs du numérique/cyber. Passage d’un WordPress lent ou d’un ancien site vers une vitrine statique rapide, claire et plus simple à gérer, avec un soin particulier apporté au référencement local autour du Golfe du Morbihan (Vannes, Auray, Sarzeau). Forfaits 2026 entre 2 490€ et 4 990€ TTC.";
+  } else if (city.slug === "montauban") {
+    description =
+      "Refonte de sites internet à Montauban pour artisans, TPE et PME de l’agroalimentaire, de l’aéronautique et de la logistique en Tarn-et-Garonne. Passage d’un WordPress lent ou d’un ancien site vers une vitrine statique rapide, claire et plus simple à gérer, avec un soin particulier apporté au référencement local autour de Montauban et du bassin toulousain. Forfaits 2026 entre 2 490€ et 4 990€ TTC.";
   }
 
   return {
@@ -154,6 +157,23 @@ const faqForCityRefonte = (cityName: string) => {
       },
       {
         q: "La refonte peut-elle faire baisser mon référencement local à Vannes ?",
+        a: "L’objectif est au contraire de le stabiliser ou de l’améliorer : nous conservons les contenus qui fonctionnent, simplifions la structure et mettons en place des redirections propres. Cela limite les risques de perte de trafic local.",
+      }
+    );
+  }
+
+  if (cityName === "Montauban") {
+    items.push(
+      {
+        q: "Intervenez-vous uniquement à Montauban pour les refontes ?",
+        a: "Non. Je peux vous accompagner si votre entreprise est basée à Montauban, ou plus largement dans le Tarn-et-Garonne (Moissac, Castelsarrasin, etc.) et le bassin toulousain. Les échanges se font principalement en visio ou par téléphone.",
+      },
+      {
+        q: "Que se passe-t-il pour mon ancien site pendant la refonte à Montauban ?",
+        a: "Votre ancien site reste en ligne le temps de préparer la nouvelle version. Au moment du basculement, nous mettons en place les redirections nécessaires pour que vos anciennes URL utiles pointent vers les nouvelles pages, sans casser votre référencement local.",
+      },
+      {
+        q: "La refonte peut-elle faire baisser mon référencement local à Montauban ?",
         a: "L’objectif est au contraire de le stabiliser ou de l’améliorer : nous conservons les contenus qui fonctionnent, simplifions la structure et mettons en place des redirections propres. Cela limite les risques de perte de trafic local.",
       }
     );
@@ -279,6 +299,13 @@ export default function CityRefontePage({ params }: Params) {
           l&apos;agroalimentaire et de petites structures numériques ou cyber. L&apos;idée : remplacer un WordPress lent ou un ancien site
           par une vitrine statique rapide, lisible et plus simple à gérer, sans perdre votre référencement local autour du Golfe
           du Morbihan.
+        </p>
+      ) : city.name === "Montauban" ? (
+        <p className="mt-3 text-foreground/80 max-w-3xl">
+          À Montauban, nous auditons et refondons des sites internet d&apos;artisans, de TPE et de PME de l&apos;agroalimentaire, de
+          l&apos;aéronautique et de la logistique en Tarn-et-Garonne. L&apos;idée : remplacer un WordPress lent ou un ancien site par une
+          vitrine statique rapide, lisible et plus simple à gérer, sans perdre votre référencement local autour de Montauban et
+          du bassin toulousain.
         </p>
       ) : (
         <p className="mt-3 text-foreground/80 max-w-3xl">
