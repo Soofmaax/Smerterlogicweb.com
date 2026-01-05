@@ -52,6 +52,12 @@ export async function generateMetadata({ params }: Params) {
       "Création de site internet à Paris — sites vitrines statiques pour avocats, experts-comptables et cabinets (2026)";
     description =
       "Création de sites vitrines statiques à Paris pour avocats, experts-comptables, cabinets de conseil et petites structures B2B. Sites sobres, rapides et simples à maintenir, pensés pour les recherches locales et sectorielles à Paris et en Île-de-France. Tarifs 2026 à partir de 1 490€ TTC.";
+  } else if (city.slug === "boulogne-billancourt") {
+    description =
+      "Création de sites vitrines statiques à Boulogne-Billancourt pour cabinets, agences média, startups et TPE de services. Sites sobres, rapides et simples à maintenir, pensés pour les recherches locales autour de Boulogne, Issy-les-Moulineaux et l’ouest parisien. Tarifs 2026 à partir de 1 490€ TTC.";
+  } else if (city.slug === "saint-denis") {
+    description =
+      "Création de sites vitrines statiques à Saint-Denis pour acteurs de l’événementiel (Stade de France et alentours), industriels, logisticiens et structures publiques ou associatives. Sites rapides, clairs et simples à maintenir, pensés pour les recherches locales en Seine-Saint-Denis. Tarifs 2026 à partir de 1 490€ TTC.";
   } else if (city.slug === "montauban") {
     description =
       "Création de sites vitrines statiques à Montauban pour artisans, TPE et PME de l’agroalimentaire, de l’aéronautique et de la logistique en Tarn-et-Garonne. Sites rapides, clairs et simples à maintenir, pensés pour être trouvés sur les recherches locales autour de Montauban et du bassin toulousain. Tarifs 2026 à partir de 1 490€ TTC.";
@@ -185,6 +191,40 @@ const faqForCity = (cityName: string, firstSector: string | undefined) => {
       {
         q: "En quoi êtes-vous différent d’une agence web à Paris ?",
         a: "Je ne suis pas une grosse agence web avec des équipes et des process lourds, mais un studio spécialisé en sites vitrines statiques sobres pour professions libérales et TPE B2B. Vous échangez directement avec la personne qui conçoit et réalise le site, le périmètre est clair, et on évite les fonctionnalités inutiles qui complexifient la maintenance.",
+      }
+    );
+  }
+
+  if (cityName === "Boulogne-Billancourt") {
+    items.push(
+      {
+        q: "Travaillez-vous uniquement avec des clients basés à Boulogne-Billancourt ?",
+        a: "Non. Je peux vous accompagner si vous êtes basé à Boulogne-Billancourt, Issy-les-Moulineaux, Paris 16e ou plus largement dans l’ouest parisien. Les échanges se font principalement en visio ou par téléphone, ce qui permet d’avancer vite malgré des agendas chargés.",
+      },
+      {
+        q: "Votre approche convient-elle aux agences média et startups tech de Boulogne-Billancourt ?",
+        a: "Oui. Les sites vitrines statiques sont particulièrement adaptés aux agences, studios et startups : pages claires, mise en avant de vos références, temps de chargement rapides et structure pensée pour le SEO sur vos mots-clés de niche plutôt que sur des dizaines de pages inutiles.",
+      },
+      {
+        q: "Pouvez-vous reprendre un site existant (WordPress, Joomla…) basé à Boulogne-Billancourt ?",
+        a: "Oui. Je peux auditer votre site existant et, si nécessaire, proposer une refonte vers un site vitrine statique plus léger. L’objectif est de simplifier la technique, d’améliorer la vitesse et de garder uniquement ce qui sert vos prospects.",
+      }
+    );
+  }
+
+  if (cityName === "Saint-Denis") {
+    items.push(
+      {
+        q: "Travaillez-vous uniquement avec des structures basées à Saint-Denis ?",
+        a: "Non. Je peux vous accompagner si vous êtes basé à Saint-Denis, Saint-Ouen, Aubervilliers ou ailleurs en Seine-Saint-Denis. Les rendez-vous se font surtout en visio, ce qui convient bien aux équipes qui ont peu de temps disponible.",
+      },
+      {
+        q: "Votre approche convient-elle aux acteurs autour du Stade de France (événementiel, sécurité, logistique) ?",
+        a: "Oui. Les sites vitrines statiques conviennent très bien aux entreprises de l’événementiel, de la sécurité, de la logistique et aux associations : pages claires, mise en avant de vos prestations, formulaires simples et contenus structurés pour des recherches locales comme votre métier + Saint-Denis.",
+      },
+      {
+        q: "Pouvez-vous travailler avec des collectivités ou associations basées à Saint-Denis ?",
+        a: "Oui. Je peux adapter le ton, la structure et les contraintes de votre site aux réalités des collectivités, associations ou structures publiques : accessibilité, clarté de l’information, formulaires de contact simples et pages faciles à parcourir sur mobile.",
       }
     );
   }
@@ -347,6 +387,18 @@ export default function CityServicePage({ params }: Params) {
           cabinets de conseil et petites structures B2B. L&apos;objectif : clarifier votre offre, rassurer vos prospects et limiter la complexité technique
           dans un environnement très concurrentiel.
         </p>
+      ) : city.name === "Boulogne-Billancourt" ? (
+        <p className="mt-3 text-foreground/80 max-w-3xl">
+          À Boulogne-Billancourt (petite couronne ouest), nous concevons des sites vitrines statiques sobres et rapides pour les cabinets, agences
+          médias, studios et startups basés entre Boulogne, Issy-les-Moulineaux et Paris 16e. L&apos;objectif : une présence claire qui valorise vos
+          expertises sans vous enfermer dans une usine à gaz technique.
+        </p>
+      ) : city.name === "Saint-Denis" ? (
+        <p className="mt-3 text-foreground/80 max-w-3xl">
+          À Saint-Denis (Seine-Saint-Denis), nous concevons des sites vitrines statiques rapides et clairs pour les acteurs de l&apos;événementiel
+          (Stade de France et alentours), les industriels, les logisticiens et les structures publiques ou associatives. L&apos;objectif : être visible
+          sur les recherches locales autour de Saint-Denis et du nord parisien, avec un site rassurant et simple à maintenir.
+        </p>
       ) : (
         <p className="mt-3 text-foreground/80 max-w-3xl">
           À {city.name} (agglo {city.populationAgglo}), nous concevons ou refondons des sites vitrines statiques rapides, stables et
@@ -378,6 +430,10 @@ export default function CityServicePage({ params }: Params) {
           <p className="mt-2 text-foreground/80">
             {city.name === "Paris"
               ? "Notre offre de création de site internet à Paris est pensée pour les professions libérales (avocats, experts-comptables, notaires), les consultants et les petites structures B2B qui veulent un site vitrine clair, rapide et sobre pour présenter leurs expertises, leurs équipes et faciliter la prise de rendez-vous."
+              : city.name === "Boulogne-Billancourt"
+              ? "À Boulogne-Billancourt, nous accompagnons principalement des cabinets de conseil, des agences médias, des entreprises de services B2B et des studios créatifs installés dans l’ouest parisien. L’objectif : un site vitrine statique qui explique clairement vos offres et facilite la prise de contact, sans complexité technique inutile."
+              : city.name === "Saint-Denis"
+              ? "À Saint-Denis, nous travaillons avec des acteurs de l’événementiel (Stade de France et alentours), des structures publiques et associatives, ainsi que des PME industrielles ou logistiques. L’objectif : un site vitrine statique clair, accessible et rapide, adapté aux réalités de la Seine-Saint-Denis."
               : `Notre offre de création de site internet à ${city.name} est pensée pour les artisans, professions libérales et TPE locales qui veulent un site vitrine clair, rapide et simple à maintenir\u00a0: plomberie, électricité, textile, industrie mécanique, agroalimentaire, conseil, coaching, etc. Nous adaptons le ton et les exemples à votre réalité de terrain.`}
           </p>
         </section>
