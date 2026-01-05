@@ -6,7 +6,7 @@ import { Reveal } from "@/components/site/reveal";
 
 import { Button } from "@/components/ui/button";
 import { Breadcrumbs } from "@/components/site/breadcrumbs";
-import { SITE_URL, absoluteUrl, COMPANY_NAME } from "@/config/site";
+import { SITE_URL, absoluteUrl, COMPANY_NAME, PHONE_NUMBER_PUBLIC } from "@/config/site";
 
 export const dynamic = "force-static";
 
@@ -230,7 +230,7 @@ export default function CityServicePage({ params }: Params) {
       "@type": "AggregateOffer",
       priceCurrency: "EUR",
       lowPrice: "1490",
-      highPrice: "2490",
+      highPrice: "4990",
       availability: "https://schema.org/InStock",
     },
   };
@@ -360,6 +360,11 @@ export default function CityServicePage({ params }: Params) {
         <Button asChild className="rounded-full" variant="secondary">
           <Link href="/tarifs-2025">Voir les tarifs 2026</Link>
         </Button>
+        {PHONE_NUMBER_PUBLIC && (
+          <Button asChild className="rounded-full" variant="ghost">
+            <a href={`tel:${PHONE_NUMBER_PUBLIC.replace(/[^+\d]/g, "")}`}>Appeler pour en parler</a>
+          </Button>
+        )}
       </div>
 
       {/* Body */}
@@ -369,10 +374,9 @@ export default function CityServicePage({ params }: Params) {
             Pour quels types d&apos;entreprises à {city.name} ?
           </h2>
           <p className="mt-2 text-foreground/80">
-            Notre offre de création de site internet à {city.name} est pensée pour les artisans, professions libérales et TPE
-            locales qui veulent un site vitrine clair, rapide et simple à maintenir&nbsp;: plomberie, électricité, textile,
-            industrie mécanique, agroalimentaire, conseil, coaching, etc. Nous adaptons le ton et les exemples à votre
-            réalité de terrain.
+            {city.name === "Paris"
+              ? "Notre offre de création de site internet à Paris est pensée pour les professions libérales (avocats, experts-comptables, notaires), les consultants et les petites structures B2B qui veulent un site vitrine clair, rapide et sobre pour présenter leurs expertises, leurs équipes et faciliter la prise de rendez-vous."
+              : `Notre offre de création de site internet à ${city.name} est pensée pour les artisans, professions libérales et TPE locales qui veulent un site vitrine clair, rapide et simple à maintenir\u00a0: plomberie, électricité, textile, industrie mécanique, agroalimentaire, conseil, coaching, etc. Nous adaptons le ton et les exemples à votre réalité de terrain.`}
           </p>
         </section>
         {city.name === "Niort" && (
@@ -498,6 +502,18 @@ export default function CityServicePage({ params }: Params) {
             </Link>
             .
           </p>
+          {city.name === "Paris" && (
+            <p className="mt-1 text-xs text-muted-foreground">
+              Pour comparer freelance, agence et builder No‑Code à Paris, vous pouvez aussi lire{" "}
+              <Link
+                href="/blog/freelance-agence-builder-comparatif"
+                className="text-primary hover:underline"
+              >
+                ce comparatif détaillé
+              </Link>
+              .
+            </p>
+          )}
         </section>
         <section>
           <h2 className="font-heading text-2xl font-semibold">Nos formules 2026 pour {city.name}</h2>

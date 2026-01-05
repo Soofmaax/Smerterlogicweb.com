@@ -5,7 +5,7 @@ import { BookingButton } from "@/components/site/booking-modal";
 import { Reveal } from "@/components/site/reveal";
 import { Button } from "@/components/ui/button";
 import { Breadcrumbs } from "@/components/site/breadcrumbs";
-import { SITE_URL, absoluteUrl, COMPANY_NAME } from "@/config/site";
+import { SITE_URL, absoluteUrl, COMPANY_NAME, PHONE_NUMBER_PUBLIC } from "@/config/site";
 
 export const dynamic = "force-static";
 
@@ -347,6 +347,11 @@ export default function CityRefontePage({ params }: Params) {
         <Button asChild className="rounded-full" variant="secondary">
           <Link href={`/creation-site-internet/${city.slug}`}>Besoin d’un site neuf ? Voir la création</Link>
         </Button>
+        {PHONE_NUMBER_PUBLIC && (
+          <Button asChild className="rounded-full" variant="ghost">
+            <a href={`tel:${PHONE_NUMBER_PUBLIC.replace(/[^+\d]/g, "")}`}>Appeler pour parler de la refonte</a>
+          </Button>
+        )}
       </div>
 
       {/* Body */}
