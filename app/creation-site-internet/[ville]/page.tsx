@@ -3,7 +3,7 @@ import { notFound } from "next/navigation";
 import { getLocalCityBySlug, getAllLocalCitySlugs } from "@/data/local-cities";
 import { BookingButton } from "@/components/site/booking-modal";
 import { Reveal } from "@/components/site/reveal";
-import { Particles } from "@/components/site/particles";
+
 import { Button } from "@/components/ui/button";
 import { Breadcrumbs } from "@/components/site/breadcrumbs";
 import { SITE_URL, absoluteUrl, COMPANY_NAME } from "@/config/site";
@@ -32,7 +32,7 @@ export async function generateMetadata({ params }: Params) {
     };
   }
   const sectors = city.sectors.join(", ").toLowerCase();
-  const title = `Création de site internet à ${city.name} pour artisans et TPE — Expertise locale ${city.departmentCode}`;
+  const title = `Création de site internet à ${city.name} — sites vitrines statiques pour artisans et TPE (2026)`;
   const description = `Création de sites vitrines statiques à ${city.name} pour artisans, TPE et PME des secteurs ${sectors}. Audit et devis gratuits. Forfaits 2026 à partir de 1 490€ TTC.`;
 
   return {
@@ -148,9 +148,8 @@ export default function CityServicePage({ params }: Params) {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
 
       {/* Ambient background */}
-     <<div aria-hidden className="pointer-events-none absolute inset-0 -z-10">
-       <<div className="hero-gradient-animated absolute inset-0 rounded-[28px] opacity-60" />
-    </  <Particles />
+      <div aria-hidden className="pointer-events-none absolute inset-0 -z-10">
+        <div className="hero-gradient-animated absolute inset-0 rounded-[28px] opacity-60" />
       </div>
 
       {/* Hero */}
@@ -218,6 +217,46 @@ export default function CityServicePage({ params }: Params) {
           </p>
           <p className="mt-2 text-sm text-muted-foreground">
             Détails des offres et exemples concrets sur la page{" "}
+            <Link href="/tarifs-2025#tarifs" className="text-primary hover:underline">
+              Tarifs&nbsp;2026
+            </Link>
+            .
+          </p>
+        </section>
+        <section>
+          <h2 className="font-heading text-2xl font-semibold">Nos formules 2026 pour {city.name}</h2>
+          <div className="mt-2 grid gap-4 md:grid-cols-3">
+            <div className="rounded-2xl border bg-background/60 p-4 text-left">
+              <h3 className="text-lg font-semibold">Essentiel</h3>
+              <p className="mt-1 text-sm text-foreground/80">
+                Présence claire en ligne pour artisans et TPE : 4–6 pages (Accueil, Services, À propos, Contact), formulaire simple,
+                textes structurés pour le SEO local.
+              </p>
+              <p className="mt-2 text-xs text-muted-foreground">
+                Idéal si vous démarrez ou si vous avez un ancien site très simple à remplacer.
+              </p>
+            </div>
+            <div className="rounded-2xl border bg-background/60 p-4 text-left">
+              <h3 className="text-lg font-semibold">Professionnel</h3>
+              <p className="mt-1 text-sm text-foreground/80">
+                Plus de contenu et de preuves : blog ou actualités, FAQ, cas clients, sections services détaillées pour mieux convertir vos visiteurs.
+              </p>
+              <p className="mt-2 text-xs text-muted-foreground">
+                Pour les entreprises qui veulent expliquer en profondeur leur offre et rassurer avant le contact.
+              </p>
+            </div>
+            <div className="rounded-2xl border bg-background/60 p-4 text-left">
+              <h3 className="text-lg font-semibold">Premium</h3>
+              <p className="mt-1 text-sm text-foreground/80">
+                Projet sur‑mesure plus exigeant : beaucoup de pages ou de cas clients, bilingue, intégrations spécifiques, travail éditorial accompagné.
+              </p>
+              <p className="mt-2 text-xs text-muted-foreground">
+                Pour les structures qui ont déjà de la matière et veulent un site de référence complet.
+              </p>
+            </div>
+          </div>
+          <p className="mt-3 text-sm text-muted-foreground">
+            Les prix exacts dépendent de votre projet. La plupart des sites se situent dans les fourchettes Essentiel / Professionnel / Premium de la page{" "}
             <Link href="/tarifs-2025#tarifs" className="text-primary hover:underline">
               Tarifs&nbsp;2026
             </Link>

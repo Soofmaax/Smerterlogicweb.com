@@ -3,9 +3,9 @@ import { notFound } from "next/navigation";
 import { getLocalCityBySlug, getAllLocalCitySlugs } from "@/data/local-cities";
 import { BookingButton } from "@/components/site/booking-modal";
 import { Reveal } from "@/components/site/reveal";
-import { Particles } from "@/components/site/particles";
 import { Button } from "@/components/ui/button";
 import { Breadcrumbs } from "@/components/site/breadcrumbs";
+import { SITE_URL, absoluteUrl, COMPANY_NAME } from "@/config/site";
 
 export const dynamic = "force-static";
 
@@ -31,8 +31,8 @@ export async function generateMetadata({ params }: Params) {
     };
   }
   const sectors = city.sectors.join(", ").toLowerCase();
-  const title = `Refonte de site internet à ${city.name} pour TPE et artisans — Audit & site vitrine statique`;
-  const description = `Audit et refonte de sites internet à ${city.name} pour artisans, TPE et PME des secteurs ${sectors}. Passage vers un site vitrine statique plus rapide et plus simple à maintenir. Devis gratuit. Forfaits refonte 2026 à partir de 2 490€ TTC.`;
+  const title = `Refonte de site internet à ${city.name} — WordPress lent → site vitrine statique rapide (2026)`;
+  const description = `Refonte de sites internet à ${city.name} pour artisans, TPE et PME des secteurs ${sectors}. Passage d'un site lourd (souvent WordPress) vers un site vitrine statique plus rapide, plus clair et plus simple à maintenir. Devis gratuit. Forfaits refonte 2026 entre 2 490€ et 4 990€ TTC.`;
 
   return {
     title,
@@ -45,7 +45,7 @@ export async function generateMetadata({ params }: Params) {
       type: "website",
       title,
       description,
-      url: `https://smarterlogicweb.com/refonte-web/${city.slug}`,
+      url: absoluteUrl(`/refonte-web/${city.slug}`),
     },
   };
 }
@@ -90,8 +90,8 @@ export default function CityRefontePage({ params }: Params) {
     serviceType: "Refonte de site web",
     provider: {
       "@type": "LocalBusiness",
-      name: "smarterlogicweb",
-      url: "https://smarterlogicweb.com",
+      name: COMPANY_NAME,
+      url: SITE_URL,
       areaServed: [city.name, ...city.satellites],
     },
     areaServed: [city.name, ...city.satellites],
@@ -122,19 +122,19 @@ export default function CityRefontePage({ params }: Params) {
         "@type": "ListItem",
         position: 1,
         name: "Accueil",
-        item: "https://smarterlogicweb.com/",
+        item: absoluteUrl("/"),
       },
       {
         "@type": "ListItem",
         position: 2,
         name: "Refonte Web",
-        item: "https://smarterlogicweb.com/services",
+        item: absoluteUrl("/services"),
       },
       {
         "@type": "ListItem",
         position: 3,
         name: `Refonte de site web à ${city.name}`,
-        item: `https://smarterlogicweb.com/refonte-web/${city.slug}`,
+        item: absoluteUrl(`/refonte-web/${city.slug}`),
       },
     ],
   };
@@ -147,9 +147,8 @@ export default function CityRefontePage({ params }: Params) {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
 
       {/* Ambient background */}
-     <<div aria-hidden className="pointer-events-none absolute inset-0 -z-10">
-       <<div className="hero-gradient-animated absolute inset-0 rounded-[28px] opacity-60" />
-        <Particles />
+      <div aria-hidden className="pointer-events-none absolute inset-0 -z-10">
+        <div className="hero-gradient-animated absolute inset-0 rounded-[28px] opacity-60" />
       </div>
 
       {/* Hero */}
