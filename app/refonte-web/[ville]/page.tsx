@@ -40,6 +40,9 @@ export async function generateMetadata({ params }: Params) {
   } else if (city.slug === "brive-la-gaillarde") {
     description =
       "Refonte de sites internet à Brive-la-Gaillarde pour artisans, TPE et petites entreprises de l’agroalimentaire, de la logistique et du tourisme vert en Corrèze. Passage d'un WordPress lent ou d'un ancien site vers un site vitrine statique rapide, stable et plus simple à maintenir, sans perdre votre référencement local. Forfaits 2026 entre 2 490€ et 4 990€ TTC.";
+  } else if (city.slug === "cholet") {
+    description =
+      "Refonte de sites internet à Cholet pour artisans, commerçants et PME du textile, de la mode, de la mécanique et de l’agroalimentaire. Passage d’un WordPress lent ou d’un ancien site vers une vitrine statique rapide, claire et plus simple à gérer, avec un soin particulier apporté au référencement local dans le bassin choletais. Forfaits 2026 entre 2 490€ et 4 990€ TTC.";
   }
 
   return {
@@ -115,6 +118,23 @@ const faqForCityRefonte = (cityName: string) => {
       {
         q: "La refonte peut-elle faire baisser mon référencement local ?",
         a: "L’objectif est inverse : stabiliser et améliorer votre présence locale. Nous conservons les contenus qui fonctionnent, simplifions l’architecture et ajoutons des redirections propres. Cela évite les pertes de trafic liées aux refontes mal maîtrisées.",
+      }
+    );
+  }
+
+  if (cityName === "Cholet") {
+    items.push(
+      {
+        q: "Intervenez-vous uniquement à Cholet pour les refontes ?",
+        a: "Non. Je peux vous accompagner si votre entreprise est basée à Cholet, Maulévrier, Mortagne-sur-Sèvre ou dans le bassin choletais en général. Les échanges se font principalement en visio ou par téléphone.",
+      },
+      {
+        q: "Que se passe-t-il pour mon ancien site pendant la refonte à Cholet ?",
+        a: "Votre ancien site reste en ligne le temps de préparer la nouvelle version. Au moment du basculement, nous mettons en place les redirections nécessaires pour que vos anciennes URL utiles pointent vers les nouvelles pages, sans casser votre référencement local.",
+      },
+      {
+        q: "La refonte peut-elle faire baisser mon référencement local à Cholet ?",
+        a: "L’objectif est plutôt de le renforcer : nous conservons les contenus qui fonctionnent, simplifions la structure et ajoutons des redirections propres. Cela limite fortement les risques de baisse liés aux refontes mal préparées.",
       }
     );
   }
@@ -226,6 +246,12 @@ export default function CityRefontePage({ params }: Params) {
           l&apos;agroalimentaire, de la logistique et du tourisme vert en Corrèze. L&apos;idée : remplacer un WordPress lent ou un ancien
           site par une vitrine statique rapide, claire et plus simple à gérer, sans perdre votre référencement local autour de
           Brive et de l&apos;axe A20.
+        </p>
+      ) : city.name === "Cholet" ? (
+        <p className="mt-3 text-foreground/80 max-w-3xl">
+          À Cholet, nous auditons et refondons des sites internet d&apos;artisans, de commerçants et de PME du textile, de la mode,
+          de la mécanique et de l&apos;agroalimentaire. L&apos;idée : transformer un WordPress lent ou une ancienne vitrine en site statique
+          rapide, lisible et plus simple à gérer, sans perdre votre référencement local autour du bassin choletais.
         </p>
       ) : (
         <p className="mt-3 text-foreground/80 max-w-3xl">

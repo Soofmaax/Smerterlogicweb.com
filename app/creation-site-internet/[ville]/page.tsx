@@ -41,6 +41,9 @@ export async function generateMetadata({ params }: Params) {
   } else if (city.slug === "brive-la-gaillarde") {
     description =
       "Création de sites vitrines statiques à Brive-la-Gaillarde pour artisans, TPE et petites entreprises de l’agroalimentaire, de la logistique et du tourisme vert en Corrèze. Sites rapides, clairs et simples à maintenir, pensés pour être trouvés sur les recherches locales. Tarifs 2026 à partir de 1 490€ TTC.";
+  } else if (city.slug === "cholet") {
+    description =
+      "Création de sites vitrines statiques à Cholet pour artisans, commerçants et PME du textile, de la mode, de la mécanique et de l’agroalimentaire. Sites rapides, sobres et simples à maintenir, pensés pour le référencement local dans le Choletais. Tarifs 2026 à partir de 1 490€ TTC.";
   }
 
   return {
@@ -116,6 +119,23 @@ const faqForCity = (cityName: string, firstSector: string | undefined) => {
       {
         q: "Combien de temps dure un projet de création de site à Brive-la-Gaillarde ?",
         a: "Pour un site vitrine simple, comptez en général 3 à 5 semaines, selon la rapidité avec laquelle vous validez les textes et les maquettes. Les projets plus riches en contenus (cas clients, blog) peuvent s’étaler sur 6 à 8 semaines.",
+      }
+    );
+  }
+
+  if (cityName === "Cholet") {
+    items.push(
+      {
+        q: "Travaillez-vous uniquement avec des entreprises de Cholet ?",
+        a: "Non. Je peux vous accompagner si vous êtes basé à Cholet, mais aussi dans les communes du bassin choletais comme Maulévrier ou Mortagne-sur-Sèvre. Les échanges se font en visio ou par téléphone, ce qui reste très simple à organiser.",
+      },
+      {
+        q: "Votre approche convient-elle aux secteurs textile, mode et industrie à Cholet ?",
+        a: "Oui. Les sites vitrines statiques sont particulièrement adaptés aux entreprises du textile, de la mode, de la mécanique ou de l’agroalimentaire : pages claires, visuels mis en avant, temps de chargement rapides et structure pensée pour le référencement local.",
+      },
+      {
+        q: "Combien de temps dure un projet de création de site à Cholet ?",
+        a: "Pour un site vitrine simple, comptez en général 3 à 5 semaines, selon la rapidité avec laquelle vous validez les textes, les visuels et les maquettes. Les projets plus complets avec plus de contenus ou de preuves peuvent s’étaler sur 6 à 8 semaines.",
       }
     );
   }
@@ -237,6 +257,12 @@ export default function CityServicePage({ params }: Params) {
           pour les artisans, indépendants et TPE de l&apos;agroalimentaire, de la logistique et du tourisme vert en Corrèze. L&apos;objectif :
           être visible lorsqu&apos;on cherche votre métier + Brive ou Corrèze, avec un site clair, rassurant et sans usine à gaz technique.
         </p>
+      ) : city.name === "Cholet" ? (
+        <p className="mt-3 text-foreground/80 max-w-3xl">
+          À Cholet (agglo {city.populationAgglo}), nous concevons des sites vitrines statiques rapides et sobres pour les artisans, commerçants et
+          PME du textile, de la mode, de la mécanique et de l&apos;agroalimentaire. L&apos;objectif : une présence claire qui parle à vos clients
+          du Choletais, sans usine à gaz ni back‑office que personne n&apos;ose utiliser.
+        </p>
       ) : (
         <p className="mt-3 text-foreground/80 max-w-3xl">
           À {city.name} (agglo {city.populationAgglo}), nous concevons ou refondons des sites vitrines statiques rapides, stables et
@@ -298,6 +324,22 @@ export default function CityServicePage({ params }: Params) {
               Vous avez un interlocuteur unique, du premier échange au lancement. On parle délais, budget et contenu de manière
               concrète, puis on avance sans surprise, avec un site pensé pour les recherches locales autour de Brive, Tulle, Ussel et
               la vallée de la Corrèze.
+            </p>
+          </section>
+        )}
+        {city.name === "Cholet" && (
+          <section>
+            <h2 className="font-heading text-2xl font-semibold">
+              Pourquoi un site vitrine statique pour le Choletais ?
+            </h2>
+            <p className="mt-2 text-foreground/80">
+              À Cholet, beaucoup d&apos;entreprises évoluent dans le textile, la mode, l&apos;industrie et l&apos;agroalimentaire. Un site vitrine
+              statique permet de présenter clairement vos offres, vos collections ou vos services, sans multiplier les plugins ni les
+              couches techniques difficiles à maintenir.
+            </p>
+            <p className="mt-2 text-foreground/80">
+              L&apos;objectif : une présence en ligne sobre et efficace qui rassure vos clients B2B ou B2C, optimisée pour les recherches
+              locales autour de Cholet, Maulévrier, Mortagne-sur-Sèvre et le bassin choletais.
             </p>
           </section>
         )}
