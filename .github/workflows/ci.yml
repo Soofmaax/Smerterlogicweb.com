@@ -83,8 +83,8 @@ jobs:
             npm i --package-lock-only
           fi
 
-      - name: Install dependencies (npm ci with lockfile)
-        run: npm ci
+      - name: Install dependencies
+        run: npm install --no-fund --no-audit
 
       - name: Prettier Check
         run: |
@@ -130,7 +130,7 @@ jobs:
             npm i --package-lock-only
           fi
 
-      - run: npm ci --omit=dev
+      - run: npm install --omit=dev --no-fund --no-audit
       - run: npm audit --audit-level=high || true
 
   sbom:
@@ -150,7 +150,7 @@ jobs:
             npm i --package-lock-only
           fi
 
-      - run: npm ci
+      - run: npm install --no-fund --no-audit
 
       - name: CycloneDX SBOM
         uses: CycloneDX/gh-node-module-generatebom@v1
