@@ -81,3 +81,7 @@ solid
 Neue
 Cantarell
 Segoe
+whose
+slugs
+Slugs
+featured
