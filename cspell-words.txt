@@ -85,3 +85,9 @@ whose
 slugs
 Slugs
 featured
+recevez
+noreferrer
+noopener
+aussi
+lire
+Lire
