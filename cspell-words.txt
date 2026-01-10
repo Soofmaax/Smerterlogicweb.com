@@ -188,3 +188,13 @@ vitesse
 sémantique
 essentielles
 balises
+analyse
+avancé
+pagination
+catégories
+intégré
+contenu
+stratégie
+complet
+souhaitant
+établis
