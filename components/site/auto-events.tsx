@@ -3,7 +3,14 @@
 import * as React from "react";
 import { track } from "@/lib/analytics";
 
+const PROVIDER = (process.env.NEXT_PUBLIC_ANALYTICS_PROVIDER || "").toLowerCase();
+
 function hasConsent(): boolean {
+  // Privacy-friendly providers (Plausible/Umami) can run without explicit analytics consent
+  if (PROVIDER === "plausible" || PROVIDER === "umami") {
+    return true;
+  }
+
   if (typeof document === "undefined") return false;
   const m = document.cookie.match(/(?:^|; )cookie_consent=([^;]+)/);
   if (!m) return false;

@@ -21,12 +21,16 @@ function getConsent(): { analytics?: boolean } | null {
 }
 
 export function AnalyticsLoader() {
-  const [allowed, setAllowed] = React.useState(false);
+  const isPrivacySafeProvider = PROVIDER === "plausible" || PROVIDER === "umami";
+
+  const [allowed, setAllowed] = React.useState<boolean>(isPrivacySafeProvider);
 
   React.useEffect(() => {
+    if (isPrivacySafeProvider) return;
+
     const c = getConsent();
     setAllowed(Boolean(c && c.analytics === true));
-  }, []);
+  }, [isPrivacySafeProvider]);
 
   if (!allowed) return null;
 
