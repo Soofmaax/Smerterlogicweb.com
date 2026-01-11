@@ -94,18 +94,7 @@ export default function BlogIndexFR() {
         </ul>
       )}
 
-      {scheduled.length > published.length ? (
-        <div className="mt-8 rounded-xl border bg-card p-6">
-          <h3 className="text-lg font-semibold">À venir</h3>
-          <ul className="mt-2 space-y-1 text-sm text-muted-foreground">
-            {scheduled.slice(published.length, Math.min(scheduled.length, published.length + 6)).map((p) => (
-              <li key={`upcoming-${p.slug}`}>
-                {formatDate(p.publishAt, "fr")} — {p.title}
-              </li>
-            ))}
-          </ul>
-        </div>
-      ) : null}
+      
     <QuickLinks />
       </div>
     </section>
