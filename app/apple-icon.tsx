@@ -12,8 +12,8 @@ export default function AppleIcon() {
           width: "100%",
           height: "100%",
           display: "flex",
-          // Brand blue gradient background
-          background: "linear-gradient(135deg, #22d3ee 0%, #6366f1 100%)",
+          // Brand black background to match new logo
+          background: "#000000",
           alignItems: "center",
           justifyContent: "center",
           borderRadius: 36,
