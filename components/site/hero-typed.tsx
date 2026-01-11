@@ -12,7 +12,7 @@ export function HeroTyped() {
   const line3 = "DU PIXEL AU PAPIER";
   const tagline1 = "VOS RÊVES,";
   const tagline2 = "NOS ASTUCES !";
-  const punchline = "Votre concurrent a déjà son site. Et vous ?";
+  const punchline = "Votre concurrent a déjà son site.";
 
   const [titleTyped, setTitleTyped] = React.useState("");
   const [showCaretTitle, setShowCaretTitle] = React.useState(true);
@@ -82,13 +82,18 @@ export function HeroTyped() {
 
         {/* Main punchline with typewriter */}
         <h1 className="mt-6 font-heading text-3xl font-bold tracking-tight text-foreground md:text-4xl text-balance">
-          {titleTyped || punchline}
-          {showCaretTitle && (
-            <span
-              className="ml-1 inline-block w-[2px] animate-pulse bg-foreground align-middle"
-              style={{ height: "1em" }}
-            />
-          )}
+          <span className="block">
+            {titleTyped || punchline}
+          </span>
+          <span className="block">
+            Et vous ?
+            {showCaretTitle && (
+              <span
+                className="ml-1 inline-block w-[2px] animate-pulse bg-foreground align-middle"
+                style={{ height: "1em" }}
+              />
+            )}
+          </span>
         </h1>
 
         {/* Tagline */}
@@ -137,7 +142,8 @@ export function HeroTyped() {
 
         {/* Small note under CTA */}
         <div className="mt-2 text-xs text-muted-foreground">
-          Votre concurrent a déjà son site. Et vous ?
+          <span className="block">Votre concurrent a déjà son site.</span>
+          <span className="block">Et vous ?</span>
         </div>
 
         {/* Récap visuel juste après le hero */}
