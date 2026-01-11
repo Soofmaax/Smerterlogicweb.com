@@ -3,13 +3,21 @@ import { render, screen } from "@testing-library/react";
 import { Header } from "@/components/site/header";
 import * as nextNavigation from "next/navigation";
 
+let pathnameSpy: ReturnType<typeof vi.spyOn> | null = null;
+
 function mockPathname(path: string) {
-  vi.spyOn(nextNavigation, "usePathname").mockReturnValue(path);
+  if (!pathnameSpy) {
+    pathnameSpy = vi.spyOn(nextNavigation, "usePathname");
+  }
+  pathnameSpy.mockReturnValue(path);
 }
 
 vi.mock("@/lib/analytics", () => ({
   track: vi.fn(),
 }));
+
+afterEach(() => {
+  // restore spies/mocks between tests to avoid redef}));
 
 describe("Header locale switch", () => {
   it("bascule de FR vers EN en conservant le slug", () => {

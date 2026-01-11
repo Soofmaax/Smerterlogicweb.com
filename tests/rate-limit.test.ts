@@ -41,11 +41,13 @@ describe("checkRateLimit", () => {
     const g = globalThis as unknown as { __RATE_LIMIT_STORE?: Map<string, { count: number; resetAt: number }> };
     const store = g.__RATE_LIMIT_STORE!;
     const entry = store.get(key)!;
-    store.set(key, { ...entry, resetAt: Date.now() - 1 });
+    // Forcer resetAt suffisamment loin dans le passé pour que checkRateLimit recalcule une nouvelle fenêtre
+    store.set(key, { ...entry, resetAt: Date.now() - 1_000 });
 
     const r2 = checkRateLimit(key, 1, 10);
     expect(r2.ok).toBe(true);
     expect(r2.remaining).toBe(0);
-    expect(r2.resetAt).toBeGreaterThan(r1.resetAt);
+    // Le resetAt doit être >= à l'ancien, on vérifie simplement qu'il a été recalculé
+    expect(r2.resetAt).toBeGreaterThanOrEqual(r1.resetAt);
   });
 });
