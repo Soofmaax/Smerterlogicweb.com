@@ -28,7 +28,8 @@
     "dist",
     "build",
     "**/*-lock.json",
-    "package-lock.json"
+    "package-lock.json",
+    "app/api/pdf/grille-tarifs-2025/route.ts"
   ],
   "ignoreRegExpList": [
     "/https?:[^\\s)]+/g",
