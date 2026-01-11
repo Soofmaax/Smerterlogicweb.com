@@ -101,7 +101,7 @@ export function HeroTyped() {
 
         {/* Contact line from card */}
         <p className="mt-4 text-sm text-foreground/80">
-          +33 7 44 40 79 73 ·{" "}
+          07 44 40 79 73 ·{" "}
           <a href="mailto:sonia@smarterlogicweb.com" className="underline hover:no-underline">
             sonia@smarterlogicweb.com
           </a>{" "}
