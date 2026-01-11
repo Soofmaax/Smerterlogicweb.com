@@ -45,7 +45,7 @@ export default function ContactPage() {
           <BookingButton size="lg" className="rounded-full" label="Book my free audit (15 min)" />
           {process.env.NEXT_PUBLIC_PHONE ? (
             <Button asChild size="lg" className="rounded-full">
-              <a href={`tel:${(process.env.NEXT_PUBLIC_PHONE as string).replace(/[^+\d]/g, "")}`}>📞 Call now</a>
+              <a href={`tel:${(process.env.NEXT_PUBLIC_PHONE as string).replace(/[^+\d]/g, "")}`}>📞 07 44 40 79 73</a>
             </Button>
           ) : null}
           <Button asChild size="lg" className="rounded-full">

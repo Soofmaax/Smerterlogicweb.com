@@ -63,7 +63,7 @@ export default function ContactPage() {
           <BookingButton size="lg" className="rounded-full" label="Réserver un audit gratuit" />
           {process.env.NEXT_PUBLIC_PHONE ? (
             <Button asChild size="lg" className="rounded-full">
-              <a href={`tel:${(process.env.NEXT_PUBLIC_PHONE as string).replace(/[^+\d]/g, "")}`}>📞 Appeler</a>
+              <a href={`tel:${(process.env.NEXT_PUBLIC_PHONE as string).replace(/[^+\d]/g, "")}`}>📞 07 44 40 79 73</a>
             </Button>
           ) : null}
           <Link href="/" className="text-sm text-muted-foreground hover:text-foreground">Retour à l’accueil</Link>
