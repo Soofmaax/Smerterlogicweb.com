@@ -2,7 +2,7 @@ import * as React from "react";
 import { CheckCircle2, Star } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { BookingButton } from "@/components/site/booking-modal";
-import { PLANS_FR, URGENCY_SLOTS_LEFT_MONTH } from "@/data/pricing";
+import { PLANS_FR } from "@/data/pricing";
 
 type Plan = {
   name: string;

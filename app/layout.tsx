@@ -14,7 +14,6 @@ import { AutoEvents } from "@/components/site/auto-events";
 import { EasterEggs } from "@/components/site/easter-eggs";
 import { AssistantOverlay } from "@/components/site/assistant-overlay";
 import { GyroTilt } from "@/components/site/gyro-tilt";
-import { UrgencyBanner } from "@/components/site/urgency-banner";
 import {
   SITE_URL,
   BRAND_DOMAIN,
@@ -238,10 +237,6 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         <ScrollProgress />
         
         <GyroTilt />
-
-        {/* Urgency fixed banner at top + spacer to avoid overlap */}
-        <UrgencyBanner />
-        <div aria-hidden className="h-11" />
 
         <a href="#content" className="sr-only focus:not-sr-only fixed top-2 left-2 z-50 rounded bg-primary px-3 py-2 text-white">
           Passer au contenu
