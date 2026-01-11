@@ -1,7 +1,7 @@
 import { describe, it, expect, afterEach } from "vitest";
 import { applyPublishTime, computePublishAtISO } from "@/lib/blog-time";
 
-function withEnv<T>(env: Record<string, string | undefined>, fn: () =&gt; T): T {
+function withEnv<T>(env: Record<string, string | undefined>, fn: () => T): T {
   const prev: Record<string, string | undefined> = {};
   for (const key of Object.keys(env)) {
     prev[key] = process.env[key];
@@ -24,20 +24,20 @@ function withEnv<T>(env: Record<string, string | undefined>, fn: () =&gt; T): T 
   return result;
 }
 
-describe("blog-time", () =&gt; {
-  afterEach(() =&gt; {
+describe("blog-time", () => {
+  afterEach(() => {
     delete process.env.BLOG_PUBLISH_LOCAL_HOUR;
     delete process.env.BLOG_PUBLISH_HOUR;
     delete process.env.BLOG_PUBLISH_TZ;
   });
 
-  it("computePublishAtISO respecte l'heure locale et Europe/Paris hors DST", () =&gt; {
+  it("computePublishAtISO respecte l'heure locale et Europe/Paris hors DST", () => {
     const iso = withEnv(
       {
         BLOG_PUBLISH_LOCAL_HOUR: "9",
         BLOG_PUBLISH_TZ: "Europe/Paris",
       },
-      () =&gt; computePublishAtISO("2025-02-10") as string,
+      () => computePublishAtISO("2025-02-10") as string,
     );
 
     const d = new Date(iso);
@@ -47,13 +47,13 @@ describe("blog-time", () =&gt; {
     expect(d.getUTCDate()).toBe(10);
   });
 
-  it("computePublishAtISO respecte l'heure locale et Europe/Paris en DST", () =&gt; {
+  it("computePublishAtISO respecte l'heure locale et Europe/Paris en DST", () => {
     const iso = withEnv(
       {
         BLOG_PUBLISH_LOCAL_HOUR: "9",
         BLOG_PUBLISH_TZ: "Europe/Paris",
       },
-      () =&gt; computePublishAtISO("2025-06-10") as string,
+      () => computePublishAtISO("2025-06-10") as string,
     );
 
     const d = new Date(iso);
@@ -63,7 +63,7 @@ describe("blog-time", () =&gt; {
     expect(d.getUTCDate()).toBe(10);
   });
 
-  it("applyPublishTime applique l'heure locale sur un slot de date (Europe/Paris)", () =&gt; {
+  it("applyPublishTime applique l'heure locale sur un slot de date (Europe/Paris)", () => {
     const base = new Date(Date.UTC(2025, 1, 10, 0, 0, 0));
 
     const scheduled = withEnv(
@@ -71,7 +71,7 @@ describe("blog-time", () =&gt; {
         BLOG_PUBLISH_LOCAL_HOUR: "10",
         BLOG_PUBLISH_TZ: "Europe/Paris",
       },
-      () =&gt; applyPublishTime(base),
+      () => applyPublishTime(base),
     );
 
     expect(scheduled.getUTCFullYear()).toBe(2025);
@@ -80,7 +80,7 @@ describe("blog-time", () =&gt; {
     expect(scheduled.getUTCHours()).toBe(9);
   });
 
-  it("applyPublishTime retombe sur BLOG_PUBLISH_HOUR si BLOG_PUBLISH_LOCAL_HOUR est absent", () =&gt; {
+  it("applyPublishTime retombe sur BLOG_PUBLISH_HOUR si BLOG_PUBLISH_LOCAL_HOUR est absent", () => {
     const base = new Date(Date.UTC(2025, 1, 10, 0, 0, 0));
 
     const scheduled = withEnv(
@@ -88,7 +88,7 @@ describe("blog-time", () =&gt; {
         BLOG_PUBLISH_HOUR: "6",
         BLOG_PUBLISH_TZ: "",
       },
-      () =&gt; applyPublishTime(base),
+      () => applyPublishTime(base),
     );
 
     expect(scheduled.getUTCHours()).toBe(6);

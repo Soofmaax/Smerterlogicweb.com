@@ -1,4 +1,4 @@
-import { describe, it, expect, vi } from "vitest";
+import { describe, it, expect, vi, afterEach } from "vitest";
 import { render, screen } from "@testing-library/react";
 import { Header } from "@/components/site/header";
 import * as nextNavigation from "next/navigation";
@@ -17,7 +17,9 @@ vi.mock("@/lib/analytics", () => ({
 }));
 
 afterEach(() => {
-  // restore spies/mocks between tests to avoid redef}));
+  vi.restoreAllMocks();
+  pathnameSpy = null;
+});
 
 describe("Header locale switch", () => {
   it("bascule de FR vers EN en conservant le slug", () => {
