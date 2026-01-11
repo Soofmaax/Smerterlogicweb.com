@@ -2,6 +2,10 @@ import * as React from "react";
 import { CheckCircle2, Star } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { BookingButton } from "@/components/site/booking-modal";
+import { PLANS_FR } from "@/data/pricing"; as React from "react";
+import { CheckCircle2, Star } from "lucide-react";
+import { cn } from "@/lib/utils";
+import { BookingButton } from "@/components/site/booking-modal";
 import { PLANS_FR } from "@/data/pricing";
 
 type Plan = {
@@ -23,14 +27,7 @@ export function PricingOffers() {
         </p>
       </div>
 
-      {/* Availability note (synced with UrgencyBanner) */}
-      <p className="mb-4 text-center text-sm font-medium text-foreground">
-        <span className="mr-1">⚠️</span>
-        Plus que {URGENCY_SLOTS_LEFT_MONTH} créneaux disponibles ce mois-ci.{" "}
-        <a href="/contact" className="link-underline link-underline-strong">
-          Réservez votre audit gratuit&nbsp;!
-        </a>
-      </p>
+      
 
       {/* Grille statique — lisibilité optimale, sans scroll horizontal */}
       <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3 items-stretch">

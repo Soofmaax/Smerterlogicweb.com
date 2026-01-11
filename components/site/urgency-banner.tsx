@@ -3,8 +3,8 @@
 /**
  * UrgencyBanner (désactivé)
  *
- * Ce composant affichait auparavant un bandeau de rareté
- * du type « Plus que X créneaux disponibles ce mois-ci ».
+ * Ce composant affichait auparavant un bandeau d'urgence
+ * sur la disponibilité des audits.
  * À la demande, le contenu a été retiré pour éviter
  * toute pression inutile sur la réservation.
  *
