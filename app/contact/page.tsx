@@ -69,6 +69,19 @@ export default function ContactPage() {
           <Link href="/" className="text-sm text-muted-foreground hover:text-foreground">Retour à l’accueil</Link>
         </div>
 
+        <p className="mt-3 text-sm text-foreground/80">
+          Vous pouvez aussi m’écrire sur WhatsApp au{" "}
+          <a
+            href={process.env.NEXT_PUBLIC_WHATSAPP_URL || "https://wa.me/33744407973"}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="underline hover:no-underline"
+          >
+            07 44 40 79 73
+          </a>
+          .
+        </p>
+
         {/* Note Google près du CTA */}
         <div className="mt-4">
           <GoogleReviewsBadge />

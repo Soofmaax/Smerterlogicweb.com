@@ -61,6 +61,19 @@ export default function ContactPage() {
           <Link href="/en" className="text-sm text-muted-foreground hover:text-foreground">Back to home</Link>
         </div>
 
+        <p className="mt-3 text-sm text-foreground/80">
+          You can also message me on WhatsApp at{" "}
+          <a
+            href={process.env.NEXT_PUBLIC_WHATSAPP_URL || "https://wa.me/33744407973"}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="underline hover:no-underline"
+          >
+            +33 7 44 40 79 73
+          </a>
+          .
+        </p>
+
         <div className="mt-4">
           <GoogleReviewsBadge />
         </div>
