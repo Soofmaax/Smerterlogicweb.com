@@ -101,10 +101,7 @@ export default function AProposPage() {
         </Reveal>
       </div>
 
-      {/* Garantie de résultat */}
-      <div className="mt-10">
-        <Guarantee />
-      </div>
+      
 
       {/* Section 4 — Pourquoi me choisir */}
       <div className="mt-10 rounded-[20px] border bg-card p-6">
