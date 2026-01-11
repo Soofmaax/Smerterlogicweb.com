@@ -27,7 +27,8 @@ describe("Header locale switch", () => {
 
     render(<Header />);
 
-    const langSwitch = screen.getByRole("link", { name: /EN/i });
+    // On cible le switch de langue via son aria-label explicite
+    const langSwitch = screen.getByRole("link", { name: /Switch to English/i });
     expect(langSwitch).toHaveAttribute("href", "/en/projects");
   });
 
@@ -36,7 +37,7 @@ describe("Header locale switch", () => {
 
     render(<Header />);
 
-    const langSwitch = screen.getByRole("link", { name: /FR/i });
+    const langSwitch = screen.getByRole("link", { name: /Basculer en français/i });
     expect(langSwitch).toHaveAttribute("href", "/a-propos");
   });
 
@@ -45,7 +46,7 @@ describe("Header locale switch", () => {
 
     render(<Header />);
 
-    const langSwitch = screen.getByRole("link", { name: /FR/i });
+    const langSwitch = screen.getByRole("link", { name: /Basculer en français/i });
     expect(langSwitch).toHaveAttribute("href", "/services/foo");
   });
 });
