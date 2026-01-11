@@ -16,7 +16,6 @@ const items: Item[] = [
   {
     title: "BMS Ventouse",
     subtitle: "bmsventouse.fr",
-    img: "/images/projects/bmsventouse-hero-800.webp",
     href: "https://bmsventouse.fr",
     status: "live",
     domain: "bmsventouse.fr",
