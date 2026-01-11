@@ -3,7 +3,8 @@ import react from "@vitejs/plugin-react-swc";
 import path from "node:path";
 
 export default defineConfig({
-  plugins: [react()],
+  // Cast plugin to any to avoid Vite type mismatches between Vitest's bundled Vite and the root Vite types.
+  plugins: [react() as any],
   test: {
     globals: true,
     environment: "jsdom",
