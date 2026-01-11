@@ -116,7 +116,7 @@ export function Header() {
         <div className="flex items-center gap-3">
           <Link href={isEn ? "/en" : "/"} className="flex items-center gap-3 text-sm font-semibold tracking-tight rounded-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/60 focus-visible:ring-offset-2 focus-visible:ring-offset-background" aria-label={isEn ? "Home — smarterlogicweb" : "Accueil — smarterlogicweb"} title={isEn ? "Home — smarterlogicweb" : "Accueil — smarterlogicweb"}>
             <Image
-              src="/logo.svg"
+              src="/logo-noir.png"
               alt="smarterlogicweb"
               width={96}
               height={96}
