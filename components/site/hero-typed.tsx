@@ -161,3 +161,7 @@ export function HeroTyped() {
             <span>Site vitrine dès 1 490 € TTC</span>
           </div>
         </div>
+      </div>
+    </section>
+  );
+}
