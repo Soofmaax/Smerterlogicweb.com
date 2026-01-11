@@ -1,24 +1,24 @@
 import { describe, it, expect, vi, afterEach } from "vitest";
 import { render, screen } from "@testing-library/react";
 import { Header } from "@/components/site/header";
-import * as nextNavigation from "next/navigation";
+import { usePathname } from "next/navigation";
 
-let pathnameSpy: ReturnType<typeof vi.spyOn> | null = null;
-
-function mockPathname(path: string) {
-  if (!pathnameSpy) {
-    pathnameSpy = vi.spyOn(nextNavigation, "usePathname");
-  }
-  pathnameSpy.mockReturnValue(path);
-}
+vi.mock("next/navigation", () => ({
+  usePathname: vi.fn(),
+}));
 
 vi.mock("@/lib/analytics", () => ({
   track: vi.fn(),
 }));
 
+const usePathnameMock = usePathname as unknown as ReturnType<typeof vi.fn>;
+
+function mockPathname(path: string) {
+  usePathnameMock.mockReturnValue(path);
+}
+
 afterEach(() => {
-  vi.restoreAllMocks();
-  pathnameSpy = null;
+  vi.clearAllMocks();
 });
 
 describe("Header locale switch", () => {
