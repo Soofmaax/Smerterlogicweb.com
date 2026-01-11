@@ -64,7 +64,7 @@ export function ExpertiseWhy() {
         <p className="mt-2 text-foreground/70">Des résultats concrets pour votre activité.</p>
       </div>
 
-      <div className="grid gap-6 md:grid-cols-4">
+      <div className="grid gap-4 sm:gap-5 lg:gap-6 sm:grid-cols-2 lg:grid-cols-4">
         <Block
           icon={<CheckCircle2 className="h-5 w-5" />}
           title="Performance technique"
