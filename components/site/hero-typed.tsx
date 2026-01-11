@@ -18,7 +18,18 @@ export function HeroTyped() {
   const [titleTyped, setTitleTyped] = React.useState("");
   const [showCaretTitle, setShowCaretTitle] = React.useState(true);
 
-  // Primary CTA destination: phone &gt; calendly &gt; /contact
+  // Primary CTA destination: phone > calendly > /contact
+  const rawPhone = process.env.NEXT_PUBLIC_PHONE || "";
+  const rawBooking = process.env.NEXT_PUBLIC_BOOKING_URL || "";
+  const sanitizePhone = (p: string) => p.replace(/[^+\d]/g, "");
+  const primaryHref = rawPhone ? `tel:${sanitizePhone(rawPhone)}` : rawBooking ? rawBooking : "/contact";
+  const isInternal = primaryHref.startsWith("/");
+  
+  // Helper: treat mobile as reduced motion
+  const isMobile = () =>
+    typeof window !== "undefined" &&
+    window.matchMedia &&
+    window.matchMedia("(max-width: 768px)").matches;rimary CTA destination: phone &gt; calendly &gt; /contact
   const rawPhone = process.env.NEXT_PUBLIC_PHONE || "";
   const rawBooking = process.env.NEXT_PUBLIC_BOOKING_URL || "";
   const sanitizePhone = (p: string) =&gt; p.replace(/[^+\d]/g, "");

@@ -169,19 +169,19 @@ export function Chatbot() {
     askGallery();
   }, [push, setBranch, askGallery]);
 
-  const goQuestion = React.useCallback(() =&gt; {
-    setBranch(&quot;question&quot;);
-    track(&quot;chat_branch_question&quot;);
+  const goQuestion = React.useCallback(() => {
+    setBranch("question");
+    track("chat_branch_question");
     push(
-      &quot;bot&quot;,
-      &lt;&gt;
+      "bot",
+      <>
         D’accord. Pour une réponse précise, le mieux est de passer par le formulaire de contact.
-        &lt;div className=&quot;mt-2 flex flex-wrap gap-2&quot;&gt;
-          &lt;QuickButton&gt;
-            &lt;Link href=&quot;/contact&quot;&gt;Ouvrir le formulaire de contact&lt;/Link&gt;
-          &lt;/QuickButton&gt;
-        &lt;/div&gt;
-      &lt;/&gt;
+        <div className="mt-2 flex flex-wrap gap-2">
+          <QuickButton>
+            <Link href="/contact">Ouvrir le formulaire de contact</Link>
+          </QuickButton>
+        </div>
+      </>
     );
   }, [push, setBranch]);
 

@@ -34,8 +34,10 @@ const anonymousPro = Anonymous_Pro({
 });
 const dmSans = DM_Sans({
   subsets: ["latin"],
+  weight: ["400", "500", "700"],
   display: "swap",
- );
+  variable: "--font-dm-sans",
+});
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),

@@ -6,6 +6,7 @@ import { Suspense } from "react";
 import { Particles } from "@/components/site/particles";
 import { Breadcrumbs } from "@/components/site/breadcrumbs";
 import { CategoriesFilter } from "@/components/site/categories-filter";
+import { QuickLinks } from "@/components/site/quick-links";
 import { absoluteUrl, SITE_URL, BRAND_DOMAIN } from "@/config/site";
 
 export const revalidate = 60;

@@ -68,7 +68,7 @@ export default function PolitiqueConfidentialitePage() {
           <h2>Vos droits</h2>
           <p>
             Vous disposez d’un droit d’accès, de rectification, d’opposition, d’effacement, à la limitation et à la
-            portabilité. Pour l’exercer, contactez:{\" "}
+            portabilité. Pour l’exercer, contactez:{" "}
             <a href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a>.
           </p>
         </div>
