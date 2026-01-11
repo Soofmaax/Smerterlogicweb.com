@@ -107,8 +107,8 @@ function Block({
 }) {
   const { ref, value } = useCountUp(counter.end, 1500);
   return (
-    <div className="flex h-full flex-col rounded-[20px] border bg-card p-5 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg card-elevated">
-      <div className="flex items-center gap-2">
+    <div className="flex h-full flex-col items-center rounded-[20px] border bg-card p-5 text-center transition-all duration-300 hover:-translate-y-1 hover:shadow-lg card-elevated">
+      <div className="flex flex-col items-center gap-2">
         <span className="inline-flex h-9 w-9 items-center justify-center rounded-full bg-accent">{icon}</span>
         <h3 className="font-heading text-lg font-semibold">{title}</h3>
       </div>

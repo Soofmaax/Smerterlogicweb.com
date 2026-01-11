@@ -21,7 +21,7 @@ export function RealisationsGrid() {
           return (
             <article
               key={`${it.id}-${i}`}
-              className={`relative rounded-2xl border bg-card p-3 h-full flex flex-col ${isSoon ? "opacity-95" : ""}`}
+              className={`relative flex h-full flex-col items-center rounded-2xl border bg-card p-3 text-center ${isSoon ? "opacity-95" : ""}`}
             >
               {/* Status badge */}
               <div className="pointer-events-none absolute right-3 top-3">
@@ -61,11 +61,16 @@ export function RealisationsGrid() {
               </div>
               <div className="mt-auto pt-3">
                 {!isSoon && it.href ? (
-                  <a href={it.href} target="_blank" rel="noopener noreferrer" className="link-underline link-underline-strong text-sm text-primary">
+                  <a
+                    href={it.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="link-underline link-underline-strong block text-sm text-primary"
+                  >
                     {isDemo ? "Voir la démo" : "Voir le site"}
                   </a>
                 ) : (
-                  <span className="text-xs text-muted-foreground">
+                  <span className="block text-xs text-muted-foreground">
                     {it.domain ? `Bientôt en ligne — ${it.domain}` : "Bientôt en ligne"}
                   </span>
                 )}

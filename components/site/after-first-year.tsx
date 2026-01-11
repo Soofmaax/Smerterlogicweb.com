@@ -11,8 +11,8 @@ export function AfterFirstYear() {
       </div>
 
       <div className="mt-6 grid gap-4 md:grid-cols-2">
-        <div className="rounded-2xl border bg-card p-5">
-          <div className="flex items-center gap-2">
+        <div className="flex h-full flex-col items-center rounded-2xl border bg-card p-5 text-center">
+          <div className="flex flex-col items-center gap-2">
             <span className="inline-flex h-9 w-9 items-center justify-center rounded-full bg-accent">
               <ShieldCheck className="h-5 w-5" />
             </span>
@@ -23,8 +23,8 @@ export function AfterFirstYear() {
           </p>
         </div>
 
-        <div className="rounded-2xl border bg-card p-5">
-          <div className="flex items-center gap-2">
+        <div className="flex h-full flex-col items-center rounded-2xl border bg-card p-5 text-center">
+          <div className="flex flex-col items-center gap-2">
             <span className="inline-flex h-9 w-9 items-center justify-center rounded-full bg-accent">
               <SwitchCamera className="h-5 w-5" />
             </span>

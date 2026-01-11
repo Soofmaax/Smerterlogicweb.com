@@ -2,10 +2,6 @@ import * as React from "react";
 import { CheckCircle2, Star } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { BookingButton } from "@/components/site/booking-modal";
-import { PLANS_FR } from "@/data/pricing"; as React from "react";
-import { CheckCircle2, Star } from "lucide-react";
-import { cn } from "@/lib/utils";
-import { BookingButton } from "@/components/site/booking-modal";
 import { PLANS_FR } from "@/data/pricing";
 
 type Plan = {
