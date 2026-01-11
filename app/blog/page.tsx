@@ -1,5 +1,6 @@
 import Link from "next/link";
-import { getPublishedPostsBurst, formatDate, schedulePosts, getAllPosts } from "@/lib/blog";
+import { getPublishedPostsBurst, formatDate, schedulePosts } from "@/lib/blog";
+import { getAllPosts } from "@/lib/blog-source";
 import { PostCard } from "@/components/site/post-card";
 import { NewsletterSection } from "@/components/site/newsletter-section";
 import { Suspense } from "react";
