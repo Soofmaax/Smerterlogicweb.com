@@ -103,17 +103,7 @@ export function HeroTyped() {
           {tagline2}
         </p>
 
-        {/* Contact line from card */}
-        <p className="mt-4 text-sm text-foreground/80">
-          07 44 40 79 73 ·{" "}
-          <a href="mailto:sonia@smarterlogicweb.com" className="underline hover:no-underline">
-            sonia@smarterlogicweb.com
-          </a>{" "}
-          ·{" "}
-          <a href="https://smarterlogicweb.com" className="underline hover:no-underline">
-            smarterlogicweb.com
-          </a>
-        </p>
+        
 
         {/* Primary CTA — simplifié, noir & blanc */}
         <div className="mt-6 flex flex-col gap-3 sm:flex-row">
