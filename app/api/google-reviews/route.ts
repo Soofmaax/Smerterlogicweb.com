@@ -1,3 +1,4 @@
+// cspell:disable-file
 import { NextResponse } from "next/server";
 import { getClientIpFromHeaders } from "@/lib/security";
 import { checkRateLimit } from "@/lib/rate-limit";

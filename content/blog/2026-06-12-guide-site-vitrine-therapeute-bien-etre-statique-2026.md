@@ -283,6 +283,12 @@ Vous pouvez :
 
 ---
 
+## Pour aller plus loin
+
+- [Guide 2026 : site vitrine statique pour cabinet d’avocat](/blog/guide-site-vitrine-avocat-statique-2026) *(mêmes enjeux de sérieux, clarté et conformité)*
+- [SEO local avancé pour TPE en 2026](/blog/seo-local-avance-tpe-2026)
+- [Tarifs 2026 pour sites vitrines statiques](/tarifs-2025#tarifs)
+
 ## Vous êtes thérapeute ou dans le bien-être et vous voulez un site vitrine statique rassurant, éthique et simple à vivre ?
 
 Si vous voulez :
@@ -294,5 +300,5 @@ Si vous voulez :
 c’est exactement le type de sites que je conçois pour les professions du soin, de l’accompagnement et du bien-être.
 
 - Découvrir la façon dont je travaille : [/services](/services)
-- Voir les forfaits et prix 2025 : [/tarifs-2025](/tarifs-2025)
+- Voir les forfaits et prix 2026 : [/tarifs-2025](/tarifs-2025)
 - Me parler de votre projet : [/contact](/contact)

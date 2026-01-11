@@ -59,9 +59,9 @@
 
 📚 Documentation
 - Démarrage, configuration, architecture, déploiement, API et troubleshooting:
-  - docs/README.md — [Index](file:///docs/README.md)
-  - docs/getting-started/quick-start.md — [Quick Start](file:///docs/getting-started/quick-start.md)
-  - ARCHITECTURE.md — [Vue d’ensemble](file:///ARCHITECTURE.md)
+  - docs/README.md — [Index](./docs/README.md)
+  - docs/getting-started/quick-start.md — [Quick Start](./docs/getting-started/quick-start.md)
+  - ARCHITECTURE.md — [Vue d’ensemble](./ARCHITECTURE.md)
 
 🛠️ Tech Stack
 - Frontend: Next.js 14, React 18, TypeScript, Tailwind CSS, lucide-react
@@ -70,7 +70,7 @@
 - BaaS (optionnel): Supabase (Postgres + RLS) pour leads
 
 🔑 Variables d’environnement (extraits)
-Voir .env.example — [Télécharger](file:///.env.example)
+Voir .env.example — [Télécharger](./.env.example)
 - NEXT_PUBLIC_ANALYTICS_PROVIDER=plausible|umami
 - GOOGLE_PLACES_API_KEY / GOOGLE_PLACE_ID
 - NEXT_PUBLIC_GUIDE_PDF_URL
@@ -80,9 +80,10 @@ Voir .env.example — [Télécharger](file:///.env.example)
 🤝 Contributing
 - Conventions: Conventional Commits
 - Lint: npm run lint
-- PRs bienvenues — voir CONTRIBUTING.md — [Lire](file:///CONTRIBUTING.md)
+- PRs bienvenues — voir CONTRIBUTING.md — [Lire](./CONTRIBUTING.md)
 
 📝 License
+- MIT
 - MIT — [LICENSE](file:///LICENSE)
 
 📧 Support & Contact

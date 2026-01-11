@@ -1,7 +1,8 @@
 import Link from "next/link";
+import { SITE_URL, CONTACT_EMAIL, BRAND_DOMAIN } from "@/config/site";
 
 export const metadata = {
-  title: "Politique de citation & réutilisation du contenu — smarterlogicweb.com",
+  title: `Politique de citation & réutilisation du contenu — ${BRAND_DOMAIN}`,
   description:
     "Licence Creative Commons Attribution 4.0 (CC BY 4.0) : réutilisation, adaptation et usage commercial autorisés avec attribution et lien vers la source.",
   alternates: {
@@ -12,8 +13,8 @@ export const metadata = {
     },
   },
   openGraph: {
-    url: "https://smarterlogicweb.com/politique-usage-contenu",
-    title: "Politique de citation & réutilisation du contenu — smarterlogicweb.com",
+    url: `${SITE_URL}/politique-usage-contenu`,
+    title: `Politique de citation & réutilisation du contenu — ${BRAND_DOMAIN}`,
     description:
       "Licence Creative Commons Attribution 4.0 (CC BY 4.0) : réutilisation, adaptation et usage commercial autorisés avec attribution et lien vers la source.",
   },
@@ -80,8 +81,8 @@ export default function ContentUsagePolicyFR() {
 
       <p className="mt-8 text-sm text-muted-foreground">
         Dernière mise à jour : 2025. Contact :{" "}
-        <Link href="mailto:contact@smarterlogicweb.com" className="underline">
-          contact@smarterlogicweb.com
+        <Link href={`mailto:${CONTACT_EMAIL}`} className="underline">
+          {CONTACT_EMAIL}
         </Link>
         .
       </p>

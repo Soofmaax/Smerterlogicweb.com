@@ -9,10 +9,12 @@ import { BookingButton } from "@/components/site/booking-modal";
 import { Guarantee } from "@/components/site/guarantee";
 import { Particles } from "@/components/site/particles";
 import { Suspense } from "react";
+import { SITE_URL, CONTACT_EMAIL, BRAND_DOMAIN } from "@/config/site";
 
 export const metadata = {
-  title: "Contact — smarterlogicweb.com",
-  description: "Contactez-moi pour un devis gratuit ou pour discuter de votre projet.",
+  title: `Contact — ${BRAND_DOMAIN}`,
+  description:
+    "Contactez-moi pour un site vitrine statique ou une refonte. Devis gratuit, audit rapide et retour sous 24h.",
   alternates: {
     canonical: "/contact",
     languages: {
@@ -21,9 +23,10 @@ export const metadata = {
     },
   },
   openGraph: {
-    url: "https://smarterlogicweb.com/contact",
-    title: "Contact — smarterlogicweb.com",
-    description: "Contactez-moi pour un devis gratuit ou pour discuter de votre projet.",
+    url: `${SITE_URL}/contact`,
+    title: `Contact — ${BRAND_DOMAIN}`,
+    description:
+      "Contactez-moi pour un site vitrine statique ou une refonte. Devis gratuit, audit rapide et retour sous 24h.",
   },
 };
 
@@ -33,7 +36,6 @@ export default function ContactPage() {
       {/* Hero background accents */}
       <div aria-hidden className="pointer-events-none absolute inset-0 -z-10">
         <div className="hero-gradient-animated absolute inset-0 rounded-[28px] opacity-60" />
-        <Particles />
       </div>
 
       {/* Hero card */}
@@ -44,19 +46,41 @@ export default function ContactPage() {
         </p>
 
         <div className="mt-6 flex flex-wrap items-center gap-4">
-          <Button asChild size="lg" className="rounded-full" variant="cta">
-            <TrackedLink href="mailto:contact@smarterlogicweb.com?subject=Devis%20gratuit" eventName="cta_devis_mailto_contact">
-              <span className="inline-flex items-center gap-2"><Mail className="h-4 w-4" /> contact@smarterlogicweb.com</span>
+          <Button
+            asChild
+            size="lg"
+            className="rounded-full border border-foreground bg-foreground px-6 py-3 text-base font-semibold text-background hover:bg-foreground/90"
+          >
+            <TrackedLink
+              href={`mailto:${CONTACT_EMAIL}?subject=Devis%20gratuit`}
+              eventName="cta_devis_mailto_contact"
+            >
+              <span className="inline-flex items-center gap-2">
+                <Mail className="h-4 w-4" /> {CONTACT_EMAIL}
+              </span>
             </TrackedLink>
           </Button>
-          <BookingButton size="lg" className="rounded-full" label="Réserver mon audit gratuit (15 min)" />
+          <BookingButton size="lg" className="rounded-full" label="Réserver un audit gratuit" />
           {process.env.NEXT_PUBLIC_PHONE ? (
             <Button asChild size="lg" className="rounded-full">
-              <a href={`tel:${(process.env.NEXT_PUBLIC_PHONE as string).replace(/[^+\d]/g, "")}`}>📞 Appeler</a>
+              <a href={`tel:${(process.env.NEXT_PUBLIC_PHONE as string).replace(/[^+\d]/g, "")}`}>📞 07 44 40 79 73</a>
             </Button>
           ) : null}
           <Link href="/" className="text-sm text-muted-foreground hover:text-foreground">Retour à l’accueil</Link>
         </div>
+
+        <p className="mt-3 text-sm text-foreground/80">
+          Vous pouvez aussi m’écrire sur WhatsApp au{" "}
+          <a
+            href={process.env.NEXT_PUBLIC_WHATSAPP_URL || "https://wa.me/33744407973"}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="underline hover:no-underline"
+          >
+            07 44 40 79 73
+          </a>
+          .
+        </p>
 
         {/* Note Google près du CTA */}
         <div className="mt-4">
@@ -128,8 +152,12 @@ export default function ContactPage() {
               Frais cachés après la livraison
             </Link>
             <span className="text-muted-foreground">•</span>
+            <Link href="/creation-site-internet/paris" className="text-primary hover:underline">
+              Création de site internet à Paris
+            </Link>
+            <span className="text-muted-foreground">•</span>
             <Link href="/tarifs-2025" className="text-primary hover:underline">
-              Tarifs 2025
+              Tarifs 2026
             </Link>
           </div>
         </div>

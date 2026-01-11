@@ -2,81 +2,82 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Theme — Sober Neutral + Corporate Blue */
+/* Theme — Black & White inspired by business card */
 :root {
-  /* Neutrals */
+  /* Neutrals (light) */
   --background: 0 0% 100%;
-  --foreground: 215 28% 14%;
+  --foreground: 0 0% 10%;
 
-  --muted: 210 12% 95%;
-  --muted-foreground: 215 12% 38%;
+  --muted: 0 0% 96%;
+  --muted-foreground: 0 0% 40%;
 
   --popover: 0 0% 100%;
-  --popover-foreground: 215 28% 14%;
+  --popover-foreground: 0 0% 10%;
 
   --card: 0 0% 100%;
-  --card-foreground: 215 28% 14%;
+  --card-foreground: 0 0% 10%;
 
-  --border: 215 16% 86%;
-  --input: 215 16% 86%;
+  --border: 0 0% 85%;
+  --input: 0 0% 85%;
 
-  /* Primary — brand blue (#2563EB) */
-  --primary: 221 83% 53%;
+  /* Primary — deep black for CTA & emphasis */
+  --primary: 0 0% 7%;
   --primary-foreground: 0 0% 100%;
 
-  /* Secondary — neutral dark for outlines/buttons */
-  --secondary: 215 16% 25%;
+  /* Secondary — dark gray */
+  --secondary: 0 0% 20%;
   --secondary-foreground: 0 0% 100%;
 
-  /* Accents — subtle gray */
-  --accent: 210 12% 96%;
-  --accent-foreground: 215 20% 22%;
+  /* Accents — light gray only (no color) */
+  --accent: 0 0% 92%;
+  --accent-foreground: 0 0% 15%;
 
-  --destructive: 0 72% 51%;
+  --destructive: 0 72% 45%;
   --destructive-foreground: 0 0% 98%;
 
-  --ring: 221 83% 53%;
+  --ring: 0 0% 15%;
 
   --radius: 0.75rem; /* 12px — soft rounded */
 
-  /* Curveball-like plum gradient (very subtle, near-neutral) */
-  --curve-plum-1: #22232a; /* top-left */
-  --curve-plum-2: #1c1e24; /* middle */
-  --curve-plum-3: #171921; /* bottom-right */
-  --curve-highlight: rgba(255, 255, 255, 0.04); /* softer radial highlight */
+  /* Subtle neutral gradient used in stat cards */
+  --curve-plum-1: #111111; /* top-left */
+  --curve-plum-2: #181818; /* middle */
+  --curve-plum-3: #000000; /* bottom-right */
+  --curve-highlight: rgba(255, 255, 255, 0.06); /* radial highlight */
 }
 
 .dark {
-  --background: 215 15% 9%;
-  --foreground: 210 20% 98%;
+  /* Neutrals (dark) */
+  --background: 0 0% 4%;
+  --foreground: 0 0% 96%;
 
-  --muted: 215 15% 18%;
-  --muted-foreground: 215 15% 70%;
+  --muted: 0 0% 14%;
+  --muted-foreground: 0 0% 70%;
 
-  --popover: 215 15% 9%;
-  --popover-foreground: 210 20% 98%;
+  --popover: 0 0% 4%;
+  --popover-foreground: 0 0% 96%;
 
-  --card: 215 15% 9%;
-  --card-foreground: 210 20% 98%;
+  --card: 0 0% 4%;
+  --card-foreground: 0 0% 96%;
 
-  --border: 215 15% 18%;
-  --input: 215 15% 18%;
+  --border: 0 0% 18%;
+  --input: 0 0% 18%;
 
-  /* Primary — brand blue in dark */
-  --primary: 221 83% 56%;
-  --primary-foreground: 0 0% 98%;
+  /* Primary — near-white in dark mode */
+  --primary: 0 0% 96%;
+  --primary-foreground: 0 0% 4%;
 
-  /* Secondary — Rose minéral (adapté sombre) */
-  --secondary: 344 60% 70%;
-  --secondary-foreground: 0 0% 10%;
+  /* Secondary — medium gray */
+  --secondary: 0 0% 60%;
+  --secondary-foreground: 0 0% 4%;
 
-  --accent: 152 30% 14%;
-  --accent-foreground: 152 35% 85%;
+  --accent: 0 0% 16%;
+  --accent-foreground: 0 0% 90%;
 
   --destructive: 0 72% 60%;
   --destructive-foreground: 0 0% 98%;
 
-  --ring: 152 35% 45%;
+  --ring: 0 0% 80%;
 }
 
 @layer base {
@@ -88,10 +89,12 @@
     font-feature-settings: "ss01" on, "ss02" on;
   }
 
-  /* Inter for headings, DM Sans for body by default */
+  /* Anonymous Pro for headings (bold card style), DM Sans for body */
   h1, h2, h3, h4, h5, h6 {
-    font-family: var(--font-inter), ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+    font-family: var(--font-anonymous-pro), ui-monospace, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
     text-wrap: balance;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
   }
 }
 
@@ -250,7 +253,6 @@ a.link-underline:focus-visible::after {
 
 /* Subtle pulse for CTA */
 .btn-pulse {
-  animation: pulseSubtle 2200ms ease-in-out infinite;
   transform-origin: center;
 }
 @keyframes pulseSubtle {
@@ -392,51 +394,26 @@ a.link-underline:focus-visible::after {
   display: none; /* Chrome, Safari, Opera */
 }
 
-/* Project card advanced hover & overlay */
+/* Project card hover — sobre, sans overlay */
 .project-card {
-  transition: transform 500ms cubic-bezier(0.23, 1, 0.32, 1), box-shadow 400ms ease;
   position: relative;
+  transition: transform 200ms ease, box-shadow 200ms ease;
 }
 .project-card:hover {
-  transform: translateY(-10px) scale(1.02);
-  box-shadow:
-    0 20px 40px rgba(0,0,0,0.1),
-    0 0 0 1px rgba(255,255,255,0.06),
-    0 0 50px rgba(100,100,255,0.08);
+  transform: translateY(-4px);
+  box-shadow: 0 10px 24px rgba(0,0,0,0.12);
 }
 .project-card::after {
-  content: '👁 Voir la démo';
-  position: absolute;
-  top: 50%; left: 50%;
-  transform: translate(-50%, -50%) scale(0.9);
-  opacity: 0;
-  background: hsl(var(--background) / 0.85);
-  color: hsl(var(--foreground));
-  border: 1px solid hsl(var(--border));
-  padding: 6px 10px;
-  border-radius: 999px;
-  box-shadow: 0 6px 18px rgba(0,0,0,0.12);
-  transition: transform 300ms ease, opacity 300ms ease;
-  pointer-events: none;
-}
-.project-card:hover::after {
-  transform: translate(-50%, -50%) scale(1);
-  opacity: 1;
+  content: "";
 }
 
-/* Glitch effect for buttons */
+/* Glitch effect for buttons — neutralised for a calmer UI */
 .button-glitch {
   position: relative;
   overflow: visible;
 }
 .button-glitch:hover::before {
-  content: attr(data-text);
-  position: absolute;
-  top: 0; left: -2px;
-  color: #ff00ff;
-  clip: rect(0, 900px, 0, 0);
-  animation: glitch-anim 0.3s infinite;
-  text-shadow: 1px 0 #00FFFF;
+  content: "";
 }
 @keyframes glitch-anim {
   0% { clip: rect(42px, 9999px, 44px, 0); }
@@ -499,7 +476,7 @@ html.retro * {
   box-shadow: 0 12px 30px rgba(37, 99, 235, 0.12);
 }
 
-/* FREE badge pulse */
+/* FREE badge border — static halo */
 .badge-free {
   position: relative;
   overflow: visible;
@@ -509,8 +486,7 @@ html.retro * {
   position: absolute;
   inset: -4px;
   border-radius: 999px;
-  box-shadow: 0 0 0 0 hsl(var(--primary) / 0.35);
-  animation: freePulse 1600ms ease-in-out infinite;
+  box-shadow: 0 0 0 0 hsl(var(--primary) / 0.12);
 }
 @keyframes freePulse {
   0% { box-shadow: 0 0 0 0 hsl(var(--primary) / 0.35); }
@@ -546,10 +522,9 @@ html.retro * {
   box-shadow: 0 10px 24px rgba(0,0,0,0.12);
 }
 
-/* Chat bubble pulse */
+/* Chat bubble — static shadow */
 .bubble-pulse {
-  animation: bubblePulse 1600ms ease-in-out infinite;
-  box-shadow: 0 0 0 0 rgba(37, 99, 235, 0.35);
+  box-shadow: 0 0 0 0 rgba(0,0,0,0.15);
 }
 @keyframes bubblePulse {
   0% { box-shadow: 0 0 0 0 rgba(37, 99, 235, 0.35); }
@@ -701,10 +676,9 @@ html.retro * {
   }
 }
 
-/* CTA gradient shift animation */
+/* CTA gradient shift animation — simplified (no continuous movement) */
 .btn-gradient-shift {
-  background-size: 200% 200%;
-  animation: btnGradientShift 6s ease-in-out infinite;
+  background-size: 100% 100%;
 }
 @keyframes btnGradientShift {
   0% { background-position: 0% 50%; }
@@ -769,38 +743,20 @@ html.retro * {
 }
   .hero-gradient-animated {
   background:
-    radial-gradient(1200px 600px at 20% 10%, hsl(var(--primary) / 0.12), transparent 60%),
-    radial-gradient(1000px 500px at 80% 20%, hsl(var(--primary) / 0.10), transparent 60%);
-  animation: heroGradient 8s ease-in-out infinite alternate;
+    radial-gradient(1200px 600px at 20% 10%, hsl(var(--foreground) / 0.04), transparent 60%),
+    radial-gradient(1000px 500px at 80% 20%, hsl(var(--foreground) / 0.03), transparent 60%);
   filter: blur(40px);
 }
 @keyframes heroGradient {
-  0% { transform: translateY(-6px); opacity: 0.6; }
+  0% { transform: translateY(-6px); opacity: 0.5; }
   100% { transform: translateY(6px); opacity: 0.8; }
 }
 
-/* Gradient morph text for WOW effect */
-@keyframes gradient-morph {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
-}
+/* Hero title — pure black & white, card-inspired */
 .hero-title {
-  /* Premium blue spectrum — no red, subtle teal/cyan accents */
-  background: linear-gradient(
-    45deg,
-    #1e3a8a, /* indigo-900 */
-    #2563eb, /* blue-600 (brand) */
-    #06b6d4, /* cyan-500 */
-    #0ea5e9, /* sky-500 */
-    #1d4ed8  /* blue-700 */
-  );
-  background-size: 400% 400%;
-  animation: gradient-morph 8s ease infinite;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  color: transparent;
+  color: hsl(var(--foreground));
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
 }
 
 

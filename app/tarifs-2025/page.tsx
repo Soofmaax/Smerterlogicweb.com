@@ -12,11 +12,12 @@ import { FinalCTA } from "@/components/site/final-cta";
 import { StickyMobileCTA } from "@/components/site/sticky-mobile-cta";
 import { EVOLUTION_MONTHLY_EUR } from "@/data/pricing";
 import { PdfDownloadButton } from "@/components/site/pdf-download-button";
+import { SITE_URL, CONTACT_EMAIL, BRAND_DOMAIN } from "@/config/site";
 
 export const metadata = {
-  title: "Tarifs 2025 | Sites vitrines statiques dès 1490€ TTC",
+  title: "Tarifs 2026 | Sites vitrines statiques dès 1490€ TTC",
   description:
-    "Grille de tarifs 2025 pour sites vitrines statiques professionnels. Offres Essentiel, Professionnel et Premium dès 1490€ TTC. Zéro maintenance technique obligatoire, performances, SEO et délais garantis.",
+    "Grille de tarifs 2026 pour sites vitrines statiques professionnels. Offres Essentiel, Professionnel et Premium dès 1490€ TTC. Zéro maintenance technique obligatoire, performances, SEO et délais garantis.",
   alternates: {
     canonical: "/tarifs-2025",
     languages: {
@@ -25,10 +26,10 @@ export const metadata = {
     },
   },
   openGraph: {
-    url: "https://smarterlogicweb.com/tarifs-2025",
-    title: "Tarifs 2025 | Sites vitrines statiques dès 1490€ TTC — smarterlogicweb.com",
+    url: `${SITE_URL}/tarifs-2025`,
+    title: `Tarifs 2026 | Sites vitrines statiques dès 1490€ TTC — ${BRAND_DOMAIN}`,
     description:
-      "Grille de tarifs 2025 pour sites vitrines statiques professionnels. Offres Essentiel, Professionnel et Premium dès 1490€ TTC. Zéro maintenance technique obligatoire, performances, SEO et délais garantis.",
+      "Grille de tarifs 2026 pour sites vitrines statiques professionnels. Offres Essentiel, Professionnel et Premium dès 1490€ TTC. Zéro maintenance technique obligatoire, performances, SEO et délais garantis.",
   },
 };
 
@@ -38,12 +39,11 @@ export default function Tarifs2025Page() {
       {/* Hero background accents */}
       <div aria-hidden className="pointer-events-none absolute inset-0 -z-10">
         <div className="hero-gradient-animated absolute inset-0 rounded-[28px] opacity-60" />
-        <Particles />
       </div>
 
       {/* Hero */}
       <section className="mx-auto max-w-3xl text-center">
-        <Badge variant="secondary" className="px-3 py-1">Tarifs 2025</Badge>
+        <Badge variant="secondary" className="px-3 py-1">Tarifs 2026</Badge>
         <h1 className="mt-4 font-heading text-4xl font-bold tracking-tight md:text-5xl text-balance">
           Sites statiques pour Professions Libérales
         </h1>
@@ -94,10 +94,10 @@ export default function Tarifs2025Page() {
         <div className="mt-6 rounded-2xl border bg-card p-6 card-elevated">
           <h3 className="font-heading text-lg font-semibold">Recevoir la grille PDF par email</h3>
           <p className="mt-1 text-sm text-foreground/80">
-            Téléchargez la Grille Tarifs 2025 et recevez‑la par email pour la partager en interne.
+            Téléchargez la Grille Tarifs 2026 et recevez‑la par email pour la partager en interne.
           </p>
           <div className="mt-3">
-            <PdfDownloadButton slug="grille-tarifs-2025" label="Recevoir la Grille Tarifs 2025 (PDF)" />
+            <PdfDownloadButton slug="grille-tarifs-2025" label="Recevoir la Grille Tarifs 2026 (PDF)" />
           </div>
         </div>
       </section>
@@ -169,17 +169,20 @@ export default function Tarifs2025Page() {
       <section className="mt-10">
         <h2 className="font-heading text-2xl font-semibold">Comment commander</h2>
         <ol className="mt-3 list-decimal pl-5 text-sm text-foreground/80 space-y-1.5">
-          <li>Choisissez votre offre (Essentiel, Professionnel ou Premium)</li>
-          <li>Contactez‑nous: <Link href="/contact" className="link-underline link-underline-strong">smarterlogicweb.com/contact</Link></li>
-          <li>Cadrage du projet (30–45 min — appel/visio)</li>
-          <li>Devis détaillé ligne par ligne + planning de livraison</li>
-          <li>Signature électronique + versement de l’acompte</li>
+          <li>Choisir votre formule (Essentiel, Professionnel ou Premium)</li>
+          <li>Prendre rendez-vous pour un échange (visio ou téléphone)</li>
+          <li>Rédaction du devis détaillé + rétroplanning</li>
+          <li>E‑signature + acompte</li>
           <li>Démarrage sous 7 jours (2 semaines pour Premium)</li>
         </ol>
         <div className="mt-5 flex flex-col items-center justify-center gap-3 sm:flex-row">
-          <BookingButton className="rounded-full btn-pulse" size="lg" label="Réserver mon audit gratuit (15 min)" />
+          <BookingButton className="rounded-full" size="lg" label="Réserver un audit gratuit" />
           <Button asChild className="rounded-full" variant="secondary">
-            <a href="mailto:contact@smarterlogicweb.com?subject=Devis%20site%20statique%20—%20Tarifs%202025">Demander un devis par email</a>
+            <a
+              href={`mailto:${CONTACT_EMAIL}?subject=Devis%20site%20statique%20—%20Tarifs%202026`}
+            >
+              Demander un devis par email
+            </a>
           </Button>
         </div>
         <div className="mt-3 flex items-center justify-center">
@@ -225,8 +228,12 @@ export default function Tarifs2025Page() {
               Frais cachés après la livraison
             </Link>
             <span className="text-muted-foreground">•</span>
+            <Link href="/creation-site-internet/paris" className="text-primary hover:underline">
+              Création de site internet à Paris
+            </Link>
+            <span className="text-muted-foreground">•</span>
             <Link href="/tarifs-2025" className="text-primary hover:underline">
-              Tarifs 2025
+              Tarifs 2026
             </Link>
           </div>
         </div>

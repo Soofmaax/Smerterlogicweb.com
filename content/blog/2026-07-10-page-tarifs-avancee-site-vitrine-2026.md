@@ -238,6 +238,12 @@ Mais vos écarts doivent être **cohérents** :
 
 ---
 
+## Pour aller plus loin
+
+- [Afficher vos prix sur votre site vitrine en 2026](/blog/afficher-prix-site-vitrine-2026)
+- [Refonte site web 2026 : 7 erreurs qui coûtent 10 000€](/blog/refonte-site-web-2026-erreurs-cout)
+- [Tarifs 2026 pour sites vitrines statiques](/tarifs-2025#tarifs)
+
 ## Vous voulez une page Tarifs avancée qui filtre et rassure, reliée à vos offres, cas et FAQ, au lieu d’un simple “sur devis” ?
 
 Si vous voulez :
@@ -249,5 +255,5 @@ Si vous voulez :
 c’est exactement ce que je peux vous aider à faire dans le cadre d’une création ou refonte de site pour TPE, indépendants et professions libérales.
 
 - Découvrir la façon dont je travaille : [/services](/services)
-- Voir les forfaits et prix 2025 : [/tarifs-2025](/tarifs-2025)
+- Voir les forfaits et prix 2026 : [/tarifs-2025](/tarifs-2025)
 - Me parler de votre projet : [/contact](/contact)

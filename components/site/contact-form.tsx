@@ -41,7 +41,7 @@ export function ContactForm({ locale, action }: Props) {
     phone: locale === "fr" ? "Téléphone" : "Phone",
     metier: locale === "fr" ? "Métier" : "Trade",
     city: locale === "fr" ? "Ville (optionnel)" : "City (optional)",
-    send: locale === "fr" ? "📞 Être rappelé aujourd'hui" : "📞 Call me back today",
+    send: locale === "fr" ? "Être rappelé aujourd'hui" : "Call me back today",
     sending: locale === "fr" ? "Envoi en cours..." : "Sending...",
     required: locale === "fr" ? "Champ requis." : "Required field.",
     reassurance:

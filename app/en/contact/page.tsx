@@ -8,6 +8,7 @@ import { Particles } from "@/components/site/particles";
 import { Guarantee } from "@/components/site/guarantee";
 import { GoogleReviewsBadge } from "@/components/site/google-reviews";
 import { Suspense } from "react";
+import { SITE_URL, CONTACT_EMAIL } from "@/config/site";
 
 export const metadata = {
   title: "Contact — smarterlogicweb.com",
@@ -20,7 +21,7 @@ export const metadata = {
     },
   },
   openGraph: {
-    url: "https://smarterlogicweb.com/en/contact",
+    url: `${SITE_URL}/en/contact`,
     title: "Contact — smarterlogicweb.com",
     description: "Contact me for a free quote or to discuss your project.",
   },
@@ -44,16 +45,34 @@ export default function ContactPage() {
           <BookingButton size="lg" className="rounded-full" label="Book my free audit (15 min)" />
           {process.env.NEXT_PUBLIC_PHONE ? (
             <Button asChild size="lg" className="rounded-full">
-              <a href={`tel:${(process.env.NEXT_PUBLIC_PHONE as string).replace(/[^+\d]/g, "")}`}>📞 Call now</a>
+              <a href={`tel:${(process.env.NEXT_PUBLIC_PHONE as string).replace(/[^+\d]/g, "")}`}>📞 07 44 40 79 73</a>
             </Button>
           ) : null}
           <Button asChild size="lg" className="rounded-full">
-            <TrackedLink href="mailto:contact@smarterlogicweb.com?subject=Free%20quote" eventName="cta_devis_mailto_contact">
-              <span className="inline-flex items-center gap-2"><Mail className="h-4 w-4" /> contact@smarterlogicweb.com</span>
+            <TrackedLink
+              href={`mailto:${CONTACT_EMAIL}?subject=Free%20quote`}
+              eventName="cta_devis_mailto_contact"
+            >
+              <span className="inline-flex items-center gap-2">
+                <Mail className="h-4 w-4" /> {CONTACT_EMAIL}
+              </span>
             </TrackedLink>
           </Button>
           <Link href="/en" className="text-sm text-muted-foreground hover:text-foreground">Back to home</Link>
         </div>
+
+        <p className="mt-3 text-sm text-foreground/80">
+          You can also message me on WhatsApp at{" "}
+          <a
+            href={process.env.NEXT_PUBLIC_WHATSAPP_URL || "https://wa.me/33744407973"}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="underline hover:no-underline"
+          >
+            +33 7 44 40 79 73
+          </a>
+          .
+        </p>
 
         <div className="mt-4">
           <GoogleReviewsBadge />

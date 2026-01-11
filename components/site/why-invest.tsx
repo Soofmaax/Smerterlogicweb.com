@@ -7,9 +7,9 @@ export function WhyInvest() {
   return (
     <section className="mx-auto w-full max-w-5xl px-6 py-12">
       <div className="text-center">
-        <h2 className="font-heading text-3xl font-semibold md:text-4xl">Pourquoi un Site Sur-Mesure Est le Meilleur Choix</h2>
+        <h2 className="font-heading text-3xl font-semibold md:text-4xl">Pourquoi un site sur‑mesure&nbsp;?</h2>
         <p className="mt-2 text-foreground/70">
-          Anticipons la question “Pourquoi pas Wix ou un WordPress à 10€/mois ?”
+          Et Wix ou WordPress à 10&nbsp;€/mois&nbsp;?
         </p>
       </div>
 

@@ -25,13 +25,15 @@ export function RealisationsGrid() {
             >
               {/* Status badge */}
               <div className="pointer-events-none absolute right-3 top-3">
-                <span className={`inline-flex rounded-full px-2 py-0.5 text-xs ${
-                  isDemo
-                    ? "bg-blue-100 text-blue-700 dark:bg-blue-400/20 dark:text-blue-300"
-                    : isSoon
-                      ? "bg-amber-100 text-amber-700 dark:bg-amber-400/20 dark:text-amber-300"
-                      : "bg-emerald-100 text-emerald-700 dark:bg-emerald-400/20 dark:text-emerald-300"
-                }`}>
+                <span
+                  className={`inline-flex rounded-full px-2 py-0.5 text-xs ${
+                    isDemo
+                      ? "bg-muted text-foreground"
+                      : isSoon
+                        ? "bg-muted text-foreground"
+                        : "bg-foreground text-background"
+                  }`}
+                >
                   {isDemo ? "Démo" : isSoon ? "En cours" : "En ligne"}
                 </span>
               </div>

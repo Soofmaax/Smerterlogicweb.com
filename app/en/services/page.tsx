@@ -7,9 +7,10 @@ import { FinalCTA } from "@/components/site/final-cta";
 import { Particles } from "@/components/site/particles";
 import { GoogleReviewsBadge } from "@/components/site/google-reviews";
 import { QuickLinksEN } from "@/components/site/quick-links-en";
+import { SITE_URL, CONTACT_EMAIL, BRAND_DOMAIN } from "@/config/site";
 
 export const metadata = {
-  title: "Services — smarterlogicweb.com",
+  title: `Services — ${BRAND_DOMAIN}`,
   description:
     "Showcase sites, redesigns, optimisation, ongoing support: web services that are simple, fast and results‑oriented.",
   alternates: {
@@ -20,8 +21,8 @@ export const metadata = {
     },
   },
   openGraph: {
-    url: "https://smarterlogicweb.com/en/services",
-    title: "Services — smarterlogicweb.com",
+    url: `${SITE_URL}/en/services`,
+    title: `Services — ${BRAND_DOMAIN}`,
     description:
       "Showcase sites, redesigns, optimisation, ongoing support: simple, fast, results‑oriented.",
   },
@@ -78,7 +79,10 @@ export default function ServicesPage() {
       <div className="mt-10 flex flex-col items-center gap-3 justify-center">
         <BookingButton className="rounded-full" size="lg" label="Book my free audit (15 min)" />
         <Button asChild size="lg" className="rounded-full">
-          <TrackedLink href="mailto:contact@smarterlogicweb.com?subject=Web%20services%20quote" eventName="cta_devis_mailto_services">
+          <TrackedLink
+            href={`mailto:${CONTACT_EMAIL}?subject=Web%20services%20quote`}
+            eventName="cta_devis_mailto_services"
+          >
             Get my free quote
           </TrackedLink>
         </Button>
@@ -86,8 +90,8 @@ export default function ServicesPage() {
           <GoogleReviewsBadge />
         </div>
       </div>
-    <FinalCTA />
-    <QuickLinksEN />
+      <FinalCTA />
+      <QuickLinksEN />
     </section>
   );
 }

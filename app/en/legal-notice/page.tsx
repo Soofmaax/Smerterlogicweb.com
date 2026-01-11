@@ -1,7 +1,9 @@
+import { SITE_URL, COMPANY_NAME, CONTACT_EMAIL, BRAND_DOMAIN } from "@/config/site";
+
 export const metadata = {
-  title: "Legal notice — smarterlogicweb.com",
+  title: `Legal notice — ${BRAND_DOMAIN}`,
   description:
-    "Legal notice of smarterlogicweb.com: publisher, hosting, intellectual property, contact.",
+    `Legal notice of ${BRAND_DOMAIN}: publisher, hosting, intellectual property, contact.`,
   alternates: {
     canonical: "/en/legal-notice",
     languages: {
@@ -10,21 +12,19 @@ export const metadata = {
     },
   },
   openGraph: {
-    url: "https://smarterlogicweb.com/en/legal-notice",
-    title: "Legal notice — smarterlogicweb.com",
+    url: `${SITE_URL}/en/legal-notice`,
+    title: `Legal notice — ${BRAND_DOMAIN}`,
     description:
-      "Legal notice of smarterlogicweb.com: publisher, hosting, intellectual property, contact.",
+      `Legal notice of ${BRAND_DOMAIN}: publisher, hosting, intellectual property, contact.`,
   },
 };
 
-const COMPANY_NAME = process.env.NEXT_PUBLIC_COMPANY_NAME || "smarterlogicweb.com";
 const COMPANY_SIRET = process.env.NEXT_PUBLIC_COMPANY_SIRET || "";
 const COMPANY_ADDRESS = process.env.NEXT_PUBLIC_COMPANY_ADDRESS || "";
 const PUBLISHER_NAME = process.env.NEXT_PUBLIC_PUBLISHER_NAME || "";
 const HOST_NAME = process.env.NEXT_PUBLIC_HOST_NAME || "";
 const HOST_ADDRESS = process.env.NEXT_PUBLIC_HOST_ADDRESS || "";
 const HOST_PHONE = process.env.NEXT_PUBLIC_HOST_PHONE || "";
-const CONTACT_EMAIL = process.env.NEXT_PUBLIC_CONTACT_EMAIL || "contact@smarterlogicweb.com";
 
 export default function LegalNoticePage() {
   return (

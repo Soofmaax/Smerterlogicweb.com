@@ -1,7 +1,8 @@
 import Link from "next/link";
+import { SITE_URL, CONTACT_EMAIL, BRAND_DOMAIN } from "@/config/site";
 
 export const metadata = {
-  title: "Terms of Sale — smarterlogicweb.com",
+  title: `Terms of Sale — ${BRAND_DOMAIN}`,
   description:
     "Terms of sale for web services: design, redesign, and ongoing support. Scope, pricing, delivery, and responsibilities.",
   alternates: {
@@ -12,8 +13,8 @@ export const metadata = {
     },
   },
   openGraph: {
-    url: "https://smarterlogicweb.com/en/terms-of-sale",
-    title: "Terms of Sale — smarterlogicweb.com",
+    url: `${SITE_URL}/en/terms-of-sale`,
+    title: `Terms of Sale — ${BRAND_DOMAIN}`,
     description:
       "Terms of sale for web services: design, redesign, and ongoing support.",
   },
@@ -120,8 +121,8 @@ export default function TermsOfSalePage() {
 
       <p className="mt-8 text-sm text-muted-foreground">
         Last update: 2025. For any question, email{" "}
-        <Link href="mailto:contact@smarterlogicweb.com" className="underline">
-          contact@smarterlogicweb.com
+        <Link href={`mailto:${CONTACT_EMAIL}`} className="underline">
+          {CONTACT_EMAIL}
         </Link>
         .
       </p>

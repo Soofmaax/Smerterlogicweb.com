@@ -28,7 +28,8 @@
     "dist",
     "build",
     "**/*-lock.json",
-    "package-lock.json"
+    "package-lock.json",
+    "app/api/pdf/**"
   ],
   "ignoreRegExpList": [
     "/https?:[^\\s)]+/g",

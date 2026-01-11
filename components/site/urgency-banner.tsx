@@ -17,7 +17,7 @@ export function UrgencyBanner({
 }) {
   const [invert, setInvert] = React.useState(false);
 
-  // Alternance automatique (bleu ↔ blanc) si variante "alternate"
+  // Alternance automatique désactivée pour un rendu plus sobre
   React.useEffect(() => {
     if (variant !== "alternate") return;
 
@@ -31,17 +31,17 @@ export function UrgencyBanner({
       return;
     }
 
-    const id = window.setInterval(() => setInvert((v) => !v), 2500);
-    return () => window.clearInterval(id);
+    // Pas d'alternance, on garde un état calme et lisible
+    setInvert(false);
   }, [variant]);
 
   const base =
-    "fixed inset-x-0 top-0 z-50 border-b transition-colors duration-700";
+    "fixed inset-x-0 top-0 z-50 border-b";
   const palette =
     variant === "alternate"
       ? invert
-        ? "bg-white text-primary"
-        : "bg-primary text-white"
+        ? "bg-background text-foreground"
+        : "bg-foreground text-background"
       : "banner-stripes text-foreground";
 
   return (

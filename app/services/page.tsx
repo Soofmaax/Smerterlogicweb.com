@@ -14,6 +14,7 @@ import { FinalCTA } from "@/components/site/final-cta";
 import { Particles } from "@/components/site/particles";
 import { RightDotsNav } from "@/components/site/right-dots-nav";
 import { Breadcrumbs } from "@/components/site/breadcrumbs";
+import { SITE_URL, CONTACT_EMAIL, BRAND_DOMAIN, COMPANY_NAME } from "@/config/site";
 
 export const metadata = {
   title: "Services | Sites statiques professionnels pour TPE & Professions libérales",
@@ -27,8 +28,8 @@ export const metadata = {
     },
   },
   openGraph: {
-    url: "https://smarterlogicweb.com/services",
-    title: "Services | Sites statiques professionnels pour TPE & Professions libérales — smarterlogicweb.com",
+    url: `${SITE_URL}/services`,
+    title: `Services | Sites statiques professionnels pour TPE & Professions libérales — ${BRAND_DOMAIN}`,
     description:
       "Création de sites vitrines statiques ultra-rapides pour TPE et professions libérales. Sites stables, sécurisés, sans maintenance technique obligatoire. Accompagnement sur-mesure, contenu, SEO et suivi.",
   },
@@ -40,8 +41,8 @@ const serviceSchema = {
   serviceType: "Création de site vitrine et refonte",
   provider: {
     "@type": "LocalBusiness",
-    name: "smarterlogicweb",
-    url: "https://smarterlogicweb.com",
+    name: COMPANY_NAME,
+    url: SITE_URL,
     areaServed: "France",
   },
   areaServed: {
@@ -52,7 +53,7 @@ const serviceSchema = {
     "@type": "AggregateOffer",
     priceCurrency: "EUR",
     lowPrice: "1490",
-    highPrice: "2490",
+    highPrice: "4990",
     availability: "https://schema.org/InStock",
   },
 };
@@ -68,7 +69,6 @@ export default function ServicesPage() {
       {/* Hero background accents */}
       <div aria-hidden className="pointer-events-none absolute inset-0 -z-10">
         <div className="hero-gradient-animated absolute inset-0 rounded-[28px] opacity-60" />
-        <Particles />
       </div>
 
       {/* Right-hand dots navigation for quick section jumps */}
@@ -152,12 +152,16 @@ export default function ServicesPage() {
       {/* CTA final */}
       <section className="mx-auto mt-2 w-full max-w-5xl px-0 py-12">
         <div className="rounded-[28px] card-elevated border bg-card p-6 text-center">
-          <h2 className="font-heading text-2xl font-semibold">Pas Sûr de la Formule qui Vous Convient ?</h2>
-          <p className="mt-2 text-foreground/80">Appelons-nous 15 minutes. Je vous aide à choisir gratuitement.</p>
+          <h2 className="font-heading text-2xl font-semibold">Pas sûr de la formule adaptée&nbsp;?</h2>
+          <p className="mt-2 text-foreground/80">Parlons 15 minutes. Je vous aide à choisir, gratuitement.</p>
           <div className="mt-5 flex flex-col items-center justify-center gap-3 sm:flex-row">
-            <BookingButton className="rounded-full btn-pulse" size="lg" label="Réserver mon audit gratuit (15 min)" />
+            <BookingButton className="rounded-full" size="lg" label="Réserver un audit gratuit" />
             <Button asChild className="rounded-full" variant="secondary">
-              <a href="mailto:contact@smarterlogicweb.com?subject=Prendre%20rendez-vous%20t%C3%A9l%C3%A9phonique">Prendre rendez-vous téléphonique</a>
+              <a
+                href={`mailto:${CONTACT_EMAIL}?subject=Prendre%20rendez-vous%20t%C3%A9l%C3%A9phonique`}
+              >
+                Prendre rendez-vous téléphonique
+              </a>
             </Button>
           </div>
           {/* Badge note Google près du CTA */}
@@ -190,8 +194,12 @@ export default function ServicesPage() {
               Frais cachés après la livraison
             </Link>
             <span className="text-muted-foreground">•</span>
+            <Link href="/creation-site-internet/paris" className="text-primary hover:underline">
+              Création de site internet à Paris
+            </Link>
+            <span className="text-muted-foreground">•</span>
             <Link href="/tarifs-2025" className="text-primary hover:underline">
-              Tarifs 2025
+              Tarifs 2026
             </Link>
           </div>
         </div>

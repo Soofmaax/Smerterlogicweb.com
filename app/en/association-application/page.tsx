@@ -3,6 +3,7 @@ import { AssociationApplicationForm } from "@/components/site/association-applic
 import { BookingButton } from "@/components/site/booking-modal";
 import { FinalCTA } from "@/components/site/final-cta";
 import { Particles } from "@/components/site/particles";
+import { SITE_URL } from "@/config/site";
 
 export const metadata = {
   title: "Application — Nonprofit of the Month",
@@ -15,7 +16,7 @@ export const metadata = {
     },
   },
   openGraph: {
-    url: "https://smarterlogicweb.com/en/association-application",
+    url: `${SITE_URL}/en/association-application`,
     title: "Application — Nonprofit of the Month",
     description: "Apply for your nonprofit to receive a free website this month.",
   },

@@ -97,6 +97,9 @@ jobs:
       - name: Lint
         run: npm run lint
 
+      - name: Tests
+        run: npm run test:ci
+
       - name: Build (type-check included)
         run: npm run build
 

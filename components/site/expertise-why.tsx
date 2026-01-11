@@ -60,8 +60,8 @@ export function ExpertiseWhy() {
   return (
     <section className="mx-auto w-full max-w-5xl px-6 py-12">
       <div className="mb-8 text-center">
-        <h2 className="font-heading text-3xl font-semibold md:text-4xl">Ce Que Vous Gagnez</h2>
-        <p className="mt-2 text-foreground/70">Des bénéfices concrets pour votre activité locale.</p>
+        <h2 className="font-heading text-3xl font-semibold md:text-4xl">Ce que vous gagnez</h2>
+        <p className="mt-2 text-foreground/70">Des résultats concrets pour votre activité.</p>
       </div>
 
       <div className="grid gap-6 md:grid-cols-4">

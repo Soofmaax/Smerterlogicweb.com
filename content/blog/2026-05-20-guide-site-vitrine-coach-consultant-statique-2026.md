@@ -284,6 +284,12 @@ Un site vitrine statique bien conçu offre plus de sérénité à moyen terme.
 
 ---
 
+## Pour aller plus loin
+
+- [LinkedIn pour TPE B2B et indépendants en 2026](/blog/linkedin-tpe-b2b-site-vitrine-2026)
+- [Utiliser votre site vitrine dans vos rendez-vous commerciaux](/blog/utiliser-site-vitrine-rendez-vous-commercial-2026)
+- [Tarifs 2026 pour sites vitrines statiques](/tarifs-2025#tarifs)
+
 ## Vous êtes coach ou consultant et vous voulez un site vitrine statique authentique, clair, relié à LinkedIn, à votre agenda et à votre newsletter ?
 
 Si vous voulez :
@@ -295,5 +301,5 @@ Si vous voulez :
 c’est exactement le type de sites que je conçois pour les coachs, consultants et indépendants.
 
 - Découvrir la façon dont je travaille : [/services](/services)
-- Voir les forfaits et prix 2025 : [/tarifs-2025](/tarifs-2025)
+- Voir les forfaits et prix 2026 : [/tarifs-2025](/tarifs-2025)
 - Me parler de votre projet : [/contact](/contact)

@@ -38,7 +38,7 @@ function readingTime(contentHtml: string): number {
 export function TableOfContents({
   contentHtml,
   rootId = "article-content",
-  title = "Sommaire",
+  title,
   locale = "fr",
 }: {
   contentHtml: string;
@@ -78,6 +78,7 @@ export function TableOfContents({
   const rtMin = readingTime(contentHtml);
   const pageTitle = locale === "fr" ? "Sommaire" : "Contents";
   const readLabel = locale === "fr" ? "Temps de lecture" : "Reading time";
+  const displayTitle = title || pageTitle;
 
   if (!entries.length) {
     return null;
@@ -86,7 +87,7 @@ export function TableOfContents({
   return (
     <nav aria-label={pageTitle} className="mb-6 rounded-lg border bg-card p-4 text-sm">
       <div className="mb-2 flex items-center justify-between">
-        <span className="font-semibold">{title || pageTitle}</span>
+        <span className="font-semibold">{displayTitle}</span>
         <span className="text-muted-foreground">
           {readLabel}: ~{rtMin} min
         </span>

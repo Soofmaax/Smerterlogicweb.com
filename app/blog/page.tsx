@@ -1,21 +1,30 @@
 import Link from "next/link";
-import { schedulePosts, getPublishedPostsBurst, formatDate } from "@/lib/blog";
-import { QuickLinks } from "@/components/site/quick-links";
+import { getPublishedPostsBurst, formatDate, schedulePosts } from "@/lib/blog";
 import { getAllPosts } from "@/lib/blog-source";
+import { Suspense } from "react";
+import { Particles } from "@/components/site/particles";
 import { Breadcrumbs } from "@/components/site/breadcrumbs";
+import { QuickLinks } from "@/components/site/quick-links";
+import { absoluteUrl, SITE_URL, BRAND_DOMAIN } from "@/config/site";
 
 export const revalidate = 60;
 
 export const metadata = {
-  title: "Articles & blog",
+  title: "Blog — visibilité locale, refonte et tarifs 2026",
   description:
-    "Conseils pratiques sur la visibilité, la confiance et la performance web.",
+    "Articles et conseils pratiques sur la visibilité locale, la refonte de sites WordPress en sites statiques et les tarifs 2026 pour TPE et professions libérales.",
   alternates: {
     canonical: "/blog",
     languages: {
       "fr-FR": "/blog",
       "en-US": "/en/blog",
     },
+  },
+  openGraph: {
+    url: `${SITE_URL}/blog`,
+    title: `Blog — visibilité locale, refonte et tarifs 2026 — ${BRAND_DOMAIN}`,
+    description:
+      "Articles et conseils pratiques sur la visibilité locale, la refonte de sites WordPress en sites statiques et les tarifs 2026 pour TPE et professions libérales.",
   },
 };
 
@@ -28,8 +37,8 @@ export default function BlogIndexFR() {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
     itemListElement: [
-      { "@type": "ListItem", position: 1, name: "Accueil", item: "https://smarterlogicweb.com/" },
-      { "@type": "ListItem", position: 2, name: "Blog", item: "https://smarterlogicweb.com/blog" },
+      { "@type": "ListItem", position: 1, name: "Accueil", item: absoluteUrl("/") },
+      { "@type": "ListItem", position: 2, name: "Blog", item: absoluteUrl("/blog") },
     ],
   };
 

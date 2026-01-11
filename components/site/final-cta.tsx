@@ -9,18 +9,22 @@ export function FinalCTA() {
     <section className="relative mx-auto w-full max-w-5xl px-6 py-14">
       <div className="overflow-hidden rounded-[28px] border bg-gradient-to-br from-primary/10 via-transparent to-primary/5 p-8 text-center card-elevated">
         <h2 className="font-heading text-3xl font-semibold md:text-4xl">
-          Prêt à Donner à Votre Entreprise le Site Web qu&#39;elle Mérite ?
+          Un site à la hauteur de votre activité&nbsp;?
         </h2>
         <p className="mx-auto mt-3 max-w-2xl text-foreground/80">
-          Discutons de votre projet sans engagement. Je vous propose un audit gratuit de vos besoins et une
-          estimation personnalisée sous 48h.
+          Parlons de votre projet, sans engagement. Audit gratuit de vos besoins et estimation sous 48&nbsp;h.
         </p>
 
         <div className="mt-6 flex flex-col items-center justify-center gap-3 sm:flex-row">
-          <Button asChild size="lg" variant="cta" className="rounded-full animate-[pulse_3s_ease-in-out_infinite]">
-            <Link href="#tarifs">Voir les tarifs et exemples</Link>
+          <Button
+            asChild
+            size="lg"
+            variant="default"
+            className="rounded-full border border-foreground bg-foreground px-6 py-3 text-base font-semibold text-background hover:bg-foreground/90"
+          >
+            <Link href="#tarifs">Voir les tarifs</Link>
           </Button>
-          <BookingButton className="h-11 px-6" label="Réserver mon audit gratuit (15 min)" />
+          <BookingButton className="px-6" label="Réserver un audit gratuit" />
         </div>
 
         <div className="mt-6 grid gap-4 sm:grid-cols-3">

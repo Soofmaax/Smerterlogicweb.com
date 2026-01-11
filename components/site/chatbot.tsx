@@ -123,49 +123,42 @@ export function Chatbot() {
     track("chat_branch_tarifs");
     push(
       "bot",
-      <>Trois formules : Essentiel (1 490€ TTC), Professionnel (2 490€ TTC), Premium (4 990€ TTC). Quelle activité exercez‑vous ?</>
+      <>
+        Pour 2026, les tarifs actuels sont structurés en trois formules&nbsp;:
+        <ul className="mt-1 list-disc pl-4 text-sm">
+          <li><strong>Essentiel</strong> — 1 490&nbsp;€ TTC : présence en ligne claire, idéal pour démarrer.</li>
+          <li><strong>Professionnel</strong> — 2 490&nbsp;€ TTC : plus de contenu, blog/actualités, FAQ, témoignages.</li>
+          <li><strong>Premium</strong> — 4 990&nbsp;€ TTC : projet sur‑mesure plus complexe, stratégie complète.</li>
+        </ul>
+      </>
     );
     push(
       "bot",
       <div className="mt-2 flex flex-wrap gap-2">
-        {["Artisan", "Commerce", "TPE", "Association"].map((a) => (
-          <QuickButton key={a} onClick={() => recommend(a)}>
-            {a}
-          </QuickButton>
-        ))}
+        <QuickButton>
+          <Link href="/tarifs-2025#tarifs">Voir les tarifs 2026 en détail</Link>
+        </QuickButton>
       </div>
     );
-  }, [push, setBranch, recommend]);
+  }, [push, setBranch]);
 
   const goRDV = React.useCallback(() => {
     setBranch("rdv");
     track("chat_branch_rdv");
-    push("bot", <>D’accord. Laissez vos coordonnées et un créneau souhaité — je vous confirme sous 24h.</>);
     push(
       "bot",
-      <form
-        name="chat-lead"
-        method="POST"
-        data-netlify="true"
-        action="/merci"
-        className="mt-2 grid gap-2 rounded-md border bg-muted/30 p-3"
-        onSubmit={() => track("chat_lead_submitted")}
-      >
-        <input type="hidden" name="form-name" value="chat-lead" />
-        <input type="hidden" name="leadType" value="rdv" />
-        <input type="hidden" name="origin" value={typeof window !== "undefined" ? window.location.href : ""} />
-        <label className="text-xs">Nom</label>
-        <input name="name" required className="h-9 rounded-md border px-2 text-sm" placeholder="Votre nom" />
-        <label className="text-xs">Email</label>
-        <input name="email" type="email" required className="h-9 rounded-md border px-2 text-sm" placeholder="vous@email.com" />
-        <label className="text-xs">Téléphone (optionnel)</label>
-        <input name="phone" className="h-9 rounded-md border px-2 text-sm" placeholder="+33 ..." />
-        <label className="text-xs">Créneau souhaité</label>
-        <input name="slot" type="datetime-local" className="h-9 rounded-md border px-2 text-sm" />
-        <button className="mt-2 inline-flex items-center justify-center rounded-full bg-primary px-3 py-1.5 text-sm text-primary-foreground shadow-sm hover:opacity-90">
-          Envoyer <Calendar className="ml-2 h-4 w-4" />
-        </button>
-      </form>
+      <>D’accord. Le plus simple est de passer par la page contact ou de réserver un audit gratuit.</>
+    );
+    push(
+      "bot",
+      <div className="mt-2 flex flex-wrap gap-2">
+        <QuickButton>
+          <Link href="/contact">Aller à la page contact</Link>
+        </QuickButton>
+        <QuickButton>
+          <Link href="/tarifs-2025#tarifs">Voir les tarifs</Link>
+        </QuickButton>
+      </div>
     );
   }, [push, setBranch]);
 
@@ -182,41 +175,27 @@ export function Chatbot() {
     push(
       "bot",
       <>
-        D’accord, écrivez votre question ci‑dessous. Si vous laissez votre email, je vous réponds sous 24h.
-        <form
-          name="chat-question"
-          method="POST"
-          data-netlify="true"
-          action="/merci"
-          className="mt-2 grid gap-2 rounded-md border bg-muted/30 p-3"
-          onSubmit={() => track("chat_question_submitted")}
-        >
-          <input type="hidden" name="form-name" value="chat-question" />
-          <input type="hidden" name="origin" value={typeof window !== "undefined" ? window.location.href : ""} />
-          <label className="text-xs">Email</label>
-          <input name="email" type="email" required className="h-9 rounded-md border px-2 text-sm" placeholder="vous@email.com" />
-          <label className="text-xs">Message</label>
-          <textarea name="message" rows={4} className="rounded-md border px-2 py-1 text-sm" placeholder="Votre question..." />
-          <button className="mt-2 inline-flex items-center justify-center rounded-full bg-primary px-3 py-1.5 text-sm text-primary-foreground shadow-sm hover:opacity-90">
-            Envoyer <Mail className="ml-2 h-4 w-4" />
-          </button>
-        </form>
+        D’accord. Pour une réponse précise, le mieux est de passer par le formulaire de contact.
+        <div className="mt-2 flex flex-wrap gap-2">
+          <QuickButton>
+            <Link href="/contact">Ouvrir le formulaire de contact</Link>
+          </QuickButton>
+        </div>
       </>
     );
   }, [push, setBranch]);
 
   const greet = React.useCallback(() => {
-    push("bot", <>👋 Bonjour ! Comment puis‑je vous aider ?</>);
+    push("bot", <>Bonjour, je peux vous orienter en quelques clics.</>);
     push(
       "bot",
       <div className="mt-2 flex flex-wrap gap-2">
-        <QuickButton onClick={goTarifs}>💰 Connaître les tarifs</QuickButton>
-        <QuickButton onClick={goRDV}>📅 Prendre rendez‑vous</QuickButton>
-        <QuickButton onClick={goFormule}>🤔 Choisir ma formule</QuickButton>
-        <QuickButton onClick={goQuestion}>📧 Poser une question</QuickButton>
+        <QuickButton onClick={goTarifs}>Voir les tarifs</QuickButton>
+        <QuickButton onClick={goRDV}>Parler de votre projet</QuickButton>
+        <QuickButton onClick={goQuestion}>Poser une question</QuickButton>
       </div>
     );
-  }, [push, goTarifs, goRDV, goFormule, goQuestion]);
+  }, [push, goTarifs, goRDV, goQuestion]);
 
   // keep greetRef in sync
   React.useEffect(() => {
@@ -232,110 +211,10 @@ export function Chatbot() {
     goFormuleRef.current = goFormule;
   }, [goFormule]);
 
-  // Hesitation detection — show bubble only when user seems uncertain
+  // Hesitation detection — bubble désactivée pour une expérience plus minimaliste
   React.useEffect(() => {
-    const snoozeKey = "chat_snooze";
-    const hasSnooze = () => {
-      try {
-        const v = localStorage.getItem(snoozeKey);
-        if (!v) return false;
-        const until = Number(v);
-        return !!until && until > Date.now();
-      } catch {
-        return false;
-      }
-    };
-    const snooze = () => {
-      try {
-        localStorage.setItem(snoozeKey, String(Date.now() + 24 * 60 * 60 * 1000));
-      } catch {}
-    };
-
-    // Disable bubble entirely on mobile and on home page
-    const isMobile = typeof window !== "undefined" && window.matchMedia && window.matchMedia("(max-width: 767px)").matches;
-    const isHome = pathname === "/" || pathname === "/fr";
-    if (isMobile || isHome || pathname.includes("/contact")) {
-      setBubbleVisible(false);
-      return;
-    }
-
-    let inTarifs = false;
-    let lastY = typeof window !== "undefined" ? window.scrollY : 0;
-    let lastDir = 0; // -1 up, 1 down
-    let turns = 0;
-    let lastActivity = Date.now();
-    const idleThresholdMs = 12000;
-
-    const onActivity = () => {
-      lastActivity = Date.now();
-    };
-
-    const onScroll = () => {
-      const y = window.scrollY;
-      const dy = y - lastY;
-      const dir = dy === 0 ? lastDir : dy > 0 ? 1 : -1;
-      if (lastDir && dir && dir !== lastDir) {
-        turns += 1;
-      }
-      lastDir = dir;
-      lastY = y;
-      onActivity();
-
-      if (!bubbleVisible && inTarifs && turns >= 3 && !hasSnooze()) {
-        setBubbleVisible(true);
-        snooze();
-      }
-    };
-
-    window.addEventListener("scroll", onScroll, { passive: true });
-    window.addEventListener("mousemove", onActivity, { passive: true });
-    window.addEventListener("keydown", onActivity);
-    window.addEventListener("click", onActivity);
-
-    // Observe pricing section presence
-    let io: IntersectionObserver | null = null;
-    const target = document.getElementById("tarifs");
-    if (target) {
-      io = new IntersectionObserver(
-        (entries) => {
-          inTarifs = !!entries[0]?.isIntersecting;
-        },
-        { threshold: 0.2 }
-      );
-      io.observe(target);
-    }
-
-    // Idle in pricing section
-    const idleId = window.setInterval(() => {
-      if (!bubbleVisible && inTarifs && Date.now() - lastActivity > idleThresholdMs && !hasSnooze()) {
-        setBubbleVisible(true);
-        snooze();
-      }
-    }, 1000);
-
-    // Services page: dwell time without clicking
-    let dwellTimer: any;
-    if (pathname.includes("/services") && !hasSnooze()) {
-      dwellTimer = setTimeout(() => {
-        if (!bubbleVisible) {
-          setBubbleVisible(true);
-          snooze();
-        }
-      }, 30000);
-    }
-
-    return () => {
-      window.removeEventListener("scroll", onScroll);
-      window.removeEventListener("mousemove", onActivity);
-      window.removeEventListener("keydown", onActivity);
-      window.removeEventListener("click", onActivity);
-      if (io) io.disconnect();
-      clearInterval(idleId);
-      clearTimeout(dwellTimer);
-    };
-  }, [pathname, bubbleVisible]);
-
-  
+    setBubbleVisible(false);
+  }, [pathname]);
 
   // Free text + FAQ keywords
   const send = () => {
@@ -352,7 +231,28 @@ export function Chatbot() {
 
   const faqAuto = (t: string): React.ReactNode => {
     const pairs: Array<[RegExp, React.ReactNode]> = [
-      [/prix|tarif|co[uû]t/, <>Entre 1 490€ et 4 990€ TTC selon vos besoins. Prix fixe annoncé dès le départ, pas de surprises. Voir <Link href="/tarifs-2025#tarifs" className="underline">Tarifs</Link>.</>],
+      [
+        /prix|tarif|co[uû]t/,
+        <>
+          En 2026, la plupart des projets se situent entre 1 490€ et 4 990€ TTC selon l’ampleur (Essentiel, Professionnel, Premium).
+          Prix fixe annoncé dès le départ, sans surprise. Détails sur la page{" "}
+          <Link href="/tarifs-2025#tarifs" className="underline">
+            Tarifs&nbsp;2026
+          </Link>
+          .
+        </>
+      ],
+      [
+        /refonte/,
+        <>
+          Pour une refonte (WordPress lent &rarr; site vitrine statique), la majorité des projets se situent entre 2 490€ et 4 990€ TTC,
+          selon la taille du site, le SEO à reprendre et les contenus à retravailler. Pour un aperçu détaillé, consultez la page{" "}
+          <Link href="/tarifs-2025#tarifs" className="underline">
+            Tarifs&nbsp;2026
+          </Link>
+          .
+        </>
+      ],
       [/d[ée]lai|combien de temps/, <>Essentiel: 2‑3 semaines, Professionnel: 4‑6 semaines, Premium: 8‑12 semaines (après réception contenus).</>],
       [/wordpress|wix/, <>Wix: lent/limité; WordPress: maintenance et sécurité. Mon approche: statique sur‑mesure — rapide, sécurisée et simple d’usage.</>],
       [/maintenance|bug|support/, <>Support prioritaire inclus selon offre. Option <strong>Formule Évolution</strong> à 20€/mois (1h/mois cumulable, monitoring, tweaks).</>],
@@ -375,8 +275,8 @@ export function Chatbot() {
 
   return (
     <>
-      {/* Floating bubble (shown only when hesitation detected) */}
-      {bubbleVisible && !open && (
+      {/* Floating bubble — désactivée par défaut pour une interface plus calme */}
+      {false && bubbleVisible && !open && (
         <button
           aria-label="Ouvrir le chat"
           className="chat-bubble fixed bottom-6 right-6 z-40 inline-flex h-14 w-14 items-center justify-center rounded-full bg-primary text-primary-foreground shadow-lg transition hover:opacity-90"

@@ -47,7 +47,7 @@ const config: Config = {
       },
       fontFamily: {
         sans: ["var(--font-dm-sans)", "system-ui", "sans-serif"],
-        heading: ["var(--font-inter)", "ui-sans-serif", "system-ui"],
+        heading: ["var(--font-anonymous-pro)", "ui-monospace", "system-ui"],
       },
     },
   },

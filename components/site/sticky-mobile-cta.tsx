@@ -20,10 +20,10 @@ export function StickyMobileCTA() {
     : rawBooking || (isEn ? "/en/contact" : "/contact");
   const isInternal = href.startsWith("/");
 
-  // Aggressive label localized, with home variant
+  // Label localized, plus sobre
   const label = isEn
-    ? (isHome ? "Free Audit" : "Call me for a free quote")
-    : (isHome ? "Audit Offert" : "Appelez-moi pour un devis gratuit");
+    ? (isHome ? "Free audit" : "Talk about your project")
+    : (isHome ? "Audit gratuit" : "Parler de votre projet");
 
   React.useEffect(() => {
     if (isContactPage) {

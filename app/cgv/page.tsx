@@ -1,7 +1,8 @@
 import Link from "next/link";
+import { SITE_URL, CONTACT_EMAIL, BRAND_DOMAIN } from "@/config/site";
 
 export const metadata = {
-  title: "Conditions générales de vente — smarterlogicweb.com",
+  title: `Conditions générales de vente — ${BRAND_DOMAIN}`,
   description:
     "Conditions générales de vente (CGV) applicables aux prestations de création et refonte de site, accompagnement et support.",
   alternates: {
@@ -12,8 +13,8 @@ export const metadata = {
     },
   },
   openGraph: {
-    url: "https://smarterlogicweb.com/cgv",
-    title: "Conditions générales de vente — smarterlogicweb.com",
+    url: `${SITE_URL}/cgv`,
+    title: `Conditions générales de vente — ${BRAND_DOMAIN}`,
     description:
       "Conditions générales de vente (CGV) applicables aux prestations de création et refonte de site, accompagnement et support.",
   },
@@ -126,8 +127,8 @@ export default function CGVPage() {
 
       <p className="mt-8 text-sm text-muted-foreground">
         Dernière mise à jour&nbsp;: 2025. Pour toute question, écrivez à{" "}
-        <Link href="mailto:contact@smarterlogicweb.com" className="underline">
-          contact@smarterlogicweb.com
+        <Link href={`mailto:${CONTACT_EMAIL}`} className="underline">
+          {CONTACT_EMAIL}
         </Link>
         .
       </p>

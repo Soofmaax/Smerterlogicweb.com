@@ -20,10 +20,12 @@ import { Reveal } from "@/components/site/reveal";
 import { BookingButton } from "@/components/site/booking-modal";
 import { Guarantee } from "@/components/site/guarantee";
 
+import { SITE_URL, BRAND_DOMAIN } from "@/config/site";
+
 export const metadata = {
-  title: "Sites vitrines statiques dès 1490€ TTC | TPE & Professions libérales",
+  title: "Sites vitrines statiques dès 1490€ TTC | TPE & professions libérales",
   description:
-    "Sites web ultra-rapides pour TPE et professions libérales. Core Web Vitals 90+, zéro maintenance technique obligatoire, SEO garanti. Tarifs 2025 dès 1490€ TTC.",
+    "Création de sites vitrines statiques ultra-rapides pour TPE et professions libérales. Core Web Vitals 90+, zéro maintenance technique obligatoire, SEO local soigné. Tarifs 2026 dès 1 490€ TTC.",
   alternates: {
     canonical: "/",
     languages: {
@@ -32,20 +34,20 @@ export const metadata = {
     },
   },
   openGraph: {
-    url: "https://smarterlogicweb.com/",
-    title: "Sites vitrines statiques dès 1490€ TTC | TPE & Professions libérales — smarterlogicweb.com",
+    url: SITE_URL,
+    title: `Sites vitrines statiques dès 1490€ TTC | TPE & professions libérales — ${BRAND_DOMAIN}`,
     description:
-      "Sites web ultra-rapides pour TPE et professions libérales. Core Web Vitals 90+, zéro maintenance technique obligatoire, SEO garanti. Tarifs 2025 dès 1490€ TTC.",
+      "Création de sites vitrines statiques ultra-rapides pour TPE et professions libérales. Core Web Vitals 90+, zéro maintenance technique obligatoire, SEO local soigné. Tarifs 2026 dès 1 490€ TTC.",
   },
 };
 
 export default function Page() {
   return (
     <div className="relative overflow-hidden bg-background">
-      {/* Subtle background accents */}
+      {/* Subtle background accents — neutral, black & white */}
       <div aria-hidden className="pointer-events-none absolute inset-0 -z-10">
-        <div className="absolute left-1/2 top-[-20%] h-[40rem] w-[40rem] -translate-x-1/2 rounded-full bg-emerald-300/10 blur-3xl" />
-        <div className="absolute bottom-[-30%] right-[-10%] h-[35rem] w-[35rem] rounded-full bg-rose-300/10 blur-3xl" />
+        <div className="absolute left-1/2 top-[-20%] h-[40rem] w-[40rem] -translate-x-1/2 rounded-full bg-foreground/5 blur-3xl" />
+        <div className="absolute bottom-[-30%] right-[-10%] h-[35rem] w-[35rem] rounded-full bg-foreground/5 blur-3xl" />
       </div>
 
       {/* New Hero with typing effect */}
@@ -67,7 +69,7 @@ export default function Page() {
           <h3 className="font-heading text-2xl font-semibold">Un audit rapide pour démarrer</h3>
           <p className="mt-2 text-foreground/80">15 minutes pour évaluer vos besoins et vos objectifs.</p>
           <div className="mt-4 flex justify-center">
-            <BookingButton className="h-11 px-8 text-base" label="Réserver mon audit gratuit (15 min)" />
+            <BookingButton className="px-8 text-base" label="Réserver un audit gratuit" />
           </div>
         </div>
       </section>
@@ -119,7 +121,7 @@ export default function Page() {
           </p>
           <div className="mt-5 flex flex-col gap-3 sm:flex-row">
             <Button asChild className="rounded-full">
-              <Link href="/contact">Discutons de votre projet</Link>
+              <Link href="/contact">Parler de votre projet</Link>
             </Button>
             <Link href="/engagement-associatif" className="group inline-flex items-center justify-center gap-2 rounded-full px-4 py-3 text-sm text-muted-foreground hover:text-foreground">
               <Heart size={16} className="transition-transform group-hover:scale-110" />
@@ -152,8 +154,12 @@ export default function Page() {
               Frais cachés après la livraison
             </Link>
             <span className="text-muted-foreground">•</span>
+            <Link href="/creation-site-internet/paris" className="text-primary hover:underline">
+              Création de site internet à Paris
+            </Link>
+            <span className="text-muted-foreground">•</span>
             <Link href="/tarifs-2025" className="text-primary hover:underline">
-              Tarifs 2025
+              Tarifs 2026
             </Link>
           </div>
         </div>

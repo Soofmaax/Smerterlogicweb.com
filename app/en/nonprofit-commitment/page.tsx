@@ -8,9 +8,10 @@ import { GoogleReviewsBadge } from "@/components/site/google-reviews";
 import { Guarantee } from "@/components/site/guarantee";
 import { FinalCTA } from "@/components/site/final-cta";
 import { Particles } from "@/components/site/particles";
+import { SITE_URL, CONTACT_EMAIL, BRAND_DOMAIN } from "@/config/site";
 
 export const metadata = {
-  title: "Nonprofit commitment — smarterlogicweb.com",
+  title: `Nonprofit commitment — ${BRAND_DOMAIN}`,
   description:
     "My nonprofit commitment: supporting impact‑driven projects through the web. Mentoring, accessible redesigns, performance optimisation.",
   alternates: {
@@ -21,8 +22,8 @@ export const metadata = {
     },
   },
   openGraph: {
-    url: "https://smarterlogicweb.com/en/nonprofit-commitment",
-    title: "Nonprofit commitment — smarterlogicweb.com",
+    url: `${SITE_URL}/en/nonprofit-commitment`,
+    title: `Nonprofit commitment — ${BRAND_DOMAIN}`,
     description:
       "Supporting impact projects: accessible redesigns, performance & SEO, mentoring.",
   },
@@ -71,7 +72,10 @@ export default function NonprofitCommitmentPage() {
           <div className="mt-10 flex flex-wrap items-center gap-4">
             <BookingButton className="rounded-full" size="lg" label="Book my free audit (15 min)" />
             <Button asChild size="lg" className="rounded-full">
-              <TrackedLink href="mailto:contact@smarterlogicweb.com?subject=Nonprofit%20project" eventName="cta_devis_mailto_engagement">
+              <TrackedLink
+                href={`mailto:${CONTACT_EMAIL}?subject=Nonprofit%20project`}
+                eventName="cta_devis_mailto_engagement"
+              >
                 Tell me about your project
               </TrackedLink>
             </Button>

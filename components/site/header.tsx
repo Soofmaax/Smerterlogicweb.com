@@ -7,7 +7,7 @@ import { usePathname } from "next/navigation";
 import { Button } from "@/components/ui/button";
 import { Menu, X, ChevronDown } from "lucide-react";
 import { track } from "@/lib/analytics";
-import { availablePathsFR, availablePathsEN } from "@/data/routes";
+import { availablePathsFR, availablePathsEN, switchLocalePath } from "@/data/routes";
 
 export function Header() {
   const [open, setOpen] = useState(false);
@@ -63,45 +63,12 @@ export function Header() {
               item2: "Refonte & optimisation",
               item3: "Accompagnement continu",
             },
-            cta: "Voir les tarifs et exemples",
+            cta: "Voir les tarifs",
             baseline: "La qualité qui se mesure : vitesse, sécurité, résultats.",
             lang: "EN",
           },
     [isEn]
   );
-
-  // slug mapping for language switch
-  const frToEn: Record<string, string> = {
-    "": "",
-    "projets": "projects",
-    "services": "services",
-    "a-propos": "about",
-    "engagement-associatif": "nonprofit-commitment",
-    "contact": "contact",
-    "mentions-legales": "legal-notice",
-    "politique-de-confidentialite": "privacy-policy",
-    "merci": "thank-you",
-    "securite": "security",
-    "blog": "blog",
-    "cgv": "terms-of-sale",
-    "faq": "faq",
-  };
-  const enToFr: Record<string, string> = Object.fromEntries(Object.entries(frToEn).map(([k, v]) => [v, k]));
-
-  function switchLocalePath(path: string) {
-    const p = path.startsWith("/en") ? path.slice(3) || "/" : path;
-    const parts = p.split("/").filter(Boolean);
-    const first = parts[0] || "";
-    if (path.startsWith("/en")) {
-      // EN -> FR
-      const mapped = enToFr[first] ?? first;
-      return mapped ? `/${mapped}${parts.slice(1).length ? `/${parts.slice(1).join("/")}` : ""}` : "/";
-    } else {
-      // FR -> EN
-      const mapped = frToEn[first] ?? first;
-      return `/en${mapped ? `/${mapped}${parts.slice(1).length ? `/${parts.slice(1).join("/")}` : ""}` : ""}`;
-    }
-  }
 
   const langSwitchHref = switchLocalePath(pathname);
   const pricingHref = isEn
@@ -300,7 +267,7 @@ export function Header() {
             asChild
             size="sm"
             className="rounded-full px-4 py-2 text-sm font-medium"
-            aria-label={isEn ? "View pricing and examples" : "Voir les tarifs et exemples"}
+            aria-label={isEn ? "View pricing and examples" : "Voir les tarifs"}
           >
             <Link
               href={pricingHref}
@@ -434,7 +401,7 @@ export function Header() {
               <Button
                 asChild
                 className="w-full rounded-full"
-                aria-label={isEn ? "View pricing and examples" : "Voir les tarifs et exemples"}
+                aria-label={isEn ? "View pricing and examples" : "Voir les tarifs"}
                 onClick={() => setOpen(false)}
               >
                 <Link href={pricingHref} onClick={() => track("cta_view_pricing_header_mobile")}>

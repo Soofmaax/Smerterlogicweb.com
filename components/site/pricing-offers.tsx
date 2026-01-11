@@ -24,7 +24,7 @@ export function PricingOffers() {
       </div>
 
       {/* Availability note (synced with UrgencyBanner) */}
-      <p className="mb-4 text-center text-sm font-medium text-primary">
+      <p className="mb-4 text-center text-sm font-medium text-foreground">
         <span className="mr-1">⚠️</span>
         Plus que {URGENCY_SLOTS_LEFT_MONTH} créneaux disponibles ce mois-ci.{" "}
         <a href="/contact" className="link-underline link-underline-strong">
@@ -51,7 +51,7 @@ function PlanCard({ plan }: { plan: Plan }) {
     <article
       className={cn(
         "relative rounded-[24px] border bg-card p-5 transition card-elevated hover:shadow-lg min-h-[22rem] h-full flex flex-col",
-        plan.recommended ? "ring-2 ring-amber-400 border-amber-300" : ""
+        plan.recommended ? "ring-2 ring-foreground border-foreground/70" : ""
       )}
     >
       <div className="flex flex-col h-full">
@@ -59,7 +59,7 @@ function PlanCard({ plan }: { plan: Plan }) {
         <div className="flex items-center justify-between gap-2">
           <h3 className="font-heading text-lg font-semibold">{plan.name}</h3>
           {plan.recommended ? (
-            <span className="badge-premium inline-flex items-center gap-1.5 rounded-full bg-amber-500/95 px-2.5 py-0.5 text-[11px] font-semibold text-white shadow focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/40">
+            <span className="badge-premium inline-flex items-center gap-1.5 rounded-full bg-foreground px-2.5 py-0.5 text-[11px] font-semibold text-background shadow focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-foreground/40">
               <Star className="h-3.5 w-3.5" /> Recommandé
             </span>
           ) : null}
@@ -70,7 +70,7 @@ function PlanCard({ plan }: { plan: Plan }) {
         <ul className="mt-3 space-y-1.5">
           {plan.features.map((f, i) => (
             <li key={i} className="flex items-start gap-2 text-sm">
-              <CheckCircle2 className="mt-0.5 h-4 w-4 text-primary" />
+              <CheckCircle2 className="mt-0.5 h-4 w-4 text-foreground" />
               <span>{f}</span>
             </li>
           ))}

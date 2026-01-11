@@ -3,9 +3,9 @@ import { notFound } from "next/navigation";
 import { getLocalCityBySlug, getAllLocalCitySlugs } from "@/data/local-cities";
 import { BookingButton } from "@/components/site/booking-modal";
 import { Reveal } from "@/components/site/reveal";
-import { Particles } from "@/components/site/particles";
 import { Button } from "@/components/ui/button";
 import { Breadcrumbs } from "@/components/site/breadcrumbs";
+import { SITE_URL, absoluteUrl, COMPANY_NAME, PHONE_NUMBER_PUBLIC } from "@/config/site";
 
 export const dynamic = "force-static";
 
@@ -31,8 +31,28 @@ export async function generateMetadata({ params }: Params) {
     };
   }
   const sectors = city.sectors.join(", ").toLowerCase();
-  const title = `Refonte de site internet à ${city.name} pour TPE et artisans — Audit & site vitrine statique`;
-  const description = `Audit et refonte de sites internet à ${city.name} pour artisans, TPE et PME des secteurs ${sectors}. Passage vers un site vitrine statique plus rapide et plus simple à maintenir. Devis gratuit.`;
+  const title = `Refonte de site internet à ${city.name} — WordPress lent → site vitrine statique rapide (2026)`;
+  let description = `Refonte de sites internet à ${city.name} pour artisans, TPE et PME des secteurs ${sectors}. Passage d'un site lourd (souvent WordPress) vers un site vitrine statique plus rapide, plus clair et plus simple à maintenir. Devis gratuit. Forfaits refonte 2026 entre 2 490€ et 4 990€ TTC.`;
+
+  if (city.slug === "niort") {
+    description =
+      "Refonte de sites internet à Niort pour artisans, TPE et acteurs des mutuelles et services B2B. Passage d'un WordPress lent à un site vitrine statique rapide, stable et plus simple à maintenir, sans perdre votre référencement local. Forfaits 2026 entre 2 490€ et 4 990€ TTC.";
+  } else if (city.slug === "brive-la-gaillarde") {
+    description =
+      "Refonte de sites internet à Brive-la-Gaillarde pour artisans, TPE et petites entreprises de l’agroalimentaire, de la logistique et du tourisme vert en Corrèze. Passage d'un WordPress lent ou d'un ancien site vers un site vitrine statique rapide, stable et plus simple à maintenir, sans perdre votre référencement local. Forfaits 2026 entre 2 490€ et 4 990€ TTC.";
+  } else if (city.slug === "cholet") {
+    description =
+      "Refonte de sites internet à Cholet pour artisans, commerçants et PME du textile, de la mode, de la mécanique et de l’agroalimentaire. Passage d’un WordPress lent ou d’un ancien site vers une vitrine statique rapide, claire et plus simple à gérer, avec un soin particulier apporté au référencement local dans le bassin choletais. Forfaits 2026 entre 2 490€ et 4 990€ TTC.";
+  } else if (city.slug === "vannes") {
+    description =
+      "Refonte de sites internet à Vannes pour artisans, prestataires du nautisme, du tourisme, de l’agroalimentaire et acteurs du numérique/cyber. Passage d’un WordPress lent ou d’un ancien site vers une vitrine statique rapide, claire et plus simple à gérer, avec un soin particulier apporté au référencement local autour du Golfe du Morbihan (Vannes, Auray, Sarzeau). Forfaits 2026 entre 2 490€ et 4 990€ TTC.";
+  } else if (city.slug === "paris") {
+    description =
+      "Refonte de sites internet à Paris pour avocats, experts-comptables, consultants et petites entreprises B2B. Passage d’un WordPress lent ou trop chargé vers une vitrine statique rapide, sobre et plus simple à gérer, avec un soin particulier apporté au référencement local et sectoriel. Forfaits 2026 entre 2 490€ et 4 990€ TTC.";
+  } else if (city.slug === "montauban") {
+    description =
+      "Refonte de sites internet à Montauban pour artisans, TPE et PME de l’agroalimentaire, de l’aéronautique et de la logistique en Tarn-et-Garonne. Passage d’un WordPress lent ou d’un ancien site vers une vitrine statique rapide, claire et plus simple à gérer, avec un soin particulier apporté au référencement local autour de Montauban et du bassin toulousain. Forfaits 2026 entre 2 490€ et 4 990€ TTC.";
+  }
 
   return {
     title,
@@ -45,7 +65,7 @@ export async function generateMetadata({ params }: Params) {
       type: "website",
       title,
       description,
-      url: `https://smarterlogicweb.com/refonte-web/${city.slug}`,
+      url: absoluteUrl(`/refonte-web/${city.slug}`),
     },
   };
 }
@@ -57,24 +77,130 @@ function toSentence(list: string[]): string {
   return `${head} et ${tail}`;
 }
 
-const faqForCityRefonte = (cityName: string) => [
-  {
-    q: `Pourquoi refondre mon site à ${cityName} ?`,
-    a: `Si votre site actuel est lent, peu clair ou ne reflète plus votre activité, une refonte permet d'améliorer la vitesse, l’UX et la conversion. Nous en profitons pour simplifier la structure et mettre en avant vos offres principales.`,
-  },
-  {
-    q: `Est‑ce que vous transformez mon site en site vitrine statique ?`,
-    a: `Dans la plupart des cas, oui. Nous basculons vers un site vitrine statique plus rapide, plus stable et plus simple à maintenir, tout en conservant vos contenus utiles et votre nom de domaine.`,
-  },
-  {
-    q: `Combien de temps dure une refonte à ${cityName} ?`,
-    a: `Pour une TPE ou un artisan, comptez en moyenne 3–6 semaines selon l’ampleur du site et la rapidité des validations. L’enchaînement classique: audit initial, plan d’actions, refonte, tests et déploiement.`,
-  },
-  {
-    q: `Puis‑je conserver mon contenu ?`,
-    a: `Oui. Nous réorganisons vos contenus (textes, photos, cas clients) pour qu’ils soient plus lisibles, mieux structurés pour l’UX/SEO et plus rapides à charger.`,
-  },
-];
+const faqForCityRefonte = (cityName: string) => {
+  const items = [
+    {
+      q: `Pourquoi refondre mon site à ${cityName} ?`,
+      a: `Si votre site actuel est lent, peu clair ou ne reflète plus votre activité, une refonte permet d'améliorer la vitesse, l’UX et la conversion. Nous en profitons pour simplifier la structure et mettre en avant vos offres principales.`,
+    },
+    {
+      q: `Est‑ce que vous transformez mon site en site vitrine statique ?`,
+      a: `Dans la plupart des cas, oui. Nous basculons vers un site vitrine statique plus rapide, plus stable et plus simple à maintenir, tout en conservant vos contenus utiles et votre nom de domaine.`,
+    },
+    {
+      q: `Combien de temps dure une refonte à ${cityName} ?`,
+      a: `Pour une TPE ou un artisan, comptez en moyenne 3–6 semaines selon l’ampleur du site et la rapidité des validations. L’enchaînement classique: audit initial, plan d’actions, refonte, tests et déploiement.`,
+    },
+    {
+      q: `Puis‑je conserver mon contenu ?`,
+      a: `Oui. Nous réorganisons vos contenus (textes, photos, cas clients) pour qu’ils soient plus lisibles, mieux structurés pour l’UX/SEO et plus rapides à charger.`,
+    },
+  ];
+
+  if (cityName === "Niort") {
+    items.push(
+      {
+        q: "Travaillez-vous uniquement avec des clients situés à Niort ?",
+        a: "Non. Je travaille avec des artisans, indépendants et petites structures partout en France. Mais je connais bien les enjeux des villes comme Niort : marché local, bouche-à-oreille, besoin d’être trouvé sur quelques requêtes clés comme votre métier + Niort, sans exploser le budget.",
+      },
+      {
+        q: "Combien de temps dure un projet de création ou de refonte de site à Niort ?",
+        a: "Pour un site vitrine simple, comptez en général 3 à 5 semaines, selon la rapidité avec laquelle vous validez les textes et les maquettes. Pour une refonte avec beaucoup de contenus à reprendre, on est plutôt sur 6 à 8 semaines.",
+      },
+      {
+        q: "Puis-je modifier moi-même mon site après la refonte ?",
+        a: "Oui. Même si le site est statique, je peux vous proposer une manière simple de mettre à jour certains contenus (textes clés, tarifs, FAQ) sans toucher au code. Et si vous préférez déléguer, je peux aussi m’en charger ponctuellement.",
+      }
+    );
+  }
+
+  if (cityName === "Brive-la-Gaillarde") {
+    items.push(
+      {
+        q: "Intervenez-vous uniquement à Brive-la-Gaillarde pour les refontes ?",
+        a: "Non. Je peux vous accompagner si votre entreprise est basée à Brive-la-Gaillarde, Tulle, Ussel ou dans les environs, ainsi que sur certaines communes de Dordogne. Les échanges se font principalement en visio ou par téléphone.",
+      },
+      {
+        q: "Que se passe-t-il pour mon ancien site pendant la refonte ?",
+        a: "Nous gardons votre ancien site en ligne le temps de préparer le nouveau. Au moment du basculement, nous mettons en place les redirections nécessaires pour que vos anciennes URL utiles pointent vers les nouvelles pages, sans casser votre référencement local.",
+      },
+      {
+        q: "La refonte peut-elle faire baisser mon référencement local ?",
+        a: "L’objectif est inverse : stabiliser et améliorer votre présence locale. Nous conservons les contenus qui fonctionnent, simplifions l’architecture et ajoutons des redirections propres. Cela évite les pertes de trafic liées aux refontes mal maîtrisées.",
+      }
+    );
+  }
+
+  if (cityName === "Cholet") {
+    items.push(
+      {
+        q: "Intervenez-vous uniquement à Cholet pour les refontes ?",
+        a: "Non. Je peux vous accompagner si votre entreprise est basée à Cholet, Maulévrier, Mortagne-sur-Sèvre ou dans le bassin choletais en général. Les échanges se font principalement en visio ou par téléphone.",
+      },
+      {
+        q: "Que se passe-t-il pour mon ancien site pendant la refonte à Cholet ?",
+        a: "Votre ancien site reste en ligne le temps de préparer la nouvelle version. Au moment du basculement, nous mettons en place les redirections nécessaires pour que vos anciennes URL utiles pointent vers les nouvelles pages, sans casser votre référencement local.",
+      },
+      {
+        q: "La refonte peut-elle faire baisser mon référencement local à Cholet ?",
+        a: "L’objectif est plutôt de le renforcer : nous conservons les contenus qui fonctionnent, simplifions la structure et ajoutons des redirections propres. Cela limite fortement les risques de baisse liés aux refontes mal préparées.",
+      }
+    );
+  }
+
+  if (cityName === "Vannes") {
+    items.push(
+      {
+        q: "Intervenez-vous uniquement à Vannes pour les refontes ?",
+        a: "Non. Je peux vous accompagner si votre entreprise est basée à Vannes, Auray, Sarzeau ou plus largement autour du Golfe du Morbihan. Les échanges se font principalement en visio ou par téléphone.",
+      },
+      {
+        q: "Quand est-il préférable de lancer une refonte de site à Vannes ?",
+        a: "Pour les activités liées au tourisme ou au nautisme, l’idéal est souvent de préparer la refonte en dehors du pic de saison, afin de limiter les risques de coupure ou de stress inutile. On peut définir ensemble un calendrier réaliste.",
+      },
+      {
+        q: "La refonte peut-elle faire baisser mon référencement local à Vannes ?",
+        a: "L’objectif est au contraire de le stabiliser ou de l’améliorer : nous conservons les contenus qui fonctionnent, simplifions la structure et mettons en place des redirections propres. Cela limite les risques de perte de trafic local.",
+      }
+    );
+  }
+
+  if (cityName === "Paris") {
+    items.push(
+      {
+        q: "Intervenez-vous uniquement à Paris pour les refontes ?",
+        a: "Non. Je peux vous accompagner si votre cabinet est basé à Paris, en petite couronne ou ailleurs en Île-de-France. Les échanges se font principalement en visio ou par téléphone, ce qui s’intègre plus facilement dans un agenda chargé.",
+      },
+      {
+        q: "Que se passe-t-il pour mon ancien site pendant la refonte à Paris ?",
+        a: "Votre ancien site reste en ligne le temps de préparer la nouvelle version. Au moment du basculement, nous mettons en place les redirections nécessaires pour que vos anciennes URL utiles pointent vers les nouvelles pages, afin de préserver votre référencement local et sectoriel.",
+      },
+      {
+        q: "La refonte peut-elle faire baisser mon référencement local à Paris ?",
+        a: "L’objectif est au contraire de le stabiliser ou de l’améliorer : nous conservons les contenus qui fonctionnent, simplifions la structure et mettons en place des redirections propres. Cela limite les risques de perte de trafic organique, même sur un marché concurrentiel comme Paris.",
+      }
+    );
+  }
+
+  if (cityName === "Montauban") {
+    items.push(
+      {
+        q: "Intervenez-vous uniquement à Montauban pour les refontes ?",
+        a: "Non. Je peux vous accompagner si votre entreprise est basée à Montauban, ou plus largement dans le Tarn-et-Garonne (Moissac, Castelsarrasin, etc.) et le bassin toulousain. Les échanges se font principalement en visio ou par téléphone.",
+      },
+      {
+        q: "Que se passe-t-il pour mon ancien site pendant la refonte à Montauban ?",
+        a: "Votre ancien site reste en ligne le temps de préparer la nouvelle version. Au moment du basculement, nous mettons en place les redirections nécessaires pour que vos anciennes URL utiles pointent vers les nouvelles pages, sans casser votre référencement local.",
+      },
+      {
+        q: "La refonte peut-elle faire baisser mon référencement local à Montauban ?",
+        a: "L’objectif est au contraire de le stabiliser ou de l’améliorer : nous conservons les contenus qui fonctionnent, simplifions la structure et mettons en place des redirections propres. Cela limite les risques de perte de trafic local.",
+      }
+    );
+  }
+
+  return items;
+};
 
 export default function CityRefontePage({ params }: Params) {
   const city = getLocalCityBySlug(params.ville);
@@ -90,16 +216,16 @@ export default function CityRefontePage({ params }: Params) {
     serviceType: "Refonte de site web",
     provider: {
       "@type": "LocalBusiness",
-      name: "smarterlogicweb",
-      url: "https://smarterlogicweb.com",
+      name: COMPANY_NAME,
+      url: SITE_URL,
       areaServed: [city.name, ...city.satellites],
     },
     areaServed: [city.name, ...city.satellites],
     offers: {
       "@type": "AggregateOffer",
       priceCurrency: "EUR",
-      lowPrice: "1490",
-      highPrice: "2490",
+      lowPrice: "2490",
+      highPrice: "4990",
       availability: "https://schema.org/InStock",
     },
   };
@@ -122,19 +248,19 @@ export default function CityRefontePage({ params }: Params) {
         "@type": "ListItem",
         position: 1,
         name: "Accueil",
-        item: "https://smarterlogicweb.com/",
+        item: absoluteUrl("/"),
       },
       {
         "@type": "ListItem",
         position: 2,
         name: "Refonte Web",
-        item: "https://smarterlogicweb.com/services",
+        item: absoluteUrl("/services"),
       },
       {
         "@type": "ListItem",
         position: 3,
         name: `Refonte de site web à ${city.name}`,
-        item: `https://smarterlogicweb.com/refonte-web/${city.slug}`,
+        item: absoluteUrl(`/refonte-web/${city.slug}`),
       },
     ],
   };
@@ -149,7 +275,6 @@ export default function CityRefontePage({ params }: Params) {
       {/* Ambient background */}
       <div aria-hidden className="pointer-events-none absolute inset-0 -z-10">
         <div className="hero-gradient-animated absolute inset-0 rounded-[28px] opacity-60" />
-        <Particles />
       </div>
 
       {/* Hero */}
@@ -169,18 +294,64 @@ export default function CityRefontePage({ params }: Params) {
         ]}
       />
 
-      <p className="mt-3 text-foreground/80 max-w-3xl">
-        À {city.name}, nous auditons et refondons des sites internet d&apos;artisans, TPE et petites entreprises pour les
-        rendre plus rapides, plus clairs et plus simples à gérer. Notre approche: transformer un site lourd (souvent
-        WordPress) en site vitrine statique performant, sans perdre vos contenus ni votre référencement local.
-      </p>
+      {city.name === "Niort" ? (
+        <p className="mt-3 text-foreground/80 max-w-3xl">
+          À Niort, nous auditons et refondons des sites internet d&apos;artisans, de TPE et de petites entreprises, mais aussi d&apos;acteurs
+          des mutuelles et des services B2B. L&apos;idée : transformer un WordPress ou un ancien site lourd en vitrine statique rapide,
+          lisible et plus simple à gérer, sans perdre votre référencement local.
+        </p>
+      ) : city.name === "Brive-la-Gaillarde" ? (
+        <p className="mt-3 text-foreground/80 max-w-3xl">
+          À Brive-la-Gaillarde, nous auditons et refondons des sites internet d&apos;artisans, de TPE et de petites entreprises de
+          l&apos;agroalimentaire, de la logistique et du tourisme vert en Corrèze. L&apos;idée : remplacer un WordPress lent ou un ancien
+          site par une vitrine statique rapide, claire et plus simple à gérer, sans perdre votre référencement local autour de
+          Brive et de l&apos;axe A20.
+        </p>
+      ) : city.name === "Cholet" ? (
+        <p className="mt-3 text-foreground/80 max-w-3xl">
+          À Cholet, nous auditons et refondons des sites internet d&apos;artisans, de commerçants et de PME du textile, de la mode,
+          de la mécanique et de l&apos;agroalimentaire. L&apos;idée : transformer un WordPress lent ou une ancienne vitrine en site statique
+          rapide, lisible et plus simple à gérer, sans perdre votre référencement local autour du bassin choletais.
+        </p>
+      ) : city.name === "Vannes" ? (
+        <p className="mt-3 text-foreground/80 max-w-3xl">
+          À Vannes, nous auditons et refondons des sites internet d&apos;artisans, de prestataires du nautisme, du tourisme, de
+          l&apos;agroalimentaire et de petites structures numériques ou cyber. L&apos;idée : remplacer un WordPress lent ou un ancien site
+          par une vitrine statique rapide, lisible et plus simple à gérer, sans perdre votre référencement local autour du Golfe
+          du Morbihan.
+        </p>
+      ) : city.name === "Montauban" ? (
+        <p className="mt-3 text-foreground/80 max-w-3xl">
+          À Montauban, nous auditons et refondons des sites internet d&apos;artisans, de TPE et de PME de l&apos;agroalimentaire, de
+          l&apos;aéronautique et de la logistique en Tarn-et-Garonne. L&apos;idée : remplacer un WordPress lent ou un ancien site par une
+          vitrine statique rapide, lisible et plus simple à gérer, sans perdre votre référencement local autour de Montauban et
+          du bassin toulousain.
+        </p>
+      ) : city.name === "Paris" ? (
+        <p className="mt-3 text-foreground/80 max-w-3xl">
+          À Paris, nous auditons et refondons des sites internet d&apos;avocats, de cabinets d&apos;experts-comptables, de consultants et de
+          petites structures B2B. L&apos;idée : remplacer un WordPress lent, surchargé ou vieillissant par une vitrine statique rapide,
+          lisible et plus simple à gérer, sans perdre votre référencement local ni vos contenus utiles.
+        </p>
+      ) : (
+        <p className="mt-3 text-foreground/80 max-w-3xl">
+          À {city.name}, nous auditons et refondons des sites internet d&apos;artisans, TPE et petites entreprises pour les
+          rendre plus rapides, plus clairs et plus simples à gérer. Notre approche: transformer un site lourd (souvent
+          WordPress) en site vitrine statique performant, sans perdre vos contenus ni votre référencement local.
+        </p>
+      )}
 
       {/* Intro CTA */}
       <div className="mt-6 flex flex-col gap-3 sm:flex-row">
-        <BookingButton className="rounded-full btn-pulse" size="lg" label={`Audit refonte — ${city.name}`} />
+        <BookingButton className="rounded-full" size="lg" label={`Audit refonte — ${city.name}`} />
         <Button asChild className="rounded-full" variant="secondary">
           <Link href={`/creation-site-internet/${city.slug}`}>Besoin d’un site neuf ? Voir la création</Link>
         </Button>
+        {PHONE_NUMBER_PUBLIC && (
+          <Button asChild className="rounded-full" variant="ghost">
+            <a href={`tel:${PHONE_NUMBER_PUBLIC.replace(/[^+\d]/g, "")}`}>Appeler pour parler de la refonte</a>
+          </Button>
+        )}
       </div>
 
       {/* Body */}
@@ -194,6 +365,76 @@ export default function CityRefontePage({ params }: Params) {
           </p>
         </section>
 
+        {city.name === "Niort" && (
+          <section>
+            <h2 className="font-heading text-2xl font-semibold">
+              À Niort aussi, certains signes montrent que votre site vous fait perdre des clients
+            </h2>
+            <p className="mt-2 text-foreground/80">
+              Quelques signaux fréquents : la page d&apos;accueil met plus de 3 secondes à charger sur mobile, vous hésitez à
+              toucher au contenu de peur de tout casser, l&apos;agence ou la personne qui a fait le site n&apos;est plus disponible,
+              ou vous payez une maintenance WordPress sans vraiment savoir ce qui est fait.
+            </p>
+            <p className="mt-2 text-foreground/80">
+              Dans ces cas-là, une refonte vers un site vitrine statique rapide, simple et lisible remet votre présence en ligne
+              au niveau de la qualité de votre travail, sans usine à gaz technique.
+            </p>
+          </section>
+        )}
+
+        {city.name === "Brive-la-Gaillarde" && (
+          <section>
+            <h2 className="font-heading text-2xl font-semibold">
+              À Brive-la-Gaillarde, quelques signes montrent que votre site mérite une refonte
+            </h2>
+            <p className="mt-2 text-foreground/80">
+              Quelques signaux fréquents : votre site met longtemps à charger sur mobile, la navigation n&apos;est pas claire, vous
+              n&apos;osez plus toucher au contenu, ou l&apos;agence qui l&apos;a réalisé n&apos;assure plus vraiment de suivi. Pendant ce temps,
+              vos prospects vous cherchent sur Google autour de Brive et de la Corrèze.
+            </p>
+            <p className="mt-2 text-foreground/80">
+              Une refonte vers un site vitrine statique rapide et sobre remet votre présence en ligne au niveau des attentes de vos
+              clients, sans couche technique inutile. L&apos;objectif : garder l&apos;essentiel (nom de domaine, contenus utiles,
+              référencement local) et enlever le reste.
+            </p>
+          </section>
+        )}
+
+        {city.name === "Vannes" && (
+          <section>
+            <h2 className="font-heading text-2xl font-semibold">
+              À Vannes, certains signes montrent que votre site ne suit plus vos saisons
+            </h2>
+            <p className="mt-2 text-foreground/80">
+              Quelques signaux fréquents : un site lent en pleine saison touristique, des pages peu claires sur mobile, des offres
+              ou des tarifs plus à jour, ou une agence qui n&apos;a plus vraiment le temps de suivre votre projet. Résultat : vos
+              prospects passent à côté, alors qu&apos;ils cherchent des prestations autour du Golfe du Morbihan.
+            </p>
+            <p className="mt-2 text-foreground/80">
+              Une refonte vers un site vitrine statique rapide et lisible permet de remettre votre présence en ligne au niveau des
+              attentes de vos clients, tout en gardant l&apos;essentiel (nom de domaine, contenus utiles, référencement local) et en
+              simplifiant le reste.
+            </p>
+          </section>
+        )}
+
+        {city.name === "Paris" && (
+          <section>
+            <h2 className="font-heading text-2xl font-semibold">
+              À Paris, certains signes montrent que votre site ne reflète plus votre positionnement
+            </h2>
+            <p className="mt-2 text-foreground/80">
+              Quelques signaux fréquents : un site lent sur mobile, une navigation confuse, un design qui date ou des contenus qui
+              ne correspondent plus à vos offres actuelles. En parallèle, vos confrères et concurrents soignent davantage leur présence en ligne.
+            </p>
+            <p className="mt-2 text-foreground/80">
+              Une refonte vers un site vitrine statique rapide et sobre permet de retrouver un site aligné avec votre niveau
+              d&apos;exigence, tout en gardant l&apos;essentiel (nom de domaine, contenus utiles, référencement local et sectoriel) et en
+              simplifiant la couche technique.
+            </p>
+          </section>
+        )}
+
         <section>
           <h2 className="font-heading text-2xl font-semibold">Audit performance, UX et SEO</h2>
           <p className="mt-2 text-foreground/80">
@@ -201,6 +442,38 @@ export default function CityRefontePage({ params }: Params) {
             Sur cette base, nous construisons un plan d&apos;actions réaliste pour une TPE ou un artisan : quelles pages
             garder, quelles pages fusionner, quelles pages créer, comment organiser vos services, vos preuves et vos appels à
             l&apos;action.
+          </p>
+        </section>
+
+        <section>
+          <h2 className="font-heading text-2xl font-semibold">
+            Combien investir dans une refonte à {city.name} en 2026&nbsp;?
+          </h2>
+          <p className="mt-2 text-foreground/80">
+            En 2026, la majorité des refontes de sites pour artisans et TPE à {city.name} se situent entre 2 490€ et 4 990€ TTC,
+            selon la taille du site, la complexité du SEO à reprendre et la quantité de contenu à retravailler. Les projets plus
+            simples (peu de pages, peu d&apos;historique) peuvent être plus proches de 2 490€ TTC.
+          </p>
+          <p className="mt-2 text-sm text-muted-foreground">
+            Détails des offres et exemples concrets sur la page{" "}
+            <Link href="/tarifs-2025#tarifs" className="text-primary hover:underline">
+              Tarifs&nbsp;2026
+            </Link>
+            .
+          </p>
+          <p className="mt-1 text-xs text-muted-foreground">
+            Pour préparer votre projet, vous pouvez aussi lire{" "}
+            <Link
+              href="/blog/refonte-wordpress-vers-site-statique-migration-seo"
+              className="text-primary hover:underline"
+            >
+              comment migrer d’un WordPress lent vers un site statique
+            </Link>{" "}
+            et{" "}
+            <Link href="/blog/audit-refonte-site-vitrine-25-points" className="text-primary hover:underline">
+              l’audit refonte en 25 points
+            </Link>
+            .
           </p>
         </section>
 

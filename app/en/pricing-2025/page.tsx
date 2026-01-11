@@ -12,6 +12,7 @@ import { FinalCTA } from "@/components/site/final-cta";
 import { StickyMobileCTA } from "@/components/site/sticky-mobile-cta";
 import { EVOLUTION_MONTHLY_EUR } from "@/data/pricing";
 import { PdfDownloadButton } from "@/components/site/pdf-download-button";
+import { SITE_URL, CONTACT_EMAIL, BRAND_DOMAIN } from "@/config/site";
 
 export const metadata = {
   title: "Pricing 2025 — smarterlogicweb.com",
@@ -25,7 +26,7 @@ export const metadata = {
     },
   },
   openGraph: {
-    url: "https://smarterlogicweb.com/en/pricing-2025",
+    url: `${SITE_URL}/en/pricing-2025`,
     title: "Pricing 2025 — smarterlogicweb.com",
     description:
       "Static websites for professional services (lawyers, accountants, architects). No mandatory maintenance, performance and SEO at the core.",
@@ -170,7 +171,12 @@ export default function Pricing2025ENPage() {
         <h2 className="font-heading text-2xl font-semibold">How to order</h2>
         <ol className="mt-3 list-decimal pl-5 text-sm text-foreground/80 space-y-1.5">
           <li>Choose your plan (Essential, Professional or Premium)</li>
-          <li>Contact us: <Link href="/en/contact" className="link-underline link-underline-strong">smarterlogicweb.com/en/contact</Link></li>
+          <li>
+            Contact us:{" "}
+            <Link href="/en/contact" className="link-underline link-underline-strong">
+              {SITE_URL}/en/contact
+            </Link>
+          </li>
           <li>Project scoping (30–45 min — call/online)</li>
           <li>Detailed line‑by‑line quote + delivery timeline</li>
           <li>E‑signature + deposit payment</li>
@@ -179,7 +185,7 @@ export default function Pricing2025ENPage() {
         <div className="mt-5 flex flex-col items-center justify-center gap-3 sm:flex-row">
           <BookingButton className="rounded-full btn-pulse" size="lg" label="Book my free audit (15 min)" />
           <Button asChild className="rounded-full" variant="secondary">
-            <a href="mailto:contact@smarterlogicweb.com?subject=Quote%20—%20Static%20site%20Pricing%202025">Request a quote by email</a>
+            <a href={`mailto:${CONTACT_EMAIL}?subject=Quote%20—%20Static%20site%20Pricing%202025`}>Request a quote by email</a>
           </Button>
         </div>
         <div className="mt-3 flex items-center justify-center">

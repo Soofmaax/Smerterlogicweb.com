@@ -6,6 +6,7 @@ import { Breadcrumbs } from "@/components/site/breadcrumbs";
 import { CitationBox } from "@/components/site/citation-box";
 import { TableOfContents } from "@/components/site/table-of-contents";
 import { BlogLightboxBinder } from "@/components/site/blog-lightbox-binder";
+import { absoluteUrl, COMPANY_NAME, SITE_URL } from "@/config/site";
 
 export const revalidate = 60;
 
@@ -73,9 +74,9 @@ export default function BlogPostEN({ params }: { params: { slug: string } }) {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
     itemListElement: [
-      { "@type": "ListItem", position: 1, name: "Home", item: "https://smarterlogicweb.com/en" },
-      { "@type": "ListItem", position: 2, name: "Blog", item: "https://smarterlogicweb.com/en/blog" },
-      { "@type": "ListItem", position: 3, name: post.title, item: `https://smarterlogicweb.com/en/blog/${post.slug}` },
+      { "@type": "ListItem", position: 1, name: "Home", item: absoluteUrl("/en") },
+      { "@type": "ListItem", position: 2, name: "Blog", item: absoluteUrl("/en/blog") },
+      { "@type": "ListItem", position: 3, name: post.title, item: absoluteUrl(`/en/blog/${post.slug}`) },
     ],
   };
 
@@ -86,7 +87,7 @@ export default function BlogPostEN({ params }: { params: { slug: string } }) {
     description: post.summary ?? post.title,
     datePublished: post.publishAt.toISOString(),
     dateModified: post.publishAt.toISOString(),
-    mainEntityOfPage: `https://smarterlogicweb.com/en/blog/${post.slug}`,
+    mainEntityOfPage: absoluteUrl(`/en/blog/${post.slug}`),
     isAccessibleForFree: true,
     author: {
       "@type": "Person",
@@ -95,8 +96,8 @@ export default function BlogPostEN({ params }: { params: { slug: string } }) {
     },
     publisher: {
       "@type": "Organization",
-      name: "smarterlogicweb",
-      url: "https://smarterlogicweb.com",
+      name: COMPANY_NAME,
+      url: SITE_URL,
     },
     license: "https://creativecommons.org/licenses/by/4.0/",
   };
