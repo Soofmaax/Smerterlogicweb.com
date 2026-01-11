@@ -120,7 +120,15 @@ export function Header() {
               alt="smarterlogicweb"
               width={96}
               height={96}
-              className="h-20 w-20 transition-transform hover:scale-105"
+              className="block h-20 w-20 transition-transform hover:scale-105 dark:hidden"
+              priority
+            />
+            <Image
+              src="/logo-blanc.png"
+              alt="smarterlogicweb"
+              width={96}
+              height={96}
+              className="hidden h-20 w-20 transition-transform hover:scale-105 dark:block"
               priority
             />
             <span className="sr-only">{isEn ? "Home" : "Accueil"}</span>
