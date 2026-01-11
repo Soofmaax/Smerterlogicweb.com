@@ -3,7 +3,7 @@
 import * as React from "react";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
-import { LiveCode } from "@/components/site/live-code";
+import { CheckCircle2, Clock, Rocket } from "lucide-react";
 
 export function HeroTyped() {
   // Business-card style hero lines
@@ -140,9 +140,18 @@ export function HeroTyped() {
           Votre concurrent a déjà son site. Et vous ?
         </div>
 
-        {/* Live code preview (réservé au mode démo / interne) */}
-        {process.env.NEXT_PUBLIC_SHOW_LIVE_CODE === "1" && (
-         <
-LiveCode path="components/site/hero-typed.tsx" title="Code du Hero" />
-         );
-}
+        {/* Récap visuel juste après le hero */}
+        <div className="mt-6 grid gap-2 text-sm text-foreground/80 sm:grid-cols-3">
+          <div className="flex items-center gap-2 rounded-full border bg-card px-4 py-2">
+            <Clock className="h-4 w-4" />
+            <span>Audit gratuit en 15 min</span>
+          </div>
+          <div className="flex items-center gap-2 rounded-full border bg-card px-4 py-2">
+            <CheckCircle2 className="h-4 w-4" />
+            <span>Devis détaillé sous 48 h</span>
+          </div>
+          <div className="flex items-center gap-2 rounded-full border bg-card px-4 py-2">
+            <Rocket className="h-4 w-4" />
+            <span>Site vitrine dès 1 490 € TTC</span>
+          </div>
+        </div>
