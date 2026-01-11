@@ -25,9 +25,9 @@ const variantClasses: Record<ButtonVariant, string> = {
   secondary: "border border-foreground/20 bg-transparent text-foreground hover:bg-accent",
   outline: "border border-input bg-background hover:bg-accent hover:text-accent-foreground",
   ghost: "hover:bg-accent hover:text-accent-foreground",
-  // CTA premium: gradient shift, elevation, ripple
+  // CTA premium: gradient shift, elevation, ripple (violet/fuchsia au lieu de bleu)
   cta:
-    "relative overflow-hidden bg-gradient-to-r from-primary to-[hsl(219_81%_56%)] text-primary-foreground " +
+    "relative overflow-hidden bg-gradient-to-r from-primary to-[hsl(323_90%_58%)] text-primary-foreground " +
     "shadow-sm transition-transform will-change-transform hover:scale-[1.05] hover:shadow-lg btn-ripple btn-gradient-shift",
 };
 

@@ -58,7 +58,7 @@ export function ExpertiseWhy() {
   ];
 
   return (
-    <section className="mx-auto w-full max-w-5xl px-6 py-12">
+    <section className="mx-auto w-full max-w-5xl px-6 py-10 md:py-12">
       <div className="mb-8 text-center">
         <h2 className="font-heading text-3xl font-semibold md:text-4xl">Ce que vous gagnez</h2>
         <p className="mt-2 text-foreground/70">Des résultats concrets pour votre activité.</p>

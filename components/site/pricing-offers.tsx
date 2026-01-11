@@ -77,7 +77,7 @@ function PlanCard({ plan }: { plan: Plan }) {
         </ul>
 
         <div className="mt-auto pt-4">
-          <BookingButton className="w-full h-11 md:h-12 text-base" label="Réserver mon audit gratuit (15 min)" />
+          <BookingButton className="w-full h-11 md:h-12 text-base" label="Réserver un audit gratuit" />
         </div>
       </div>
     </article>

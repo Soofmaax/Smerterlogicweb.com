@@ -123,7 +123,7 @@ export default function AProposPage() {
         <Reveal as="h2" className="h2-underline font-heading text-2xl font-semibold">Prêt à Donner à Votre Entreprise le Site qu&apos;elle Mérite ?</Reveal>
         <MagneticZone>
           <div className="mt-4 flex flex-col items-center gap-3 sm:flex-row">
-            <BookingButton size="lg" className="rounded-full" label="Réserver mon audit gratuit (15 min)" />
+            <BookingButton size="lg" className="rounded-full" label="Réserver un audit gratuit" />
             <Button asChild size="lg" variant="secondary" className="rounded-full" data-magnetic="true">
               <Link href="/contact">Obtenir mon devis gratuit</Link>
             </Button>

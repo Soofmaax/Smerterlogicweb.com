@@ -128,7 +128,7 @@ function OfferCard({
         {quote ? <p className="mt-4 text-sm italic text-foreground/70">{quote}</p> : null}
 
         <div className="mt-auto pt-4">
-          <BookingButton className="w-full h-11 text-base rounded-full" label="Réserver mon audit gratuit (15 min)" />
+          <BookingButton className="w-full h-11 text-base rounded-full" label="Réserver un audit gratuit" />
         </div>
       </div>
     </article>

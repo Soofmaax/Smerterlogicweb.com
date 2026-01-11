@@ -116,7 +116,7 @@ function ReviewCard({ r }: { r: Review }) {
 
   return (
     <Reveal className="reveal-fade-up">
-      <article className="card-elevated rounded-[20px] border bg-card p-5 transition hover:-translate-y-1 hover:shadow-lg">
+      <article className="card-elevated mx-auto max-w-md rounded-[20px] border bg-card p-5 transition hover:-translate-y-1 hover:shadow-lg">
         <div className="flex items-center gap-3">
           <div className="relative h-10 w-10 overflow-hidden rounded-full bg-accent">
             {r.avatar ? (

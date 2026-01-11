@@ -72,7 +72,7 @@ export default function ProjetsPage() {
         <div className="rounded-[28px] card-elevated border bg-card p-6 text-center">
           <h2 className="font-heading text-2xl font-semibold">Votre Projet Sera Le Prochain</h2>
           <div className="mt-5 flex flex-col items-center justify-center gap-3 sm:flex-row">
-            <BookingButton className="rounded-full" size="lg" label="Réserver mon audit gratuit (15 min)" />
+            <BookingButton className="rounded-full" size="lg" label="Réserver un audit gratuit" />
             <Button asChild className="rounded-full" variant="secondary">
               <Link href="/tarifs-2025#tarifs">Voir les tarifs</Link>
             </Button>

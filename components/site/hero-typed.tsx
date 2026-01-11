@@ -5,7 +5,6 @@ import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { LiveCode } from "@/components/site/live-code";
 
-
 export function HeroTyped() {
   // Business-card style hero lines
   const line1 = "SITE WEB";
@@ -141,9 +140,9 @@ export function HeroTyped() {
           Votre concurrent a déjà son site. Et vous ?
         </div>
 
-        {/* Live code preview (real file) */}
-        <LiveCode path="components/site/hero-typed.tsx" title="Code du Hero" />
-      </div>
-    </section>
-  );
+        {/* Live code preview (réservé au mode démo / interne) */}
+        {process.env.NEXT_PUBLIC_SHOW_LIVE_CODE === "1" && (
+         <
+LiveCode path="components/site/hero-typed.tsx" title="Code du Hero" />
+         );
 }
