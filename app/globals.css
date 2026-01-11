@@ -84,9 +84,15 @@
   * {
     @apply border-border;
   }
+  html {
+    max-width: 100%;
+    overflow-x: hidden;
+  }
   body {
     @apply bg-background text-foreground;
     font-feature-settings: "ss01" on, "ss02" on;
+    max-width: 100%;
+    overflow-x: hidden;
   }
 
   /* Anonymous Pro for headings (bold card style), DM Sans for body */
