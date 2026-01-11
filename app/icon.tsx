@@ -18,17 +18,17 @@ export default function Icon() {
           borderRadius: 6,
         }}
       >
-        <span
+        <img
+          src="/logo-blanc.png"
+          alt="smarterlogicweb"
+          width={24}
+          height={24}
           style={{
-            color: "#ffffff",
-            fontSize: 18,
-            fontWeight: 800,
-            fontFamily: "Inter, Arial, sans-serif",
-            letterSpacing: -1,
+            width: "70%",
+            height: "70%",
+            objectFit: "contain",
           }}
-        >
-          SLW
-        </span>
+        />
       </div>
     ),
     { ...size }
