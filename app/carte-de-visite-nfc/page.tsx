@@ -25,6 +25,10 @@ export const metadata: Metadata = {
     description:
       "Une carte de visite NFC reliée à une page de contact moderne : en un geste, vos prospects enregistrent vos coordonnées, visitent votre site et vous écrivent sur WhatsApp.",
   },
+  robots: {
+    index: false,
+    follow: true,
+  },
 };
 
 const serviceSchema = {
