@@ -26,8 +26,8 @@ export default function ContactCardPage() {
 
   return (
     <section className="relative flex min-h-[100vh] items-center justify-center bg-background px-6 py-10">
-      <Reveal className="reveal-fade-up w-full max-w-sm">
-        <div className="rounded-[28px] border bg-card p-6 text-center shadow-lg card-elevated">
+      <Reveal className="reveal-spin-card w-full max-w-sm">
+        <div className="rounded-[28px] border bg-card p-6 text-center shadow-lg card-elevated card-spin">
           <div className="mx-auto flex h-20 w-20 items-center justify-center rounded-full bg-gradient-to-br from-indigo-200 via-blue-200 to-emerald-200 text-3xl font-semibold text-foreground/80 dark:from-white/10 dark:via-white/10 dark:to-white/5">
             {name.charAt(0).toUpperCase()}
           </div>
