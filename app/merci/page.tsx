@@ -39,7 +39,7 @@ export default function MerciPage() {
       </div>
 
       <div className="mt-8 flex justify-center">
-        <BookingButton className="rounded-full" label="Réserver mon audit gratuit (15 min)" />
+        <BookingButton className="rounded-full" label="Réserver un audit gratuit" />
       </div>
 
       <div className="mt-10">

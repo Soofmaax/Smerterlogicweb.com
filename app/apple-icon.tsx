@@ -12,24 +12,24 @@ export default function AppleIcon() {
           width: "100%",
           height: "100%",
           display: "flex",
-          // Brand blue gradient background
-          background: "linear-gradient(135deg, #22d3ee 0%, #6366f1 100%)",
+          // Brand black background to match new logo
+          background: "#000000",
           alignItems: "center",
           justifyContent: "center",
           borderRadius: 36,
         }}
       >
-        <span
+        <img
+          src="/logo-blanc.png"
+          alt="smarterlogicweb"
+          width={144}
+          height={144}
           style={{
-            color: "#ffffff",
-            fontSize: 84,
-            fontWeight: 800,
-            fontFamily: "Inter, Arial, sans-serif",
-            letterSpacing: -6,
+            width: "70%",
+            height: "70%",
+            objectFit: "contain",
           }}
-        >
-          SLW
-        </span>
+        />
       </div>
     ),
     { ...size }

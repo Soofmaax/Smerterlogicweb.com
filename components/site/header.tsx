@@ -110,17 +110,25 @@ export function Header() {
   }, [open]);
 
   return (
-    <header className="sticky top-11 z-40 w-full border-b bg-background/80 backdrop-blur supports-[backdrop-filter]:bg-background/60">
+    <header className="sticky top-11 z-40 w-full border-b bg-background">
       
       <div className="mx-auto flex w-full max-w-5xl items-center justify-between px-6 py-3">
         <div className="flex items-center gap-3">
           <Link href={isEn ? "/en" : "/"} className="flex items-center gap-3 text-sm font-semibold tracking-tight rounded-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/60 focus-visible:ring-offset-2 focus-visible:ring-offset-background" aria-label={isEn ? "Home — smarterlogicweb" : "Accueil — smarterlogicweb"} title={isEn ? "Home — smarterlogicweb" : "Accueil — smarterlogicweb"}>
             <Image
-              src="/logo.svg"
+              src="/logo-noir.png"
               alt="smarterlogicweb"
               width={96}
               height={96}
-              className="h-20 w-20 transition-transform hover:scale-105"
+              className="block h-20 w-20 transition-transform hover:scale-105 dark:hidden"
+              priority
+            />
+            <Image
+              src="/logo-blanc.png"
+              alt="smarterlogicweb"
+              width={96}
+              height={96}
+              className="hidden h-20 w-20 transition-transform hover:scale-105 dark:block"
               priority
             />
             <span className="sr-only">{isEn ? "Home" : "Accueil"}</span>

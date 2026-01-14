@@ -64,11 +64,13 @@ export default function Page() {
       </Reveal>
 
       {/* Second CTA — after “Pourquoi un Site Sur‑Mesure” */}
-      <section className="mx-auto w-full max-w-3xl px-6 pt-2 pb-8">
-        <div className="rounded-[24px] border bg-card p-5 text-center card-elevated">
-          <h3 className="font-heading text-2xl font-semibold">Un audit rapide pour démarrer</h3>
-          <p className="mt-2 text-foreground/80">15 minutes pour évaluer vos besoins et vos objectifs.</p>
-          <div className="mt-4 flex justify-center">
+      <section className="mx-auto w-full max-w-5xl px-6 pt-2 pb-8">
+        <div className="rounded-[24px] border bg-card p-5 text-center card-elevated md:flex md:items-center md:justify-between md:text-left md:gap-6">
+          <div className="md:max-w-md">
+            <h3 className="font-heading text-2xl font-semibold">Un audit rapide pour démarrer</h3>
+            <p className="mt-2 text-foreground/80">15 minutes pour évaluer vos besoins et vos objectifs.</p>
+          </div>
+          <div className="mt-4 flex justify-center md:mt-0 md:justify-end">
             <BookingButton className="px-8 text-base" label="Réserver un audit gratuit" />
           </div>
         </div>

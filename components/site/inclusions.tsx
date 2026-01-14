@@ -29,9 +29,9 @@ export function Inclusions() {
       </div>
 
       <div className="mt-6 grid gap-4 md:grid-cols-2">
-        <div className="rounded-2xl border bg-card p-5">
+        <div className="flex h-full flex-col items-center rounded-2xl border bg-card p-5 text-center">
           <h3 className="font-heading text-lg font-semibold">Inclus</h3>
-          <ul className="mt-3 space-y-2 text-sm">
+          <ul className="mt-3 space-y-2 text-sm text-left">
             {inclus.map((i) => (
               <li key={i} className="flex items-start gap-2">
                 <CheckCircle2 className="mt-0.5 h-4 w-4 text-primary" />
@@ -40,9 +40,9 @@ export function Inclusions() {
             ))}
           </ul>
         </div>
-        <div className="rounded-2xl border bg-card p-5">
+        <div className="flex h-full flex-col items-center rounded-2xl border bg-card p-5 text-center">
           <h3 className="font-heading text-lg font-semibold">En option / payant</h3>
-          <ul className="mt-3 space-y-2 text-sm">
+          <ul className="mt-3 space-y-2 text-sm text-left">
             {options.map((i) => (
               <li key={i} className="flex items-start gap-2">
                 <XCircle className="mt-0.5 h-4 w-4 text-muted-foreground" />

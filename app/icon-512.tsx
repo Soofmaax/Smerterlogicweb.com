@@ -12,23 +12,23 @@ export default function Icon512() {
           width: "100%",
           height: "100%",
           display: "flex",
-          background: "linear-gradient(135deg, #22d3ee 0%, #6366f1 100%)",
+          background: "#000000",
           alignItems: "center",
           justifyContent: "center",
           borderRadius: 64,
         }}
       >
-        <span
+        <img
+          src="/logo-blanc.png"
+          alt="smarterlogicweb"
+          width={384}
+          height={384}
           style={{
-            color: "#ffffff",
-            fontSize: 240,
-            fontWeight: 800,
-            fontFamily: "Inter, Arial, sans-serif",
-            letterSpacing: -12,
+            width: "70%",
+            height: "70%",
+            objectFit: "contain",
           }}
-        >
-          SLW
-        </span>
+        />
       </div>
     ),
     { ...size }

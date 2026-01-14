@@ -58,13 +58,13 @@ export function ExpertiseWhy() {
   ];
 
   return (
-    <section className="mx-auto w-full max-w-5xl px-6 py-12">
+    <section className="mx-auto w-full max-w-5xl px-6 py-10 md:py-12">
       <div className="mb-8 text-center">
         <h2 className="font-heading text-3xl font-semibold md:text-4xl">Ce que vous gagnez</h2>
         <p className="mt-2 text-foreground/70">Des résultats concrets pour votre activité.</p>
       </div>
 
-      <div className="grid gap-6 md:grid-cols-4">
+      <div className="grid gap-4 sm:gap-5 lg:gap-6 sm:grid-cols-2 lg:grid-cols-4">
         <Block
           icon={<CheckCircle2 className="h-5 w-5" />}
           title="Performance technique"
@@ -107,13 +107,13 @@ function Block({
 }) {
   const { ref, value } = useCountUp(counter.end, 1500);
   return (
-    <div className="rounded-[20px] border bg-card p-5 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg card-elevated">
-      <div className="flex items-center gap-2">
+    <div className="flex h-full flex-col items-center rounded-[20px] border bg-card p-5 text-center transition-all duration-300 hover:-translate-y-1 hover:shadow-lg card-elevated">
+      <div className="flex flex-col items-center gap-2">
         <span className="inline-flex h-9 w-9 items-center justify-center rounded-full bg-accent">{icon}</span>
         <h3 className="font-heading text-lg font-semibold">{title}</h3>
       </div>
       <p className="mt-2 text-sm text-foreground/80">{desc}</p>
-      <div ref={ref as any} className="mt-4">
+      <div ref={ref as any} className="mt-auto pt-4">
         <div className="font-heading text-2xl font-bold">
           {value}
           {counter.unit}

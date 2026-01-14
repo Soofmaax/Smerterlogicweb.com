@@ -2,7 +2,7 @@ import * as React from "react";
 import { CheckCircle2, Star } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { BookingButton } from "@/components/site/booking-modal";
-import { PLANS_FR, URGENCY_SLOTS_LEFT_MONTH } from "@/data/pricing";
+import { PLANS_FR } from "@/data/pricing";
 
 type Plan = {
   name: string;
@@ -23,14 +23,7 @@ export function PricingOffers() {
         </p>
       </div>
 
-      {/* Availability note (synced with UrgencyBanner) */}
-      <p className="mb-4 text-center text-sm font-medium text-foreground">
-        <span className="mr-1">⚠️</span>
-        Plus que {URGENCY_SLOTS_LEFT_MONTH} créneaux disponibles ce mois-ci.{" "}
-        <a href="/contact" className="link-underline link-underline-strong">
-          Réservez votre audit gratuit&nbsp;!
-        </a>
-      </p>
+      
 
       {/* Grille statique — lisibilité optimale, sans scroll horizontal */}
       <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3 items-stretch">
@@ -77,7 +70,7 @@ function PlanCard({ plan }: { plan: Plan }) {
         </ul>
 
         <div className="mt-auto pt-4">
-          <BookingButton className="w-full h-11 md:h-12 text-base" label="Réserver mon audit gratuit (15 min)" />
+          <BookingButton className="w-full h-11 md:h-12 text-base" label="Réserver un audit gratuit" />
         </div>
       </div>
     </article>

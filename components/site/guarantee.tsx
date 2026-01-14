@@ -7,8 +7,8 @@ import { GUARANTEE_TEXT_FR } from "@/data/pricing";
 export function Guarantee() {
   return (
     <section className="mx-auto w-full max-w-5xl px-6 pb-6">
-      <div className="rounded-[24px] border bg-card p-6 card-elevated">
-        <div className="flex items-start gap-3">
+      <div className="rounded-[24px] border bg-card p-6 text-center card-elevated">
+        <div className="flex flex-col items-center gap-3">
           <span className="inline-flex h-10 w-10 flex-none items-center justify-center rounded-full bg-muted text-foreground">
             <ShieldCheck className="h-5 w-5" />
           </span>

@@ -20,10 +20,8 @@ export function StickyMobileCTA() {
     : rawBooking || (isEn ? "/en/contact" : "/contact");
   const isInternal = href.startsWith("/");
 
-  // Label localized, plus sobre
-  const label = isEn
-    ? (isHome ? "Free audit" : "Talk about your project")
-    : (isHome ? "Audit gratuit" : "Parler de votre projet");
+  // Label localized, plus sobre et aligné avec le reste du site
+  const label = isEn ? "Book a free audit" : "Réserver un audit gratuit";
 
   React.useEffect(() => {
     if (isContactPage) {
@@ -55,7 +53,7 @@ export function StickyMobileCTA() {
         {isInternal ? (
           <Link
             href={href}
-            className="block w-full rounded-full bg-green-600 px-5 py-3 text-center text-base font-semibold text-white shadow-lg transition hover:bg-green-700 active:scale-[0.99]"
+            className="block w-full rounded-full bg-gradient-to-r from-primary to-[hsl(323_90%_58%)] px-5 py-3 text-center text-base font-semibold text-primary-foreground shadow-lg transition hover:brightness-[1.05] active:scale-[0.99] btn-gradient-shift"
           >
             {label}
           </Link>
@@ -64,7 +62,7 @@ export function StickyMobileCTA() {
             href={href}
             target={href.startsWith("http") ? "_blank" : undefined}
             rel={href.startsWith("http") ? "noopener noreferrer" : undefined}
-            className="block w-full rounded-full bg-green-600 px-5 py-3 text-center text-base font-semibold text-white shadow-lg transition hover:bg-green-700 active:scale-[0.99]"
+            className="block w-full rounded-full bg-gradient-to-r from-primary to-[hsl(323_90%_58%)] px-5 py-3 text-center text-base font-semibold text-primary-foreground shadow-lg transition hover:brightness-[1.05] active:scale-[0.99] btn-gradient-shift"
           >
             {label}
           </a>
