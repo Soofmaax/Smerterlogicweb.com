@@ -1,0 +1,41 @@
+name: Format with Prettier
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  prettier-format:
+    name: Run Prettier and commit changes
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v5
+        with:
+          # Use the branch on which the workflow is triggered (usually main)
+          ref: ${{ github.ref }}
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v6
+        with:
+          node-version: 20
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Run Prettier (write)
+        run: npm run format
+
+      - name: Commit and push formatted files
+        run: |
+          if [ -n "$(git status --porcelain)" ]; then
+            git config user.name "github-actions[bot]"
+            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+            git commit -am "chore: apply prettier formatting"
+            git push
+          else
+            echo "No formatting changes to commit."
+          fi
