@@ -41,11 +41,7 @@ jobs:
         uses: streetsidesoftware/cspell-action@v8
         with:
           files: |
-            **/*.{ts,tsx,js,jsx,md}
-            app/**/*.{ts,tsx}
-            components/**/*.{ts,tsx}
-            data/**/*.{ts,tsx,md}
-            docs/**/*.md
+            **/*.md
           config: ./cspell.json
           check_dot_files: false
           incremental_files_only: false
