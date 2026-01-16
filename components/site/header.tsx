@@ -109,6 +109,11 @@ export function Header() {
     };
   }, [open]);
 
+  // Hide global header on the minimal NFC contact card page
+  if (pathname === "/carte-contact") {
+    return null;
+  }
+
   return (
     <header className="sticky top-11 z-40 w-full border-b bg-background">
       

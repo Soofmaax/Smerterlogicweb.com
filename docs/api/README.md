@@ -30,6 +30,16 @@ Collect CSP violation reports.
 ## GET /api/google-reviews
 Fetch Google rating and latest reviews (server-side proxy).
 
+## GET /api/contact-vcard
+Serve Sonia's contact as a downloadable vCard (format `.vcf`).
+
+- Usage typique: bouton \"Enregistrer mes coordonnées\" sur `/carte-contact`
+- Contenu: nom, entreprise, email public, téléphone public (si configurés), URL du site
+- Response:
+  - `Content-Type: text/vcard; charset=utf-8`
+  - `Content-Disposition: attachment; filename="contact-smarterlogicweb.vcf"`
+  - `Cache-Control: no-store, max-age=0`
+
 Query: none  
 Headers:
 - `X-RateLimit-Limit`

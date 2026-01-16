@@ -37,7 +37,7 @@ HUNTER_ONLY_NOMANUAL = (os.getenv("BODACC_HUNTER_ONLY_NOMANUAL", "1").strip().lo
 # Email template config
 EMAIL_TEMPLATE_PATH = os.getenv("BODACC_EMAIL_TEMPLATE_PATH", "scripts/bodacc/templates/email-default.md")
 BOOKINGS_LINK = os.getenv("ZOHO_BOOKINGS_LINK", "").strip()
-EMAIL_SIGNATURE = os.getenv("BODACC_EMAIL_SIGNATURE", "Sonia\nSmarterLogicWeb\ncontact@smarterlogicweb.com")
+EMAIL_SIGNATURE = os.getenv("BODACC_EMAIL_SIGNATURE", "Sonia\nSmarterLogicWeb\nsonia@smarterlogicweb.com")
 
 # Manual overrides (to avoid hunter when you've found an email yourself)
 MANUAL_FILE = os.getenv("BODACC_MANUAL_FILE", "scripts/bodacc/manual-overrides.json")

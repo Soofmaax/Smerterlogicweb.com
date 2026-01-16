@@ -10,6 +10,9 @@ Bienvenue dans la documentation du projet.
   - [Quick Start](./getting-started/quick-start.md)
 - API
   - [Endpoints](./api/README.md)
+- Pages spéciales
+  - `/carte-contact` — carte de contact dédiée (scan NFC / QR), noindex, sans header/footer
+  - `/carte-de-visite-nfc` — page marketing de l'offre \"carte de visite NFC\" qui renvoie vers `/carte-contact`
 - Architecture
   - [Overview](./architecture/overview.md)
   - Diagrams (placeholders): `docs/architecture/diagrams/`
