@@ -4,9 +4,8 @@
 - Next.js 14 (App Router) — React 18, TypeScript, TailwindCSS
 - Pages bilingues FR/EN, composants UI réutilisables
 - Accessibilité et performances (Core Web Vitals)
-- Pages spéciales \"carte\":
-  - `/carte-contact` — carte de contact ultra-minimaliste pensée pour une carte NFC / QR (noindex, sans header/footer, animation d'entrée)
-  - `/carte-de-visite-nfc` — page marketing qui présente l'offre de carte de visite NFC et renvoie vers `/carte-contact` comme exemple
+- Page spéciale "carte":
+  - `/carte-contact` — carte de contact ultra-minimaliste pensée pour une carte NFC / QR (noindex, sans header/footer, animation d'entrée). C'est l'URL à encoder sur la carte.
 
 ## Backend (serverless routes)
 - `/api/health` — health check JSON
