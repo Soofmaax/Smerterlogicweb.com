@@ -642,7 +642,7 @@ export default function CityServicePage({ params }: Params) {
       <div className="mt-6 flex flex-col gap-3 sm:flex-row">
         <BookingButton className="rounded-full" size="lg" label={`Audit gratuit — ${city.name} et alentours`} />
         <Button asChild className="rounded-full" variant="secondary">
-          <Link href="/tarifs-2025">Voir les tarifs 2026</Link>
+          <Link href="/contact">Demander un devis</Link>
         </Button>
         {PHONE_NUMBER_PUBLIC && (
           <Button asChild className="rounded-full" variant="ghost">
@@ -966,16 +966,11 @@ export default function CityServicePage({ params }: Params) {
             Combien investir dans un site vitrine à {city.name} en 2026&nbsp;?
           </h2>
           <p className="mt-2 text-foreground/80">
-            En 2026, la plupart des sites vitrines statiques pour artisans et TPE à {city.name} se situent entre 1 490€ et 2 490€ TTC,
-            selon le nombre de pages, la quantité de contenu à intégrer et les fonctionnalités (formulaire, prises de rendez-vous, cas clients…).
-            Les projets plus complets avec plus de contenu et de cas clients peuvent monter à 4 990€ TTC.
+            En 2026, le budget d’un site vitrine statique pour artisans et TPE à {city.name} dépend surtout du nombre de pages, de la
+            quantité de contenu à intégrer et des fonctionnalités (formulaire, prises de rendez-vous, cas clients…).
           </p>
           <p className="mt-2 text-sm text-muted-foreground">
-            Détails des offres et exemples concrets sur la page{" "}
-            <Link href="/tarifs-2025#tarifs" className="text-primary hover:underline">
-              Tarifs&nbsp;2026
-            </Link>
-            .
+            Les prix exacts sont désormais établis uniquement sur devis, après un premier échange rapide sur votre projet.
           </p>
           <p className="mt-1 text-xs text-muted-foreground">
             Pour aller plus loin sur l’affichage de vos prix, vous pouvez aussi lire{" "}
@@ -1030,11 +1025,8 @@ export default function CityServicePage({ params }: Params) {
             </div>
           </div>
           <p className="mt-3 text-sm text-muted-foreground">
-            Les prix exacts dépendent de votre projet. La plupart des sites se situent dans les fourchettes Essentiel / Professionnel / Premium de la page{" "}
-            <Link href="/tarifs-2025#tarifs" className="text-primary hover:underline">
-              Tarifs&nbsp;2026
-            </Link>
-            .
+            Les prix exacts dépendent de votre projet. Après un échange (visio ou téléphone), je vous envoie un devis détaillé basé sur ces trois niveaux
+            (Essentiel, Professionnel, Premium).
           </p>
         </section>
         <section>

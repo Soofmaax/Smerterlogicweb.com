@@ -450,16 +450,12 @@ export default function CityRefontePage({ params }: Params) {
             Combien investir dans une refonte à {city.name} en 2026&nbsp;?
           </h2>
           <p className="mt-2 text-foreground/80">
-            En 2026, la majorité des refontes de sites pour artisans et TPE à {city.name} se situent entre 2 490€ et 4 990€ TTC,
-            selon la taille du site, la complexité du SEO à reprendre et la quantité de contenu à retravailler. Les projets plus
-            simples (peu de pages, peu d&apos;historique) peuvent être plus proches de 2 490€ TTC.
+            En 2026, le budget d’une refonte pour artisans et TPE à {city.name} dépend surtout de la taille du site, de la
+            complexité du SEO à reprendre et de la quantité de contenu à retravailler. Les projets plus simples (peu de pages,
+            peu d&apos;historique) nécessitent un investissement plus léger que les refontes complètes.
           </p>
           <p className="mt-2 text-sm text-muted-foreground">
-            Détails des offres et exemples concrets sur la page{" "}
-            <Link href="/tarifs-2025#tarifs" className="text-primary hover:underline">
-              Tarifs&nbsp;2026
-            </Link>
-            .
+            Les prix exacts sont désormais établis uniquement sur devis, après un audit initial de votre site et un échange sur vos priorités.
           </p>
           <p className="mt-1 text-xs text-muted-foreground">
             Pour préparer votre projet, vous pouvez aussi lire{" "}

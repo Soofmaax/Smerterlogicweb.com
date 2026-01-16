@@ -124,19 +124,15 @@ export function Chatbot() {
     push(
       "bot",
       <>
-        Pour 2026, les tarifs actuels sont structurés en trois formules&nbsp;:
-        <ul className="mt-1 list-disc pl-4 text-sm">
-          <li><strong>Essentiel</strong> — 1 490&nbsp;€ TTC : présence en ligne claire, idéal pour démarrer.</li>
-          <li><strong>Professionnel</strong> — 2 490&nbsp;€ TTC : plus de contenu, blog/actualités, FAQ, témoignages.</li>
-          <li><strong>Premium</strong> — 4 990&nbsp;€ TTC : projet sur‑mesure plus complexe, stratégie complète.</li>
-        </ul>
+        Je ne publie plus de grille tarifaire détaillée en ligne. Les projets sont désormais chiffrés uniquement sur devis, en
+        fonction de votre situation (création, refonte, volume de contenus, délais).
       </>
     );
     push(
       "bot",
       <div className="mt-2 flex flex-wrap gap-2">
         <QuickButton>
-          <Link href="/tarifs-2025#tarifs">Voir les tarifs 2026 en détail</Link>
+          <Link href="/contact">Demander un devis</Link>
         </QuickButton>
       </div>
     );
@@ -156,7 +152,7 @@ export function Chatbot() {
           <Link href="/contact">Aller à la page contact</Link>
         </QuickButton>
         <QuickButton>
-          <Link href="/tarifs-2025#tarifs">Voir les tarifs</Link>
+          <Link href="/contact">Demander un devis</Link>
         </QuickButton>
       </div>
     );
@@ -234,10 +230,10 @@ export function Chatbot() {
       [
         /prix|tarif|co[uû]t/,
         <>
-          En 2026, la plupart des projets se situent entre 1 490€ et 4 990€ TTC selon l’ampleur (Essentiel, Professionnel, Premium).
-          Prix fixe annoncé dès le départ, sans surprise. Détails sur la page{" "}
-          <Link href="/tarifs-2025#tarifs" className="underline">
-            Tarifs&nbsp;2026
+          Je fonctionne désormais uniquement sur devis personnalisé. Après un premier échange (email ou visio), je vous envoie un devis
+          détaillé et clair, sans surprise. Pour en discuter, le plus simple est de passer par la page{" "}
+          <Link href="/contact" className="underline">
+            Contact
           </Link>
           .
         </>
@@ -245,10 +241,10 @@ export function Chatbot() {
       [
         /refonte/,
         <>
-          Pour une refonte (WordPress lent &rarr; site vitrine statique), la majorité des projets se situent entre 2 490€ et 4 990€ TTC,
-          selon la taille du site, le SEO à reprendre et les contenus à retravailler. Pour un aperçu détaillé, consultez la page{" "}
-          <Link href="/tarifs-2025#tarifs" className="underline">
-            Tarifs&nbsp;2026
+          Pour une refonte (WordPress lent &rarr; site vitrine statique), le budget dépend surtout de la taille du site, du SEO à reprendre
+          et des contenus à retravailler. On commence toujours par un audit rapide, puis je vous envoie un devis détaillé. Vous pouvez démarrer via la page{" "}
+          <Link href="/contact" className="underline">
+            Contact
           </Link>
           .
         </>

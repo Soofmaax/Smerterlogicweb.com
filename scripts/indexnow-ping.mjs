@@ -49,7 +49,6 @@ const CORE_EN = [
   "/en",
   "/en/projects",
   "/en/services",
-  "/en/pricing-2025",
   "/en/about",
   "/en/contact",
   "/en/nonprofit-commitment",

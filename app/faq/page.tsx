@@ -148,11 +148,11 @@ export default function FAQ() {
         <div className="rounded-[28px] card-elevated border bg-card p-6 text-center">
           <h3 className="font-heading text-xl font-semibold">Pour approfondir</h3>
           <p className="mt-2 text-sm text-foreground/80">
-            Tarifs, maintenance et refonte — quelques ressources clés :
+            Devis, maintenance et refonte — quelques ressources clés :
           </p>
           <div className="mt-3 flex flex-wrap items-center justify-center gap-x-4 gap-y-2 text-sm">
-            <a href="/tarifs-2025#tarifs" className="text-primary hover:underline">
-              Tarifs 2026 pour sites vitrines statiques
+            <a href="/contact" className="text-primary hover:underline">
+              Demander un devis pour votre site vitrine
             </a>
             <span className="text-muted-foreground">•</span>
             <a href="/blog/cout-maintenance-site-web" className="text-primary hover:underline">

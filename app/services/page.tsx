@@ -49,13 +49,6 @@ const serviceSchema = {
     "@type": "AdministrativeArea",
     name: "France",
   },
-  offers: {
-    "@type": "AggregateOffer",
-    priceCurrency: "EUR",
-    lowPrice: "1490",
-    highPrice: "4990",
-    availability: "https://schema.org/InStock",
-  },
 };
 
 export default function ServicesPage() {
@@ -198,8 +191,8 @@ export default function ServicesPage() {
               Création de site internet à Paris
             </Link>
             <span className="text-muted-foreground">•</span>
-            <Link href="/tarifs-2025" className="text-primary hover:underline">
-              Tarifs 2026
+            <Link href="/contact" className="text-primary hover:underline">
+              Demander un devis
             </Link>
           </div>
         </div>

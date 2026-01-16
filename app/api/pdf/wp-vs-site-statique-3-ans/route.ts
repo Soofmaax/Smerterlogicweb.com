@@ -169,7 +169,7 @@ export async function GET() {
   );
 
   cursor = ctaBanner(doc, cursor, fonts, [
-    `Voir la grille complète : ${SITE_URL}/tarifs-2025`,
+    `Demander un devis pour votre site statique : ${SITE_URL}/contact`,
     `Discutons de votre projet : ${CONTACT_EMAIL} (audit 15 min offert)`,
   ]);
 

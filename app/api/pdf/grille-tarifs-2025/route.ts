@@ -166,7 +166,7 @@ export async function GET() {
 
   // CTA
   cursor = ctaBanner(doc, cursor, fonts, [
-    `Consulter les détails et commander : ${SITE_URL}/tarifs-2025`,
+    `Parler de votre projet et obtenir un devis : ${SITE_URL}/contact`,
     `Un projet ? ${CONTACT_EMAIL} — Audit gratuit 15 min`,
   ]);
 
