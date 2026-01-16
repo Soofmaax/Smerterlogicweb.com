@@ -11,12 +11,6 @@ import { CONTACT_EMAIL, BRAND_DOMAIN } from "@/config/site";
 
 export function Footer() {
   const pathname = usePathname() || "/";
-
-  // Hide global footer on the minimal NFC contact card page
-  if (pathname === "/carte-contact") {
-    return null;
-  }
-
   const isEn = pathname.startsWith("/en");
   const prefix = isEn ? "/en" : "";
 
@@ -34,8 +28,8 @@ export function Footer() {
               projects: "Projects",
               services: "Services",
               about: "About",
-              contact: "Contact",
               commitment: "Commitment",
+              contact: "Contact",
             },
             legal: {
               mentions: "Legal notice",
@@ -55,8 +49,8 @@ export function Footer() {
               projects: "Projets",
               services: "Services",
               about: "À propos",
-              contact: "Contact",
               commitment: "Engagement",
+              contact: "Contact",
             },
             legal: {
               mentions: "Mentions légales",
@@ -69,6 +63,11 @@ export function Footer() {
           },
     [isEn]
   );
+
+  // Hide global footer on the minimal NFC contact card page
+  if (pathname === "/carte-contact") {
+    return null;
+  }
 
   return (
     <footer id="site-footer" className="w-full border-t">

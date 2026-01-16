@@ -14,12 +14,6 @@ export function Header() {
   const [openServices, setOpenServices] = useState(false);
   const [openProjets, setOpenProjets] = useState(false);
   const pathname = usePathname() || "/";
-
-  // Hide global header on the minimal NFC contact card page
-  if (pathname === "/carte-contact") {
-    return null;
-  }
-
   const isEn = pathname.startsWith("/en");
   const prefix = isEn ? "/en" : "";
   const available = isEn ? availablePathsEN : availablePathsFR;
@@ -80,6 +74,11 @@ export function Header() {
   const pricingHref = isEn
     ? "/en/services"
     : (pathname === "/" ? "/#tarifs" : "/tarifs-2025#tarifs");
+
+  // Hide global header on the minimal NFC contact card page
+  if (pathname === "/carte-contact") {
+    return null;
+  }
 
   // Phone CTA (desktop)
   const rawPhone = process.env.NEXT_PUBLIC_PHONE || "";
