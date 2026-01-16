@@ -1,7 +1,7 @@
 const FALLBACK_BRAND_NAME = "SmarterLogicWeb";
 const FALLBACK_BRAND_DOMAIN = "smarterlogicweb.com";
 const FALLBACK_SITE_URL = `https://${FALLBACK_BRAND_DOMAIN}`;
-const FALLBACK_CONTACT_EMAIL = "contact@smarterlogicweb.com";
+const FALLBACK_CONTACT_EMAIL = "sonia@smarterlogicweb.com";
 
 /**
  * Normalize a base URL: remove any trailing slashes.

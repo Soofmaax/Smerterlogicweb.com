@@ -87,7 +87,7 @@ Voir .env.example — [Télécharger](./.env.example)
 - MIT — [LICENSE](file:///LICENSE)
 
 📧 Support & Contact
-- Contact général — contact@smarterlogicweb.com
+- Contact général — sonia@smarterlogicweb.com
 - Problèmes de code / bugs — admin@smarterlogicweb.com
 - Website: https://smarterlogicweb.com
 
@@ -97,7 +97,7 @@ Voir .env.example — [Télécharger](./.env.example)
   <p>Made with ❤️ by <strong>SmarterLogicWeb</strong></p>
   <p>
     🌐 <a href="https://smarterlogicweb.com">Website</a> •
-    📧 <a href="mailto:contact@smarterlogicweb.com">Contact</a>
+    📧 <a href="mailto:sonia@smarterlogicweb.com">Contact</a>
   </p>
   <p>
     <sub>© 2025 SmarterLogicWeb. All rights reserved.</sub>
