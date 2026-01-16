@@ -32,15 +32,16 @@ export default function ContactCardPage() {
             {name.charAt(0).toUpperCase()}
           </div>
           <h1 className="mt-4 font-heading text-2xl font-semibold">
-            {name}
+            {name} Salwa
           </h1>
           <p className="text-sm text-muted-foreground">
-            Développeuse front-end — {company}
+            Gourou du numérique — {company}
           </p>
 
           <div className="mt-4 text-xs text-muted-foreground">
             <p>{SITE_URL.replace(/^https?:\/\//, "")}</p>
             {rawPhone && <p>{rawPhone}</p>}
+            {CONTACT_EMAIL && <p>{CONTACT_EMAIL}</p>}
           </div>
 
           <div className="mt-6 space-y-3">
