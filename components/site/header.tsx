@@ -75,11 +75,6 @@ export function Header() {
     ? "/en/services"
     : (pathname === "/" ? "/#tarifs" : "/tarifs-2025#tarifs");
 
-  // Hide global header on the minimal NFC contact card page
-  if (pathname === "/carte-contact") {
-    return null;
-  }
-
   // Phone CTA (desktop)
   const rawPhone = process.env.NEXT_PUBLIC_PHONE || "";
   const sanitizePhone = (p: string) => p.replace(/[^+\d]/g, "");
@@ -113,6 +108,11 @@ export function Header() {
       document.body.style.overflow = "";
     };
   }, [open]);
+
+  // Hide global header on the minimal NFC contact card page
+  if (pathname === "/carte-contact") {
+    return null;
+  }
 
   return (
     <header className="sticky top-11 z-40 w-full border-b bg-background">
