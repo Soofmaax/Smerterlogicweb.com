@@ -6,7 +6,7 @@
 
 export type OfferFR = {
   name: string;
-  price: string; // TTC
+  price: string; // TTC (texte, ex. "Sur devis")
   recommended?: boolean;
   forWho: string;
   cases: string[];
@@ -17,7 +17,7 @@ export type OfferFR = {
 export const OFFERS_FR: OfferFR[] = [
   {
     name: "Essentiel",
-    price: "1 490€ TTC",
+    price: "Sur devis",
     recommended: false,
     forWho: "TPE, professions libérales en démarrage, budget maîtrisé",
     cases: [
@@ -40,7 +40,7 @@ export const OFFERS_FR: OfferFR[] = [
   },
   {
     name: "Professionnel",
-    price: "2 490€ TTC",
+    price: "Sur devis",
     recommended: true,
     forWho: "Cabinets établis, TPE/PME qui veulent se différencier et attirer des clients",
     cases: [
@@ -65,7 +65,7 @@ export const OFFERS_FR: OfferFR[] = [
   },
   {
     name: "Premium",
-    price: "4 990€ TTC",
+    price: "Sur devis",
     recommended: false,
     forWho: "Réseaux de cabinets, multi‑sites ou multilingues, projets complexes",
     cases: [
@@ -83,17 +83,17 @@ export const OFFERS_FR: OfferFR[] = [
       "Intégrations avancées: CRM (Zoho/HubSpot/Salesforce), API, chatbot/live chat",
       "Espace client sécurisé (si besoin) + formulaires conditionnels",
       "Performance ultra‑optimisée (Score PageSpeed 98+ garanti, CDN mondial)",
-      "6 mois de Formule Évolution offerts (valeur 120€)",
+      "Formule Évolution incluse pendant plusieurs mois après la mise en ligne",
       "Livraison premium avec présentation des performances (30 min) + guide PDF + vidéos",
       "Support prioritaire téléphonique 6 mois",
     ],
-    quote: "“Site haut de gamme, multilingue, rapide et optimisé — avec évolution incluse 6 mois.”",
+    quote: "“Site haut de gamme, multilingue, rapide et optimisé — avec évolution incluse plusieurs mois.”",
   },
 ];
 
 export type PlanFR = {
   name: string;
-  price: string; // TTC
+  price: string; // TTC (texte, ex. "Sur devis")
   features: string[];
   recommended?: boolean;
 };
@@ -101,7 +101,7 @@ export type PlanFR = {
 export const PLANS_FR: PlanFR[] = [
   {
     name: "Essentiel",
-    price: "1 490€ TTC",
+    price: "Sur devis",
     features: [
       "Site statique 3–5 pages",
       "Template semi‑personnalisé",
@@ -114,7 +114,7 @@ export const PLANS_FR: PlanFR[] = [
   },
   {
     name: "Professionnel",
-    price: "2 490€ TTC",
+    price: "Sur devis",
     recommended: true,
     features: [
       "5–8 pages, design sur‑mesure",
@@ -128,7 +128,7 @@ export const PLANS_FR: PlanFR[] = [
   },
   {
     name: "Premium",
-    price: "4 990€ TTC",
+    price: "Sur devis",
     features: [
       "10–15 pages ou multilingue (FR/EN)",
       "Design premium + animations",
@@ -136,7 +136,7 @@ export const PLANS_FR: PlanFR[] = [
       "Stratégie SEO complète 6 mois",
       "CRM + API + espace client",
       "Perf. 98+ garanti",
-      "6 mois Formule Évolution offerts",
+      "Formule Évolution incluse plusieurs mois",
     ],
   },
 ];
@@ -151,13 +151,13 @@ export type ExtraFR = {
 export const EXTRAS_FR: ExtraFR[] = [
   {
     title: "Formule Évolution",
-    price: "20€/mois",
+    price: "Sur devis",
     desc: "Option sans engagement: 1h de modifications/mois, heures cumulables sur 3 mois, support prioritaire et monitoring.",
     iconKey: "server",
   },
   {
     title: "Adaptation graphique",
-    price: "À partir de 150€",
+    price: "Sur devis",
     desc: "Cartes de visite, flyers, QR codes, signature email — selon votre charte.",
     iconKey: "brush",
   },
@@ -169,7 +169,7 @@ export const EXTRAS_FR: ExtraFR[] = [
   },
   {
     title: "Formation personnalisée",
-    price: "60€/h",
+    price: "Sur devis",
     desc: "Apprenez à mettre à jour vos contenus en toute autonomie.",
     iconKey: "graduationCap",
   },

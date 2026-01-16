@@ -20,7 +20,7 @@ export function FAQAccordion() {
     },
     {
       q: "Que se passe-t-il après la première année d'hébergement offerte ?",
-      a: "Vous pouvez continuer avec mon service d'hébergement/maintenance (~20€ / mois) ou migrer vers votre propre hébergeur : vous êtes propriétaire du code.",
+      a: "Vous pouvez continuer avec mon service d'hébergement/maintenance (forfait léger, sur devis) ou migrer vers votre propre hébergeur : vous êtes propriétaire du code.",
     },
   ];
 

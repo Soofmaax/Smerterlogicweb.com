@@ -251,7 +251,7 @@ export function Chatbot() {
       ],
       [/d[ée]lai|combien de temps/, <>Essentiel: 2‑3 semaines, Professionnel: 4‑6 semaines, Premium: 8‑12 semaines (après réception contenus).</>],
       [/wordpress|wix/, <>Wix: lent/limité; WordPress: maintenance et sécurité. Mon approche: statique sur‑mesure — rapide, sécurisée et simple d’usage.</>],
-      [/maintenance|bug|support/, <>Support prioritaire inclus selon offre. Option <strong>Formule Évolution</strong> à 20€/mois (1h/mois cumulable, monitoring, tweaks).</>],
+      [/maintenance|bug|support/, <>Support prioritaire inclus selon offre. Option <strong>Formule Évolution</strong> possible (1h/mois cumulable, monitoring, tweaks), sur devis.</>],
       [/h[ée]bergement|serveur/, <>Hébergement Netlify gratuit à vie; pas de maintenance obligatoire. Option <strong>Formule Évolution</strong> si souhaitée.</>],
       [/seo|google|r[ée]f[ée]rencement/, <>SEO on‑page inclus. Les résultats naturels prennent 2‑3 mois. Je vous forme aux bonnes pratiques.</>],
       [/publicit[ée]|ads|adwords/, <>Pas obligatoire. Le SEO suffit souvent aux artisans locaux; la pub peut accélérer si besoin.</>],

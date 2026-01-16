@@ -14,7 +14,7 @@ type Plan = {
 const PLANS_EN: Plan[] = [
   {
     name: "Essential",
-    price: "€1,490 incl. VAT",
+    price: "On quote",
     features: [
       "Static site 3–5 pages",
       "Semi‑custom template",
@@ -27,7 +27,7 @@ const PLANS_EN: Plan[] = [
   },
   {
     name: "Professional",
-    price: "€2,490 incl. VAT",
+    price: "On quote",
     recommended: true,
     features: [
       "5–8 pages, bespoke design",
@@ -41,7 +41,7 @@ const PLANS_EN: Plan[] = [
   },
   {
     name: "Premium",
-    price: "€4,990 incl. VAT",
+    price: "On quote",
     features: [
       "10–15 pages or multilingual (FR/EN)",
       "Premium design + micro‑animations",

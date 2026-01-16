@@ -1,14 +1,14 @@
 export function FAQServicesEN() {
   const items = [
     {
-      q: "Why is no technical maintenance required?",
+      q: "Why no mandatory maintenance?",
       a:
-        "Static sites have no database, no plugins, and no CMS to update. They are inherently more secure and can run for years without technical intervention.",
+        "Static sites have no database, no plugins, no CMS to patch. They are intrinsically more secure and run for years without technical maintenance.",
     },
     {
-      q: "What if I still want help with content changes?",
+      q: "What if I still want help with changes?",
       a:
-        "Use the optional Evolution plan (€20/month): 1 hour of changes per month, hours roll over for 3 months, priority support and monitoring.",
+        "You can use an optional Evolution plan: 1 hour of changes per month, hours roll over for 3 months, with priority support and monitoring — priced on quote.",
     },
     {
       q: "Can I switch plans after delivery?",

@@ -40,7 +40,7 @@ export default function FAQENPage() {
               Typical structure: 30% on signature, 40% mid‑project, 30% on delivery (may be adjusted depending on the project).
             </li>
             <li>
-              No hidden fees. Hosting may be billed monthly after the first year (20€/month), domain ~15€/year.
+              No hidden fees. Hosting and domain are billed separately after the first year, with clear amounts on the quote — no surprises.
             </li>
           </ul>
         </div>

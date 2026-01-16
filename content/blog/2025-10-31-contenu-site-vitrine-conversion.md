@@ -224,7 +224,7 @@ Ne cherchez pas à avoir le plus de pages. Cherchez à avoir les bonnes pages, a
 
 Et rappelez-vous : le taux de conversion moyen est de deux à cinq pour cent. Si vous êtes en dessous, c'est que votre contenu ne fait pas son travail. Auditez vos quatre piliers. USP claire ? Tarifs affichés ? Preuve sociale visible ? Images optimisées ? Corrigez ce qui ne va pas. Testez. Mesurez. Ajustez.
 
-Besoin d'un site avec un contenu qui convertit vraiment ? On crée des sites statiques optimisés CRO pour TPE et PME. USP travaillée, tarifs par paliers intégrés, sections témoignages, images optimisées WebP, formulaires de conversion. Architecture quatre à huit pages selon vos besoins. À partir de 1 490€. Zéro maintenance, code source remis.
+Besoin d'un site avec un contenu qui convertit vraiment ? On crée des sites statiques optimisés CRO pour TPE et PME. USP travaillée, tarifs par paliers intégrés, sections témoignages, images optimisées WebP, formulaires de conversion. Architecture quatre à huit pages selon vos besoins. Budget sur devis détaillé. Zéro maintenance, code source remis.
 
 ---
 

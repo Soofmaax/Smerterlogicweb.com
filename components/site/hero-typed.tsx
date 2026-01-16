@@ -148,7 +148,7 @@ export function HeroTyped() {
           </div>
           <div className="flex items-center gap-2 rounded-full border bg-card px-4 py-2">
             <Rocket className="h-4 w-4" />
-            <span>Site vitrine dès 1 490 € TTC</span>
+            <span>Site vitrine sur devis détaillé</span>
           </div>
         </div>
       </div>

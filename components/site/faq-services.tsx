@@ -8,7 +8,7 @@ export function FAQServices() {
     {
       q: "Et si je veux quand même de l’aide pour les modifications ?",
       a:
-        "C’est le rôle de la Formule Évolution (20€/mois, optionnelle) : 1h de modifications/mois, heures cumulables 3 mois, support prioritaire et monitoring.",
+        "C’est le rôle de la Formule Évolution (optionnelle) : 1h de modifications/mois, heures cumulables 3 mois, support prioritaire et monitoring, sur devis.",
     },
     {
       q: "Puis-je changer de formule après livraison ?",

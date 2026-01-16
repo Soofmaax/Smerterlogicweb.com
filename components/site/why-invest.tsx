@@ -9,7 +9,7 @@ export function WhyInvest() {
       <div className="text-center">
         <h2 className="font-heading text-3xl font-semibold md:text-4xl">Pourquoi un site sur‑mesure&nbsp;?</h2>
         <p className="mt-2 text-foreground/70">
-          Et Wix ou WordPress à 10&nbsp;€/mois&nbsp;?
+          Et les offres «&nbsp;clé en main&nbsp;» à quelques euros par mois&nbsp;?
         </p>
       </div>
 

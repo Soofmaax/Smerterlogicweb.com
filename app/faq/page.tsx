@@ -7,7 +7,7 @@ import { SITE_URL, BRAND_DOMAIN } from "@/config/site";
 export const metadata = {
   title: `FAQ — ${BRAND_DOMAIN}`,
   description:
-    "FAQ 2026 : coûts, délais, refonte WordPress, SEO local, maintenance d’un site vitrine statique pour TPE et professions libérales.",
+    "Réponses aux questions fréquentes sur la création de site vitrine statique : budget sur devis, délais, maintenance, SEO local, refonte WordPress et accompagnement.",FAQ 2026 : coûts, délais, refonte WordPress, SEO local, maintenance d’un site vitrine statique pour TPE et professions libérales.",
   alternates: {
     canonical: "/faq",
     languages: {
@@ -29,11 +29,12 @@ const faqSchema = {
   mainEntity: [
     {
       "@type": "Question",
-      name: "Combien coûte vraiment un site vitrine statique en 2026 ?",
+      name: "Combien coûte vraiment un site vitrine ?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Pour une TPE ou une profession libérale, un site vitrine statique complet se situe généralement entre 1 490€ et 4 990€ TTC selon le nombre de pages, la quantité de contenus à créer et les besoins spécifiques (bilingue, cas clients, blog, etc.). Les fourchettes détaillées Essentiel / Professionnel / Premium sont présentées sur la page Tarifs 2026.",
+        text: "Pour une TPE ou une profession libérale, le budget d’un site vitrine statique dépend surtout du nombre de pages, de la quantité de contenus à créer et des besoins spécifiques (bilingue, cas clients, blog, etc.). Les projets sont désormais chiffrés uniquement sur devis détaillé après un premier échange, sans grille publique.",
       },
+    },
     },
     {
       "@type": "Question",
