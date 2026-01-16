@@ -31,34 +31,9 @@ export const metadata: Metadata = {
   },
 };
 
-const serviceSchema = {
-  "@context": "https://schema.org",
-  "@type": "Service",
-  serviceType: "Carte de visite NFC et page de contact digitale",
-  provider: {
-    "@type": "LocalBusiness",
-    name: COMPANY_NAME,
-    url: SITE_URL,
-    areaServed: "France",
-  },
-  areaServed: {
-    "@type": "AdministrativeArea",
-    name: "France",
-  },
-  url: `${SITE_URL}/carte-de-visite-nfc`,
-  description:
-    "Une carte de visite NFC reliée à une page de contact moderne : en un geste, vos prospects enregistrent vos coordonnées, visitent votre site et vous écrivent sur WhatsApp.",
-};
-
 export default function NfcBusinessCardPage() {
   return (
     <section className="relative mx-auto w-full max-w-6xl px-6 py-16 md:py-24">
-      {/* JSON-LD Service schema for SEO */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }}
-      />
-
       {/* Fond animé léger */}
       <div aria-hidden className="pointer-events-none absolute inset-0 -z-10">
         <div className="hero-gradient-animated absolute inset-0 rounded-[28px] opacity-60" />
