@@ -136,7 +136,11 @@ export default function NfcBusinessCardPage() {
               <li>• Design cohérent avec votre site et votre branding</li>
             </ul>
             <div className="mt-4">
-              <Button asChild variant="link" className="px-0 text-sm text-primary">
+              <Button
+                asChild
+                variant="ghost"
+                className="px-0 text-sm text-primary hover:bg-transparent"
+              >
                 <Link href="/carte-contact">Voir un exemple de page de contact</Link>
               </Button>
             </div>
