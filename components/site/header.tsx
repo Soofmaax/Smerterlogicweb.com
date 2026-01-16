@@ -14,6 +14,12 @@ export function Header() {
   const [openServices, setOpenServices] = useState(false);
   const [openProjets, setOpenProjets] = useState(false);
   const pathname = usePathname() || "/";
+
+  // Hide global header on the minimal NFC contact card page
+  if (pathname === "/carte-contact") {
+    return null;
+  }
+
   const isEn = pathname.startsWith("/en");
   const prefix = isEn ? "/en" : "";
   const available = isEn ? availablePathsEN : availablePathsFR;

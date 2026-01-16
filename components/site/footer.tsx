@@ -11,6 +11,12 @@ import { CONTACT_EMAIL, BRAND_DOMAIN } from "@/config/site";
 
 export function Footer() {
   const pathname = usePathname() || "/";
+
+  // Hide global footer on the minimal NFC contact card page
+  if (pathname === "/carte-contact") {
+    return null;
+  }
+
   const isEn = pathname.startsWith("/en");
   const prefix = isEn ? "/en" : "";
 
