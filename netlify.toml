@@ -177,3 +177,9 @@
   from = "/temps-chargement-site-rapide-mobile"
   to = "/blog/temps-chargement-site-rapide-mobile"
   status = 301
+
+# Alias marketing URL for NFC page to the minimal contact card
+[[redirects]]
+  from = "/carte-de-visite-nfc"
+  to = "/carte-contact"
+  status = 301

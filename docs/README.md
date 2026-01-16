@@ -11,6 +11,9 @@ Bienvenue dans la documentation du projet.
 - API
   - [Endpoints](./api/README.md)
 - Pages spéciales
+  - `/carte-contact` — carte de contact dédiée (scan NFC / QR), noindex, sans header/footer (URL à utiliser sur la carte)I
+  - [Endpoints](./api/README.md)
+- Pages spéciales
   - `/carte-contact` — carte de contact dédiée (scan NFC / QR), noindex, sans header/footer
   - `/carte-de-visite-nfc` — page marketing de l'offre \"carte de visite NFC\" qui renvoie vers `/carte-contact`
 - Architecture
