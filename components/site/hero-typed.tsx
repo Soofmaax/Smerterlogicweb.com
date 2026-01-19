@@ -132,8 +132,8 @@ export function HeroTyped() {
 
         {/* Small note under CTA */}
         <div className="mt-2 text-xs text-muted-foreground">
-          <span className="block">Votre concurrent a déjà son site.</span>
-          <span className="block">Et vous ?</span>
+          <span className="block">Sans engagement, réponse rapide.</span>
+          <span className="block">On fait le point sur votre situation actuelle.</span>
         </div>
 
         {/* Récap visuel juste après le hero */}
