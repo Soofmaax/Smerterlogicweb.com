@@ -9,7 +9,7 @@ import { BookingButton } from "@/components/site/booking-modal";
 import { Guarantee } from "@/components/site/guarantee";
 import { Particles } from "@/components/site/particles";
 import { Suspense } from "react";
-import { SITE_URL, CONTACT_EMAIL, BRAND_DOMAIN } from "@/config/site";
+import { SITE_URL, CONTACT_EMAIL, BRAND_DOMAIN, PHONE_NUMBER_PUBLIC } from "@/config/site";
 
 export const metadata = {
   title: `Contact — ${BRAND_DOMAIN}`,
@@ -61,9 +61,9 @@ export default function ContactPage() {
             </TrackedLink>
           </Button>
           <BookingButton size="lg" className="rounded-full" label="Réserver un audit gratuit" />
-          {process.env.NEXT_PUBLIC_PHONE ? (
+          {PHONE_NUMBER_PUBLIC ? (
             <Button asChild size="lg" className="rounded-full">
-              <a href={`tel:${(process.env.NEXT_PUBLIC_PHONE as string).replace(/[^+\d]/g, "")}`}>📞 07 44 40 79 73</a>
+              <a href={`tel:${PHONE_NUMBER_PUBLIC.replace(/[^+\d]/g, "")}`}>📞 {PHONE_NUMBER_PUBLIC}</a>
             </Button>
           ) : null}
           <Link href="/" className="text-sm text-muted-foreground hover:text-foreground">Retour à l’accueil</Link>
