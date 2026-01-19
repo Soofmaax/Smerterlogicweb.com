@@ -61,9 +61,9 @@ export const projectsFR: ProjectsData = {
         "Site statique professionnel mettant en avant les prestations de ventousage pour tournages et événements, avec formulaires de contact et informations claires.",
       url: "https://bmsventouse.fr",
       kpis: [
-        { label: "Performance", value: "95/100" },
-        { label: "Temps de chargement", value: "≈1,2s" },
-        { label: "Pagespeed (desktop)", value: "98+" },
+        { label: "Type de site", value: "Vitrine B2B local" },
+        { label: "Secteur", value: "Logistique cinéma & événementiel" },
+        { label: "Objectif", value: "Visibilité locale et demandes qualifiées" },
       ],
       sector: "Artisans & TPE",
       city: "Île‑de‑France",
@@ -81,8 +81,8 @@ export const projectsFR: ProjectsData = {
         "Site vitrine pour un transitaire spécialisé sur les corridors France–Congo et France–Angola : fret maritime conteneurs, déménagements internationaux, envoi de véhicules et flux B2B.",
       url: "https://mb-fretservices.com",
       kpis: [
-        { label: "Performance", value: "90+/100" },
         { label: "Type de site", value: "Vitrine B2B international" },
+        { label: "Secteur", value: "Transport & logistique" },
       ],
       sector: "Artisans & TPE",
       city: "France / Afrique centrale",

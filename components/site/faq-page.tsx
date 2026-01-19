@@ -55,7 +55,7 @@ const CATEGORIES: Category[] = [
       {
         id: "q-tarif-satisfait",
         q: "Que se passe-t-il si je ne suis pas satisfait ?",
-        a: "Satisfait ou remboursé 30 jours après livraison si le site ne correspond pas au devis validé.",
+        a: "On ajuste ensemble jusqu’à ce que le site corresponde au devis validé. Si besoin, on revoit le périmètre pour qu’il reste adapté à votre situation.",
       },
       {
         id: "q-tarif-asso",
@@ -126,7 +126,7 @@ const CATEGORIES: Category[] = [
       {
         id: "q-technique-mobile",
         q: "Mon site sera-t-il rapide sur mobile ?",
-        a: "Oui. Tous mes sites sont optimisés mobile-first avec scores 90+/100 sur Google.",
+        a: "Oui. Les sites sont conçus mobile-first avec une attention particulière à la performance (Core Web Vitals), sans promettre un score précis.",
       },
     ],
   },
@@ -144,7 +144,7 @@ const CATEGORIES: Category[] = [
       {
         id: "q-resultats-clients",
         q: "Vais-je avoir plus de clients grâce au site ?",
-        a: "Si votre site est bien fait (rapide, clair, optimisé) : oui. Mes clients constatent +30 à 50% de demandes en moyenne après 3 mois.",
+        a: "Un bon site (rapide, clair, optimisé) peut vous aider à convertir davantage de visiteurs en clients, mais le résultat dépend aussi de votre secteur, de vos contenus et de vos actions (Google Business, bouche-à-oreille, etc.).",
       },
       {
         id: "q-resultats-ads",

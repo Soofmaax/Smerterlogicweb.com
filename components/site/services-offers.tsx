@@ -33,7 +33,7 @@ export function ServicesOffers() {
       <Carousel items={slides} ariaLabel="Offres de services" centerEmphasis />
 
       <p className="mt-4 text-center text-xs text-muted-foreground">
-        Garanties: satisfait ou remboursé 30 jours — support prioritaire — le code source vous appartient.
+        Engagements : accompagnement sérieux, communication claire, le code source vous appartient.
       </p>
     </section>
   );

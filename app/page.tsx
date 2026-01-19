@@ -25,7 +25,7 @@ import { SITE_URL, BRAND_DOMAIN } from "@/config/site";
 export const metadata = {
   title: "Sites vitrines statiques sur devis | TPE & professions libérales",
   description:
-    "Création de sites vitrines statiques ultra-rapides pour TPE et professions libérales. Core Web Vitals 90+, zéro maintenance technique obligatoire, SEO local soigné. Devis détaillé sur mesure selon votre projet.",
+    "Création de sites vitrines statiques ultra-rapides pour TPE et professions libérales. Core Web Vitals optimisés, zéro maintenance technique obligatoire, SEO local soigné. Devis détaillé sur mesure selon votre projet.",
   alternates: {
     canonical: "/",
     languages: {
@@ -37,7 +37,7 @@ export const metadata = {
     url: SITE_URL,
     title: `Sites vitrines statiques sur devis | TPE & professions libérales — ${BRAND_DOMAIN}`,
     description:
-      "Création de sites vitrines statiques ultra-rapides pour TPE et professions libérales. Core Web Vitals 90+, zéro maintenance technique obligatoire, SEO local soigné. Devis détaillé sur mesure selon votre projet.",
+      "Création de sites vitrines statiques ultra-rapides pour TPE et professions libérales. Core Web Vitals optimisés, zéro maintenance technique obligatoire, SEO local soigné. Devis détaillé sur mesure selon votre projet.",
   },
 };
 

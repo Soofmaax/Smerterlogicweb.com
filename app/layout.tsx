@@ -45,7 +45,7 @@ export const metadata: Metadata = {
     template: "%s — smarterlogicweb.com",
   },
   description:
-    "Sites vitrines statiques ultra-rapides pour TPE, PME et professions libérales. Core Web Vitals 90+, zéro maintenance technique obligatoire, SEO et sécurité intégrés.",
+    "Sites vitrines statiques ultra-rapides pour TPE, PME et professions libérales. Core Web Vitals optimisés, zéro maintenance technique obligatoire, SEO et sécurité intégrés.",
   keywords: [
     "site vitrine statique",
     "sites vitrines TPE",
@@ -76,14 +76,14 @@ export const metadata: Metadata = {
     url: SITE_URL,
     title: "Sites vitrines statiques pour TPE & professions libérales — smarterlogicweb.com",
     description:
-      "Sites vitrines statiques ultra-rapides pour TPE, PME et professions libérales. Core Web Vitals 90+, zéro maintenance technique obligatoire, SEO et sécurité intégrés.",
+      "Sites vitrines statiques ultra-rapides pour TPE, PME et professions libérales. Core Web Vitals optimisés, zéro maintenance technique obligatoire, SEO et sécurité intégrés.",
     images: ["/opengraph-image"],
   },
   twitter: {
     card: "summary_large_image",
     title: "Sites vitrines statiques pour TPE & professions libérales — smarterlogicweb.com",
     description:
-      "Sites vitrines statiques ultra-rapides pour TPE, PME et professions libérales. Core Web Vitals 90+, zéro maintenance technique obligatoire, SEO et sécurité intégrés.",
+      "Sites vitrines statiques ultra-rapides pour TPE, PME et professions libérales. Core Web Vitals optimisés, zéro maintenance technique obligatoire, SEO et sécurité intégrés.",
     images: ["/opengraph-image"],
   },
   verification: {

@@ -25,26 +25,7 @@ type Payload = {
   mapsUrl: string;
 };
 
-const FALLBACK_REVIEWS: Review[] = [
-  {
-    author: "Julien",
-    rating: 5,
-    text: "Depuis que j'ai mon nouveau site, je reçois 3 à 4 demandes de devis par semaine via Google.",
-    relative: "il y a 2 mois",
-  },
-  {
-    author: "Marie",
-    rating: 5,
-    text: "Site clair et rapide. Les clients trouvent facilement nos horaires et nous appellent directement.",
-    relative: "il y a 1 mois",
-  },
-  {
-    author: "Thomas",
-    rating: 5,
-    text: "Mise en ligne fluide, pas de prise de tête côté technique. Je me concentre sur mes chantiers.",
-    relative: "il y a 3 semaines",
-  },
-];
+const FALLBACK_REVIEWS: Review[] = [];
 
 function useGoogleReviews() {
   const [data, setData] = React.useState<Payload | null>(null);
@@ -80,11 +61,11 @@ function useGoogleReviews() {
       .catch((e) => {
         if (aborted) return;
         setError(e?.message || "error");
-        // Fallback payload from static testimonials
+        // Fallback neutre : aucun avis affiché si l'API n'est pas disponible
         const payload: Payload = {
-          rating: 5,
-          total: FALLBACK_REVIEWS.length,
-          reviews: FALLBACK_REVIEWS,
+          rating: 0,
+          total: 0,
+          reviews: [],
           placeId: "",
           mapsUrl: "#",
         };
