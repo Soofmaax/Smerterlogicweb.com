@@ -85,7 +85,7 @@ export default function ProjectsPage() {
 
       <section id="cta" className="scroll-mt-28 mt-10">
         <div className="flex flex-col items-center gap-3 justify-center">
-          <BookingButton className="rounded-full" size="lg" label="Book my free audit (15 min)" />
+          <BookingButton className="rounded-full" size="lg" label="Request a free audit" />
           <Button asChild size="lg" className="rounded-full">
             <TrackedLink
               href={`mailto:${CONTACT_EMAIL}?subject=Web%20project%20-%20Brief`}

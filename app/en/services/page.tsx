@@ -77,7 +77,7 @@ export default function ServicesPage() {
       </div>
 
       <div className="mt-10 flex flex-col items-center gap-3 justify-center">
-        <BookingButton className="rounded-full" size="lg" label="Book my free audit (15 min)" />
+        <BookingButton className="rounded-full" size="lg" label="Request a free audit" />
         <Button asChild size="lg" className="rounded-full">
           <TrackedLink
             href={`mailto:${CONTACT_EMAIL}?subject=Web%20services%20quote`}

@@ -114,7 +114,7 @@ function PlanCard({ plan }: { plan: Plan }) {
         </ul>
 
         <div className="mt-auto pt-4">
-          <BookingButton className="w-full h-11 md:h-12 text-base" label="Book my free audit (15 min)" />
+          <BookingButton className="w-full h-11 md:h-12 text-base" label="Request a free audit" />
         </div>
       </div>
     </article>

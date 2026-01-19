@@ -640,7 +640,7 @@ export default function CityServicePage({ params }: Params) {
 
       {/* Intro CTA */}
       <div className="mt-6 flex flex-col gap-3 sm:flex-row">
-        <BookingButton className="rounded-full" size="lg" label={`Audit gratuit — ${city.name} et alentours`} />
+        <BookingButton className="rounded-full" size="lg" label={`Demander un audit gratuit — ${city.name}`} />
         <Button asChild className="rounded-full" variant="secondary">
           <Link href="/contact">Demander un devis</Link>
         </Button>

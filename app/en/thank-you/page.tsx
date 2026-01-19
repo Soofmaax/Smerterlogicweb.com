@@ -38,7 +38,7 @@ export default function ThankYouPage() {
       </p>
 
       <div className="mt-8 flex justify-center">
-        <BookingButton className="rounded-full" label="Book my free audit (15 min)" />
+        <BookingButton className="rounded-full" label="Request a free audit" />
       </div>
 
       <div className="mt-10">

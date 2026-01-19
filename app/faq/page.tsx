@@ -138,7 +138,7 @@ export default function FAQ() {
       <FAQPage />
 
       <div className="mt-10 flex justify-center">
-        <BookingButton className="rounded-full" label="Réserver un audit gratuit" />
+        <BookingButton className="rounded-full" label="Demander un audit gratuit" />
       </div>
 
       <FinalCTA />

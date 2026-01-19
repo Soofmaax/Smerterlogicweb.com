@@ -40,9 +40,6 @@ export default function CandidatureAssociationPage() {
           </p>
         </Reveal>
         <AssociationApplicationForm />
-        <div className="mt-8 flex justify-center">
-          <BookingButton className="rounded-full" label="Réserver un audit gratuit" />
-        </div>
       </div>
 
       <FinalCTA />

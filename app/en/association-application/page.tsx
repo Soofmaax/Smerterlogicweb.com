@@ -41,9 +41,6 @@ export default function AssociationApplicationENPage() {
           </p>
         </Reveal>
         <AssociationApplicationForm />
-        <div className="mt-8 flex justify-center">
-          <BookingButton className="rounded-full" label="Book my free audit (15 min)" />
-        </div>
       </div>
 
       <FinalCTA />

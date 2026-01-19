@@ -78,7 +78,7 @@ export default function Tarifs2025Page() {
           <li>Après validation, on planifie le démarrage et le calendrier de livraison.</li>
         </ol>
         <div className="mt-5 flex flex-col items-center justify-center gap-3 sm:flex-row">
-          <BookingButton className="rounded-full" size="lg" label="Réserver un audit gratuit" />
+          <BookingButton className="rounded-full" size="lg" label="Demander un audit gratuit" />
           <Button asChild className="rounded-full" variant="secondary">
             <a href={`mailto:${CONTACT_EMAIL}?subject=Demande%20devis%20site%20vitrine%20statique`}>
               Demander un devis par email

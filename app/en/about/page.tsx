@@ -50,7 +50,7 @@ export default function AboutPage() {
         </p>
 
         <div className="mt-8 flex items-center gap-4">
-          <BookingButton className="rounded-full" size="lg" label="Book my free audit (15 min)" />
+          <BookingButton className="rounded-full" size="lg" label="Request a free audit" />
           <Button asChild className="rounded-full">
             <TrackedLink
               href={`mailto:${CONTACT_EMAIL}?subject=Web%20project`}

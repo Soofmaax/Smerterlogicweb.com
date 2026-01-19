@@ -175,7 +175,7 @@ export default function EngagementAssociatifPage() {
           <h2 className="font-heading text-2xl font-semibold">Votre Association Mérite d&apos;Exister en Ligne</h2>
           <MagneticZone>
             <div className="mt-5 flex flex-col items-center justify-center gap-3 sm:flex-row">
-              <BookingButton className="rounded-full btn-lift" label="Réserver un audit gratuit" />
+              <BookingButton className="rounded-full btn-lift" label="Demander un audit gratuit" />
               <Button asChild className="rounded-full btn-lift" variant="cta" data-magnetic="true">
                 <Link href="/candidature-association">Parler de mon projet associatif</Link>
               </Button>
