@@ -8,6 +8,7 @@ import { Button } from "@/components/ui/button";
 import { Menu, X, ChevronDown } from "lucide-react";
 import { track } from "@/lib/analytics";
 import { availablePathsFR, availablePathsEN, switchLocalePath } from "@/data/routes";
+import { PHONE_NUMBER_PUBLIC } from "@/config/site";
 
 export function Header() {
   const [open, setOpen] = useState(false);
@@ -72,7 +73,7 @@ export function Header() {
   const ctaHref = isEn ? "/en/contact" : "/contact";
 
   // Phone CTA (desktop)
-  const rawPhone = process.env.NEXT_PUBLIC_PHONE || "";
+  const rawPhone = PHONE_NUMBERNEXT_PUBLIC_PHONE || "";
   const sanitizePhone = (p: string) => p.replace(/[^+\d]/g, "");
   const callHref = rawPhone ? `tel:${sanitizePhone(rawPhone)}` : (isEn ? "/en/contact" : "/contact");
   const displayPhone = useMemo(() => {

@@ -18,5 +18,6 @@ export const sitesFR: SiteEntry[] = [
     status: "live",
     domain: "bmsventouse.fr",
     sector: "Logistique / Événementiel",
+    img: "https://bmsventouse.fr/images/hero-background-custom.jpg",
   },
 ];

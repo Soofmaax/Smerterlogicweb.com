@@ -68,7 +68,10 @@ export const projectsFR: ProjectsData = {
       sector: "Artisans & TPE",
       city: "Île‑de‑France",
       duration: "3–4 semaines",
-      // images: real URLs à ajouter plus tard lorsque les captures seront disponibles
+      images: [
+        "https://bmsventouse.fr/images/hero-background-custom.jpg",
+        "https://bmsventouse.fr/images/hero-background-custom.jpg",
+      ],
     },
   ],
 };
