@@ -11,17 +11,12 @@ export function StickyMobileCTA() {
   const isContactPage = pathname.includes("/contact");
   const isHome = isEn ? pathname === "/en" || pathname === "/en/" : pathname === "/";
 
-  // Compute primary href: phone > booking > /contact (localized)
-  const rawPhone = process.env.NEXT_PUBLIC_PHONE || "";
-  const rawBooking = process.env.NEXT_PUBLIC_BOOKING_URL || "";
-  const sanitizePhone = (p: string) => p.replace(/[^+\d]/g, "");
-  const href = rawPhone
-    ? `tel:${sanitizePhone(rawPhone)}`
-    : rawBooking || (isEn ? "/en/contact" : "/contact");
-  const isInternal = href.startsWith("/");
+  // Primary href: always send to contact page to collect site + email
+  const href = isEn ? "/en/contact" : "/contact";
+  const isInternal = true;
 
-  // Label localized, plus sobre et aligné avec le reste du site
-  const label = isEn ? "Book a free audit" : "Réserver un audit gratuit";
+  // Label localized, aligned with async audit by email
+  const label = isEn ? "Request a free audit" : "Envoyer mon site pour audit gratuit";
 
   React.useEffect(() => {
     if (isContactPage) {

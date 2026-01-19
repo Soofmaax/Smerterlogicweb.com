@@ -13,6 +13,8 @@ type Props = {
 
 type Fields = {
   firstName: string;
+  email: string;
+  website: string;
   phone: string;
   metier: string;
   city?: string;
@@ -38,18 +40,27 @@ export function ContactForm({ locale, action }: Props) {
 
   const t = {
     firstName: locale === "fr" ? "Prénom" : "First name",
-    phone: locale === "fr" ? "Téléphone" : "Phone",
+    email: "Email",
+    website: locale === "fr" ? "Site web (URL)" : "Website (URL)",
+    phone: locale === "fr" ? "Téléphone (optionnel)" : "Phone (optional)",
     metier: locale === "fr" ? "Métier" : "Trade",
     city: locale === "fr" ? "Ville (optionnel)" : "City (optional)",
-    send: locale === "fr" ? "Être rappelé aujourd'hui" : "Call me back today",
+    send: locale === "fr" ? "Recevoir un audit par email" : "Get my audit by email",
     sending: locale === "fr" ? "Envoi en cours..." : "Sending...",
     required: locale === "fr" ? "Champ requis." : "Required field.",
     reassurance:
       locale === "fr"
-        ? "✓ Sans engagement ✓ Réponse sous 2h ✓ Audit offert"
-        : "✓ No commitment ✓ Reply within 2h ✓ Free audit",
+        ? "✓ Sans engagement ✓ Réponse sous 24h ✓ Audit par email"
+        : "✓ No commitment ✓ Reply within 24h ✓ Audit by email",
     invalidPhone: locale === "fr" ? "Numéro invalide (ex: 06 12 34 56 78)." : "Invalid phone number.",
+    invalidEmail: locale === "fr" ? "Email invalide." : "Invalid email.",
+    invalidWebsite:
+      locale === "fr"
+        ? "URL de site invalide (ex: https://votre-site.fr)."
+        : "Invalid website URL (e.g. https://your-site.com).",
     placeholderFirst: locale === "fr" ? "Votre prénom" : "Your first name",
+    placeholderEmail: locale === "fr" ? "vous@exemple.fr" : "you@example.com",
+    placeholderWebsite: locale === "fr" ? "https://votre-site.fr" : "https://your-site.com",
     placeholderPhone: locale === "fr" ? "06 12 34 56 78" : "+33 6 12 34 56 78",
     placeholderCity: locale === "fr" ? "Votre ville" : "Your city",
     consentLabel:
@@ -75,6 +86,8 @@ export function ContactForm({ locale, action }: Props) {
       };
 
       const urlFirst = searchParams?.get("first") || searchParams?.get("prenom") || searchParams?.get("firstName") || "";
+      const urlEmail = searchParams?.get("email") || "";
+      const urlWebsite = searchParams?.get("site") || searchParams?.get("website") || searchParams?.get("url") || "";
       const urlPhone = searchParams?.get("phone") || searchParams?.get("tel") || "";
       const urlMetier = searchParams?.get("metier") || searchParams?.get("trade") || "";
       const urlCity = searchParams?.get("city") || "";
@@ -104,11 +117,15 @@ export function ContactForm({ locale, action }: Props) {
       })();
 
       const initialFirst = urlFirst || lf("contact:firstName");
+      const initialEmail = urlEmail || lf("contact:email");
+      const initialWebsite = urlWebsite || lf("contact:website");
       const initialPhone = urlPhone || lf("contact:phone");
       const initialMetier = urlMetier || fromReferrer || lf("contact:metier");
       const initialCity = urlCity || lf("contact:city");
 
       if (initialFirst) setValue("firstName", initialFirst, { shouldValidate: true });
+      if (initialEmail) setValue("email", initialEmail, { shouldValidate: true });
+      if (initialWebsite) setValue("website", initialWebsite, { shouldValidate: true });
       if (initialPhone) setValue("phone", initialPhone, { shouldValidate: true });
       if (initialMetier) setValue("metier", initialMetier, { shouldValidate: true });
       if (initialCity) setValue("city", initialCity, { shouldValidate: true });
@@ -119,6 +136,8 @@ export function ContactForm({ locale, action }: Props) {
 
   // Persist as user types
   const firstNameVal = watch("firstName");
+  const emailVal = watch("email");
+  const websiteVal = watch("website");
   const phoneVal = watch("phone");
   const metierVal = watch("metier");
   const cityVal = watch("city");
@@ -128,6 +147,18 @@ export function ContactForm({ locale, action }: Props) {
       localStorage.setItem("contact:firstName", firstNameVal || "");
     } catch {}
   }, [firstNameVal]);
+
+  React.useEffect(() => {
+    try {
+      localStorage.setItem("contact:email", emailVal || "");
+    } catch {}
+  }, [emailVal]);
+
+  React.useEffect(() => {
+    try {
+      localStorage.setItem("contact:website", websiteVal || "");
+    } catch {}
+  }, [websiteVal]);
 
   React.useEffect(() => {
     try {
@@ -149,6 +180,7 @@ export function ContactForm({ locale, action }: Props) {
 
   const validatePhone = (val: string) => {
     const raw = String(val || "");
+    if (!raw.trim()) return true; // optional
     const sanitized = raw.replace(/[\s.()-]/g, "");
     if (locale === "fr") {
       const ok = /^(\+33|0)[1-9]\d{8}$/.test(sanitized);
@@ -156,6 +188,20 @@ export function ContactForm({ locale, action }: Props) {
     }
     const ok = /^[+]?[\d\s().-]{6,}$/.test(raw);
     return ok || t.invalidPhone;
+  };
+
+  const validateEmail = (val: string) => {
+    const raw = String(val || "").trim();
+    if (!raw) return t.required;
+    const ok = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(raw);
+    return ok || t.invalidEmail;
+  };
+
+  const validateWebsite = (val: string) => {
+    const raw = String(val || "").trim();
+    if (!raw) return t.required;
+    const ok = /^https?:\/\//i.test(raw) || /^[\w.-]+\.[a-z]{2,}/i.test(raw);
+    return ok || t.invalidWebsite;
   };
 
   return (
@@ -199,7 +245,66 @@ export function ContactForm({ locale, action }: Props) {
         {errors.firstName && <div className="text-sm text-red-500">{errors.firstName.message}</div>}
       </div>
 
-      {/* Téléphone */}
+      {/* Email */}
+      <div className="grid gap-2">
+        <div className="relative fl-group">
+          <input
+            id="email"
+            type="email"
+            className={`peer fl-input h-11 w-full rounded-md border bg-background px-3 outline-none ring-offset-background transition-colors input-glow placeholder-transparent
+            ${errors.email ? "border-red-400" : "border-foreground/20"}
+            `}
+            placeholder=" "
+            {...register("email", {
+              required: t.required,
+              validate: validateEmail,
+            })}
+          />
+          <label
+            htmlFor="email"
+            className="pointer-events-none absolute left-3 top-1/2 -translate-y-1/2 text-sm text-muted-foreground transition-all duration-200
+            peer-focus:top-1.5 peer-focus:text-xs peer-focus:text-foreground
+            peer-[:not(:placeholder-shown)]:top-1.5 peer-[:not(:placeholder-shown)]:text-xs peer-[:not(:placeholder-shown)]:text-foreground"
+          >
+            {t.email}
+          </label>
+          {touchedFields.email && !errors.email ? (
+            <CheckCircle2 className="pointer-events-none absolute right-3 top-1/2 h-5 w-5 -translate-y-1/2 text-green-500 transition-transform duration-300" />
+          ) : null}
+        </div>
+        {errors.email && <div className="text-sm text-red-500">{errors.email.message}</div>}
+      </div>
+
+      {/* Site web */}
+      <div className="grid gap-2">
+        <div className="relative fl-group">
+          <input
+            id="website"
+            className={`peer fl-input h-11 w-full rounded-md border bg-background px-3 outline-none ring-offset-background transition-colors input-glow placeholder-transparent
+            ${errors.website ? "border-red-400" : "border-foreground/20"}
+            `}
+            placeholder=" "
+            {...register("website", {
+              required: t.required,
+              validate: validateWebsite,
+            })}
+          />
+          <label
+            htmlFor="website"
+            className="pointer-events-none absolute left-3 top-1/2 -translate-y-1/2 text-sm text-muted-foreground transition-all duration-200
+            peer-focus:top-1.5 peer-focus:text-xs peer-focus:text-foreground
+            peer-[:not(:placeholder-shown)]:top-1.5 peer-[:not(:placeholder-shown)]:text-xs peer-[:not(:placeholder-shown)]:text-foreground"
+          >
+            {t.website}
+          </label>
+          {touchedFields.website && !errors.website ? (
+            <CheckCircle2 className="pointer-events-none absolute right-3 top-1/2 h-5 w-5 -translate-y-1/2 text-green-500 transition-transform duration-300" />
+          ) : null}
+        </div>
+        {errors.website && <div className="text-sm text-red-500">{errors.website.message}</div>}
+      </div>
+
+      {/* Téléphone (optionnel) */}
       <div className="grid gap-2">
         <div className="relative fl-group">
           <input
@@ -210,7 +315,6 @@ export function ContactForm({ locale, action }: Props) {
             `}
             placeholder=" "
             {...register("phone", {
-              required: t.required,
               validate: validatePhone,
             })}
           />

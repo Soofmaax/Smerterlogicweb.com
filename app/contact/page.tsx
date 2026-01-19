@@ -5,7 +5,6 @@ import { TrackedLink } from "@/components/site/tracked-link";
 import { ContactForm } from "@/components/site/contact-form";
 import { Reveal } from "@/components/site/reveal";
 import { GoogleReviewsBadge } from "@/components/site/google-reviews";
-import { BookingButton } from "@/components/site/booking-modal";
 import { Guarantee } from "@/components/site/guarantee";
 import { Particles } from "@/components/site/particles";
 import { Suspense } from "react";
@@ -42,7 +41,8 @@ export default function ContactPage() {
       <div className="rounded-[28px] card-elevated border bg-card p-6 shadow-sm">
         <h1 className="font-heading text-4xl font-bold tracking-tight md:text-5xl">Contact</h1>
         <p className="mt-4 text-lg leading-relaxed text-foreground/80">
-          Le moyen le plus simple et le plus rapide : l&#39;email. Décrivez votre besoin, vos objectifs et vos contraintes — je reviens vers vous sous 24h.
+          Le moyen le plus simple et le plus rapide : l&#39;email. Indiquez l’adresse de votre site (ou de votre projet)
+          et votre email — je reviens vers vous sous 24h avec un premier retour.
         </p>
 
         <div className="mt-6 flex flex-wrap items-center gap-4">
@@ -60,7 +60,6 @@ export default function ContactPage() {
               </span>
             </TrackedLink>
           </Button>
-          <BookingButton size="lg" className="rounded-full" label="Réserver un audit gratuit" />
           {PHONE_NUMBER_PUBLIC ? (
             <Button asChild size="lg" className="rounded-full">
               <a href={`tel:${PHONE_NUMBER_PUBLIC.replace(/[^+\d]/g, "")}`}>📞 {PHONE_NUMBER_PUBLIC}</a>

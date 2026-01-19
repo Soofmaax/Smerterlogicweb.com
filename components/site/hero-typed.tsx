@@ -140,7 +140,7 @@ export function HeroTyped() {
         <div className="mt-6 grid gap-2 text-sm text-foreground/80 sm:grid-cols-3">
           <div className="flex items-center gap-2 rounded-full border bg-card px-4 py-2">
             <Clock className="h-4 w-4" />
-            <span>Audit gratuit en 15 min</span>
+            <span>Audit gratuit de votre site</span>
           </div>
           <div className="flex items-center gap-2 rounded-full border bg-card px-4 py-2">
             <CheckCircle2 className="h-4 w-4" />
