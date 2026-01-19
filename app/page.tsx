@@ -68,10 +68,12 @@ export default function Page() {
         <div className="rounded-[24px] border bg-card p-5 text-center card-elevated md:flex md:items-center md:justify-between md:text-left md:gap-6">
           <div className="md:max-w-md">
             <h3 className="font-heading text-2xl font-semibold">Un audit rapide pour démarrer</h3>
-            <p className="mt-2 text-foreground/80">15 minutes pour évaluer vos besoins et vos objectifs.</p>
+            <p className="mt-2 text-foreground/80">
+              Envoyez-moi l’adresse de votre site et vos objectifs, je vous réponds sous 24h.
+            </p>
           </div>
           <div className="mt-4 flex justify-center md:mt-0 md:justify-end">
-            <BookingButton className="px-8 text-base" label="Réserver un audit gratuit" />
+            <BookingButton className="px-8 text-base" label="Demander un audit gratuit" />
           </div>
         </div>
       </section>

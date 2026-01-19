@@ -12,7 +12,7 @@ import { SITE_URL, CONTACT_EMAIL, BRAND_DOMAIN } from "@/config/site";
 export const metadata = {
   title: "Pricing & quotes — static sites on quote only",
   description:
-    "Static websites for professional services (lawyers, accountants, architects). All projects are now priced on a detailed quote after a short audit call.",
+    "Static websites for professional services (lawyers, accountants, architects). All projects are now priced on a detailed quote after a short audit of your situation.",
   alternates: {
     canonical: "/en/pricing-2025",
     languages: {

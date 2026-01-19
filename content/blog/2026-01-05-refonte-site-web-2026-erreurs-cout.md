@@ -218,7 +218,7 @@ Dans une refonte:
 
 Optimisez:
 
-- les textes des boutons (verbs + bénéfice: “Demander un devis détaillé”, “Réserver un audit gratuit 15 min”),
+- les textes des boutons (verbs + bénéfice: “Demander un devis détaillé”, “Demander un audit gratuit de votre site”),
 - les formulaires (simples, 4–6 champs maximum pour un premier contact),
 - les preuves:
   - avis clients,

@@ -154,9 +154,9 @@ et que :
 
 Exemples :
 
-- si vous parlez d’un “audit gratuit 30 minutes” sur le site :
+- si vous parlez d’un “audit gratuit de votre site” sur le site :
 
-  - prévoyez un statut “Audit programmé” dans le CRM,
+  - prévoyez un statut “Audit demandé” dans le CRM,
   - suivez réellement ces audits.
 
 - si vous dites “réponse sous 48h” :
