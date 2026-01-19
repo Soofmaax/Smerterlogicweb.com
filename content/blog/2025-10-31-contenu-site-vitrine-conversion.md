@@ -121,7 +121,7 @@ Si vous n'avez pas de témoignages vidéo, commencez par des témoignages écrit
 
 Les études de cas permettent d'utiliser des résultats concrets et des chiffres pour appuyer l'USP et démontrer l'efficacité. Une étude de cas suit une structure simple. Contexte (qui est le client, quel était son problème). Solution (ce que vous avez fait concrètement). Résultats (les chiffres, les bénéfices mesurables).
 
-Exemple. Client : Marie, menuisière à Toulouse. Problème : Aucune présence en ligne, uniquement du bouche-à-oreille, pas assez de demandes pour remplir son planning. Solution : Création fiche Google My Business optimisée (photos, avis) plus site vitrine six pages (galerie réalisations, formulaire devis). Résultats : Plus trois cents pour cent de demandes de devis qualifiées en huit mois, première position sur menuisier Toulouse, augmentation de cent quatre-vingts pour cent du chiffre d'affaires.
+Exemple pédagogique inspiré de cas réels. Imaginez Marie, menuisière à Toulouse. Problème : aucune présence en ligne, uniquement du bouche-à-oreille, pas assez de demandes pour remplir son planning. Solution : création d’une fiche Google Business optimisée (photos, avis) plus site vitrine six pages (galerie de réalisations, formulaire de devis). Résultats possibles : davantage de demandes de devis qualifiées au fil des mois, une meilleure visibilité locale et un carnet de commandes plus prévisible. Les pourcentages précis dépendent toujours du secteur, des prix et du travail réalisé en continu (avis, contenus, suivi des chiffres).
 
 Cette étude de cas est crédible parce qu'elle donne des chiffres précis, un nom (même partiel), et un contexte clair. Le visiteur se dit : Si ça a marché pour Marie, ça peut marcher pour moi.
 

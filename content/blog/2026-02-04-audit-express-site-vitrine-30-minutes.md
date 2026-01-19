@@ -217,8 +217,8 @@ Questions :
 
 - Est-ce qu’il y a au moins **2–3 preuves** visibles sur une page clés ?
 - Sont-elles concrètes ?
-  - “+35 % de demandes de devis en 6 mois”,
-  - “Site vitrine statique pour cabinet d’avocat : chargement en moins de 1,5 s sur mobile”.
+  - “Nos demandes de devis ont augmenté depuis la mise en ligne du nouveau site”,
+  - “Site vitrine statique pour cabinet d’avocat : chargement très rapide sur mobile (mesuré avec des outils comme PageSpeed)”.
 
 ### 5.2. Infos légales & coordonnées
 

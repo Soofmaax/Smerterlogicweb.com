@@ -177,13 +177,13 @@ export default function EngagementAssociatifPage() {
             <div className="mt-5 flex flex-col items-center justify-center gap-3 sm:flex-row">
               <BookingButton className="rounded-full btn-lift" label="Réserver un audit gratuit" />
               <Button asChild className="rounded-full btn-lift" variant="cta" data-magnetic="true">
-                <Link href="/candidature-association">Candidater au site gratuit</Link>
+                <Link href="/candidature-association">Parler de mon projet associatif</Link>
               </Button>
               <Button asChild className="rounded-full btn-lift" variant="secondary" data-magnetic="true">
                 <Link
-                  href={`mailto:${CONTACT_EMAIL}?subject=Tarif%20solidaire%20-%20Association`}
+                  href={`mailto:${CONTACT_EMAIL}?subject=Tarif%20adapt%C3%A9%20-%20Association`}
                 >
-                  Demander un tarif solidaire
+                  Demander un tarif adapté
                 </Link>
               </Button>
               <Button asChild className="rounded-full btn-lift" variant="outline" data-magnetic="true">

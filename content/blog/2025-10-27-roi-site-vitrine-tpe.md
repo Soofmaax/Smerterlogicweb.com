@@ -2,7 +2,7 @@
 slug: "roi-site-vitrine-tpe"
 locale: "fr"
 title: "Votre site servira-t-il réellement vos objectifs business ?"
-summary: "ROI site vitrine TPE : 150% à 300% la 1re année si bien conçu. Transformez votre site en machine à clients (pas en décoration)."
+summary: "ROI site vitrine TPE : comment mesurer concrètement l’efficacité de votre site (clients, demandes de devis, appels) sans promesses exagérées."
 tags:
   - "ROI site vitrine TPE"
   - "site web attire clients comment"
@@ -24,7 +24,7 @@ Combien de clients vous a-t-il apportés ? Combien de demandes de devis avez-vou
 
 Je crée des sites pour des TPE et PME depuis 2020. Et je vais vous dire ce que personne ne vous explique au moment de signer le devis : l'efficacité d'un site ne dépend pas de son esthétique, mais de sa capacité à transformer un visiteur en prospect qualifié. Un site qui génère des clients est avant tout un site visible et utile.
 
-Dans cet article, on décortique ce qui fait qu'un site attire vraiment des clients (spoiler : ce n'est pas le design). On quantifie le retour sur investissement réel qu'une TPE peut attendre (150% à 300% dès la première année, si c'est bien fait). Et on vous donne les indicateurs précis à suivre pour mesurer l'efficacité business de votre site. À la fin, vous saurez exactement quoi faire pour que votre site devienne une machine à vendre.
+Dans cet article, on décortique ce qui fait qu'un site attire vraiment des clients (spoiler : ce n'est pas le design). On explique comment estimer un retour sur investissement réaliste pour une TPE, sans promettre de pourcentage magique. Et on vous donne les indicateurs précis à suivre pour mesurer l'efficacité business de votre site. À la fin, vous saurez exactement quoi faire pour que votre site soit un vrai outil commercial, pas une simple carte de visite.
 
 ---
 
@@ -96,15 +96,13 @@ Simplifiez vos formulaires. Plus un formulaire est long, moins il est rempli. Po
 
 Le site web est un investissement rentable, à condition qu'il soit géré stratégiquement. Voici les chiffres réels, pas les promesses marketing.
 
-### Le potentiel de rentabilité (les chiffres que personne ne vous montre)
+### Le potentiel de rentabilité (sans surpromettre)
 
-L'investissement dans le numérique pour les TPE génère un Retour sur Investissement (ROI) moyen observé de 150% à 300% dès la première année du projet. Ce retour est généralement constaté dans un délai de six à douze mois. Ce potentiel est d'autant plus grand que quarante-cinq pour cent des TPE et PME françaises n'ont toujours pas de site internet, laissant un champ libre pour la différenciation concurrentielle.
+L'investissement dans le numérique peut être très rentable pour une TPE, mais le ROI dépend fortement du secteur, du panier moyen, de la concurrence locale et du sérieux de la mise en œuvre (SEO, contenus, suivi des chiffres). Plutôt que de viser un pourcentage théorique, l'idée est de savoir si, sur 12 mois, votre site a généré **plus de marge** qu'il n'a coûté.
 
-Traduction concrète. Vous investissez 2 500€ dans un site vitrine bien conçu. Dans les douze mois qui suivent, ce site vous génère 3 750€ à 7 500€ de chiffre d'affaires supplémentaire. Comment ? Via des demandes de devis que vous n'auriez pas eues autrement, des appels de prospects qui vous ont trouvé sur Google, des clients qui ont choisi votre entreprise plutôt qu'un concurrent parce que votre site les a rassurés.
+Traduction concrète. Vous investissez 2 500€ dans un site vitrine bien conçu. Dans les douze mois qui suivent, vous suivez précisément combien de demandes de devis, d'appels et de clients supplémentaires viennent du site ou de votre fiche Google Business. Si, au total, ces clients vous rapportent plus que les 2 500€ investis (en marge, pas seulement en chiffre d'affaires), l'investissement est cohérent.
 
-Cependant, il est important de noter que l'atteinte de ce ROI positif est fortement corrélée à un investissement initial dans la stratégie et l'optimisation. Le ROI observé est associé à des dépenses numériques moyennes comprises entre 1 500€ et 5 000€, un montant qui dépasse largement le simple coût d'un abonnement builder de base. Cela met en évidence que l'efficacité business est le fruit d'une prestation professionnelle qui maximise la conversion (freelance compétent ou agence spécialisée) et non de l'outil le moins cher.
-
-Un site Wix à 30€ par mois que vous créez vous-même sans accompagnement génère rarement un ROI positif. Pourquoi ? Parce qu'il n'est pas optimisé pour le référencement, le message n'est pas clair, les CTA sont mal placés. Résultat : peu de trafic, peu de conversion, zéro retour sur investissement.
+Ce qui compte surtout, c'est la logique : un site pensé pour la conversion, branché à une fiche Google Business optimisée, a beaucoup plus de chances de s'amortir qu'un site DIY monté en vitesse sur un builder sans travail de fond sur le message et le SEO.
 
 ---
 
@@ -163,7 +161,7 @@ Les requêtes géolocalisées critiques pour une TPE sont votre métier plus vot
 
 ---
 
-## Étude de cas concrète : Marie, menuisière à Toulouse (de zéro à 300% de demandes de devis en huit mois)
+## Étude de cas pédagogique : Marie, menuisière à Toulouse (scénario inspiré de cas réels)
 
 L'exemple de Marie illustre comment un investissement stratégique, même modeste, peut générer un ROI exceptionnel en moins d'un an.
 
@@ -181,13 +179,11 @@ Fiche Google My Business optimisée pour le local. Marie a créé sa fiche Googl
 
 Mise en place d'un formulaire de devis en ligne simplifié comme principal appel à l'action. Le formulaire demandait uniquement le nom, le téléphone, et une description courte du projet. Simple, rapide à remplir. Le bouton principal sur la page d'accueil disait Demandez votre devis gratuit en deux minutes.
 
-### Les résultats après huit mois (spectaculaires)
+### Les résultats après quelques mois (exemple illustratif)
 
-Plus 300% de demandes de devis qualifiées. Marie recevait trois à quatre demandes de devis par semaine via le formulaire en ligne, contre une par mois avant (via le bouche-à-oreille).
+Dans un scénario réaliste, un site vitrine simple, branché à une fiche Google Business travaillée, peut faire passer une activité de “quelques demandes ponctuelles” à “un flux plus régulier de demandes qualifiées” sur plusieurs mois.
 
-Plus 180% d'augmentation du chiffre d'affaires. En huit mois, Marie a signé suffisamment de nouveaux contrats pour augmenter son chiffre d'affaires de 180%. Elle a dû embaucher un apprenti pour suivre la demande.
-
-Première position sur la requête menuisier Toulouse. Marie apparaît en première position du pack local Google quand quelqu'un tape menuisier Toulouse. Résultat : visibilité maximale, crédibilité immédiate.
+Par exemple, une TPE qui recevait 1 demande de devis par mois via le bouche-à-oreille peut, après travail du site et du local, se retrouver avec plusieurs demandes par mois issues du web (site + fiche), ce qui change concrètement la visibilité et le carnet de commandes. Les chiffres exacts varient d’un secteur à l’autre, l’objectif ici est de montrer la logique, pas de promettre un pourcentage précis.
 
 ### Décryptage des facteurs clés de succès (ce que vous devez copier)
 
@@ -211,9 +207,9 @@ Erreur 2 : Lancer le site et ne rien mesurer. Si vous ne suivez pas vos KPIs (ta
 
 ## Verdict : votre site sera rentable si vous priorisez la conversion sur l'esthétique
 
-L'atteinte du ROI (150% à 300% dès la première année) ne dépend pas de l'esthétique, mais de la capacité du site à transformer un visiteur en prospect qualifié. L'investissement doit se concentrer sur le référencement local (optimisation Google My Business, alignement du site sur les requêtes locales), l'expérience utilisateur et le CTA (rapidité, adaptation mobile, appels à l'action simplifiés et stratégiquement placés).
+L'atteinte d'un bon ROI ne dépend pas de l'esthétique, mais de la capacité du site à transformer un visiteur en prospect qualifié. L'investissement doit se concentrer sur le référencement local (optimisation Google My Business, alignement du site sur les requêtes locales), l'expérience utilisateur et le CTA (rapidité, adaptation mobile, appels à l'action simplifiés et stratégiquement placés). Le pourcentage précis de ROI variera d'une activité à l'autre.
 
-En adoptant une vision du site non pas comme une fin en soi, mais comme un point de ralliement stratégique au sein d'un écosystème digital (GMB, SEO, réseaux sociaux si pertinent), la TPE s'assure que l'investissement dans le digital se traduira par une augmentation concrète et mesurable de son chiffre d'affaires en moins de douze mois.
+En adoptant une vision du site non pas comme une fin en soi, mais comme un point de ralliement stratégique au sein d'un écosystème digital (GMB, SEO, réseaux sociaux si pertinent), la TPE maximise les chances que l'investissement dans le digital se traduise par une augmentation concrète et mesurable de son chiffre d'affaires à moyen terme, sans chercher à garantir un délai ou un pourcentage précis.
 
 Ne cherchez pas le plus beau site. Cherchez le site qui génère le plus de clients. Et rappelez-vous : un site qui attire des clients est avant tout un site visible, clair, et avec un CTA efficace.
 
@@ -229,7 +225,7 @@ Suivez quatre KPIs précis. Taux de conversion (objectif : 1% à 3% pour un site
 
 **Quel ROI peut espérer une TPE avec un site vitrine ?**
 
-Un ROI moyen de 150% à 300% dès la première année est observé pour les TPE qui investissent entre 1 500€ et 5 000€ dans un site professionnel bien optimisé. Concrètement, si vous investissez 2 500€, vous pouvez espérer générer 3 750€ à 7 500€ de chiffre d'affaires supplémentaire dans les douze mois. Ce retour est généralement constaté dans un délai de six à douze mois. Attention : ce ROI est associé à une prestation professionnelle (freelance compétent ou agence), pas à un site DIY créé sur Wix sans accompagnement.
+Dans certains cas, une TPE qui investit entre 1 500€ et 5 000€ dans un site professionnel bien optimisé peut amortir son investissement sur la première ou la deuxième année. Concrètement, l'objectif est que le site et la fiche Google Business génèrent suffisamment de demandes de devis, d'appels et de clients pour couvrir le coût initial, puis contribuer positivement au chiffre d'affaires. Mais cela dépend fortement du panier moyen, de la marge, du volume de demandes et du contexte concurrentiel : il ne s'agit pas d'une promesse de résultat.
 
 **Pourquoi mon site ne génère aucun client malgré un joli design ?**
 
@@ -241,7 +237,7 @@ Utilisez Google Analytics (gratuit) ou Plausible (payant mais plus simple). Conf
 
 **Combien de temps faut-il pour qu'un site devienne rentable ?**
 
-Entre six et douze mois pour une TPE avec une stratégie correcte (référencement local optimisé, contenu ciblé, CTA clairs). Les premiers résultats (premières demandes de devis) peuvent apparaître dès le deuxième ou troisième mois si votre fiche Google My Business est bien optimisée. Le ROI complet (150% à 300%) se concrétise généralement au bout de douze mois. Si votre site ne génère aucun lead après six mois, il y a un problème (pas de trafic, mauvaise conversion, ou les deux). Auditez vos KPIs et ajustez.
+Selon les secteurs et la concurrence, il faut souvent compter plusieurs mois (souvent entre six et douze) pour qu'un site bien travaillé commence à montrer son impact sur le chiffre d'affaires (via des demandes de devis, des appels, des prises de rendez-vous). Si votre site ne génère aucun lead après six mois alors que vous avez travaillé votre visibilité locale et vos contenus, il y a probablement un problème (pas de trafic, mauvaise conversion, ou les deux). Auditez vos KPIs et ajustez, plutôt que de compter sur un pourcentage de ROI théorique.
 
 **Google My Business est-il vraiment indispensable pour une TPE ?**
 

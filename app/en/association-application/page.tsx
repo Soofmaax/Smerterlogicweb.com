@@ -6,8 +6,8 @@ import { Particles } from "@/components/site/particles";
 import { SITE_URL } from "@/config/site";
 
 export const metadata = {
-  title: "Application — Nonprofit of the Month",
-  description: "Apply for your nonprofit to receive a free website this month.",
+  title: "Contact — Nonprofit project",
+  description: "Explain your nonprofit project and needs to see if tailored support or adjusted pricing is possible.",
   alternates: {
     canonical: "/en/association-application",
     languages: {
@@ -17,8 +17,8 @@ export const metadata = {
   },
   openGraph: {
     url: `${SITE_URL}/en/association-application`,
-    title: "Application — Nonprofit of the Month",
-    description: "Apply for your nonprofit to receive a free website this month.",
+    title: "Contact — Nonprofit project",
+    description: "Explain your nonprofit project and needs to see if tailored support or adjusted pricing is possible.",
   },
 };
 
@@ -32,12 +32,12 @@ export default function AssociationApplicationENPage() {
 
       <div className="rounded-[28px] card-elevated border bg-card p-6">
         <Reveal className="reveal-fade-up">
-          <h1 className="font-heading text-4xl font-bold tracking-tight md:text-5xl">Apply — Free Website</h1>
+          <h1 className="font-heading text-4xl font-bold tracking-tight md:text-5xl">Nonprofit project</h1>
         </Reveal>
         <Reveal className="reveal-fade-up">
           <p className="mt-3 text-foreground/80">
-            Each month, one public‑interest nonprofit receives a professional website for free. Fill out this form — I’ll
-            reply within 48 hours.
+            You represent a nonprofit, collective or impact‑driven project and need a website? Describe your situation,
+            goals and constraints — I’ll reply within 48 hours to see what’s possible.
           </p>
         </Reveal>
         <AssociationApplicationForm />
