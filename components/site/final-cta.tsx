@@ -22,7 +22,7 @@ export function FinalCTA() {
             variant="default"
             className="rounded-full border border-foreground bg-foreground px-6 py-3 text-base font-semibold text-background hover:bg-foreground/90"
           >
-            <Link href="#tarifs">Voir les tarifs</Link>
+            <Link href="/contact">Demander un devis</Link>
           </Button>
           <BookingButton className="px-6" label="Réserver un audit gratuit" />
         </div>

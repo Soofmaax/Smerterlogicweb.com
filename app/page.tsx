@@ -23,9 +23,9 @@ import { Guarantee } from "@/components/site/guarantee";
 import { SITE_URL, BRAND_DOMAIN } from "@/config/site";
 
 export const metadata = {
-  title: "Sites vitrines statiques dès 1490€ TTC | TPE & professions libérales",
+  title: "Sites vitrines statiques sur devis | TPE & professions libérales",
   description:
-    "Création de sites vitrines statiques ultra-rapides pour TPE et professions libérales. Core Web Vitals 90+, zéro maintenance technique obligatoire, SEO local soigné. Tarifs 2026 dès 1 490€ TTC.",
+    "Création de sites vitrines statiques ultra-rapides pour TPE et professions libérales. Core Web Vitals 90+, zéro maintenance technique obligatoire, SEO local soigné. Devis détaillé sur mesure selon votre projet.",
   alternates: {
     canonical: "/",
     languages: {
@@ -35,9 +35,9 @@ export const metadata = {
   },
   openGraph: {
     url: SITE_URL,
-    title: `Sites vitrines statiques dès 1490€ TTC | TPE & professions libérales — ${BRAND_DOMAIN}`,
+    title: `Sites vitrines statiques sur devis | TPE & professions libérales — ${BRAND_DOMAIN}`,
     description:
-      "Création de sites vitrines statiques ultra-rapides pour TPE et professions libérales. Core Web Vitals 90+, zéro maintenance technique obligatoire, SEO local soigné. Tarifs 2026 dès 1 490€ TTC.",
+      "Création de sites vitrines statiques ultra-rapides pour TPE et professions libérales. Core Web Vitals 90+, zéro maintenance technique obligatoire, SEO local soigné. Devis détaillé sur mesure selon votre projet.",
   },
 };
 
@@ -160,8 +160,8 @@ export default function Page() {
               Création de site internet à Paris
             </Link>
             <span className="text-muted-foreground">•</span>
-            <Link href="/tarifs-2025" className="text-primary hover:underline">
-              Tarifs 2026
+            <Link href="/contact" className="text-primary hover:underline">
+              Demander un devis
             </Link>
           </div>
         </div>

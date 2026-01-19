@@ -33,14 +33,14 @@ export default function FAQENPage() {
           <h2 className="font-heading text-xl font-semibold">Pricing</h2>
           <ul className="mt-2 list-disc pl-5 text-foreground/80">
             <li>
-              Typical range: 1,490€ to 4,990€ VAT‑incl depending on scope. See{" "}
-              <Link href="/tarifs-2025" className="underline">pricing</Link>.
+              Projects are now priced on a case‑by‑case basis, after a short call to clarify your scope (creation vs redesign,
+              content volume, languages, deadlines).
             </li>
             <li>
-              Payment in 3 parts: 30% on signature, 40% mid‑project, 30% on delivery.
+              Typical structure: 30% on signature, 40% mid‑project, 30% on delivery (may be adjusted depending on the project).
             </li>
             <li>
-              No hidden fees. Hosting may be billed monthly after the first year (20€/month), domain ~15€/year.
+              No hidden fees. Hosting and domain are billed separately after the first year, with clear amounts on the quote — no surprises.
             </li>
           </ul>
         </div>

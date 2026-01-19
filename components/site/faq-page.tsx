@@ -40,17 +40,17 @@ const CATEGORIES: Category[] = [
       {
         id: "q-tarif-cout",
         q: "Combien coûte vraiment un site web ?",
-        a: "Entre 1800€ et 5500€ selon vos besoins. Prix fixe annoncé dès le départ, pas de surprises. Détails complets sur la page Tarifs.",
+        a: "Le budget dépend de votre situation : création ou refonte, nombre de pages, quantité de contenu à produire et intégrations nécessaires. Tous les projets sont désormais chiffrés uniquement sur devis détaillé après un premier échange, sans grille publique.",
       },
       {
         id: "q-tarif-frais-caches",
         q: "Y a-t-il des frais cachés ?",
-        a: "Non. Le prix inclut tout : conception, développement, mise en ligne, formation. Seuls frais supplémentaires : hébergement après la 1ère année (20€/mois) et nom de domaine (15€/an).",
+        a: "Non. Le devis inclut tout ce qui est nécessaire pour livrer le site (conception, développement, mise en ligne, accompagnement). Les seuls frais récurrents sont l’hébergement et le nom de domaine, indiqués noir sur blanc sur le devis — pas de surprise.",
       },
       {
         id: "q-tarif-paiement",
         q: "Puis-je payer en plusieurs fois ?",
-        a: "Oui. 3 paiements : 30% à la signature, 40% à mi-projet, 30% à la livraison.",
+        a: "Oui. Le paiement se fait généralement en plusieurs étapes (acompte à la signature, échéance intermédiaire, solde à la livraison), précisées dans le devis.",
       },
       {
         id: "q-tarif-satisfait",
@@ -60,7 +60,7 @@ const CATEGORIES: Category[] = [
       {
         id: "q-tarif-asso",
         q: "Les associations paient-elles le même prix ?",
-        a: "Non. 1 association/mois bénéficie d'un site gratuit. Les autres ont des tarifs solidaires très réduits. Détails sur la page Engagement.",
+        a: "Non. 1 association/mois bénéficie d'un site gratuit. Les autres ont des tarifs solidaires adaptés. Détails sur la page Engagement.",
       },
     ],
   },
@@ -106,7 +106,7 @@ const CATEGORIES: Category[] = [
       {
         id: "q-technique-hebergement",
         q: "Qui héberge mon site ?",
-        a: "Hébergement professionnel sur serveurs ultra-rapides (Netlify/Vercel). 1ère année incluse, puis 20€/mois.",
+        a: "Hébergement professionnel sur serveurs ultra-rapides (Netlify/Vercel). 1ère année incluse, puis un forfait d’hébergement léger, indiqué clairement sur le devis.",
       },
       {
         id: "q-technique-modifs",
@@ -116,7 +116,7 @@ const CATEGORIES: Category[] = [
       {
         id: "q-technique-probleme",
         q: "Que se passe-t-il si mon site a un problème ?",
-        a: "Support prioritaire inclus 3 mois. Après : maintenance à 20€/mois (corrections bugs, mises à jour sécurité, sauvegardes).",
+        a: "Support prioritaire inclus 3 mois. Ensuite, un forfait de suivi/maintenance peut être mis en place sur devis (corrections, petites évolutions, sauvegardes).",
       },
       {
         id: "q-technique-propriete",

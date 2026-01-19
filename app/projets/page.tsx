@@ -74,7 +74,7 @@ export default function ProjetsPage() {
           <div className="mt-5 flex flex-col items-center justify-center gap-3 sm:flex-row">
             <BookingButton className="rounded-full" size="lg" label="Réserver un audit gratuit" />
             <Button asChild className="rounded-full" variant="secondary">
-              <Link href="/tarifs-2025#tarifs">Voir les tarifs</Link>
+              <Link href="/contact">Demander un devis</Link>
             </Button>
           </div>
           <div className="mt-4 flex items-center justify-center">

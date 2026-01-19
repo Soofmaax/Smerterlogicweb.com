@@ -186,7 +186,7 @@ La stratégie séquentielle est simple. Semaine un, créez et optimisez votre fi
 
 Et rappelez-vous : cinquante pour cent des recherches locales sur mobile aboutissent à une visite le jour même. Si vous n'êtes pas sur GMB, vous perdez la moitié de vos clients potentiels. Gratuit, immédiat, puissant. Aucune excuse pour ne pas le faire.
 
-Besoin d'un site web après avoir optimisé votre GMB ? On crée des sites statiques qui amplifient votre visibilité locale. Design sur-mesure, contenu optimisé SEO local, intégration GMB, formulaires de conversion, zéro maintenance. À partir de 1 490€. Code source remis, domaine à votre nom.
+Besoin d'un site web après avoir optimisé votre GMB ? On crée des sites statiques qui amplifient votre visibilité locale. Design sur-mesure, contenu optimisé SEO local, intégration GMB, formulaires de conversion, zéro maintenance. Budget sur devis détaillé. Code source remis, domaine à votre nom.
 
 ---
 

@@ -10,9 +10,9 @@ import { absoluteUrl, SITE_URL, BRAND_DOMAIN } from "@/config/site";
 export const revalidate = 60;
 
 export const metadata = {
-  title: "Blog — visibilité locale, refonte et tarifs 2026",
+  title: "Blog — visibilité locale, refonte et budget site vitrine",
   description:
-    "Articles et conseils pratiques sur la visibilité locale, la refonte de sites WordPress en sites statiques et les tarifs 2026 pour TPE et professions libérales.",
+    "Articles et conseils pratiques sur la visibilité locale, la refonte de sites WordPress en sites statiques et la façon de penser le budget d’un site vitrine pour TPE et professions libérales (sur devis).",
   alternates: {
     canonical: "/blog",
     languages: {

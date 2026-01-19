@@ -163,33 +163,10 @@ Y a-t-il des frais de maintenance obligatoires ? Pour WordPress : oui, obligatoi
 
 Après avoir créé des dizaines de sites pour des entreprises de tous secteurs, voici nos recommandations franches.
 
-**Offre Essentiel : 1 490€**. Pour TPE avec budget serré. Site trois à cinq pages, design semi-personnalisé, SEO technique inclus, hébergement gratuit Netlify, zéro maintenance. Sur trois ans : 1 490€ (nous) contre 2 600€ (WordPress avec maintenance).
-
-**Offre Professionnelle : 2 490€**. Pour entreprises qui veulent générer des clients. Design cent pour cent sur-mesure, nous rédigeons tous vos contenus (optimisés SEO), référencement avancé, performance garantie, zéro maintenance. C'est l'offre livrée pour bmsventouse.fr. Résultat : positions deux à dix sur Google en quatre mois. Comparaison : WordPress agence 5 300€ sur trois ans, site statique pro 2 490€ sur trois ans. Économie : 2 810€.
-
-**Offre Premium : 4 990€**. Pour projets complexes. Dix à quinze pages ou multilingue, stratégie SEO six mois, articles de blog inclus, intégrations avancées (CRM, API), six mois de support premium offerts.
-
-Pourquoi nos tarifs sont différents : on fait des sites statiques, pas du WordPress. Site WordPress classique : maintenance obligatoire 290€ à 1 800€ par an, risques de sécurité, site plus lent. Site statique : maintenance zéro euro, sécurité maximale, ultra-rapide.
-
-Sur trois ans : WordPress bas de gamme 2 600€ (800€ création plus 1 800€ maintenance), WordPress agence 8 900€ (3 500€ création plus 5 400€ maintenance), site statique Essentiel 1 490€ (tout inclus, zéro maintenance), site statique Professionnel 2 490€ (tout inclus, zéro maintenance).
-
----
-
-## Verdict : ne choisissez pas sur le prix initial, choisissez sur le coût réel
-
-Un site à 300€ coûte en réalité 3 200€ (contenu plus SEO plus maintenance la première année). Un site statique à 2 490€ tout inclus est objectivement moins cher sur trois ans.
-
-Faites le calcul. Exigez un devis détaillé ligne par ligne. Et rappelez-vous : votre site doit attirer des clients, pas juste exister. Un site invisible sur Google est un site inutile.
-
-Besoin d'un site qui attire des clients ? On crée des sites statiques optimisés pour TPE et PME de tous secteurs. Design sur-mesure, contenu inclus, ultra-rapide, zéro maintenance. Exemples : bmsventouse.fr (position deux à dix Google en quatre mois). À partir de 1 490€. Code source remis, domaine à votre nom.
-
----
-
-## FAQ
-
-**Combien coûte un site vitrine pour une TPE en 2025 ?**
-
-Entre 1 500€ et 8 000€ selon le prestataire et les inclusions. Je recommande 1 490€ minimum pour un site professionnel avec design personnalisé et SEO. Les templates à 500€ coûteront plus cher en contenu et SEO après coup.
+**Offre Essentiel**. Pour TPE avec budget serré. Site trois à cinq pages, design semi-personnalisé, SEO technique inclus, hébergement gratuit Netlify, zéro maintenance. Sur trois ans, un site statique bien conçu reste souvent plus économique qu’un WordPress avec maintenance.
+Sur trois ans, un WordPress bas de gamme (création + maintenance), un WordPress agence et un site statique clé en main n’ont pas le même coût total de possession. Les sites statiques que je propose se situent dans une fourchette raisonnable, avec zéro maintenance imposée, le tout chiffré sur devis détaillé.
+Besoin d'un site qui attire des clients ? On crée des sites statiques optimisés pour TPE et PME de tous secteurs. Design sur-mesure, contenu inclus, ultra-rapide, zéro maintenance. Exemples : bmsventouse.fr (position deux à dix Google en quatre mois). Budget sur devis détaillé. Code source remis, domaine à votre nom.
+Entre 1 500€ et 8 000€ selon le prestataire et les inclusions. Je recommande de prévoir un budget réaliste pour un site professionnel avec design personnalisé et SEO, plutôt que de viser les templates « pas chers » qui coûteront plus cher en contenu et SEO après coup.
 
 **Pourquoi les devis varient de 1 500€ à 7 000€ pour le même projet ?**
 

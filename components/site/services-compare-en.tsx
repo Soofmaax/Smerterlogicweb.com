@@ -9,8 +9,12 @@ const headers = ["Features", "Essential", "Professional", "Premium"];
 
 const rows: { label: string; cells: Cell[] }[] = [
   {
-    label: "Price incl. VAT",
-    cells: [{ type: "text", value: "€1,490" }, { type: "text", value: "€2,490" }, { type: "text", value: "€4,990" }],
+    label: "Pricing",
+    cells: [
+      { type: "text", value: "On quote" },
+      { type: "text", value: "On quote" },
+      { type: "text", value: "On quote" },
+    ],
   },
   {
     label: "Pages",
@@ -42,7 +46,11 @@ const rows: { label: string; cells: Cell[] }[] = [
   },
   {
     label: "Evolution plan",
-    cells: [{ type: "text", value: "Optional €20/mo" }, { type: "text", value: "Optional €20/mo" }, { type: "text", value: "✅ 6 months included" }],
+    cells: [
+      { type: "text", value: "Optional, on quote" },
+      { type: "text", value: "Optional, on quote" },
+      { type: "text", value: "✅ included several months" },
+    ],
   },
   {
     label: "Delivery timeline",

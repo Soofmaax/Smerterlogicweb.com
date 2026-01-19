@@ -92,8 +92,8 @@ export default function SecuritePage() {
               Frais cachés après la livraison
             </Link>
             <span className="text-muted-foreground">•</span>
-            <Link href="/tarifs-2025" className="text-primary hover:underline">
-              Tarifs 2025
+            <Link href="/contact" className="text-primary hover:underline">
+              Demander un devis
             </Link>
           </div>
         </div>

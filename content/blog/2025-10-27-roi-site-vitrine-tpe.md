@@ -217,7 +217,7 @@ En adoptant une vision du site non pas comme une fin en soi, mais comme un point
 
 Ne cherchez pas le plus beau site. Cherchez le site qui génère le plus de clients. Et rappelez-vous : un site qui attire des clients est avant tout un site visible, clair, et avec un CTA efficace.
 
-Besoin d'un site optimisé pour la conversion, pas pour la décoration ? On crée des sites statiques qui génèrent des leads qualifiés pour TPE et PME de tous secteurs. Design sur-mesure, contenu optimisé SEO, formulaires de conversion intégrés, zéro maintenance. Exemples : bmsventouse point fr (position deux à dix Google en quatre mois). À partir de 1 490€. Code source remis, domaine à votre nom.
+Besoin d'un site optimisé pour la conversion, pas pour la décoration ? On crée des sites statiques qui génèrent des leads qualifiés pour TPE et PME de tous secteurs. Design sur-mesure, contenu optimisé SEO, formulaires de conversion intégrés, zéro maintenance. Exemples : bmsventouse point fr (position deux à dix Google en quatre mois). Budget sur devis détaillé. Code source remis, domaine à votre nom.
 
 ---
 

@@ -161,7 +161,7 @@ Voici le tableau qui résume les trois architectures avec leur niveau d'autonomi
 | **Vitesse de chargement** | Moyenne à bonne (2-4 sec) | Excellente (<1 sec) | Excellente (<1 sec) |
 | **Scores Core Web Vitals** | Moyens (optimisation nécessaire) | Excellents (natifs) | Excellents (natifs) |
 | **Sécurité** | Faible (failles plugins) | Très élevée (surface d'attaque minimale) | Très élevée (CMS isolé) |
-| **Coût initial création** | 500€ - 5000€ | 1490€ - 2490€ (nos tarifs) | 8500€ - 30 000€ |
+| **Coût initial création** | 500€ - 5000€ | Sur devis selon périmètre | 8500€ - 30 000€ |
 | **Coût maintenance annuel** | 390€ - 2300€ (obligatoire) | 10€ (domaine uniquement) | 500€ - 1000€ |
 | **TCO sur 3 ans** | 2670€ - 10 400€ | 2760€ (avec modifications) | 11 500€ - 33 000€ |
 | **Modifications contenu** | Vous-même, instant, gratuit | Développeur, 2 jours, 80€ | Vous-même, régénération auto 30 sec |
@@ -176,7 +176,7 @@ Le verdict selon votre situation. **Vous publiez du contenu toutes les semaines 
 
 Vous avez compris le dilemme. Site statique : performance maximale, coût minimal, mais autonomie zéro. WordPress : autonomie totale, mais maintenance coûteuse et performance moyenne. Headless CMS : le meilleur des deux mondes, mais dix mille euros minimum.
 
-Pour les TPE, j'ai créé une solution intermédiaire. Sites statiques purs (HTML CSS JavaScript, pas de WordPress, pas de CMS) livrés clé en main avec design sur-mesure, contenu rédigé et optimisé SEO. Coût : mille quatre cent quatre-vingt-dix à deux mille quatre cent quatre-vingt-dix euros selon l'offre. Après livraison, vous ne payez que le domaine (dix euros par an). Zéro maintenance obligatoire. Zéro frais cachés.
+Pour les TPE, j'ai créé une solution intermédiaire. Sites statiques purs (HTML CSS JavaScript, pas de WordPress, pas de CMS) livrés clé en main avec design sur-mesure, contenu rédigé et optimisé SEO. Le budget est désormais fixé uniquement sur devis détaillé après un audit rapide. Après livraison, vous ne payez que le domaine (quelques dizaines d’euros par an). Zéro maintenance obligatoire. Zéro frais cachés.
 
 Mais j'ai ajouté la Formule Évolution à vingt euros par mois (sans engagement, résiliable à tout moment) qui vous donne une heure de modifications par mois. Vous voulez changer un texte ? Vous m'envoyez le nouveau texte par email. Je le modifie en cinq minutes. Inclus dans votre heure mensuelle. Vous voulez changer une photo ? Vous m'envoyez la nouvelle photo. Je la remplace et l'optimise (compression WebP, dimensions correctes). Inclus dans votre heure mensuelle. Vous voulez ajouter une nouvelle page ? Vous me donnez le contenu. Je crée la page, je l'intègre au design, je l'ajoute au menu. Temps : trente à quarante-cinq minutes. Inclus dans votre heure mensuelle.
 
@@ -184,7 +184,7 @@ Les heures non utilisées sont cumulables sur trois mois maximum. Vous n'utilise
 
 Cette formule vous donne une quasi-autonomie sans les inconvénients du WordPress. Vous ne gérez pas vous-même les modifications (vous n'avez pas l'interface WordPress), mais vous pouvez demander n'importe quelle modification à tout moment pour vingt euros par mois. C'est moins cher que la maintenance WordPress (deux cent quatre-vingt-dix à mille huit cents euros par an), plus rapide qu'un développeur classique (réponse sous vingt-quatre heures), et vous gardez tous les avantages du site statique (vitesse, sécurité, zéro maintenance technique).
 
-Sur trois ans, le coût total d'un site statique avec Formule Évolution est de trois mille deux cent quarante euros (deux mille quatre cent quatre-vingt-dix euros de création, plus sept cent vingt euros de Formule Évolution sur trois ans, plus trente euros de domaine). C'est moins cher qu'un WordPress freelance (deux mille six cent soixante-dix euros) et quatre fois moins cher qu'un WordPress agence (dix mille quatre cents euros).
+Sur trois ans, le coût total d'un site statique avec Formule Évolution reste inférieur à celui d’un WordPress freelance ou agence, à périmètre comparable. Les ordres de grandeur précis sont discutés sur devis en fonction de votre cas (taille du site, contenus, niveau d’accompagnement).
 
 ---
 
@@ -202,7 +202,7 @@ Et rappelez-vous : Google ne favorise aucune technologie. Que vous soyez sur Wor
 
 La vraie question n'est pas "quelle technologie choisir", mais "quelle technologie correspond à mes besoins, mon budget, et mes ressources". Répondez à cette question honnêtement, et le choix sera évident.
 
-Besoin d'un site statique performant avec quasi-autonomie via la Formule Évolution ? On crée des sites optimisés pour TPE et PME. Performance maximale (scores Core Web Vitals excellents), sécurité totale (zéro faille), coût minimal (pas de maintenance obligatoire). Formule Évolution optionnelle : vingt euros par mois, une heure de modifications incluse, sans engagement. À partir de mille quatre cent quatre-vingt-dix euros. Code source remis, domaine à votre nom.
+Besoin d'un site statique performant avec quasi-autonomie via la Formule Évolution ? On crée des sites optimisés pour TPE et PME. Performance maximale (scores Core Web Vitals excellents), sécurité totale (zéro faille), coût minimal (pas de maintenance obligatoire). Formule Évolution optionnelle sur devis : une heure de modifications incluse, sans engagement. Budget sur devis détaillé. Code source remis, domaine à votre nom.
 
 ---
 

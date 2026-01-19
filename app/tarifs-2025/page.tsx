@@ -1,23 +1,18 @@
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
-import { Particles } from "@/components/site/particles";
-import { PricingOffers } from "@/components/site/pricing-offers";
-import { ServicesCompare } from "@/components/site/services-compare";
 import { FAQServices } from "@/components/site/faq-services";
 import { BookingButton } from "@/components/site/booking-modal";
 import { GoogleReviewsBadge } from "@/components/site/google-reviews";
 import { Guarantee } from "@/components/site/guarantee";
 import { FinalCTA } from "@/components/site/final-cta";
 import { StickyMobileCTA } from "@/components/site/sticky-mobile-cta";
-import { EVOLUTION_MONTHLY_EUR } from "@/data/pricing";
-import { PdfDownloadButton } from "@/components/site/pdf-download-button";
 import { SITE_URL, CONTACT_EMAIL, BRAND_DOMAIN } from "@/config/site";
 
 export const metadata = {
-  title: "Tarifs 2026 | Sites vitrines statiques dès 1490€ TTC",
+  title: "Tarifs & devis — sites vitrines statiques sur devis",
   description:
-    "Grille de tarifs 2026 pour sites vitrines statiques professionnels. Offres Essentiel, Professionnel et Premium dès 1490€ TTC. Zéro maintenance technique obligatoire, performances, SEO et délais garantis.",
+    "Les projets sont désormais chiffrés uniquement sur devis détaillé, après un audit rapide de votre situation (création ou refonte, contenu, délais).",
   alternates: {
     canonical: "/tarifs-2025",
     languages: {
@@ -27,9 +22,9 @@ export const metadata = {
   },
   openGraph: {
     url: `${SITE_URL}/tarifs-2025`,
-    title: `Tarifs 2026 | Sites vitrines statiques dès 1490€ TTC — ${BRAND_DOMAIN}`,
+    title: `Tarifs & devis — sites vitrines statiques sur devis — ${BRAND_DOMAIN}`,
     description:
-      "Grille de tarifs 2026 pour sites vitrines statiques professionnels. Offres Essentiel, Professionnel et Premium dès 1490€ TTC. Zéro maintenance technique obligatoire, performances, SEO et délais garantis.",
+      "Tous les projets sont chiffrés sur devis détaillé après un audit rapide, sans grille tarifaire publique ni surprise en cours de route.",
   },
 };
 
@@ -43,144 +38,49 @@ export default function Tarifs2025Page() {
 
       {/* Hero */}
       <section className="mx-auto max-w-3xl text-center">
-        <Badge variant="secondary" className="px-3 py-1">Tarifs 2026</Badge>
+        <Badge variant="secondary" className="px-3 py-1">
+          Tarifs &amp; devis
+        </Badge>
         <h1 className="mt-4 font-heading text-4xl font-bold tracking-tight md:text-5xl text-balance">
-          Sites statiques pour Professions Libérales
+          Sites vitrines statiques — sur devis, sans surprise
         </h1>
         <p className="mt-4 text-foreground/80">
-          Avocats, experts‑comptables, architectes — sites rapides, sécurisés, SEO et conversion.
-          Zéro maintenance technique obligatoire.
+          Plus de grille publique avec montants : chaque projet est désormais chiffré sur devis détaillé, après un audit rapide de
+          votre situation (création ou refonte, volume de contenus, SEO, délais).
         </p>
       </section>
 
-      {/* Notre différence — WordPress vs Statique */}
-      <section className="mt-10">
-        <h2 className="font-heading text-2xl font-semibold">Notre différence</h2>
-        <div className="mt-4 grid gap-4 md:grid-cols-2">
-          <article className="rounded-2xl border bg-card p-6 card-elevated">
-            <h3 className="font-heading text-lg font-semibold">WordPress classique</h3>
-            <ul className="mt-2 space-y-1.5 text-sm text-foreground/80">
-              <li>Création: 1 500€</li>
-              <li>Maintenance 3 ans: 1 800€ (290€ à 600€/an)</li>
-              <li className="font-semibold">Total 3 ans: 3 300€</li>
-            </ul>
-          </article>
-          <article className="rounded-2xl border bg-card p-6 card-elevated">
-            <h3 className="font-heading text-lg font-semibold">Notre site professionnel (statique)</h3>
-            <ul className="mt-2 space-y-1.5 text-sm text-foreground/80">
-              <li>Création: 2 490€</li>
-              <li>Maintenance: 0€ (pas de mises à jour obligatoires)</li>
-              <li className="font-semibold">Total 3 ans: 2 490€</li>
-            </ul>
-            <p className="mt-3 text-sm text-emerald-700 dark:text-emerald-400 font-medium">Économie: 810€ et un site plus rapide et plus sécurisé.</p>
-          </article>
-        </div>
-        <p className="mt-3 text-sm text-muted-foreground">
-          Sites statiques = pas de base de données, pas de plugins, pas de CMS à maintenir. Sécurité intrinsèque et fiabilité long terme.
+      {/* Explications sur le fonctionnement des devis */}
+      <section className="mt-10 mx-auto max-w-3xl space-y-4 text-sm text-foreground/80">
+        <p>
+          Les sites vitrines statiques que je conçois restent pensés pour les mêmes profils (TPE, professions libérales, petites structures
+          B2B), mais les budgets ne sont plus affichés en clair. L’objectif&nbsp;: éviter les grilles figées et adapter le montant à votre
+          réalité (contenu existant ou non, refonte ou création, complexité, calendrier).
         </p>
-        <p className="mt-2 text-sm text-muted-foreground">
-          Pour approfondir :{" "}
-          <Link href="/blog/cout-maintenance-site-web" className="text-primary hover:underline">coût de la maintenance</Link>
-          {" · "}
-          <Link href="/blog/forfait-maintenance-site-vitrine" className="text-primary hover:underline">contenu d’un forfait</Link>
-          {" · "}
-          <Link href="/blog/frais-caches-site-internet" className="text-primary hover:underline">frais cachés</Link>.
+        <p>
+          Concrètement, on commence par un échange de 15&nbsp;minutes (visio ou téléphone) pour clarifier vos besoins. Ensuite, vous recevez
+          un devis écrit, poste par poste, avec un périmètre précis et des options éventuelles. Pas de frais cachés, pas de maintenance
+          imposée&nbsp;: tout est détaillé noir sur blanc.
+        </p>
+        <p className="text-sm text-muted-foreground">
+          Pour comparer les architectures (WordPress, site statique, etc.), vous pouvez aussi lire les articles du blog sur le coût d’un site,
+          la maintenance et la refonte — ils restent valables, même si les montants exacts sont désormais discutés uniquement sur devis.
         </p>
       </section>
 
-      {/* Offres & tarifs (cartes) */}
-      <section id="tarifs" className="mt-10">
-        <PricingOffers />
-        <div className="mt-6 rounded-2xl border bg-card p-6 card-elevated">
-          <h3 className="font-heading text-lg font-semibold">Recevoir la grille PDF par email</h3>
-          <p className="mt-1 text-sm text-foreground/80">
-            Téléchargez la Grille Tarifs 2026 et recevez‑la par email pour la partager en interne.
-          </p>
-          <div className="mt-3">
-            <PdfDownloadButton slug="grille-tarifs-2025" label="Recevoir la Grille Tarifs 2026 (PDF)" />
-          </div>
-        </div>
-      </section>
-
-      {/* Option: Formule Évolution */}
+      {/* Comment obtenir un devis */}
       <section className="mt-10">
-        <h2 className="font-heading text-2xl font-semibold">Option: Formule Évolution</h2>
-        <div className="mt-4 rounded-2xl border bg-card p-6 card-elevated">
-          <p className="text-sm text-foreground/80">
-            {EVOLUTION_MONTHLY_EUR}€/mois, sans engagement — 1h de modifications/mois (textes, images, sections),
-            heures cumulables sur 3 mois, support prioritaire, monitoring (uptime, vitesse) et tarifs préférentiels (-30% refonte, -25% fonctionnalités, article SEO 99€).
-          </p>
-          <p className="mt-2 text-sm text-muted-foreground">
-            Offerte 6 mois avec l’Offre Premium. Disponible après livraison du site (prélèvement automatique SEPA).
-          </p>
-        </div>
-      </section>
-
-      {/* Modalités de paiement */}
-      <section className="mt-10">
-        <h2 className="font-heading text-2xl font-semibold">Modalités de paiement</h2>
-        <div className="mt-4 grid gap-4 md:grid-cols-3">
-          <article className="rounded-2xl border bg-card p-6 card-elevated">
-            <h3 className="font-heading text-lg font-semibold">Essentiel — 1 490€ TTC</h3>
-            <ul className="mt-2 list-disc pl-5 text-sm text-foreground/80">
-              <li>50% à la signature — 745€</li>
-              <li>50% à la livraison — 745€</li>
-            </ul>
-          </article>
-          <article className="rounded-2xl border bg-card p-6 card-elevated">
-            <h3 className="font-heading text-lg font-semibold">Professionnel — 2 490€ TTC</h3>
-            <ul className="mt-2 list-disc pl-5 text-sm text-foreground/80">
-              <li>50% à la signature — 1 245€</li>
-              <li>30% à validation maquettes — 747€</li>
-              <li>20% à la livraison — 498€</li>
-            </ul>
-          </article>
-          <article className="rounded-2xl border bg-card p-6 card-elevated">
-            <h3 className="font-heading text-lg font-semibold">Premium — 4 990€ TTC</h3>
-            <ul className="mt-2 list-disc pl-5 text-sm text-foreground/80">
-              <li>40% à la signature — 1 996€</li>
-              <li>30% à validation maquettes — 1 497€</li>
-              <li>20% à la recette intermédiaire — 998€</li>
-              <li>10% à la livraison — 499€</li>
-            </ul>
-          </article>
-        </div>
-        <p className="mt-3 text-xs text-muted-foreground">
-          Paiement en plus de 4 fois non accepté. Tarifs TTC — TVA non applicable (art. 293 B du CGI si micro‑entreprise).
-        </p>
-      </section>
-
-      {/* Tableau comparatif */}
-      <section className="mt-10">
-        <ServicesCompare />
-      </section>
-
-      {/* Garantie */}
-      <div className="mt-6">
-        <Guarantee />
-      </div>
-
-      {/* FAQ */}
-      <section id="faq" className="mt-6 scroll-mt-24">
-        <FAQServices />
-      </section>
-
-      {/* Comment commander */}
-      <section className="mt-10">
-        <h2 className="font-heading text-2xl font-semibold">Comment commander</h2>
+        <h2 className="font-heading text-2xl font-semibold">Comment obtenir votre devis</h2>
         <ol className="mt-3 list-decimal pl-5 text-sm text-foreground/80 space-y-1.5">
-          <li>Choisir votre formule (Essentiel, Professionnel ou Premium)</li>
-          <li>Prendre rendez-vous pour un échange (visio ou téléphone)</li>
-          <li>Rédaction du devis détaillé + rétroplanning</li>
-          <li>E‑signature + acompte</li>
-          <li>Démarrage sous 7 jours (2 semaines pour Premium)</li>
+          <li>Vous prenez rendez-vous pour un audit rapide (15&nbsp;minutes) ou m’envoyez un email avec les grandes lignes.</li>
+          <li>Je regarde votre situation (site existant ou non, contenu, objectifs, délais) et je vous pose quelques questions ciblées.</li>
+          <li>Vous recevez un devis détaillé (poste par poste) avec un périmètre clair et des options si besoin.</li>
+          <li>Après validation, on planifie le démarrage et le calendrier de livraison.</li>
         </ol>
         <div className="mt-5 flex flex-col items-center justify-center gap-3 sm:flex-row">
           <BookingButton className="rounded-full" size="lg" label="Réserver un audit gratuit" />
           <Button asChild className="rounded-full" variant="secondary">
-            <a
-              href={`mailto:${CONTACT_EMAIL}?subject=Devis%20site%20statique%20—%20Tarifs%202026`}
-            >
+            <a href={`mailto:${CONTACT_EMAIL}?subject=Demande%20devis%20site%20vitrine%20statique`}>
               Demander un devis par email
             </a>
           </Button>
@@ -188,6 +88,25 @@ export default function Tarifs2025Page() {
         <div className="mt-3 flex items-center justify-center">
           <GoogleReviewsBadge />
         </div>
+      </section>
+
+      {/* Rappel sur la maintenance & la Formule Évolution */}
+      <section className="mt-10">
+        <h2 className="font-heading text-2xl font-semibold">Maintenance &amp; évolutions</h2>
+        <p className="mt-2 text-sm text-foreground/80">
+          Les sites statiques n’imposent aucune maintenance technique lourde (pas de CMS ni de plugins à mettre à jour). Le seul coût
+          récurrent obligatoire reste le nom de domaine et, le cas échéant, un hébergement dédié si votre trafic ou vos contraintes
+          le justifient. Tout forfait d’accompagnement (comme la Formule Évolution pour faire évoluer le contenu) est proposé sur devis,
+          en fonction de votre rythme réel.
+        </p>
+      </section>
+
+      {/* Garantie & FAQ services (sans montants) */}
+      <div className="mt-10">
+        <Guarantee />
+      </div>
+      <section id="faq" className="mt-6 scroll-mt-24">
+        <FAQServices />
       </section>
 
       {/* Clients ciblés */}
@@ -201,7 +120,7 @@ export default function Tarifs2025Page() {
           <li>Consultants et professions libérales réglementées</li>
         </ul>
         <p className="mt-3 text-sm text-muted-foreground">
-          SEO multi‑secteur: le site vise à capter des clients par requêtes ciblées (locales et nationales).
+          SEO multi‑secteur : le site vise à capter des clients par requêtes ciblées (locales et nationales).
         </p>
       </section>
 
@@ -230,10 +149,6 @@ export default function Tarifs2025Page() {
             <span className="text-muted-foreground">•</span>
             <Link href="/creation-site-internet/paris" className="text-primary hover:underline">
               Création de site internet à Paris
-            </Link>
-            <span className="text-muted-foreground">•</span>
-            <Link href="/tarifs-2025" className="text-primary hover:underline">
-              Tarifs 2026
             </Link>
           </div>
         </div>

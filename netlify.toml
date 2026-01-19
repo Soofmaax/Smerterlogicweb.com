@@ -183,3 +183,14 @@
   from = "/carte-de-visite-nfc"
   to = "/carte-contact"
   status = 301
+
+# Redirect legacy pricing pages to contact (custom quote only)
+[[redirects]]
+  from = "/tarifs-2025"
+  to = "/contact"
+  status = 301
+
+[[redirects]]
+  from = "/en/pricing-2025"
+  to = "/en/contact"
+  status = 301

@@ -1,6 +1,5 @@
 import * as React from "react";
 import { ShieldCheck, SwitchCamera } from "lucide-react";
-import { EVOLUTION_MONTHLY_EUR } from "@/data/pricing";
 
 export function AfterFirstYear() {
   return (
@@ -31,7 +30,7 @@ export function AfterFirstYear() {
             <h3 className="font-heading text-lg font-semibold">Formule Évolution (option)</h3>
           </div>
           <p className="mt-2 text-sm text-foreground/80">
-            {EVOLUTION_MONTHLY_EUR}€/mois, sans engagement: 1h de modifications/mois, heures cumulables sur 3 mois, support prioritaire et monitoring basique.
+            Formule Évolution disponible sans engagement&nbsp;: 1h de modifications/mois, heures cumulables sur 3 mois, support prioritaire et monitoring basique, sur devis.
           </p>
         </div>
       </div>

@@ -9,11 +9,11 @@ const headers = ["Caractéristiques", "Essentiel", "Professionnel", "Premium"];
 
 const rows: { label: string; cells: Cell[] }[] = [
   {
-    label: "Prix TTC",
+    label: "Facturation",
     cells: [
-      { type: "text", value: "1 490€" },
-      { type: "text", value: "2 490€" },
-      { type: "text", value: "4 990€" },
+      { type: "text", value: "Sur devis" },
+      { type: "text", value: "Sur devis" },
+      { type: "text", value: "Sur devis" },
     ],
   },
   {
@@ -75,9 +75,9 @@ const rows: { label: string; cells: Cell[] }[] = [
   {
     label: "Formule Évolution",
     cells: [
-      { type: "text", value: "Option 20€/mois" },
-      { type: "text", value: "Option 20€/mois" },
-      { type: "text", value: "✅ 6 mois offerts" },
+      { type: "text", value: "Option sur devis" },
+      { type: "text", value: "Option sur devis" },
+      { type: "text", value: "✅ incluse plusieurs mois" },
     ],
   },
   {

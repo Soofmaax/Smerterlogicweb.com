@@ -144,63 +144,9 @@ Les avantages sont majeurs. Temps de chargement très rapides (pas de requête s
 
 Pour une TPE, un site statique est suffisant si le contenu est limité et stable. Sites vitrines (présentation des services), portfolios, pages d'accueil. Vous présentez votre activité, vous affichez vos réalisations, vous captez des leads via un formulaire. C'est tout. Un site statique fait ça parfaitement, sans complexité inutile.
 
-Nos sites (1 490€, 2 490€, 4 990€) sont tous statiques. Résultat : zéro maintenance technique, hébergement gratuit, vitesse maximale. C'est pour ça qu'ils coûtent moins cher sur trois ans qu'un WordPress.
-
-### Qu'est-ce qu'un site dynamique ?
-
-Un site dynamique nécessite une gestion côté serveur et un CMS (Content Management System) pour construire la page à la demande. Quand quelqu'un visite votre site, le serveur interroge une base de données, récupère les données nécessaires, génère la page HTML en temps réel, et l'envoie au navigateur.
-
-Cette architecture permet de personnaliser l'affichage du contenu en fonction de l'utilisateur, de gérer des interactions complexes (commentaires, comptes utilisateurs, recherche interne), et de mettre à jour facilement le contenu via une interface d'administration.
-
-Le dynamique est indispensable si vous avez besoin de commerce en ligne (gestion de catalogues, paiement, stock), d'évolutivité du contenu (blog actif, forum, témoignages clients dynamiques), ou d'interactivité utilisateur (connexion, espace client, recherche sophistiquée).
-
-Pour une TPE qui ambitionne d'utiliser un blog pour sa stratégie SEO de contenu, un CMS dynamique (WordPress, Webflow CMS) est un atout durable. Vous pouvez publier facilement de nouveaux articles sans toucher au code.
-
-### Comment choisir entre les deux ?
-
-Posez-vous trois questions. Est-ce que je vais modifier mon contenu toutes les semaines ? Si oui, dynamique. Si non, statique. Est-ce que j'ai besoin de fonctionnalités interactives (comptes utilisateurs, paiement en ligne, forum) ? Si oui, dynamique. Si non, statique. Est-ce que j'ai les ressources (temps ou budget) pour gérer la maintenance technique d'un CMS ? Si non, statique.
-
-Un choix injustifié pour le dynamique entraîne une fausse économie. Le dynamique, plus complexe, exige plus de maintenance de sécurité (mises à jour régulières obligatoires) et un hébergement potentiellement plus coûteux. Si vos besoins sont simples, optez pour le statique. Vous économiserez du temps et de l'argent.
-
----
-
-## Le tableau statique vs dynamique pour TPE
-
-| Critère | Site Statique | Site Dynamique (CMS) | Implication TPE |
-|---------|---------------|---------------------|----------------|
-| **Vitesse de chargement** | Excellente | Modérée (selon serveur) | Prioritaire pour UX et SEO |
-| **Sécurité** | Très élevée | Nécessite mises à jour constantes | Important pour tranquillité |
-| **Mise à jour contenu** | Manuelle (code ou builder) | Facile (interface CMS) | Déterminant si ajout fréquent |
-| **Interactivité** | Limitée | Personnalisation, comptes, base de données | Indispensable pour e-commerce |
-| **Évolutivité** | Faible (complexe à faire évoluer) | Élevée (conçu pour croissance) | Essentiel pour projets long terme |
-
----
-
-## Notre recommandation pour 95% des TPE
-
-Après avoir créé des dizaines de sites pour des TPE de tous secteurs, voici ma recommandation franche.
-
-Commencez simple. Ne visez pas la perfection immédiate. Lancez un site vitrine statique qui présente vos services, affiche vos réalisations, et capte des leads via un formulaire de contact. C'est suffisant pour démarrer. Vous pourrez toujours évoluer plus tard si vos besoins changent.
-
-Faites appel à un freelance compétent. Pour une TPE, c'est le meilleur rapport qualité-prix. Budget : 2 500€ à 8 000€ selon la complexité. Vous aurez un site professionnel, personnalisé, sans payer la structure d'une agence. Vérifiez que le freelance livre un site optimisé pour le SEO et que vous êtes propriétaire du code source.
-
-Ou choisissez un site statique clé en main comme nos offres. Offre Essentiel 1 490€ (design semi-personnalisé, vous fournissez les textes), Offre Professionnelle 2 490€ (design sur-mesure, on rédige tout, SEO avancé), Offre Premium 4 990€ (site complexe ou multilingue, stratégie SEO six mois). Zéro maintenance obligatoire, hébergement gratuit, vous possédez tout.
-
-Évitez les builders DIY si vous n'avez pas le temps ou les compétences. Le coût caché (votre temps) dépasse souvent l'économie initiale. Et le risque de livrer un site non-optimisé qui ne génère aucun client est élevé.
-
-Passez au dynamique seulement si vous en avez vraiment besoin. Si vous voulez un blog actif, un e-commerce, ou des fonctionnalités interactives complexes, alors oui, investissez dans un CMS dynamique. Mais pour un site vitrine classique, le statique suffit largement et vous coûtera moins cher sur trois ans.
-
----
-
-## Verdict : le freelance avec un site statique, c'est le sweet spot pour la TPE
-
-Pour quatre-vingt-quinze pour cent des TPE, la combinaison gagnante est un freelance compétent qui livre un site statique bien conçu. Budget maîtrisé (2 500€ à 8 000€), qualité professionnelle, zéro maintenance technique après livraison, et vous êtes propriétaire de tout.
-
-Les agences sont pertinentes si vous avez un projet complexe et un budget confortable (plus de 10 000€). Les builders No-Code sont un piège si vous n'avez pas de compétences techniques et que vous voulez un site qui génère vraiment des clients.
-
-Et rappelez-vous : l'objectif n'est pas d'avoir le plus beau site, mais d'avoir un site qui attire des clients rapidement. Un site vitrine statique bien référencé avec un formulaire de contact efficace fera plus pour votre chiffre d'affaires qu'un site WordPress complexe mal optimisé.
-
-Besoin d'un site statique performant sans maintenance obligatoire ? On crée des sites optimisés pour TPE et PME de tous secteurs. Design sur-mesure, contenu inclus, ultra-rapide, zéro maintenance. Exemples : bmsventouse point fr (position deux à dix Google en quatre mois). À partir de 1 490€. Code source remis, domaine à votre nom.
+Nos sites vitrines statiques sont tous pensés pour minimiser la maintenance technique et maximiser la vitesse (hébergement moderne, pas de CMS lourd, pas de plugins à surveiller). C'est pour ça qu'ils coûtent moins cher sur trois ans qu'un WordPress à périmètre équivalent.
+Vous pouvez choisir un site statique clé en main adapté à votre situation (démarrage, montée en gamme, projet plus complexe ou multilingue). Dans tous les cas : zéro maintenance obligatoire, hébergement léger, vous possédez le code et le domaine. Le budget exact est fixé sur devis détaillé plutôt que via une grille figée.
+Besoin d'un site statique performant sans maintenance obligatoire ? On crée des sites optimisés pour TPE et PME de tous secteurs. Design sur-mesure, contenu inclus, ultra-rapide, zéro maintenance. Exemples : bmsventouse point fr (position deux à dix Google en quatre mois). Budget sur devis détaillé. Code source remis, domaine à votre nom.
 
 ---
 

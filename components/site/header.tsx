@@ -22,7 +22,6 @@ export function Header() {
     () =>
       isEn
         ? {
-            
             nav: {
               projects: "Projects",
               services: "Services",
@@ -40,12 +39,11 @@ export function Header() {
               item2: "Redesign & optimisation",
               item3: "Ongoing support",
             },
-            cta: "View pricing and examples",
+            cta: "Request a quote",
             baseline: "Quality you can measure: speed, security, results.",
             lang: "FR",
           }
         : {
-            
             nav: {
               projects: "Projets",
               services: "Services",
@@ -63,7 +61,7 @@ export function Header() {
               item2: "Refonte & optimisation",
               item3: "Accompagnement continu",
             },
-            cta: "Voir les tarifs",
+            cta: "Demander un devis",
             baseline: "La qualité qui se mesure : vitesse, sécurité, résultats.",
             lang: "EN",
           },
@@ -71,9 +69,7 @@ export function Header() {
   );
 
   const langSwitchHref = switchLocalePath(pathname);
-  const pricingHref = isEn
-    ? "/en/services"
-    : (pathname === "/" ? "/#tarifs" : "/tarifs-2025#tarifs");
+  const ctaHref = isEn ? "/en/contact" : "/contact";
 
   // Phone CTA (desktop)
   const rawPhone = process.env.NEXT_PUBLIC_PHONE || "";
@@ -280,10 +276,10 @@ export function Header() {
             asChild
             size="sm"
             className="rounded-full px-4 py-2 text-sm font-medium"
-            aria-label={isEn ? "View pricing and examples" : "Voir les tarifs"}
+            aria-label={isEn ? "Request a quote" : "Demander un devis"}
           >
             <Link
-              href={pricingHref}
+              href={ctaHref}
               onClick={() => track("cta_view_pricing_header")}
             >
               {t.cta}
@@ -414,10 +410,10 @@ export function Header() {
               <Button
                 asChild
                 className="w-full rounded-full"
-                aria-label={isEn ? "View pricing and examples" : "Voir les tarifs"}
+                aria-label={isEn ? "Request a quote" : "Demander un devis"}
                 onClick={() => setOpen(false)}
               >
-                <Link href={pricingHref} onClick={() => track("cta_view_pricing_header_mobile")}>
+                <Link href={ctaHref} onClick={() => track("cta_view_pricing_header_mobile")}>
                   {t.cta}
                 </Link>
               </Button>

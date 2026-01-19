@@ -33,61 +33,61 @@ export async function generateMetadata({ params }: Params) {
   }
   const sectors = city.sectors.join(", ").toLowerCase();
   let title = `Création de site internet à ${city.name} — sites vitrines statiques pour artisans et TPE (2026)`;
-  let description = `Création de sites vitrines statiques à ${city.name} pour artisans, TPE et PME des secteurs ${sectors}. Audit et devis gratuits. Forfaits 2026 à partir de 1 490€ TTC.`;
+  let description = `Création de sites vitrines statiques à ${city.name} pour artisans, TPE et PME des secteurs ${sectors}. Audit et devis gratuits. Budget établi uniquement sur devis, après un premier échange.`;
 
   if (city.slug === "niort") {
     description =
-      "Création de sites vitrines statiques à Niort pour artisans, indépendants et PME des mutuelles, assurances, fintech et tertiaire. Sites rapides, clairs et simples à maintenir. Tarifs 2026 à partir de 1 490€ TTC.";
+      "Création de sites vitrines statiques à Niort pour artisans, indépendants et PME des mutuelles, assurances, fintech et tertiaire. Sites rapides, clairs et simples à maintenir. Budget sur devis, après audit rapide.";
   } else if (city.slug === "brive-la-gaillarde") {
     description =
-      "Création de sites vitrines statiques à Brive-la-Gaillarde pour artisans, TPE et petites entreprises de l’agroalimentaire, de la logistique et du tourisme vert en Corrèze. Sites rapides, clairs et simples à maintenir, pensés pour être trouvés sur les recherches locales. Tarifs 2026 à partir de 1 490€ TTC.";
+      "Création de sites vitrines statiques à Brive-la-Gaillarde pour artisans, TPE et petites entreprises de l’agroalimentaire, de la logistique et du tourisme vert en Corrèze. Sites rapides, clairs et simples à maintenir, pensés pour être trouvés sur les recherches locales. Budget sur devis.";
   } else if (city.slug === "cholet") {
     description =
-      "Création de sites vitrines statiques à Cholet pour artisans, commerçants et PME du textile, de la mode, de la mécanique et de l’agroalimentaire. Sites rapides, sobres et simples à maintenir, pensés pour le référencement local dans le Choletais. Tarifs 2026 à partir de 1 490€ TTC.";
+      "Création de sites vitrines statiques à Cholet pour artisans, commerçants et PME du textile, de la mode, de la mécanique et de l’agroalimentaire. Sites rapides, sobres et simples à maintenir, pensés pour le référencement local dans le Choletais. Budget sur devis.";
   } else if (city.slug === "vannes") {
     description =
-      "Création de sites vitrines statiques à Vannes pour artisans, prestataires du nautisme, du tourisme et de l’agroalimentaire, ainsi que petites structures orientées numérique/cyber. Sites rapides, sobres et simples à maintenir, pensés pour le référencement local autour du Golfe du Morbihan (Vannes, Auray, Sarzeau). Tarifs 2026 à partir de 1 490€ TTC.";
+      "Création de sites vitrines statiques à Vannes pour artisans, prestataires du nautisme, du tourisme et de l’agroalimentaire, ainsi que petites structures orientées numérique/cyber. Sites rapides, sobres et simples à maintenir, pensés pour le référencement local autour du Golfe du Morbihan (Vannes, Auray, Sarzeau). Budget sur devis.";
   } else if (city.slug === "paris") {
     title =
       "Création de site internet à Paris — sites vitrines statiques pour avocats, experts-comptables et cabinets (2026)";
     description =
-      "Création de sites vitrines statiques à Paris pour avocats, experts-comptables, cabinets de conseil et petites structures B2B. Sites sobres, rapides et simples à maintenir, pensés pour les recherches locales et sectorielles à Paris et en Île-de-France. Tarifs 2026 à partir de 1 490€ TTC.";
+      "Création de sites vitrines statiques à Paris pour avocats, experts-comptables, cabinets de conseil et petites structures B2B. Sites sobres, rapides et simples à maintenir, pensés pour les recherches locales et sectorielles à Paris et en Île-de-France. Budget sur devis, adapté à votre cabinet.";
   } else if (city.slug === "boulogne-billancourt") {
     description =
-      "Création de sites vitrines statiques à Boulogne-Billancourt pour cabinets, agences média, startups et TPE de services. Sites sobres, rapides et simples à maintenir, pensés pour les recherches locales autour de Boulogne, Issy-les-Moulineaux et l’ouest parisien. Tarifs 2026 à partir de 1 490€ TTC.";
+      "Création de sites vitrines statiques à Boulogne-Billancourt pour cabinets, agences média, startups et TPE de services. Sites sobres, rapides et simples à maintenir, pensés pour les recherches locales autour de Boulogne, Issy-les-Moulineaux et l’ouest parisien. Budget sur devis.";
   } else if (city.slug === "saint-denis") {
     description =
-      "Création de sites vitrines statiques à Saint-Denis pour acteurs de l’événementiel (Stade de France et alentours), industriels, logisticiens et structures publiques ou associatives. Sites rapides, clairs et simples à maintenir, pensés pour les recherches locales en Seine-Saint-Denis. Tarifs 2026 à partir de 1 490€ TTC.";
+      "Création de sites vitrines statiques à Saint-Denis pour acteurs de l’événementiel (Stade de France et alentours), industriels, logisticiens et structures publiques ou associatives. Sites rapides, clairs et simples à maintenir, pensés pour les recherches locales en Seine-Saint-Denis. Budget sur devis.";
   } else if (city.slug === "issy-les-moulineaux") {
     description =
-      "Création de sites vitrines statiques à Issy-les-Moulineaux pour agences médias, sociétés de télécoms, startups et TPE de services B2B. Sites sobres, rapides et simples à maintenir, pensés pour les recherches locales entre Issy, Boulogne et Paris 15e. Tarifs 2026 à partir de 1 490€ TTC.";
+      "Création de sites vitrines statiques à Issy-les-Moulineaux pour agences médias, sociétés de télécoms, startups et TPE de services B2B. Sites sobres, rapides et simples à maintenir, pensés pour les recherches locales entre Issy, Boulogne et Paris 15e. Budget sur devis.";
   } else if (city.slug === "levallois-perret") {
     description =
-      "Création de sites vitrines statiques à Levallois-Perret pour agences de communication, cabinets de conseil, structures de services B2B et indépendants. Sites clairs, rapides et faciles à mettre à jour, pensés pour les recherches locales autour de Levallois, Neuilly et Paris 17e. Tarifs 2026 à partir de 1 490€ TTC.";
+      "Création de sites vitrines statiques à Levallois-Perret pour agences de communication, cabinets de conseil, structures de services B2B et indépendants. Sites clairs, rapides et faciles à mettre à jour, pensés pour les recherches locales autour de Levallois, Neuilly et Paris 17e. Budget sur devis.";
   } else if (city.slug === "neuilly-sur-seine") {
     description =
-      "Création de sites vitrines statiques à Neuilly-sur-Seine pour avocats, cabinets de gestion de patrimoine, professions libérales et petites structures B2B. Sites sobres, rapides et rassurants, pensés pour une clientèle exigeante de l’ouest parisien. Tarifs 2026 à partir de 1 490€ TTC.";
+      "Création de sites vitrines statiques à Neuilly-sur-Seine pour avocats, cabinets de gestion de patrimoine, professions libérales et petites structures B2B. Sites sobres, rapides et rassurants, pensés pour une clientèle exigeante de l’ouest parisien. Budget sur devis.";
   } else if (city.slug === "courbevoie") {
     description =
-      "Création de sites vitrines statiques à Courbevoie pour entreprises de services B2B, cabinets de conseil, ESN, finance et assurance autour de La Défense. Sites rapides, lisibles et orientés conversion, pensés pour vos prospects professionnels. Tarifs 2026 à partir de 1 490€ TTC.";
+      "Création de sites vitrines statiques à Courbevoie pour entreprises de services B2B, cabinets de conseil, ESN, finance et assurance autour de La Défense. Sites rapides, lisibles et orientés conversion, pensés pour vos prospects professionnels. Budget sur devis.";
   } else if (city.slug === "nanterre") {
     description =
-      "Création de sites vitrines statiques à Nanterre pour cabinets, services B2B, structures liées aux institutions et au campus. Sites clairs, rapides et simples à maintenir, pensés pour les recherches locales entre Nanterre, La Défense et Rueil-Malmaison. Tarifs 2026 à partir de 1 490€ TTC.";
+      "Création de sites vitrines statiques à Nanterre pour cabinets, services B2B, structures liées aux institutions et au campus. Sites clairs, rapides et simples à maintenir, pensés pour les recherches locales entre Nanterre, La Défense et Rueil-Malmaison. Budget sur devis.";
   } else if (city.slug === "creteil") {
     description =
-      "Création de sites vitrines statiques à Créteil pour acteurs publics, structures de santé, cabinets et services éducatifs. Sites sobres, accessibles et rapides, pensés pour informer clairement vos usagers, patients ou étudiants. Tarifs 2026 à partir de 1 490€ TTC.";
+      "Création de sites vitrines statiques à Créteil pour acteurs publics, structures de santé, cabinets et services éducatifs. Sites sobres, accessibles et rapides, pensés pour informer clairement vos usagers, patients ou étudiants. Budget sur devis.";
   } else if (city.slug === "versailles") {
     description =
-      "Création de sites vitrines statiques à Versailles pour professions libérales, cabinets, acteurs du tourisme et de la culture. Sites élégants, rapides et simples à gérer, pensés pour une clientèle locale et internationale. Tarifs 2026 à partir de 1 490€ TTC.";
+      "Création de sites vitrines statiques à Versailles pour professions libérales, cabinets, acteurs du tourisme et de la culture. Sites élégants, rapides et simples à gérer, pensés pour une clientèle locale et internationale. Budget sur devis.";
   } else if (city.slug === "cergy") {
     description =
-      "Création de sites vitrines statiques à Cergy pour PME de services, structures d’enseignement supérieur et acteurs publics de l’agglomération de Cergy-Pontoise. Sites rapides, clairs et orientés prise de contact. Tarifs 2026 à partir de 1 490€ TTC.";
+      "Création de sites vitrines statiques à Cergy pour PME de services, structures d’enseignement supérieur et acteurs publics de l’agglomération de Cergy-Pontoise. Sites rapides, clairs et orientés prise de contact. Budget sur devis.";
   } else if (city.slug === "montreuil") {
     description =
-      "Création de sites vitrines statiques à Montreuil pour associations, structures de l’ESS, collectifs culturels et TPE de services locaux. Sites sobres, rapides et simples à maintenir, pensés pour vos publics à Montreuil, Bagnolet et l’est parisien. Tarifs 2026 à partir de 1 490€ TTC.";
+      "Création de sites vitrines statiques à Montreuil pour associations, structures de l’ESS, collectifs culturels et TPE de services locaux. Sites sobres, rapides et simples à maintenir, pensés pour vos publics à Montreuil, Bagnolet et l’est parisien. Budget sur devis.";
   } else if (city.slug === "montauban") {
     description =
-      "Création de sites vitrines statiques à Montauban pour artisans, TPE et PME de l’agroalimentaire, de l’aéronautique et de la logistique en Tarn-et-Garonne. Sites rapides, clairs et simples à maintenir, pensés pour être trouvés sur les recherches locales autour de Montauban et du bassin toulousain. Tarifs 2026 à partir de 1 490€ TTC.";
+      "Création de sites vitrines statiques à Montauban pour artisans, TPE et PME de l’agroalimentaire, de l’aéronautique et de la logistique en Tarn-et-Garonne. Sites rapides, clairs et simples à maintenir, pensés pour être trouvés sur les recherches locales autour de Montauban et du bassin toulousain. Budget sur devis.";
   }
 
   return {
@@ -117,7 +117,7 @@ const faqForCity = (cityName: string, firstSector: string | undefined) => {
   const items = [
     {
       q: `Quel est le coût d'un site vitrine à ${cityName} ?`,
-      a: `Pour un site vitrine statique, comptez généralement entre 1 490€ et 2 490€ selon le nombre de pages, la quantité de contenu et les fonctionnalités (formulaire, galeries, prise de rendez-vous). Prix fixe, annoncé dès le départ.`,
+      a: `Pour un site vitrine statique, le budget dépend surtout du nombre de pages, de la quantité de contenu et des fonctionnalités (formulaire, galeries, prise de rendez-vous). Tous les projets sont désormais chiffrés uniquement sur devis détaillé après un premier échange, sans grille publique.`,
     },
     {
       q: `Combien de temps pour créer un site professionnel à ${cityName} ?`,
@@ -217,7 +217,7 @@ const faqForCity = (cityName: string, firstSector: string | undefined) => {
       },
       {
         q: "Un site vitrine à Paris doit-il forcément coûter 15 000€ ou plus ?",
-        a: "Non. Les budgets à 15 000€ ou 20 000€ que l’on voit sur les sites d’agence à Paris correspondent souvent à des projets très complets (équipe pluridisciplinaire, ateliers longs, e‑commerce, intégrations complexes, etc.). Pour un site vitrine statique ciblé professions libérales ou TPE B2B, un budget compris entre 1 490€ et 4 990€ suffit généralement. L’essentiel se joue sur le contenu, la clarté de l’offre et la vitesse du site, pas sur la complexité technique.",
+        a: "Non. Les budgets à 15 000€ ou 20 000€ que l’on voit sur les sites d’agence à Paris correspondent souvent à des projets très complets (équipe pluridisciplinaire, ateliers longs, e‑commerce, intégrations complexes, etc.). Pour un site vitrine statique ciblé professions libérales ou TPE B2B, un budget plus raisonnable suffit généralement, à définir sur devis. L’essentiel se joue sur le contenu, la clarté de l’offre et la vitesse du site, pas sur la complexité technique.",
       },
       {
         q: "En quoi êtes-vous différent d’une agence web à Paris ?",
@@ -642,7 +642,7 @@ export default function CityServicePage({ params }: Params) {
       <div className="mt-6 flex flex-col gap-3 sm:flex-row">
         <BookingButton className="rounded-full" size="lg" label={`Audit gratuit — ${city.name} et alentours`} />
         <Button asChild className="rounded-full" variant="secondary">
-          <Link href="/tarifs-2025">Voir les tarifs 2026</Link>
+          <Link href="/contact">Demander un devis</Link>
         </Button>
         {PHONE_NUMBER_PUBLIC && (
           <Button asChild className="rounded-full" variant="ghost">
@@ -775,8 +775,8 @@ export default function CityServicePage({ params }: Params) {
               </h2>
               <p className="mt-2 text-foreground/80">
                 Exemple réel : BMS Ventousage, entreprise de ventousage pour tournages cinéma. Secteur ultra‑niche, concurrence forte sur Paris.
-                Budget : 2 490€ (Offre Professionnelle). Six pages (Accueil, Services, Secteurs, Projets, À propos, Contact), design sur‑mesure,
-                contenus rédigés et optimisés pour les expressions clés (« ventousage cinéma Paris », « ventouseur Paris », etc.).
+                Site vitrine statique avec six pages (Accueil, Services, Secteurs, Projets, À propos, Contact), design sur‑mesure,
+                contenus rédigés et optimisés pour les expressions clés (« ventousage cinéma Paris », « ventouseur Paris », etc.), chiffré sur devis.
               </p>
               <p className="mt-2 text-foreground/80">
                 Résultat en quatre mois selon Google Search Console : positions 2 à 10 sur des requêtes comme « ventousage Paris » et « ventouseur Paris »,
@@ -966,16 +966,11 @@ export default function CityServicePage({ params }: Params) {
             Combien investir dans un site vitrine à {city.name} en 2026&nbsp;?
           </h2>
           <p className="mt-2 text-foreground/80">
-            En 2026, la plupart des sites vitrines statiques pour artisans et TPE à {city.name} se situent entre 1 490€ et 2 490€ TTC,
-            selon le nombre de pages, la quantité de contenu à intégrer et les fonctionnalités (formulaire, prises de rendez-vous, cas clients…).
-            Les projets plus complets avec plus de contenu et de cas clients peuvent monter à 4 990€ TTC.
+            En 2026, le budget d’un site vitrine statique pour artisans et TPE à {city.name} dépend surtout du nombre de pages, de la
+            quantité de contenu à intégrer et des fonctionnalités (formulaire, prises de rendez-vous, cas clients…).
           </p>
           <p className="mt-2 text-sm text-muted-foreground">
-            Détails des offres et exemples concrets sur la page{" "}
-            <Link href="/tarifs-2025#tarifs" className="text-primary hover:underline">
-              Tarifs&nbsp;2026
-            </Link>
-            .
+            Les prix exacts sont désormais établis uniquement sur devis, après un premier échange rapide sur votre projet.
           </p>
           <p className="mt-1 text-xs text-muted-foreground">
             Pour aller plus loin sur l’affichage de vos prix, vous pouvez aussi lire{" "}
@@ -1030,11 +1025,8 @@ export default function CityServicePage({ params }: Params) {
             </div>
           </div>
           <p className="mt-3 text-sm text-muted-foreground">
-            Les prix exacts dépendent de votre projet. La plupart des sites se situent dans les fourchettes Essentiel / Professionnel / Premium de la page{" "}
-            <Link href="/tarifs-2025#tarifs" className="text-primary hover:underline">
-              Tarifs&nbsp;2026
-            </Link>
-            .
+            Les prix exacts dépendent de votre projet. Après un échange (visio ou téléphone), je vous envoie un devis détaillé basé sur ces trois niveaux
+            (Essentiel, Professionnel, Premium).
           </p>
         </section>
         <section>

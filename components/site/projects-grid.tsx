@@ -423,8 +423,8 @@ function ProjectModal({ item, onClose }: { item: CaseItem | null; onClose: () =>
             <a href="/contact" className="inline-flex items-center rounded-full border px-3 py-1.5 text-sm transition hover:bg-accent">
               Discutons de votre projet
             </a>
-            <a href="/tarifs-2025#tarifs" className="inline-flex items-center rounded-full border px-3 py-1.5 text-sm transition hover:bg-accent">
-              Voir les tarifs
+            <a href="/contact" className="inline-flex items-center rounded-full border px-3 py-1.5 text-sm transition hover:bg-accent">
+              Demander un devis
             </a>
           </div>
         </div>

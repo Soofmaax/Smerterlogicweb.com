@@ -32,26 +32,26 @@ export async function generateMetadata({ params }: Params) {
   }
   const sectors = city.sectors.join(", ").toLowerCase();
   const title = `Refonte de site internet à ${city.name} — WordPress lent → site vitrine statique rapide (2026)`;
-  let description = `Refonte de sites internet à ${city.name} pour artisans, TPE et PME des secteurs ${sectors}. Passage d'un site lourd (souvent WordPress) vers un site vitrine statique plus rapide, plus clair et plus simple à maintenir. Devis gratuit. Forfaits refonte 2026 entre 2 490€ et 4 990€ TTC.`;
+  let description = `Refonte de sites internet à ${city.name} pour artisans, TPE et PME des secteurs ${sectors}. Passage d'un site lourd (souvent WordPress) vers un site vitrine statique plus rapide, plus clair et plus simple à maintenir. Devis gratuit. Budget de refonte établi uniquement sur devis.`;
 
   if (city.slug === "niort") {
     description =
-      "Refonte de sites internet à Niort pour artisans, TPE et acteurs des mutuelles et services B2B. Passage d'un WordPress lent à un site vitrine statique rapide, stable et plus simple à maintenir, sans perdre votre référencement local. Forfaits 2026 entre 2 490€ et 4 990€ TTC.";
+      "Refonte de sites internet à Niort pour artisans, TPE et acteurs des mutuelles et services B2B. Passage d'un WordPress lent à un site vitrine statique rapide, stable et plus simple à maintenir, sans perdre votre référencement local. Budget sur devis après audit.";
   } else if (city.slug === "brive-la-gaillarde") {
     description =
-      "Refonte de sites internet à Brive-la-Gaillarde pour artisans, TPE et petites entreprises de l’agroalimentaire, de la logistique et du tourisme vert en Corrèze. Passage d'un WordPress lent ou d'un ancien site vers un site vitrine statique rapide, stable et plus simple à maintenir, sans perdre votre référencement local. Forfaits 2026 entre 2 490€ et 4 990€ TTC.";
+      "Refonte de sites internet à Brive-la-Gaillarde pour artisans, TPE et petites entreprises de l’agroalimentaire, de la logistique et du tourisme vert en Corrèze. Passage d'un WordPress lent ou d'un ancien site vers un site vitrine statique rapide, stable et plus simple à maintenir, sans perdre votre référencement local. Budget sur devis.";
   } else if (city.slug === "cholet") {
     description =
-      "Refonte de sites internet à Cholet pour artisans, commerçants et PME du textile, de la mode, de la mécanique et de l’agroalimentaire. Passage d’un WordPress lent ou d’un ancien site vers une vitrine statique rapide, claire et plus simple à gérer, avec un soin particulier apporté au référencement local dans le bassin choletais. Forfaits 2026 entre 2 490€ et 4 990€ TTC.";
+      "Refonte de sites internet à Cholet pour artisans, commerçants et PME du textile, de la mode, de la mécanique et de l’agroalimentaire. Passage d’un WordPress lent ou d’un ancien site vers une vitrine statique rapide, claire et plus simple à gérer, avec un soin particulier apporté au référencement local dans le bassin choletais. Budget sur devis.";
   } else if (city.slug === "vannes") {
     description =
-      "Refonte de sites internet à Vannes pour artisans, prestataires du nautisme, du tourisme, de l’agroalimentaire et acteurs du numérique/cyber. Passage d’un WordPress lent ou d’un ancien site vers une vitrine statique rapide, claire et plus simple à gérer, avec un soin particulier apporté au référencement local autour du Golfe du Morbihan (Vannes, Auray, Sarzeau). Forfaits 2026 entre 2 490€ et 4 990€ TTC.";
+      "Refonte de sites internet à Vannes pour artisans, prestataires du nautisme, du tourisme, de l’agroalimentaire et acteurs du numérique/cyber. Passage d’un WordPress lent ou d’un ancien site vers une vitrine statique rapide, claire et plus simple à gérer, avec un soin particulier apporté au référencement local autour du Golfe du Morbihan (Vannes, Auray, Sarzeau). Budget sur devis.";
   } else if (city.slug === "paris") {
     description =
-      "Refonte de sites internet à Paris pour avocats, experts-comptables, consultants et petites entreprises B2B. Passage d’un WordPress lent ou trop chargé vers une vitrine statique rapide, sobre et plus simple à gérer, avec un soin particulier apporté au référencement local et sectoriel. Forfaits 2026 entre 2 490€ et 4 990€ TTC.";
+      "Refonte de sites internet à Paris pour avocats, experts-comptables, consultants et petites entreprises B2B. Passage d’un WordPress lent ou trop chargé vers une vitrine statique rapide, sobre et plus simple à gérer, avec un soin particulier apporté au référencement local et sectoriel. Budget sur devis.";
   } else if (city.slug === "montauban") {
     description =
-      "Refonte de sites internet à Montauban pour artisans, TPE et PME de l’agroalimentaire, de l’aéronautique et de la logistique en Tarn-et-Garonne. Passage d’un WordPress lent ou d’un ancien site vers une vitrine statique rapide, claire et plus simple à gérer, avec un soin particulier apporté au référencement local autour de Montauban et du bassin toulousain. Forfaits 2026 entre 2 490€ et 4 990€ TTC.";
+      "Refonte de sites internet à Montauban pour artisans, TPE et PME de l’agroalimentaire, de l’aéronautique et de la logistique en Tarn-et-Garonne. Passage d’un WordPress lent ou d’un ancien site vers une vitrine statique rapide, claire et plus simple à gérer, avec un soin particulier apporté au référencement local autour de Montauban et du bassin toulousain. Budget sur devis.";
   }
 
   return {
@@ -221,13 +221,6 @@ export default function CityRefontePage({ params }: Params) {
       areaServed: [city.name, ...city.satellites],
     },
     areaServed: [city.name, ...city.satellites],
-    offers: {
-      "@type": "AggregateOffer",
-      priceCurrency: "EUR",
-      lowPrice: "2490",
-      highPrice: "4990",
-      availability: "https://schema.org/InStock",
-    },
   };
 
   const faqSchema = {
@@ -450,16 +443,12 @@ export default function CityRefontePage({ params }: Params) {
             Combien investir dans une refonte à {city.name} en 2026&nbsp;?
           </h2>
           <p className="mt-2 text-foreground/80">
-            En 2026, la majorité des refontes de sites pour artisans et TPE à {city.name} se situent entre 2 490€ et 4 990€ TTC,
-            selon la taille du site, la complexité du SEO à reprendre et la quantité de contenu à retravailler. Les projets plus
-            simples (peu de pages, peu d&apos;historique) peuvent être plus proches de 2 490€ TTC.
+            En 2026, le budget d’une refonte pour artisans et TPE à {city.name} dépend surtout de la taille du site, de la
+            complexité du SEO à reprendre et de la quantité de contenu à retravailler. Les projets plus simples (peu de pages,
+            peu d&apos;historique) nécessitent un investissement plus léger que les refontes complètes.
           </p>
           <p className="mt-2 text-sm text-muted-foreground">
-            Détails des offres et exemples concrets sur la page{" "}
-            <Link href="/tarifs-2025#tarifs" className="text-primary hover:underline">
-              Tarifs&nbsp;2026
-            </Link>
-            .
+            Les prix exacts sont désormais établis uniquement sur devis, après un audit initial de votre site et un échange sur vos priorités.
           </p>
           <p className="mt-1 text-xs text-muted-foreground">
             Pour préparer votre projet, vous pouvez aussi lire{" "}
