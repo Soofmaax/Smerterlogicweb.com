@@ -73,6 +73,25 @@ export const projectsFR: ProjectsData = {
         "https://bmsventouse.fr/images/hero-background-custom.jpg",
       ],
     },
+    {
+      id: "mb-fretservices",
+      title: "MB Fret Services — Transitaire Europe–Afrique",
+      tags: ["Statique", "SEO", "Performance"],
+      description:
+        "Site vitrine pour un transitaire spécialisé sur les corridors France–Congo et France–Angola : fret maritime conteneurs, déménagements internationaux, envoi de véhicules et flux B2B.",
+      url: "https://mb-fretservices.com",
+      kpis: [
+        { label: "Performance", value: "90+/100" },
+        { label: "Type de site", value: "Vitrine B2B international" },
+      ],
+      sector: "Artisans & TPE",
+      city: "France / Afrique centrale",
+      duration: "3–5 semaines",
+      images: [
+        "https://mb-fretservices.com/images/hero-maritime.jpg",
+        "https://mb-fretservices.com/images/hero-maritime.jpg",
+      ],
+    },
   ],
 };
 

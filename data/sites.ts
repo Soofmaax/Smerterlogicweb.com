@@ -20,4 +20,14 @@ export const sitesFR: SiteEntry[] = [
     sector: "Logistique / Événementiel",
     img: "https://bmsventouse.fr/images/hero-background-custom.jpg",
   },
+  {
+    id: "mb-fretservices-fr",
+    title: "MB Fret Services",
+    subtitle: "Transitaire Europe–Afrique (Congo, Angola)",
+    href: "https://mb-fretservices.com",
+    status: "live",
+    domain: "mb-fretservices.com",
+    sector: "Transport & Logistique",
+    img: "https://mb-fretservices.com/images/hero-maritime.jpg",
+  },
 ];
