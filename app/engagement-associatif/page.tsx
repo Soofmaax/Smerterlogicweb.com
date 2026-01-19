@@ -15,7 +15,7 @@ import { SITE_URL, CONTACT_EMAIL, BRAND_DOMAIN } from "@/config/site";
 export const metadata = {
   title: `Engagement — ${BRAND_DOMAIN}`,
   description:
-    "Le web au service de tous : 1 association / mois avec site offert, tarifs solidaires pour les autres. Tarifs justes, transmission et proximité.",
+    "Le web au service de tous : accompagnement des associations et projets à impact avec des tarifs adaptés et une communication claire.",
   alternates: {
     canonical: "/engagement-associatif",
     languages: {
@@ -27,7 +27,7 @@ export const metadata = {
     url: `${SITE_URL}/engagement-associatif`,
     title: `Engagement — ${BRAND_DOMAIN}`,
     description:
-      "Le web au service de tous : 1 association / mois avec site offert, tarifs solidaires pour les autres. Tarifs justes, transmission et proximité.",
+      "Le web au service de tous : soutien aux associations et petites structures via des sites clairs, accessibles et performants.",
   },
 };
 
@@ -73,21 +73,20 @@ export default function EngagementAssociatifPage() {
       <div className="mt-12 grid gap-6 md:grid-cols-3">
         <Reveal className="reveal-fade-up md:col-span-2">
           <article className="program-highlight rounded-[24px] border bg-card p-6">
-            <div className="flex items-center gap-2">
-              <span className="badge-free inline-flex items-center gap-2 rounded-full bg-primary px-3 py-1 text-xs font-semibold text-primary-foreground shadow">
-                GRATUIT
-              </span>
-              <h3 className="font-heading text-xl font-semibold">1 Association, 1 Site Gratuit Chaque Mois</h3>
-            </div>
+            <h3 className="font-heading text-xl font-semibold">Accompagnement des associations</h3>
             <p className="mt-2 text-sm text-foreground/80">
-              Chaque mois, je choisis une association d&apos;intérêt général et je réalise son site web gratuitement. Un site professionnel complet, sans contrepartie.
+              Les associations, collectifs et projets à impact peuvent bénéficier de conditions adaptées (tarifs ajustés, priorisation selon les disponibilités).
             </p>
             <p className="mt-2 text-sm text-foreground/80">
-              Vous portez un projet associatif qui mérite d&apos;exister en ligne ? Candidatez pour être l&apos;association du mois.
+              Vous portez un projet associatif qui mérite d&apos;exister en ligne ? Écrivez‑moi pour expliquer votre situation et vos besoins.
             </p>
             <div className="mt-4">
-              <Button asChild className="rounded-full btn-lift" variant="cta">
-                <Link href="/candidature-association">Candidater gratuitement</Link>
+              <Button asChild className="rounded-full btn-lift" variant="secondary">
+                <Link
+                  href={`mailto:${CONTACT_EMAIL}?subject=Projet%20associatif`}
+                >
+                  Parler de mon projet associatif
+                </Link>
               </Button>
             </div>
           </article>
@@ -95,16 +94,16 @@ export default function EngagementAssociatifPage() {
 
         <Reveal className="reveal-fade-up">
           <article className="rounded-[24px] border bg-card p-6">
-            <h3 className="font-heading text-xl font-semibold">Vous Ne Pouvez Pas Attendre ?</h3>
+            <h3 className="font-heading text-xl font-semibold">Tarifs ajustés</h3>
             <p className="mt-2 text-sm text-foreground/80">
-              Si votre association a besoin d&apos;un site rapidement, je propose des tarifs solidaires très accessibles. Le prix ne doit pas être un frein à votre mission.
+              Selon vos ressources et votre urgence, un tarif solidaire peut être proposé au cas par cas, sans promesse de volume mensuel.
             </p>
             <div className="mt-4">
-              <Button asChild className="rounded-full btn-lift" variant="secondary">
+              <Button asChild className="rounded-full btn-lift" variant="outline">
                 <Link
-                  href={`mailto:${CONTACT_EMAIL}?subject=Tarif%20solidaire%20-%20Association`}
+                  href={`mailto:${CONTACT_EMAIL}?subject=Tarif%20adapt%C3%A9%20-%20Association`}
                 >
-                  Demander un tarif solidaire
+                  Demander un tarif adapté
                 </Link>
               </Button>
             </div>
@@ -147,14 +146,7 @@ export default function EngagementAssociatifPage() {
       </div>
 
       {/* Associations accompagnées */}
-      <div className="mt-12">
-        <Reveal className="reveal-fade-up">
-          <h2 className="h2-underline inline-block font-heading text-3xl font-semibold md:text-4xl">Ils Ont Bénéficié du Programme</h2>
-        </Reveal>
-        <div className="mt-6">
-          <AssociationsGrid />
-        </div>
-      </div>
+      {/* Pour l'instant, la liste détaillée d'associations est désactivée tant que le programme se met en place. */}
 
       {/* Critères de sélection */}
       <div className="mt-12">

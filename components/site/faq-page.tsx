@@ -60,7 +60,7 @@ const CATEGORIES: Category[] = [
       {
         id: "q-tarif-asso",
         q: "Les associations paient-elles le même prix ?",
-        a: "Non. 1 association/mois bénéficie d'un site gratuit. Les autres ont des tarifs solidaires adaptés. Détails sur la page Engagement.",
+        a: "Les associations peuvent bénéficier de tarifs adaptés selon leur situation. Les conditions sont précisées au cas par cas après un échange.",
       },
     ],
   },
