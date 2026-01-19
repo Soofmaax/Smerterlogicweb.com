@@ -71,13 +71,13 @@ export default function Pricing2025ENPage() {
       <section className="mt-10">
         <h2 className="font-heading text-2xl font-semibold">How to get your quote</h2>
         <ol className="mt-3 list-decimal pl-5 text-sm text-foreground/80 space-y-1.5">
-          <li>Book a short audit call (15&nbsp;min) or send an email with a few lines about your project.</li>
+          <li>Request a free audit (by email) or send a few lines about your project.</li>
           <li>I review your current situation (existing site or not, content, goals, timeline) and ask a few focused questions.</li>
           <li>You receive a detailed line‑by‑line quote with a clear scope and options if needed.</li>
           <li>Once approved, we schedule the project and delivery milestones together.</li>
         </ol>
         <div className="mt-5 flex flex-col items-center justify-center gap-3 sm:flex-row">
-          <BookingButton className="rounded-full btn-pulse" size="lg" label="Book a free audit (15 min)" />
+          <BookingButton className="rounded-full btn-pulse" size="lg" label="Request a free audit" />
           <Button asChild className="rounded-full" variant="secondary">
             <a href={`mailto:${CONTACT_EMAIL}?subject=Quote%20request%20—%20Static%20site`}>
               Request a quote by email

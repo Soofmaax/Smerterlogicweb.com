@@ -32,7 +32,7 @@ export const SUPPORT_EMAIL =
   process.env.NEXT_PUBLIC_SUPPORT_EMAIL?.trim() || CONTACT_EMAIL;
 
 export const PHONE_NUMBER_PUBLIC =
-  process.env.NEXT_PUBLIC_PHONE?.trim() || "";
+  process.env.NEXT_PUBLIC_PHONE?.trim() || "+33 7 44 40 79 73";
 
 /**
  * Canonical base URL of the site, without trailing slash.

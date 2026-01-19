@@ -56,7 +56,6 @@ export const OFFERS_FR: OfferFR[] = [
       "Maillage interne structuré + Schema.org",
       "Intégrations pro: GA4 + Plausible, Search Console, Calendly/RDV",
       "Formulaire multi‑étapes (captation leads qualifiés)",
-      "Performance garantie PageSpeed: 95+ desktop / 90+ mobile",
       "Livraison clé en main + tuto vidéo Analytics + documentation",
       "Support email prioritaire 3 mois",
       "Propriété + sauvegardes automatiques quotidiennes",
@@ -82,7 +81,7 @@ export const OFFERS_FR: OfferFR[] = [
       "Netlinking initial + optimisation géolocalisée (si multi‑bureaux)",
       "Intégrations avancées: CRM (Zoho/HubSpot/Salesforce), API, chatbot/live chat",
       "Espace client sécurisé (si besoin) + formulaires conditionnels",
-      "Performance ultra‑optimisée (Score PageSpeed 98+ garanti, CDN mondial)",
+      "Performance et Core Web Vitals travaillés dès la conception",
       "Formule Évolution incluse pendant plusieurs mois après la mise en ligne",
       "Livraison premium avec présentation des performances (30 min) + guide PDF + vidéos",
       "Support prioritaire téléphonique 6 mois",
@@ -122,7 +121,6 @@ export const PLANS_FR: PlanFR[] = [
       "SEO avancé + maillage interne",
       "Analytics + Calendly/RDV",
       "Formulaire multi‑étapes",
-      "Perf. 95+ desktop / 90+ mobile",
       "Support prioritaire 3 mois",
     ],
   },
@@ -135,7 +133,6 @@ export const PLANS_FR: PlanFR[] = [
       "Rédaction longue + 5 articles SEO",
       "Stratégie SEO complète 6 mois",
       "CRM + API + espace client",
-      "Perf. 98+ garanti",
       "Formule Évolution incluse plusieurs mois",
     ],
   },
@@ -182,4 +179,4 @@ export const EVOLUTION_MONTHLY_EUR = 20;
 export const URGENCY_SLOTS_LEFT_MONTH = 2;
 
 export const GUARANTEE_TEXT_FR =
-  "Garantie de performance (Core Web Vitals) et délais respectés — ou remboursement de l’acompte.";
+  "Engagement de clarté, de suivi et de transparence : on s’assure ensemble que le site livré correspond au devis validé, avec un accompagnement pour les ajustements nécessaires.";

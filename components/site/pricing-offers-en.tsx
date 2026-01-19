@@ -35,7 +35,6 @@ const PLANS_EN: Plan[] = [
       "Advanced SEO + internal linking",
       "Analytics + Calendly/booking",
       "Multi‑step lead form",
-      "Performance 95+ desktop / 90+ mobile",
       "Priority support for 3 months",
     ],
   },
@@ -48,7 +47,6 @@ const PLANS_EN: Plan[] = [
       "Long‑form copy + 5 SEO articles",
       "Complete SEO strategy (6 months)",
       "CRM + advanced APIs + client area",
-      "Performance 98+ guaranteed",
       "6 months of Evolution plan included",
     ],
   },
@@ -116,7 +114,7 @@ function PlanCard({ plan }: { plan: Plan }) {
         </ul>
 
         <div className="mt-auto pt-4">
-          <BookingButton className="w-full h-11 md:h-12 text-base" label="Book my free audit (15 min)" />
+          <BookingButton className="w-full h-11 md:h-12 text-base" label="Request a free audit" />
         </div>
       </div>
     </article>

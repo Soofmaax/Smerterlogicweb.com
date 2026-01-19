@@ -14,7 +14,7 @@ import { SITE_URL } from "@/config/site";
 
 export const metadata = {
   title: "Projets — smarterlogicweb.com",
-  description: "6 sites créés, 6 entreprises qui attirent plus de clients. Études de cas mesurables.",
+  description: "Exemples de sites vitrines pour TPE et indépendants. Études de cas concrètes, sans chiffres exagérés.",
   alternates: {
     canonical: "/projets",
     languages: {
@@ -26,7 +26,7 @@ export const metadata = {
     url: `${SITE_URL}/projets`,
     title: "Projets — smarterlogicweb.com",
     description:
-      "6 sites créés, 6 entreprises qui attirent plus de clients.",
+      "Exemples de sites vitrines réalisés pour des entreprises et indépendants.",
   },
 };
 
@@ -47,7 +47,7 @@ export default function ProjetsPage() {
           </h1>
         </Reveal>
         <p className="mt-4 text-foreground/80">
-          6 sites créés, 6 entreprises qui attirent plus de clients.
+          Des sites vitrines statiques pensés pour aider les entreprises à attirer plus de clients.
         </p>
       </div>
 
@@ -72,7 +72,7 @@ export default function ProjetsPage() {
         <div className="rounded-[28px] card-elevated border bg-card p-6 text-center">
           <h2 className="font-heading text-2xl font-semibold">Votre Projet Sera Le Prochain</h2>
           <div className="mt-5 flex flex-col items-center justify-center gap-3 sm:flex-row">
-            <BookingButton className="rounded-full" size="lg" label="Réserver un audit gratuit" />
+            <BookingButton className="rounded-full" size="lg" label="Demander un audit gratuit" />
             <Button asChild className="rounded-full" variant="secondary">
               <Link href="/contact">Demander un devis</Link>
             </Button>

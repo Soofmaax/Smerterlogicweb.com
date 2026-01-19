@@ -24,7 +24,7 @@ export function FinalCTA() {
           >
             <Link href="/contact">Demander un devis</Link>
           </Button>
-          <BookingButton className="px-6" label="Réserver un audit gratuit" />
+          <BookingButton className="px-6" label="Demander un audit gratuit" />
         </div>
 
         <div className="mt-6 grid gap-4 sm:grid-cols-3">

@@ -146,7 +146,7 @@ Le rôle du site web est de consolider et amplifier la base acquise via GMB. GMB
 
 Liez les deux. Votre fiche GMB doit pointer vers votre site web principal. La fiche est la porte d'entrée locale. Le site est la vitrine de votre offre et de votre expertise. Les deux travaillent ensemble.
 
-Exemple concret. Marie, menuisière à Toulouse, a suivi cette stratégie. Elle a créé sa fiche GMB en semaine un. Optimisée avec photos et avis. En trois mois, elle recevait trois à quatre demandes de devis par semaine via GMB. Elle a alors investi 2 800€ dans un site vitrine simple (six pages, design épuré, galerie de réalisations, formulaire de devis). Résultat après huit mois : plus trois cents pour cent de demandes de devis qualifiées, première position sur menuisier Toulouse, et augmentation de cent quatre-vingts pour cent de son chiffre d'affaires.
+Exemple pédagogique inspiré de cas réels. Imaginez Marie, menuisière à Toulouse, qui suit cette stratégie. Elle crée sa fiche GMB en semaine un, l’optimise avec photos et avis. En quelques mois, elle commence à recevoir régulièrement des demandes de devis via GMB. Elle décide ensuite d’investir dans un site vitrine simple (six pages, design épuré, galerie de réalisations, formulaire de devis). Résultat après plusieurs mois : un flux plus stable de demandes qualifiées et une meilleure visibilité locale. Les chiffres exacts (taux de croissance, pourcentage d’augmentation) dépendront toujours de son marché, de ses prix et de sa capacité à traiter ces demandes.
 
 Le site n'aurait pas fonctionné sans GMB. Et GMB seul n'aurait pas permis cette croissance sans le site pour rassurer et convertir.
 

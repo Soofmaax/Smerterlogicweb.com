@@ -404,7 +404,9 @@ function ProjectModal({ item, onClose }: { item: CaseItem | null; onClose: () =>
         <div className="mt-4 grid gap-3 sm:grid-cols-3">
           <div className="rounded-md border bg-muted/40 p-3 text-center">
             <div className="text-xs text-muted-foreground">Performance</div>
-            <div className="mt-1 text-lg font-semibold">{item.kpis?.find(k => /performance/i.test(k.label))?.value || "95/100"}</div>
+            <div className="mt-1 text-lg font-semibold">
+              {item.kpis?.find((k) => /performance/i.test(k.label))?.value || "—"}
+            </div>
           </div>
           <div className="rounded-md border bg-muted/40 p-3 text-center">
             <div className="text-xs text-muted-foreground">Technologies</div>

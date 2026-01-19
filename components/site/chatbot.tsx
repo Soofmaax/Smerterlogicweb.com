@@ -143,7 +143,7 @@ export function Chatbot() {
     track("chat_branch_rdv");
     push(
       "bot",
-      <>D’accord. Le plus simple est de passer par la page contact ou de réserver un audit gratuit.</>
+      <>D’accord. Le plus simple est de passer par la page contact et de demander un audit gratuit de votre site.</>
     );
     push(
       "bot",

@@ -146,9 +146,9 @@ export default function ServicesPage() {
       <section className="mx-auto mt-2 w-full max-w-5xl px-0 py-12">
         <div className="rounded-[28px] card-elevated border bg-card p-6 text-center">
           <h2 className="font-heading text-2xl font-semibold">Pas sûr de la formule adaptée&nbsp;?</h2>
-          <p className="mt-2 text-foreground/80">Parlons 15 minutes. Je vous aide à choisir, gratuitement.</p>
+          <p className="mt-2 text-foreground/80">Envoyez-moi l’adresse de votre site, je vous aide à y voir plus clair.</p>
           <div className="mt-5 flex flex-col items-center justify-center gap-3 sm:flex-row">
-            <BookingButton className="rounded-full" size="lg" label="Réserver un audit gratuit" />
+            <BookingButton className="rounded-full" size="lg" label="Demander un audit gratuit" />
             <Button asChild className="rounded-full" variant="secondary">
               <a
                 href={`mailto:${CONTACT_EMAIL}?subject=Prendre%20rendez-vous%20t%C3%A9l%C3%A9phonique`}

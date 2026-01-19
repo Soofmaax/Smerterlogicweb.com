@@ -7,7 +7,7 @@ import { SITE_URL, BRAND_DOMAIN } from "@/config/site";
 export const metadata = {
   title: `FAQ — ${BRAND_DOMAIN}`,
   description:
-    "Réponses aux questions fréquentes sur la création de site vitrine statique : budget sur devis, délais, maintenance, SEO local, refonte WordPress et accompagnement.",FAQ 2026 : coûts, délais, refonte WordPress, SEO local, maintenance d’un site vitrine statique pour TPE et professions libérales.",
+    "Réponses aux questions fréquentes sur la création de site vitrine statique : budget sur devis, délais, maintenance, SEO local, refonte WordPress et accompagnement. FAQ 2026 : coûts, délais, refonte WordPress, SEO local, maintenance d’un site vitrine statique pour TPE et professions libérales.",
   alternates: {
     canonical: "/faq",
     languages: {
@@ -34,7 +34,6 @@ const faqSchema = {
         "@type": "Answer",
         text: "Pour une TPE ou une profession libérale, le budget d’un site vitrine statique dépend surtout du nombre de pages, de la quantité de contenus à créer et des besoins spécifiques (bilingue, cas clients, blog, etc.). Les projets sont désormais chiffrés uniquement sur devis détaillé après un premier échange, sans grille publique.",
       },
-    },
     },
     {
       "@type": "Question",
@@ -139,7 +138,7 @@ export default function FAQ() {
       <FAQPage />
 
       <div className="mt-10 flex justify-center">
-        <BookingButton className="rounded-full" label="Réserver un audit gratuit" />
+        <BookingButton className="rounded-full" label="Demander un audit gratuit" />
       </div>
 
       <FinalCTA />

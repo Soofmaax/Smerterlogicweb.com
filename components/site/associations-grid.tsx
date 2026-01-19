@@ -8,6 +8,7 @@ import { cn } from "@/lib/utils";
 import { Reveal } from "@/components/site/reveal";
 
 function AssCard({ a, i }: { a: AssociationItem; i: number }) {
+  const hasHelp = !!a.helpType;
   const badge =
     a.helpType === "Site offert"
       ? "bg-emerald-50 text-emerald-700 ring-emerald-200 dark:bg-emerald-400/10 dark:text-emerald-300"
@@ -31,16 +32,23 @@ function AssCard({ a, i }: { a: AssociationItem; i: number }) {
           </div>
           <div>
             <h3 className="font-heading text-base font-semibold">{a.name}</h3>
-            <div className={cn("mt-1 inline-flex items-center rounded-full px-2 py-0.5 text-[10px] ring-1", badge)}>
-              {a.helpType}
-            </div>
+            {hasHelp ? (
+              <div className={cn("mt-1 inline-flex items-center rounded-full px-2 py-0.5 text-[10px] ring-1", badge)}>
+                {a.helpType}
+              </div>
+            ) : null}
           </div>
         </div>
         <p className="mt-3 text-sm text-foreground/80">{a.mission}</p>
         {a.quote ? <p className="mt-2 text-sm italic text-foreground/70">“{a.quote}”</p> : null}
         <div className="mt-auto pt-3">
           {a.url ? (
-            <Link href={a.url} target="_blank" rel="noreferrer" className="link-underline link-underline-strong text-sm text-primary">
+            <Link
+              href={a.url}
+              target="_blank"
+              rel="noreferrer"
+              className="link-underline link-underline-strong text-sm text-primary"
+            >
               Voir le site
             </Link>
           ) : (
@@ -53,6 +61,9 @@ function AssCard({ a, i }: { a: AssociationItem; i: number }) {
 }
 
 export function AssociationsGrid({ items = associationsFR }: { items?: AssociationItem[] }) {
+  if (!items.length) {
+    return null;
+  }
   return (
     <section className="mx-auto w-full max-w-6xl px-0">
       <div className="grid items-stretch gap-4 sm:grid-cols-2 lg:grid-cols-3">

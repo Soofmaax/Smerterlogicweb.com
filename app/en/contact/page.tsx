@@ -3,7 +3,6 @@ import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { TrackedLink } from "@/components/site/tracked-link";
 import { ContactForm } from "@/components/site/contact-form";
-import { BookingButton } from "@/components/site/booking-modal";
 import { Particles } from "@/components/site/particles";
 import { Guarantee } from "@/components/site/guarantee";
 import { GoogleReviewsBadge } from "@/components/site/google-reviews";
@@ -38,11 +37,10 @@ export default function ContactPage() {
       <div className="rounded-[28px] card-elevated border bg-card p-6 shadow-sm">
         <h1 className="font-heading text-4xl font-bold tracking-tight md:text-5xl">Contact</h1>
         <p className="mt-4 text-lg leading-relaxed text-foreground/80">
-          The simplest and fastest way: email. Describe your needs, goals and constraints — I’ll get back within 24 hours.
+          The simplest and fastest way: email. Include your current website (or project URL) and your email — I’ll get back within 24 hours with a first review.
         </p>
 
         <div className="mt-6 flex flex-wrap items-center gap-4">
-          <BookingButton size="lg" className="rounded-full" label="Book my free audit (15 min)" />
           {process.env.NEXT_PUBLIC_PHONE ? (
             <Button asChild size="lg" className="rounded-full">
               <a href={`tel:${(process.env.NEXT_PUBLIC_PHONE as string).replace(/[^+\d]/g, "")}`}>📞 07 44 40 79 73</a>

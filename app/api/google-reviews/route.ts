@@ -37,30 +37,12 @@ export async function GET(req: Request) {
   const placeId = process.env.GOOGLE_PLACE_ID;
 
   if (!apiKey || !placeId) {
-    // Graceful fallback when credentials are not configured
+    // Fallback neutre quand les identifiants ne sont pas configurés :
+    // aucun avis n'est renvoyé pour éviter d'afficher des témoignages fictifs.
     const fallback = {
-      rating: 5,
-      total: 3,
-      reviews: [
-        {
-          author: "Julien",
-          rating: 5,
-          text: "Depuis que j'ai mon nouveau site, je reçois 3 à 4 demandes de devis par semaine via Google.",
-          relative: "il y a 2 mois",
-        },
-        {
-          author: "Marie",
-          rating: 5,
-          text: "Site clair et rapide. Les clients trouvent facilement nos horaires et nous appellent directement.",
-          relative: "il y a 1 mois",
-        },
-        {
-          author: "Thomas",
-          rating: 5,
-          text: "Mise en ligne fluide, pas de prise de tête côté technique. Je me concentre sur mes chantiers.",
-          relative: "il y a 3 semaines",
-        },
-      ],
+      rating: 0,
+      total: 0,
+      reviews: [],
       placeId: "",
       mapsUrl: "#",
     };

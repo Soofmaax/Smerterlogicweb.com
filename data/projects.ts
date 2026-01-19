@@ -61,14 +61,36 @@ export const projectsFR: ProjectsData = {
         "Site statique professionnel mettant en avant les prestations de ventousage pour tournages et événements, avec formulaires de contact et informations claires.",
       url: "https://bmsventouse.fr",
       kpis: [
-        { label: "Performance", value: "95/100" },
-        { label: "Temps de chargement", value: "≈1,2s" },
-        { label: "Pagespeed (desktop)", value: "98+" },
+        { label: "Type de site", value: "Vitrine B2B local" },
+        { label: "Secteur", value: "Logistique cinéma & événementiel" },
+        { label: "Objectif", value: "Visibilité locale et demandes qualifiées" },
       ],
       sector: "Artisans & TPE",
       city: "Île‑de‑France",
       duration: "3–4 semaines",
-      // images: real URLs à ajouter plus tard lorsque les captures seront disponibles
+      images: [
+        "https://bmsventouse.fr/images/hero-background-custom.jpg",
+        "https://bmsventouse.fr/images/hero-background-custom.jpg",
+      ],
+    },
+    {
+      id: "mb-fretservices",
+      title: "MB Fret Services — Transitaire Europe–Afrique",
+      tags: ["Statique", "SEO", "Performance"],
+      description:
+        "Site vitrine pour un transitaire spécialisé sur les corridors France–Congo et France–Angola : fret maritime conteneurs, déménagements internationaux, envoi de véhicules et flux B2B.",
+      url: "https://mb-fretservices.com",
+      kpis: [
+        { label: "Type de site", value: "Vitrine B2B international" },
+        { label: "Secteur", value: "Transport & logistique" },
+      ],
+      sector: "Artisans & TPE",
+      city: "France / Afrique centrale",
+      duration: "3–5 semaines",
+      images: [
+        "https://mb-fretservices.com/images/hero-maritime.jpg",
+        "https://mb-fretservices.com/images/hero-maritime.jpg",
+      ],
     },
   ],
 };

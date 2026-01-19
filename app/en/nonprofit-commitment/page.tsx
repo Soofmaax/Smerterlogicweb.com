@@ -70,7 +70,7 @@ export default function NonprofitCommitmentPage() {
           </div>
 
           <div className="mt-10 flex flex-wrap items-center gap-4">
-            <BookingButton className="rounded-full" size="lg" label="Book my free audit (15 min)" />
+            <BookingButton className="rounded-full" size="lg" label="Request a free audit" />
             <Button asChild size="lg" className="rounded-full">
               <TrackedLink
                 href={`mailto:${CONTACT_EMAIL}?subject=Nonprofit%20project`}

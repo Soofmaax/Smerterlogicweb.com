@@ -33,7 +33,7 @@ export function ServicesOffers() {
       <Carousel items={slides} ariaLabel="Offres de services" centerEmphasis />
 
       <p className="mt-4 text-center text-xs text-muted-foreground">
-        Garanties: satisfait ou remboursé 30 jours — support prioritaire — le code source vous appartient.
+        Engagements : accompagnement sérieux, communication claire, le code source vous appartient.
       </p>
     </section>
   );
@@ -128,7 +128,7 @@ function OfferCard({
         {quote ? <p className="mt-4 text-sm italic text-foreground/70">{quote}</p> : null}
 
         <div className="mt-auto pt-4">
-          <BookingButton className="w-full h-11 text-base rounded-full" label="Réserver un audit gratuit" />
+          <BookingButton className="w-full h-11 text-base rounded-full" label="Demander un audit gratuit" />
         </div>
       </div>
     </article>
