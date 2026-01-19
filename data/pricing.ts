@@ -122,7 +122,6 @@ export const PLANS_FR: PlanFR[] = [
       "SEO avancé + maillage interne",
       "Analytics + Calendly/RDV",
       "Formulaire multi‑étapes",
-      "Perf. 95+ desktop / 90+ mobile",
       "Support prioritaire 3 mois",
     ],
   },
@@ -135,7 +134,6 @@ export const PLANS_FR: PlanFR[] = [
       "Rédaction longue + 5 articles SEO",
       "Stratégie SEO complète 6 mois",
       "CRM + API + espace client",
-      "Perf. 98+ garanti",
       "Formule Évolution incluse plusieurs mois",
     ],
   },
@@ -182,4 +180,4 @@ export const EVOLUTION_MONTHLY_EUR = 20;
 export const URGENCY_SLOTS_LEFT_MONTH = 2;
 
 export const GUARANTEE_TEXT_FR =
-  "Garantie de performance (Core Web Vitals) et délais respectés — ou remboursement de l’acompte.";
+  "Engagement de clarté, de suivi et de transparence : on s’assure ensemble que le site livré correspond au devis validé, avec un accompagnement pour les ajustements nécessaires.";
