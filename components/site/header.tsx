@@ -73,7 +73,7 @@ export function Header() {
   const ctaHref = isEn ? "/en/contact" : "/contact";
 
   // Phone CTA (desktop)
-  const rawPhone = PHONE_NUMBERNEXT_PUBLIC_PHONE || "";
+  const rawPhone = PHONE_NUMBER_PUBLIC || "";
   const sanitizePhone = (p: string) => p.replace(/[^+\d]/g, "");
   const callHref = rawPhone ? `tel:${sanitizePhone(rawPhone)}` : (isEn ? "/en/contact" : "/contact");
   const displayPhone = useMemo(() => {
