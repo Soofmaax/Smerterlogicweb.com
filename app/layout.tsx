@@ -24,6 +24,7 @@ import {
 
 import Script from "next/script";
 import { Suspense } from "react";
+import { headers } from "next/headers";
 
 const anonymousPro = Anonymous_Pro({
   subsets: ["latin"],
@@ -159,20 +160,33 @@ export const viewport = {
 
 export default function RootLayout({
   children,
-  params,
 }: {
   children: React.ReactNode;
-  params?: { locale?: string };
 }) {
   const provider = (process.env.NEXT_PUBLIC_ANALYTICS_PROVIDER || "plausible").toLowerCase();
   const plausibleDomain = process.env.NEXT_PUBLIC_PLAUSIBLE_DOMAIN || "smarterlogicweb.com";
   const umamiSrc = process.env.NEXT_PUBLIC_UMAMI_SRC || "https://analytics.umami.is/script.js";
   const umamiWebsiteId = process.env.NEXT_PUBLIC_UMAMI_WEBSITE_ID;
   const gtmId = process.env.NEXT_PUBLIC_GTM_ID || "GTM-5X2V579H";
-  const locale = params?.locale || "fr";
+  const headersList = headers();
+  let pathname =
+    headersList.get("x-nextjs-matched-path") ||
+    headersList.get("x-matched-path") ||
+    headersList.get("x-pathname") ||
+    headersList.get("x-invoke-path") ||
+    headersList.get("x-original-url") ||
+    "";
+  if (pathname.includes("://")) {
+    try {
+      pathname = new URL(pathname).pathname;
+    } catch {
+      // ignore invalid URL values
+    }
+  }
+  const htmlLang = pathname === "/en" || pathname.startsWith("/en/") ? "en" : "fr";
 
   return (
-    <html lang={locale === "en" ? "en" : "fr"}>
+    <html lang={htmlLang}>
       <body className={`${anonymousPro.variable} ${dmSans.variable} bg-background text-foreground antialiased font-sans`}>
         {/* Google Tag Manager (consent default denied) */}
         {provider === "gtm" ? (
