@@ -10,6 +10,7 @@ import { AnalyticsLoader } from "@/components/site/analytics-loader";
 import { MarketingLoader } from "@/components/site/marketing-loader";
 import { GA4PageviewTracker } from "@/components/site/ga-pageview";
 import { AutoEvents } from "@/components/site/auto-events";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 
 import { EasterEggs } from "@/components/site/easter-eggs";
 import { AssistantOverlay } from "@/components/site/assistant-overlay";
@@ -259,6 +260,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         <AssistantOverlay />
         {/* Cookie consent (shown when using GA/GTM or others) */}
         <CookieConsent />
+        <SpeedInsights />
       </body>
     </html>
   );
