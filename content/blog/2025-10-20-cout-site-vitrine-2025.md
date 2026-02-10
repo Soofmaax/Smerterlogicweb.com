@@ -12,7 +12,7 @@ tags:
   - "prix site internet entreprise France"
 altLocales:
   en: "business-website-cost-france-2025"
-published: false
+published: true
 draft: false
 ---
 

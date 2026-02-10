@@ -12,7 +12,7 @@ tags:
   - "que faire et ne pas faire sur mon site WordPress"
 altLocales:
   en: "brochure-website-maintenance-plan"
-published: false
+published: true
 draft: false
 ---
 
