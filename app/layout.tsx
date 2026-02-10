@@ -187,12 +187,11 @@ export default function RootLayout({
   const htmlLang = pathname === "/en" || pathname.startsWith("/en/") ? "en" : "fr";
 
   return (
-    <html lang={locale === "en" ? "en" : "fr"}>
+    <html lang={htmlLang}>
       <head>
         <meta name="contact:phone_number" content="+33744407973" />
         <link rel="me" href="mailto:sonia@smarterlogicweb.com" />
       </head>
-    <html lang={htmlLang}>
       <body className={`${anonymousPro.variable} ${dmSans.variable} bg-background text-foreground antialiased font-sans`}>
         {/* Google Tag Manager (consent default denied) */}
         {provider === "gtm" ? (
