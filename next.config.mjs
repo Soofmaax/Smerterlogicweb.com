@@ -48,7 +48,7 @@ const nextConfig = {
           { key: "Referrer-Policy", value: "strict-origin-when-cross-origin" },
           { key: "X-Frame-Options", value: "SAMEORIGIN" },
           { key: "Permissions-Policy", value: "camera=(), microphone=(), geolocation=()" },
-          { key: "Report-To", value: '{"group":"csp-endpoint","max_age":10886400,"endpoints":[{"url":"https://smarterlogicweb.com/api/csp-report"}],"include_subdomains":true}' },
+          { key: "Report-To", value: '{"group":"csp-endpoint","max_age":10886400,"endpoints":[{"url":"https://www.smarterlogicweb.com/api/csp-report"}],"include_subdomains":true}' },
           { key: "Content-Security-Policy", value: csp },
         ],
       },

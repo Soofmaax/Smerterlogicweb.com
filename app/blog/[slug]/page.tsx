@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { getScheduledPostBySlugBurst, formatDate } from "@/lib/blog";
+import { getPublishedPostsBurst, formatDate } from "@/lib/blog";
 import { getAllPosts } from "@/lib/blog-source";
 import { RecommendedArticles } from "@/components/site/recommended-articles";
 import { RelatedCities } from "@/components/site/related-cities";
@@ -14,8 +14,9 @@ export const revalidate = 60;
 
 export async function generateMetadata({ params }: { params: { slug: string } }) {
   const all = getAllPosts();
-  const result = getScheduledPostBySlugBurst(all, params.slug, "fr");
-  if (!result || !result.isPublished) {
+  const published = getPublishedPostsBurst(all, "fr");
+  const post = published.find((p) => p.slug === params.slug);
+  if (!post) {
     return {
       title: "Article non disponible",
       robots: {
@@ -28,7 +29,6 @@ export async function generateMetadata({ params }: { params: { slug: string } })
       },
     };
   }
-  const { post } = result;
 
   // Compute proper EN alternate slug and include only if counterpart exists:
   // 1) prefer explicit mapping from frontmatter (altLocales.en) if an EN post with that slug exists
@@ -60,11 +60,11 @@ export async function generateMetadata({ params }: { params: { slug: string } })
 }
 
 export default function BlogPostFR({ params }: { params: { slug: string } }) {
-  const result = getScheduledPostBySlugBurst(getAllPosts(), params.slug, "fr");
-  if (!result) notFound();
+  const all = getAllPosts();
+  const published = getPublishedPostsBurst(all, "fr");
+  const post = published.find((p) => p.slug === params.slug);
 
-  const { post, isPublished } = result;
-  if (!isPublished) {
+  if (!post) {
     // Hide unreleased posts from public/SEO
     notFound();
   }

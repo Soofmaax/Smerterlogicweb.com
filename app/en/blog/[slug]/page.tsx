@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { getScheduledPostBySlugBurst, formatDate } from "@/lib/blog";
+import { getPublishedPostsBurst, formatDate } from "@/lib/blog";
 import { getAllPosts } from "@/lib/blog-source";
 import { Breadcrumbs } from "@/components/site/breadcrumbs";
 import { CitationBox } from "@/components/site/citation-box";
@@ -12,8 +12,9 @@ export const revalidate = 60;
 
 export async function generateMetadata({ params }: { params: { slug: string } }) {
   const all = getAllPosts();
-  const result = getScheduledPostBySlugBurst(all, params.slug, "en");
-  if (!result || !result.isPublished) {
+  const published = getPublishedPostsBurst(all, "en");
+  const post = published.find((p) => p.slug === params.slug);
+  if (!post) {
     return {
       title: "Article unavailable",
       robots: {
@@ -26,7 +27,6 @@ export async function generateMetadata({ params }: { params: { slug: string } })
       },
     };
   }
-  const { post } = result;
 
   // Compute proper FR alternate slug and include only if counterpart exists:
   // 1) FR post with same slug
@@ -59,11 +59,11 @@ export async function generateMetadata({ params }: { params: { slug: string } })
 }
 
 export default function BlogPostEN({ params }: { params: { slug: string } }) {
-  const result = getScheduledPostBySlugBurst(getAllPosts(), params.slug, "en");
-  if (!result) notFound();
+  const all = getAllPosts();
+  const published = getPublishedPostsBurst(all, "en");
+  const post = published.find((p) => p.slug === params.slug);
 
-  const { post, isPublished } = result;
-  if (!isPublished) {
+  if (!post) {
     notFound();
   }
 

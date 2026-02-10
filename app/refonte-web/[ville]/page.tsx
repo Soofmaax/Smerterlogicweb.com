@@ -31,18 +31,20 @@ export async function generateMetadata({ params }: Params) {
     };
   }
   const sectors = city.sectors.join(", ").toLowerCase();
-  const title = `Refonte de site internet à ${city.name} — WordPress lent → site vitrine statique rapide (2026)`;
+  let title = `Refonte de site internet à ${city.name} — WordPress lent → site vitrine statique rapide (2026)`;
   let description = `Refonte de sites internet à ${city.name} pour artisans, TPE et PME des secteurs ${sectors}. Passage d'un site lourd (souvent WordPress) vers un site vitrine statique plus rapide, plus clair et plus simple à maintenir. Devis gratuit. Budget de refonte établi uniquement sur devis.`;
 
   if (city.slug === "niort") {
+    title = "Refonte de site web à Niort — WordPress lent → site vitrine statique rapide (2026)";
     description =
-      "Refonte de sites internet à Niort pour artisans, TPE et acteurs des mutuelles et services B2B. Passage d'un WordPress lent à un site vitrine statique rapide, stable et plus simple à maintenir, sans perdre votre référencement local. Budget sur devis après audit.";
+      "Refonte de site web / site internet à Niort pour artisans, TPE et acteurs des mutuelles et services B2B. Passage d'un WordPress lent à un site vitrine statique rapide, stable et plus simple à maintenir, sans perdre votre référencement local. Budget sur devis après audit.";
   } else if (city.slug === "brive-la-gaillarde") {
     description =
-      "Refonte de sites internet à Brive-la-Gaillarde pour artisans, TPE et petites entreprises de l’agroalimentaire, de la logistique et du tourisme vert en Corrèze. Passage d'un WordPress lent ou d'un ancien site vers un site vitrine statique rapide, stable et plus simple à maintenir, sans perdre votre référencement local. Budget sur devis.";
+      "Refonte de sites internet et de sites web à Brive-la-Gaillarde pour artisans, TPE et petites entreprises de l’agroalimentaire, de la logistique et du tourisme vert en Corrèze. Passage d'un WordPress lent ou d'un ancien site vers un site vitrine statique rapide, stable et plus simple à maintenir, sans perdre votre référencement local. Audit et budget sur devis.";
   } else if (city.slug === "cholet") {
+    title = "Audit et refonte de site web à Cholet — WordPress lent → vitrine statique rapide (2026)";
     description =
-      "Refonte de sites internet à Cholet pour artisans, commerçants et PME du textile, de la mode, de la mécanique et de l’agroalimentaire. Passage d’un WordPress lent ou d’un ancien site vers une vitrine statique rapide, claire et plus simple à gérer, avec un soin particulier apporté au référencement local dans le bassin choletais. Budget sur devis.";
+      "Audit et refonte de sites web / sites internet à Cholet pour artisans, commerçants et PME du textile, de la mode, de la mécanique et de l’agroalimentaire. Analyse de votre site actuel, diagnostic SEO local dans le Choletais puis migration vers une vitrine statique rapide, claire et simple à gérer. Audit préliminaire et devis sur mesure.";
   } else if (city.slug === "vannes") {
     description =
       "Refonte de sites internet à Vannes pour artisans, prestataires du nautisme, du tourisme, de l’agroalimentaire et acteurs du numérique/cyber. Passage d’un WordPress lent ou d’un ancien site vers une vitrine statique rapide, claire et plus simple à gérer, avec un soin particulier apporté au référencement local autour du Golfe du Morbihan (Vannes, Auray, Sarzeau). Budget sur devis.";
@@ -51,7 +53,7 @@ export async function generateMetadata({ params }: Params) {
       "Refonte de sites internet à Paris pour avocats, experts-comptables, consultants et petites entreprises B2B. Passage d’un WordPress lent ou trop chargé vers une vitrine statique rapide, sobre et plus simple à gérer, avec un soin particulier apporté au référencement local et sectoriel. Budget sur devis.";
   } else if (city.slug === "montauban") {
     description =
-      "Refonte de sites internet à Montauban pour artisans, TPE et PME de l’agroalimentaire, de l’aéronautique et de la logistique en Tarn-et-Garonne. Passage d’un WordPress lent ou d’un ancien site vers une vitrine statique rapide, claire et plus simple à gérer, avec un soin particulier apporté au référencement local autour de Montauban et du bassin toulousain. Budget sur devis.";
+      "Refonte de sites internet et de sites web à Montauban pour artisans, TPE et PME de l’agroalimentaire, de l’aéronautique et de la logistique en Tarn-et-Garonne. Passage d’un WordPress lent ou d’un ancien site vers une vitrine statique rapide, claire et plus simple à gérer, avec un soin particulier apporté au référencement local autour de Montauban et du bassin toulousain. Budget sur devis.";
   }
 
   return {
@@ -210,6 +212,23 @@ export default function CityRefontePage({ params }: Params) {
   const satellitesSentence = toSentence(city.satellites);
   const cciLabel = city.cci || `CCI locale`;
 
+  const baseH1 = `Refonte de site internet à ${city.name} pour TPE et artisans : vers un site vitrine statique plus rapide`;
+
+  let h1 = baseH1;
+
+  if (city.slug === "niort") {
+    h1 =
+      "Refonte de site web à Niort pour TPE et artisans : audit et passage à un site vitrine statique rapide";
+  } else if (city.slug === "brive-la-gaillarde") {
+    h1 =
+      "Refonte de site web à Brive-la-Gaillarde pour TPE et artisans : audit et passage à un site vitrine statique rapide";
+  } else if (city.slug === "cholet") {
+    h1 = "Audit et refonte de site web à Cholet pour artisans et commerçants";
+  } else if (city.slug === "montauban") {
+    h1 =
+      "Refonte de site internet à Montauban pour TPE et artisans : vers un site vitrine statique plus rapide";
+  }
+
   const serviceSchema = {
     "@context": "https://schema.org",
     "@type": "Service",
@@ -272,9 +291,7 @@ export default function CityRefontePage({ params }: Params) {
 
       {/* Hero */}
       <Reveal className="reveal-clip inline-block">
-        <h1 className="font-heading text-4xl font-bold tracking-tight md:text-5xl text-balance">
-          Refonte de site internet à {city.name} pour TPE et artisans : vers un site vitrine statique plus rapide
-        </h1>
+        <h1 className="font-heading text-4xl font-bold tracking-tight md:text-5xl text-balance">{h1}</h1>
       </Reveal>
 
       {/* Visible breadcrumbs */}
@@ -357,6 +374,19 @@ export default function CityRefontePage({ params }: Params) {
             vos clients. Nous gardons ce qui fonctionne, simplifions le reste, et améliorons la conversion.
           </p>
         </section>
+
+        {city.name === "Cholet" && (
+          <section>
+            <h2 className="font-heading text-2xl font-semibold">
+              Audit de site web à Cholet : ce que l’on vérifie avant la refonte
+            </h2>
+            <p className="mt-2 text-foreground/80">
+              Vitesse et expérience mobile de votre site actuel, clarté des pages clés pour un artisan ou commerçant
+              choletais, et SEO local sur des requêtes comme « votre métier + Cholet ». L’audit permet d’objectiver ces
+              points avant de décider d’une refonte complète.
+            </p>
+          </section>
+        )}
 
         {city.name === "Niort" && (
           <section>
@@ -463,6 +493,17 @@ export default function CityRefontePage({ params }: Params) {
               l’audit refonte en 25 points
             </Link>
             .
+          </p>
+          <p className="mt-1 text-xs text-muted-foreground">
+            Pour le détail du{" "}
+            <Link href="/blog/cout-maintenance-site-web" className="text-primary hover:underline">
+              coût de maintenance d’un site internet
+            </Link>{" "}
+            et des{" "}
+            <Link href="/blog/frais-caches-site-internet" className="text-primary hover:underline">
+              frais cachés d’un site internet sur 3 ans
+            </Link>
+            , vous pouvez consulter les articles dédiés du blog.
           </p>
         </section>
 

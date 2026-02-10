@@ -2,7 +2,7 @@
 slug: "forfait-maintenance-site-vitrine"
 locale: "fr"
 title: "Que comprend un forfait de maintenance pour un site vitrine ?"
-summary: "Forfait maintenance site vitrine : ce qui est vraiment inclus (mises à jour, sauvegardes, monitoring, support) + 4 actions interdites qui cassent tout."
+summary: "Forfait maintenance site vitrine : ce qui est vraiment inclus (mises à jour, sauvegardes, monitoring, support), comment lire un devis et pourquoi certains forfaits à 30–50 €/mois sont trompeurs."
 tags:
   - "forfait maintenance site vitrine"
   - "que comprend maintenance site web"
@@ -12,7 +12,7 @@ tags:
   - "que faire et ne pas faire sur mon site WordPress"
 altLocales:
   en: "brochure-website-maintenance-plan"
-published: false
+published: true
 draft: false
 ---
 

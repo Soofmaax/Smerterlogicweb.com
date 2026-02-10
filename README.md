@@ -44,7 +44,7 @@
 - 🧪 CI/CD: Lint/Build, CodeQL, Security Scan (audit + SBOM), Dependabot
 
 🎥 Demo
-- Site: https://smarterlogicweb.com (mettre à jour si nécessaire)
+- Site: https://www.smarterlogicweb.com (mettre à jour si nécessaire)
 - Sitemap: /sitemap.xml • Robots: /robots.txt • Health: /api/health
 - Screenshots: placez vos captures dans public/screenshots et référencez-les ici.
 
@@ -88,15 +88,15 @@ Voir .env.example — [Télécharger](./.env.example)
 
 📧 Support & Contact
 - Contact général — sonia@smarterlogicweb.com
-- Problèmes de code / bugs — admin@smarterlogicweb.com
-- Website: https://smarterlogicweb.com
+- Problèmes de code / bugs — sonia@smarterlogicweb.com
+- Website: https://www.smarterlogicweb.com
 
 ---
 
 <div align="center">
   <p>Made with ❤️ by <strong>SmarterLogicWeb</strong></p>
   <p>
-    🌐 <a href="https://smarterlogicweb.com">Website</a> •
+    🌐 <a href="https://www.smarterlogicweb.com">Website</a> •
     📧 <a href="mailto:sonia@smarterlogicweb.com">Contact</a>
   </p>
   <p>

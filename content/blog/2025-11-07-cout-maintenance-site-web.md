@@ -1,8 +1,8 @@
 ---
 slug: "cout-maintenance-site-web"
 locale: "fr"
-title: "Maintenance technique : qui s'en occupe et à quel prix ?"
-summary: "Maintenance site web : 30–500€/mois en 2025 | DIY vs freelance vs agence, comparatif complet et vrai coût si vous ne payez rien."
+title: "Coût de maintenance d’un site internet : qui s'en occupe et à quel prix en 2025 ?"
+summary: "Coût de maintenance d’un site internet en 2025 : entre 30 et 500 €/mois selon que vous gérez vous‑même, passiez par un freelance ou une agence. Comparatif complet des forfaits, exemples chiffrés et coût réel si vous ne payez aucune maintenance."
 tags:
   - "coût maintenance site web TPE"
   - "prix maintenance WordPress"
@@ -12,7 +12,7 @@ tags:
   - "freelance ou agence pour maintenance site web"
 altLocales:
   en: "website-maintenance-cost-small-business"
-published: false
+published: true
 draft: false
 ---
 
@@ -27,6 +27,10 @@ Un site WordPress nécessite une maintenance technique régulière qui coûte en
 Dans cet article, on décortique qui peut s'occuper de la maintenance de votre site (vous, un freelance, une agence), on compare les vrais tarifs 2025 avec ce qui est inclus, et on quantifie le coût réel de la non-maintenance. À la fin, vous saurez exactement combien budgétiser et quel prestataire choisir selon votre niveau de risque.
 
 ---
+
+## Combien coûte la maintenance d’un site internet en 2025 ?
+
+En pratique, la maintenance d’un site internet vitrine WordPress se situe le plus souvent entre 30 et 500 €/mois selon que vous gériez tout vous‑même, que vous travailliez avec un freelance ou avec une agence dotée d’un support 24/7. Ce guide détaille ces fourchettes, ce qui est réellement inclus et ce que vous risquez si vous ne payez aucune maintenance.
 
 ## La maintenance technique, c'est quoi exactement (et pourquoi personne n'en parle avant la livraison)
 

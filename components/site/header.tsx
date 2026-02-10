@@ -77,14 +77,19 @@ export function Header() {
   const sanitizePhone = (p: string) => p.replace(/[^+\d]/g, "");
   const callHref = rawPhone ? `tel:${sanitizePhone(rawPhone)}` : (isEn ? "/en/contact" : "/contact");
   const displayPhone = useMemo(() => {
-    const s = rawPhone.replace(/[^\d+]/g, "");
-    if (s.startsWith("+33") && s.length >= 12) {
-      const digits = s.replace("+33", "0");
-      return digits.replace(/(\d{2})(?=\d)/g, "$1 ").trim();
+    const trimmed = rawPhone.trim();
+    if (!trimmed) return isEn ? "Call" : "Appeler";
+
+    const s = trimmed.replace(/[^\d+]/g, "");
+    // Pour les numéros français au format international (+33...),
+    // on conserve l'affichage tel que configuré (ex: "+33 7 44 40 79 73")
+    if (s.startsWith("+33")) {
+      return trimmed;
     }
+
     const d = s.replace(/\D/g, "");
     if (d.length === 10) return d.replace(/(\d{2})(?=\d)/g, "$1 ").trim();
-    return rawPhone || (isEn ? "Call" : "Appeler");
+    return trimmed;
   }, [rawPhone, isEn]);
 
   // Close on ESC and lock scroll when open

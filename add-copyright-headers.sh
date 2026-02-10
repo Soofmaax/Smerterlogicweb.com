@@ -6,7 +6,7 @@ set -euo pipefail
 
 YEAR="2025"
 AUTHOR="SmarterLogicWeb"
-WEBSITE="https://smarterlogicweb.com"
+WEBSITE="https://www.smarterlogicweb.com"
 LICENSE="MIT"
 
 ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
@@ -37,7 +37,7 @@ header_js_ts() {
  * @file Auto-added header by add-copyright-headers.sh
  * @author SmarterLogicWeb
  * @license MIT
- * @see https://smarterlogicweb.com
+ * @see https://www.smarterlogicweb.com
  * @copyright 2025 SmarterLogicWeb. All rights reserved.
  */
 EOF
@@ -49,7 +49,7 @@ header_css() {
  * Auto-added header by add-copyright-headers.sh
  * 
  * @author SmarterLogicWeb
- * @see https://smarterlogicweb.com
+ * @see https://www.smarterlogicweb.com
  * @license MIT
  * @copyright 2025 SmarterLogicWeb. All rights reserved.
  */

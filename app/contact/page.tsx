@@ -76,7 +76,20 @@ export default function ContactPage() {
             rel="noopener noreferrer"
             className="underline hover:no-underline"
           >
-            07 44 40 79 73
+            +33 7 44 40 79 73
+          </a>
+          .
+        </p>
+
+        <p className="mt-2 text-sm text-foreground/80">
+          Vous préférez LinkedIn ?{" "}
+          <a
+            href="https://www.linkedin.com/in/salwaessafi/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="underline hover:no-underline"
+          >
+            Voir mon profil LinkedIn
           </a>
           .
         </p>

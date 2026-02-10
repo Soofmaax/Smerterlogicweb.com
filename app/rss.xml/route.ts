@@ -8,7 +8,7 @@ function formatRfc2822(d: Date): string {
 }
 
 export async function GET() {
-  const origin = "https://smarterlogicweb.com";
+  const origin = "https://www.smarterlogicweb.com";
   const all = getAllPosts();
   const fr = getPublishedPostsBurst(all, "fr");
   const en = getPublishedPostsBurst(all, "en");

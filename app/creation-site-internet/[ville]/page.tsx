@@ -37,13 +37,15 @@ export async function generateMetadata({ params }: Params) {
 
   if (city.slug === "niort") {
     description =
-      "Création de sites vitrines statiques à Niort pour artisans, indépendants et PME des mutuelles, assurances, fintech et tertiaire. Sites rapides, clairs et simples à maintenir. Budget sur devis, après audit rapide.";
+      "Création de site internet vitrine à Niort pour artisans, indépendants et PME des mutuelles, assurances, fintech et tertiaire. Sites rapides, clairs et simples à maintenir. Budget sur devis, après audit rapide.";
   } else if (city.slug === "brive-la-gaillarde") {
     description =
-      "Création de sites vitrines statiques à Brive-la-Gaillarde pour artisans, TPE et petites entreprises de l’agroalimentaire, de la logistique et du tourisme vert en Corrèze. Sites rapides, clairs et simples à maintenir, pensés pour être trouvés sur les recherches locales. Budget sur devis.";
+      "Création de site internet vitrine à Brive-la-Gaillarde pour artisans, TPE et petites entreprises de l’agroalimentaire, de la logistique et du tourisme vert en Corrèze. Sites rapides, clairs et simples à maintenir, pensés pour être trouvés sur les recherches locales. Budget sur devis.";
   } else if (city.slug === "cholet") {
+    title =
+      "Création de site internet à Cholet — site vitrine artisan & TPE (2026)";
     description =
-      "Création de sites vitrines statiques à Cholet pour artisans, commerçants et PME du textile, de la mode, de la mécanique et de l’agroalimentaire. Sites rapides, sobres et simples à maintenir, pensés pour le référencement local dans le Choletais. Budget sur devis.";
+      "Création de site internet vitrine à Cholet pour artisans, commerçants et PME du textile, de la mode, de la mécanique et de l’agroalimentaire. Sites rapides, sobres et simples à maintenir, pensés pour le référencement local des artisans du Choletais. Audit gratuit et budget sur devis.";
   } else if (city.slug === "vannes") {
     description =
       "Création de sites vitrines statiques à Vannes pour artisans, prestataires du nautisme, du tourisme et de l’agroalimentaire, ainsi que petites structures orientées numérique/cyber. Sites rapides, sobres et simples à maintenir, pensés pour le référencement local autour du Golfe du Morbihan (Vannes, Auray, Sarzeau). Budget sur devis.";
@@ -88,6 +90,11 @@ export async function generateMetadata({ params }: Params) {
   } else if (city.slug === "montauban") {
     description =
       "Création de sites vitrines statiques à Montauban pour artisans, TPE et PME de l’agroalimentaire, de l’aéronautique et de la logistique en Tarn-et-Garonne. Sites rapides, clairs et simples à maintenir, pensés pour être trouvés sur les recherches locales autour de Montauban et du bassin toulousain. Budget sur devis.";
+  } else if (city.slug === "chateauroux") {
+    title =
+      "Création de site internet à Châteauroux — site vitrine statique pour artisans & TPE (2026)";
+    description =
+      "Création de site internet vitrine à Châteauroux pour artisans, TPE et PME des secteurs défense, aéronautique, logistique et textile. Sites rapides et sobres, pensés pour le référencement local dans l’Indre, avec audit gratuit et budget établi uniquement sur devis.";
   }
 
   return {
@@ -441,6 +448,21 @@ export default function CityServicePage({ params }: Params) {
   const satellitesSentence = toSentence(city.satellites);
   const cciLabel = city.cci || `CCI locale`;
 
+  const defaultH1 = city.h1Suffix
+    ? `Création de sites vitrines statiques à ${city.name} : ${city.h1Suffix}`
+    : `Création de site internet à ${city.name} pour artisans et TPE : sites vitrines statiques pour ${sectorsSentence}`;
+
+  const h1 =
+    city.slug === "niort"
+      ? "Création de site internet vitrine à Niort pour les mutuelles, assurances et PME tertiaires"
+      : city.slug === "brive-la-gaillarde"
+      ? "Création de site internet à Brive-la-Gaillarde pour artisans et TPE"
+      : city.slug === "cholet"
+      ? "Création de site internet pour artisans à Cholet : site vitrine statique et sobre"
+      : city.slug === "chateauroux"
+      ? "Création de site internet à Châteauroux pour artisans, TPE et PME"
+      : defaultH1;
+
   const serviceSchema = {
     "@context": "https://schema.org",
     "@type": "Service",
@@ -510,18 +532,7 @@ export default function CityServicePage({ params }: Params) {
 
       {/* Hero */}
       <Reveal className="reveal-clip inline-block">
-        <h1 className="text-3xl sm:text-4xl font-heading font-semibold tracking-tight">
-            {city.h1Suffix ? (
-              <>
-                Création de sites vitrines statiques à {city.name} : {city.h1Suffix}
-              </>
-            ) : (
-              <>
-                Création de site internet à {city.name} pour artisans et TPE : sites vitrines statiques pour{" "}
-                {sectorsSentence}
-              </>
-            )}
-          </h1>
+        <h1 className="text-3xl sm:text-4xl font-heading font-semibold tracking-tight">{h1}</h1>
       </Reveal>
 
       {/* Visible breadcrumbs */}

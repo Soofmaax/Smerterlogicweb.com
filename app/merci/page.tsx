@@ -9,7 +9,7 @@ export const metadata = {
     },
   },
   openGraph: {
-    url: "https://smarterlogicweb.com/merci",
+    url: "https://www.smarterlogicweb.com/merci",
     title: "Merci — smarterlogicweb.com",
     description: "Votre message a été envoyé. Je reviens vers vous sous 24h.",
   },

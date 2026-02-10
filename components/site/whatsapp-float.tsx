@@ -6,7 +6,7 @@ import { usePathname } from "next/navigation";
 import { MessageCircle } from "lucide-react";
 
 function getWhatsappUrl() {
-  return process.env.NEXT_PUBLIC_WHATSAPP_URL || "https://wa.me/33600000000";
+  return process.env.NEXT_PUBLIC_WHATSAPP_URL || "https://wa.me/33744407973";
 }
 
 export function WhatsAppFloat() {

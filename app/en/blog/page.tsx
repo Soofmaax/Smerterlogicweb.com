@@ -28,8 +28,8 @@ export default function BlogIndexEN() {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
     itemListElement: [
-      { "@type": "ListItem", position: 1, name: "Home", item: "https://smarterlogicweb.com/en" },
-      { "@type": "ListItem", position: 2, name: "Blog", item: "https://smarterlogicweb.com/en/blog" },
+      { "@type": "ListItem", position: 1, name: "Home", item: "https://www.smarterlogicweb.com/en" },
+      { "@type": "ListItem", position: 2, name: "Blog", item: "https://www.smarterlogicweb.com/en/blog" },
     ],
   };
 

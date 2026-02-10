@@ -22,7 +22,7 @@ PAPPERS_API_KEY = os.getenv("PAPPERS_API_KEY", "").strip()
 HUNTER_API_KEY = os.getenv("HUNTER_API_KEY", "").strip()
 MAX_ITEMS = int(os.getenv("BODACC_MAX_ITEMS", "50"))
 TIMEOUT = float(os.getenv("BODACC_TIMEOUT", "15"))
-USER_AGENT = os.getenv("BODACC_UA", "SLW-BODACC/1.0 (+https://smarterlogicweb.com)")
+USER_AGENT = os.getenv("BODACC_UA", "SLW-BODACC/1.0 (+https://www.smarterlogicweb.com)")
 
 # Optional simple filters (comma-separated)
 CITY_ALLOWLIST = [c.strip().lower() for c in os.getenv("BODACC_CITY_ALLOW", "").split(",") if c.strip()]
