@@ -60,7 +60,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
       canonical: `/site-web/${params.metier}`,
     },
     openGraph: {
-      url: `https://smarterlogicweb.com/site-web/${params.metier}`,
+      url: `https://www.smarterlogicweb.com/site-web/${params.metier}`,
       title: `${title} — smarterlogicweb.com`,
       description: desc,
     },

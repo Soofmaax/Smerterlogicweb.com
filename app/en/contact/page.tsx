@@ -43,7 +43,7 @@ export default function ContactPage() {
         <div className="mt-6 flex flex-wrap items-center gap-4">
           {process.env.NEXT_PUBLIC_PHONE ? (
             <Button asChild size="lg" className="rounded-full">
-              <a href={`tel:${(process.env.NEXT_PUBLIC_PHONE as string).replace(/[^+\d]/g, "")}`}>📞 07 44 40 79 73</a>
+              <a href={`tel:${(process.env.NEXT_PUBLIC_PHONE as string).replace(/[^+\d]/g, "")}`}>📞 +33 7 44 40 79 73</a>
             </Button>
           ) : null}
           <Button asChild size="lg" className="rounded-full">

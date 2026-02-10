@@ -76,7 +76,7 @@ export default function ContactPage() {
             rel="noopener noreferrer"
             className="underline hover:no-underline"
           >
-            07 44 40 79 73
+            +33 7 44 40 79 73
           </a>
           .
         </p>

@@ -1,6 +1,6 @@
-const FALLBACK_BRAND_NAME = "SmarterLogicWeb";
+const FALLBACK_BRAND_NAME = "Smarter Logic Web";
 const FALLBACK_BRAND_DOMAIN = "smarterlogicweb.com";
-const FALLBACK_SITE_URL = `https://${FALLBACK_BRAND_DOMAIN}`;
+const FALLBACK_SITE_URL = `https://www.${FALLBACK_BRAND_DOMAIN}`;
 const FALLBACK_CONTACT_EMAIL = "sonia@smarterlogicweb.com";
 
 /**

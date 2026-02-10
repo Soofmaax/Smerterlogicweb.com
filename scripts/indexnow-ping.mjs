@@ -20,7 +20,7 @@ if (DISABLE || (CONTEXT && CONTEXT !== "production")) {
   process.exit(0);
 }
 
-const DEFAULT_HOST = "smarterlogicweb.com";
+const DEFAULT_HOST = "www.smarterlogicweb.com";
 // If you want to override host/key via env, set INDEXNOW_HOST / INDEXNOW_KEY
 const HOST = (process.env.INDEXNOW_HOST || DEFAULT_HOST).replace(/^https?:\/\//, "").replace(/\/+$/, "");
 const KEY = process.env.INDEXNOW_KEY || "e2db7cfe43a19b5d0c8a7f2e9134bd6a";

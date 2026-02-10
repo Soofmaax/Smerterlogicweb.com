@@ -12,7 +12,7 @@ export const metadata = {
     },
   },
   openGraph: {
-    url: "https://smarterlogicweb.com/politique-de-confidentialite",
+    url: "https://www.smarterlogicweb.com/politique-de-confidentialite",
     title: "Politique de confidentialité — smarterlogicweb.com",
     description:
       "Politique de confidentialité: données collectées, finalités, base légale, durée de conservation, droits des utilisateurs.",

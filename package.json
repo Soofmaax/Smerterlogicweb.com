@@ -5,14 +5,14 @@
   "type": "module",
   "description": "SmarterLogicWeb — Site vitrine Next.js 14 (FR/EN) premium, sécurisé et orienté conversion.",
   "author": "SmarterLogicWeb <sonia@smarterlogicweb.com>",
-  "homepage": "https://smarterlogicweb.com",
+  "homepage": "https://www.smarterlogicweb.com",
   "repository": {
     "type": "git",
     "url": "https://github.com/Soofmaax/Smerterlogicweb.com.git"
   },
   "bugs": {
     "url": "https://github.com/Soofmaax/Smerterlogicweb.com/issues",
-    "email": "admin@smarterlogicweb.com"
+    "email": "sonia@smarterlogicweb.com"
   },
   "license": "MIT",
   "scripts": {

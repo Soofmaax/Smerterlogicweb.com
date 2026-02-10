@@ -123,6 +123,7 @@ const jsonLdSite = {
 };
 
 const phonePublic = PHONE_NUMBER_PUBLIC;
+const phoneDigits = phonePublic ? phonePublic.replace(/[^+\d]/g, "") : "";
 const ADDRESS_STREET = process.env.NEXT_PUBLIC_COMPANY_STREET || "";
 const ADDRESS_POSTAL_CODE = process.env.NEXT_PUBLIC_COMPANY_ZIP || "";
 const ADDRESS_LOCALITY = process.env.NEXT_PUBLIC_COMPANY_CITY || "";
@@ -143,7 +144,7 @@ const jsonLdLocalBusiness = {
     ...(ADDRESS_REGION ? { addressRegion: ADDRESS_REGION } : {}),
     ...(ADDRESS_POSTAL_CODE ? { postalCode: ADDRESS_POSTAL_CODE } : {}),
   },
-  ...(phonePublic ? { telephone: phonePublic } : {}),
+  ...(phoneDigits ? { telephone: phoneDigits } : {}),
   ...(CONTACT_EMAIL ? { email: CONTACT_EMAIL } : {}),
   ...(OPENING_HOURS ? { openingHours: OPENING_HOURS } : {}),
 };
@@ -173,6 +174,10 @@ export default function RootLayout({
 
   return (
     <html lang={locale === "en" ? "en" : "fr"}>
+      <head>
+        <meta name="contact:phone_number" content="+33744407973" />
+        <link rel="me" href="mailto:sonia@smarterlogicweb.com" />
+      </head>
       <body className={`${anonymousPro.variable} ${dmSans.variable} bg-background text-foreground antialiased font-sans`}>
         {/* Google Tag Manager (consent default denied) */}
         {provider === "gtm" ? (

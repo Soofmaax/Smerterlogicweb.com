@@ -53,7 +53,7 @@ locale: fr
 title: "Titre H1 incluant le mot-clé principal"
 summary: "Meta description ≤ 160 caractères, claire et orientée bénéfice."
 authorName: "Sonia" # optionnel; par défaut "Sonia" si omis
-authorUrl: "https://smarterlogicweb.com/a-propos" # optionnel
+authorUrl: "https://www.smarterlogicweb.com/a-propos" # optionnel
 tags:
   - "mot-clé principal"
   - "mot-clé secondaire 1"
