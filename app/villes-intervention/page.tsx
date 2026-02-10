@@ -187,10 +187,10 @@ export default function CitiesInterventionPage() {
 
                 <div className="mt-3 flex flex-wrap gap-2">
                   <Link href={`/creation-site-internet/${city.slug}`} className="text-sm text-primary hover:underline">
-                    Voir la page Création →
+                    Création de site internet à {city.name} →
                   </Link>
                   <Link href={`/refonte-web/${city.slug}`} className="text-sm text-primary hover:underline">
-                    Voir la page Refonte →
+                    Refonte de site internet à {city.name} →
                   </Link>
                 </div>
               </article>

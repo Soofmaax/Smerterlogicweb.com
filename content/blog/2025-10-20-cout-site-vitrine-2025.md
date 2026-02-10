@@ -100,7 +100,13 @@ Pour les projets d'envergure (connexion avec votre CRM ou ERP, multilingue, espa
 
 ---
 
-## Le tableau comparatif qui clarifie tout
+## Le tableau du Coût Total de Possession sur trois ans
+
+Voici le tableau qui clarifie tout. Comparaison de quatre scénarios réels sur trois ans.
+
+Pour un focus détaillé sur le **coût de maintenance d’un site internet** (hors création), vous pouvez aussi lire l’article dédié : [Coût de maintenance d’un site internet](/blog/cout-maintenance-site-web).
+
+Scénario un : Site WordPress freelance bas de gamme. Création huit cents euros. Hébergement mutualisé soixante euros par an. Domaine quinze euros par an. Maintenance basique deux cent quatre-vingt-dix euros par an. Licences plugins cent euros par an. Total an un mille deux cent soixante-cinq euros. Total an deux quatre cent soixante-cinq euros. Total an trois quatre cent soixante-cinq euros. Total trois ans deux mille cent quatre-vingt-quinze euros.
 
 | Type de site | SaaS / No-Code | Freelance | Agence |
 |--------------|----------------|-----------|--------|
