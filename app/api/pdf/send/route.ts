@@ -1,5 +1,7 @@
 import { NextResponse } from "next/server";
 import { SITE_URL, BRAND_NAME, CONTACT_EMAIL } from "@/config/site";
+import { checkRateLimit } from "@/lib/rate-limit";
+import { getClientIpFromHeaders } from "@/lib/security";
 
 export const runtime = "nodejs";
 
@@ -23,6 +25,23 @@ function getSiteUrl(req: Request) {
 }
 
 export async function POST(req: Request) {
+  const ip = getClientIpFromHeaders(req);
+  const rl = checkRateLimit(`pdfsend:${ip}`, 5, 10 * 60 * 1000); // 5 req / 10 min per IP
+  if (!rl.ok) {
+    return NextResponse.json(
+      { error: "rate_limited" },
+      {
+        status: 429,
+        headers: {
+          "Retry-After": String(Math.ceil((rl.resetAt - Date.now()) / 1000)),
+          "X-RateLimit-Limit": String(rl.limit),
+          "X-RateLimit-Remaining": String(rl.remaining),
+          "X-RateLimit-Reset": String(Math.round(rl.resetAt / 1000)),
+        },
+      }
+    );
+  }
+
   let data: Payload = {};
   try {
     data = await req.json();
@@ -70,5 +89,14 @@ export async function POST(req: Request) {
     }
   }
 
-  return NextResponse.json({ ok: true, emailed, downloadUrl });
+  return NextResponse.json(
+    { ok: true, emailed, downloadUrl },
+    {
+      headers: {
+        "X-RateLimit-Limit": String(rl.limit),
+        "X-RateLimit-Remaining": String(Math.max(0, rl.remaining - 1)),
+        "X-RateLimit-Reset": String(Math.round(rl.resetAt / 1000)),
+      },
+    }
+  );
 }
