@@ -72,6 +72,19 @@ export default function ContactPage() {
           .
         </p>
 
+        <p className="mt-2 text-sm text-foreground/80">
+          Prefer LinkedIn?{" "}
+          <a
+            href="https://www.linkedin.com/in/salwaessafi/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="underline hover:no-underline"
+          >
+            View my LinkedIn profile
+          </a>
+          .
+        </p>
+
         <div className="mt-4">
           <GoogleReviewsBadge />
         </div>

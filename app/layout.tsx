@@ -101,7 +101,7 @@ const jsonLdOrg = {
   name: COMPANY_NAME,
   url: SITE_URL,
   sameAs: [
-    "https://www.linkedin.com/in/salwaessafi?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
+    "https://www.linkedin.com/in/salwaessafi/",
     "https://github.com/Soofmaax",
   ],
   contactPoint: [

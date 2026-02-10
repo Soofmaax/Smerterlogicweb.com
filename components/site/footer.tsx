@@ -203,7 +203,7 @@ export function Footer() {
             </ul>
             <div className="mt-4 flex items-center gap-4">
               <Link
-                href="https://www.linkedin.com/in/salwaessafi?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"
+                href="https://www.linkedin.com/in/salwaessafi/"
                 target="_blank"
                 rel="noreferrer"
                 aria-label="LinkedIn"
