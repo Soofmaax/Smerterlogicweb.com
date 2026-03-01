@@ -25,11 +25,13 @@ export default function manifest(): MetadataRoute.Manifest {
         purpose: "any",
       },
       {
-        src: "/apple-icon",
+        // Some webviews have trouble downloading dynamic metadata routes as manifest icons.
+        // Keep a static fallback.
+        src: "/logo-noir.png",
         sizes: "180x180",
         type: "image/png",
         purpose: "any",
-      }
+      },
     ],
   };
 }

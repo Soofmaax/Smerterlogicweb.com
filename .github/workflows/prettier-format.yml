@@ -2,20 +2,22 @@ name: Format with Prettier
 
 on:
   workflow_dispatch:
+  schedule:
+    - cron: "15 2 * * 6" # weekly (Saturday) auto-format PR
 
 permissions:
   contents: write
+  pull-requests: write
 
 jobs:
   prettier-format:
-    name: Run Prettier and commit changes
+    name: Run Prettier and open a PR
     runs-on: ubuntu-latest
 
     steps:
       - name: Checkout repository
         uses: actions/checkout@v5
         with:
-          # Use the branch on which the workflow is triggered (usually main)
           ref: ${{ github.ref }}
 
       - name: Setup Node.js
@@ -29,13 +31,11 @@ jobs:
       - name: Run Prettier (write)
         run: npm run format
 
-      - name: Commit and push formatted files
-        run: |
-          if [ -n "$(git status --porcelain)" ]; then
-            git config user.name "github-actions[bot]"
-            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-            git commit -am "chore: apply prettier formatting"
-            git push
-          else
-            echo "No formatting changes to commit."
-          fi
+      - name: Create Pull Request
+        uses: peter-evans/create-pull-request@v7
+        with:
+          commit-message: "chore: apply prettier formatting"
+          title: "chore: apply prettier formatting"
+          body: "Automated formatting PR (Prettier)."
+          branch: "chore/prettier-format"
+          delete-branch: true
