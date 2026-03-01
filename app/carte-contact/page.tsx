@@ -5,9 +5,12 @@ import { BRAND_NAME, COMPANY_NAME, PHONE_NUMBER_PUBLIC, SITE_URL, CONTACT_EMAIL 
 export const metadata: Metadata = {
   title: "Contact direct — SmarterLogicWeb",
   description: "Vous avez scanné ma carte. WhatsApp, email, portfolio et vCard en un clic.",
+  alternates: {
+    canonical: "/carte-contact",
+  },
   robots: {
     index: false,
-    follow: true,
+    follow: false,
   },
 };
 
