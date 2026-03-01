@@ -83,13 +83,7 @@ jobs:
         run: npm ci
 
       - name: Prettier Check
-        run: |
-          if [ "$GITHUB_REF" = "refs/heads/main" ] || [ "$GITHUB_REF" = "refs/heads/master" ]; then
-            echo "Prettier check is currently non-blocking on main/master (repository-wide formatting pending)."
-            npm run format:check || true
-          else
-            echo "Skipping Prettier check on non-main branch: $GITHUB_REF"
-          fi
+        run: npm run format:check
 
       - name: Lint
         run: npm run lint
