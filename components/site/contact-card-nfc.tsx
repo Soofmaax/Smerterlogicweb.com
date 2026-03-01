@@ -3,7 +3,6 @@
 import Link from "next/link";
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
-import { Reveal } from "@/components/site/reveal";
 import { track } from "@/lib/analytics";
 
 type ContactCardNfcProps = {
@@ -35,8 +34,8 @@ export function ContactCardNfc({ name, company, siteDomain, rawPhone, email }: C
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_bottom,_rgba(236,72,153,0.16)_0%,_transparent_55%)]" />
       </div>
 
-      <Reveal className="reveal-spin-card w-full max-w-sm">
-        <div className="rounded-[28px] border bg-card p-6 text-center shadow-lg card-elevated card-spin">
+      <div className="w-full max-w-sm">
+        <div className="rounded-[28px] border bg-card p-6 text-center shadow-lg card-elevated">
           <Link
             href="/"
             className="mx-auto inline-flex items-center justify-center rounded-full px-3 py-2 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
@@ -113,7 +112,7 @@ export function ContactCardNfc({ name, company, siteDomain, rawPhone, email }: C
             Carte NFC réalisée par <span className="font-medium text-foreground/80">SmarterLogicWeb</span>.
           </p>
         </div>
-      </Reveal>
+      </div>
     </section>
   );
 }
