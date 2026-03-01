@@ -27,6 +27,12 @@ export function Reveal<T extends ElementTag = "div">({
   React.useEffect(() => {
     const el = ref.current;
     if (!el || visible) return;
+
+    if (typeof IntersectionObserver === "undefined") {
+      setVisible(true);
+      return;
+    }
+
     const obs = new IntersectionObserver(
       (entries) => {
         const entry = entries[0];
