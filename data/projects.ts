@@ -78,7 +78,7 @@ export const projectsFR: ProjectsData = {
       title: "MB Fret Services — Transitaire Europe–Afrique",
       tags: ["Statique", "SEO", "Performance"],
       description:
-        "Site vitrine pour un transitaire spécialisé sur les corridors France–Congo et France–Angola : fret maritime conteneurs, déménagements internationaux, envoi de véhicules et flux B2B.",
+        "Site vitrine pour une entreprise spécialisée dans le transport maritime entre l’Europe et l’Afrique centrale, avec présentation des services, destinations et formulaire de devis.",
       url: "https://mb-fretservices.com",
       kpis: [
         { label: "Type de site", value: "Vitrine B2B international" },
@@ -91,6 +91,34 @@ export const projectsFR: ProjectsData = {
         "https://mb-fretservices.com/images/hero-maritime.jpg",
         "https://mb-fretservices.com/images/hero-maritime.jpg",
       ],
+    },
+    {
+      id: "bw-valocations",
+      title: "BW Valocations — Location de véhicules",
+      tags: ["Statique", "SEO", "Formulaires"],
+      description:
+        "Site vitrine présentant une activité de location de véhicules avec informations de service et formulaire de contact.",
+      url: "https://bw-valocations.com",
+      kpis: [
+        { label: "Type de site", value: "Vitrine B2C local" },
+        { label: "Secteur", value: "Location de véhicules" },
+      ],
+      sector: "Artisans & TPE",
+      city: "Local",
+    },
+    {
+      id: "rcp-multiservices",
+      title: "RCP Multiservices — Services & dépannage",
+      tags: ["Statique", "SEO", "Formulaires"],
+      description:
+        "Site vitrine pour une entreprise de services techniques présentant les prestations et permettant une prise de contact rapide.",
+      url: "https://rcp-multiservices.com",
+      kpis: [
+        { label: "Type de site", value: "Vitrine B2B local" },
+        { label: "Secteur", value: "Multiservices / artisan" },
+      ],
+      sector: "Artisans & TPE",
+      city: "Local",
     },
   ],
 };
