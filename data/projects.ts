@@ -21,6 +21,8 @@ export type CaseItem = {
   kpis?: KPI[];
   images?: string[]; // supply real URLs later if available
 
+  status?: "client" | "demo";
+
   // Extended fields for grid showcase
   sector?: "Artisans & TPE" | "Association";
   city?: string;
@@ -65,6 +67,7 @@ export const projectsFR: ProjectsData = {
         { label: "Secteur", value: "Logistique cinéma & événementiel" },
         { label: "Objectif", value: "Visibilité locale et demandes qualifiées" },
       ],
+      status: "client",
       sector: "Artisans & TPE",
       city: "Île‑de‑France",
       duration: "3–4 semaines",
@@ -84,6 +87,7 @@ export const projectsFR: ProjectsData = {
         { label: "Type de site", value: "Vitrine B2B international" },
         { label: "Secteur", value: "Transport & logistique" },
       ],
+      status: "demo",
       sector: "Artisans & TPE",
       city: "France / Afrique centrale",
       duration: "3–5 semaines",
@@ -103,6 +107,7 @@ export const projectsFR: ProjectsData = {
         { label: "Type de site", value: "Vitrine B2C local" },
         { label: "Secteur", value: "Location de véhicules" },
       ],
+      status: "demo",
       sector: "Artisans & TPE",
       city: "Local",
     },
@@ -117,6 +122,7 @@ export const projectsFR: ProjectsData = {
         { label: "Type de site", value: "Vitrine B2B local" },
         { label: "Secteur", value: "Multiservices / artisan" },
       ],
+      status: "demo",
       sector: "Artisans & TPE",
       city: "Local",
     },

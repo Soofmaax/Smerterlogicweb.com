@@ -218,6 +218,18 @@ function ProjectCard({ p, liked, onLike, onOpen, isFirst }: { p: CaseItem; liked
             {p.sector}
           </span>
         ) : null}
+        {p.status ? (
+          <span
+            className={cn(
+              "inline-flex items-center rounded-full px-2.5 py-0.5 text-[10px] font-semibold ring-1",
+              p.status === "client"
+                ? "bg-emerald-50 text-emerald-700 ring-emerald-200 dark:bg-emerald-400/10 dark:text-emerald-300"
+                : "bg-muted text-foreground/80 ring-border"
+            )}
+          >
+            {p.status === "client" ? "Client" : "Démo (en ligne)"}
+          </span>
+        ) : null}
         {p.formula ? <Badge variant="secondary">{p.formula}</Badge> : null}
         {p.city ? <Badge variant="outline">{p.city}</Badge> : null}
       </div>

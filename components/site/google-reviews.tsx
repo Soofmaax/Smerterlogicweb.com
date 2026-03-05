@@ -39,8 +39,10 @@ function useGoogleReviews() {
       if (cached) {
         const obj = JSON.parse(cached) as { ts: number; payload: Payload };
         if (obj && now - obj.ts < 24 * 60 * 60 * 1000) {
-          setData(obj.payload);
-          return;
+          if (obj.payload?.total > 0) {
+            setData(obj.payload);
+            return;
+          }
         }
       }
     } catch {}
@@ -53,6 +55,15 @@ function useGoogleReviews() {
       })
       .then((payload: Payload) => {
         if (aborted) return;
+        // Ne jamais afficher “0 avis” quand l'API n'est pas configurée :
+        // si total = 0, on n'affiche rien.
+        if (!payload?.total) {
+          setData(null);
+          try {
+            localStorage.removeItem(LS_KEY);
+          } catch {}
+          return;
+        }
         setData(payload);
         try {
           localStorage.setItem("google_reviews_cache", JSON.stringify({ ts: now, payload }));
@@ -61,15 +72,7 @@ function useGoogleReviews() {
       .catch((e) => {
         if (aborted) return;
         setError(e?.message || "error");
-        // Fallback neutre : aucun avis affiché si l'API n'est pas disponible
-        const payload: Payload = {
-          rating: 0,
-          total: 0,
-          reviews: [],
-          placeId: "",
-          mapsUrl: "#",
-        };
-        setData(payload);
+        setData(null);
       });
 
     return () => {
@@ -136,25 +139,23 @@ function ReviewCard({ r }: { r: Review }) {
 
 export function GoogleReviews({ max = 6, title = "Ce Que Disent Mes Clients" }: { max?: number; title?: string }) {
   const { data } = useGoogleReviews();
+  if (!data?.total) return null;
+
   const items = (data?.reviews || []).slice(0, Math.max(3, Math.min(6, max)));
   const slides = items.map((r, i) => <ReviewCard key={i} r={r} />);
+
+  const reviewUrl = data.placeId ? `https://search.google.com/local/writereview?placeid=${data.placeId}` : null;
 
   return (
     <section className="mx-auto w-full max-w-5xl px-6 py-12">
       <div className="text-center">
         <h2 className="font-heading text-3xl font-semibold md:text-4xl">{title}</h2>
-        <p className="mt-2 text-foreground/70">
-          {data?.total ? `${data.rating?.toFixed(1)}/5 sur ${data.total} avis clients` : "Avis récents de mes clients"}
-        </p>
+        <p className="mt-2 text-foreground/70">{`${data.rating?.toFixed(1)}/5 sur ${data.total} avis clients`}</p>
       </div>
 
-      <Carousel
-        items={slides}
-        className="mt-6"
-        ariaLabel="Avis clients"
-      />
+      <Carousel items={slides} className="mt-6" ariaLabel="Avis clients" />
 
-      <div className="mt-4 text-center">
+      <div className="mt-4 flex flex-wrap items-center justify-center gap-3 text-center">
         <Link
           href={data?.mapsUrl || "#"}
           target="_blank"
@@ -163,6 +164,16 @@ export function GoogleReviews({ max = 6, title = "Ce Que Disent Mes Clients" }: 
         >
           Voir tous les avis sur Google <ExternalLink className="h-4 w-4" />
         </Link>
+        {reviewUrl ? (
+          <Link
+            href={reviewUrl}
+            target="_blank"
+            rel="noreferrer"
+            className="rounded-full border px-3 py-1.5 text-sm transition hover:bg-accent"
+          >
+            Donner un avis
+          </Link>
+        ) : null}
       </div>
     </section>
   );
@@ -170,7 +181,7 @@ export function GoogleReviews({ max = 6, title = "Ce Que Disent Mes Clients" }: 
 
 export function GoogleReviewsBadge({ className }: { className?: string }) {
   const { data } = useGoogleReviews();
-  if (!data) return null;
+  if (!data?.total) return null;
   return (
     <Link
       href={data.mapsUrl || "#"}
