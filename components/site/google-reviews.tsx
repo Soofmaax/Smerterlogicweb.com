@@ -47,6 +47,8 @@ function useGoogleReviews() {
   const [error, setError] = React.useState<string | null>(null);
 
   React.useEffect(() => {
+    if (staticPayload) return;
+
     const LS_KEY = "google_reviews_cache";
     const now = Date.now();
 
