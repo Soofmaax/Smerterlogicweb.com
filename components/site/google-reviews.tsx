@@ -5,7 +5,12 @@ import Image from "next/image";
 import Link from "next/link";
 import { Carousel } from "@/components/site/carousel";
 import { Reveal } from "@/components/site/reveal";
-import { GOOGLE_MAPS_URL, GOOGLE_REVIEW_URL, GOOGLE_REVIEWS_RATING, GOOGLE_REVIEWS_TOTAL } from "@/config/site";
+import {
+  GOOGLE_MAPS_URL,
+  GOOGLE_REVIEW_URL,
+  GOOGLE_REVIEWS_RATING,
+  GOOGLE_REVIEWS_TOTAL,
+} from "@/config/site";
 import { cn } from "@/lib/utils";
 import { CheckCircle2, ExternalLink } from "lucide-react";
 
