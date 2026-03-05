@@ -5,6 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { Carousel } from "@/components/site/carousel";
 import { Reveal } from "@/components/site/reveal";
+import { GOOGLE_MAPS_URL, GOOGLE_REVIEW_URL, GOOGLE_REVIEWS_RATING, GOOGLE_REVIEWS_TOTAL } from "@/config/site";
 import { cn } from "@/lib/utils";
 import { CheckCircle2, ExternalLink } from "lucide-react";
 
@@ -25,15 +26,25 @@ type Payload = {
   mapsUrl: string;
 };
 
-const FALLBACK_REVIEWS: Review[] = [];
-
 function useGoogleReviews() {
-  const [data, setData] = React.useState<Payload | null>(null);
+  const staticPayload: Payload | null =
+    GOOGLE_REVIEWS_TOTAL > 0 && GOOGLE_MAPS_URL
+      ? {
+          rating: GOOGLE_REVIEWS_RATING,
+          total: GOOGLE_REVIEWS_TOTAL,
+          reviews: [],
+          placeId: "",
+          mapsUrl: GOOGLE_MAPS_URL,
+        }
+      : null;
+
+  const [data, setData] = React.useState<Payload | null>(staticPayload);
   const [error, setError] = React.useState<string | null>(null);
 
   React.useEffect(() => {
     const LS_KEY = "google_reviews_cache";
     const now = Date.now();
+
     try {
       const cached = localStorage.getItem(LS_KEY);
       if (cached) {
@@ -55,24 +66,25 @@ function useGoogleReviews() {
       })
       .then((payload: Payload) => {
         if (aborted) return;
-        // Ne jamais afficher “0 avis” quand l'API n'est pas configurée :
-        // si total = 0, on n'affiche rien.
+        // Ne jamais afficher “0 avis” quand l'API n'est pas configurée.
+        // En mode "sans API" (NEXT_PUBLIC_GOOGLE_*), on garde le fallback statique.
         if (!payload?.total) {
-          setData(null);
+          if (!staticPayload) setData(null);
           try {
             localStorage.removeItem(LS_KEY);
           } catch {}
           return;
         }
+
         setData(payload);
         try {
-          localStorage.setItem("google_reviews_cache", JSON.stringify({ ts: now, payload }));
+          localStorage.setItem(LS_KEY, JSON.stringify({ ts: now, payload }));
         } catch {}
       })
       .catch((e) => {
         if (aborted) return;
         setError(e?.message || "error");
-        setData(null);
+        if (!staticPayload) setData(null);
       });
 
     return () => {
@@ -141,10 +153,12 @@ export function GoogleReviews({ max = 6, title = "Ce Que Disent Mes Clients" }: 
   const { data } = useGoogleReviews();
   if (!data?.total) return null;
 
-  const items = (data?.reviews || []).slice(0, Math.max(3, Math.min(6, max)));
+  const items = (data.reviews || []).slice(0, Math.max(3, Math.min(6, max)));
   const slides = items.map((r, i) => <ReviewCard key={i} r={r} />);
 
-  const reviewUrl = data.placeId ? `https://search.google.com/local/writereview?placeid=${data.placeId}` : null;
+  const reviewUrl = data.placeId
+    ? `https://search.google.com/local/writereview?placeid=${data.placeId}`
+    : (GOOGLE_REVIEW_URL || null);
 
   return (
     <section className="mx-auto w-full max-w-5xl px-6 py-12">
@@ -153,14 +167,14 @@ export function GoogleReviews({ max = 6, title = "Ce Que Disent Mes Clients" }: 
         <p className="mt-2 text-foreground/70">{`${data.rating?.toFixed(1)}/5 sur ${data.total} avis clients`}</p>
       </div>
 
-      <Carousel items={slides} className="mt-6" ariaLabel="Avis clients" />
+      {slides.length > 0 ? <Carousel items={slides} className="mt-6" ariaLabel="Avis clients" /> : null}
 
       <div className="mt-4 flex flex-wrap items-center justify-center gap-3 text-center">
         <Link
-          href={data?.mapsUrl || "#"}
+          href={data.mapsUrl || "#"}
           target="_blank"
           rel="noreferrer"
-          className={cn("link-underline inline-flex items-center gap-2 text-sm text-foreground", !data?.mapsUrl && "pointer-events-none opacity-60")}
+          className={cn("link-underline inline-flex items-center gap-2 text-sm text-foreground", !data.mapsUrl && "pointer-events-none opacity-60")}
         >
           Voir tous les avis sur Google <ExternalLink className="h-4 w-4" />
         </Link>

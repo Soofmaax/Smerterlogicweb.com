@@ -34,6 +34,17 @@ export const SUPPORT_EMAIL =
 export const PHONE_NUMBER_PUBLIC =
   process.env.NEXT_PUBLIC_PHONE?.trim() || "+33 7 44 40 79 73";
 
+// Optional (no-API) Google reviews settings.
+// Useful if you don't want to use the Google Places API (which may require billing).
+export const GOOGLE_MAPS_URL = process.env.NEXT_PUBLIC_GOOGLE_MAPS_URL?.trim() || "";
+export const GOOGLE_REVIEW_URL = process.env.NEXT_PUBLIC_GOOGLE_REVIEW_URL?.trim() || "";
+
+const rawGoogleRating = process.env.NEXT_PUBLIC_GOOGLE_REVIEWS_RATING?.trim() || "";
+export const GOOGLE_REVIEWS_RATING = rawGoogleRating ? Number(rawGoogleRating) : 0;
+
+const rawGoogleTotal = process.env.NEXT_PUBLIC_GOOGLE_REVIEWS_TOTAL?.trim() || "";
+export const GOOGLE_REVIEWS_TOTAL = rawGoogleTotal ? Number(rawGoogleTotal) : 0;
+
 /**
  * Canonical base URL of the site, without trailing slash.
  * Prefer NEXT_PUBLIC_SITE_URL when defined, otherwise derive from BRAND_DOMAIN.
