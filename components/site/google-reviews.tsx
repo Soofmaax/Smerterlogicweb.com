@@ -33,7 +33,7 @@ type Payload = {
 
 function useGoogleReviews() {
   const staticPayload: Payload | null =
-    GOOGLE_REVIEWS_TOTAL > 0 && GOOGLE_MAPS_URL
+    GOOGLE_REVIEWS_TOTAL > 0 && GOOGLE_REVIEWS_RATING > 0 && GOOGLE_MAPS_URL
       ? {
           rating: GOOGLE_REVIEWS_RATING,
           total: GOOGLE_REVIEWS_TOTAL,
@@ -44,7 +44,6 @@ function useGoogleReviews() {
       : null;
 
   const [data, setData] = React.useState<Payload | null>(staticPayload);
-  const [error, setError] = React.useState<string | null>(null);
 
   React.useEffect(() => {
     if (staticPayload) return;
@@ -74,9 +73,8 @@ function useGoogleReviews() {
       .then((payload: Payload) => {
         if (aborted) return;
         // Ne jamais afficher “0 avis” quand l'API n'est pas configurée.
-        // En mode "sans API" (NEXT_PUBLIC_GOOGLE_*), on garde le fallback statique.
         if (!payload?.total) {
-          if (!staticPayload) setData(null);
+          setData(null);
           try {
             localStorage.removeItem(LS_KEY);
           } catch {}
@@ -88,10 +86,9 @@ function useGoogleReviews() {
           localStorage.setItem(LS_KEY, JSON.stringify({ ts: now, payload }));
         } catch {}
       })
-      .catch((e) => {
+      .catch(() => {
         if (aborted) return;
-        setError(e?.message || "error");
-        if (!staticPayload) setData(null);
+        setData(null);
       });
 
     return () => {
@@ -99,7 +96,7 @@ function useGoogleReviews() {
     };
   }, []);
 
-  return { data, error };
+  return { data };
 }
 
 function Stars({ rating }: { rating: number }) {
@@ -158,7 +155,7 @@ function ReviewCard({ r }: { r: Review }) {
 
 export function GoogleReviews({ max = 6, title = "Ce Que Disent Mes Clients" }: { max?: number; title?: string }) {
   const { data } = useGoogleReviews();
-  if (!data?.total) return null;
+  if (!data?.total || !data?.rating) return null;
 
   const items = (data.reviews || []).slice(0, Math.max(3, Math.min(6, max)));
   const slides = items.map((r, i) => <ReviewCard key={i} r={r} />);
@@ -202,7 +199,7 @@ export function GoogleReviews({ max = 6, title = "Ce Que Disent Mes Clients" }: 
 
 export function GoogleReviewsBadge({ className }: { className?: string }) {
   const { data } = useGoogleReviews();
-  if (!data?.total) return null;
+  if (!data?.total || !data?.rating) return null;
   return (
     <Link
       href={data.mapsUrl || "#"}
