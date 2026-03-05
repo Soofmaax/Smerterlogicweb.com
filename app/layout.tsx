@@ -187,11 +187,25 @@ export default function RootLayout({
   }
   const htmlLang = pathname === "/en" || pathname.startsWith("/en/") ? "en" : "fr";
 
+  const toJsonLd = (obj: any) => JSON.stringify(obj).replace(/</g, "\\u003c");
+
   return (
     <html lang={htmlLang}>
       <head>
         <meta name="contact:phone_number" content="+33744407973" />
         <link rel="me" href="mailto:sonia@smarterlogicweb.com" />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: toJsonLd(jsonLdOrg) }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: toJsonLd(jsonLdSite) }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: toJsonLd(jsonLdLocalBusiness) }}
+        />
       </head>
       <body className={`${anonymousPro.variable} ${dmSans.variable} bg-background text-foreground antialiased font-sans`}>
         {/* Google Tag Manager (consent default denied) */}
